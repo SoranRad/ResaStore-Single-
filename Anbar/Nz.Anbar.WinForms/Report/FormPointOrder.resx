@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ms_Grid.BuiltInTextsData" xml:space="preserve">
+    <value>&lt;LocalizableData ID="LocalizableStrings" Collection="true"&gt;&lt;GroupByBoxInfo&gt;برای گروه بندی ستون مورد نظر را به این قسمت بکشید&lt;/GroupByBoxInfo&gt;&lt;CalendarNoneButton&gt;هیچ&lt;/CalendarNoneButton&gt;&lt;CalendarTodayButton&gt;امروز&lt;/CalendarTodayButton&gt;&lt;RecordNavigator&gt;رکورد از&lt;/RecordNavigator&gt;&lt;RecordNavigatorError&gt;شما نمی توانید به رکورد مشخص شده بروید&lt;/RecordNavigatorError&gt;&lt;EmptyGridInfo&gt;هیچ اطلاعاتی برای نمایش وجود ندارد&lt;/EmptyGridInfo&gt;&lt;OutlookDateEmpty&gt;هیچ&lt;/OutlookDateEmpty&gt;&lt;OutlookDateOlder&gt;قدیم تر&lt;/OutlookDateOlder&gt;&lt;OutlookDateLastMonth&gt;ماه قبل&lt;/OutlookDateLastMonth&gt;&lt;OutlookDateEarlierThisMonth&gt;پیش از این ماه&lt;/OutlookDateEarlierThisMonth&gt;&lt;OutlookDateThreeWeeksAgo&gt;سه هفته قبل&lt;/OutlookDateThreeWeeksAgo&gt;&lt;OutlookDateTwoWeeksAgo&gt;دو هفته قبل&lt;/OutlookDateTwoWeeksAgo&gt;&lt;OutlookDateLastWeek&gt;هفته پیش&lt;/OutlookDateLastWeek&gt;&lt;OutlookDateYesterday&gt;دیروز&lt;/OutlookDateYesterday&gt;&lt;OutlookDateToday&gt;امروز&lt;/OutlookDateToday&gt;&lt;OutlookDateTomorrow&gt;فردا&lt;/OutlookDateTomorrow&gt;&lt;OutlookDateNextWeek&gt;هفته بعد&lt;/OutlookDateNextWeek&gt;&lt;OutlookDateTwoWeeksAway&gt;از دو هفته به بعد&lt;/OutlookDateTwoWeeksAway&gt;&lt;OutlookDateThreeWeeksAway&gt;از سه هفته به بعد&lt;/OutlookDateThreeWeeksAway&gt;&lt;OutlookDateLaterThisMonth&gt;بعد از این ماه&lt;/OutlookDateLaterThisMonth&gt;&lt;OutlookDateNextMonth&gt;ماه بعد&lt;/OutlookDateNextMonth&gt;&lt;OutlookDateBeyondNextMonth&gt;از ماه بعدی&lt;/OutlookDateBeyondNextMonth&gt;&lt;DropDownOkButton&gt;تائید&lt;/DropDownOkButton&gt;&lt;DropDownCancelButton&gt;انصراف&lt;/DropDownCancelButton&gt;&lt;FilterRowConditionEqual&gt;مساوی&lt;/FilterRowConditionEqual&gt;&lt;FilterRowConditionNotEqual&gt;مخالف&lt;/FilterRowConditionNotEqual&gt;&lt;FilterRowConditionGreaterThan&gt;بزرگتر از&lt;/FilterRowConditionGreaterThan&gt;&lt;FilterRowConditionGreaterThanOrEqual&gt;بزرگتر مساوی&lt;/FilterRowConditionGreaterThanOrEqual&gt;&lt;FilterRowConditionLessThan&gt;کوچکتر&lt;/FilterRowConditionLessThan&gt;&lt;FilterRowConditionLessThanOrEqual&gt;کوچکتر مساوی&lt;/FilterRowConditionLessThanOrEqual&gt;&lt;FilterRowConditionContains&gt;شامل شود&lt;/FilterRowConditionContains&gt;&lt;FilterRowConditionNotContains&gt;شامل نباشد&lt;/FilterRowConditionNotContains&gt;&lt;FilterRowConditionEndsWith&gt;پایان یابد&lt;/FilterRowConditionEndsWith&gt;&lt;FilterRowConditionBeginsWith&gt;شروع شود&lt;/FilterRowConditionBeginsWith&gt;&lt;FilterRowConditionIsEmpty&gt;خالی&lt;/FilterRowConditionIsEmpty&gt;&lt;FilterRowConditionNotIsEmpty&gt;پر&lt;/FilterRowConditionNotIsEmpty&gt;&lt;FilterRowConditionClear&gt;پاک کردن&lt;/FilterRowConditionClear&gt;&lt;/LocalizableData&gt;</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="ms_Grid_DesignTimeLayout_Reference_0.Instance" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAA2VJREFUOE8lk+1P21UUx3/bjFuiiW5zUd+Z6B+wpH+HL0x00emkjIWZjaeWMgZ0
+        lFJo2crzBuugIAMyQdRFGZnROLaYgJvARJ5GWSl9oC3QR6hAhe3j6c8XJ/fcc7733O/9nnOVU3mWeJG1
+        kyydjWx9DdqiKs4WGDlfZCLrvEG1r/SV5BSayNaZVcwZfS2Flk4+vmCOK0XWLh57UixuwNOVTaaWozyZ
+        D/DMF8O9muB5IMmC9//YpDuiYubWXzD+PEm+pQMlu7ReLfDrpJfWvmHujk4wOPKIoZFR7tz9mf7v7jM4
+        /BsD9x7yw4M/ab79I/cnPGqBM8V1KLnGFqaDab5/OM3VzkGie7AJ7Iht7Ysv+23xky9hQ/Z1twYZevCU
+        Kf82Z8vsKJ8WmoXSHiN/LGDvGiQl4EmXj4kFN7Nun1hA9aeW/Gqu3jnEvfF5ZsJpTuVfQfmypBZX4iXD
+        Y7OUX7uJN75La1cf9W0d3Oju4UZXLw3tnVzv7seXSFNhd6jYxfgLvig2CwNRfG5jl+HxvzG3OtVbHs+6
+        cAWCrITX8YTWWfSvqrFMLoP5aWyambVtPrl4WRgYzAT/hUczbkqsjYRS+8LgNt0D3+Lo6aVdWDjvDNDi
+        7GE1lcZQ28Do9BJ+Eel0kTzhdH4F3n/gl4l5yu2tiMuCL0gglmAtuUUoniQk69xKQM3Vd/Sp2NnwFln6
+        KmmjoRqfyDy5HMbU2Mba9j7tX/fT7Oiksd2Bxd4gTPq41fsN3liKqsab/OWL4I7v8VleubSxzIYrlub3
+        2WUKr1jV9nnCUdKySgdJS/syfiC6qeYymLFnPhm8HbQZET/UFuBJCu1QCnOTg4iwie3sq4f94Q0iyZRa
+        ICraJCVoa+thxp+QAmk+OqdHyTHUEBeAVybF2tqNtbkDU10TlrpGTDV1WO1NGGtsVFRf4+p1p4pZlA6s
+        SbFzMgJKbqmNJ0sbhEWhdbndJxR8a0lWViUWFQEjCbzBCKHYLivrKbwyquFdhIWIKB9P0eosmxkWWXlG
+        ckVV7YVL5OaXoiuppEB3mUJ9GbpLRvIN8iMlnnWxjJzianTmFj7Pq9xUlKPvn1QOHdcoR97VKIdPaJRD
+        b2iUV9/UHH/7PY2iHFbtlSNHNcqB1zQHX39Hcm8J5phGOXhCc+DYByf/A4lt+a+BD8PTAAAAAElFTkSu
+        QmCC
+</value>
+  </data>
+  <data name="ms_Grid_DesignTimeLayout_Reference_1.Instance" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAA+JJREFUOE8dkntQ1HUUxc+Pfb/YF7sry7YgsDziYWVROqIOjTMavmgmHYUmASsK
+        AzIVklfuBMosKDgOELTiurw2VmABEYFCKkQd0BEsikcOjWZGmEVDMyXcvvXvd77n3M8592KF1BcCCKHy
+        0YKvlgICATQ6MyK0UXiO88dumUVYvf6VFltkSF5umJG3FkA4+2+SWCDmngbM6kDIhAqo9BrwVCIojFqA
+        A1ZKjYiGBq6kjIpUsZLy/Q1U9mLYcOm29cFRfEDPV0Eu8mMD4Q212hcQM2sZoDSJodPzmRR4MnLj5Qe1
+        9uWr6WlktegpP0xLKcGyhewdMdvUXoBEyD55cer/kQVKb3h5A3I9oGXqodZTivuXKmfu2fOJ+uz0xGGl
+        kpeMtD9URgmRmsMRRiF0KmYgELPpQh9INH4ICA8BeIAfS/HDUJl9fvAoLXSk0Ex5HJHnIFH/Ker8MHV8
+        nY9GEGkIgQQ6wGAMZzbezMgAkVgBEcs3Oerc+dt4yfJUewI9uBBHP55dQ7Of7KBvTr+9ONfd+nyUzMQS
+        m6HgvcAiMHGoZTVU8qfYgxzDvZ8ZxvvLf7nZmkiPh5Jo1r2Wph2xNFufSlP1xVn+bNwKBMGsjQeP2wgE
+        MgIRpPAR6lhxHMb66zsn+o/T7EAa/dS/i+62xdNU826648zps+7dzhmhgEbgD04QwEq3sHWpAhCi82cc
+        wPz4129dd1vpdsf7NN6WSGPuPXT/cg4zOvPI9XGuycQTQipgzKzATFuinB/BRFrmuC70GYR6S/H9500T
+        dwfKacyTQX+NF9F070Ga7CuiwabiPUa2Zl+dBJwSqOsrWNU6deSh5156NiyqlVCyJthJ4J/pa4uPbzXS
+        H2NVdLvzPRrpOkATwyUuLcMLjQJUQUD1pfQY+9V987Wjm8naE9wGk9wANTvNxpMn9YuTN+nXUQ89HDlP
+        j76ro2+vF9GVL7N/Hhgt2MBQUd2XHNs1k/37iY44Ku2JvXDEGSiEXqOGhM8h0mxeffTNFLrV7SFamF2a
+        m+lpaGpKH7TZt5Dr2r6/r8xlV1UP7fyzuG0TVXTtbThQvIEvNDFsHsNT6kQw6pQJz4YEL29dE9t+o7c3
+        Si0BPsjdxbc1JpcUt25fynJEU9kX8VTo3PLpO8c2eUnUbAny/27ZADi6KoPyizJy8vKyiuxnql5vPtfy
+        hqPOndbY7sm0NZdm2joLPMfa9i991JJ0p/mr0oTyGutGt7MrKFgZA7x2aDNX1VESXd1wPKGppSa54Vx9
+        hquh+1Bt7cXCqvNdhRWtrsKK3prCExfzDpdfzs+sdBenOJxnX60/3bPq3a0nuH8BvOSARhTtifQAAAAA
+        SUVORK5CYII=
+</value>
+  </data>
+  <data name="ms_Grid_DesignTimeLayout.LayoutString" xml:space="preserve">
+    <value>&lt;GridEXLayoutData&gt;&lt;RootTable&gt;&lt;Columns Collection="true" ElementName="Column"&gt;&lt;Column0 ID="E"&gt;&lt;ButtonDisplayMode&gt;Always&lt;/ButtonDisplayMode&gt;&lt;AllowDrag&gt;False&lt;/AllowDrag&gt;&lt;AllowGroup&gt;False&lt;/AllowGroup&gt;&lt;AllowRemove&gt;False&lt;/AllowRemove&gt;&lt;AllowSize&gt;False&lt;/AllowSize&gt;&lt;AllowSort&gt;False&lt;/AllowSort&gt;&lt;ButtonImage Reference="GridEXLayoutData.RootTable.Columns.Column0.ButtonImage" /&gt;&lt;ButtonToolTipText&gt;مشاهده جزئیات&lt;/ButtonToolTipText&gt;&lt;ButtonStyle&gt;ButtonCell&lt;/ButtonStyle&gt;&lt;DataMember&gt;E&lt;/DataMember&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;FilterEditType&gt;NoEdit&lt;/FilterEditType&gt;&lt;HeaderImage Reference="GridEXLayoutData.RootTable.Columns.Column0.HeaderImage" /&gt;&lt;Key&gt;E&lt;/Key&gt;&lt;Position&gt;0&lt;/Position&gt;&lt;ShowInFieldChooser&gt;False&lt;/ShowInFieldChooser&gt;&lt;Width&gt;28&lt;/Width&gt;&lt;FilterRowButtonStyle&gt;None&lt;/FilterRowButtonStyle&gt;&lt;CellStyle&gt;&lt;Font&gt;Microsoft Sans Serif, 11pt&lt;/Font&gt;&lt;ImageHorizontalAlignment&gt;Center&lt;/ImageHorizontalAlignment&gt;&lt;ImageVerticalAlignment&gt;Center&lt;/ImageVerticalAlignment&gt;&lt;/CellStyle&gt;&lt;HeaderStyle&gt;&lt;ImageHorizontalAlignment&gt;Center&lt;/ImageHorizontalAlignment&gt;&lt;ImageVerticalAlignment&gt;Center&lt;/ImageVerticalAlignment&gt;&lt;/HeaderStyle&gt;&lt;AutoComplete&gt;False&lt;/AutoComplete&gt;&lt;/Column0&gt;&lt;Column1 ID="FK_GroupKala_1th"&gt;&lt;Caption&gt;کد گروه اصلی&lt;/Caption&gt;&lt;DataMember&gt;FK_GroupKala_1th&lt;/DataMember&gt;&lt;Key&gt;FK_GroupKala_1th&lt;/Key&gt;&lt;Position&gt;1&lt;/Position&gt;&lt;Width&gt;57&lt;/Width&gt;&lt;/Column1&gt;&lt;Column2 ID="MainGroupTitle"&gt;&lt;Caption&gt;گروه اصلی&lt;/Caption&gt;&lt;DataMember&gt;MainGroupTitle&lt;/DataMember&gt;&lt;Key&gt;MainGroupTitle&lt;/Key&gt;&lt;Position&gt;2&lt;/Position&gt;&lt;Width&gt;97&lt;/Width&gt;&lt;/Column2&gt;&lt;Column3 ID="FK_GroupKala_2th"&gt;&lt;Caption&gt;کد گروه فرعی&lt;/Caption&gt;&lt;DataMember&gt;FK_GroupKala_2th&lt;/DataMember&gt;&lt;Key&gt;FK_GroupKala_2th&lt;/Key&gt;&lt;Position&gt;3&lt;/Position&gt;&lt;Width&gt;50&lt;/Width&gt;&lt;/Column3&gt;&lt;Column4 ID="SubGroupTitle"&gt;&lt;Caption&gt;گروه فرعی&lt;/Caption&gt;&lt;DataMember&gt;SubGroupTitle&lt;/DataMember&gt;&lt;Key&gt;SubGroupTitle&lt;/Key&gt;&lt;Position&gt;4&lt;/Position&gt;&lt;Width&gt;94&lt;/Width&gt;&lt;/Column4&gt;&lt;Column5 ID="Code"&gt;&lt;Caption&gt;کد&lt;/Caption&gt;&lt;DataMember&gt;Code&lt;/DataMember&gt;&lt;Key&gt;Code&lt;/Key&gt;&lt;Position&gt;5&lt;/Position&gt;&lt;Width&gt;70&lt;/Width&gt;&lt;CellStyle&gt;&lt;Font&gt;IRANSans(Small) Medium, 14pt&lt;/Font&gt;&lt;/CellStyle&gt;&lt;/Column5&gt;&lt;Column6 ID="ObjectTitle"&gt;&lt;Caption&gt;کالا&lt;/Caption&gt;&lt;DataMember&gt;ObjectTitle&lt;/DataMember&gt;&lt;Key&gt;ObjectTitle&lt;/Key&gt;&lt;Position&gt;6&lt;/Position&gt;&lt;Width&gt;273&lt;/Width&gt;&lt;/Column6&gt;&lt;Column7 ID="point_bohrani"&gt;&lt;Caption&gt;نقطه سفارش&lt;/Caption&gt;&lt;DataMember&gt;point_bohrani&lt;/DataMember&gt;&lt;FormatString&gt;0,0.##;(0,0.##); &lt;/FormatString&gt;&lt;Key&gt;point_bohrani&lt;/Key&gt;&lt;Position&gt;7&lt;/Position&gt;&lt;Width&gt;84&lt;/Width&gt;&lt;TotalFormatString&gt;0,0.##;(0,0.##); &lt;/TotalFormatString&gt;&lt;CellStyle&gt;&lt;TextAlignment&gt;Far&lt;/TextAlignment&gt;&lt;/CellStyle&gt;&lt;/Column7&gt;&lt;Column8 ID="Remaind"&gt;&lt;Caption&gt;مانده&lt;/Caption&gt;&lt;DataMember&gt;Remaind&lt;/DataMember&gt;&lt;FormatString&gt;0,0.##;(0,0.##); &lt;/FormatString&gt;&lt;Key&gt;Remaind&lt;/Key&gt;&lt;Position&gt;8&lt;/Position&gt;&lt;Width&gt;59&lt;/Width&gt;&lt;TotalFormatString&gt;0,0.##;(0,0.##); &lt;/TotalFormatString&gt;&lt;/Column8&gt;&lt;/Columns&gt;&lt;FormatConditions Collection="true" ElementName="Condition"&gt;&lt;Condition0 ID="FormatCondition1"&gt;&lt;FormatStyle&gt;&lt;BackColor&gt;MistyRose&lt;/BackColor&gt;&lt;ForeColor&gt;DarkGreen&lt;/ForeColor&gt;&lt;/FormatStyle&gt;&lt;PreviewRowFormatStyle&gt;&lt;FontItalic&gt;True&lt;/FontItalic&gt;&lt;/PreviewRowFormatStyle&gt;&lt;Key&gt;FormatCondition1&lt;/Key&gt;&lt;FilterCondition&gt;&lt;ColumnIndex&gt;8&lt;/ColumnIndex&gt;&lt;ConditionOperator&gt;LessThan&lt;/ConditionOperator&gt;&lt;ValueColumnIndex1&gt;7&lt;/ValueColumnIndex1&gt;&lt;/FilterCondition&gt;&lt;/Condition0&gt;&lt;Condition1 ID="FormatCondition2"&gt;&lt;FormatStyle&gt;&lt;BackColor&gt;255, 255, 210&lt;/BackColor&gt;&lt;ForeColor&gt;DarkGoldenrod&lt;/ForeColor&gt;&lt;/FormatStyle&gt;&lt;Key&gt;FormatCondition2&lt;/Key&gt;&lt;FilterCondition&gt;&lt;ColumnIndex&gt;8&lt;/ColumnIndex&gt;&lt;ValueColumnIndex1&gt;7&lt;/ValueColumnIndex1&gt;&lt;/FilterCondition&gt;&lt;/Condition1&gt;&lt;/FormatConditions&gt;&lt;GroupCondition /&gt;&lt;HeaderFormatStyle&gt;&lt;TextAlignment&gt;Center&lt;/TextAlignment&gt;&lt;/HeaderFormatStyle&gt;&lt;/RootTable&gt;&lt;/GridEXLayoutData&gt;</value>
+  </data>
+  <metadata name="mS_GridX_Setting1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>122, 17</value>
+  </metadata>
+  <data name="NzRefresh.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH4SURBVDhPY6A6KJ9pLVc6y669fKbdjfLZ9v/BGMiGiFnL
+        gdS8/fT0f+ks6/9gDcigdKZtb90iu/9LTrj8P/DY4//ZD15gDGKDxMBye+v+V85xxDSgeLr1tCk7Hf4f
+        e+H+f8UZY5wYpPH4K3dUA4qmm3dN3mH/f899h/8Ljuj9n7Zb/3/zCpP/VfPN/lcCcdNyk//zDunC8Y47
+        tv/zpxlDDCicbiFdtcAcKGgPluzeYPC/cIYpUIFpZuEMI93c6WZaGZO094Bs3PfQ8f/aC2ZgnDlJC+GC
+        vKmGXUD8GYj/A/G03OkGWlApcIAl9ynCNS88qv9/1VkTsBhUCX4Q2yX5HyvulJwGVcLAUDHHYRooZLFh
+        qBL8AOS/I89d/x984gzGIDZIDOR8kHzaBCW5lD7laSn9yv9T+uV/JvcrTwBrhAFQiG6+ZgX2G8ifIM05
+        UwwXxPXKSCf1yCck9yn8n33QDJwmTr3z/F84W+1/cq+yClQ7AwMoREGakaMqa6ri/5zpSv8bV2v/33bL
+        4f+WG9Zg8erFKv/ju2RQXQAKUZjN2BIPDJfOU/wf2y05LXQVAzNUKwSADACFLCiZdm/S/D9zrzbcJSB2
+        yxqV/8kTpP7HdIq1Q7WgApABoACLahcxjugUnRPVKfQqqlP0PwQLvQKLAeWgyqkJGBgAJ8p37NiASdcA
+        AAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>39</value>
+  </metadata>
+</root>

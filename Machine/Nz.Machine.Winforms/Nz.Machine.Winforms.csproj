@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1533F6F2-B7F6-486B-B29E-1C5DDA7E0E3A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Nz.Machine.Winforms</RootNamespace>
+    <AssemblyName>Nz.Machine.Winforms</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Output\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>..\..\Output\Dapper.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar.Design, Version=9.5.0.0, Culture=neutral, PublicKeyToken=3caa4ad0ba35cf8d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\DevComponents.DotNetBar.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2, Version=9.5.0.0, Culture=neutral, PublicKeyToken=d159a0cb0c2a1170, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\DevComponents.DotNetBar2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\Output\EntityFramework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\Output\EntityFramework.SqlServer.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Data.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Data.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Windows.ButtonBar.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Windows.ButtonBar.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Windows.CalendarCombo.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Windows.CalendarCombo.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Windows.Common.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Windows.Common.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Windows.ExplorerBar.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Windows.ExplorerBar.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Windows.FilterEditor.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Windows.FilterEditor.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Windows.GridEX.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Windows.GridEX.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Windows.Ribbon.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Windows.Ribbon.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Windows.Schedule.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Windows.Schedule.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Windows.TimeLine.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Windows.TimeLine.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Windows.UI.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Windows.UI.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\Output\log4net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MS_Control">
+      <HintPath>..\..\Output\MS_Control.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App\FormAcceptMachine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\FormAcceptMachine.Designer.cs">
+      <DependentUpon>FormAcceptMachine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\FormListAcceptMachine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\FormListAcceptMachine.Designer.cs">
+      <DependentUpon>FormListAcceptMachine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\BenzinStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\BenzinStatus.Designer.cs">
+      <DependentUpon>BenzinStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\GasLight.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Component\GasLight.Designer.cs">
+      <DependentUpon>GasLight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\GasStatusLight.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\GasStatusLight.Designer.cs">
+      <DependentUpon>GasStatusLight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provider\MachineMenuBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Provider\MachineMenuBar.Designer.cs">
+      <DependentUpon>MachineMenuBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Provider\MachineProvider.cs" />
+    <EmbeddedResource Include="App\FormAcceptMachine.resx">
+      <DependentUpon>FormAcceptMachine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\FormListAcceptMachine.resx">
+      <DependentUpon>FormListAcceptMachine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\BenzinStatus.resx">
+      <DependentUpon>BenzinStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\GasStatusLight.resx">
+      <DependentUpon>GasStatusLight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Provider\MachineMenuBar.resx">
+      <DependentUpon>MachineMenuBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="..\..\General\MS_Resource\GlobalResources.resx">
+      <Link>GlobalResources.resx</Link>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GlobalResources.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>MS_Resource</CustomToolNamespace>
+    </None>
+    <None Include="..\..\General\MS_Resource\GlobalResources.Designer.cs">
+      <Link>GlobalResources.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GlobalResources.resx</DependentUpon>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\General\MS_Print_Dialog\MS_Print_Dialog.csproj">
+      <Project>{ED81290B-B424-4A06-9589-A45F43C36A59}</Project>
+      <Name>MS_Print_Dialog</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\General\MS_Resource\MS_Resource.csproj">
+      <Project>{0dc2a135-5cbd-4912-8305-d2898cf70e85}</Project>
+      <Name>MS_Resource</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\General\NZ.General.WinForms\NZ.General.WinForms.csproj">
+      <Project>{79123bf7-a7b6-4ff6-88be-a7810d4fc11c}</Project>
+      <Name>NZ.General.WinForms</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\General\ShareLib\ShareLib.csproj">
+      <Project>{ee295af7-3238-4f98-b5fc-9f16c02391e8}</Project>
+      <Name>ShareLib</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Nz.Machine.DataLayer\Nz.Machine.DataLayer.csproj">
+      <Project>{e296328d-c50c-460f-a4b6-03fbadda34d7}</Project>
+      <Name>Nz.Machine.DataLayer</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Nz.Machine.Model\Nz.Machine.Model.csproj">
+      <Project>{61fe1a48-0b98-4411-a591-b3141414706f}</Project>
+      <Name>Nz.Machine.Model</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

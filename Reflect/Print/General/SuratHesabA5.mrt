@@ -1,0 +1,847 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="1">
+      <List Ref="2" type="Stimulsoft.Report.Dictionary.StiBusinessObject" isKey="true">
+        <Alias>List</Alias>
+        <BusinessObjects isList="true" count="0" />
+        <Category />
+        <Columns isList="true" count="9">
+          <value>Subsystem,System.Byte</value>
+          <value>Kind,System.Byte</value>
+          <value>SubsystemTitle,System.String</value>
+          <value>KindTitle,System.String</value>
+          <value>Code,System.Nullable`1[System.Int32]</value>
+          <value>Title,System.String</value>
+          <value>Count,System.Decimal</value>
+          <value>Debit,System.Decimal</value>
+          <value>Credit,System.Decimal</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Guid>358ac110acf2415bb3af839300baeb6b</Guid>
+        <Name>List</Name>
+      </List>
+    </BusinessObjects>
+    <Databases isList="true" count="0" />
+    <DataSources isList="true" count="0" />
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Variables isList="true" count="9">
+      <value>,tarikh,tarikh,System.String,,False,False</value>
+      <value>,User,User,System.String,,False,False</value>
+      <value>,serial,serial,System.String,,False,False</value>
+      <value>,Company,Company,System.String,,False,False</value>
+      <value>,Name,Name,System.String,,False,False</value>
+      <value>,Address,Address,System.String,,False,False</value>
+      <value>,CodeMeli,CodeMeli,System.String,,False,False</value>
+      <value>,Mobile,Mobile,System.String,,False,False</value>
+      <value>,Tel,Tel,System.String,,False,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="3" type="Page" isKey="true">
+      <Border>All;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="6">
+        <PageHeaderBand3 Ref="4" type="PageHeaderBand" isKey="true">
+          <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+          <Brush>[242:242:242]</Brush>
+          <ClientRectangle>0,0.4,20,2.9</ClientRectangle>
+          <Components isList="true" count="17">
+            <Text2 Ref="5" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>16.4,1.2,3.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum) Medium,11</Font>
+              <Guid>c06b55d1ecae4b509ba1a8e9dfe9dae1</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>نام و نام خانوادگی :</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text5 Ref="6" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.6,1.6,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum) Medium,11</Font>
+              <Guid>acbce60c4dc34d08acc627a4eabd5b6f</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>موبایل :</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
+            <Text14 Ref="7" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.4,1.2,10,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum),11</Font>
+              <Guid>f11c9ce0f37e4700b49a60332bd549f6</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>{Name}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text14>
+            <Text38 Ref="8" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1.6,4.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum),11</Font>
+              <Guid>8b0c0bf09b654d3ba3280deabea84ac1</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text38</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>{Mobile}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text38>
+            <Text3 Ref="9" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.6,1,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum) Medium,11</Font>
+              <Guid>562c451ce9ff4345a6420e1af50dd92a</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>کد ملی :</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <Text39 Ref="10" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1,4.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum),11</Font>
+              <Guid>5884fd02cf8f4d7abea929d579ee1b28</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text39</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>{CodeMeli}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text39>
+            <Text4 Ref="11" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.6,2.2,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum) Medium,11</Font>
+              <Guid>6a5f64b14af54b3fb39401ddd2dbd031</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>تلفن :</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text60 Ref="12" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,2.2,4.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum),11</Font>
+              <Guid>8dcb018e0ce54da3856f1eb31213552b</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text60</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>{Tel}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text60>
+            <Text6 Ref="13" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>16.4,1.8,2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum) Medium,11</Font>
+              <Guid>27d218f5aedd44e4bc07856a2b360140</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>آدرس :</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+            <Text15 Ref="14" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.4,0.6,5.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum),11</Font>
+              <Guid>92219417b4c049e6b49613b2fa987a69</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>صورتحساب کلی اشخـاص</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
+            <Text62 Ref="15" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>6.4,1.8,10,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum),11</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>b5cbe3ded15e46bd8c814317ff970291</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text62</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>{Address}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,WordWrap=True,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+            </Text62>
+            <Text32 Ref="16" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15.4,0,3.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum),11</Font>
+              <Guid>a5361f03573446938733e6cf2f65fbf9</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text32</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>{tarikh}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text32>
+            <Text37 Ref="17" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,2.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum),11</Font>
+              <Guid>3fc5b66c1174409684033a78f40f1bfb</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text37</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>صفحه {PageNumber} از {TotalPageCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text37>
+            <Text61 Ref="18" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,0,12,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum) Medium,11</Font>
+              <Guid>c989fdac51bb4471ad8f032bd3c16349</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text61</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>{Company}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text61>
+            <Text33 Ref="19" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15.4,0.6,3.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum),11</Font>
+              <Guid>10c7acc2dd924749b7249eedaca1c064</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text33</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>{User}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text33>
+            <Text63 Ref="20" type="Text" isKey="true">
+              <Border>Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18.6,0,1.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum) Medium,11</Font>
+              <Guid>02168178e99d449ca826f54c856c6449</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text63</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>تاریخ </Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text63>
+            <Text20 Ref="21" type="Text" isKey="true">
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18.6,0.6,1.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum) Medium,11</Font>
+              <Guid>ffd593e9cdfc45dc81c9117f0a9e50cf</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>کاربر</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text20>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>63fca9e4dd7b4a488168b70e55348ccb</Guid>
+          <Name>PageHeaderBand3</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+        </PageHeaderBand3>
+        <Text50 Ref="22" type="Text" isKey="true">
+          <Border>None;Black;2;Solid;False;4;Black;True</Border>
+          <Brush>EmptyBrush</Brush>
+          <ClientRectangle>0,13.4,7.2,0.4</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>IRANSans(FaNum) Medium,8</Font>
+          <Guid>0ff8b6037acd43b689677e846716549a</Guid>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text50</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>حسابداری رسـا -(2984 870 0914 )-  www.NikShaho.ir </Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+          <TextQuality>Typographic</TextQuality>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text50>
+        <HeaderBand2 Ref="23" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,4.1,20,0.7</ClientRectangle>
+          <Components isList="true" count="5">
+            <Text22 Ref="24" type="Text" isKey="true">
+              <Border>All;Black;2;Solid;False;4;Black;True</Border>
+              <Brush>GlassBrush,MediumSeaGreen,True,0.2</Brush>
+              <ClientRectangle>16,0,4,0.7</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans Medium,10</Font>
+              <Guid>86bd4ddc4de64c79b29fd1fce416561d</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text22</Name>
+              <Page isRef="3" />
+              <Parent isRef="23" />
+              <Text>نوع عملیات</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text22>
+            <Text24 Ref="25" type="Text" isKey="true">
+              <Border>All;Black;2;Solid;False;4;Black;True</Border>
+              <Brush>GlassBrush,MediumSeaGreen,True,0.2</Brush>
+              <ClientRectangle>6.4,0,2,0.7</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans Medium,10</Font>
+              <Guid>9bc3cf8df1174240824573074571cb99</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text24</Name>
+              <Page isRef="3" />
+              <Parent isRef="23" />
+              <Text>تعداد / مقدار</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text24>
+            <Text25 Ref="26" type="Text" isKey="true">
+              <Border>AdvBlack;2;Solid;Black;2;Solid;Black;2;Solid;Black;2;Solid;False;4;Black</Border>
+              <Brush>GlassBrush,MediumSeaGreen,True,0.2</Brush>
+              <ClientRectangle>3.2,0,3.2,0.7</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans Medium,10</Font>
+              <Guid>451e308c1183441182840a950a7d516b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text25</Name>
+              <Page isRef="3" />
+              <Parent isRef="23" />
+              <Text>بدهکار</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text25>
+            <Text26 Ref="27" type="Text" isKey="true">
+              <Border>All;Black;2;Solid;False;4;Black;True</Border>
+              <Brush>GlassBrush,MediumSeaGreen,True,0.2</Brush>
+              <ClientRectangle>0,0,3.2,0.7</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans Medium,10</Font>
+              <Guid>e2974a2044234b29b685b1f2b5b3c314</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text26</Name>
+              <Page isRef="3" />
+              <Parent isRef="23" />
+              <Text>بستانکار</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text26>
+            <Text21 Ref="28" type="Text" isKey="true">
+              <Border>All;Black;2;Solid;False;4;Black;True</Border>
+              <Brush>GlassBrush,MediumSeaGreen,True,0.2</Brush>
+              <ClientRectangle>8.4,0,7.6,0.7</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans Medium,10</Font>
+              <Guid>cb09c003bc9d41c7a659ee86684bd93b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="3" />
+              <Parent isRef="23" />
+              <Text>عنوان</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text21>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>8c01b96ba9d14cb687e65dc39f2f5531</Guid>
+          <Name>HeaderBand2</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <SkipFirst>False</SkipFirst>
+        </HeaderBand2>
+        <GroupHeaderBand1 Ref="29" type="GroupHeaderBand" isKey="true">
+          <Brush>GlassBrush,DarkOrange,True,0.2</Brush>
+          <ClientRectangle>0,5.6,20,0.6</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text12 Ref="30" type="Text" isKey="true">
+              <Border>AdvBlack;1;None;Black;1;None;Black;2;None;Black;1;None;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>11.8,0,8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum) Medium,11</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>b508acebd1fc4944b62940a9847c8e67</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="3" />
+              <Parent isRef="29" />
+              <Text>{List.SubsystemTitle}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text12>
+          </Components>
+          <Condition>{List.Subsystem}</Condition>
+          <Conditions isList="true" count="0" />
+          <Name>GroupHeaderBand1</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+        </GroupHeaderBand1>
+        <DataBand1 Ref="31" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid>358ac110acf2415bb3af839300baeb6b</BusinessObjectGuid>
+          <ClientRectangle>0,7,20,0.7</ClientRectangle>
+          <Components isList="true" count="5">
+            <Text7 Ref="32" type="Text" isKey="true">
+              <Border>Adv[0:0:0:0];1;None;Black;1;None;[0:0:0:0];1;None;[0:0:0:0];1;None;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>8.4,0,7.6,0.7</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>_x007B_Line_x0025_2_x003D__x003D_0_x007D_,Red,WhiteSmoke,Arial_x002C_8,True,False,,Style2,None</value>
+              </Conditions>
+              <Font>IRANSans(FaNum),10</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>4ee03e5d831c4194b97a3ade8920efaa</Guid>
+              <Margins>0,3,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="3" />
+              <Parent isRef="31" />
+              <Text>{List.Title}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="33" type="CustomFormat" isKey="true">
+                <StringFormat>0.##</StringFormat>
+              </TextFormat>
+              <TextOptions>,,RightToLeft=True,,WordWrap=True,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
+            <Text34 Ref="34" type="Text" isKey="true">
+              <Border>AdvBlack;1;None;Black;1;None;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>6.4,0,2,0.7</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>_x007B_Line_x0025_2_x003D__x003D_0_x007D_,Red,Transparent,Arial_x002C_8,True,False,,Style2,None</value>
+              </Conditions>
+              <Font>IRANSans(FaNum),10</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>29aae84b8c10439db0403c617169d4a6</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text34</Name>
+              <Page isRef="3" />
+              <Parent isRef="31" />
+              <Text>{List.Count}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="35" type="CustomFormat" isKey="true">
+                <StringFormat>0,0.##;(0,0.##); </StringFormat>
+              </TextFormat>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text34>
+            <Text8 Ref="36" type="Text" isKey="true">
+              <Border>Left, Right;[0:0:0:0];1;Solid;False;1;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>3.2,0,3.2,0.7</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>_x007B_Line_x0025_2_x003D__x003D_0_x007D_,Red,Transparent,Arial_x002C_8,True,False,,Style2,None</value>
+              </Conditions>
+              <Font>IRANSans(FaNum),10</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>fa7e1311bc374d749483a9ed61c78ea8</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>2,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="3" />
+              <Parent isRef="31" />
+              <Text>{List.Debit}</Text>
+              <TextBrush>[0:129:3]</TextBrush>
+              <TextFormat Ref="37" type="CustomFormat" isKey="true">
+                <StringFormat>0,0.##;(0,0.##); </StringFormat>
+              </TextFormat>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+            <Text29 Ref="38" type="Text" isKey="true">
+              <Border>AdvBlack;1;Dot;Black;1;None;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
+              <Brush>[211:223:254]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>16,0,4,0.7</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum) Medium,10</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>daa1c95eb7d442119ade976b41038645</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text29</Name>
+              <Page isRef="3" />
+              <Parent isRef="31" />
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
+              <Text>{List.KindTitle}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text29>
+            <Text36 Ref="39" type="Text" isKey="true">
+              <Border>AdvBlack;1;None;Black;1;None;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,3.2,0.7</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>_x007B_Line_x0025_2_x003D__x003D_0_x007D_,Red,Transparent,Arial_x002C_8,True,False,,Style2,None</value>
+              </Conditions>
+              <Font>IRANSans(FaNum),10</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>84d75eff738e44d691c54ea13ba8c1df</Guid>
+              <Margins>0,2,0,0</Margins>
+              <Name>Text36</Name>
+              <Page isRef="3" />
+              <Parent isRef="31" />
+              <Text>{List.Credit}</Text>
+              <TextBrush>[129:0:18]</TextBrush>
+              <TextFormat Ref="40" type="CustomFormat" isKey="true">
+                <StringFormat>0,0.##;(0,0.##); </StringFormat>
+              </TextFormat>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text36>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName isNull="true" />
+          <Filters isList="true" count="0" />
+          <Guid>c17ab292b2054764a5ff520a1d64096b</Guid>
+          <Name>DataBand1</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <RightToLeft>True</RightToLeft>
+          <Sort isList="true" count="4">
+            <value>ASC</value>
+            <value>Subsystem</value>
+            <value>DESC</value>
+            <value>Kind</value>
+          </Sort>
+        </DataBand1>
+        <FooterBand1 Ref="41" type="FooterBand" isKey="true">
+          <Border>Top;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,8.5,20,1.4</ClientRectangle>
+          <Components isList="true" count="4">
+            <Text9 Ref="42" type="Text" isKey="true">
+              <Border>All;Black;2;Solid;False;4;Black;True</Border>
+              <Brush>GlassBrush,MediumSeaGreen,True,0.2</Brush>
+              <ClientRectangle>6.4,0.7,13.6,0.7</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans Medium,10</Font>
+              <Guid>017ceb37fb9943f1a6a4fefd5b6b098b</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="3" />
+              <Parent isRef="41" />
+              <Text>مانده نهایی :</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+            <Text16 Ref="43" type="Text" isKey="true">
+              <Border>AdvBlack;1;Solid;Black;1;Solid;Black;2;None;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.7,6.4,0.7</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum) Medium,12</Font>
+              <Guid>7358a1c8a1fa4a7ca9a24a25bae2624b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="3" />
+              <Parent isRef="41" />
+              <Text>{Sum(List.Debit-List.Credit)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="44" type="CustomFormat" isKey="true">
+                <StringFormat>0,0.##;(0,0.##); </StringFormat>
+              </TextFormat>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text16>
+            <Text11 Ref="45" type="Text" isKey="true">
+              <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
+              <Brush>GlassBrush,DarkOrange,True,0.2</Brush>
+              <ClientRectangle>0,0,3.2,0.7</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum) Medium,11</Font>
+              <Guid>41277830951b41caabe2bb45e5c911ae</Guid>
+              <Margins>2,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="3" />
+              <Parent isRef="41" />
+              <Text>{Sum(List.Credit)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="46" type="CustomFormat" isKey="true">
+                <StringFormat>0,0.##;(0,0.##); </StringFormat>
+              </TextFormat>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+            <Text10 Ref="47" type="Text" isKey="true">
+              <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
+              <Brush>GlassBrush,DarkOrange,True,0.2</Brush>
+              <ClientRectangle>3.2,0,3.2,0.7</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum) Medium,11</Font>
+              <Guid>a4a792ee02b549d68556d356b8702abd</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>2,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="3" />
+              <Parent isRef="41" />
+              <Text>{Sum(List.Debit)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="48" type="CustomFormat" isKey="true">
+                <StringFormat>0,0.##;0,0.##; </StringFormat>
+              </TextFormat>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>FooterBand1</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+        </FooterBand1>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>1db55d0c974b4c6ba27bfc82228b5df6</Guid>
+      <Margins>0.5,0.5,0.5,0.5</Margins>
+      <Name>Page1</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>14.8</PageHeight>
+      <PageWidth>21</PageWidth>
+      <PaperSize>A5</PaperSize>
+      <Report isRef="0" />
+      <Watermark Ref="49" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="50" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>8/31/2023 3:52:20 AM</ReportChanged>
+  <ReportCreated>5/27/2018 6:18:05 AM</ReportCreated>
+  <ReportFile>H:\_Workspace_Project_\_NzResaaStore_GitHub_\Output\Print\General\SuratHesabA5.mrt</ReportFile>
+  <ReportGuid>7f1ac992179a43a18301c98d00b1202a</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2015.2.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="2">
+    <Style1 Ref="51" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <AllowUseBorderFormatting>False</AllowUseBorderFormatting>
+      <AllowUseBorderSides>False</AllowUseBorderSides>
+      <AllowUseBorderSidesFromLocation>True</AllowUseBorderSidesFromLocation>
+      <AllowUseFont>False</AllowUseFont>
+      <AllowUseTextBrush>False</AllowUseTextBrush>
+      <Brush>GlassBrush,Gainsboro,True,0.2</Brush>
+      <Conditions isList="true" count="0" />
+      <Font>Arial,8</Font>
+      <Name>Style1</Name>
+      <TextBrush>Black</TextBrush>
+    </Style1>
+    <Style2 Ref="52" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <AllowUseBorderFormatting>False</AllowUseBorderFormatting>
+      <AllowUseBorderSides>False</AllowUseBorderSides>
+      <AllowUseBorderSidesFromLocation>True</AllowUseBorderSidesFromLocation>
+      <AllowUseFont>False</AllowUseFont>
+      <AllowUseTextBrush>False</AllowUseTextBrush>
+      <Brush>WhiteSmoke</Brush>
+      <Conditions isList="true" count="0" />
+      <Font>Arial,8</Font>
+      <Name>Style2</Name>
+      <TextBrush>Black</TextBrush>
+    </Style2>
+  </Styles>
+</StiSerializer>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<MS_Config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Constr>Data Source=192.168.1.100\sql2017;Initial Catalog=DB_NzResaaStore;User Id=sa;Password=123456;;Min Pool Size=10;Max Pool Size=150;MultipleActiveResultSets=true;</Constr>
+  <UserName>1                                                 </UserName>
+  <NetLockAddress />
+  <AddressBackup />
+</MS_Config>

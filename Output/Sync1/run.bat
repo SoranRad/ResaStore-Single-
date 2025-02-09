@@ -1,0 +1,4 @@
+ClientSync.exe /sync
+
+pause  
+

@@ -1,0 +1,4 @@
+Janus.Windows.EditControls.UIProgressBar, Janus.Windows.UI.v3, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+Janus.Windows.GridEX.EditControls.IntegerUpDown, Janus.Windows.GridEX.v3, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+Janus.Windows.EditControls.UIGroupBox, Janus.Windows.UI.v3, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+Janus.Windows.UI.Tab.UITab, Janus.Windows.UI.v3, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null

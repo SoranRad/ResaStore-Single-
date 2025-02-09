@@ -1,0 +1,487 @@
+﻿namespace NZ.Xazane.WinForms.App
+{
+    partial class FormListDeficitAddition
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            Janus.Windows.GridEX.GridEXLayout NzGrid_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
+            Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormListDeficitAddition));
+            Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.ButtonImage");
+            Janus.Windows.GridEX.GridEXLayout NzGrid_Layout_1 = new Janus.Windows.GridEX.GridEXLayout();
+            Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_1_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
+            Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_1_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.ButtonImage");
+            this.Tab_Control_Main = new Janus.Windows.UI.Tab.UITab();
+            this.uiTabPage12 = new Janus.Windows.UI.Tab.UITabPage();
+            this.NzDeficitAdditionKind = new Janus.Windows.UI.Tab.UITab();
+            this.NzTabDeficit = new Janus.Windows.UI.Tab.UITabPage();
+            this.NzTabAddition = new Janus.Windows.UI.Tab.UITabPage();
+            this.NzGrid = new MS_Control.Controls.MS_GridX();
+            this.ms_mah = new Janus.Windows.UI.Tab.UITab();
+            this.uiTabPage1 = new Janus.Windows.UI.Tab.UITabPage();
+            this.uiTabPage2 = new Janus.Windows.UI.Tab.UITabPage();
+            this.uiTabPage3 = new Janus.Windows.UI.Tab.UITabPage();
+            this.uiTabPage4 = new Janus.Windows.UI.Tab.UITabPage();
+            this.uiTabPage5 = new Janus.Windows.UI.Tab.UITabPage();
+            this.uiTabPage6 = new Janus.Windows.UI.Tab.UITabPage();
+            this.uiTabPage7 = new Janus.Windows.UI.Tab.UITabPage();
+            this.uiTabPage8 = new Janus.Windows.UI.Tab.UITabPage();
+            this.uiTabPage9 = new Janus.Windows.UI.Tab.UITabPage();
+            this.uiTabPage10 = new Janus.Windows.UI.Tab.UITabPage();
+            this.uiTabPage11 = new Janus.Windows.UI.Tab.UITabPage();
+            this.uiTabPage13 = new Janus.Windows.UI.Tab.UITabPage();
+            this.uiTabPage15 = new Janus.Windows.UI.Tab.UITabPage();
+            this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
+            this.mS_GridX_Setting1 = new MS_Control.Controls.MS_GridX_Setting();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.ms_Add = new System.Windows.Forms.ToolStripButton();
+            ((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
+            this.Tab_Control_Main.SuspendLayout();
+            this.uiTabPage12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NzDeficitAdditionKind)).BeginInit();
+            this.NzDeficitAdditionKind.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NzGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ms_mah)).BeginInit();
+            this.ms_mah.SuspendLayout();
+            this.mS_GridX_Setting1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // Tab_Control_Main
+            // 
+            this.Tab_Control_Main.BackColor = System.Drawing.Color.Transparent;
+            this.Tab_Control_Main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Tab_Control_Main.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Tab_Control_Main.Location = new System.Drawing.Point(0, 0);
+            this.Tab_Control_Main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Tab_Control_Main.MultiLine = true;
+            this.Tab_Control_Main.Name = "Tab_Control_Main";
+            this.Tab_Control_Main.Office2007CustomColor = System.Drawing.Color.Transparent;
+            this.Tab_Control_Main.ShowFocusRectangle = false;
+            this.Tab_Control_Main.Size = new System.Drawing.Size(896, 415);
+            this.Tab_Control_Main.TabIndex = 726;
+            this.Tab_Control_Main.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
+            this.uiTabPage12,
+            this.uiTabPage14});
+            this.Tab_Control_Main.TabsStateStyles.DisabledFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Tab_Control_Main.TabsStateStyles.DisabledFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Tab_Control_Main.TabsStateStyles.FormatStyle.BackColor = System.Drawing.Color.PowderBlue;
+            this.Tab_Control_Main.TabsStateStyles.SelectedFormatStyle.BackColor = System.Drawing.Color.Gold;
+            this.Tab_Control_Main.TabsStateStyles.SelectedFormatStyle.Font = new System.Drawing.Font("IRANSans(Small) Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Tab_Control_Main.TabsStateStyles.SelectedFormatStyle.FontSize = 14F;
+            this.Tab_Control_Main.TabStripAlignment = Janus.Windows.UI.Tab.TabStripAlignment.Right;
+            this.Tab_Control_Main.TextOrientation = Janus.Windows.UI.Tab.TextOrientation.Vertical;
+            this.Tab_Control_Main.UseThemes = false;
+            this.Tab_Control_Main.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2003;
+            // 
+            // uiTabPage12
+            // 
+            this.uiTabPage12.Controls.Add(this.NzDeficitAdditionKind);
+            this.uiTabPage12.Controls.Add(this.NzGrid);
+            this.uiTabPage12.Controls.Add(this.ms_mah);
+            this.uiTabPage12.Location = new System.Drawing.Point(1, 1);
+            this.uiTabPage12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uiTabPage12.Name = "uiTabPage12";
+            this.uiTabPage12.PanelFormatStyle.Alpha = 70;
+            this.uiTabPage12.PanelFormatStyle.BackColor = System.Drawing.Color.SkyBlue;
+            this.uiTabPage12.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
+            this.uiTabPage12.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
+            this.uiTabPage12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.uiTabPage12.Size = new System.Drawing.Size(862, 413);
+            this.uiTabPage12.TabStop = true;
+            this.uiTabPage12.Text = "اطلاعات";
+            // 
+            // NzDeficitAdditionKind
+            // 
+            this.NzDeficitAdditionKind.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.NzDeficitAdditionKind.BackColor = System.Drawing.Color.Transparent;
+            this.NzDeficitAdditionKind.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.NzDeficitAdditionKind.FirstTabOffset = 25;
+            this.NzDeficitAdditionKind.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.NzDeficitAdditionKind.Location = new System.Drawing.Point(368, 2);
+            this.NzDeficitAdditionKind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.NzDeficitAdditionKind.Name = "NzDeficitAdditionKind";
+            this.NzDeficitAdditionKind.PageBorder = Janus.Windows.UI.Tab.PageBorder.None;
+            this.NzDeficitAdditionKind.SettingsKey = "NzFactorKinds";
+            this.NzDeficitAdditionKind.ShowFocusRectangle = false;
+            this.NzDeficitAdditionKind.Size = new System.Drawing.Size(193, 31);
+            this.NzDeficitAdditionKind.TabIndex = 841;
+            this.NzDeficitAdditionKind.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
+            this.NzTabDeficit,
+            this.NzTabAddition});
+            this.NzDeficitAdditionKind.TabsStateStyles.SelectedFormatStyle.BackColor = System.Drawing.Color.Yellow;
+            this.NzDeficitAdditionKind.TabStripAlignment = Janus.Windows.UI.Tab.TabStripAlignment.Bottom;
+            this.NzDeficitAdditionKind.TabStripOffset = 4;
+            this.NzDeficitAdditionKind.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2007;
+            // 
+            // NzTabDeficit
+            // 
+            this.NzTabDeficit.Key = "NzTabDeficit";
+            this.NzTabDeficit.Location = new System.Drawing.Point(0, 0);
+            this.NzTabDeficit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.NzTabDeficit.Name = "NzTabDeficit";
+            this.NzTabDeficit.Size = new System.Drawing.Size(193, 0);
+            this.NzTabDeficit.TabStop = true;
+            this.NzTabDeficit.Text = "کــسورات";
+            // 
+            // NzTabAddition
+            // 
+            this.NzTabAddition.Key = "NzTabAddition";
+            this.NzTabAddition.Location = new System.Drawing.Point(0, 0);
+            this.NzTabAddition.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.NzTabAddition.Name = "NzTabAddition";
+            this.NzTabAddition.Size = new System.Drawing.Size(193, 0);
+            this.NzTabAddition.TabStop = true;
+            this.NzTabAddition.Text = "اضـافات";
+            // 
+            // NzGrid
+            // 
+            this.NzGrid.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.False;
+            this.NzGrid.AllowRemoveColumns = Janus.Windows.GridEX.InheritableBoolean.True;
+            this.NzGrid.AlternatingColors = true;
+            this.NzGrid.AlternatingRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.NzGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NzGrid.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.NzGrid.BorderStyle = Janus.Windows.GridEX.BorderStyle.RaisedLight3D;
+            this.NzGrid.ColumnAutoResize = true;
+            this.NzGrid.ColumnSetNavigation = Janus.Windows.GridEX.ColumnSetNavigation.ColumnSet;
+            this.NzGrid.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.NzGrid.DefaultFilterRowComparison = Janus.Windows.GridEX.FilterConditionOperator.Contains;
+            this.NzGrid.DynamicFiltering = true;
+            this.NzGrid.EnterKeyBehavior = Janus.Windows.GridEX.EnterKeyBehavior.None;
+            this.NzGrid.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic;
+            this.NzGrid.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
+            this.NzGrid.FilterRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.NzGrid.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
+            this.NzGrid.FocusCellDisplayMode = Janus.Windows.GridEX.FocusCellDisplayMode.UseSelectedFormatStyle;
+            this.NzGrid.FocusStyle = Janus.Windows.GridEX.FocusStyle.Solid;
+            this.NzGrid.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+            this.NzGrid.FrozenColumns = 2;
+            this.NzGrid.GridLineColor = System.Drawing.Color.Black;
+            this.NzGrid.GridLines = Janus.Windows.GridEX.GridLines.Vertical;
+            this.NzGrid.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid;
+            this.NzGrid.GroupByBoxVisible = false;
+            this.NzGrid.HeaderFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.NzGrid.HeaderFormatStyle.ForeColor = System.Drawing.Color.Black;
+            this.NzGrid.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
+            NzGrid_Layout_0.Key = "Deficit";
+            NzGrid_Layout_0_Reference_0.Instance = ((object)(resources.GetObject("NzGrid_Layout_0_Reference_0.Instance")));
+            NzGrid_Layout_0_Reference_1.Instance = ((object)(resources.GetObject("NzGrid_Layout_0_Reference_1.Instance")));
+            NzGrid_Layout_0.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
+            NzGrid_Layout_0_Reference_0,
+            NzGrid_Layout_0_Reference_1});
+            NzGrid_Layout_0.LayoutString = resources.GetString("NzGrid_Layout_0.LayoutString");
+            NzGrid_Layout_1.IsCurrentLayout = true;
+            NzGrid_Layout_1.Key = "Addition";
+            NzGrid_Layout_1_Reference_0.Instance = ((object)(resources.GetObject("NzGrid_Layout_1_Reference_0.Instance")));
+            NzGrid_Layout_1_Reference_1.Instance = ((object)(resources.GetObject("NzGrid_Layout_1_Reference_1.Instance")));
+            NzGrid_Layout_1.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
+            NzGrid_Layout_1_Reference_0,
+            NzGrid_Layout_1_Reference_1});
+            NzGrid_Layout_1.LayoutString = resources.GetString("NzGrid_Layout_1.LayoutString");
+            this.NzGrid.Layouts.AddRange(new Janus.Windows.GridEX.GridEXLayout[] {
+            NzGrid_Layout_0,
+            NzGrid_Layout_1});
+            this.NzGrid.Location = new System.Drawing.Point(-1, 66);
+            this.NzGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.NzGrid.Name = "NzGrid";
+            this.NzGrid.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom;
+            this.NzGrid.Office2007CustomColor = System.Drawing.SystemColors.HotTrack;
+            this.NzGrid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.NzGrid.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowIndex;
+            this.NzGrid.SelectedFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.NzGrid.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
+            this.NzGrid.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.White;
+            this.NzGrid.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
+            this.NzGrid.SelectOnExpand = false;
+            this.NzGrid.Size = new System.Drawing.Size(863, 348);
+            this.NzGrid.TabIndex = 721;
+            this.NzGrid.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
+            this.NzGrid.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.NzGrid.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
+            this.NzGrid.TreeLineColor = System.Drawing.Color.Black;
+            this.NzGrid.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+            this.NzGrid.ColumnButtonClick += new Janus.Windows.GridEX.ColumnActionEventHandler(this.mS_GridX1_ColumnButtonClick);
+            // 
+            // ms_mah
+            // 
+            this.ms_mah.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ms_mah.BackColor = System.Drawing.Color.Transparent;
+            this.ms_mah.Location = new System.Drawing.Point(11, 37);
+            this.ms_mah.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ms_mah.Name = "ms_mah";
+            this.ms_mah.Office2007ColorScheme = Janus.Windows.UI.Office2007ColorScheme.Custom;
+            this.ms_mah.Office2007CustomColor = System.Drawing.Color.AntiqueWhite;
+            this.ms_mah.PageBorder = Janus.Windows.UI.Tab.PageBorder.None;
+            this.ms_mah.PanelFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ms_mah.ShowFocusRectangle = false;
+            this.ms_mah.Size = new System.Drawing.Size(848, 28);
+            this.ms_mah.TabIndex = 837;
+            this.ms_mah.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
+            this.uiTabPage1,
+            this.uiTabPage2,
+            this.uiTabPage3,
+            this.uiTabPage4,
+            this.uiTabPage5,
+            this.uiTabPage6,
+            this.uiTabPage7,
+            this.uiTabPage8,
+            this.uiTabPage9,
+            this.uiTabPage10,
+            this.uiTabPage11,
+            this.uiTabPage13,
+            this.uiTabPage15});
+            this.ms_mah.TabsStateStyles.DisabledFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ms_mah.TabsStateStyles.DisabledFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ms_mah.TabsStateStyles.FormatStyle.BackColor = System.Drawing.Color.PowderBlue;
+            this.ms_mah.TabsStateStyles.SelectedFormatStyle.BackColor = System.Drawing.Color.Gold;
+            this.ms_mah.TabsStateStyles.SelectedFormatStyle.Font = new System.Drawing.Font("Tahoma", 9.5F, System.Drawing.FontStyle.Bold);
+            this.ms_mah.UseThemes = false;
+            this.ms_mah.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2003;
+            // 
+            // uiTabPage1
+            // 
+            this.uiTabPage1.Location = new System.Drawing.Point(0, 30);
+            this.uiTabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uiTabPage1.Name = "uiTabPage1";
+            this.uiTabPage1.Size = new System.Drawing.Size(848, 0);
+            this.uiTabPage1.TabStop = true;
+            this.uiTabPage1.Text = "لـیست کـلی";
+            // 
+            // uiTabPage2
+            // 
+            this.uiTabPage2.Location = new System.Drawing.Point(0, 19);
+            this.uiTabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uiTabPage2.Name = "uiTabPage2";
+            this.uiTabPage2.Size = new System.Drawing.Size(741, 0);
+            this.uiTabPage2.TabStop = true;
+            this.uiTabPage2.Text = "اسـفـنـد";
+            // 
+            // uiTabPage3
+            // 
+            this.uiTabPage3.Location = new System.Drawing.Point(0, 19);
+            this.uiTabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uiTabPage3.Name = "uiTabPage3";
+            this.uiTabPage3.Size = new System.Drawing.Size(764, 0);
+            this.uiTabPage3.TabStop = true;
+            this.uiTabPage3.Text = "بـهـمـن";
+            // 
+            // uiTabPage4
+            // 
+            this.uiTabPage4.Location = new System.Drawing.Point(0, 19);
+            this.uiTabPage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uiTabPage4.Name = "uiTabPage4";
+            this.uiTabPage4.Size = new System.Drawing.Size(733, 0);
+            this.uiTabPage4.TabStop = true;
+            this.uiTabPage4.Text = "دی";
+            // 
+            // uiTabPage5
+            // 
+            this.uiTabPage5.Location = new System.Drawing.Point(0, 19);
+            this.uiTabPage5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uiTabPage5.Name = "uiTabPage5";
+            this.uiTabPage5.Size = new System.Drawing.Size(733, 0);
+            this.uiTabPage5.TabStop = true;
+            this.uiTabPage5.Text = "آذر";
+            // 
+            // uiTabPage6
+            // 
+            this.uiTabPage6.Location = new System.Drawing.Point(0, 19);
+            this.uiTabPage6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uiTabPage6.Name = "uiTabPage6";
+            this.uiTabPage6.Size = new System.Drawing.Size(764, 0);
+            this.uiTabPage6.TabStop = true;
+            this.uiTabPage6.Text = "آبــان";
+            // 
+            // uiTabPage7
+            // 
+            this.uiTabPage7.Location = new System.Drawing.Point(0, 19);
+            this.uiTabPage7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uiTabPage7.Name = "uiTabPage7";
+            this.uiTabPage7.Size = new System.Drawing.Size(733, 0);
+            this.uiTabPage7.TabStop = true;
+            this.uiTabPage7.Text = "مـهــر";
+            // 
+            // uiTabPage8
+            // 
+            this.uiTabPage8.Location = new System.Drawing.Point(0, 19);
+            this.uiTabPage8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uiTabPage8.Name = "uiTabPage8";
+            this.uiTabPage8.Size = new System.Drawing.Size(764, 0);
+            this.uiTabPage8.TabStop = true;
+            this.uiTabPage8.Text = "شــهـریـور";
+            // 
+            // uiTabPage9
+            // 
+            this.uiTabPage9.Location = new System.Drawing.Point(0, 30);
+            this.uiTabPage9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uiTabPage9.Name = "uiTabPage9";
+            this.uiTabPage9.Size = new System.Drawing.Size(848, 0);
+            this.uiTabPage9.TabStop = true;
+            this.uiTabPage9.Text = "مــرداد";
+            // 
+            // uiTabPage10
+            // 
+            this.uiTabPage10.Location = new System.Drawing.Point(0, 19);
+            this.uiTabPage10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uiTabPage10.Name = "uiTabPage10";
+            this.uiTabPage10.Size = new System.Drawing.Size(722, 0);
+            this.uiTabPage10.TabStop = true;
+            this.uiTabPage10.Text = "تـیــر";
+            // 
+            // uiTabPage11
+            // 
+            this.uiTabPage11.Location = new System.Drawing.Point(0, 19);
+            this.uiTabPage11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uiTabPage11.Name = "uiTabPage11";
+            this.uiTabPage11.Size = new System.Drawing.Size(764, 0);
+            this.uiTabPage11.TabStop = true;
+            this.uiTabPage11.Text = "خــرداد";
+            // 
+            // uiTabPage13
+            // 
+            this.uiTabPage13.Location = new System.Drawing.Point(0, 19);
+            this.uiTabPage13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uiTabPage13.Name = "uiTabPage13";
+            this.uiTabPage13.Size = new System.Drawing.Size(722, 0);
+            this.uiTabPage13.TabStop = true;
+            this.uiTabPage13.Text = "اردیـبهـشـت";
+            // 
+            // uiTabPage15
+            // 
+            this.uiTabPage15.Location = new System.Drawing.Point(0, 19);
+            this.uiTabPage15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uiTabPage15.Name = "uiTabPage15";
+            this.uiTabPage15.Size = new System.Drawing.Size(759, 0);
+            this.uiTabPage15.TabStop = true;
+            this.uiTabPage15.Text = "فـروردیـن";
+            // 
+            // uiTabPage14
+            // 
+            this.uiTabPage14.AutoScroll = true;
+            this.uiTabPage14.Location = new System.Drawing.Point(1, 1);
+            this.uiTabPage14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uiTabPage14.Name = "uiTabPage14";
+            this.uiTabPage14.PanelFormatStyle.Alpha = 70;
+            this.uiTabPage14.PanelFormatStyle.BackColor = System.Drawing.Color.SkyBlue;
+            this.uiTabPage14.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
+            this.uiTabPage14.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
+            this.uiTabPage14.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.uiTabPage14.Size = new System.Drawing.Size(782, 357);
+            this.uiTabPage14.TabStop = true;
+            this.uiTabPage14.Text = "پرسش و پاسخ";
+            // 
+            // mS_GridX_Setting1
+            // 
+            this.mS_GridX_Setting1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.mS_GridX_Setting1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.mS_GridX_Setting1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator1,
+            this.ms_Add});
+            this.mS_GridX_Setting1.Location = new System.Drawing.Point(0, 415);
+            this.mS_GridX_Setting1.MS_BorderColor = System.Drawing.Color.DodgerBlue;
+            this.mS_GridX_Setting1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+            this.mS_GridX_Setting1.MS_Color_End = System.Drawing.Color.PowderBlue;
+            this.mS_GridX_Setting1.MS_Color_Start = System.Drawing.Color.AliceBlue;
+            this.mS_GridX_Setting1.MS_GridX = this.NzGrid;
+            this.mS_GridX_Setting1.Name = "mS_GridX_Setting1";
+            this.mS_GridX_Setting1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.mS_GridX_Setting1.Size = new System.Drawing.Size(896, 25);
+            this.mS_GridX_Setting1.TabIndex = 727;
+            this.mS_GridX_Setting1.Text = "mS_GridX_Setting1";
+            this.mS_GridX_Setting1.MS_On_Print_Clicked += new System.EventHandler(this.mS_GridX_Setting1_MS_On_Print_Clicked);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // ms_Add
+            // 
+            this.ms_Add.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ms_Add.Image = ((System.Drawing.Image)(resources.GetObject("ms_Add.Image")));
+            this.ms_Add.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ms_Add.Name = "ms_Add";
+            this.ms_Add.Size = new System.Drawing.Size(23, 22);
+            this.ms_Add.ToolTipText = "ردیــف جــدیــد   [Ins]";
+            this.ms_Add.Click += new System.EventHandler(this.ms_Add_Click);
+            // 
+            // FormListDeficitAddition
+            // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(896, 440);
+            this.Controls.Add(this.Tab_Control_Main);
+            this.Controls.Add(this.mS_GridX_Setting1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "FormListDeficitAddition";
+            this.Text = "لیست کسورات";
+            this.Load += new System.EventHandler(this.FormListDeficit_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).EndInit();
+            this.Tab_Control_Main.ResumeLayout(false);
+            this.uiTabPage12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NzDeficitAdditionKind)).EndInit();
+            this.NzDeficitAdditionKind.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NzGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ms_mah)).EndInit();
+            this.ms_mah.ResumeLayout(false);
+            this.mS_GridX_Setting1.ResumeLayout(false);
+            this.mS_GridX_Setting1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private Janus.Windows.UI.Tab.UITab Tab_Control_Main;
+        private Janus.Windows.UI.Tab.UITabPage uiTabPage12;
+        private MS_Control.Controls.MS_GridX NzGrid;
+        private Janus.Windows.UI.Tab.UITab ms_mah;
+        private Janus.Windows.UI.Tab.UITabPage uiTabPage1;
+        private Janus.Windows.UI.Tab.UITabPage uiTabPage2;
+        private Janus.Windows.UI.Tab.UITabPage uiTabPage3;
+        private Janus.Windows.UI.Tab.UITabPage uiTabPage4;
+        private Janus.Windows.UI.Tab.UITabPage uiTabPage5;
+        private Janus.Windows.UI.Tab.UITabPage uiTabPage6;
+        private Janus.Windows.UI.Tab.UITabPage uiTabPage7;
+        private Janus.Windows.UI.Tab.UITabPage uiTabPage8;
+        private Janus.Windows.UI.Tab.UITabPage uiTabPage9;
+        private Janus.Windows.UI.Tab.UITabPage uiTabPage10;
+        private Janus.Windows.UI.Tab.UITabPage uiTabPage11;
+        private Janus.Windows.UI.Tab.UITabPage uiTabPage13;
+        private Janus.Windows.UI.Tab.UITabPage uiTabPage15;
+        private Janus.Windows.UI.Tab.UITabPage uiTabPage14;
+        private MS_Control.Controls.MS_GridX_Setting mS_GridX_Setting1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton ms_Add;
+        private Janus.Windows.UI.Tab.UITab NzDeficitAdditionKind;
+        private Janus.Windows.UI.Tab.UITabPage NzTabDeficit;
+        private Janus.Windows.UI.Tab.UITabPage NzTabAddition;
+    }
+}

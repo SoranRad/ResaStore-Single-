@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{237E2B58-7518-4F16-9321-E2D6F1391FA2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NZ.Xazane.DataLayer</RootNamespace>
+    <AssemblyName>NZ.Xazane.DataLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <AssemblyVersion>1.0.43.0</AssemblyVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Dapper.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\EntityFramework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\EntityFramework.SqlServer.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configure\AccountConfiguration.cs" />
+    <Compile Include="Configure\CheckOperationConfig.cs" />
+    <Compile Include="Configure\ChequeBookConfiguration.cs" />
+    <Compile Include="Configure\ChequeBookDetailConfiguration.cs" />
+    <Compile Include="Configure\DPOperationConfig.cs" />
+    <Compile Include="Configure\PrintCheckConfig.cs" />
+    <Compile Include="Configure\PayBoxOperationConfig.cs" />
+    <Compile Include="Context\ContextFactory.cs" />
+    <Compile Include="DapperConfig\PaymentItemsConfig.cs" />
+    <Compile Include="DapperConfig\Report\AnalyzeChequeConfig.cs" />
+    <Compile Include="DapperConfig\Report\AnalyzeChequeDetailConfig.cs" />
+    <Compile Include="DapperConfig\Report\AnalyzeChequeMonthlyConfig.cs" />
+    <Compile Include="DapperConfig\Report\DailyCircularConfig.cs" />
+    <Compile Include="DapperConfig\Report\HazineDaramadGropingConfig.cs" />
+    <Compile Include="DapperConfig\Report\MoneyCircularConfig.cs" />
+    <Compile Include="DapperConfig\Report\PaymentsTransactionConfig.cs" />
+    <Compile Include="DapperConfig\Report\RemaindPeopleConfig.cs" />
+    <Compile Include="DapperConfig\Report\ReviewAccountDailyConfig.cs" />
+    <Compile Include="DapperConfig\Report\ReviewAccountDetailConfig.cs" />
+    <Compile Include="DapperConfig\Report\ReviewAccoutnSumarryConfig.cs" />
+    <Compile Include="DapperConfig\Report\ReviewAcountMonthlyConfig.cs" />
+    <Compile Include="DapperConfig\Report\SarResidCheque.cs" />
+    <Compile Include="DapperConfig\Report\UsentChequeConfig.cs" />
+    <Compile Include="DapperConfig\ViewModel\AssignChequeConfig.cs" />
+    <Compile Include="DapperConfig\ViewModel\AssignChequeInDateConfig.cs" />
+    <Compile Include="DapperConfig\ViewModel\BillRowItemConfig.cs" />
+    <Compile Include="DapperConfig\ViewModel\ChequeListConfig.cs" />
+    <Compile Include="DapperConfig\ViewModel\ChequeStateConfig.cs" />
+    <Compile Include="DapperConfig\ViewModel\CircularRowItemConfig.cs" />
+    <Compile Include="DapperConfig\ViewModel\DeficitAdditionDapperConfig.cs" />
+    <Compile Include="Context\XazaneContext.cs" />
+    <Compile Include="DapperConfig\DpOperationDapperConfig.cs" />
+    <Compile Include="DapperConfig\ViewModel\FactorPaymentIDConfig.cs" />
+    <Compile Include="DapperConfig\ViewModel\FactorPaymentListConfig.cs" />
+    <Compile Include="DapperConfig\ViewModel\PaymentChequeArriveBackConfig.cs" />
+    <Compile Include="DapperConfig\ViewModel\PaymentChequeArriveBackInDateConfig.cs" />
+    <Compile Include="DapperConfig\ViewModel\PaymentListDapperConfig.cs" />
+    <Compile Include="DapperConfig\ViewModel\PrintDPConfig.cs" />
+    <Compile Include="DapperConfig\ViewModel\RecieveChequeArriveInDateConfig.cs" />
+    <Compile Include="DapperConfig\ViewModel\RecieveChequeArriveConfig.cs" />
+    <Compile Include="DapperConfig\ViewModel\RemainGeneralConfig.cs" />
+    <Compile Include="DapperConfig\ViewModel\RemainListConfig.cs" />
+    <Compile Include="DapperConfig\ViewModel\RemoveChequeConfig.cs" />
+    <Compile Include="Migrations\202203190652175_InitialCreate.cs" />
+    <Compile Include="Migrations\202203190652175_InitialCreate.designer.cs">
+      <DependentUpon>202203190652175_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repo\DpRepository.cs" />
+    <Compile Include="Repo\MultipleReport.cs" />
+    <Compile Include="Repo\ReportRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\General\ShareLib\ShareLib.csproj">
+      <Project>{ee295af7-3238-4f98-b5fc-9f16c02391e8}</Project>
+      <Name>ShareLib</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\NZ.Xazane.Model\NZ.Xazane.Model.csproj">
+      <Project>{b22dfb8e-ef80-4076-8655-16584b4372ba}</Project>
+      <Name>NZ.Xazane.Model</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202203190652175_InitialCreate.resx">
+      <DependentUpon>202203190652175_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

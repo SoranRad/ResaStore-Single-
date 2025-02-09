@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0DC2A135-5CBD-4912-8305-D2898CF70E85}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MS_Resource</RootNamespace>
+    <AssemblyName>MS_Resource</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <AssemblyVersion>4.3.128.0</AssemblyVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GlobalResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GlobalResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="1_1.png" />
+    <Content Include="4.png" />
+    <Content Include="access.png" />
+    <Content Include="application_view_detail.png" />
+    <Content Include="avg.png" />
+    <Content Include="Base.png" />
+    <Content Include="basket.png" />
+    <Content Include="btn_Group_Box.png" />
+    <Content Include="btn_Outo_Resize.png" />
+    <Content Include="Buy.png" />
+    <Content Include="category_group.png" />
+    <Content Include="chart_bar.png" />
+    <Content Include="cheque-icon.png" />
+    <Content Include="chequeAssign.png" />
+    <Content Include="chequeBack.png" />
+    <Content Include="cheque_Delete.png" />
+    <Content Include="cheque_Pass.png" />
+    <Content Include="column_single.png" />
+    <Content Include="database-share.png" />
+    <Content Include="Details.png" />
+    <Content Include="filter.png" />
+    <Content Include="help.png" />
+    <Content Include="help2.png" />
+    <Content Include="Logo_Form.png" />
+    <Content Include="Logo_Resaa.ico" />
+    <Content Include="Logo_Resaa_Final-Blue.png" />
+    <Content Include="max1.png" />
+    <Content Include="min.png" />
+    <Content Include="Negin %281%29.gif" />
+    <Content Include="Negin %281%29.png" />
+    <Content Include="Negin %2816%29.png" />
+    <Content Include="Negin %2817%29.png" />
+    <Content Include="Negin %2818%29.png" />
+    <Content Include="Negin %2819%29.png" />
+    <Content Include="Negin %282%29.png" />
+    <Content Include="Negin %2820%29.png" />
+    <Content Include="Negin %2826%29.png" />
+    <Content Include="Negin %283%29.png" />
+    <Content Include="Negin %2830%29.png" />
+    <Content Include="Negin %2831%29.png" />
+    <Content Include="Negin %2832%29.png" />
+    <Content Include="Negin %2833%29.png" />
+    <Content Include="Negin %2834%29.png" />
+    <Content Include="Negin %2838%29.png" />
+    <Content Include="Negin %2839%29.png" />
+    <Content Include="Negin %284%29.png" />
+    <Content Include="Negin %2845%29.png" />
+    <Content Include="Negin %2846%29.png" />
+    <Content Include="Negin %285%29.png" />
+    <Content Include="Negin %2850%29.png" />
+    <Content Include="Negin %2851%29.png" />
+    <Content Include="Negin %286%29.png" />
+    <Content Include="Negin %2863%29.png" />
+    <Content Include="Negin %2864%29.png" />
+    <Content Include="Negin %2867%29.png" />
+    <Content Include="Negin %2870%29.png" />
+    <Content Include="OpenFolder.png" />
+    <Content Include="page_add.png" />
+    <Content Include="page_white_add.png" />
+    <Content Include="Pos.png" />
+    <Content Include="refresh.png" />
+    <Content Include="Rep %2817%29.png" />
+    <Content Include="Rep %2818%29.png" />
+    <Content Include="Rep %285%29.png" />
+    <Content Include="Resa_L %2819%29.png" />
+    <Content Include="Resa_L %2822%29.png" />
+    <Content Include="Resa_L %2823%29.png" />
+    <Content Include="Resa_L %283%29.png" />
+    <Content Include="Resa_L %2853%29.png" />
+    <Content Include="Resa_L %286%29.png" />
+    <Content Include="Resa_L %287%29.png" />
+    <Content Include="shoraka.png" />
+    <Content Include="StoreHouse.png" />
+    <Content Include="sum.png" />
+    <Content Include="support.png" />
+    <Content Include="table_filter.png" />
+    <Content Include="table_select_column.png" />
+    <Content Include="Unit.png" />
+    <Content Include="userActive.png" />
+    <Content Include="x-office-spreadsheet.png" />
+    <Content Include="_ms_Back.png" />
+    <Content Include="_ms_Delete.png" />
+    <Content Include="_ms_Edit.png" />
+    <Content Include="_ms_Laqv_Save.png" />
+    <Content Include="_ms_New.png" />
+    <Content Include="_ms_Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="excel.png" />
+    <None Include="save.png" />
+    <None Include="search.png" />
+    <None Include="Summary_16x16.png" />
+    <None Include="Toolbar2.png" />
+    <None Include="Toolbar3.png" />
+    <None Include="Toolbar4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GlobalResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GlobalResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+      <CustomToolNamespace>MS_Resource</CustomToolNamespace>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

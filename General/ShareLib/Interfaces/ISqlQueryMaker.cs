@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ShareLib.Interfaces
+{
+    public interface ISqlQueryMaker
+    {
+        string  GetItem();
+        string  GetList();
+    }
+}

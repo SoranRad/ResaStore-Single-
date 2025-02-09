@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Nz.Anbar.Model.ViewModel
+{
+    public class PreSaleFactor 
+    {
+        public long         ID                  { get; set; }
+
+        public int          Serial              { get; set; }
+        public string       PersianStr          { get; set; }
+        public string       PersianMonthNo      { get; set; }
+        public string       PersianDayInMonth   { get; set; }
+
+        public string       Customer            { get; set; }
+        public decimal      mablaq              { get; set; }
+        public string       sharh               { get; set; }
+
+        public decimal?     mablaq_takhfif      { get; set; }
+        public decimal?     Darsad_Takhfif      { get; set; }
+        public decimal?     mablaq_Maliat       { get; set; }
+        public decimal?     Darsad_Maliat       { get; set; }
+        public decimal?     Ezafat              { get; set; }
+    }
+}

@@ -1,0 +1,727 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C1C006F8-7866-44B5-9513-12CABB4912BF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NZ.Xazane.WinForms</RootNamespace>
+    <AssemblyName>NZ.Xazane.WinForms</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <AssemblyVersion>1.0.43.0</AssemblyVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar.Design, Version=9.5.0.0, Culture=neutral, PublicKeyToken=3caa4ad0ba35cf8d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\DevComponents.DotNetBar.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2, Version=9.5.0.0, Culture=neutral, PublicKeyToken=d159a0cb0c2a1170, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\DevComponents.DotNetBar2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Data.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Data.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Windows.ButtonBar.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Windows.ButtonBar.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Windows.CalendarCombo.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Windows.CalendarCombo.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Windows.Common.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Windows.Common.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Windows.ExplorerBar.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Windows.ExplorerBar.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Windows.FilterEditor.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Windows.FilterEditor.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Windows.GridEX.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Windows.GridEX.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Windows.Ribbon.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Windows.Ribbon.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Windows.Schedule.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Windows.Schedule.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Windows.TimeLine.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Windows.TimeLine.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Janus.Windows.UI.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Janus.Windows.UI.v3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\log4net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MDIWindowManager, Version=2.1.6307.23823, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\MDIWindowManager.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MS_Control, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\MS_Control.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MS_Resource, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\MS_Resource.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MS_Sql_Manage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\MS_Sql_Manage.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NZ.General.WinForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\NZ.General.WinForms.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.Base, Version=2015.2.0.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Stimulsoft.Base.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.BusinessObjects, Version=2013.2.1612.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Stimulsoft.BusinessObjects.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.Controls, Version=2015.2.0.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Stimulsoft.Controls.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.Controls.Win, Version=2015.2.0.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Stimulsoft.Controls.Win.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.Database, Version=2015.2.0.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Stimulsoft.Database.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.Design, Version=2015.2.0.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Stimulsoft.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.Editor, Version=2015.2.0.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Stimulsoft.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.Report, Version=2015.2.0.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Stimulsoft.Report.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Check, Version=2015.2.0.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Stimulsoft.Report.Check.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Design, Version=2015.2.0.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Stimulsoft.Report.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Helper, Version=2015.2.0.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Stimulsoft.Report.Helper.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Win, Version=2015.2.0.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\Stimulsoft.Report.Win.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Alarm\ChequeAlarm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Alarm\ChequeAlarm.Designer.cs">
+      <DependentUpon>ChequeAlarm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\FormAccountTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\FormAccountTransfer.Designer.cs">
+      <DependentUpon>FormAccountTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\FormBarCodePayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\FormBarCodePayment.Designer.cs">
+      <DependentUpon>FormBarCodePayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\FormListAccountTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\FormListAccountTransfer.Designer.cs">
+      <DependentUpon>FormListAccountTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\ChartSummarry.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Component\ChartSummarry.Designer.cs">
+      <DependentUpon>ChartSummarry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\PaymentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\PaymentControl.Designer.cs">
+      <DependentUpon>PaymentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EndYear\FormEndYear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EndYear\FormEndYear.Designer.cs">
+      <DependentUpon>FormEndYear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Factor\FactorPaymentService.cs" />
+    <Compile Include="Factor\FormFactorPaymnetList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Factor\FormFactorPaymnetList.Designer.cs">
+      <DependentUpon>FormFactorPaymnetList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FormAnalyzeChequeDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormAnalyzeChequeDetail.Designer.cs">
+      <DependentUpon>FormAnalyzeChequeDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FormAnalyzeChequeMonthly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormAnalyzeChequeMonthly.Designer.cs">
+      <DependentUpon>FormAnalyzeChequeMonthly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FormCircularPeople.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormCircularPeople.Designer.cs">
+      <DependentUpon>FormCircularPeople.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FormAnalyzeCheque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormAnalyzeCheque.Designer.cs">
+      <DependentUpon>FormAnalyzeCheque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FormChequeAlarm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormChequeAlarm.Designer.cs">
+      <DependentUpon>FormChequeAlarm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FormReviewAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormReviewAccount.Designer.cs">
+      <DependentUpon>FormReviewAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FormReviewAccountDaily.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormReviewAccountDaily.Designer.cs">
+      <DependentUpon>FormReviewAccountDaily.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FormReviewAccountDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormReviewAccountDetail.Designer.cs">
+      <DependentUpon>FormReviewAccountDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FormReviewAccountMonthly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormReviewAccountMonthly.Designer.cs">
+      <DependentUpon>FormReviewAccountMonthly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\PeopleCircularModel.cs" />
+    <None Include="..\..\General\MS_Resource\GlobalResources.Designer.cs">
+      <Link>GlobalResources.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GlobalResources.resx</DependentUpon>
+    </None>
+    <Compile Include="App\BindChequeList.cs" />
+    <Compile Include="App\FormCost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\FormCost.Designer.cs">
+      <DependentUpon>FormCost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\FormDeficit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\FormDeficit.Designer.cs">
+      <DependentUpon>FormDeficit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\FormIncome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\FormIncome.Designer.cs">
+      <DependentUpon>FormIncome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\Print.cs" />
+    <Compile Include="Cheque\FormArriveCheque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cheque\FormArriveCheque.Designer.cs">
+      <DependentUpon>FormArriveCheque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cheque\FormArrive_Back.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cheque\FormArrive_Back.Designer.cs">
+      <DependentUpon>FormArrive_Back.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cheque\FormAssign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cheque\FormAssign.Designer.cs">
+      <DependentUpon>FormAssign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cheque\FormListCheque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cheque\FormListCheque.Designer.cs">
+      <DependentUpon>FormListCheque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\FormListCostIncome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\FormListCostIncome.Designer.cs">
+      <DependentUpon>FormListCostIncome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\FormListDeficitAddition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\FormListDeficitAddition.Designer.cs">
+      <DependentUpon>FormListDeficitAddition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\FormListPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\FormListPayment.Designer.cs">
+      <DependentUpon>FormListPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\FormPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\FormPayment.Designer.cs">
+      <DependentUpon>FormPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\BindingRemaindList.cs" />
+    <Compile Include="Base\FormBankAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\FormBankAccount.Designer.cs">
+      <DependentUpon>FormBankAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\FormDeficit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\FormDeficit.Designer.cs">
+      <DependentUpon>FormDeficit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\FormListDeficit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\FormListDeficit.Designer.cs">
+      <DependentUpon>FormListDeficit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\FormListRemaind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\FormListRemaind.Designer.cs">
+      <DependentUpon>FormListRemaind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\FormNewChequeBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\FormNewChequeBook.Designer.cs">
+      <DependentUpon>FormNewChequeBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\FormCost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\FormCost.Designer.cs">
+      <DependentUpon>FormCost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\FormFund.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\FormFund.Designer.cs">
+      <DependentUpon>FormFund.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\FormIncome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\FormIncome.Designer.cs">
+      <DependentUpon>FormIncome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\FormListBankAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\FormListBankAccount.Designer.cs">
+      <DependentUpon>FormListBankAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\FormListCache.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\FormListCache.Designer.cs">
+      <DependentUpon>FormListCache.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\FormListChequeBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\FormListChequeBook.Designer.cs">
+      <DependentUpon>FormListChequeBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\FormListCost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\FormListCost.Designer.cs">
+      <DependentUpon>FormListCost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\FormListIncome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\FormListIncome.Designer.cs">
+      <DependentUpon>FormListIncome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\Form_Cache.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\Form_Cache.Designer.cs">
+      <DependentUpon>Form_Cache.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\FormListFund.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\FormListFund.Designer.cs">
+      <DependentUpon>FormListFund.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\NzAccontPopup.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Component\NzAccontPopup.Designer.cs">
+      <DependentUpon>NzAccontPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\NzAccounts.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Component\NzAccounts.Designer.cs">
+      <DependentUpon>NzAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\NzChequeStateShow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\NzChequeStateShow.Designer.cs">
+      <DependentUpon>NzChequeStateShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\NzListAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\NzListAccount.Designer.cs">
+      <DependentUpon>NzListAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\FormSaveIncome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operation\FormSaveIncome.Designer.cs">
+      <DependentUpon>FormSaveIncome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print\PrintPayment.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Provider\XazaneMenuItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Provider\XazaneMenuItems.Designer.cs">
+      <DependentUpon>XazaneMenuItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Provider\XazaneProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\General\MS_Print_Dialog\MS_Print_Dialog.csproj">
+      <Project>{ed81290b-b424-4a06-9589-a45f43c36a59}</Project>
+      <Name>MS_Print_Dialog</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\General\ShareLib\ShareLib.csproj">
+      <Project>{ee295af7-3238-4f98-b5fc-9f16c02391e8}</Project>
+      <Name>ShareLib</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\NZ.Xazane.Business\NZ.Xazane.Business.csproj">
+      <Project>{c9e9fbb9-89ad-43e4-8cae-8cc683c07123}</Project>
+      <Name>NZ.Xazane.Business</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\NZ.Xazane.Model\NZ.Xazane.Model.csproj">
+      <Project>{b22dfb8e-ef80-4076-8655-16584b4372ba}</Project>
+      <Name>NZ.Xazane.Model</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Alarm\ChequeAlarm.resx">
+      <DependentUpon>ChequeAlarm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\FormAccountTransfer.resx">
+      <DependentUpon>FormAccountTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\FormBarCodePayment.resx">
+      <DependentUpon>FormBarCodePayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\FormListAccountTransfer.resx">
+      <DependentUpon>FormListAccountTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\ChartSummarry.resx">
+      <DependentUpon>ChartSummarry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\PaymentControl.resx">
+      <DependentUpon>PaymentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EndYear\FormEndYear.resx">
+      <DependentUpon>FormEndYear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Factor\FormFactorPaymnetList.resx">
+      <DependentUpon>FormFactorPaymnetList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormAnalyzeChequeDetail.resx">
+      <DependentUpon>FormAnalyzeChequeDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormAnalyzeChequeMonthly.resx">
+      <DependentUpon>FormAnalyzeChequeMonthly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormCircularPeople.resx">
+      <DependentUpon>FormCircularPeople.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormAnalyzeCheque.resx">
+      <DependentUpon>FormAnalyzeCheque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormChequeAlarm.resx">
+      <DependentUpon>FormChequeAlarm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormReviewAccount.resx">
+      <DependentUpon>FormReviewAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormReviewAccountDaily.resx">
+      <DependentUpon>FormReviewAccountDaily.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormReviewAccountDetail.resx">
+      <DependentUpon>FormReviewAccountDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormReviewAccountMonthly.resx">
+      <DependentUpon>FormReviewAccountMonthly.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="..\..\General\MS_Resource\GlobalResources.resx">
+      <Link>GlobalResources.resx</Link>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GlobalResources.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>MS_Resource</CustomToolNamespace>
+    </None>
+    <EmbeddedResource Include="App\FormCost.resx">
+      <DependentUpon>FormCost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\FormDeficit.resx">
+      <DependentUpon>FormDeficit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\FormIncome.resx">
+      <DependentUpon>FormIncome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cheque\FormArriveCheque.resx">
+      <DependentUpon>FormArriveCheque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cheque\FormArrive_Back.resx">
+      <DependentUpon>FormArrive_Back.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cheque\FormAssign.resx">
+      <DependentUpon>FormAssign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cheque\FormListCheque.resx">
+      <DependentUpon>FormListCheque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\FormListCostIncome.resx">
+      <DependentUpon>FormListCostIncome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\FormListDeficitAddition.resx">
+      <DependentUpon>FormListDeficitAddition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\FormListPayment.resx">
+      <DependentUpon>FormListPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\FormPayment.resx">
+      <DependentUpon>FormPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\FormBankAccount.resx">
+      <DependentUpon>FormBankAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\FormDeficit.resx">
+      <DependentUpon>FormDeficit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\FormListDeficit.resx">
+      <DependentUpon>FormListDeficit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\FormListRemaind.resx">
+      <DependentUpon>FormListRemaind.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\FormNewChequeBook.resx">
+      <DependentUpon>FormNewChequeBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\FormCost.resx">
+      <DependentUpon>FormCost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\FormFund.resx">
+      <DependentUpon>FormFund.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\FormIncome.resx">
+      <DependentUpon>FormIncome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\FormListBankAccount.resx">
+      <DependentUpon>FormListBankAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\FormListCache.resx">
+      <DependentUpon>FormListCache.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\FormListChequeBook.resx">
+      <DependentUpon>FormListChequeBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\FormListCost.resx">
+      <DependentUpon>FormListCost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\FormListFund.resx">
+      <DependentUpon>FormListFund.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\FormListIncome.resx">
+      <DependentUpon>FormListIncome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\Form_Cache.resx">
+      <DependentUpon>Form_Cache.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\NzAccontPopup.resx">
+      <DependentUpon>NzAccontPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\NzAccounts.resx">
+      <DependentUpon>NzAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\NzChequeStateShow.resx">
+      <DependentUpon>NzChequeStateShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\NzListAccount.resx">
+      <DependentUpon>NzListAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operation\FormSaveIncome.resx">
+      <DependentUpon>FormSaveIncome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Provider\XazaneMenuItems.resx">
+      <DependentUpon>XazaneMenuItems.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
