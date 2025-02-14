@@ -753,7 +753,6 @@
 			this.NzGrid.Size = new System.Drawing.Size(873, 383);
 			this.NzGrid.TabIndex = 1;
 			this.NzGrid.TabKeyBehavior = Janus.Windows.GridEX.TabKeyBehavior.ControlNavigation;
-			this.NzGrid.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
 			this.NzGrid.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 			this.NzGrid.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
 			this.NzGrid.TreeLineColor = System.Drawing.Color.Black;

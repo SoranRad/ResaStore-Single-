@@ -73,33 +73,25 @@ namespace MS_Print_Dialog
                 ms_direct_print.Checked = _Do_Direct_Print.Value;
             try
             {
-                if (search == null)
-                {
-                    search = new ManagementObjectSearcher();
-                    search = new ManagementObjectSearcher("select * from win32_printer");
-                    results = search.Get();
-                }
                 //=============================
                 MemoryStream ms = new MemoryStream();
                 Properties.Resources.check.Save(ms, Properties.Resources.check.RawFormat);
                 byte[] arrImage = ms.GetBuffer();
 
-                var list = (from print in results.OfType<ManagementObject>()
-                            select new
-                            {
-                                title = print["Name"],
-                                vaziat = print["ExtendedPrinterStatus"] != null
-                                ? ((Printer_Structure.Extended_Printer_Status)
-                                    Convert.ToInt32(print["ExtendedPrinterStatus"].ToString())
-                                    ).ToString()
-                                : string.Empty,
-                                is_default = _Printer_Setting.PrinterName.Equals(print["Name"])
-                                ? arrImage
-                                : null,
-                            }).ToList();
+                var list = (from i in  System.Drawing.Printing.PrinterSettings.InstalledPrinters.OfType<string>()
+                           select new 
+                           {
+                               title = i,
+                               is_default = _Printer_Setting.PrinterName.Equals(i)
+	                               ? arrImage
+                                   : null,
+                           })
+	                        .ToList();
+
                 ms_grid.DataSource = list;
                 ms_grid.FilterMode = FilterMode.None;
                 ms_grid.Refresh();
+
                 var r = ms_grid.GetRows()
                     .FirstOrDefault(x => x.Cells["title"].Text == _Printer_Setting.PrinterName);
                 if (r != null)
@@ -107,10 +99,52 @@ namespace MS_Print_Dialog
                     ms_grid.MoveTo(r);
                     ms_grid.EnsureVisible(r.Position);
                 }
+
+                //foreach (string printer in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
+                //{
+                // MessageBox.Show(printer);
+                //}
+
+                //if (search == null)
+                //{
+                //    search = new ManagementObjectSearcher();
+                //    search = new ManagementObjectSearcher("select * from win32_printer");
+                //    results = search.Get();
+                //}
+                ////=============================
+                //MemoryStream ms = new MemoryStream();
+                //Properties.Resources.check.Save(ms, Properties.Resources.check.RawFormat);
+                //byte[] arrImage = ms.GetBuffer();
+
+                //var list = (from print in results.OfType<ManagementObject>()
+                //            select new
+                //            {
+                //                title = print["Name"],
+                //                vaziat = print["ExtendedPrinterStatus"] != null
+                //                ? ((Printer_Structure.Extended_Printer_Status)
+                //                    Convert.ToInt32(print["ExtendedPrinterStatus"].ToString())
+                //                    ).ToString()
+                //                : string.Empty,
+                //                is_default = _Printer_Setting.PrinterName.Equals(print["Name"])
+                //                ? arrImage
+                //                : null,
+                //            }).ToList();
+                //ms_grid.DataSource = list;
+                //ms_grid.FilterMode = FilterMode.None;
+                //ms_grid.Refresh();
+                //var r = ms_grid.GetRows()
+                //    .FirstOrDefault(x => x.Cells["title"].Text == _Printer_Setting.PrinterName);
+                //if (r != null)
+                //{
+                //    ms_grid.MoveTo(r);
+                //    ms_grid.EnsureVisible(r.Position);
+                //}
             }
             catch (Exception)
-            {
-                MessageBox.Show("سیستم قادر به لود چاپـگرها نیست");
+            { 
+                new Form_Notify("خطا", "سیستم قادر به لود چاپـگرها نیست.",
+		                Form_Notify.FarsiMessageBoxIcon.اضافه)
+	                .Popup(Form_Notify.Direction_Show.Right_To_Left, 1000);
             }
         }
         private void Load_Form_Dar_Printer          ()
