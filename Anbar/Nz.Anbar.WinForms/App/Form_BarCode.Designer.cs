@@ -41,8 +41,6 @@
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_0_Reference_3 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.HeaderImage");
 			Janus.Windows.GridEX.GridEXLayout NzPrefactorGrid_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzPrefactorGrid_DesignTimeLayout_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.ButtonImage");
-			Janus.Windows.GridEX.GridEXLayout NzObjectList_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
-			Janus.Windows.Common.Layouts.JanusLayoutReference NzObjectList_DesignTimeLayout_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column3.ButtonImage");
 			this.uiTab1 = new Janus.Windows.UI.Tab.UITab();
 			this.uiTabPage1 = new Janus.Windows.UI.Tab.UITabPage();
 			this.uiTab2 = new Janus.Windows.UI.Tab.UITab();
@@ -71,14 +69,23 @@
 			this.NzSaveSetting = new MS_Control.Controls.MS_Button_GridX();
 			this.NzGrid = new MS_Control.Controls.MS_GridX();
 			this.uiGroupBox6 = new Janus.Windows.EditControls.UIGroupBox();
-			this.NzPrice = new Nz.Anbar.WinForms.Component.NzLabel();
-			this.NzBarcodePrice = new Nz.Anbar.WinForms.Component.NzBarcodeReader();
-			this.label11 = new System.Windows.Forms.Label();
 			this.NzFactorKinds = new Janus.Windows.UI.Tab.UITab();
 			this.NzTabPurchaseBack = new Janus.Windows.UI.Tab.UITabPage();
 			this.NzPrefactorGrid = new MS_Control.Controls.MS_GridX();
 			this.NzTabPurchase = new Janus.Windows.UI.Tab.UITabPage();
-			this.NzObjectList = new MS_Control.Controls.MS_GridX();
+			this.NsCopyBarcode = new MS_Control.Controls.MS_Button_GridX();
+			this.NsTakhfifPrice = new MS_Control.Controls.MS_Decimal_Label();
+			this.NsHamkari = new MS_Control.Controls.MS_Decimal_Label();
+			this.NsOmdePrice = new MS_Control.Controls.MS_Decimal_Label();
+			this.NsAdiPrice = new MS_Control.Controls.MS_Decimal_Label();
+			this.NzBarcodePrice = new Nz.Anbar.WinForms.Component.NzBarcodeReader();
+			this.label36 = new System.Windows.Forms.Label();
+			this.label35 = new System.Windows.Forms.Label();
+			this.label34 = new System.Windows.Forms.Label();
+			this.label11 = new System.Windows.Forms.Label();
+			this.label33 = new System.Windows.Forms.Label();
+			this.NsPriceBarcodeTitle = new Nz.Anbar.WinForms.Component.NzLabel();
+			this.label32 = new System.Windows.Forms.Label();
 			this.NzLocation = new Nz.Anbar.WinForms.Component.NzLocation();
 			this.NzLableLocation = new System.Windows.Forms.Label();
 			this.NzFindObject = new Nz.Anbar.WinForms.Component.NzLabel();
@@ -147,7 +154,6 @@
 			this.NzTabPurchaseBack.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NzPrefactorGrid)).BeginInit();
 			this.NzTabPurchase.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.NzObjectList)).BeginInit();
 			this.mS_Tool_Strip1.SuspendLayout();
 			this.uiTabPage3.SuspendLayout();
 			this.SuspendLayout();
@@ -761,6 +767,7 @@
 			this.NzGrid.RowDoubleClick += new Janus.Windows.GridEX.RowActionEventHandler(this.ms_grid_RowDoubleClick);
 			this.NzGrid.EditModeChanged += new System.EventHandler(this.ms_grid_EditModeChanged);
 			this.NzGrid.CancelingRowEdit += new Janus.Windows.GridEX.RowActionCancelEventHandler(this.NzGrid_CancelingRowEdit);
+			this.NzGrid.GetNewRow += new Janus.Windows.GridEX.GetNewRowEventHandler(this.NzGrid_GetNewRow);
 			this.NzGrid.CellUpdated += new Janus.Windows.GridEX.ColumnActionEventHandler(this.ms_grid_CellUpdated);
 			this.NzGrid.RecordAdded += new System.EventHandler(this.NzGrid_RecordAdded);
 			this.NzGrid.UpdatingRecord += new System.ComponentModel.CancelEventHandler(this.ms_grid_UpdatingRecord);
@@ -773,9 +780,6 @@
 			// 
 			this.uiGroupBox6.BackColor = System.Drawing.Color.Transparent;
 			this.uiGroupBox6.BorderColor = System.Drawing.Color.DarkTurquoise;
-			this.uiGroupBox6.Controls.Add(this.NzPrice);
-			this.uiGroupBox6.Controls.Add(this.NzBarcodePrice);
-			this.uiGroupBox6.Controls.Add(this.label11);
 			this.uiGroupBox6.Controls.Add(this.NzFactorKinds);
 			this.uiGroupBox6.Controls.Add(this.NzLocation);
 			this.uiGroupBox6.Controls.Add(this.NzLableLocation);
@@ -790,48 +794,6 @@
 			this.uiGroupBox6.Size = new System.Drawing.Size(307, 513);
 			this.uiGroupBox6.TabIndex = 0;
 			// 
-			// NzPrice
-			// 
-			this.NzPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.NzPrice.Font = new System.Drawing.Font("IRANSans(Small) Medium", 17F);
-			this.NzPrice.Location = new System.Drawing.Point(3, 143);
-			this.NzPrice.Name = "NzPrice";
-			this.NzPrice.Size = new System.Drawing.Size(300, 29);
-			this.NzPrice.TabIndex = 786;
-			this.NzPrice.Text = "...";
-			this.NzPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// NzBarcodePrice
-			// 
-			this.NzBarcodePrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.NzBarcodePrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.NzBarcodePrice.Font = new System.Drawing.Font("IRANSans(Small) Medium", 20F);
-			this.NzBarcodePrice.Location = new System.Drawing.Point(6, 108);
-			this.NzBarcodePrice.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.NzBarcodePrice.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NzBarcodePrice.MS_Change_Border_Color_On_Enter = true;
-			this.NzBarcodePrice.MS_Change_Color_On_Enter = true;
-			this.NzBarcodePrice.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-			this.NzBarcodePrice.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NzBarcodePrice.Name = "NzBarcodePrice";
-			this.NzBarcodePrice.Size = new System.Drawing.Size(272, 33);
-			this.NzBarcodePrice.TabIndex = 785;
-			this.NzBarcodePrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			// 
-			// label11
-			// 
-			this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.label11.BackColor = System.Drawing.Color.Transparent;
-			this.label11.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label11.Image = ((System.Drawing.Image)(resources.GetObject("label11.Image")));
-			this.label11.Location = new System.Drawing.Point(281, 117);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(22, 27);
-			this.label11.TabIndex = 784;
-			// 
 			// NzFactorKinds
 			// 
 			this.NzFactorKinds.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -841,11 +803,11 @@
 			this.NzFactorKinds.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzFactorKinds.FirstTabOffset = 25;
 			this.NzFactorKinds.Font = new System.Drawing.Font("IRANSans(Small)", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NzFactorKinds.Location = new System.Drawing.Point(1, 176);
+			this.NzFactorKinds.Location = new System.Drawing.Point(1, 108);
 			this.NzFactorKinds.Name = "NzFactorKinds";
 			this.NzFactorKinds.PageBorder = Janus.Windows.UI.Tab.PageBorder.StripLine;
 			this.NzFactorKinds.SettingsKey = "NzFactorKinds";
-			this.NzFactorKinds.Size = new System.Drawing.Size(306, 335);
+			this.NzFactorKinds.Size = new System.Drawing.Size(306, 403);
 			this.NzFactorKinds.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
 			this.NzFactorKinds.TabIndex = 783;
 			this.NzFactorKinds.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
@@ -864,7 +826,7 @@
 			this.NzTabPurchaseBack.Key = "NzTabPurchaseBack";
 			this.NzTabPurchaseBack.Location = new System.Drawing.Point(0, 0);
 			this.NzTabPurchaseBack.Name = "NzTabPurchaseBack";
-			this.NzTabPurchaseBack.Size = new System.Drawing.Size(306, 302);
+			this.NzTabPurchaseBack.Size = new System.Drawing.Size(306, 370);
 			this.NzTabPurchaseBack.TabStop = true;
 			this.NzTabPurchaseBack.Text = "     اقلام آماده     ";
 			// 
@@ -918,7 +880,7 @@
 			this.NzPrefactorGrid.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
 			this.NzPrefactorGrid.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
 			this.NzPrefactorGrid.SelectOnExpand = false;
-			this.NzPrefactorGrid.Size = new System.Drawing.Size(306, 302);
+			this.NzPrefactorGrid.Size = new System.Drawing.Size(306, 370);
 			this.NzPrefactorGrid.TabIndex = 781;
 			this.NzPrefactorGrid.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 			this.NzPrefactorGrid.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
@@ -929,67 +891,247 @@
 			// 
 			// NzTabPurchase
 			// 
-			this.NzTabPurchase.Controls.Add(this.NzObjectList);
+			this.NzTabPurchase.Controls.Add(this.NsCopyBarcode);
+			this.NzTabPurchase.Controls.Add(this.NsTakhfifPrice);
+			this.NzTabPurchase.Controls.Add(this.NsHamkari);
+			this.NzTabPurchase.Controls.Add(this.NsOmdePrice);
+			this.NzTabPurchase.Controls.Add(this.NsAdiPrice);
+			this.NzTabPurchase.Controls.Add(this.NzBarcodePrice);
+			this.NzTabPurchase.Controls.Add(this.label36);
+			this.NzTabPurchase.Controls.Add(this.label35);
+			this.NzTabPurchase.Controls.Add(this.label34);
+			this.NzTabPurchase.Controls.Add(this.label11);
+			this.NzTabPurchase.Controls.Add(this.label33);
+			this.NzTabPurchase.Controls.Add(this.NsPriceBarcodeTitle);
+			this.NzTabPurchase.Controls.Add(this.label32);
 			this.NzTabPurchase.Key = "NzTabPurchase";
 			this.NzTabPurchase.Location = new System.Drawing.Point(0, 0);
 			this.NzTabPurchase.Name = "NzTabPurchase";
-			this.NzTabPurchase.Size = new System.Drawing.Size(306, 302);
+			this.NzTabPurchase.PanelFormatStyle.Alpha = 150;
+			this.NzTabPurchase.PanelFormatStyle.BackColor = System.Drawing.Color.PowderBlue;
+			this.NzTabPurchase.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
+			this.NzTabPurchase.PanelFormatStyle.BackColorGradient = System.Drawing.Color.LightSkyBlue;
+			this.NzTabPurchase.Size = new System.Drawing.Size(306, 370);
 			this.NzTabPurchase.TabStop = true;
-			this.NzTabPurchase.Text = "   کالا و خدمات   ";
+			this.NzTabPurchase.Text = "مشاهده قیمت";
 			// 
-			// NzObjectList
+			// NsCopyBarcode
 			// 
-			this.NzObjectList.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.False;
-			this.NzObjectList.AllowRemoveColumns = Janus.Windows.GridEX.InheritableBoolean.True;
-			this.NzObjectList.AlternatingColors = true;
-			this.NzObjectList.AlternatingRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.NzObjectList.BackColor = System.Drawing.Color.WhiteSmoke;
-			this.NzObjectList.BorderStyle = Janus.Windows.GridEX.BorderStyle.Flat;
-			this.NzObjectList.BuiltInTextsData = resources.GetString("NzObjectList.BuiltInTextsData");
-			this.NzObjectList.ColumnAutoResize = true;
-			this.NzObjectList.ColumnSetNavigation = Janus.Windows.GridEX.ColumnSetNavigation.ColumnSet;
-			this.NzObjectList.Cursor = System.Windows.Forms.Cursors.Arrow;
-			this.NzObjectList.DefaultFilterRowComparison = Janus.Windows.GridEX.FilterConditionOperator.Contains;
-			NzObjectList_DesignTimeLayout_Reference_0.Instance = ((object)(resources.GetObject("NzObjectList_DesignTimeLayout_Reference_0.Instance")));
-			NzObjectList_DesignTimeLayout.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
-            NzObjectList_DesignTimeLayout_Reference_0});
-			NzObjectList_DesignTimeLayout.LayoutString = resources.GetString("NzObjectList_DesignTimeLayout.LayoutString");
-			this.NzObjectList.DesignTimeLayout = NzObjectList_DesignTimeLayout;
-			this.NzObjectList.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.NzObjectList.DynamicFiltering = true;
-			this.NzObjectList.EnterKeyBehavior = Janus.Windows.GridEX.EnterKeyBehavior.None;
-			this.NzObjectList.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic;
-			this.NzObjectList.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
-			this.NzObjectList.FilterRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NzObjectList.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
-			this.NzObjectList.FocusCellDisplayMode = Janus.Windows.GridEX.FocusCellDisplayMode.UseSelectedFormatStyle;
-			this.NzObjectList.FocusStyle = Janus.Windows.GridEX.FocusStyle.None;
-			this.NzObjectList.Font = new System.Drawing.Font("IRANSans(Small)", 16F);
-			this.NzObjectList.GridLineColor = System.Drawing.Color.Black;
-			this.NzObjectList.GridLines = Janus.Windows.GridEX.GridLines.Vertical;
-			this.NzObjectList.GroupByBoxVisible = false;
-			this.NzObjectList.HeaderFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-			this.NzObjectList.HeaderFormatStyle.ForeColor = System.Drawing.Color.Black;
-			this.NzObjectList.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
-			this.NzObjectList.Location = new System.Drawing.Point(0, 0);
-			this.NzObjectList.Name = "NzObjectList";
-			this.NzObjectList.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom;
-			this.NzObjectList.Office2007CustomColor = System.Drawing.SystemColors.HotTrack;
-			this.NzObjectList.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.NzObjectList.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowIndex;
-			this.NzObjectList.SelectedFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-			this.NzObjectList.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
-			this.NzObjectList.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-			this.NzObjectList.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
-			this.NzObjectList.SelectOnExpand = false;
-			this.NzObjectList.Size = new System.Drawing.Size(306, 302);
-			this.NzObjectList.TabIndex = 780;
-			this.NzObjectList.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NzObjectList.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
-			this.NzObjectList.TreeLineColor = System.Drawing.Color.Black;
-			this.NzObjectList.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
-			this.NzObjectList.ColumnButtonClick += new Janus.Windows.GridEX.ColumnActionEventHandler(this.NzObjectList_ColumnButtonClick);
-			this.NzObjectList.Click += new System.EventHandler(this.NzObjectList_Click);
+			this.NsCopyBarcode.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsCopyBarcode.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.NsCopyBarcode.Image = ((System.Drawing.Image)(resources.GetObject("NsCopyBarcode.Image")));
+			this.NsCopyBarcode.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Center;
+			this.NsCopyBarcode.Location = new System.Drawing.Point(1, 35);
+			this.NsCopyBarcode.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NsCopyBarcode.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsCopyBarcode.MS_Change_Border_Color_On_Enter = false;
+			this.NsCopyBarcode.MS_Change_Color_On_Enter = false;
+			this.NsCopyBarcode.MS_Enter_Border_Color = System.Drawing.Color.Empty;
+			this.NsCopyBarcode.MS_Enter_Color = System.Drawing.Color.Empty;
+			this.NsCopyBarcode.Name = "NsCopyBarcode";
+			this.NsCopyBarcode.Office2007ColorScheme = Janus.Windows.UI.Office2007ColorScheme.Custom;
+			this.NsCopyBarcode.Office2007CustomColor = System.Drawing.Color.DodgerBlue;
+			this.NsCopyBarcode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NsCopyBarcode.ShowFocusRectangle = false;
+			this.NsCopyBarcode.Size = new System.Drawing.Size(32, 33);
+			this.NsCopyBarcode.TabIndex = 787;
+			this.NsCopyBarcode.TextHorizontalAlignment = Janus.Windows.EditControls.TextAlignment.Near;
+			this.NsCopyBarcode.UseThemes = false;
+			this.NsCopyBarcode.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
+			this.NsCopyBarcode.WordWrap = false;
+			this.NsCopyBarcode.Click += new System.EventHandler(this.NsCopyBarcode_Click);
+			// 
+			// NsTakhfifPrice
+			// 
+			this.NsTakhfifPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsTakhfifPrice.BackColor = System.Drawing.Color.Transparent;
+			this.NsTakhfifPrice.Font = new System.Drawing.Font("IRANSans(Small)", 17F);
+			this.NsTakhfifPrice.ForeColor = System.Drawing.Color.Green;
+			this.NsTakhfifPrice.Location = new System.Drawing.Point(3, 287);
+			this.NsTakhfifPrice.MS_BorderColor = System.Drawing.Color.Empty;
+			this.NsTakhfifPrice.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsTakhfifPrice.MS_Decimal = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this.NsTakhfifPrice.MS_Format_String = "0,0.##;(0,0.##); ";
+			this.NsTakhfifPrice.Name = "NsTakhfifPrice";
+			this.NsTakhfifPrice.Size = new System.Drawing.Size(229, 32);
+			this.NsTakhfifPrice.TabIndex = 786;
+			this.NsTakhfifPrice.Text = " ";
+			this.NsTakhfifPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// NsHamkari
+			// 
+			this.NsHamkari.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsHamkari.BackColor = System.Drawing.Color.Transparent;
+			this.NsHamkari.Font = new System.Drawing.Font("IRANSans(Small)", 17F);
+			this.NsHamkari.ForeColor = System.Drawing.Color.Green;
+			this.NsHamkari.Location = new System.Drawing.Point(4, 237);
+			this.NsHamkari.MS_BorderColor = System.Drawing.Color.Empty;
+			this.NsHamkari.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsHamkari.MS_Decimal = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this.NsHamkari.MS_Format_String = "0,0.##;(0,0.##); ";
+			this.NsHamkari.Name = "NsHamkari";
+			this.NsHamkari.Size = new System.Drawing.Size(229, 32);
+			this.NsHamkari.TabIndex = 786;
+			this.NsHamkari.Text = " ";
+			this.NsHamkari.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// NsOmdePrice
+			// 
+			this.NsOmdePrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsOmdePrice.BackColor = System.Drawing.Color.Transparent;
+			this.NsOmdePrice.Font = new System.Drawing.Font("IRANSans(Small)", 17F);
+			this.NsOmdePrice.ForeColor = System.Drawing.Color.Green;
+			this.NsOmdePrice.Location = new System.Drawing.Point(5, 187);
+			this.NsOmdePrice.MS_BorderColor = System.Drawing.Color.Empty;
+			this.NsOmdePrice.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsOmdePrice.MS_Decimal = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this.NsOmdePrice.MS_Format_String = "0,0.##;(0,0.##); ";
+			this.NsOmdePrice.Name = "NsOmdePrice";
+			this.NsOmdePrice.Size = new System.Drawing.Size(229, 32);
+			this.NsOmdePrice.TabIndex = 786;
+			this.NsOmdePrice.Text = " ";
+			this.NsOmdePrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// NsAdiPrice
+			// 
+			this.NsAdiPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsAdiPrice.BackColor = System.Drawing.Color.Transparent;
+			this.NsAdiPrice.Font = new System.Drawing.Font("IRANSans(Small)", 17F);
+			this.NsAdiPrice.ForeColor = System.Drawing.Color.Green;
+			this.NsAdiPrice.Location = new System.Drawing.Point(3, 137);
+			this.NsAdiPrice.MS_BorderColor = System.Drawing.Color.Empty;
+			this.NsAdiPrice.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsAdiPrice.MS_Decimal = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this.NsAdiPrice.MS_Format_String = "0,0.##;(0,0.##); ";
+			this.NsAdiPrice.Name = "NsAdiPrice";
+			this.NsAdiPrice.Size = new System.Drawing.Size(229, 32);
+			this.NsAdiPrice.TabIndex = 786;
+			this.NsAdiPrice.Text = " ";
+			this.NsAdiPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// NzBarcodePrice
+			// 
+			this.NzBarcodePrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.NzBarcodePrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.NzBarcodePrice.Font = new System.Drawing.Font("IRANSans(Small) Medium", 20F);
+			this.NzBarcodePrice.Location = new System.Drawing.Point(34, 35);
+			this.NzBarcodePrice.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NzBarcodePrice.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NzBarcodePrice.MS_Change_Border_Color_On_Enter = true;
+			this.NzBarcodePrice.MS_Change_Color_On_Enter = true;
+			this.NzBarcodePrice.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NzBarcodePrice.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NzBarcodePrice.Name = "NzBarcodePrice";
+			this.NzBarcodePrice.Size = new System.Drawing.Size(243, 33);
+			this.NzBarcodePrice.TabIndex = 785;
+			this.NzBarcodePrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			// 
+			// label36
+			// 
+			this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label36.AutoSize = true;
+			this.label36.BackColor = System.Drawing.Color.Transparent;
+			this.label36.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.label36.Location = new System.Drawing.Point(238, 293);
+			this.label36.Name = "label36";
+			this.label36.Size = new System.Drawing.Size(63, 23);
+			this.label36.TabIndex = 783;
+			this.label36.Text = "تخفیفات :";
+			// 
+			// label35
+			// 
+			this.label35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label35.AutoSize = true;
+			this.label35.BackColor = System.Drawing.Color.Transparent;
+			this.label35.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.label35.Location = new System.Drawing.Point(238, 243);
+			this.label35.Name = "label35";
+			this.label35.Size = new System.Drawing.Size(59, 23);
+			this.label35.TabIndex = 783;
+			this.label35.Text = "همکاری :";
+			// 
+			// label34
+			// 
+			this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label34.AutoSize = true;
+			this.label34.BackColor = System.Drawing.Color.Transparent;
+			this.label34.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.label34.Location = new System.Drawing.Point(238, 193);
+			this.label34.Name = "label34";
+			this.label34.Size = new System.Drawing.Size(43, 23);
+			this.label34.TabIndex = 783;
+			this.label34.Text = "عمده :";
+			// 
+			// label11
+			// 
+			this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label11.AutoSize = true;
+			this.label11.BackColor = System.Drawing.Color.Transparent;
+			this.label11.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.label11.ForeColor = System.Drawing.Color.Green;
+			this.label11.Location = new System.Drawing.Point(14, 9);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(283, 23);
+			this.label11.TabIndex = 783;
+			this.label11.Text = "برای مشاهده قیمت بارکد کالا را در کادر زیر وارد کنید.";
+			// 
+			// label33
+			// 
+			this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label33.AutoSize = true;
+			this.label33.BackColor = System.Drawing.Color.Transparent;
+			this.label33.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.label33.Location = new System.Drawing.Point(238, 143);
+			this.label33.Name = "label33";
+			this.label33.Size = new System.Drawing.Size(43, 23);
+			this.label33.TabIndex = 783;
+			this.label33.Text = "عادی :";
+			// 
+			// NsPriceBarcodeTitle
+			// 
+			this.NsPriceBarcodeTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsPriceBarcodeTitle.BackColor = System.Drawing.Color.Transparent;
+			this.NsPriceBarcodeTitle.Font = new System.Drawing.Font("IRANSans(Small) Medium", 17F);
+			this.NsPriceBarcodeTitle.Location = new System.Drawing.Point(0, 69);
+			this.NsPriceBarcodeTitle.Name = "NsPriceBarcodeTitle";
+			this.NsPriceBarcodeTitle.Size = new System.Drawing.Size(307, 29);
+			this.NsPriceBarcodeTitle.TabIndex = 782;
+			this.NsPriceBarcodeTitle.Text = "...";
+			this.NsPriceBarcodeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// label32
+			// 
+			this.label32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label32.BackColor = System.Drawing.Color.Transparent;
+			this.label32.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.label32.Image = ((System.Drawing.Image)(resources.GetObject("label32.Image")));
+			this.label32.Location = new System.Drawing.Point(280, 39);
+			this.label32.Name = "label32";
+			this.label32.Size = new System.Drawing.Size(22, 27);
+			this.label32.TabIndex = 780;
 			// 
 			// NzLocation
 			// 
@@ -1660,7 +1802,7 @@
 			this.NzTabPurchaseBack.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.NzPrefactorGrid)).EndInit();
 			this.NzTabPurchase.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.NzObjectList)).EndInit();
+			this.NzTabPurchase.PerformLayout();
 			this.mS_Tool_Strip1.ResumeLayout(false);
 			this.mS_Tool_Strip1.PerformLayout();
 			this.uiTabPage3.ResumeLayout(false);
@@ -1738,7 +1880,6 @@
         private MS_Control.Controls.MS_Decimal_Label NzSumRows;
         private MS_Control.Controls.MS_Lable_Ex mS_Lable_Ex6;
         private MS_Control.Controls.MS_Lable_Ex mS_Lable_Ex1;
-        private MS_Control.Controls.MS_GridX NzObjectList;
         private Component.NzLocation NzLocation;
         private System.Windows.Forms.Label NzLableLocation;
         private MS_Control.Controls.MS_Button_GridX NzCirculr;
@@ -1747,12 +1888,21 @@
         private Janus.Windows.UI.Tab.UITabPage NzTabPurchase;
         private MS_Control.Controls.MS_GridX NzPrefactorGrid;
         private System.Windows.Forms.ToolStripButton NzPayment;
-        private Component.NzLabel NzPrice;
         private Component.NzBarcodeReader NzBarcodePrice;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label12;
         private Component.NzObjectPopup nzObjectPopup1;
-
-    }
+		private Component.NzLabel NsPriceBarcodeTitle;
+		private System.Windows.Forms.Label label32;
+		private System.Windows.Forms.Label label33;
+		private System.Windows.Forms.Label label34;
+		private System.Windows.Forms.Label label35;
+		private System.Windows.Forms.Label label36;
+		private System.Windows.Forms.Label label11;
+		private MS_Control.Controls.MS_Decimal_Label NsOmdePrice;
+		private MS_Control.Controls.MS_Decimal_Label NsAdiPrice;
+		private MS_Control.Controls.MS_Decimal_Label NsHamkari;
+		private MS_Control.Controls.MS_Decimal_Label NsTakhfifPrice;
+		private MS_Control.Controls.MS_Button_GridX NsCopyBarcode;
+	}
 }

@@ -348,7 +348,7 @@
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),7</Font>
               <Guid>ec8e41cb31554631b28d7628493a6417</Guid>
-              <Margins>0,0,0,0</Margins>
+              <Margins>3,0,0,0</Margins>
               <Name>Text16</Name>
               <Page isRef="3" />
               <Parent isRef="20" />
@@ -477,7 +477,7 @@
             <Text20 Ref="32" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
-              <ClientRectangle>5.6,3.2,1.2,0.3</ClientRectangle>
+              <ClientRectangle>3.2,3.2,1.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),7,Bold</Font>
               <Guid>9d1c06c1d6154737adca8dde5ad84290</Guid>
@@ -512,7 +512,7 @@
             <Text31 Ref="34" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
-              <ClientRectangle>5.6,3.8,1.2,0.3</ClientRectangle>
+              <ClientRectangle>3.2,3.8,1.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),7,Bold</Font>
               <Guid>3fadb731c4dc4dfc92032ef1a014a77f</Guid>
@@ -531,7 +531,7 @@
             <Text32 Ref="35" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
-              <ClientRectangle>2.9,3.2,2.7,0.3</ClientRectangle>
+              <ClientRectangle>0,3.2,3.2,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),7</Font>
               <Guid>c3d28591d60c4267b0106760c2ed64f6</Guid>
@@ -553,7 +553,7 @@
             <Text34 Ref="37" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
-              <ClientRectangle>2.9,3.8,2.7,0.3</ClientRectangle>
+              <ClientRectangle>0,3.8,3.2,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),7</Font>
               <Guid>7ba828dfbaab4a26a4a2579c77ad3779</Guid>
@@ -613,7 +613,7 @@
             <Text19 Ref="41" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
-              <ClientRectangle>2.9,2.8,3.9,0.4</ClientRectangle>
+              <ClientRectangle>0,2.8,4.6,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),7</Font>
               <Guid>f7067a86d2024439b6c35dc18d1f0f2e</Guid>
@@ -631,7 +631,7 @@
             <Text33 Ref="42" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
-              <ClientRectangle>2.9,3.5,2.7,0.3</ClientRectangle>
+              <ClientRectangle>0,3.5,3.2,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),7</Font>
               <Guid>0c98778fa5bd4789bab6a21e93af0e4c</Guid>
@@ -653,7 +653,7 @@
             <Text30 Ref="44" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
-              <ClientRectangle>5.6,3.5,1.2,0.3</ClientRectangle>
+              <ClientRectangle>3.2,3.5,1.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),7,Bold</Font>
               <Guid>290e44698cdf449890839c300b8efa14</Guid>
@@ -982,10 +982,11 @@
       <LargeHeightFactor>1</LargeHeightFactor>
       <Margins>0.3,0.3,0.1,0.5</Margins>
       <Name>Page1</Name>
-      <PageHeight>16</PageHeight>
+      <PageHeight>15</PageHeight>
       <PageWidth>7.5</PageWidth>
       <Report isRef="0" />
       <RightToLeft>True</RightToLeft>
+      <UnlimitedHeight>True</UnlimitedHeight>
       <Watermark Ref="67" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
@@ -1004,10 +1005,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/31/2023 3:50:31 AM</ReportChanged>
+  <ReportChanged>2/24/2025 11:24:16 AM</ReportChanged>
   <ReportCreated>8/21/2014 7:32:51 PM</ReportCreated>
-  <ReportFile>H:\_Workspace_Project_\_NzResaaStore_GitHub_\Output\Print\Anbar\Pos_Print.mrt</ReportFile>
-  <ReportGuid>ecd7ac67c6a547d6a718df6a3631de47</ReportGuid>
+  <ReportFile>H:\_Workspace_Project_\_ResaStore_Single_\Output\Print\Anbar\Pos_Print.mrt</ReportFile>
+  <ReportGuid>b038cddfdef941a3b2552e75146eae79</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2015.2.0</ReportVersion>

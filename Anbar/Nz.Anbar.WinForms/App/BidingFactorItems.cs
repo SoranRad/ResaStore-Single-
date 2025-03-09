@@ -35,14 +35,14 @@ namespace Nz.Anbar.WinForms.App
         {
             get
             {
-                var list = _Factor.FactorItems.Where(x => x.State != Enums.NzItemState.Deleted);
+                var list = _Factor.FactorItems.Where(x => x.State != Enums.NzItemState.Deleted).OrderBy(x=>x.radif);
                 return index < list.Count() 
                                 ? list.ToList()[index] 
                                 : null;
             }
             set
             {
-                var list = _Factor.FactorItems.Where(x => x.State != Enums.NzItemState.Deleted);
+                var list = _Factor.FactorItems.Where(x => x.State != Enums.NzItemState.Deleted).OrderBy(x=>x.radif);
                 if(index < list.Count())
                     list.ToList()[index] = (FactorItem)value;
             }
@@ -156,7 +156,7 @@ namespace Nz.Anbar.WinForms.App
         public int          IndexOf         (object value)
         {
             var i = (FactorItem) value;
-            return _Factor.FactorItems.Where(x => x.State != Enums.NzItemState.Deleted).ToList().IndexOf(i);
+            return _Factor.FactorItems.Where(x => x.State != Enums.NzItemState.Deleted).OrderBy(x=>x.radif).ToList().IndexOf(i);
         }
 
         public void         Insert          (int index, object value)
@@ -175,7 +175,7 @@ namespace Nz.Anbar.WinForms.App
         }
         public void         RemoveAt        (int index)
         {
-            var i=_Factor.FactorItems.Where(x=>x.State!=Enums.NzItemState.Deleted).ToList()[index];
+            var i=_Factor.FactorItems.Where(x=>x.State!=Enums.NzItemState.Deleted).OrderBy(x=>x.radif).ToList()[index];
             if (i.ID == 0)
                 _Factor.FactorItems.Remove(i);
             else
@@ -247,6 +247,7 @@ namespace Nz.Anbar.WinForms.App
                 index       = _Factor
                     .FactorItems
                     .Where(x => x.State != Enums.NzItemState.Deleted)
+                    .OrderBy(x=>x.radif)
                     .ToList().IndexOf(row);
                 onListChanged?.Invoke(this, new ListChangedEventArgs(ListChangedType.ItemAdded, index));
             }
@@ -267,6 +268,7 @@ namespace Nz.Anbar.WinForms.App
                     index       = _Factor
                                     .FactorItems
                                     .Where      (x=>x.State != Enums.NzItemState.Deleted)
+                                    .OrderBy(x=>x.radif)
                                     .ToList     ()
                                     .IndexOf    (row);
 
@@ -281,7 +283,23 @@ namespace Nz.Anbar.WinForms.App
         }
         #endregion
         #region Misc Methods
-
+        public void         RemoveTempRow           ()
+        {
+	        foreach (var key in _Factor.FactorItems.Where(x=>x.State!=Enums.NzItemState.Deleted))
+	        { 
+		        if (
+			        key.ID == 0 &&
+			        (
+				        key?.meqdar== 0    || key?.FK_Kala== 0    || key?.nerkh== 0 || 
+				        key?.meqdar == null || key?.FK_Kala == null || key?.nerkh == null
+			        )
+		        )
+		        {
+			        _Factor.FactorItems.Remove(key);
+			        ReOrderRowNumber(key.radif);
+		        }
+	        }
+        }
         private int         GetNewRowNumber         ()
         {
             if (!_Factor.FactorItems.Any())
@@ -293,32 +311,46 @@ namespace Nz.Anbar.WinForms.App
         }
         private void        ReOrderRowNumber        (int Row)
         {
-            var Radif = Row;
-            _Factor
-                .FactorItems
-                .Where          (x=>x.State != Enums.NzItemState.Deleted
-                                    && x.radif >= Row )
-                .MSZ_ForEach   (x =>
-                {
-                    x.radif = Radif++;
-                    if(x.State != Enums.NzItemState.AddedNew)
-                        x.State = Enums.NzItemState.Modified;
-                    onListChanged?.Invoke(this, new ListChangedEventArgs(ListChangedType.ItemChanged, x.radif - 1));
-                });
+	        ReOrderRowNumber();
+	        return;
+            //var Radif = Row;
+            //_Factor
+            //    .FactorItems
+            //    .Where          (x=>x.State != Enums.NzItemState.Deleted
+            //                        && x.radif >= Row )
+            //    .MSZ_ForEach   (x =>
+            //    {
+            //        x.radif = Radif++;
+            //        if(x.State != Enums.NzItemState.AddedNew)
+            //            x.State = Enums.NzItemState.Modified;
+            //        onListChanged?.Invoke(this, new ListChangedEventArgs(ListChangedType.ItemChanged, x.radif - 1));
+            //    });
         }
         public void         ReOrderRowNumber        ()
         {
-            int Radif = 1;
+	        int Radif = 1;
 
-            _Factor
-                .FactorItems
-                .Where          (x=>x.State!=Enums.NzItemState.Deleted)
-                .MSZ_ForEach    (x =>
-                {
-                    x.radif = Radif++;
-                    if (x.State != Enums.NzItemState.AddedNew)
-                        x.State = Enums.NzItemState.Modified;
-                });
+	        _Factor
+		        .FactorItems
+		        .Where          (x=>x.State!=Enums.NzItemState.Deleted)
+		        .OrderBy(x=>x.radif)
+		        .MSZ_ForEach    (x =>
+		        {
+			        if (x.radif != Radif)
+			        {
+				        x.radif = Radif++;
+
+				        if (x.State != Enums.NzItemState.AddedNew)
+					        x.State = Enums.NzItemState.Modified;
+
+				        onListChanged?.Invoke(this, new ListChangedEventArgs(ListChangedType.ItemChanged, x.radif - 1));
+			        }
+			        else
+			        {
+				        Radif++;
+			        }
+
+		        });
         }
         public  void        MoveUpRow               (int Index) { }
         public  void        MoveDownRow             (int Index) { }

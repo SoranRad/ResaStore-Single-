@@ -40,7 +40,7 @@ namespace NZ.Xazane.WinForms.App
         private PaymentBarcodeSetting   _Setting;
         private FactorPaymentMessage    _FactorPaymnet;
         private string                  _FormatString = "0,0.##;(0,0.##); ";
-
+        private bool _Do_Refresh = true;
         #endregion
         public FormBarCodePayment       ()
         {
@@ -103,35 +103,11 @@ namespace NZ.Xazane.WinForms.App
             NzRemaind.MS_Decimal    = NzFactorPrice.MS_Decimal - NzSum.MS_Decimal;
         }
         private void    LoadSettings    ()
-        {
-            //Task.Run(() =>
-            //{
+        { 
             _Setting = PaymentBarcodeSetting.FromXML<PaymentBarcodeSetting>();
-            //if (_Setting != null)
-            //{
-            //    if (NzCache.InvokeRequired)
-            //        NzCache.Invoke(new MethodInvoker(delegate
-            //        {
-            //            NzCache.MS_Set_Select(_Setting.Cache);
-            //        }));
-            //    else
-            //        NzCache.MS_Set_Select(_Setting.Cache);
-            //    //=========================================
-            //    if (NzPos.InvokeRequired)
-            //        NzPos.Invoke(new MethodInvoker(delegate
-            //        {
-            //            NzPos.MS_Set_Select(_Setting.Pos);
-            //        }));
-            //    else
-            //        NzPos.MS_Set_Select(_Setting.Pos);
-            //    //========================================
-            //}
-            //}).ConfigureAwait(false); ;
         }
         private void    SaveSetting     ()
         {
-            Task.Run(() =>
-            {
                 _Setting = _Setting ?? new PaymentBarcodeSetting();
 
                 if (NzCache.MS_Get_Selected() is Accounts cache)
@@ -144,8 +120,6 @@ namespace NZ.Xazane.WinForms.App
                 new Form_Notify("تسویه", "تنظیمات  بـا مـوفـقـیـت ثـبـت شـــد.",
                         Form_Notify.FarsiMessageBoxIcon.اضافه)
                     .Popup(Form_Notify.Direction_Show.Right_To_Left, 2500);
-
-            }).ConfigureAwait(false);
         }
         private void    LoadPayment     (long IdFactor)
         {
@@ -154,18 +128,20 @@ namespace NZ.Xazane.WinForms.App
             if (_DP == null)
                 return;
 
+            _Do_Refresh = false;
             LoadCache();
             LoadPos();
             RefreshMounts();
-
+            _Do_Refresh = true;
         }
         private void    LoadCache       ()
         {
             var cache = _DP.PayBoxOP.SingleOrDefault(x => x.kind == (byte)Enums.NzPaymentOperatingKind.Naqd);
             if (cache == null)
                 return;
-            NzCache.MS_Set_Select   (cache.ID);
-            NzCachePrice.Text       = cache.mablaq.ToString(_FormatString);
+            NzCache.MS_Set_Select   (cache.FK_Xazaneh_Bad);
+            NzCachePrice.MS_Decimal = cache.mablaq;
+            NzCachePrice.Text = cache.mablaq.ToString(_FormatString);
             NzNaqdi_Checked.Checked = true;
 
         }
@@ -174,13 +150,20 @@ namespace NZ.Xazane.WinForms.App
             var pos = _DP.PayBoxOP.SingleOrDefault(x => x.kind == (byte)Enums.NzPaymentOperatingKind.Bank_POS);
             if (pos == null)
                 return;
-            NzPos.MS_Set_Select     (pos.ID);
-            NzPosPrice.Text         = pos.mablaq.ToString(_FormatString);
+            NzPos.MS_Set_Select     (pos.FK_Xazaneh_Bad);
+            NzPosPrice.MS_Decimal   = pos.mablaq;
+            NzPosPrice.Text   = pos.mablaq.ToString(_FormatString);
             NzPos_Checked.Checked   = true;
         }
 
         private bool    IsOk            ()
         {
+	        if (_FactorPaymnet.IDFactor <= 0)
+	        {
+		        MS_Message.Show("فاکتور مورد نظز یافت نشد.");
+		        return false;
+
+	        }
             if (!NzNaqdi_Checked.Checked && !NzPos_Checked.Checked)
             {
                 MS_Message.Show("هیج مبلغی برای ثبت تسویه انتخاب نشده است");
@@ -353,8 +336,12 @@ namespace NZ.Xazane.WinForms.App
 
         private void NzNaqdi_Checked_CheckedChanged     (object sender, EventArgs e)
         {
+	       
             NzCache.Enabled = NzCachePrice.Enabled = NzNaqdi_Checked.Checked;
             
+            if(!_Do_Refresh )
+	            return;
+
             if (NzNaqdi_Checked.Checked)
                 NzCachePrice.MS_Decimal = NzRemaind.MS_Decimal ?? 0;
             else
@@ -366,12 +353,18 @@ namespace NZ.Xazane.WinForms.App
         }
         private void NzPos_Checked_CheckedChanged       (object sender, EventArgs e)
         {
+           
+
             NzPos.Enabled = NzPosPrice.Enabled = NzPos_Checked.Checked;
+
+            if(!_Do_Refresh )
+	            return;
 
             if (NzPos_Checked.Checked)
                 NzPosPrice.MS_Decimal = NzRemaind.MS_Decimal ?? 0;
             else
                 NzPosPrice.MS_Decimal = 0;
+
         }
         private void NzPosPrice_TextChanged             (object sender, EventArgs e)
         {

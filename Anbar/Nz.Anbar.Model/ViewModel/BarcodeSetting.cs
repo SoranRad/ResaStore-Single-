@@ -12,10 +12,11 @@ namespace Nz.Anbar.Model.ViewModel
 {
     public class BarcodeSetting
     {
-        private static string   FileName    = "Barcode.Nz";
-        public long             MiscID      { get; set; }
+        private static string   FileName        = "Barcode.Nz";
+        public long             MiscID          { get; set; }
+		public short            LocationID      { get; set; }
 
-        public void ToXml()
+		public void ToXml()
         {
             var path    = Path
                            .GetDirectoryName(Assembly.GetExecutingAssembly().Location)

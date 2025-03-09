@@ -164,23 +164,23 @@ namespace MS_Print_Dialog
         }
         private void Set_Printer_Default            ()
         {
-            try
-            {
-                foreach (ManagementObject print in results)
-                {
-                    GridEXRow Row = ms_grid.CurrentRow ?? ms_grid.GetRows().FirstOrDefault();
+            //try
+            //{
+            //    foreach (ManagementObject print in results)
+            //    {
+            //        GridEXRow Row = ms_grid.CurrentRow ?? ms_grid.GetRows().FirstOrDefault();
 
-                    if (print["Name"].Equals(Row.Cells["title"].Text))
-                    {
-                        print.InvokeMethod("SetDefaultPrinter", args);
-                        break;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
+            //        if (print["Name"].Equals(Row.Cells["title"].Text))
+            //        {
+            //            print.InvokeMethod("SetDefaultPrinter", args);
+            //            break;
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message.ToString());
+            //}
         }
         private void OpenPrinterPropertiesDialog    (PrinterSettings printerSettings)
         {

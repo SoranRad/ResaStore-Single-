@@ -616,7 +616,6 @@ namespace Nz.Anbar.WinForms.App
 
                     NzGrid.EditTextBox.KeyPress += EditTextBoxOnKeyPress;
                     NzGrid.EditTextBox.TextChanged += EditTextBoxOnTextChanged;
-                    //NzGrid.EditTextBox.
                 }
             }
             catch (Exception ex)
@@ -641,6 +640,9 @@ namespace Nz.Anbar.WinForms.App
         {
             try
             {
+	            if (NzGrid.CurrentRow == null) 
+		            return;
+
                 if (NzGrid.CurrentRow?.RowType == RowType.NewRecord)
                     ShowMenu();
             }
@@ -885,6 +887,18 @@ namespace Nz.Anbar.WinForms.App
             {
                 log.Error(ex);
             }
+        }
+        private void NzGrid_GetNewRow(object sender, GetNewRowEventArgs e)
+        {
+	        try
+	        {
+		        _Bind.RemoveTempRow();
+	        }
+	        catch (Exception exception)
+	        {
+
+
+	        }
         }
         #endregion
         #region TextBox Events
@@ -1494,11 +1508,6 @@ namespace Nz.Anbar.WinForms.App
             Init();
         }
 
-        private void NzGrid_CellValueChanged            (object sender, ColumnActionEventArgs e)
-        {
-
-        }
-
         private void NzKind_SelectedIndexChanged(object sender, EventArgs e)
         {
 	        if (NzGrid.GetDataRows().Any())
@@ -1542,5 +1551,7 @@ namespace Nz.Anbar.WinForms.App
 		        _DoRefresh = true;
 	        }
         }
+
+		
 	}
 }
