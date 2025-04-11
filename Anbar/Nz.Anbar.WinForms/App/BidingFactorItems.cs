@@ -268,7 +268,7 @@ namespace Nz.Anbar.WinForms.App
                     index       = _Factor
                                     .FactorItems
                                     .Where      (x=>x.State != Enums.NzItemState.Deleted)
-                                    .OrderBy(x=>x.radif)
+                                    .OrderBy    (x=>x.radif)
                                     .ToList     ()
                                     .IndexOf    (row);
 

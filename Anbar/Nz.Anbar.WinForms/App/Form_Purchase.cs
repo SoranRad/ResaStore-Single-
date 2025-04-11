@@ -231,18 +231,30 @@ namespace Nz.Anbar.WinForms.App
                     _Factor.tarikh_add = DateTime.Now;
                     _Factor.kind = (byte) _Kind;
                 }
-                else if (_IsEdit)
-                {
-                    _Factor.FactorDetail = _Factor.FactorDetail ?? new FactorDetail()
-                    {
-                        FactorHead = _Factor,
-                        State = Enums.NzItemState.AddedNew,
-                    };
+                //else //if (_IsEdit)
+                //{
+                //    //_Factor.FactorDetail = _Factor.FactorDetail ?? new FactorDetail()
+                //    //{
+                //    //    FactorHead = _Factor,
+                //    //    State = Enums.NzItemState.AddedNew,
+                //    //};
 
-                    var Detail = _Factor.FactorDetail;
-                    Detail.FK_User_Edit = SystemConstant.ActiveUser.ID;
-                    Detail.tarikh_edit = DateTime.Now;
-                }
+                //    if (_Factor.FactorDetail == null)
+                //    {
+	               //     _Factor.FactorDetail = new FactorDetail()
+	               //     {
+		              //      FactorHead = _Factor,
+		              //      State = Enums.NzItemState.AddedNew,
+	               //     };
+                //    }
+
+                //    //var Detail = _Factor.FactorDetail;
+                //    //Detail.FK_User_Edit = SystemConstant.ActiveUser.ID;
+                //    //Detail.tarikh_edit = DateTime.Now;
+
+                //    _Factor.FactorDetail.FK_User_Edit = SystemConstant.ActiveUser.ID;
+                //    _Factor.FactorDetail.tarikh_edit = DateTime.Now;
+                //}
 
                 _Factor.Serial          = Convert.ToInt32(NzSerial.MS_Decimal);
                 _Factor.FK_AshXas_ID    = (NzCustomer.MS_Get_Selected() as People)?.ID;
@@ -254,57 +266,69 @@ namespace Nz.Anbar.WinForms.App
                 _Factor.FK_Kind_Frosh = (short)NzKindSale.SelectedIndex;
 
                 if (
-                        NzTaxPercent.MS_Decimal > 0 
-                    ||  NzOffPrice.MS_Decimal   > 0
-                    ||  NzOffPercent.MS_Decimal > 0 
-                    ||  NzExtend.MS_Decimal     > 0
-                   )
-                {
-                    if (_Factor.FactorDetail == null)
-                    {
-                        _Factor.FactorDetail = new FactorDetail()
-                        {
-                            FactorHead = _Factor,
-                            State = Enums.NzItemState.AddedNew,
-                        };
-                    }
-                    else
-                        _Factor.FactorDetail.State = Enums.NzItemState.Modified;
-
-                    _Factor.FactorDetail.Darsad_Maliat =
-                        NzTaxPercent.MS_Decimal == 0 ? null : (decimal?) NzTaxPercent.MS_Decimal;
-                    _Factor.FactorDetail.mablaq_Maliat =
-                        NzTaxPrice.MS_Decimal == 0 ? null : (decimal?) NzTaxPrice.MS_Decimal;
-                    _Factor.FactorDetail.Darsad_Takhfif =
-                        NzOffPercent.MS_Decimal == 0 ? null : (decimal?) NzOffPercent.MS_Decimal;
-                    _Factor.FactorDetail.mablaq_takhfif =
-                        NzOffPrice.MS_Decimal == 0 ? null : (decimal?) NzOffPrice.MS_Decimal;
-                    _Factor.FactorDetail.Ezafat = NzExtend.MS_Decimal == 0 ? null : (decimal?) NzExtend.MS_Decimal;
-                }
-                else if
-                (
-                    _Factor.ID > 0
-                &&  _Factor.FactorDetail != null
-                && (
-                            NzTaxPercent.MS_Decimal != _Factor.FactorDetail.Darsad_Maliat
-                        ||  NzOffPrice.MS_Decimal   != _Factor.FactorDetail.mablaq_takhfif
-                        ||  NzOffPercent.MS_Decimal != _Factor.FactorDetail.Darsad_Takhfif
-                        ||  NzExtend.MS_Decimal     != _Factor.FactorDetail.Ezafat
-                    )
+	                NzTaxPercent.MS_Decimal > 0
+	                || NzOffPrice.MS_Decimal > 0
+	                || NzOffPercent.MS_Decimal > 0
+	                || NzExtend.MS_Decimal > 0
+	                || _Factor.ID > 0
                 )
                 {
-                    _Factor.FactorDetail.State = Enums.NzItemState.Modified;
+	                if (_Factor.FactorDetail == null)
+	                {
+		                _Factor.FactorDetail = new FactorDetail()
+		                {
+			                FactorHead = _Factor,
+			                State = Enums.NzItemState.AddedNew,
+		                };
+	                }
+	                else
+		                _Factor.FactorDetail.State = Enums.NzItemState.Modified;
 
-                    _Factor.FactorDetail.Darsad_Maliat =
-                        NzTaxPercent.MS_Decimal == 0 ? null : (decimal?)NzTaxPercent.MS_Decimal;
-                    _Factor.FactorDetail.mablaq_Maliat =
-                        NzTaxPrice.MS_Decimal == 0 ? null : (decimal?)NzTaxPrice.MS_Decimal;
-                    _Factor.FactorDetail.Darsad_Takhfif =
-                        NzOffPercent.MS_Decimal == 0 ? null : (decimal?)NzOffPercent.MS_Decimal;
-                    _Factor.FactorDetail.mablaq_takhfif =
-                        NzOffPrice.MS_Decimal == 0 ? null : (decimal?)NzOffPrice.MS_Decimal;
-                    _Factor.FactorDetail.Ezafat = NzExtend.MS_Decimal == 0 ? null : (decimal?)NzExtend.MS_Decimal;
+	                _Factor.FactorDetail.Darsad_Maliat =
+		                NzTaxPercent.MS_Decimal == 0 ? null : (decimal?)NzTaxPercent.MS_Decimal;
+	                _Factor.FactorDetail.mablaq_Maliat =
+		                NzTaxPrice.MS_Decimal == 0 ? null : (decimal?)NzTaxPrice.MS_Decimal;
+	                _Factor.FactorDetail.Darsad_Takhfif =
+		                NzOffPercent.MS_Decimal == 0 ? null : (decimal?)NzOffPercent.MS_Decimal;
+	                _Factor.FactorDetail.mablaq_takhfif =
+		                NzOffPrice.MS_Decimal == 0 ? null : (decimal?)NzOffPrice.MS_Decimal;
+	                _Factor.FactorDetail.Ezafat =
+		                NzExtend.MS_Decimal == 0 ? null : (decimal?)NzExtend.MS_Decimal;
+
+	                if (_Factor.ID > 0)
+	                {
+		                _Factor.FactorDetail.FK_User_Edit = SystemConstant.ActiveUser.ID;
+		                _Factor.FactorDetail.tarikh_edit = DateTime.Now;
+	                }
+                
                 }
+                //else if
+                //(
+                //    _Factor.ID > 0
+                //&&  _Factor.FactorDetail != null
+                //&& (
+                //            NzTaxPercent.MS_Decimal != _Factor.FactorDetail.Darsad_Maliat
+                //        ||  NzOffPrice.MS_Decimal   != _Factor.FactorDetail.mablaq_takhfif
+                //        ||  NzOffPercent.MS_Decimal != _Factor.FactorDetail.Darsad_Takhfif
+                //        ||  NzExtend.MS_Decimal     != _Factor.FactorDetail.Ezafat
+                //    )
+                //)
+                //{
+                //    _Factor.FactorDetail.State = Enums.NzItemState.Modified;
+
+                //    _Factor.FactorDetail.Darsad_Maliat =
+                //        NzTaxPercent.MS_Decimal == 0 ? null : (decimal?)NzTaxPercent.MS_Decimal;
+                //    _Factor.FactorDetail.mablaq_Maliat =
+                //        NzTaxPrice.MS_Decimal == 0 ? null : (decimal?)NzTaxPrice.MS_Decimal;
+                //    _Factor.FactorDetail.Darsad_Takhfif =
+                //        NzOffPercent.MS_Decimal == 0 ? null : (decimal?)NzOffPercent.MS_Decimal;
+                //    _Factor.FactorDetail.mablaq_takhfif =
+                //        NzOffPrice.MS_Decimal == 0 ? null : (decimal?)NzOffPrice.MS_Decimal;
+                //    _Factor.FactorDetail.Ezafat = NzExtend.MS_Decimal == 0 ? null : (decimal?)NzExtend.MS_Decimal;
+
+                //    _Factor.FactorDetail.FK_User_Edit = SystemConstant.ActiveUser.ID;
+                //    _Factor.FactorDetail.tarikh_edit = DateTime.Now;
+                //}
 
 
                 _Factor.mablaq          = NzSumFactor.MS_Decimal ?? 0;
@@ -323,8 +347,6 @@ namespace Nz.Anbar.WinForms.App
                 _Factor.FK_Mabna        = fk_Manbna;
 
                 var autoSerial = _ID == 0 && _Serial == NzSerial.MS_Decimal;
-
-                
 
                 _Manager.Save(_Factor,autoSerial);
 
@@ -655,7 +677,7 @@ namespace Nz.Anbar.WinForms.App
         {
             try
             {
-                if (!(NzGrid.CurrentRow?.DataRow is FactorItem key))
+                    if (!(NzGrid.CurrentRow?.DataRow is FactorItem key))
                     return;
 
                 if (key?.meqdar == 0 || key?.FK_Kala == 0 || key?.nerkh==0)
