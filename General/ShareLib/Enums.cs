@@ -50,7 +50,7 @@ namespace ShareLib
             BargashXarid_Ba_Mabna=52,
             HavaleZayeat    = 53,
             HavaleMasrafi   = 54,
-            EnteqalBeynAnbarXoruj=55,
+            EnteqalBeynAnbarXoruj =55,
         }
         public enum MS_System
         {

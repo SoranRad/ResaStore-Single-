@@ -311,6 +311,7 @@ namespace NZ.General.WinForms.Base
                                 "\n نمی توانید ادامه دهید");
                 return false;
             }
+
             #region اطلاعات کلی
 
             if (NzGroup.MS_Get_Selected() == null)

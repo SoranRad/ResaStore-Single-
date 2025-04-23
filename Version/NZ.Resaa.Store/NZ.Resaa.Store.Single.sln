@@ -58,6 +58,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migration", "Migration", "{
 		Machine.sql = Machine.sql
 		Migrations.txt = Migrations.txt
 		Register.sql = Register.sql
+		UpdateMablaqFactor.sql = UpdateMablaqFactor.sql
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Updater", "..\Updater\Updater.csproj", "{B0C58C0E-F5C9-4C9A-8709-1DC7E893FDCE}"

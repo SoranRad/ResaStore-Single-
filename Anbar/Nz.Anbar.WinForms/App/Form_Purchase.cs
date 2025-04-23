@@ -302,35 +302,7 @@ namespace Nz.Anbar.WinForms.App
 	                }
                 
                 }
-                //else if
-                //(
-                //    _Factor.ID > 0
-                //&&  _Factor.FactorDetail != null
-                //&& (
-                //            NzTaxPercent.MS_Decimal != _Factor.FactorDetail.Darsad_Maliat
-                //        ||  NzOffPrice.MS_Decimal   != _Factor.FactorDetail.mablaq_takhfif
-                //        ||  NzOffPercent.MS_Decimal != _Factor.FactorDetail.Darsad_Takhfif
-                //        ||  NzExtend.MS_Decimal     != _Factor.FactorDetail.Ezafat
-                //    )
-                //)
-                //{
-                //    _Factor.FactorDetail.State = Enums.NzItemState.Modified;
-
-                //    _Factor.FactorDetail.Darsad_Maliat =
-                //        NzTaxPercent.MS_Decimal == 0 ? null : (decimal?)NzTaxPercent.MS_Decimal;
-                //    _Factor.FactorDetail.mablaq_Maliat =
-                //        NzTaxPrice.MS_Decimal == 0 ? null : (decimal?)NzTaxPrice.MS_Decimal;
-                //    _Factor.FactorDetail.Darsad_Takhfif =
-                //        NzOffPercent.MS_Decimal == 0 ? null : (decimal?)NzOffPercent.MS_Decimal;
-                //    _Factor.FactorDetail.mablaq_takhfif =
-                //        NzOffPrice.MS_Decimal == 0 ? null : (decimal?)NzOffPrice.MS_Decimal;
-                //    _Factor.FactorDetail.Ezafat = NzExtend.MS_Decimal == 0 ? null : (decimal?)NzExtend.MS_Decimal;
-
-                //    _Factor.FactorDetail.FK_User_Edit = SystemConstant.ActiveUser.ID;
-                //    _Factor.FactorDetail.tarikh_edit = DateTime.Now;
-                //}
-
-
+               
                 _Factor.mablaq          = NzSumFactor.MS_Decimal ?? 0;
                 _Factor.FK_Location     = (NzLocation.MS_Get_Selected() as Location)?.ID;
 
@@ -470,6 +442,35 @@ namespace Nz.Anbar.WinForms.App
                                     "\n  نمی توانید ادامه دهید ");
                     return false;
                 }
+
+                if (_Kind == Enums.NzFactorKind.Frosh || _Kind == Enums.NzFactorKind.Xarid)
+                {
+	                if (_ID > 0 && NzSumFactor.MS_Decimal > _Factor.mablaq)
+	                {
+		                var delta = NzSumFactor.MS_Decimal - _Factor.mablaq;
+		                if (NzCustomerRemain.IsUserBlocked(delta??0))
+		                { 
+			                MS_Message.Show("سقف اعتبار کاربر پرشده است. " +
+			                                "نمی توانید بیشتر از اعتبار مشتری فاکتور صادر کنید"  );
+			                NzCustomerRemain.Focus();
+			                mS_Notify1.Show(NzCustomerRemain);
+			                return false;
+		                }
+	                }
+	                else
+	                {
+		                if (NzCustomerRemain.IsUserBlocked(_Factor.mablaq))
+		                { 
+			                MS_Message.Show("سقف اعتبار کاربر پرشده است. " +
+			                                "نمی توانید بیشتر از اعتبار مشتری فاکتور صادر کنید"  );
+			                NzCustomerRemain.Focus();
+			                mS_Notify1.Show(NzCustomerRemain);
+			                return false;
+		                }
+	                }
+                }
+                
+
                 if (NzSerial.MS_Decimal == 0)
                 {
                     NzSerial.Focus();
@@ -1463,6 +1464,12 @@ namespace Nz.Anbar.WinForms.App
 
         private void NzSave_Click                       (object sender, EventArgs e)
         {
+            try
+            {
+                NzGrid.CurrentRow?.EndEdit();
+            }
+            catch {}
+
             RemoveUnSavedRow();
             _DoRefresh = false;
             RefreshFactorSum();

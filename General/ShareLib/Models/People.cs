@@ -111,7 +111,58 @@ WHERE ta.FK_Group = @Code
         }
         public string   GetItem         ()
         {
-            return @"";
+            return @"
+SELECT ta.ID ,
+       ta.FK_Shahr ,
+       ta.FK_Bank ,
+       ta.FK_Group ,
+       ta.kind ,
+       ta.code ,
+       LTRIM(RTRIM(ta.title))           AS title ,
+       ta.sex ,
+       ta.tarix ,
+       LTRIM(RTRIM(ta.namePedar))       AS  namePedar,
+       LTRIM(RTRIM(ta.codeMeli ))       AS codeMeli,
+       LTRIM(RTRIM(ta.codePosti))       AS codePosti ,
+       LTRIM(RTRIM(ta.codeEqtesadi))    AS  codeEqtesadi,
+       LTRIM(RTRIM(ta.tel ))            AS tel,
+       LTRIM(RTRIM(ta.mobile))          AS mobile ,
+       LTRIM(RTRIM(ta.fax ))            AS fax,
+       LTRIM(RTRIM(ta.addressHome ))    AS addressHome,
+       ta.is_disable ,
+       LTRIM(RTRIM(ta.telDowom))        AS telDowom ,
+       LTRIM(RTRIM(ta.mobDowom ))       AS mobDowom,
+       LTRIM(RTRIM(ta.addresswork ))    AS addresswork,
+       LTRIM(RTRIM(ta.shomareHesab ))   AS shomareHesab,
+       LTRIM(RTRIM(ta.shomareShenasname )) AS shomareShenasname ,
+       LTRIM(RTRIM(ta.Plak )) AS Plak ,
+       ta.isBlock ,
+       ta.BlockMablaq ,
+       ta.FK_Image_Tasvir ,
+       ta.FK_Image_Zemanat ,
+       ta.FK_Image_Emza ,
+       ta.is_Froshande ,
+       ta.is_Xaridar ,
+       ta.Sarmaye_Avalie ,
+       ta.Sarmaye_Kol ,
+       ta.Sarmaye_Darsad ,
+       ta.Sood_Darsad ,
+
+	   LTRIM(RTRIM(tga.Title))  AS GroupTitle,
+	   LTRIM(RTRIM(ts.title))   AS CityTitle,
+	   LTRIM(RTRIM(tb.title))   AS BankTitle
+
+	   
+FROM Base.tbl_Ashxas AS ta
+
+LEFT OUTER JOIN Base.tbl_Group_Ashxas	AS tga	ON tga.ID = ta.FK_Group
+LEFT OUTER JOIN Base.tbl_Bank			AS tb	ON tb.ID = ta.FK_Bank
+LEFT OUTER JOIN Base.tbl_Shahr			AS ts	ON ts.ID = ta.FK_Shahr
+
+WHERE ta.ID = @ID 
+
+
+";
         }
         public string   GetList         ()
         {
