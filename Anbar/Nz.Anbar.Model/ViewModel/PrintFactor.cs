@@ -57,7 +57,7 @@ namespace Nz.Anbar.Model.ViewModel
         public decimal?     Darsad_Maliat       { get; set; }
         public decimal?     Ezafat              { get; set; }
 
-        public decimal Remaind => mablaq_KOl - (Cheque ?? 0) - (Cache ?? 0) - (Pos ?? 0)-(Takhfif_Tasvieh??0);
+        public decimal Remaind => mablaq_KOl - (Cheque ?? 0) - (Cache ?? 0) - (Pos ?? 0)-(Takhfif_Tasvieh ?? 0);
 
     }
 }
