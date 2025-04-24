@@ -32,7 +32,10 @@ namespace ShareLib.Utils
         public static int           DemoCount            = 50;
 
         public static bool          HasVahedFari         = true;
-        public static bool          AllowMultipleDatabase = true;
+        public static bool          AllowMultipleDatabase= true;
+
+        public static bool          ShowCustomerRemain   = true;
+
 
         #endregion
     }

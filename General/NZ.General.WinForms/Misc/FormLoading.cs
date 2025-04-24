@@ -47,9 +47,9 @@ namespace NZ.General.WinForms.Misc
 
             var config = Config.FromXML();
 
-            ConnectionManager.ConStr = config.ConStr;
-            SystemConstant.AllowMultipleDatabase = config.AllowMultipleDatabase;
-
+            ConnectionManager.ConStr                = config.ConStr;
+            SystemConstant.AllowMultipleDatabase    = config.AllowMultipleDatabase;
+            SystemConstant.ShowCustomerRemain       = config.ShowCustomerRemain;
             return true;
         }
         private bool    InitFile               ()

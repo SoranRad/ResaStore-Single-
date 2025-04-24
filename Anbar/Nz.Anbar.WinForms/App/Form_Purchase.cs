@@ -62,6 +62,7 @@ namespace Nz.Anbar.WinForms.App
             _Kind       = Kind;
             _ID         = ID;
             _Manager    = new FactorManager();
+
         }
         #endregion
         #region Methods
@@ -79,6 +80,8 @@ namespace Nz.Anbar.WinForms.App
         }
         private void Init                           ()
         {
+	        NzPeopleRemaind.Checked = SystemConstant.ShowCustomerRemain;
+
             byte KindCustomer = 1;
 
             var xaridar     = 

@@ -15,11 +15,11 @@ namespace ShareLib.ViewModel
     {
         private static string FileName = "Setting.Nz";
 
-        public string UserName      { get; set; }
-        public string Location      { get; set; }
-        public string ConStr        { get; set; }
-        public bool   AllowMultipleDatabase { get; set; }
-
+        public string   UserName                { get; set; }
+        public string   Location                { get; set; }
+        public string   ConStr                  { get; set; }
+        public bool     AllowMultipleDatabase   { get; set; }
+        public bool     ShowCustomerRemain      { get; set; } = true;
 
         public void             ToXml       ()
         {
