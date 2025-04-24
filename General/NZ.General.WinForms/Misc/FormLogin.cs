@@ -3,13 +3,15 @@ using System.Data.SqlClient;
 using System.Diagnostics; 
 using System.IO;
 using System.Linq;
-using System.Reflection; 
+using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Janus.Windows.EditControls;
 using MS_Control;
 using MS_Control.MainForms;
 using NZ.General.Business; 
 using ShareLib.Models;
+using ShareLib.Models.Report;
 using ShareLib.Utils;
 using ShareLib.ViewModel;
 
@@ -91,7 +93,7 @@ namespace NZ.General.WinForms.Misc
 
             SystemConstant.ActiveUser       = User;
             SystemConstant.ActiveYear       = NzSalmali.SelectedItem.DataRow as Year;
-            
+            CurrectErrors();
         }
         private Company GetCompany             ()
         {
@@ -148,7 +150,6 @@ namespace NZ.General.WinForms.Misc
             NzActivation.Hide();
             InitSingleCompany();
         }
-
         private void    SetConectionString      ()
         {
             var Selection                   = NzCompany.SelectedValue as DataBaseList;
@@ -178,6 +179,16 @@ namespace NZ.General.WinForms.Misc
             {
                 log.Error(ex);
             }
+        }
+
+        private void CurrectErrors()
+        {
+	        Task.Run(() =>
+	        {
+		        var mgr = new ReportManager();
+		        mgr.GetItem<InitialCorrection>(new { Salmali = SystemConstant.ActiveYear.Salmali }, "");
+
+	        });
         }
         #endregion
         private void    NzLogin_Click          (object sender, EventArgs e)

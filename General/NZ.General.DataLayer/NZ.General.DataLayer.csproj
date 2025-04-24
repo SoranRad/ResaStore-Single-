@@ -98,6 +98,7 @@
     <Compile Include="DapperConfig\ActiveConfig.cs" />
     <Compile Include="DapperConfig\CompanyConfig.cs" />
     <Compile Include="DapperConfig\DataBaseListConfig.cs" />
+    <Compile Include="DapperConfig\InitialCorrectionConfig.cs" />
     <Compile Include="DapperConfig\InitRegister.cs" />
     <Compile Include="DapperConfig\LoginConfig.cs" />
     <Compile Include="DapperConfig\NoteOfDateConfig.cs" />

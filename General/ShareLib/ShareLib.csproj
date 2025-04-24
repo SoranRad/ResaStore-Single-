@@ -109,6 +109,7 @@
     <Compile Include="Models\DialyNote.cs" />
     <Compile Include="Models\ImageDocument.cs" />
     <Compile Include="Models\InitRegister.cs" />
+    <Compile Include="Models\Report\InitialCorrection.cs" />
     <Compile Include="Models\Report\NoteOfDate.cs" />
     <Compile Include="Models\Report\SummaryNote.cs" />
     <Compile Include="Models\YearNoteList.cs" />
