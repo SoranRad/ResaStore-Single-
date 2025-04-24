@@ -21,8 +21,8 @@ LTRIM(RTRIM(tad.sharh)) AS Description,
 dd.PersianStr,
 tad.kind,
 Xazane.GetDPDetail(tad.ID) AS Title,
-(CASE WHEN tad.kind = 1 THEN 0 ELSE ISNULL(Cheque.mablaq,0)+ISNULL(CashPos.mablaq,0)-ISNULL(tad.takhfif,0) END) AS Debit,
-(CASE WHEN tad.kind = 1 THEN ISNULL(Cheque.mablaq,0)+ISNULL(CashPos.mablaq,0)-ISNULL(tad.takhfif,0) ELSE 0 END ) AS Credit
+(CASE WHEN tad.kind = 1 THEN 0 ELSE ISNULL(Cheque.mablaq,0)+ISNULL(CashPos.mablaq,0)+ISNULL(tad.takhfif,0) END) AS Debit,
+(CASE WHEN tad.kind = 1 THEN ISNULL(Cheque.mablaq,0)+ISNULL(CashPos.mablaq,0)+ISNULL(tad.takhfif,0) ELSE 0 END ) AS Credit
 
 FROM 
 Xazane.tbl_Amaliat_DP AS tad

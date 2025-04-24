@@ -602,7 +602,8 @@ namespace Nz.Anbar.WinForms.App
 
                     NzSumMoney.MS_Decimal   = payment.Cache
                                             + payment.POS
-                                            + payment.Cheque;
+                                            + payment.Cheque 
+                                            + payment.Takhfif;
 
                     NzRemain.MS_Decimal = NzSumFactor.MS_Decimal - NzSumMoney.MS_Decimal;
                 }                               

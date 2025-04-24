@@ -22,6 +22,7 @@ namespace Nz.Anbar.Model.ViewModel
         public decimal?     Cheque              { get; set; }
         public decimal?     Cache               { get; set; }
         public decimal?     Pos                 { get; set; }
+        public decimal?     Takhfif              { get; set; }
 
         public decimal?     mablaq_takhfif      { get; set; }
         public decimal?     Darsad_Takhfif      { get; set; }
@@ -31,6 +32,6 @@ namespace Nz.Anbar.Model.ViewModel
         public long?        FK_AshXas_ID        { get; set; }
 
         public string       Location            { get; set; }
-        public decimal      Remaind             =>mablaq-(Cheque??0)-(Cache??0)-(Pos??0);
+        public decimal      Remaind             => mablaq-(Cheque??0)-(Cache??0)-(Pos??0)-(Takhfif??0);
     }
 }

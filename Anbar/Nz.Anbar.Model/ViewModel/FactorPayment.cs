@@ -11,6 +11,7 @@ namespace Nz.Anbar.Model.ViewModel
         public decimal      Cache           { get; set; }
         public decimal      POS             { get; set; }
         public decimal      Cheque          { get; set; }
+        public decimal      Takhfif         { get; set; }
         public int          ChequeCount     { get; set; }
     }
 }

@@ -98,6 +98,7 @@ SELECT tat.ID,
        Payment.Cache,
        Payment.Pos,
        ChequePayment.Cheque,
+       Takhfif.OffAmount AS Takhfif,
        RTRIM(LTRIM(tbl.Title)) AS Location
 
 FROM Anbar.tbl_Amaliat_Title AS tat
@@ -147,6 +148,18 @@ FROM Anbar.tbl_Amaliat_Title AS tat
 		GROUP BY tad2.FK_Faktor
 
 	) AS ChequePayment ON ChequePayment.FK_Faktor = tat.ID
+
+LEFT OUTER JOIN
+    ( 
+        SELECT 
+            
+            tad.FK_Faktor,
+            SUM(ISNULL(tad.takhfif,0)) as OffAmount
+
+        FROM  Xazane.tbl_Amaliat_DP AS tad
+        Group BY tad.FK_Faktor
+        
+    )AS Takhfif on Takhfif.FK_Faktor =tat.ID
 
 WHERE tat.kind = @Kind AND tat.FK_Salmali =@Year AND (dd.PersianMonthNo=@Month OR @Month=13)
 ");

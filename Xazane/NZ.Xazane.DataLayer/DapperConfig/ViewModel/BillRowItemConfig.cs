@@ -169,8 +169,8 @@ tad.kind		AS Kind,
 (NULL)			AS Count,
 14		        AS Code,
 N''				AS Title,
-SUM( CASE WHEN tad.kind = 1 THEN tad.takhfif ELSE 0 END ) AS Debit,
-SUM( CASE WHEN tad.kind = 2 THEN tad.takhfif ELSE 0 END ) AS Credit
+SUM( CASE WHEN tad.kind = 2 THEN  tad.takhfif ELSE 0 END ) AS Debit,
+SUM( CASE WHEN tad.kind = 1 THEN  tad.takhfif ELSE 0 END ) AS Credit
 
 FROM Xazane.tbl_Amaliat_DP AS tad
 

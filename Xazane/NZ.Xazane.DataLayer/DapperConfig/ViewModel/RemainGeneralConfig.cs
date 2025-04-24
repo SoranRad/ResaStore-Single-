@@ -21,8 +21,8 @@ SET @DP =(
 	SUM
 	(
 		CASE WHEN tad.kind = 1 
-			 THEN -(ISNULL(Cheque.mablaq,0)+ISNULL(CashPos.mablaq,0)-ISNULL(tad.takhfif,0)) 
-		ELSE		ISNULL(Cheque.mablaq,0)+ISNULL(CashPos.mablaq,0)-ISNULL(tad.takhfif,0) 
+			 THEN -(ISNULL(Cheque.mablaq,0)+ISNULL(CashPos.mablaq,0)+ISNULL(tad.takhfif,0)) 
+		ELSE		ISNULL(Cheque.mablaq,0)+ISNULL(CashPos.mablaq,0)+ISNULL(tad.takhfif,0) 
 		END
 	)AS Balance
 	FROM 

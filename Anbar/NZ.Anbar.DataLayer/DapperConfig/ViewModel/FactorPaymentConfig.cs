@@ -17,7 +17,8 @@ SELECT
 	   Payment.Cache				AS Cache,
        Payment.Pos					AS Pos,
        ChequePayment.Mablaq			AS Cheque,
-       ChequePayment.ChequeCount	AS ChequeCount
+       ChequePayment.ChequeCount	AS ChequeCount,
+       Takhfif.OffAmount            AS Takhfif
 
 FROM Anbar.tbl_Amaliat_Title AS tat
     
@@ -60,6 +61,19 @@ FROM Anbar.tbl_Amaliat_Title AS tat
 		INNER JOIN Xazane.tbl_Amaliat_DP	AS tad2 ON tad2.ID = tac.FK_DP 
 		GROUP BY tad2.FK_Faktor
 	) AS ChequePayment ON ChequePayment.FK_Faktor = tat.ID
+
+LEFT OUTER JOIN
+    ( 
+        SELECT 
+            
+            tad.FK_Faktor,
+            SUM(ISNULL(tad.takhfif,0)) as OffAmount
+
+        FROM  Xazane.tbl_Amaliat_DP AS tad
+        Group BY tad.FK_Faktor
+        
+    )AS Takhfif on Takhfif.FK_Faktor = tat.ID
+
 	WHERE  tat.ID = @ID;
 ");
 

@@ -13,7 +13,7 @@ namespace NZ.Xazane.DataLayer.DapperConfig.Report
         public RemaindPeopleConfig()
         {
             SetList(@"
-
+ 
 SELECT 
 
 ta.ID,
@@ -29,11 +29,11 @@ RTRIM(LTRIM(ta.mobile))		AS mobile,
 
 (
  ISNULL(CacheDeficit.Remaind,0)
-+ISNULL(OffRemain.Remaind,0)
++ISNULL(PreRemain.Remaind,0)
 +ISNULL(Cheque.Remaind,0)
 +ISNULL(ChequeBack.Remaind,0)
 +ISNULL(Assign.Remaind,0)
-
++ISNULL(OFFAmount.Remaind,0)
 
 ) AS Balance
 
@@ -61,16 +61,35 @@ LEFT OUTER JOIN(
 LEFT OUTER JOIN (
 	SELECT
 		tad.FK_ShaXs,
-		SUM(CASE WHEN tad.kind = 2 OR tad.kind = 12 
+		SUM(CASE WHEN tad.kind = 12 
 			THEN -tad.takhfif ELSE tad.takhfif END) AS Remaind
 	FROM Xazane.tbl_Amaliat_DP AS tad
 
-	WHERE tad.FK_ShaXs IS NOT NULL AND tad.FK_Salmali = @Year
+	WHERE 
+         (tad.kind = 12 OR tad.kind = 11 )
+    AND   tad.FK_ShaXs IS NOT NULL AND tad.FK_Salmali = @Year
 	AND  (tad.tarikh >=@AzTarikh OR @AzTarikh IS NULL)
 	AND  (tad.tarikh <=@TaTarikh OR @TaTarikh IS NULL)
 
 	GROUP BY tad.FK_ShaXs 
-) AS OffRemain ON  OffRemain.FK_ShaXs = ta.ID
+) AS PreRemain ON  PreRemain.FK_ShaXs = ta.ID
+
+LEFT OUTER JOIN (
+	SELECT
+		tad.FK_ShaXs,
+		SUM(CASE WHEN tad.kind = 1 
+			THEN -tad.takhfif ELSE tad.takhfif END) AS Remaind
+	FROM Xazane.tbl_Amaliat_DP AS tad
+
+	WHERE 
+         (tad.kind = 1 OR tad.kind = 2 )
+    AND   tad.takhfif IS NOT NULL  
+    AND   tad.FK_ShaXs IS NOT NULL AND tad.FK_Salmali = @Year
+	AND  (tad.tarikh >=@AzTarikh OR @AzTarikh IS NULL)
+	AND  (tad.tarikh <=@TaTarikh OR @TaTarikh IS NULL)
+
+	GROUP BY tad.FK_ShaXs 
+) AS OFFAmount ON  OFFAmount.FK_ShaXs = ta.ID
 
 LEFT OUTER JOIN
 (

@@ -552,7 +552,8 @@ namespace NZ.Xazane.WinForms.App
             NzRemain.MS_Decimal =
                 (NzSumCache.MS_Decimal  ?? 0) + 
                 (NzSumPos.MS_Decimal    ?? 0) + 
-                (NzSumCheque.MS_Decimal ?? 0) - NzOff.MS_Decimal;
+                (NzSumCheque.MS_Decimal ?? 0) + 
+                NzOff.MS_Decimal;
         }
 
         private long?   GetIDPayment            (long IDFactor)
