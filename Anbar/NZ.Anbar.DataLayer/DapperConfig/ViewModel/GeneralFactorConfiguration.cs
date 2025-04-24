@@ -135,6 +135,8 @@ FROM Anbar.tbl_Amaliat_Title AS tat
 
 	)  AS Payment ON Payment.FK_Faktor = tat.ID
 
+
+
 	LEFT OUTER JOIN
 	(
 		SELECT 

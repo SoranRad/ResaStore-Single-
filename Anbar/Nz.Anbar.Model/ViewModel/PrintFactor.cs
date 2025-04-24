@@ -38,6 +38,7 @@ namespace Nz.Anbar.Model.ViewModel
         public decimal      mablaq              { get; set; }
         public string       ObjectTitle         { get; set; }
         public string       UnitTitle           { get; set; }
+        public string       Barcode             { get; set; }
 
         public decimal      nerkh_frosh         { get; set; }
         public decimal?     nerkh_frosh1        { get; set; }
@@ -48,6 +49,7 @@ namespace Nz.Anbar.Model.ViewModel
         public decimal?     Cheque              { get; set; }
         public decimal?     Cache               { get; set; }
         public decimal?     Pos                 { get; set; }
+        public decimal?     Takhfif_Tasvieh     { get; set; }
 
         public decimal?     mablaq_takhfif      { get; set; }
         public decimal?     Darsad_Takhfif      { get; set; }
@@ -55,7 +57,7 @@ namespace Nz.Anbar.Model.ViewModel
         public decimal?     Darsad_Maliat       { get; set; }
         public decimal?     Ezafat              { get; set; }
 
-        public decimal Remaind => mablaq_KOl - (Cheque ?? 0) - (Cache ?? 0) - (Pos ?? 0);
+        public decimal Remaind => mablaq_KOl - (Cheque ?? 0) - (Cache ?? 0) - (Pos ?? 0)-(Takhfif_Tasvieh??0);
 
     }
 }

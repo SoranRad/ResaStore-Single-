@@ -39,6 +39,7 @@ tar.takhfif ,
 tar.takhfif_darsad ,
 tar.mablaq,
 LTRIM(RTRIM(tkx.title)) AS ObjectTitle,
+LTRIM(RTRIM(tkx.barcode)) AS Barcode,
 LTRIM(RTRIM(tv.title))	AS UnitTitle,
 
 Ltrim(Rtrim(ta.title)) AS title,
@@ -90,6 +91,8 @@ tar.takhfif_darsad ,
 tar.mablaq,
 LTRIM(RTRIM(tkx.title)) AS ObjectTitle,
 LTRIM(RTRIM(tv.title))	AS UnitTitle,
+LTRIM(RTRIM(tkx.barcode)) AS Barcode,
+
 
 Ltrim(Rtrim(ta.title)) AS title,
 Ltrim(Rtrim(ta.codeMeli)) AS codeMeli,
@@ -102,9 +105,11 @@ Ltrim(Rtrim(ta.addressHome)) AS addressHome,
 Ltrim(Rtrim(ta.telDowom)) AS telDowom,
 Ltrim(Rtrim(ta.mobDowom)) AS mobDowom,
 Ltrim(Rtrim(ta.addresswork)) AS addresswork,
+
 Payment.Cache,
 Payment.Pos,
-ChequePayment.Cheque
+ChequePayment.Cheque,
+Takhfif.OffAmount AS Takhfif_Tasvieh
  
 FROM Anbar.tbl_Amaliat_Title		AS tat
 INNER JOIN General.DimDate			AS dd	ON dd.GregorianDate = tat.tarikh
@@ -138,6 +143,18 @@ LEFT OUTER JOIN
 		GROUP BY tad.FK_Faktor
 
 	)  AS Payment ON Payment.FK_Faktor = tat.ID
+
+    LEFT OUTER JOIN
+    ( 
+        SELECT 
+            
+            tad.FK_Faktor,
+            SUM(ISNULL(tad.takhfif,0)) as OffAmount
+
+        FROM  Xazane.tbl_Amaliat_DP AS tad
+        Group BY tad.FK_Faktor
+        
+    )AS Takhfif on Takhfif.FK_Faktor = tat.ID
 
 	LEFT OUTER JOIN
 	(

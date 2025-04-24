@@ -915,7 +915,7 @@ namespace Nz.Anbar.WinForms.App
                 log.Error(ex);
             }
         }
-        private void NzGrid_GetNewRow(object sender, GetNewRowEventArgs e)
+        private void NzGrid_GetNewRow               (object sender, GetNewRowEventArgs e)
         {
 	        try
 	        {
