@@ -131,7 +131,7 @@ namespace Nz.Anbar.WinForms.Print
                                                     y.takhfif,
                                                     y.takhfif_darsad,
                                                     y.mablaq,
-                                                    y.Barcode
+                                                    y.Barcode,
 
                                                 }).OrderBy(y =>y.radif).ThenBy(y => y.FK_Kala),
                         List_Parametter     = x.Key.kind>=11 && x.Key.kind < 50

@@ -49,6 +49,8 @@ namespace Nz.Anbar.WinForms.Report
                 var Mgr = new ReportManager();
                 var List = Mgr.GetReport<GardeshKoli>(new { Year = SystemConstant.ActiveYear.Salmali }, null);
 
+
+
                 ms_Grid.DataSource = List?.ToList();
             }
             catch (Exception ex)

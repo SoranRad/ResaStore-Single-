@@ -45,6 +45,8 @@ FROM
     INNER JOIN  Base.tbl_GroupKala_2th      AS tgk      ON tgk.Code = tkx.FK_GroupKala_2th
     INNER JOIN  Base.tbl_GroupKala_1th      AS tgk2     ON tgk2.Code = tgk.FK_GroupKala_1th
 
+    WHERE tat.FK_Salmali = @Year
+
     GROUP BY
     tar.FK_Kala,
     tkx.FK_GroupKala_2th,
