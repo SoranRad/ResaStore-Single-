@@ -14,6 +14,7 @@ namespace NZ.General.DataLayer.DapperConfig
 		{
 			SetItem(@"
 
+
 UPDATE Anbar.tbl_Amaliat_Title 
 
 SET mablaq = (Riz.RizSum - ISNULL(tad.mablaq_takhfif,0)+ ISNULL(tad.mablaq_Maliat,0)+ ISNULL(tad.Ezafat,0))
@@ -34,7 +35,7 @@ WHERE
 AND tat.FK_Salmali = @Salmali 
 AND (tat.kind = 0 OR tat.kind = 12 OR tat.kind = 13 OR tat.kind = 50 OR tat.kind = 51)
 
-
+Go;
 ");
 		}
 	}

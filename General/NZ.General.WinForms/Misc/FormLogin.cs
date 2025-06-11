@@ -185,6 +185,7 @@ namespace NZ.General.WinForms.Misc
         {
 	        Task.Run(() =>
 	        {
+
 		        var mgr = new ReportManager();
 		        mgr.GetItem<InitialCorrection>(new { Salmali = SystemConstant.ActiveYear.Salmali }, "");
 

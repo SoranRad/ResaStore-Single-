@@ -73,12 +73,12 @@ namespace NZ.Resaa.Store
                 _log.Error(ex);
             }
         }
-        private static void    GetVersion                  ()
+        private static void     GetVersion                  ()
         { 
             var assemblyLocation = Assembly.GetExecutingAssembly().Location;
             SystemConstant.Version = System.Diagnostics.FileVersionInfo.GetVersionInfo(assemblyLocation).FileVersion;
         }
-        private static void LoadGeneral()
+        private static void     LoadGeneral                 ()
         {
             //SystemConstant.IsDemo = true;
             //SystemConstant.DemoCount = 140;

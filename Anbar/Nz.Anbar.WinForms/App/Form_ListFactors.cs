@@ -38,21 +38,34 @@ namespace Nz.Anbar.WinForms.App
             switch (_Kind)
             {
                 case Enums.NzFactorKind.PishFaktor:
-                    NzGridHeads.LoadLayout(NzGridHeads.Layouts["PreFactor"]);
-                    NzGridItems.LoadLayout(NzGridItems.Layouts["Items"]);
+	                if (NzGridHeads.CurrentLayout != NzGridHeads.Layouts["PreFactor"])
+	                {
+		                NzGridHeads.LoadLayout(NzGridHeads.Layouts["PreFactor"]);
+		                NzGridItems.LoadLayout(NzGridItems.Layouts["Items"]);
+		                NzGridHeads.CurrentLayout = NzGridHeads.Layouts["PreFactor"];
+	                }
 
                     break;
                 case Enums.NzFactorKind.Xarid:
                 case Enums.NzFactorKind.BargshtFrosh:
                 case Enums.NzFactorKind.Frosh:
                 case Enums.NzFactorKind.BargashXarid:
-                    NzGridHeads.LoadLayout(NzGridHeads.Layouts["General"]);
-                    NzGridItems.LoadLayout(NzGridItems.Layouts["Items"]);
+	                if (NzGridHeads.CurrentLayout != NzGridHeads.Layouts["General"])
+	                {
+		                NzGridHeads.LoadLayout(NzGridHeads.Layouts["General"]);
+		                NzGridItems.LoadLayout(NzGridItems.Layouts["Items"]);
+		                NzGridHeads.CurrentLayout = NzGridHeads.Layouts["General"];
+
+	                }
                     break;
                 case Enums.NzFactorKind.HavaleZayeat:
                 case Enums.NzFactorKind.HavaleMasrafi:
-                    NzGridHeads.LoadLayout(NzGridHeads.Layouts["Transfer"]);
-                    NzGridItems.LoadLayout(NzGridItems.Layouts["TransferItems"]);
+	                if (NzGridHeads.CurrentLayout != NzGridHeads.Layouts["Transfer"])
+	                {
+		                NzGridHeads.LoadLayout(NzGridHeads.Layouts["Transfer"]);
+		                NzGridItems.LoadLayout(NzGridItems.Layouts["TransferItems"]);
+		                NzGridHeads.CurrentLayout = NzGridHeads.Layouts["Transfer"];
+	                }
                     break;
             }
 

@@ -17,7 +17,7 @@ WITH z AS
 (
 SELECT 
 FK_Kala,
-nerkh AS LastPrice,
+Anbar.tbl_Amaliat_Riz.mablaq / meqdar AS LastPrice,
 ROW_NUMBER() OVER (PARTITION BY FK_Kala ORDER BY tat.tarikh DESC,tat.kind) AS RowNumber 
 
 FROM Anbar.tbl_Amaliat_Riz 
