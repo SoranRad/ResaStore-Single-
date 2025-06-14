@@ -185,10 +185,17 @@ namespace NZ.General.WinForms.Misc
         {
 	        Task.Run(() =>
 	        {
+		        try
+		        {
 
-		        var mgr = new ReportManager();
-		        mgr.GetItem<InitialCorrection>(new { Salmali = SystemConstant.ActiveYear.Salmali }, "");
+			        var mgr = new ReportManager();
+			        mgr.GetItem<InitialCorrection>(new { SystemConstant.ActiveYear.Salmali }, "");
 
+		        }
+		        catch (Exception e)
+		        {
+			        log.Error(e);
+		        }
 	        });
         }
         #endregion

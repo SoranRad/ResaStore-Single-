@@ -234,30 +234,7 @@ namespace Nz.Anbar.WinForms.App
                     _Factor.tarikh_add = DateTime.Now;
                     _Factor.kind = (byte) _Kind;
                 }
-                //else //if (_IsEdit)
-                //{
-                //    //_Factor.FactorDetail = _Factor.FactorDetail ?? new FactorDetail()
-                //    //{
-                //    //    FactorHead = _Factor,
-                //    //    State = Enums.NzItemState.AddedNew,
-                //    //};
-
-                //    if (_Factor.FactorDetail == null)
-                //    {
-	               //     _Factor.FactorDetail = new FactorDetail()
-	               //     {
-		              //      FactorHead = _Factor,
-		              //      State = Enums.NzItemState.AddedNew,
-	               //     };
-                //    }
-
-                //    //var Detail = _Factor.FactorDetail;
-                //    //Detail.FK_User_Edit = SystemConstant.ActiveUser.ID;
-                //    //Detail.tarikh_edit = DateTime.Now;
-
-                //    _Factor.FactorDetail.FK_User_Edit = SystemConstant.ActiveUser.ID;
-                //    _Factor.FactorDetail.tarikh_edit = DateTime.Now;
-                //}
+                
 
                 _Factor.Serial          = Convert.ToInt32(NzSerial.MS_Decimal);
                 _Factor.FK_AshXas_ID    = (NzCustomer.MS_Get_Selected() as People)?.ID;
@@ -346,7 +323,7 @@ namespace Nz.Anbar.WinForms.App
             }
             catch (Exception ex)
             {
-                //log.Error(ex);
+                log.Error(ex);
                 MS_Message.Show("خطا در برنامه، فاکتور مورد نظر ذخیره نشد.لطفا فرم را ببندید و مجددا اقدام نمایید.", "خطا", ex.Message, MessageBoxButtons.OK);
             }
         }
@@ -416,7 +393,9 @@ namespace Nz.Anbar.WinForms.App
                      .MSZ_ForEach(x =>
                      {
                          x.nerkh = x.mablaq / x.meqdar;
-                         x.State = Enums.NzItemState.Modified;
+
+                         if(x.ID>0)
+                            x.State = Enums.NzItemState.Modified;
                      });
                 
             }

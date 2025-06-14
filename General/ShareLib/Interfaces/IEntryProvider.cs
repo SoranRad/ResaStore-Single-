@@ -38,5 +38,6 @@ namespace ShareLib.Interfaces
 
         Task<IEnumerable<DailyCircular>> GetDailyCircular (short Year,short Month);
 
+
     }
 }

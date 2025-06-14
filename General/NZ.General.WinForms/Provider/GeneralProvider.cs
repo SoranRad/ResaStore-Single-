@@ -113,29 +113,26 @@ namespace NZ.General.WinForms
         {
             return true;
         }
-
-        public void RefreshAlaram()
-        {
-            _dailyAlarm = new NoteDailyAlarm();
-            _dailyAlarm.RefreshList();
-        }
-
         public IEnumerable<RemaindPeople> GetListRemaind(DateTime? AzTarikh, DateTime? TaTarikh)
         {
             return null;
         }
 
-        public bool AnyAlaram()
+        public void                     RefreshAlaram()
+        {
+	        _dailyAlarm = new NoteDailyAlarm();
+	        _dailyAlarm.RefreshList();
+        }
+        public bool                     AnyAlaram()
         {
             return _dailyAlarm.AnyAlarm();
         }
-
-        public UITabPage GeTabPage()
+        public UITabPage                GeTabPage()
         {
             return _dailyAlarm.GetTabPage();
         }
 
-        public async Task<MS_Chart[]> GetChartSummarry()
+        public async Task<MS_Chart[]>           GetChartSummarry    ()
         {
             //await Task.Delay(2000);
             return new MS_Chart[]
@@ -144,8 +141,7 @@ namespace NZ.General.WinForms
             };
 
         }
-
-        public Task<IEnumerable<DailyCircular>> GetDailyCircular(short Year, short Month)
+        public Task<IEnumerable<DailyCircular>> GetDailyCircular    (short Year, short Month)
         {
             try
             {

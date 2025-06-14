@@ -35,7 +35,6 @@ WHERE
 AND tat.FK_Salmali = @Salmali 
 AND (tat.kind = 0 OR tat.kind = 12 OR tat.kind = 13 OR tat.kind = 50 OR tat.kind = 51)
 
-Go;
 ");
 		}
 	}
