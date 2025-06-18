@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using ShareLib.Interfaces;
 using ShareLib.Utils;
 
 namespace ShareLib.ViewModel
@@ -18,25 +19,29 @@ namespace ShareLib.ViewModel
         public string   UserName                { get; set; }
         public string   Location                { get; set; }
         public string   ConStr                  { get; set; }
-        public bool     AllowMultipleDatabase   { get; set; }
-        public bool     ShowCustomerRemain      { get; set; } = true;
+        //public bool     AllowMultipleDatabase   { get; set; }
+        //public bool     ShowCustomerRemain      { get; set; } = true;
+
+        public List<ISettingItems> Settings { get; set; } = new List<ISettingItems>();
+
 
         public void             ToXml       ()
         {
             var path = Path
                         .GetDirectoryName(Assembly.GetExecutingAssembly().Location)
                         + "\\" + FileName;
+			var Str = this.ToJsonString();
 
-            var Str = this.ToXmlString();
-            Str     = MS_Control.MS_Util.MS_Str_To_Hash(Str, SystemConstant.NzPasswordHash);
+            Str = MS_Control.MS_Util.MS_Str_To_Hash(Str, SystemConstant.NzPasswordHash);
             File.WriteAllText(path, Str);
         }
         public static Config    FromXML     ()
         {
             var path    = Path.GetDirectoryName (Assembly.GetExecutingAssembly().Location);
             var str     = File.ReadAllText      (path + "\\" + FileName);
-            str         = MS_Control.MS_Util.MS_Hash_To_Str(str, SystemConstant.NzPasswordHash);
-            return Extentions.FromXmlString<Config>(str);
+            str = MS_Control.MS_Util.MS_Hash_To_Str(str, SystemConstant.NzPasswordHash);
+            
+            return Extentions.FromJsonString<Config>(str);
         }
         public static bool      FileExist   ()
         {

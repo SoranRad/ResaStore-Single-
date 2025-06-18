@@ -46,19 +46,13 @@ namespace NZ.General.WinForms.Misc
                 return InitFile();
 
             var config = Config.FromXML();
-
-            ConnectionManager.ConStr                = config.ConStr;
-            SystemConstant.AllowMultipleDatabase    = config.AllowMultipleDatabase;
-            SystemConstant.ShowCustomerRemain       = config.ShowCustomerRemain;
+            ConnectionManager.ConStr        = config.ConStr;
             return true;
         }
         private bool    InitFile               ()
         {
             try
             {
-                //var DbPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)
-                //                + "\\Data\\ResaaStore_Primary.mdf";
-
                 var path    = Path
                                 .GetDirectoryName(Assembly.GetExecutingAssembly().Location)
                                 + "\\AutoBack";
@@ -77,12 +71,11 @@ namespace NZ.General.WinForms.Misc
                 {
                     Location = path,
                     UserName = "1",
-                    ConStr = Frm.MS_Con_str + ConStrDetail,
-                    AllowMultipleDatabase = Frm.MultipleDatabase,
+                    ConStr = Frm.MS_Con_str + ConStrDetail, 
                 };
 
                 ConnectionManager.ConStr = Config.ConStr;
-                SystemConstant.AllowMultipleDatabase = Config.AllowMultipleDatabase;
+                //SystemConstant.AllowMultipleDatabase = Config.AllowMultipleDatabase;
                 Config.ToXml();
                 //MS_Message.Show("تنظیمات ذخیره شده " +
                 //                "\n\n " +
@@ -212,8 +205,7 @@ namespace NZ.General.WinForms.Misc
                 return false;
             }
         }
-        private IEnumerable<DataBaseList> 
-                        GetDataBaseLists       ()
+        private IEnumerable<DataBaseList> GetDataBaseLists       ()
         {
             try
             {

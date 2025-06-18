@@ -18,7 +18,6 @@ namespace NZ.Resaa.Store
         {
             InitializeComponent();
         }
-
          
 
         private void Form_Alarm_Load(object sender, EventArgs e)

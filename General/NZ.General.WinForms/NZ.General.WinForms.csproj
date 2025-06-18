@@ -584,6 +584,12 @@
     <Compile Include="Setting\FormDailyNote.Designer.cs">
       <DependentUpon>FormDailyNote.cs</DependentUpon>
     </Compile>
+    <Compile Include="Setting\FormSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\FormSetting.Designer.cs">
+      <DependentUpon>FormSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Setting\FormUserAccess.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -607,6 +613,13 @@
     </Compile>
     <Compile Include="Setting\Form_SummaryNotes.Designer.cs">
       <DependentUpon>Form_SummaryNotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\SettingItems.cs" />
+    <Compile Include="Setting\TabSettingContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setting\TabSettingContainer.Designer.cs">
+      <DependentUpon>TabSettingContainer.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />
@@ -797,6 +810,9 @@
     <EmbeddedResource Include="Setting\FormDailyNote.resx">
       <DependentUpon>FormDailyNote.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Setting\FormSetting.resx">
+      <DependentUpon>FormSetting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Setting\FormUserAccess.resx">
       <DependentUpon>FormUserAccess.cs</DependentUpon>
     </EmbeddedResource>
@@ -808,6 +824,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Setting\Form_SummaryNotes.resx">
       <DependentUpon>Form_SummaryNotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\TabSettingContainer.resx">
+      <DependentUpon>TabSettingContainer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

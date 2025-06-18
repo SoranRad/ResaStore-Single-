@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Janus.Windows.UI.Tab;
 using MS_Control.Controls;
+using ShareLib.Component;
 using ShareLib.Models;
 using ShareLib.ViewModel;
 
@@ -38,6 +39,8 @@ namespace ShareLib.Interfaces
 
         Task<IEnumerable<DailyCircular>> GetDailyCircular (short Year,short Month);
 
-
+        NsSettingTabPage GetSettingTabPage ();
+        void SetSettings(IEnumerable<ISettingItems> settings);
+        ISettingItems GetSettings();
     }
 }

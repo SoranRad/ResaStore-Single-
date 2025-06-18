@@ -12,11 +12,13 @@ using NZ.Anbar.Business;
 using Nz.Anbar.WinForms.Alarm;
 using Nz.Anbar.WinForms.Component;
 using Nz.Anbar.WinForms.EndYear;
+using Nz.Anbar.WinForms.Settings;
 using ShareLib;
 using ShareLib.Interfaces;
 using ShareLib.Models;
 using ShareLib.Utils;
 using ShareLib.ViewModel;
+using ShareLib.Component;
 
 namespace Nz.Anbar.WinForms.Provider
 {
@@ -33,11 +35,15 @@ namespace Nz.Anbar.WinForms.Provider
         private StorageMenuItems                Menues;
         public static Form                      MainForm;
         private StorageAlarm                    _storageAlarm;
+        private TabSettingContainer             _settingContainer;
+        private ISettingItems               _settings;
+
         #endregion
         #region Constructors
         public StorageProvider()
         {
             Menues = new StorageMenuItems();
+            _settingContainer = new TabSettingContainer();
         }
         #endregion
         #region Mthods
@@ -206,7 +212,7 @@ namespace Nz.Anbar.WinForms.Provider
             return _storageAlarm.GetTabPage();
         }
 
-        public async Task<MS_Chart[]>         GetChartSummarry    ()
+        public async Task<MS_Chart[]>           GetChartSummarry    ()
         {
             return new MS_Chart[]
             {
@@ -215,8 +221,7 @@ namespace Nz.Anbar.WinForms.Provider
 
             };
         }
-
-        public Task<IEnumerable<DailyCircular>> GetDailyCircular(short Year, short Month)
+        public Task<IEnumerable<DailyCircular>> GetDailyCircular    (short Year, short Month)
         {
             try
             {
@@ -243,7 +248,26 @@ namespace Nz.Anbar.WinForms.Provider
             }
         }
 
-        #endregion
+		public NsSettingTabPage GetSettingTabPage()
+		{
+			_settingContainer = new TabSettingContainer();
+            _settingContainer.LoadSetting((SettingItems)_settings );
 
-    }
+			return _settingContainer.TabSetting;
+		}
+
+		public void SetSettings(IEnumerable<ISettingItems> settings)
+		{
+			_settings = settings.SingleOrDefault(x => x.Name == SettingItems.KeyName)
+			            ?? SettingItems.GetDefault();
+		}
+
+		public ISettingItems GetSettings()
+		{
+			return _settings;
+		}
+
+		#endregion
+
+	}
 }

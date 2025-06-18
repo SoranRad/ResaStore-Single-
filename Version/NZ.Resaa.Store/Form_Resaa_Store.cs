@@ -17,6 +17,7 @@ using MS_Control.Tarikh;
 using ShareLib;
 using ShareLib.Interfaces;
 using ShareLib.Utils;
+using ShareLib.ViewModel;
 
 namespace NZ.Resaa.Store
 {
@@ -62,18 +63,21 @@ namespace NZ.Resaa.Store
         }
         private bool    LoadModule                  ()
         {
-            var loadingGeneral = LoadGeneral();
-            loadingGeneral = LoadBar();
-            loadingGeneral = LoadStorage();
-            loadingGeneral = LoadXazane();
-            loadingGeneral = Loadmachine();
+	        var config = Config.FromXML();
+
+            var loadingMadul = LoadGeneral(config);
+            loadingMadul = LoadStorage(config);
+            loadingMadul = LoadXazane(config); 
             return true;
         }
-        private bool    LoadGeneral                 ()
+        private bool    LoadGeneral                 (Config config)
         {
             var tmp = Form_Factory._Form_Factory_General;
+
             
             tmp.SetMainForm(this);
+            tmp.SetSettings(config.Settings);
+
             
             ms_baseinfo
                 .DropDownItems
@@ -104,7 +108,7 @@ namespace NZ.Resaa.Store
 
             return true;
         }
-        private bool    LoadXazane                  ()
+        private bool    LoadXazane                  (Config config)
         {
             var dir = Path.GetDirectoryName(Application.ExecutablePath);
 
@@ -116,6 +120,7 @@ namespace NZ.Resaa.Store
                 .GetTypes()
                 .FirstOrDefault(x => x.GetInterfaces().Contains(typeof(IEntryProvider)));
 
+
             var costruc = i.GetConstructors();
             var item = costruc.FirstOrDefault();
             object c = item.Invoke(null);
@@ -126,7 +131,7 @@ namespace NZ.Resaa.Store
             Form_Factory.SystemList.Add(tmp);
 
             tmp?.SetMainForm(this);
-
+            tmp?.SetSettings(config.Settings);
             //mS_Menu1.Items.Insert(1, tmp.MainMenuSysytem);
 
             ms_baseinfo
@@ -159,77 +164,7 @@ namespace NZ.Resaa.Store
                 );
             return true;
         }
-        private bool    LoadBar                     ()
-        {
-            try
-            {
-
-                var dir = Path.GetDirectoryName(Application.ExecutablePath);
-
-                if (!File.Exists(Path.Combine(dir, "Nz.Bar.WinForms.dll")))
-                    return true;
-
-                Assembly asm = Assembly.LoadFrom("Nz.Bar.WinForms.dll");
-                var i = asm
-                    .GetTypes()
-                    .FirstOrDefault(x => x.GetInterfaces().Contains(typeof(IEntryProvider)));
-
-                var costruc = i.GetConstructors();
-                if (!costruc.Any())
-                    return false;
-
-                var item = costruc.FirstOrDefault();
-
-                if (item == null)
-                    return false;
-
-                object c = item.Invoke(null);
-
-                Form_Factory._Form_Factory_Bar = c as IEntryProvider;
-                var tmp = (c as IEntryProvider);
-                Form_Factory.SystemList.Add(tmp);
-
-                if (tmp == null)
-                    return false;
-
-                tmp.SetMainForm(this);
-
-
-                ms_baseinfo
-                    .DropDownItems
-                    .AddRange(tmp.GetMenu(Enums.MenuKind.BaseInfo)
-                        .OfType<ToolStripItem>()
-                        .ToArray());
-                var optMenu = new ToolStripMenuItem(tmp.GetName)
-                {
-                    Font = new Font("IRANSans(Small) Medium", 14.5f),
-                    Image = global::MS_Resource.GlobalResources.StoreHouse,
-                };
-
-                optMenu
-                    .DropDownItems
-                    .AddRange(tmp.GetMenu(Enums.MenuKind.Operation)
-                        .OfType<ToolStripItem>()
-                        .ToArray());
-
-                mS_Menu1.Items.Insert(mS_Menu1.Items.Count - 3, optMenu);
-                NzSidebar
-                    .Items
-                    .AddRange(
-                        tmp
-                            .GetMenu(Enums.MenuKind.Sidebar)
-                            .OfType<ToolStripItem>()
-                            .ToArray()
-                    );
-
-            }
-            catch (Exception ex)
-            {
-                log.Error(ex);
-            }
-            return true;
-        }
-        private bool    LoadStorage                 ()
+        private bool    LoadStorage                 (Config config)
         {
             try
             {
@@ -263,6 +198,7 @@ namespace NZ.Resaa.Store
                     return false;
 
                 tmp.SetMainForm(this);
+                tmp?.SetSettings(config.Settings); 
 
 
                     ms_baseinfo
@@ -298,77 +234,7 @@ namespace NZ.Resaa.Store
                 log.Error(ex);
             }
             return true;
-        }
-        private bool    Loadmachine                 ()
-        {
-            try
-            {
-
-                var dir = Path.GetDirectoryName(Application.ExecutablePath);
-
-                if (!File.Exists(Path.Combine(dir, "Nz.Machine.WinForms.dll")))
-                    return true;
-
-                Assembly asm = Assembly.LoadFrom("Nz.Machine.WinForms.dll");
-                var i = asm
-                    .GetTypes()
-                    .FirstOrDefault(x => x.GetInterfaces().Contains(typeof(IEntryProvider)));
-
-                var costruc = i.GetConstructors();
-                if (!costruc.Any())
-                    return false;
-
-                var item = costruc.FirstOrDefault();
-
-                if (item == null)
-                    return false;
-
-                object c = item.Invoke(null);
-
-                Form_Factory._Form_Factory_Machine = c as IEntryProvider;
-                var tmp = (c as IEntryProvider);
-                Form_Factory.SystemList.Add(tmp);
-
-                if (tmp == null)
-                    return false;
-
-                tmp.SetMainForm(this);
-
-
-                ms_baseinfo
-                    .DropDownItems
-                    .AddRange(tmp.GetMenu(Enums.MenuKind.BaseInfo)
-                        .OfType<ToolStripItem>()
-                        .ToArray());
-                var optMenu = new ToolStripMenuItem(tmp.GetName)
-                {
-                    Font = new Font("IRANSans(Small) Medium", 14.5f),
-                    Image = global::MS_Resource.GlobalResources.StoreHouse,
-                };
-
-                optMenu
-                    .DropDownItems
-                    .AddRange(tmp.GetMenu(Enums.MenuKind.Operation)
-                        .OfType<ToolStripItem>()
-                        .ToArray());
-
-                mS_Menu1.Items.Insert(mS_Menu1.Items.Count - 3, optMenu);
-                NzSidebar
-                    .Items
-                    .AddRange(
-                        tmp
-                            .GetMenu(Enums.MenuKind.Sidebar)
-                            .OfType<ToolStripItem>()
-                            .ToArray()
-                    );
-
-            }
-            catch (Exception ex)
-            {
-                log.Error(ex);
-            }
-            return true;
-        }
+        } 
         private void    LoadReportMenus             ()
         {
             try
@@ -462,7 +328,6 @@ namespace NZ.Resaa.Store
              
             NzVersion.Text = @"نسخه : " + SystemConstant.Version;
         }
-
         private void    RunUpdate                   ()
         {
             try

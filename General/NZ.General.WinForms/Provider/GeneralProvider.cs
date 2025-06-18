@@ -17,6 +17,7 @@ using Janus.Windows.UI.Tab;
 using MS_Control.Controls;
 using NZ.General.WinForms.Alarm;
 using NZ.General.WinForms.Component;
+using ShareLib.Component;
 
 namespace NZ.General.WinForms
 {
@@ -33,6 +34,8 @@ namespace NZ.General.WinForms
         private GeneralMenuItems            Menues;
         private NoteDailyAlarm              _dailyAlarm;
         public static Form                  MainForm;
+        private TabSettingContainer         _settingContainer;
+        private ISettingItems               _settings;
         #endregion
         #region Consructor
         public GeneralProvider()
@@ -45,6 +48,8 @@ namespace NZ.General.WinForms
             Form_Factory.CmdChangePass      = new CommandChangePass (MainForm);
             Form_Factory.CmdChangeUsYear    = new CommandChangeYear (MainForm);
             Form_Factory.CmdChangeUser      = new CommandChangeUser (MainForm);
+
+            _settingContainer = new TabSettingContainer();
         }
         #endregion
         #region Methods
@@ -154,6 +159,26 @@ namespace NZ.General.WinForms
             }
         }
 
-        #endregion
-    }
+		public NsSettingTabPage GetSettingTabPage()
+		{
+            _settingContainer.LoadSetting((SettingItems)_settings);
+			return _settingContainer.TabSetting;
+		}
+
+		public void SetSettings(IEnumerable<ISettingItems> settings)
+		{
+			_settings = settings.SingleOrDefault(x => x.Name == SettingItems.KeyName)
+				?? SettingItems.GetDefault();
+
+			ConnectionManager.ConStr = (_settings as SettingItems)?.ConStr;
+		}
+
+		public ISettingItems GetSettings()
+		{
+			return _settings;
+		}
+
+
+		#endregion
+	}
 }

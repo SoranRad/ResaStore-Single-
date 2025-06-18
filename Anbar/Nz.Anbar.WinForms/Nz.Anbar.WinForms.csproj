@@ -473,6 +473,13 @@
       <DependentUpon>FormProfitObject.cs</DependentUpon>
     </Compile>
     <Compile Include="Report\Profit\MonthlyProfit.cs" />
+    <Compile Include="Settings\SettingItems.cs" />
+    <Compile Include="Settings\TabSettingContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\TabSettingContainer.Designer.cs">
+      <DependentUpon>TabSettingContainer.cs</DependentUpon>
+    </Compile>
     <None Include="..\..\General\MS_Resource\GlobalResources.Designer.cs">
       <Link>GlobalResources.Designer.cs</Link>
       <AutoGen>True</AutoGen>
@@ -771,6 +778,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report\Profit\FormProfitObject.resx">
       <DependentUpon>FormProfitObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\TabSettingContainer.resx">
+      <DependentUpon>TabSettingContainer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="..\..\General\MS_Resource\GlobalResources.resx">
       <Link>GlobalResources.resx</Link>

@@ -210,6 +210,12 @@ namespace NZ.General.WinForms.Provider
             }
            
         }
-    }
+
+		private void NsSettings_Click(object sender, EventArgs e)
+		{
+			var frm = new FormSetting();
+			frm.Show(GeneralProvider.MainForm);
+		}
+	}
 }
 

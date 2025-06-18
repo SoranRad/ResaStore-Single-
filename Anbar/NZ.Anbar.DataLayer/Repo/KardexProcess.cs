@@ -15,7 +15,6 @@ namespace NZ.Anbar.DataLayer.Repo
     public static class KardexProcess
     {
         private static string   FormatString = "0,0.##;(0,0.##); ";
-        private static string   FormatStringMeqdar = "0.##;(0.##); ";
         private static void     MakeRemainLastPrice     (StorageContext db, IList<FactorItem> Items,int StartIndex, decimal Price)
         {
             for (int i = StartIndex; i < Items.Count; i++)

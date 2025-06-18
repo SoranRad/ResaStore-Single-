@@ -75,14 +75,14 @@
       <HintPath>..\..\Output\Janus.Windows.UI.v3.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="JsonFx, Version=2.0.1209.2802, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\JsonFx.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="MS_Control, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Output\MS_Control.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Output\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -98,12 +98,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Component\NsSettingTabPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Component\NsSettingTabPage.Designer.cs">
+      <DependentUpon>NsSettingTabPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\DapperEntityConfiguration.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IFactoryControl.cs" />
     <Compile Include="Interfaces\IMultipleReport.cs" />
     <Compile Include="Interfaces\IPaymentCommand.cs" />
     <Compile Include="Interfaces\IReportRepository.cs" />
+    <Compile Include="Interfaces\ISettingItems.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Models\Activation.cs" />
     <Compile Include="Models\DialyNote.cs" />

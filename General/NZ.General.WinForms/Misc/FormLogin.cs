@@ -181,7 +181,7 @@ namespace NZ.General.WinForms.Misc
             }
         }
 
-        private void CurrectErrors()
+        private void    CurrectErrors           ()
         {
 	        Task.Run(() =>
 	        {

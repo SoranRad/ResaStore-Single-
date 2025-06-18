@@ -18,6 +18,7 @@ using NZ.Xazane.WinForms.EndYear;
 using NZ.Xazane.WinForms.Factor;
 using NZ.Xazane.WinForms.Provider;
 using ShareLib;
+using ShareLib.Component;
 using ShareLib.Interfaces;
 using ShareLib.Models;
 using ShareLib.Utils;
@@ -271,6 +272,21 @@ namespace NZ.Xazane.WinForms
                 return null;
 
             }
+        }
+
+        public NsSettingTabPage GetSettingTabPage()
+        {
+	        return null;
+        }
+
+        public void SetSettings(IEnumerable<ISettingItems> settings)
+        {
+	        
+        }
+
+        public ISettingItems GetSettings()
+        {
+	        return null;
         }
 
         public Control                      CreateControl       (Enums.NzFactoryControlKind Kind)

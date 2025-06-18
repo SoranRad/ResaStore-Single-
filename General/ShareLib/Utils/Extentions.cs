@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using JsonFx.Json;
+using JsonFx.Serialization;
 using MS_Control.Controls;
 using MS_Control.Tarikh;
 
@@ -36,6 +38,17 @@ namespace ShareLib.Utils
             }
         }
 
+        public static void      ToJson<T>            (this T Item, string FileName)
+        {
+	        var JsonStr = ToJsonString(Item); 
+            File.WriteAllText(FileName,JsonStr); 
+        }
+        public static string    ToJsonString         (this object Item)
+        {
+	        var writer = new JsonWriter();
+	        return writer.Write(Item); 
+        }
+
         public static       T FromXmlString<T>      (string XmlText)
         {
             XmlSerializer ser = new XmlSerializer(typeof(T));
@@ -53,6 +66,19 @@ namespace ShareLib.Utils
             xmlReadFile.Close();
             return (T)xmlObject;
         }
+        
+        public static       T FromJsonString<T>      (string XmlText)
+        {
+
+	        var reader = new JsonReader();
+	        return reader.Read<T>(XmlText);
+        }
+        public static T     FromJson<T>              (string FileName)
+        {
+	        return FromJsonString<T>(File.ReadAllText(FileName));
+        }
+
+        
         public static void  FillParametter          (this MS_GridX_Setting GridSetting ,string Title="")
         {
             GridSetting.MS_Company_Name = SystemConstant.ActiveCompany.title;
@@ -63,7 +89,7 @@ namespace ShareLib.Utils
 
         }
 
-        public static void SafeSetProperty (this Control Control, string PropertyName, object value)
+        public static void SafeSetProperty          (this Control Control, string PropertyName, object value)
         {
             
            
