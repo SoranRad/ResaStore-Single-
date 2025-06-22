@@ -64,6 +64,7 @@ namespace NZ.Resaa.Store
         private bool    LoadModule                  ()
         {
 	        var config = Config.FromXML();
+	        ConnectionManager.ConStr = config.ConStr;
 
             var loadingMadul = LoadGeneral(config);
             loadingMadul = LoadStorage(config);

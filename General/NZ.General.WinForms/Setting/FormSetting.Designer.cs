@@ -48,7 +48,7 @@
 			this.NzTab.Name = "NzTab";
 			this.NzTab.Office2007CustomColor = System.Drawing.Color.Transparent;
 			this.NzTab.ShowFocusRectangle = false;
-			this.NzTab.Size = new System.Drawing.Size(716, 385);
+			this.NzTab.Size = new System.Drawing.Size(716, 391);
 			this.NzTab.TabIndex = 7;
 			this.NzTab.TabsStateStyles.DisabledFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.NzTab.TabsStateStyles.DisabledFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -64,13 +64,13 @@
 			this.Panel_Foother.Controls.Add(this.ms_Save);
 			this.Panel_Foother.Controls.Add(this.ms_Exit);
 			this.Panel_Foother.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.Panel_Foother.Location = new System.Drawing.Point(0, 385);
+			this.Panel_Foother.Location = new System.Drawing.Point(0, 391);
 			this.Panel_Foother.MS_BorderColor = System.Drawing.Color.DarkGray;
 			this.Panel_Foother.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.Panel_Foother.MS_Color_End = System.Drawing.Color.Gainsboro;
 			this.Panel_Foother.MS_Color_Start = System.Drawing.Color.WhiteSmoke;
 			this.Panel_Foother.Name = "Panel_Foother";
-			this.Panel_Foother.Size = new System.Drawing.Size(716, 51);
+			this.Panel_Foother.Size = new System.Drawing.Size(716, 45);
 			this.Panel_Foother.TabIndex = 8;
 			// 
 			// ms_Save
@@ -80,7 +80,7 @@
 			this.ms_Save.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.ms_Save.Image = ((System.Drawing.Image)(resources.GetObject("ms_Save.Image")));
 			this.ms_Save.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
-			this.ms_Save.Location = new System.Drawing.Point(601, 11);
+			this.ms_Save.Location = new System.Drawing.Point(601, 7);
 			this.ms_Save.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.ms_Save.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.ms_Save.MS_Change_Border_Color_On_Enter = false;
@@ -108,7 +108,7 @@
 			this.ms_Exit.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.ms_Exit.Image = ((System.Drawing.Image)(resources.GetObject("ms_Exit.Image")));
 			this.ms_Exit.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
-			this.ms_Exit.Location = new System.Drawing.Point(12, 11);
+			this.ms_Exit.Location = new System.Drawing.Point(12, 7);
 			this.ms_Exit.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.ms_Exit.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.ms_Exit.MS_Change_Border_Color_On_Enter = false;
@@ -127,6 +127,7 @@
 			this.ms_Exit.UseThemes = false;
 			this.ms_Exit.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
 			this.ms_Exit.WordWrap = false;
+			this.ms_Exit.Click += new System.EventHandler(this.ms_Exit_Click);
 			// 
 			// FormSetting
 			// 

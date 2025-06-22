@@ -120,6 +120,7 @@
     <Compile Include="Models\Report\NoteOfDate.cs" />
     <Compile Include="Models\Report\SummaryNote.cs" />
     <Compile Include="Models\YearNoteList.cs" />
+    <Compile Include="Utils\Converter.cs" />
     <Compile Include="Utils\CryptographyHelper.cs" />
     <Compile Include="Utils\Extentions.cs" />
     <Compile Include="Utils\InvokeCommand.cs" />

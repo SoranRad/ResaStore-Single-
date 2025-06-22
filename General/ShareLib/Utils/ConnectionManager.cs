@@ -14,7 +14,7 @@ namespace ShareLib.Utils
         public static string ConStr = "";
         #endregion
         #region Methods
-        public static DbConnection  Create() =>new SqlConnection(ConStr);
+        public static DbConnection  Create() => new SqlConnection(ConStr);
         #endregion
     }
 }

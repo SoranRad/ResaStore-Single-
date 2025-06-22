@@ -326,7 +326,7 @@ namespace Nz.Anbar.WinForms.Base
 
             NzSubGroups.Focus();
 
-            nzUnit_2.Visible = Nz_Zarib.Visible = SystemConstant.HasVahedFari;
+            //nzUnit_2.Visible = Nz_Zarib.Visible = SystemConstant.HasVahedFari;
         }
         private void    MaxCode    ()
         {

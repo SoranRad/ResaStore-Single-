@@ -40,7 +40,7 @@ namespace ShareLib.Interfaces
         Task<IEnumerable<DailyCircular>> GetDailyCircular (short Year,short Month);
 
         NsSettingTabPage GetSettingTabPage ();
-        void SetSettings(IEnumerable<ISettingItems> settings);
+        void SetSettings(IEnumerable<dynamic> settings);
         ISettingItems GetSettings();
     }
 }

@@ -248,21 +248,22 @@ namespace Nz.Anbar.WinForms.Provider
             }
         }
 
-		public NsSettingTabPage GetSettingTabPage()
+		public NsSettingTabPage                 GetSettingTabPage   ()
 		{
 			_settingContainer = new TabSettingContainer();
             _settingContainer.LoadSetting((SettingItems)_settings );
 
 			return _settingContainer.TabSetting;
 		}
-
-		public void SetSettings(IEnumerable<ISettingItems> settings)
+		public void                             SetSettings         (IEnumerable<dynamic> settings)
 		{
-			_settings = settings.SingleOrDefault(x => x.Name == SettingItems.KeyName)
-			            ?? SettingItems.GetDefault();
+			var setting = settings.SingleOrDefault(x => x.Name == SettingItems.KeyName);
+			if (setting == null)
+				_settings = SettingItems.GetDefault();
+			else
+				_settings = Converter.Convert<SettingItems>(setting);
 		}
-
-		public ISettingItems GetSettings()
+		public ISettingItems                    GetSettings         ()
 		{
 			return _settings;
 		}

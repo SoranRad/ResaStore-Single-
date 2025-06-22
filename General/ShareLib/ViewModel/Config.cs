@@ -19,10 +19,8 @@ namespace ShareLib.ViewModel
         public string   UserName                { get; set; }
         public string   Location                { get; set; }
         public string   ConStr                  { get; set; }
-        //public bool     AllowMultipleDatabase   { get; set; }
-        //public bool     ShowCustomerRemain      { get; set; } = true;
 
-        public List<ISettingItems> Settings { get; set; } = new List<ISettingItems>();
+        public List<dynamic> Settings { get; set; } = new List<dynamic>();
 
 
         public void             ToXml       ()

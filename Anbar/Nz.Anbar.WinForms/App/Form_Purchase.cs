@@ -18,6 +18,7 @@ using NZ.Anbar.Model;
 using Nz.Anbar.Model.Model;
 using Nz.Anbar.Model.Report;
 using Nz.Anbar.WinForms.Report;
+using Nz.Anbar.WinForms.Settings;
 using ShareLib;
 using ShareLib.Interfaces;
 using ShareLib.Models;
@@ -53,6 +54,7 @@ namespace Nz.Anbar.WinForms.App
         private int                 _Serial;
         private Enums.NzFactorKind  _Kind;
         private string              _FormatString = "0,0.##;(0,0.##); ";
+        private SettingItems        _settings;
         #endregion
         #region Constructor
         public Form_Purchase                        (long ID = 0,Enums.NzFactorKind Kind = Enums.NzFactorKind.Xarid)
@@ -80,7 +82,8 @@ namespace Nz.Anbar.WinForms.App
         }
         private void Init                           ()
         {
-	        NzPeopleRemaind.Checked = SystemConstant.ShowCustomerRemain;
+	        _settings = Form_Factory._Form_Factory_Anbar.GetSettings() as SettingItems;
+	        NzPeopleRemaind.Checked = _settings.ShowRemaind;
 
             byte KindCustomer = 1;
 

@@ -26,7 +26,7 @@ namespace NZ.General.WinForms.Setting
 					(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		#endregion
 
-		private List<ISettingItems> _settings = new List<ISettingItems>();
+		private List<dynamic> _settings = new List<dynamic>();
 
 		public FormSetting()
 		{
@@ -57,14 +57,14 @@ namespace NZ.General.WinForms.Setting
 		{
 			try
 			{
-				_settings = new List<ISettingItems>();
+				_settings = new List<dynamic>();
 				foreach (NsSettingTabPage tab in NzTab.TabPages)
 					tab.DoSave();
 
 				var config = Config.FromXML();
 				config.Settings = _settings;
 
-				var general = _settings.SingleOrDefault(x => x.Name == SettingItems.KeyName);
+				var general = _settings.SingleOrDefault(x => ((ISettingItems)x).Name == SettingItems.KeyName);
 				config.ConStr = (general as SettingItems)?.ConStr;
 
 				config.ToXml();
@@ -82,6 +82,11 @@ namespace NZ.General.WinForms.Setting
 				MS_Message.Show("سیستم قادر به ثبت اطلاعات نیست", "خطا در ثبت", ex.Message, MessageBoxButtons.OK);
 				log.Error(ex);
 			}
+		}
+
+		private void ms_Exit_Click(object sender, EventArgs e)
+		{
+			this.Close();
 		}
 	}
 }

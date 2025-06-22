@@ -279,7 +279,7 @@ namespace NZ.Xazane.WinForms
 	        return null;
         }
 
-        public void SetSettings(IEnumerable<ISettingItems> settings)
+        public void SetSettings(IEnumerable<dynamic> settings)
         {
 	        
         }
