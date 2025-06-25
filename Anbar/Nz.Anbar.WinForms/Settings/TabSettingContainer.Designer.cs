@@ -35,6 +35,10 @@ namespace Nz.Anbar.WinForms.Settings
 			this.NsAdvancedSearch = new MS_Control.Controls.MS_CheckBox();
 			this.NsMainGroup = new MS_Control.Controls.MS_CheckBox();
 			this.NsPrintRemaind = new MS_Control.Controls.MS_CheckBox();
+			this.mS_Lable_Ex1 = new MS_Control.Controls.MS_Lable_Ex();
+			this.NzCustomer = new NZ.General.WinForms.Component.NzPeople();
+			this.mS_Lable_Ex2 = new MS_Control.Controls.MS_Lable_Ex();
+			this.NzLocation = new Nz.Anbar.WinForms.Component.NzLocation();
 			((System.ComponentModel.ISupportInitialize)(this.NzTabs)).BeginInit();
 			this.NzTabs.SuspendLayout();
 			this.NsStorageSetting.SuspendLayout();
@@ -67,6 +71,10 @@ namespace Nz.Anbar.WinForms.Settings
 			// 
 			// NsStorageSetting
 			// 
+			this.NsStorageSetting.Controls.Add(this.NzLocation);
+			this.NsStorageSetting.Controls.Add(this.mS_Lable_Ex2);
+			this.NsStorageSetting.Controls.Add(this.NzCustomer);
+			this.NsStorageSetting.Controls.Add(this.mS_Lable_Ex1);
 			this.NsStorageSetting.Controls.Add(this.NsAdvancedSearch);
 			this.NsStorageSetting.Controls.Add(this.NsMainGroup);
 			this.NsStorageSetting.Controls.Add(this.NsPrintRemaind);
@@ -84,12 +92,11 @@ namespace Nz.Anbar.WinForms.Settings
 			// 
 			// NsAdvancedSearch
 			// 
-			this.NsAdvancedSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsAdvancedSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.NsAdvancedSearch.BackColor = System.Drawing.Color.Transparent;
 			this.NsAdvancedSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsAdvancedSearch.Location = new System.Drawing.Point(38, 87);
-			this.NsAdvancedSearch.Margin = new System.Windows.Forms.Padding(6, 13, 6, 13);
+			this.NsAdvancedSearch.Location = new System.Drawing.Point(44, 83);
+			this.NsAdvancedSearch.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
 			this.NsAdvancedSearch.MS_BorderColor = System.Drawing.Color.Transparent;
 			this.NsAdvancedSearch.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsAdvancedSearch.MS_Change_Border_Color_On_Enter = true;
@@ -106,19 +113,18 @@ namespace Nz.Anbar.WinForms.Settings
 			this.NsAdvancedSearch.MS_UnChecked_Color = System.Drawing.Color.Transparent;
 			this.NsAdvancedSearch.Name = "NsAdvancedSearch";
 			this.NsAdvancedSearch.ShowFocusRectangle = false;
-			this.NsAdvancedSearch.Size = new System.Drawing.Size(501, 31);
+			this.NsAdvancedSearch.Size = new System.Drawing.Size(497, 31);
 			this.NsAdvancedSearch.TabIndex = 818;
 			this.NsAdvancedSearch.Text = "  به صورت پیش فرض از جستجوی داخل جملات در جستجوی کالا استفاده شود";
 			this.NsAdvancedSearch.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
 			// 
 			// NsMainGroup
 			// 
-			this.NsMainGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsMainGroup.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.NsMainGroup.BackColor = System.Drawing.Color.Transparent;
 			this.NsMainGroup.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsMainGroup.Location = new System.Drawing.Point(38, 50);
-			this.NsMainGroup.Margin = new System.Windows.Forms.Padding(6, 13, 6, 13);
+			this.NsMainGroup.Location = new System.Drawing.Point(44, 52);
+			this.NsMainGroup.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
 			this.NsMainGroup.MS_BorderColor = System.Drawing.Color.Transparent;
 			this.NsMainGroup.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsMainGroup.MS_Change_Border_Color_On_Enter = true;
@@ -135,19 +141,18 @@ namespace Nz.Anbar.WinForms.Settings
 			this.NsMainGroup.MS_UnChecked_Color = System.Drawing.Color.Transparent;
 			this.NsMainGroup.Name = "NsMainGroup";
 			this.NsMainGroup.ShowFocusRectangle = false;
-			this.NsMainGroup.Size = new System.Drawing.Size(501, 31);
+			this.NsMainGroup.Size = new System.Drawing.Size(497, 31);
 			this.NsMainGroup.TabIndex = 817;
 			this.NsMainGroup.Text = "  گروه اصلی کالا/خدمات در سیستم استفاده شود";
 			this.NsMainGroup.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
 			// 
 			// NsPrintRemaind
 			// 
-			this.NsPrintRemaind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsPrintRemaind.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.NsPrintRemaind.BackColor = System.Drawing.Color.Transparent;
 			this.NsPrintRemaind.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsPrintRemaind.Location = new System.Drawing.Point(38, 13);
-			this.NsPrintRemaind.Margin = new System.Windows.Forms.Padding(6, 13, 6, 13);
+			this.NsPrintRemaind.Location = new System.Drawing.Point(44, 21);
+			this.NsPrintRemaind.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
 			this.NsPrintRemaind.MS_BorderColor = System.Drawing.Color.Transparent;
 			this.NsPrintRemaind.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsPrintRemaind.MS_Change_Border_Color_On_Enter = true;
@@ -164,10 +169,95 @@ namespace Nz.Anbar.WinForms.Settings
 			this.NsPrintRemaind.MS_UnChecked_Color = System.Drawing.Color.Transparent;
 			this.NsPrintRemaind.Name = "NsPrintRemaind";
 			this.NsPrintRemaind.ShowFocusRectangle = false;
-			this.NsPrintRemaind.Size = new System.Drawing.Size(501, 31);
+			this.NsPrintRemaind.Size = new System.Drawing.Size(497, 31);
 			this.NsPrintRemaind.TabIndex = 816;
 			this.NsPrintRemaind.Text = "  مانده حساب شخص به صورت پیش فرض چاپ شود";
 			this.NsPrintRemaind.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
+			// 
+			// mS_Lable_Ex1
+			// 
+			this.mS_Lable_Ex1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.mS_Lable_Ex1.BackColor = System.Drawing.Color.Transparent;
+			this.mS_Lable_Ex1.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
+			this.mS_Lable_Ex1.Location = new System.Drawing.Point(398, 124);
+			this.mS_Lable_Ex1.MS_BorderColor = System.Drawing.Color.Tan;
+			this.mS_Lable_Ex1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.None;
+			this.mS_Lable_Ex1.MS_Color_End = System.Drawing.Color.Empty;
+			this.mS_Lable_Ex1.MS_Color_Start = System.Drawing.Color.Empty;
+			this.mS_Lable_Ex1.Name = "mS_Lable_Ex1";
+			this.mS_Lable_Ex1.Size = new System.Drawing.Size(162, 61);
+			this.mS_Lable_Ex1.TabIndex = 819;
+			this.mS_Lable_Ex1.Text = "حساب پیش فرض شخص\r\n در فروش بارکدخوان :";
+			this.mS_Lable_Ex1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// NzCustomer
+			// 
+			this.NzCustomer.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.NzCustomer.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.DownArrow;
+			this.NzCustomer.DropSize = new System.Drawing.Size(236, 31);
+			this.NzCustomer.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
+			this.NzCustomer.Location = new System.Drawing.Point(170, 139);
+			this.NzCustomer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.NzCustomer.MS_Auto_Popup = false;
+			this.NzCustomer.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NzCustomer.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NzCustomer.MS_CaptureFocus = false;
+			this.NzCustomer.MS_Change_Border_Color_On_Enter = true;
+			this.NzCustomer.MS_Change_Color_On_Enter = true;
+			this.NzCustomer.MS_Drop_Direction = MS_Control.TSDD.KindShow.Right;
+			this.NzCustomer.MS_DropDownSizeMode = MS_Control.TSDD.SizeMode.Control_Size;
+			this.NzCustomer.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NzCustomer.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NzCustomer.MS_Exit_By_Down = true;
+			this.NzCustomer.MS_Exit_By_Enter = true;
+			this.NzCustomer.MS_Exit_By_Up = true;
+			this.NzCustomer.MS_Last_Control = null;
+			this.NzCustomer.MS_Next_Control = null;
+			this.NzCustomer.Name = "NzCustomer";
+			this.NzCustomer.Office2007CustomColor = System.Drawing.Color.SkyBlue;
+			this.NzCustomer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NzCustomer.Size = new System.Drawing.Size(236, 31);
+			this.NzCustomer.TabIndex = 820;
+			this.NzCustomer.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			// 
+			// mS_Lable_Ex2
+			// 
+			this.mS_Lable_Ex2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.mS_Lable_Ex2.BackColor = System.Drawing.Color.Transparent;
+			this.mS_Lable_Ex2.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
+			this.mS_Lable_Ex2.Location = new System.Drawing.Point(398, 185);
+			this.mS_Lable_Ex2.MS_BorderColor = System.Drawing.Color.Tan;
+			this.mS_Lable_Ex2.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.None;
+			this.mS_Lable_Ex2.MS_Color_End = System.Drawing.Color.Empty;
+			this.mS_Lable_Ex2.MS_Color_Start = System.Drawing.Color.Empty;
+			this.mS_Lable_Ex2.Name = "mS_Lable_Ex2";
+			this.mS_Lable_Ex2.Size = new System.Drawing.Size(162, 61);
+			this.mS_Lable_Ex2.TabIndex = 821;
+			this.mS_Lable_Ex2.Text = "موقعیت پیش فرض در فروش بارکدخوان :";
+			this.mS_Lable_Ex2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// NzLocation
+			// 
+			this.NzLocation.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.NzLocation.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
+			this.NzLocation.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NzLocation.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.NzLocation.Location = new System.Drawing.Point(170, 203);
+			this.NzLocation.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NzLocation.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NzLocation.MS_Change_Border_Color_On_Enter = true;
+			this.NzLocation.MS_Change_Color_On_Enter = true;
+			this.NzLocation.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NzLocation.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NzLocation.MS_Exit_By_Down = true;
+			this.NzLocation.MS_Exit_By_Enter = true;
+			this.NzLocation.MS_Exit_By_Up = true;
+			this.NzLocation.MS_Last_Control = null;
+			this.NzLocation.MS_Next_Control = null;
+			this.NzLocation.Name = "NzLocation";
+			this.NzLocation.Size = new System.Drawing.Size(236, 29);
+			this.NzLocation.TabIndex = 822;
+			this.NzLocation.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
 			// 
 			// TabSettingContainer
 			// 
@@ -179,6 +269,7 @@ namespace Nz.Anbar.WinForms.Settings
 			((System.ComponentModel.ISupportInitialize)(this.NzTabs)).EndInit();
 			this.NzTabs.ResumeLayout(false);
 			this.NsStorageSetting.ResumeLayout(false);
+			this.NsStorageSetting.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -190,5 +281,9 @@ namespace Nz.Anbar.WinForms.Settings
 		private MS_Control.Controls.MS_CheckBox NsPrintRemaind;
 		private MS_Control.Controls.MS_CheckBox NsMainGroup;
 		private MS_Control.Controls.MS_CheckBox NsAdvancedSearch;
+		private MS_Control.Controls.MS_Lable_Ex mS_Lable_Ex1;
+		private NZ.General.WinForms.Component.NzPeople NzCustomer;
+		private MS_Control.Controls.MS_Lable_Ex mS_Lable_Ex2;
+		private Component.NzLocation NzLocation;
 	}
 }

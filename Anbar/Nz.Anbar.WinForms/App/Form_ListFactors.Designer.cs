@@ -93,6 +93,7 @@
 			this.uiTabPage18 = new Janus.Windows.UI.Tab.UITabPage();
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
 			this.ms_Save = new MS_Control.Controls.MS_Button_GridX();
+			this.NsCopy = new System.Windows.Forms.ToolStripButton();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
 			this.uiTabPage12.SuspendLayout();
@@ -275,30 +276,30 @@
 			// 
 			// Splitter1
 			// 
-			this.Splitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+			this.Splitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
 			this.Splitter1.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
 			this.Splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.Splitter1.ExpandActionClick = false;
-			this.Splitter1.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+			this.Splitter1.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
 			this.Splitter1.ExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.ExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.Splitter1.ExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
 			this.Splitter1.GripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.Splitter1.GripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-			this.Splitter1.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+			this.Splitter1.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(236)))), ((int)(((byte)(255)))));
 			this.Splitter1.GripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-			this.Splitter1.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(151)))), ((int)(((byte)(61)))));
-			this.Splitter1.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(184)))), ((int)(((byte)(94)))));
+			this.Splitter1.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(140)))), ((int)(((byte)(96)))));
+			this.Splitter1.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(175)))), ((int)(((byte)(139)))));
 			this.Splitter1.HotBackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground2;
 			this.Splitter1.HotBackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground;
-			this.Splitter1.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+			this.Splitter1.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
 			this.Splitter1.HotExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.HotExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.Splitter1.HotExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-			this.Splitter1.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+			this.Splitter1.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
 			this.Splitter1.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-			this.Splitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+			this.Splitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(236)))), ((int)(((byte)(255)))));
 			this.Splitter1.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
 			this.Splitter1.Location = new System.Drawing.Point(0, 319);
 			this.Splitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -488,17 +489,18 @@
             this.NzPrintTransfer,
             this.NzItems,
             this.NzRefreshList,
+            this.NsCopy,
             this.NzChangeToSale,
             this.toolStripSeparator1,
             this.NzAddItem});
-			this.mS_Tool_Strip1.Location = new System.Drawing.Point(993, 0);
+			this.mS_Tool_Strip1.Location = new System.Drawing.Point(832, 0);
 			this.mS_Tool_Strip1.MS_BorderColor = System.Drawing.Color.SkyBlue;
 			this.mS_Tool_Strip1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_Tool_Strip1.MS_Color_End = System.Drawing.Color.LightBlue;
 			this.mS_Tool_Strip1.MS_Color_Start = System.Drawing.Color.AliceBlue;
 			this.mS_Tool_Strip1.Name = "mS_Tool_Strip1";
 			this.mS_Tool_Strip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_Tool_Strip1.Size = new System.Drawing.Size(187, 28);
+			this.mS_Tool_Strip1.Size = new System.Drawing.Size(348, 28);
 			this.mS_Tool_Strip1.TabIndex = 709;
 			this.mS_Tool_Strip1.Text = "mS_Tool_Strip1";
 			// 
@@ -817,6 +819,18 @@
 			this.ms_Save.WordWrap = false;
 			this.ms_Save.Click += new System.EventHandler(this.ms_Save_Click);
 			// 
+			// NsCopy
+			// 
+			this.NsCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.NsCopy.Image = ((System.Drawing.Image)(resources.GetObject("NsCopy.Image")));
+			this.NsCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.NsCopy.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+			this.NsCopy.Name = "NsCopy";
+			this.NsCopy.Size = new System.Drawing.Size(28, 28);
+			this.NsCopy.Text = "تبدیل به فاکتور فروش";
+			this.NsCopy.ToolTipText = "کپی کردن فاکتور";
+			this.NsCopy.Click += new System.EventHandler(this.NsCopy_Click);
+			// 
 			// Form_ListFactors
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -899,5 +913,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton NzAddItem;
         private MS_Control.Controls.MS_Button_GridX ms_Save;
-    }
+		private System.Windows.Forms.ToolStripButton NsCopy;
+	}
 }

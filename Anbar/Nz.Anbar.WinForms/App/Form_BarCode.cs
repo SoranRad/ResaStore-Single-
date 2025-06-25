@@ -20,6 +20,7 @@ using Nz.Anbar.Model.Model;
 using Nz.Anbar.Model.Report;
 using Nz.Anbar.WinForms.Provider;
 using Nz.Anbar.WinForms.Report;
+using Nz.Anbar.WinForms.Settings;
 using ShareLib;
 using ShareLib.Interfaces;
 using ShareLib.Models;
@@ -487,9 +488,7 @@ namespace Nz.Anbar.WinForms.App
         {
             Task.Run(() =>
             {
-                
-                var Setting = BarcodeSetting.FromXML<BarcodeSetting>();
-                if (Setting != null)
+	            if (Form_Factory._Form_Factory_Anbar.GetSettings() is SettingItems Setting)
                 {
                     //==================================================
                     if(NzCustomer.InvokeRequired)
@@ -1467,26 +1466,6 @@ namespace Nz.Anbar.WinForms.App
             var frm = new Form_BarCode();
             frm.MdiParent = this.MdiParent;
             frm.Show();
-        }
-        private void NzSaveSetting_Click                (object sender, EventArgs e)
-        {
-            try
-            {
-                if (NzCustomer.MS_Get_Selected() == null)
-                    return;
-                var cus = NzCustomer.MS_Get_Selected() as People;
-                var item = new BarcodeSetting();
-                item.MiscID = cus.ID;
-                item.LocationID = (NzLocation.SelectedItem?.DataRow as Location)?.ID??-1;
-                item.ToXml();
-                new Form_Notify("ذخـیـره سـازی", "اطـلاعـات بـا مـوفـقـیـت ثـبـت شـــد.",
-                        Form_Notify.FarsiMessageBoxIcon.اضافه)
-                    .Popup(Form_Notify.Direction_Show.Right_To_Left, 1000);
-            }
-            catch (Exception ex)
-            {
-                log.Error(ex);
-            }
         }
         
         private void NzExtend_KeyPress                  (object sender, KeyPressEventArgs e)

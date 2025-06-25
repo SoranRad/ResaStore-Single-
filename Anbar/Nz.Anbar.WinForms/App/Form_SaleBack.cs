@@ -98,7 +98,6 @@ namespace Nz.Anbar.WinForms.App
 
             NzPayment.Visible               = Form_Factory.IsSystemValid(Enums.MS_System.Xazane);
             NzCustomer.Refresh_Grid         (_Manager.Connection,KindCustomer);
-            NzFactors.Refresh_Grid          ();
             nzObjectPopup1.RefreshControl   (new Size(550, 220));
             nzObjectPopup1.NzSelectObject   += NzObjectPopup1OnNzSelectObject;
             nzObjectPopup1.NzEscapedPress   += NzObjectPopup1OnNzEscapedPress;
@@ -150,10 +149,6 @@ namespace Nz.Anbar.WinForms.App
                 NzDate.MS_Tarikh            = new MS_Structure_Shamsi(_Factor.tarikh);
                 NzDescription.Text          = _Factor.sharh;
                 NzCustomer.MS_Set_Select    (_Factor.FK_AshXas_ID);
-
-                //=== فاکتور مبنا
-                if(_Factor.FK_Mabna!=null)
-                    NzFactors.MS_Set_Select(_Factor.FK_Mabna);
 
                 _Kind                       = (Enums.NzFactorKind) _Factor.kind;
                 _Bind                       = new BidingFactorItems(_Factor);
@@ -251,61 +246,8 @@ namespace Nz.Anbar.WinForms.App
 	                }
                 
                 }
-                //if (NzTaxPercent.MS_Decimal > 0 || NzOffPrice.MS_Decimal > 0
-                //                                || NzOffPrice.MS_Decimal > 0 || NzExtend.MS_Decimal > 0)
-                //{
-                //    if (_Factor.FactorDetail == null)
-                //    {
-                //        _Factor.FactorDetail = new FactorDetail()
-                //        {
-                //            FactorHead = _Factor,
-                //            State = Enums.NzItemState.AddedNew,
-                //        };
-                //    }
-                //    else
-                //        _Factor.FactorDetail.State = Enums.NzItemState.Modified;
-
-                //    _Factor.FactorDetail.Darsad_Maliat =
-                //        NzTaxPercent.MS_Decimal == 0 ? null : (decimal?) NzTaxPercent.MS_Decimal;
-                //    _Factor.FactorDetail.mablaq_Maliat =
-                //        NzTaxPrice.MS_Decimal == 0 ? null : (decimal?) NzTaxPrice.MS_Decimal;
-                //    _Factor.FactorDetail.Darsad_Takhfif =
-                //        NzOffPercent.MS_Decimal == 0 ? null : (decimal?) NzOffPercent.MS_Decimal;
-                //    _Factor.FactorDetail.mablaq_takhfif =
-                //        NzOffPrice.MS_Decimal == 0 ? null : (decimal?) NzOffPrice.MS_Decimal;
-                //    _Factor.FactorDetail.Ezafat = NzExtend.MS_Decimal == 0 ? null : (decimal?) NzExtend.MS_Decimal;
-                //}
-                //else if
-                //(
-                //    _Factor.ID > 0
-                //    && _Factor.FactorDetail != null
-                //    && (
-                //        NzTaxPercent.MS_Decimal != _Factor.FactorDetail.Darsad_Maliat
-                //        || NzOffPrice.MS_Decimal != _Factor.FactorDetail.mablaq_takhfif
-                //        || NzOffPercent.MS_Decimal != _Factor.FactorDetail.Darsad_Takhfif
-                //        || NzExtend.MS_Decimal != _Factor.FactorDetail.Ezafat
-                //    )
-                //)
-                //{
-                //    _Factor.FactorDetail.State = Enums.NzItemState.Modified;
-
-                //    _Factor.FactorDetail.Darsad_Maliat =
-                //        NzTaxPercent.MS_Decimal == 0 ? null : (decimal?)NzTaxPercent.MS_Decimal;
-                //    _Factor.FactorDetail.mablaq_Maliat =
-                //        NzTaxPrice.MS_Decimal == 0 ? null : (decimal?)NzTaxPrice.MS_Decimal;
-                //    _Factor.FactorDetail.Darsad_Takhfif =
-                //        NzOffPercent.MS_Decimal == 0 ? null : (decimal?)NzOffPercent.MS_Decimal;
-                //    _Factor.FactorDetail.mablaq_takhfif =
-                //        NzOffPrice.MS_Decimal == 0 ? null : (decimal?)NzOffPrice.MS_Decimal;
-                //    _Factor.FactorDetail.Ezafat = NzExtend.MS_Decimal == 0 ? null : (decimal?)NzExtend.MS_Decimal;
-                //}
 
                 _Factor.mablaq = NzSumFactor.MS_Decimal ?? 0;
-                // ==== فاکتور مبنا 
-                if (string.IsNullOrWhiteSpace(NzFactors.Text) || NzFactors.MS_Get_Selected() == null)
-                    _Factor.FK_Mabna = null;
-                else 
-                    _Factor.FK_Mabna = (NzFactors.MS_Get_Selected() as FactorHeads)?.ID;
 
                 _Manager.Save(_Factor);
 
@@ -1396,5 +1338,26 @@ namespace Nz.Anbar.WinForms.App
 
             Init();
         }
-    }
+
+        private void NsChooseFactor_Click               (object sender, EventArgs e)
+        {
+	        var frm = new FormSelectFactor();
+	        var r =frm.ShowDialog(this);
+	        if (r == DialogResult.OK)
+	        {
+		        foreach (var radif in frm.Items)
+		        {
+			        radif.ID = 0;
+			        radif.radif = _Bind.GetNewRowNumber()+1;
+			        radif.nerkh_2 = decimal.Round(radif.nerkh_2 / radif.meqdar);
+
+			        _Bind.CopyRow(radif);
+
+		        }
+		        _DoRefresh = false;
+		        RefreshFactorSum();
+		        _DoRefresh = true;
+	        }
+        }
+	}
 }

@@ -20,11 +20,15 @@ namespace Nz.Anbar.Model.ViewModel
         public decimal      LastPrice           { get; set; }
         public string       title               { get; set; }
         public string       barcode             { get; set; }
+        public bool         is_disabled         { get; set; }
+
 
         public string       UnitTitle           { get; set; }
         public string       MainGroupTitle      { get; set; }
         public string       SubGroupTitle       { get; set; }
         public string       KindTitle           => ((Enums.NzObjectKind)this.kind).NzTostring();
+        public string       StateTitle          => this.is_disabled ? "غیر فعال " : "فعال";
+
 
         public int          RCode                =>this.Code;
         public decimal      RLastPrice           =>this.LastPrice;

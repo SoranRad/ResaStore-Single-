@@ -35,6 +35,9 @@
 			this.mS_GridX_Setting1 = new MS_Control.Controls.MS_GridX_Setting();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.NzChangePrice = new System.Windows.Forms.ToolStripButton();
+			this.NsSearchBox = new System.Windows.Forms.ToolStripTextBox();
+			this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.uiTabPage12 = new Janus.Windows.UI.Tab.UITabPage();
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
 			this.helpItems1 = new ShareLib.Component.HelpItems();
@@ -57,7 +60,7 @@
 			this.Tab_Control_Main.Name = "Tab_Control_Main";
 			this.Tab_Control_Main.Office2007CustomColor = System.Drawing.Color.Transparent;
 			this.Tab_Control_Main.ShowFocusRectangle = false;
-			this.Tab_Control_Main.Size = new System.Drawing.Size(1147, 407);
+			this.Tab_Control_Main.Size = new System.Drawing.Size(1147, 403);
 			this.Tab_Control_Main.TabIndex = 731;
 			this.Tab_Control_Main.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
             this.uiTabPage12,
@@ -117,7 +120,7 @@
 			this.ms_Grid.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
 			this.ms_Grid.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
 			this.ms_Grid.SelectOnExpand = false;
-			this.ms_Grid.Size = new System.Drawing.Size(1113, 405);
+			this.ms_Grid.Size = new System.Drawing.Size(1113, 401);
 			this.ms_Grid.TabIndex = 719;
 			this.ms_Grid.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 			this.ms_Grid.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
@@ -138,8 +141,11 @@
 			this.mS_GridX_Setting1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.mS_GridX_Setting1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator1,
-            this.NzChangePrice});
-			this.mS_GridX_Setting1.Location = new System.Drawing.Point(0, 407);
+            this.NzChangePrice,
+            this.toolStripSeparator2,
+            this.toolStripLabel2,
+            this.NsSearchBox});
+			this.mS_GridX_Setting1.Location = new System.Drawing.Point(0, 403);
 			this.mS_GridX_Setting1.MS_BorderColor = System.Drawing.Color.DodgerBlue;
 			this.mS_GridX_Setting1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_GridX_Setting1.MS_Color_End = System.Drawing.Color.PowderBlue;
@@ -147,7 +153,7 @@
 			this.mS_GridX_Setting1.MS_GridX = this.ms_Grid;
 			this.mS_GridX_Setting1.Name = "mS_GridX_Setting1";
 			this.mS_GridX_Setting1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_GridX_Setting1.Size = new System.Drawing.Size(1147, 25);
+			this.mS_GridX_Setting1.Size = new System.Drawing.Size(1147, 29);
 			this.mS_GridX_Setting1.TabIndex = 730;
 			this.mS_GridX_Setting1.Text = "mS_GridX_Setting1";
 			// 
@@ -155,7 +161,7 @@
 			// 
 			this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 29);
 			// 
 			// NzChangePrice
 			// 
@@ -163,9 +169,29 @@
 			this.NzChangePrice.Image = ((System.Drawing.Image)(resources.GetObject("NzChangePrice.Image")));
 			this.NzChangePrice.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.NzChangePrice.Name = "NzChangePrice";
-			this.NzChangePrice.Size = new System.Drawing.Size(23, 22);
+			this.NzChangePrice.Size = new System.Drawing.Size(23, 26);
 			this.NzChangePrice.Text = "تغـییر دسته ای قیمت اجناس";
 			this.NzChangePrice.Click += new System.EventHandler(this.NzChangePrice_Click);
+			// 
+			// NsSearchBox
+			// 
+			this.NsSearchBox.AutoSize = false;
+			this.NsSearchBox.Font = new System.Drawing.Font("IRANSans(Small)", 12F);
+			this.NsSearchBox.Margin = new System.Windows.Forms.Padding(1);
+			this.NsSearchBox.Name = "NsSearchBox";
+			this.NsSearchBox.Size = new System.Drawing.Size(150, 27);
+			this.NsSearchBox.TextChanged += new System.EventHandler(this.NsSearchBox_TextChanged);
+			// 
+			// toolStripLabel2
+			// 
+			this.toolStripLabel2.Name = "toolStripLabel2";
+			this.toolStripLabel2.Size = new System.Drawing.Size(96, 26);
+			this.toolStripLabel2.Text = "جستجوی پیشرفته :";
+			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 29);
 			// 
 			// uiTabPage12
 			// 
@@ -178,7 +204,7 @@
 			this.uiTabPage12.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.uiTabPage12.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.uiTabPage12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage12.Size = new System.Drawing.Size(1113, 405);
+			this.uiTabPage12.Size = new System.Drawing.Size(1113, 401);
 			this.uiTabPage12.TabStop = true;
 			this.uiTabPage12.Text = "اطلاعات";
 			// 
@@ -241,5 +267,8 @@
         private MS_Control.Controls.MS_GridX_Setting mS_GridX_Setting1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton NzChangePrice;
-    }
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+		private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+		private System.Windows.Forms.ToolStripTextBox NsSearchBox;
+	}
 }

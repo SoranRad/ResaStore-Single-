@@ -30,7 +30,7 @@ namespace Nz.Anbar.WinForms.Base
         private BindingListPrice                _Bind;
         private int                             _Pos            = 0;
         private int                             _Len            = 0;
-        private List<PriceList>                 _List;
+        private List<PriceList>                 _List,_TempList;
         private string                          _SimpleText     = "";
         private bool                            _DoRefresh      = true;
         private string                          _Dot            = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
@@ -58,21 +58,62 @@ namespace Nz.Anbar.WinForms.Base
 
                 },null).ToList();
 
-                _Bind                = new BindingListPrice(_List);
-                ms_Grid.DataSource   = _Bind;
-                var i = IsOk();
-
-                if (!i)
-                {
-                    ms_Grid.AllowEdit            = InheritableBoolean.False;
-                    ms_Grid.RootTable.AllowEdit  = InheritableBoolean.False;
-                }
+                RefreshGrid();
             }
             catch (Exception ex)
             {
                 MS_Message.Show("سیستم قادر به خواندن اطلاعات نیست","خطا در خواندن اطلاعات", ex.Message,MessageBoxButtons.OK);
                 log.Error(ex);
             }
+        }
+        private void    RefreshGrid         ()
+        {
+	        if (NsSearchBox.Text.Trim().Length > 0)
+	        {
+		        var sentances = NsSearchBox.Text.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+		        _TempList = _List
+			        .Where((o, index) =>
+			        {
+				        var title = o.title.Trim();
+				        while (title.Contains("  "))
+					        title = title.Replace("  ", " ");
+
+				        var nameParts = title.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+				        var indexSen = 0;
+				        var trueCount = 0;
+
+				        while (indexSen < sentances.Length)
+				        {
+					        var e = nameParts.Any(x => x.Contains(sentances[indexSen]));
+
+					        if (e)
+						        trueCount++;
+
+					        indexSen++;
+				        }
+
+
+				        return (trueCount == sentances.Length);
+			        })
+			        .OrderBy(x => x.Code)
+			        .ToList();
+	        }
+	        else
+		        _TempList = _List.ToList();
+
+	        _Bind                = new BindingListPrice(_TempList);
+
+	        ms_Grid.DataSource   = _Bind;
+	        var i = IsOk();
+
+	        if (!i)
+	        {
+		        ms_Grid.AllowEdit            = InheritableBoolean.False;
+		        ms_Grid.RootTable.AllowEdit  = InheritableBoolean.False;
+		        NsSearchBox.Enabled          = false;
+	        }
         }
         private void    Save                ()
         {
@@ -261,7 +302,13 @@ namespace Nz.Anbar.WinForms.Base
             new FormPriceChange(List).ShowDialog(this);
             LoadItem();
         }
-        private void    ms_Grid_SelectionChanged           (object sender, EventArgs e)
+
+		private void NsSearchBox_TextChanged(object sender, EventArgs e)
+		{
+			RefreshGrid();
+		}
+
+		private void    ms_Grid_SelectionChanged           (object sender, EventArgs e)
         {
             if (ms_Grid.CurrentColumn?.Key == "S" && _Updated)
             {

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Nz.Anbar.Model.Model;
+using ShareLib.Component;
+using ShareLib.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ShareLib.Component;
 
 namespace Nz.Anbar.WinForms.Settings
 {
@@ -17,6 +19,8 @@ namespace Nz.Anbar.WinForms.Settings
 		{
 			InitializeComponent();
 			NsStorageSetting.SettingFunction += () => Settings;
+			NzCustomer.Refresh_Grid(null,2);
+			NzLocation.RefreshItems();
 		}
 
 		public void LoadSetting(SettingItems settings)
@@ -24,6 +28,11 @@ namespace Nz.Anbar.WinForms.Settings
 			NsAdvancedSearch.Checked = settings.AdvancedSearch;
 			NsMainGroup.Checked = settings.MainGroupActivated;
 			NsPrintRemaind.Checked = settings.ShowRemaind;
+
+			if(settings.MiscID>0)
+				NzCustomer.MS_Set_Select(settings.MiscID);
+			if(settings.LocationID>0)
+				NzLocation.SetLocation(settings.LocationID);
 		}
 
 		public NsSettingTabPage TabSetting => NsStorageSetting;
@@ -33,7 +42,9 @@ namespace Nz.Anbar.WinForms.Settings
 			{
 				AdvancedSearch		= NsAdvancedSearch.Checked,
 				MainGroupActivated	= NsMainGroup.Checked,
-				ShowRemaind			= NsPrintRemaind.Checked
+				ShowRemaind			= NsPrintRemaind.Checked,
+				LocationID			= (NzLocation.SelectedItem?.DataRow as Location)?.ID??0,
+				MiscID				= (NzCustomer.MS_Get_Selected() as People)?.ID??0,
 			};
 	}
 }

@@ -300,7 +300,7 @@ namespace Nz.Anbar.WinForms.App
 		        }
 	        }
         }
-        private int         GetNewRowNumber         ()
+        public int         GetNewRowNumber         ()
         {
             if (!_Factor.FactorItems.Any())
                 return 0;
@@ -308,6 +308,32 @@ namespace Nz.Anbar.WinForms.App
                     .FactorItems
                     .Where(x => x.State != Enums.NzItemState.Deleted)
                     .Max(x=>x.radif);
+        }
+        public int          CopyRow             (object value)
+        {
+	        if (value == null)
+		        return -1;
+
+	        var item            = (FactorItem) value;
+	        if (item == null)
+		        return -1;
+	        item.State          = Enums.NzItemState.AddedNew;
+	        item.FK_Title       = _Factor.ID;
+	        //item.FactorHead     = _Factor;
+           
+	        item.FK_Salmali     = SystemConstant.ActiveYear.Salmali;
+	        item.FactorHead     = _Factor;
+	        _Factor.FactorItems.Add(item);
+
+	        var index       = _Factor
+		        .FactorItems
+		        .Where      (x=>x.State != Enums.NzItemState.Deleted)
+		        .OrderBy    (x=>x.radif)
+		        .ToList     ()
+		        .IndexOf    (item);
+
+	        onListChanged?.Invoke(this, new ListChangedEventArgs(ListChangedType.ItemAdded, index));
+	        return 0;
         }
         private void        ReOrderRowNumber        (int Row)
         {

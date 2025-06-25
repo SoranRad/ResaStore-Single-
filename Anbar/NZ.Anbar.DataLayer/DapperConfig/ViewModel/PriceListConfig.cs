@@ -33,6 +33,8 @@ tkx.nerkh_frosh2,
 tkx.nerkh_frosh3,
 tkx.kind,
 z.LastPrice,
+tkx.is_disabled,
+
 RTRIM(LTRIM(tkx.title	))	AS title,
 RTRIM(LTRIM(tv.title	))	AS UnitTitle,
 RTRIM(LTRIM(tgk2.title	))	AS MainGroupTitle,

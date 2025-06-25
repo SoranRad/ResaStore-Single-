@@ -66,7 +66,6 @@
 			this.NzCirculr = new MS_Control.Controls.MS_Button_GridX();
 			this.NzCustomer = new NZ.General.WinForms.Component.NzPeople();
 			this.label19 = new System.Windows.Forms.Label();
-			this.NzSaveSetting = new MS_Control.Controls.MS_Button_GridX();
 			this.NzGrid = new MS_Control.Controls.MS_GridX();
 			this.uiGroupBox6 = new Janus.Windows.EditControls.UIGroupBox();
 			this.NzFactorKinds = new Janus.Windows.UI.Tab.UITab();
@@ -588,7 +587,6 @@
 			this.uiGroupBox5.Controls.Add(this.NzCirculr);
 			this.uiGroupBox5.Controls.Add(this.NzCustomer);
 			this.uiGroupBox5.Controls.Add(this.label19);
-			this.uiGroupBox5.Controls.Add(this.NzSaveSetting);
 			this.uiGroupBox5.Location = new System.Drawing.Point(635, 2);
 			this.uiGroupBox5.Margin = new System.Windows.Forms.Padding(2);
 			this.uiGroupBox5.Name = "uiGroupBox5";
@@ -665,35 +663,6 @@
 			this.label19.Size = new System.Drawing.Size(94, 23);
 			this.label19.TabIndex = 768;
 			this.label19.Text = "انتخـاب مشتری";
-			// 
-			// NzSaveSetting
-			// 
-			this.NzSaveSetting.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.NzSaveSetting.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzSaveSetting.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-			this.NzSaveSetting.Image = ((System.Drawing.Image)(resources.GetObject("NzSaveSetting.Image")));
-			this.NzSaveSetting.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
-			this.NzSaveSetting.Location = new System.Drawing.Point(5, 86);
-			this.NzSaveSetting.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.NzSaveSetting.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NzSaveSetting.MS_Change_Border_Color_On_Enter = false;
-			this.NzSaveSetting.MS_Change_Color_On_Enter = false;
-			this.NzSaveSetting.MS_Enter_Border_Color = System.Drawing.Color.Empty;
-			this.NzSaveSetting.MS_Enter_Color = System.Drawing.Color.Empty;
-			this.NzSaveSetting.Name = "NzSaveSetting";
-			this.NzSaveSetting.Office2007ColorScheme = Janus.Windows.UI.Office2007ColorScheme.Custom;
-			this.NzSaveSetting.Office2007CustomColor = System.Drawing.Color.DodgerBlue;
-			this.NzSaveSetting.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.NzSaveSetting.ShowFocusRectangle = false;
-			this.NzSaveSetting.Size = new System.Drawing.Size(224, 30);
-			this.NzSaveSetting.TabIndex = 1;
-			this.NzSaveSetting.Text = "انتـخاب به عنوان حسـاب پیش فرض";
-			this.NzSaveSetting.TextHorizontalAlignment = Janus.Windows.EditControls.TextAlignment.Near;
-			this.NzSaveSetting.UseThemes = false;
-			this.NzSaveSetting.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
-			this.NzSaveSetting.WordWrap = false;
-			this.NzSaveSetting.Click += new System.EventHandler(this.NzSaveSetting_Click);
 			// 
 			// NzGrid
 			// 
@@ -1862,7 +1831,6 @@
         private Janus.Windows.EditControls.UIGroupBox uiGroupBox5;
         private NZ.General.WinForms.Component.NzPeople NzCustomer;
         private System.Windows.Forms.Label label19;
-        private MS_Control.Controls.MS_Button_GridX NzSaveSetting;
         private Janus.Windows.EditControls.UIGroupBox uiGroupBox3;
         private MS_Control.Controls.MS_ComboBox_Janus NzKind;
         private MS_Control.Controls.MS_NumericTextBox NzOffPrice;

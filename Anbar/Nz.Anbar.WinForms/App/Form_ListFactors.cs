@@ -8,6 +8,7 @@ using MS_Control.Tarikh;
 using Nz.Anbar.Model.ViewModel;
 using NZ.Anbar.Business;
 using NZ.Anbar.Model;
+using Nz.Anbar.WinForms.Provider;
 using ShareLib;
 using ShareLib.Utils;
 using ShareLib.ViewModel;
@@ -504,5 +505,18 @@ namespace Nz.Anbar.WinForms.App
             
             //NzGridHeads.FilterRow.BeginEdit();
         }
-    }
+
+		private void NsCopy_Click(object sender, EventArgs e)
+		{
+			if(NzGridHeads.CurrentRow?.RowType!=RowType.Record)
+				return;
+
+			var ID =Convert.ToInt64( NzGridHeads.CurrentRow.Cells["ID"].Value);
+
+			var frm = new FormCopyToYear();
+
+			frm.IdFactor = ID;
+			frm.ShowDialog(StorageProvider.MainForm);
+		}
+	}
 }

@@ -14,6 +14,7 @@ using Nz.Anbar.WinForms.Base;
 using NZ.Anbar.Business;
 using NZ.Anbar.Model;
 using Nz.Anbar.WinForms.Report;
+using Nz.Anbar.WinForms.Settings;
 using NZ.General.WinForms.Base;
 using ShareLib.Models;
 using ShareLib.Utils;
@@ -22,13 +23,16 @@ namespace Nz.Anbar.WinForms.Component
 {
     public class NzObjectPopup : ToolStripDropDown
     {
+	    #region Static Members
+	    private static bool SearchMode = true;
+	    #endregion
         #region Fields
         private TableLayoutSettings     tableSettings   = null;
         private Size                    tileSize        = new Size(24, 24);
         private int                     _StripSize      = 25;
         public  ToolStripTextBox        NzFilterBox;
         private ToolStripControlHost    NzHost;
-        private ToolStripButton         NzAdd, NzRefresh, NzSelect, NsPrice;
+        private ToolStripButton         NzAdd, NzRefresh, NzSelect, NsPrice,  NzSearchMode;
         private int                     NzWidth = 400;
         private MS_Control.Controls.MS_GridX NzGrid;
         private int                     NzHeight = 600;
@@ -171,6 +175,19 @@ namespace Nz.Anbar.WinForms.Component
 	            ToolTipText             = @"نوسان قیمت",
             };
 
+            NzSearchMode = new ToolStripButton()
+            {
+	            DisplayStyle            = ToolStripItemDisplayStyle.Image,
+	            Image                   = global::MS_Resource.GlobalResources.search,
+	            ImageTransparentColor   = Color.Magenta,
+	            Name                    = "NzSearchMode",
+	            Size                    = new Size(23, 22),
+	            Text                    = @"حالت جستجو",
+	            ToolTipText             = @"حالت جستجو",
+	            Checked                 = SearchMode,
+            };
+            
+            Items.Add   (NzSearchMode);
             Items.Add   (NzAdd);
             Items.Add   (NzRefresh);
             Items.Add   (NzSelect);
@@ -181,8 +198,15 @@ namespace Nz.Anbar.WinForms.Component
             NzRefresh.Click +=NzRefreshOnClick;
             NsPrice.Click   +=NzPriceOnClick;
 
+            NzSearchMode.Click+=NzSearchModeOnClick;
+
         }
 
+        private void NzSearchModeOnClick    (object sender, EventArgs e)
+        {
+	        SearchMode = !SearchMode;
+	        NzSearchMode.Checked = SearchMode;
+        }
         private void NzRefreshOnClick       (object sender, EventArgs eventArgs)
         {
 
@@ -246,7 +270,7 @@ namespace Nz.Anbar.WinForms.Component
             NzSelectObject? .Invoke(sender, null);
             NzFilterBox.Text = "";
         }
-        private void NzPriceOnClick           (object sender, EventArgs eventArgs)
+        private void NzPriceOnClick         (object sender, EventArgs eventArgs)
         {
             var Currentrow = NzGrid.CurrentRow;
             if(Currentrow == null )
@@ -305,6 +329,9 @@ namespace Nz.Anbar.WinForms.Component
             NzHeight            = PopupSize.Height;
 
             AddControls();
+
+            var settins = Form_Factory._Form_Factory_Anbar.GetSettings() as SettingItems;
+            SearchMode = settins?.AdvancedSearch ?? false;
 
             Task.Run(() =>
             {
@@ -393,30 +420,75 @@ namespace Nz.Anbar.WinForms.Component
         #region TextBox
         private void NzFilterBoxOnTextChanged       (object sender, EventArgs eventArgs)
         {
-            var str = NzFilterBox.Text.Trim();
+            var str     = NzFilterBox.Text.Trim();
+            var Setting = Form_Factory._Form_Factory_Anbar.GetSettings() as SettingItems;
+
+            while (str.Contains("  "))
+	            str = str.Replace("  ", " ");
+
             if (string.IsNullOrEmpty(str))
             {
-                RefreshGrid();
+	            RefreshGrid();
+	            return;
             }
 
             var list = _FactorMabnaId > 0 && _FactorItemsIDList.Any()
 
-                ? (
-                    from i in _List
-                    join j in _FactorItemsIDList on i.Code equals j.Code
-                    select i
-                ).ToList()
+	            ? (
+		            from i in _List
+		            join j in _FactorItemsIDList on i.Code equals j.Code
+		            select i
+	            ).ToList()
 
-                : _List;
+	            : _List;
 
-            NzGrid.DataSource=
-                list?
-                .Where(x => 
-                            (x.Code.ToString().Contains(str)|| x.title.Contains(str) || x.barcode.Contains(str))
-                            &&
-                            ! x.is_disabled )
-                .OrderBy(x => x.Code)
-                .ToList();
+            if (Setting.AdvancedSearch)
+            {
+	            var sentances = str.Split(new char[]{' '},StringSplitOptions.RemoveEmptyEntries);
+	            NzGrid.DataSource=
+		            list?
+			            .Where((o, i) =>
+			            {
+				            var title = o.title.Trim();
+				            while (title.Contains("  "))
+					            title = title.Replace("  ", " ");
+
+				            var nameParts = title.Split(new char[]{' '},StringSplitOptions.RemoveEmptyEntries);
+                             
+				            var indexSen = 0;
+				            var trueCount = 0;
+
+				            while (indexSen < sentances.Length)
+				            {
+					            var e = nameParts.Any(x => x.Contains(sentances[indexSen]));
+
+					            if (e)
+						            trueCount++;
+
+					            indexSen++;
+				            }
+
+				            var codeExist = o.codeFani.Contains(str);
+				            var barcodeExist = o.barcode.Contains(str);
+
+				            return (trueCount == sentances.Length || codeExist || barcodeExist) && !o.is_disabled;
+			            })
+			            .OrderBy(x => x.Code)
+			            .ToList();
+            }
+            else
+            {
+	            NzGrid.DataSource=
+		            list?
+			            .Where(x => 
+				            (x.Code.ToString().Contains(str)|| x.title.Contains(str) || x.barcode.Contains(str))
+				            &&
+				            ! x.is_disabled )
+			            .OrderBy(x => x.Code)
+			            .ToList();
+            }
+
+            
         }
         #endregion
         #region Grid
@@ -431,8 +503,6 @@ namespace Nz.Anbar.WinForms.Component
                 ).ToList()
 
                 : _List;
-
-
 
             if (NzGrid.InvokeRequired)
                 NzGrid.Invoke(new MethodInvoker(delegate

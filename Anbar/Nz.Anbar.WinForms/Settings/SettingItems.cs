@@ -19,7 +19,9 @@ namespace Nz.Anbar.WinForms.Settings
 			{
 				 ShowRemaind = false,
 				 AdvancedSearch = false,
-				 MainGroupActivated = true
+				 MainGroupActivated = true,
+				 MiscID = 0,
+				 LocationID = 0,
 			};
 		}
 
@@ -31,5 +33,7 @@ namespace Nz.Anbar.WinForms.Settings
 		public bool		ShowRemaind				{ get; set; }
 		public bool		AdvancedSearch			{ get; set; }
 		public bool		MainGroupActivated		{ get; set; }
+		public long     MiscID					{ get; set; }
+		public short    LocationID				{ get; set; }
 	}
 }
