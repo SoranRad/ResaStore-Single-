@@ -17,6 +17,7 @@ using NZ.Xazane.WinForms.Component;
 using NZ.Xazane.WinForms.EndYear;
 using NZ.Xazane.WinForms.Factor;
 using NZ.Xazane.WinForms.Provider;
+using NZ.Xazane.WinForms.Setting;
 using ShareLib;
 using ShareLib.Component;
 using ShareLib.Interfaces;
@@ -39,6 +40,8 @@ namespace NZ.Xazane.WinForms
         private XazaneMenuItems             Menues;
         private ChequeAlarm                 _chequeAlarm;
         public static Form                  MainForm;
+        private TabSettingContainer         _settingContainer;
+        private ISettingItems               _settings;
 
         public XazaneProvider()
         {
@@ -276,17 +279,25 @@ namespace NZ.Xazane.WinForms
 
         public NsSettingTabPage GetSettingTabPage()
         {
-	        return null;
+	        _settingContainer = new TabSettingContainer();
+	        _settingContainer.LoadSetting((SettingItems)_settings );
+
+	        return _settingContainer.TabSetting;
         }
 
         public void SetSettings(IEnumerable<dynamic> settings)
         {
-	        
+	        var setting = settings.SingleOrDefault(x => x.Name == SettingItems.KeyName);
+	        if (setting == null)
+		        _settings = SettingItems.GetDefault();
+	        else
+		        _settings = Converter.Convert<SettingItems>(setting);
         }
 
         public ISettingItems GetSettings()
         {
-	        return null;
+	        return _settings;
+
         }
 
         public Control                      CreateControl       (Enums.NzFactoryControlKind Kind)
@@ -294,7 +305,7 @@ namespace NZ.Xazane.WinForms
             switch (Kind)
             {
                 case Enums.NzFactoryControlKind.CachePos:
-                    return new PaymentControl();
+                    return null;
                 default:
                     return null;
             }

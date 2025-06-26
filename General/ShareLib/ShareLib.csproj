@@ -201,6 +201,9 @@
     <EmbeddedResource Include="Component\HelpItems.resx">
       <DependentUpon>HelpItems.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Component\NsSettingTabPage.resx">
+      <DependentUpon>NsSettingTabPage.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

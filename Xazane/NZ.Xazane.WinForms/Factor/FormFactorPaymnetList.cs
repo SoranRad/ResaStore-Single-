@@ -32,7 +32,7 @@ namespace NZ.Xazane.WinForms.Factor
         #endregion
         #region Fields
         private readonly FactorPaymentMessage   _message;
-        private long                            _IdFactor;
+        //private long                            _IdFactor;
         private DpManager                       _Manager;
         private FormPayment                     _Form;
         private Enums.NzPaymentOperatingKind    _Kind;

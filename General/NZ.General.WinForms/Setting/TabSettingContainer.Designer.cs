@@ -30,6 +30,7 @@
 		{
 			this.NzTabs = new Janus.Windows.UI.Tab.UITab();
 			this.NsGeneralSetting = new ShareLib.Component.NsSettingTabPage();
+			this.NsMultipleDatabase = new MS_Control.Controls.MS_CheckBox();
 			this.NsLown = new MS_Control.Controls.MS_CheckBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
@@ -37,7 +38,6 @@
 			this.NsSms = new MS_Control.Controls.MS_CheckBox();
 			this.NsPayments = new MS_Control.Controls.MS_CheckBox();
 			this.NsStorage = new MS_Control.Controls.MS_CheckBox();
-			this.mS_CheckBox1 = new MS_Control.Controls.MS_CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.NzTabs)).BeginInit();
 			this.NzTabs.SuspendLayout();
 			this.NsGeneralSetting.SuspendLayout();
@@ -56,7 +56,7 @@
 			this.NzTabs.PageBorder = Janus.Windows.UI.Tab.PageBorder.None;
 			this.NzTabs.PanelFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 			this.NzTabs.ShowFocusRectangle = false;
-			this.NzTabs.Size = new System.Drawing.Size(604, 312);
+			this.NzTabs.Size = new System.Drawing.Size(764, 418);
 			this.NzTabs.TabIndex = 711;
 			this.NzTabs.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
             this.NsGeneralSetting});
@@ -70,7 +70,8 @@
 			// 
 			// NsGeneralSetting
 			// 
-			this.NsGeneralSetting.Controls.Add(this.mS_CheckBox1);
+			this.NsGeneralSetting.AutoScroll = true;
+			this.NsGeneralSetting.Controls.Add(this.NsMultipleDatabase);
 			this.NsGeneralSetting.Controls.Add(this.NsLown);
 			this.NsGeneralSetting.Controls.Add(this.label1);
 			this.NsGeneralSetting.Controls.Add(this.label4);
@@ -86,17 +87,45 @@
 			this.NsGeneralSetting.PanelFormatStyle.BackColor = System.Drawing.Color.SkyBlue;
 			this.NsGeneralSetting.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.NsGeneralSetting.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.NsGeneralSetting.Size = new System.Drawing.Size(604, 289);
+			this.NsGeneralSetting.Size = new System.Drawing.Size(764, 395);
 			this.NsGeneralSetting.TabStop = true;
 			this.NsGeneralSetting.Text = "عمومی";
+			// 
+			// NsMultipleDatabase
+			// 
+			this.NsMultipleDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsMultipleDatabase.BackColor = System.Drawing.Color.Transparent;
+			this.NsMultipleDatabase.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsMultipleDatabase.Location = new System.Drawing.Point(312, 92);
+			this.NsMultipleDatabase.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
+			this.NsMultipleDatabase.MS_BorderColor = System.Drawing.Color.Transparent;
+			this.NsMultipleDatabase.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsMultipleDatabase.MS_Change_Border_Color_On_Enter = true;
+			this.NsMultipleDatabase.MS_Change_Color_On_Checked = true;
+			this.NsMultipleDatabase.MS_Change_Color_On_Enter = true;
+			this.NsMultipleDatabase.MS_Checked_Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.NsMultipleDatabase.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsMultipleDatabase.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsMultipleDatabase.MS_Exit_By_Down = true;
+			this.NsMultipleDatabase.MS_Exit_By_Enter = true;
+			this.NsMultipleDatabase.MS_Exit_By_Up = true;
+			this.NsMultipleDatabase.MS_Last_Control = null;
+			this.NsMultipleDatabase.MS_Next_Control = null;
+			this.NsMultipleDatabase.MS_UnChecked_Color = System.Drawing.Color.Transparent;
+			this.NsMultipleDatabase.Name = "NsMultipleDatabase";
+			this.NsMultipleDatabase.ShowFocusRectangle = false;
+			this.NsMultipleDatabase.Size = new System.Drawing.Size(399, 31);
+			this.NsMultipleDatabase.TabIndex = 826;
+			this.NsMultipleDatabase.Text = "  امکان اتصال به چند بانک اطلاعاتی فعال باشد.";
+			this.NsMultipleDatabase.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
 			// 
 			// NsLown
 			// 
 			this.NsLown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsLown.BackColor = System.Drawing.Color.Transparent;
 			this.NsLown.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsLown.Location = new System.Drawing.Point(278, 250);
-			this.NsLown.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
+			this.NsLown.Location = new System.Drawing.Point(312, 292);
+			this.NsLown.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
 			this.NsLown.MS_BorderColor = System.Drawing.Color.Transparent;
 			this.NsLown.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsLown.MS_Change_Border_Color_On_Enter = true;
@@ -113,7 +142,7 @@
 			this.NsLown.MS_UnChecked_Color = System.Drawing.Color.Transparent;
 			this.NsLown.Name = "NsLown";
 			this.NsLown.ShowFocusRectangle = false;
-			this.NsLown.Size = new System.Drawing.Size(293, 29);
+			this.NsLown.Size = new System.Drawing.Size(399, 30);
 			this.NsLown.TabIndex = 825;
 			this.NsLown.Text = "  سیستم اقساط";
 			this.NsLown.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
@@ -124,8 +153,8 @@
 			this.label1.AutoSize = true;
 			this.label1.BackColor = System.Drawing.Color.Transparent;
 			this.label1.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label1.Location = new System.Drawing.Point(507, 132);
-			this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+			this.label1.Location = new System.Drawing.Point(641, 158);
+			this.label1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(92, 23);
 			this.label1.TabIndex = 824;
@@ -137,8 +166,8 @@
 			this.label4.AutoSize = true;
 			this.label4.BackColor = System.Drawing.Color.Transparent;
 			this.label4.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label4.Location = new System.Drawing.Point(479, 12);
-			this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+			this.label4.Location = new System.Drawing.Point(617, 13);
+			this.label4.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(116, 23);
 			this.label4.TabIndex = 823;
@@ -151,8 +180,8 @@
 			this.NsConStr.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.TextButton;
 			this.NsConStr.ButtonText = "...";
 			this.NsConStr.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsConStr.Location = new System.Drawing.Point(19, 40);
-			this.NsConStr.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
+			this.NsConStr.Location = new System.Drawing.Point(7, 57);
+			this.NsConStr.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
 			this.NsConStr.MaxLength = 200;
 			this.NsConStr.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NsConStr.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -169,7 +198,7 @@
 			this.NsConStr.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Blue;
 			this.NsConStr.ReadOnly = true;
 			this.NsConStr.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.NsConStr.Size = new System.Drawing.Size(572, 29);
+			this.NsConStr.Size = new System.Drawing.Size(722, 29);
 			this.NsConStr.TabIndex = 822;
 			this.NsConStr.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near;
 			this.NsConStr.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
@@ -181,8 +210,8 @@
 			this.NsSms.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsSms.BackColor = System.Drawing.Color.Transparent;
 			this.NsSms.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsSms.Location = new System.Drawing.Point(278, 221);
-			this.NsSms.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
+			this.NsSms.Location = new System.Drawing.Point(312, 262);
+			this.NsSms.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
 			this.NsSms.MS_BorderColor = System.Drawing.Color.Transparent;
 			this.NsSms.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsSms.MS_Change_Border_Color_On_Enter = true;
@@ -199,7 +228,7 @@
 			this.NsSms.MS_UnChecked_Color = System.Drawing.Color.Transparent;
 			this.NsSms.Name = "NsSms";
 			this.NsSms.ShowFocusRectangle = false;
-			this.NsSms.Size = new System.Drawing.Size(293, 29);
+			this.NsSms.Size = new System.Drawing.Size(399, 30);
 			this.NsSms.TabIndex = 821;
 			this.NsSms.Text = "  ارسال پیامک";
 			this.NsSms.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
@@ -209,8 +238,8 @@
 			this.NsPayments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsPayments.BackColor = System.Drawing.Color.Transparent;
 			this.NsPayments.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsPayments.Location = new System.Drawing.Point(278, 192);
-			this.NsPayments.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
+			this.NsPayments.Location = new System.Drawing.Point(312, 232);
+			this.NsPayments.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
 			this.NsPayments.MS_BorderColor = System.Drawing.Color.Transparent;
 			this.NsPayments.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsPayments.MS_Change_Border_Color_On_Enter = true;
@@ -227,7 +256,7 @@
 			this.NsPayments.MS_UnChecked_Color = System.Drawing.Color.Transparent;
 			this.NsPayments.Name = "NsPayments";
 			this.NsPayments.ShowFocusRectangle = false;
-			this.NsPayments.Size = new System.Drawing.Size(293, 29);
+			this.NsPayments.Size = new System.Drawing.Size(399, 30);
 			this.NsPayments.TabIndex = 820;
 			this.NsPayments.Text = "  خزانه داری";
 			this.NsPayments.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
@@ -237,8 +266,8 @@
 			this.NsStorage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsStorage.BackColor = System.Drawing.Color.Transparent;
 			this.NsStorage.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsStorage.Location = new System.Drawing.Point(278, 163);
-			this.NsStorage.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
+			this.NsStorage.Location = new System.Drawing.Point(312, 202);
+			this.NsStorage.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
 			this.NsStorage.MS_BorderColor = System.Drawing.Color.Transparent;
 			this.NsStorage.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsStorage.MS_Change_Border_Color_On_Enter = true;
@@ -255,46 +284,17 @@
 			this.NsStorage.MS_UnChecked_Color = System.Drawing.Color.Transparent;
 			this.NsStorage.Name = "NsStorage";
 			this.NsStorage.ShowFocusRectangle = false;
-			this.NsStorage.Size = new System.Drawing.Size(293, 29);
+			this.NsStorage.Size = new System.Drawing.Size(399, 30);
 			this.NsStorage.TabIndex = 819;
 			this.NsStorage.Text = "  خرید و فروش";
 			this.NsStorage.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
 			// 
-			// mS_CheckBox1
-			// 
-			this.mS_CheckBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.mS_CheckBox1.BackColor = System.Drawing.Color.Transparent;
-			this.mS_CheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.mS_CheckBox1.Location = new System.Drawing.Point(278, 72);
-			this.mS_CheckBox1.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
-			this.mS_CheckBox1.MS_BorderColor = System.Drawing.Color.Transparent;
-			this.mS_CheckBox1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.mS_CheckBox1.MS_Change_Border_Color_On_Enter = true;
-			this.mS_CheckBox1.MS_Change_Color_On_Checked = true;
-			this.mS_CheckBox1.MS_Change_Color_On_Enter = true;
-			this.mS_CheckBox1.MS_Checked_Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-			this.mS_CheckBox1.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-			this.mS_CheckBox1.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.mS_CheckBox1.MS_Exit_By_Down = true;
-			this.mS_CheckBox1.MS_Exit_By_Enter = true;
-			this.mS_CheckBox1.MS_Exit_By_Up = true;
-			this.mS_CheckBox1.MS_Last_Control = null;
-			this.mS_CheckBox1.MS_Next_Control = null;
-			this.mS_CheckBox1.MS_UnChecked_Color = System.Drawing.Color.Transparent;
-			this.mS_CheckBox1.Name = "mS_CheckBox1";
-			this.mS_CheckBox1.ShowFocusRectangle = false;
-			this.mS_CheckBox1.Size = new System.Drawing.Size(293, 29);
-			this.mS_CheckBox1.TabIndex = 826;
-			this.mS_CheckBox1.Text = "  امکان اتصال به چند بانک اطلاعاتی فعال باشد.";
-			this.mS_CheckBox1.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
-			// 
 			// TabSettingContainer
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.Controls.Add(this.NzTabs);
 			this.Name = "TabSettingContainer";
-			this.Size = new System.Drawing.Size(604, 312);
+			this.Size = new System.Drawing.Size(764, 418);
 			((System.ComponentModel.ISupportInitialize)(this.NzTabs)).EndInit();
 			this.NzTabs.ResumeLayout(false);
 			this.NsGeneralSetting.ResumeLayout(false);
@@ -314,6 +314,6 @@
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label label1;
 		private MS_Control.Controls.MS_CheckBox NsLown;
-		private MS_Control.Controls.MS_CheckBox mS_CheckBox1;
+		private MS_Control.Controls.MS_CheckBox NsMultipleDatabase;
 	}
 }

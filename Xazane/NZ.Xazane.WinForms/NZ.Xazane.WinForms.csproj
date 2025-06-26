@@ -256,12 +256,6 @@
     <Compile Include="Component\ChartSummarry.Designer.cs">
       <DependentUpon>ChartSummarry.cs</DependentUpon>
     </Compile>
-    <Compile Include="Component\PaymentControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Component\PaymentControl.Designer.cs">
-      <DependentUpon>PaymentControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="EndYear\FormEndYear.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -330,6 +324,13 @@
       <DependentUpon>FormReviewAccountMonthly.cs</DependentUpon>
     </Compile>
     <Compile Include="Report\PeopleCircularModel.cs" />
+    <Compile Include="Setting\SettingItems.cs" />
+    <Compile Include="Setting\TabSettingContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Setting\TabSettingContainer.Designer.cs">
+      <DependentUpon>TabSettingContainer.cs</DependentUpon>
+    </Compile>
     <None Include="..\..\General\MS_Resource\GlobalResources.Designer.cs">
       <Link>GlobalResources.Designer.cs</Link>
       <AutoGen>True</AutoGen>
@@ -578,9 +579,6 @@
     <EmbeddedResource Include="Component\ChartSummarry.resx">
       <DependentUpon>ChartSummarry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Component\PaymentControl.resx">
-      <DependentUpon>PaymentControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="EndYear\FormEndYear.resx">
       <DependentUpon>FormEndYear.cs</DependentUpon>
     </EmbeddedResource>
@@ -613,6 +611,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report\FormReviewAccountMonthly.resx">
       <DependentUpon>FormReviewAccountMonthly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\TabSettingContainer.resx">
+      <DependentUpon>TabSettingContainer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="..\..\General\MS_Resource\GlobalResources.resx">
       <Link>GlobalResources.resx</Link>

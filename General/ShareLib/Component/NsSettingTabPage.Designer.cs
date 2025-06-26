@@ -28,8 +28,13 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.SuspendLayout();
+			// 
+			// NsSettingTabPage
+			// 
+			this.AutoScroll = true;
+			this.ResumeLayout(false);
+
 		}
 
 		#endregion

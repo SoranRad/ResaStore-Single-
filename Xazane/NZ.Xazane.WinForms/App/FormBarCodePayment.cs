@@ -13,6 +13,7 @@ using NZ.Xazane.Business;
 using NZ.Xazane.Model;
 using NZ.Xazane.Model.Models;
 using NZ.Xazane.Model.ViewModel;
+using NZ.Xazane.WinForms.Setting;
 using ShareLib;
 using ShareLib.Interfaces;
 using ShareLib.Utils;
@@ -31,13 +32,9 @@ namespace NZ.Xazane.WinForms.App
 
         #endregion
         #region Fields
-        //private decimal         _Price;
-        //private long            _FK_People,
-        //                        _FK_Factor,
-        //                        _ID_Dp;
         private DPOperation             _DP = null;
         private DpManager               _Manager;
-        private PaymentBarcodeSetting   _Setting;
+        private SettingItems            _Setting;
         private FactorPaymentMessage    _FactorPaymnet;
         private string                  _FormatString = "0,0.##;(0,0.##); ";
         private bool _Do_Refresh = true;
@@ -79,10 +76,10 @@ namespace NZ.Xazane.WinForms.App
                     if (NzCache.InvokeRequired)
                         NzCache.Invoke(new MethodInvoker(delegate
                         {
-                            NzCache.MS_Set_Select(_Setting.Cache);
+                            NzCache.MS_Set_Select(_Setting.IdCache);
                         }));
                     else
-                        NzCache.MS_Set_Select(_Setting.Cache);
+                        NzCache.MS_Set_Select(_Setting.IdCache);
                 }
 
                 if (NzPos.MS_Get_Selected() == null)
@@ -90,10 +87,10 @@ namespace NZ.Xazane.WinForms.App
                     if (NzPos.InvokeRequired)
                         NzPos.Invoke(new MethodInvoker(delegate
                         {
-                            NzPos.MS_Set_Select(_Setting.Pos);
+                            NzPos.MS_Set_Select(_Setting.IdPos);
                         }));
                     else
-                        NzPos.MS_Set_Select(_Setting.Pos);
+                        NzPos.MS_Set_Select(_Setting.IdPos);
                 }
             }
         }
@@ -104,23 +101,9 @@ namespace NZ.Xazane.WinForms.App
         }
         private void    LoadSettings    ()
         { 
-            _Setting = PaymentBarcodeSetting.FromXML<PaymentBarcodeSetting>();
+            _Setting = Form_Factory._Form_Factory_Xazaneh.GetSettings() as SettingItems;
         }
-        private void    SaveSetting     ()
-        {
-                _Setting = _Setting ?? new PaymentBarcodeSetting();
-
-                if (NzCache.MS_Get_Selected() is Accounts cache)
-                    _Setting.Cache = cache.ID;
-
-                if (NzPos.MS_Get_Selected() is Accounts pos)
-                    _Setting.Pos = pos.ID;
-
-                _Setting.ToXml();
-                new Form_Notify("تسویه", "تنظیمات  بـا مـوفـقـیـت ثـبـت شـــد.",
-                        Form_Notify.FarsiMessageBoxIcon.اضافه)
-                    .Popup(Form_Notify.Direction_Show.Right_To_Left, 2500);
-        }
+       
         private void    LoadPayment     (long IdFactor)
         {
             var mgr = new DpManager();
@@ -374,11 +357,6 @@ namespace NZ.Xazane.WinForms.App
         private void FormBarCodePayment_Shown           (object sender, EventArgs e)
         {
             Init();
-        }
-
-        private void NzSaveSetting_Click                (object sender, EventArgs e)
-        {
-            SaveSetting();
         }
         private void NzSavePayment_Click                (object sender, EventArgs e)
         {

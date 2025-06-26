@@ -388,26 +388,26 @@ namespace NZ.Resaa.Store
             if (Form_Factory.ExitForm?.ShowDialog(this) != DialogResult.OK)
                 e.Cancel = true;
 
-            if (!e.Cancel && SystemConstant.OurAccount)
-            {
-                try
-                {
-                    var start = new ProcessStartInfo();
-                    start.Arguments = "/Sync.NO 40980";
-                    //start.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Sync\\ClientSync.exe";
-                    start.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Sync\\Sync.exe";
-                    //start.
-                    //start.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\ClientSync.exe";
-                    using (var proc = Process.Start(start))
-                    {
-                        //proc.Start();
-                    }
-                }
-                catch(Exception ex)
-                {
-                    log.Error(ex);
-                }
-            }
+            //if (!e.Cancel && SystemConstant.OurAccount)
+            //{
+            //    try
+            //    {
+            //        var start = new ProcessStartInfo();
+            //        start.Arguments = "/Sync.NO 40980";
+            //        //start.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Sync\\ClientSync.exe";
+            //        start.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Sync\\Sync.exe";
+            //        //start.
+            //        //start.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\ClientSync.exe";
+            //        using (var proc = Process.Start(start))
+            //        {
+            //            //proc.Start();
+            //        }
+            //    }
+            //    catch(Exception ex)
+            //    {
+            //        log.Error(ex);
+            //    }
+            //}
         }
         private void    Form_Resaa_Store_Shown              (object sender, EventArgs e)
         {
