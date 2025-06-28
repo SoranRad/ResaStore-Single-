@@ -300,6 +300,16 @@ namespace NZ.Xazane.WinForms
 
         }
 
+        public bool HasSrtartupForm()
+        {
+	        return false;
+        }
+
+        public Form GetStartupPage()
+        {
+	        return null;
+        }
+
         public Control                      CreateControl       (Enums.NzFactoryControlKind Kind)
         {
             switch (Kind)

@@ -12,12 +12,16 @@ namespace NZ.General.WinForms.Setting
 		{
 			return new SettingItems()
 			{
-				StorageActive = true,
-				PaymentsActive = true,
-				AllowMultipleDatabase = false,
-				AqsatActive = false,
-				SmsActive = false,
-				ConStr =  ConnectionManager.ConStr
+				StorageActive			= true,
+				PaymentsActive			= true,
+				AllowMultipleDatabase	= false, 
+				SmsActive				= false,
+				ConStr					=  ConnectionManager.ConStr,
+				LownActive				= false,
+				ShowAlarm				= true,
+				ShowBackupOnExit		= true,
+				DoLock					= false,
+				LockTime				= 2
 			};
 		}
 
@@ -25,13 +29,16 @@ namespace NZ.General.WinForms.Setting
 		{
 			Name = KeyName;
 		}
+
 		public string	ConStr					{ get; set; }
 		public bool		StorageActive			{ get; set; }
 		public bool		PaymentsActive			{ get; set; }
 		public bool		SmsActive				{ get; set; }
-		public bool		LownActive				{ get; set; }
-		public bool		AqsatActive				{ get; set; }
+		public bool		LownActive				{ get; set; } 
 		public bool     AllowMultipleDatabase   { get; set; }
-
+		public bool		ShowAlarm				{ get; set; }
+		public bool		ShowBackupOnExit		{ get; set; }
+		public bool		DoLock					{ get; set; }
+		public short	LockTime				{ get; set; }
 	}
 }

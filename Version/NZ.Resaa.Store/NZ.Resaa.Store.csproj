@@ -285,6 +285,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\ActivityEventArgs.cs" />
+    <Compile Include="Components\ActivityMessages.cs" />
+    <Compile Include="Components\ApplicationIdle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\TickEventArgs.cs" />
+    <Compile Include="Components\WarnSettings.cs" />
     <Compile Include="FormAbout.cs">
       <SubType>Form</SubType>
     </Compile>

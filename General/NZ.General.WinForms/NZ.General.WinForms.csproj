@@ -265,6 +265,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alarm\Form_Alarm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alarm\Form_Alarm.Designer.cs">
+      <DependentUpon>Form_Alarm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Alarm\NoteDailyAlarm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -660,6 +666,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Alarm\Form_Alarm.resx">
+      <DependentUpon>Form_Alarm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Alarm\NoteDailyAlarm.resx">
       <DependentUpon>NoteDailyAlarm.cs</DependentUpon>
     </EmbeddedResource>

@@ -21,7 +21,7 @@ using ShareLib.Component;
 
 namespace NZ.General.WinForms
 {
-    public class GeneralProvider :IEntryProvider
+    public class GeneralProvider : IEntryProvider
     {
         #region Logging
         private static readonly log4net.ILog log =
@@ -35,7 +35,7 @@ namespace NZ.General.WinForms
         private NoteDailyAlarm              _dailyAlarm;
         public static Form                  MainForm;
         private TabSettingContainer         _settingContainer;
-        private ISettingItems               _settings;
+        private SettingItems               _settings;
         #endregion
         #region Consructor
         public GeneralProvider()
@@ -123,16 +123,16 @@ namespace NZ.General.WinForms
             return null;
         }
 
-        public void                     RefreshAlaram()
+        public void                             RefreshAlaram       ()
         {
 	        _dailyAlarm = new NoteDailyAlarm();
 	        _dailyAlarm.RefreshList();
         }
-        public bool                     AnyAlaram()
+        public bool                             AnyAlaram           ()
         {
             return _dailyAlarm.AnyAlarm();
         }
-        public UITabPage                GeTabPage()
+        public UITabPage                        GeTabPage           ()
         {
             return _dailyAlarm.GetTabPage();
         }
@@ -158,30 +158,45 @@ namespace NZ.General.WinForms
                 return null;
             }
         }
-
-		public NsSettingTabPage GetSettingTabPage()
+		public NsSettingTabPage                 GetSettingTabPage   ()
 		{
 			_settingContainer = new TabSettingContainer();
             _settingContainer.LoadSetting((SettingItems)_settings);
 			return _settingContainer.TabSetting;
 		}
-
-		public void SetSettings(IEnumerable<dynamic> settings)
+		public void                             SetSettings         (IEnumerable<dynamic> settings)
 		{
 			var setting = settings.SingleOrDefault(x => x.Name == SettingItems.KeyName);
-			if (setting == null)
-				_settings = SettingItems.GetDefault();
-			else
-				_settings = Converter.Convert<SettingItems>(setting);
-			//     if(!string.IsNullOrWhiteSpace((_settings as SettingItems)?.ConStr))
-			//ConnectionManager.ConStr = (_settings as SettingItems)?.ConStr;
+			_settings   = setting == null 
+				            ? SettingItems.GetDefault() 
+				            : (SettingItems)Converter.Convert<SettingItems>(setting);
 		}
-
-		public ISettingItems GetSettings()
+		public ISettingItems                    GetSettings         ()
 		{
 			return _settings;
 		}
 
+		public bool HasSrtartupForm()
+		{
+			if (_settings.ShowAlarm)
+			{
+				bool _AnyAlarm = false;
+				foreach (var system  in Form_Factory.SystemList)
+				{
+					system.RefreshAlaram();
+					if (system.AnyAlaram())
+						_AnyAlarm = true;
+				}
+                return _AnyAlarm;
+			}
+
+			return false;
+		}
+
+		public Form GetStartupPage()
+		{
+			return !_settings.ShowAlarm ? null : new Form_Alarm();
+		}
 
 		#endregion
 	}

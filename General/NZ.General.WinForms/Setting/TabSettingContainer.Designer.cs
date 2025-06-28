@@ -30,6 +30,11 @@
 		{
 			this.NzTabs = new Janus.Windows.UI.Tab.UITab();
 			this.NsGeneralSetting = new ShareLib.Component.NsSettingTabPage();
+			this.NsLockTime = new MS_Control.Controls.MS_NumericTextBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this.NsLock = new MS_Control.Controls.MS_CheckBox();
+			this.NsBackup = new MS_Control.Controls.MS_CheckBox();
+			this.NsAlarm = new MS_Control.Controls.MS_CheckBox();
 			this.NsMultipleDatabase = new MS_Control.Controls.MS_CheckBox();
 			this.NsLown = new MS_Control.Controls.MS_CheckBox();
 			this.label1 = new System.Windows.Forms.Label();
@@ -71,6 +76,11 @@
 			// NsGeneralSetting
 			// 
 			this.NsGeneralSetting.AutoScroll = true;
+			this.NsGeneralSetting.Controls.Add(this.NsLockTime);
+			this.NsGeneralSetting.Controls.Add(this.label2);
+			this.NsGeneralSetting.Controls.Add(this.NsLock);
+			this.NsGeneralSetting.Controls.Add(this.NsBackup);
+			this.NsGeneralSetting.Controls.Add(this.NsAlarm);
 			this.NsGeneralSetting.Controls.Add(this.NsMultipleDatabase);
 			this.NsGeneralSetting.Controls.Add(this.NsLown);
 			this.NsGeneralSetting.Controls.Add(this.label1);
@@ -91,12 +101,140 @@
 			this.NsGeneralSetting.TabStop = true;
 			this.NsGeneralSetting.Text = "عمومی";
 			// 
+			// NsLockTime
+			// 
+			this.NsLockTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsLockTime.ButtonText = "000";
+			this.NsLockTime.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsLockTime.DigitGroup = false;
+			this.NsLockTime.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.NsLockTime.Location = new System.Drawing.Point(554, 356);
+			this.NsLockTime.MaxLength = 2;
+			this.NsLockTime.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
+			this.NsLockTime.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NsLockTime.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsLockTime.MS_Change_Border_Color_On_Enter = true;
+			this.NsLockTime.MS_Change_Color_On_Enter = true;
+			this.NsLockTime.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsLockTime.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsLockTime.MS_Exit_By_Down = true;
+			this.NsLockTime.MS_Exit_By_Enter = true;
+			this.NsLockTime.MS_Exit_By_Up = true;
+			this.NsLockTime.MS_Is_Negative = false;
+			this.NsLockTime.MS_Last_Control = null;
+			this.NsLockTime.MS_Next_Control = null;
+			this.NsLockTime.Name = "NsLockTime";
+			this.NsLockTime.Size = new System.Drawing.Size(28, 29);
+			this.NsLockTime.TabIndex = 829;
+			this.NsLockTime.TabStop = false;
+			this.NsLockTime.Text = "2";
+			this.NsLockTime.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center;
+			this.NsLockTime.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			// 
+			// label2
+			// 
+			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label2.AutoSize = true;
+			this.label2.BackColor = System.Drawing.Color.Transparent;
+			this.label2.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
+			this.label2.Location = new System.Drawing.Point(685, 273);
+			this.label2.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(48, 23);
+			this.label2.TabIndex = 828;
+			this.label2.Text = "متفـرقه";
+			// 
+			// NsLock
+			// 
+			this.NsLock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsLock.BackColor = System.Drawing.Color.Transparent;
+			this.NsLock.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsLock.Location = new System.Drawing.Point(434, 359);
+			this.NsLock.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
+			this.NsLock.MS_BorderColor = System.Drawing.Color.Transparent;
+			this.NsLock.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsLock.MS_Change_Border_Color_On_Enter = true;
+			this.NsLock.MS_Change_Color_On_Checked = true;
+			this.NsLock.MS_Change_Color_On_Enter = true;
+			this.NsLock.MS_Checked_Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.NsLock.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsLock.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsLock.MS_Exit_By_Down = true;
+			this.NsLock.MS_Exit_By_Enter = true;
+			this.NsLock.MS_Exit_By_Up = true;
+			this.NsLock.MS_Last_Control = null;
+			this.NsLock.MS_Next_Control = null;
+			this.NsLock.MS_UnChecked_Color = System.Drawing.Color.Transparent;
+			this.NsLock.Name = "NsLock";
+			this.NsLock.ShowFocusRectangle = false;
+			this.NsLock.Size = new System.Drawing.Size(277, 21);
+			this.NsLock.TabIndex = 827;
+			this.NsLock.Text = " حساب کاربری بعد از          دقیـقه قفل شود.";
+			this.NsLock.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
+			this.NsLock.CheckedChanged += new System.EventHandler(this.NsLock_CheckedChanged);
+			// 
+			// NsBackup
+			// 
+			this.NsBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsBackup.BackColor = System.Drawing.Color.Transparent;
+			this.NsBackup.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsBackup.Location = new System.Drawing.Point(312, 328);
+			this.NsBackup.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
+			this.NsBackup.MS_BorderColor = System.Drawing.Color.Transparent;
+			this.NsBackup.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsBackup.MS_Change_Border_Color_On_Enter = true;
+			this.NsBackup.MS_Change_Color_On_Checked = true;
+			this.NsBackup.MS_Change_Color_On_Enter = true;
+			this.NsBackup.MS_Checked_Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.NsBackup.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsBackup.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsBackup.MS_Exit_By_Down = true;
+			this.NsBackup.MS_Exit_By_Enter = true;
+			this.NsBackup.MS_Exit_By_Up = true;
+			this.NsBackup.MS_Last_Control = null;
+			this.NsBackup.MS_Next_Control = null;
+			this.NsBackup.MS_UnChecked_Color = System.Drawing.Color.Transparent;
+			this.NsBackup.Name = "NsBackup";
+			this.NsBackup.ShowFocusRectangle = false;
+			this.NsBackup.Size = new System.Drawing.Size(399, 21);
+			this.NsBackup.TabIndex = 827;
+			this.NsBackup.Text = " در هنگام خروج پشتیبان بانک اصلاعاتی گرفته شود.";
+			this.NsBackup.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
+			// 
+			// NsAlarm
+			// 
+			this.NsAlarm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsAlarm.BackColor = System.Drawing.Color.Transparent;
+			this.NsAlarm.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsAlarm.Location = new System.Drawing.Point(312, 297);
+			this.NsAlarm.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
+			this.NsAlarm.MS_BorderColor = System.Drawing.Color.Transparent;
+			this.NsAlarm.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsAlarm.MS_Change_Border_Color_On_Enter = true;
+			this.NsAlarm.MS_Change_Color_On_Checked = true;
+			this.NsAlarm.MS_Change_Color_On_Enter = true;
+			this.NsAlarm.MS_Checked_Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.NsAlarm.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsAlarm.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsAlarm.MS_Exit_By_Down = true;
+			this.NsAlarm.MS_Exit_By_Enter = true;
+			this.NsAlarm.MS_Exit_By_Up = true;
+			this.NsAlarm.MS_Last_Control = null;
+			this.NsAlarm.MS_Next_Control = null;
+			this.NsAlarm.MS_UnChecked_Color = System.Drawing.Color.Transparent;
+			this.NsAlarm.Name = "NsAlarm";
+			this.NsAlarm.ShowFocusRectangle = false;
+			this.NsAlarm.Size = new System.Drawing.Size(399, 21);
+			this.NsAlarm.TabIndex = 827;
+			this.NsAlarm.Text = " سیستم هشدار برای کاربر فعال باشد.";
+			this.NsAlarm.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
+			// 
 			// NsMultipleDatabase
 			// 
 			this.NsMultipleDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsMultipleDatabase.BackColor = System.Drawing.Color.Transparent;
 			this.NsMultipleDatabase.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsMultipleDatabase.Location = new System.Drawing.Point(312, 92);
+			this.NsMultipleDatabase.Location = new System.Drawing.Point(312, 73);
 			this.NsMultipleDatabase.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
 			this.NsMultipleDatabase.MS_BorderColor = System.Drawing.Color.Transparent;
 			this.NsMultipleDatabase.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -114,7 +252,7 @@
 			this.NsMultipleDatabase.MS_UnChecked_Color = System.Drawing.Color.Transparent;
 			this.NsMultipleDatabase.Name = "NsMultipleDatabase";
 			this.NsMultipleDatabase.ShowFocusRectangle = false;
-			this.NsMultipleDatabase.Size = new System.Drawing.Size(399, 31);
+			this.NsMultipleDatabase.Size = new System.Drawing.Size(399, 21);
 			this.NsMultipleDatabase.TabIndex = 826;
 			this.NsMultipleDatabase.Text = "  امکان اتصال به چند بانک اطلاعاتی فعال باشد.";
 			this.NsMultipleDatabase.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
@@ -124,7 +262,7 @@
 			this.NsLown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsLown.BackColor = System.Drawing.Color.Transparent;
 			this.NsLown.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsLown.Location = new System.Drawing.Point(312, 292);
+			this.NsLown.Location = new System.Drawing.Point(312, 232);
 			this.NsLown.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
 			this.NsLown.MS_BorderColor = System.Drawing.Color.Transparent;
 			this.NsLown.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -153,7 +291,7 @@
 			this.label1.AutoSize = true;
 			this.label1.BackColor = System.Drawing.Color.Transparent;
 			this.label1.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label1.Location = new System.Drawing.Point(641, 158);
+			this.label1.Location = new System.Drawing.Point(641, 115);
 			this.label1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(92, 23);
@@ -166,7 +304,7 @@
 			this.label4.AutoSize = true;
 			this.label4.BackColor = System.Drawing.Color.Transparent;
 			this.label4.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label4.Location = new System.Drawing.Point(617, 13);
+			this.label4.Location = new System.Drawing.Point(617, 9);
 			this.label4.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(116, 23);
@@ -180,7 +318,7 @@
 			this.NsConStr.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.TextButton;
 			this.NsConStr.ButtonText = "...";
 			this.NsConStr.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsConStr.Location = new System.Drawing.Point(7, 57);
+			this.NsConStr.Location = new System.Drawing.Point(7, 38);
 			this.NsConStr.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
 			this.NsConStr.MaxLength = 200;
 			this.NsConStr.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -210,7 +348,7 @@
 			this.NsSms.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsSms.BackColor = System.Drawing.Color.Transparent;
 			this.NsSms.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsSms.Location = new System.Drawing.Point(312, 262);
+			this.NsSms.Location = new System.Drawing.Point(312, 202);
 			this.NsSms.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
 			this.NsSms.MS_BorderColor = System.Drawing.Color.Transparent;
 			this.NsSms.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -238,7 +376,7 @@
 			this.NsPayments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsPayments.BackColor = System.Drawing.Color.Transparent;
 			this.NsPayments.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsPayments.Location = new System.Drawing.Point(312, 232);
+			this.NsPayments.Location = new System.Drawing.Point(312, 172);
 			this.NsPayments.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
 			this.NsPayments.MS_BorderColor = System.Drawing.Color.Transparent;
 			this.NsPayments.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -266,7 +404,7 @@
 			this.NsStorage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsStorage.BackColor = System.Drawing.Color.Transparent;
 			this.NsStorage.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsStorage.Location = new System.Drawing.Point(312, 202);
+			this.NsStorage.Location = new System.Drawing.Point(312, 142);
 			this.NsStorage.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
 			this.NsStorage.MS_BorderColor = System.Drawing.Color.Transparent;
 			this.NsStorage.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -315,5 +453,10 @@
 		private System.Windows.Forms.Label label1;
 		private MS_Control.Controls.MS_CheckBox NsLown;
 		private MS_Control.Controls.MS_CheckBox NsMultipleDatabase;
+		private MS_Control.Controls.MS_CheckBox NsAlarm;
+		private MS_Control.Controls.MS_CheckBox NsBackup;
+		private System.Windows.Forms.Label label2;
+		private MS_Control.Controls.MS_CheckBox NsLock;
+		private MS_Control.Controls.MS_NumericTextBox NsLockTime;
 	}
 }

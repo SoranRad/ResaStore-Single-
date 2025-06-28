@@ -35,6 +35,8 @@ namespace NZ.Resaa.Store
         #region Fields
         private string _BkImage = "Bk.jpg";
         int MenuIndex           = 1;
+        private Config _config;
+
         #endregion
         #region Constructor
         public Form_Resaa_Store         ()
@@ -63,12 +65,12 @@ namespace NZ.Resaa.Store
         }
         private bool    LoadModule                  ()
         {
-	        var config = Config.FromXML();
-	        ConnectionManager.ConStr = config.ConStr;
+	        _config = Config.FromXML();
+	        ConnectionManager.ConStr = _config.ConStr;
 
-            var loadingMadul = LoadGeneral(config);
-            loadingMadul = LoadStorage(config);
-            loadingMadul = LoadXazane(config); 
+            var loadingMadul = LoadGeneral(_config);
+            loadingMadul = LoadStorage(_config);
+            loadingMadul = LoadXazane(_config); 
             return true;
         }
         private bool    LoadGeneral                 (Config config)
@@ -387,44 +389,16 @@ namespace NZ.Resaa.Store
         {
             if (Form_Factory.ExitForm?.ShowDialog(this) != DialogResult.OK)
                 e.Cancel = true;
-
-            //if (!e.Cancel && SystemConstant.OurAccount)
-            //{
-            //    try
-            //    {
-            //        var start = new ProcessStartInfo();
-            //        start.Arguments = "/Sync.NO 40980";
-            //        //start.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Sync\\ClientSync.exe";
-            //        start.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Sync\\Sync.exe";
-            //        //start.
-            //        //start.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\ClientSync.exe";
-            //        using (var proc = Process.Start(start))
-            //        {
-            //            //proc.Start();
-            //        }
-            //    }
-            //    catch(Exception ex)
-            //    {
-            //        log.Error(ex);
-            //    }
-            //}
         }
         private void    Form_Resaa_Store_Shown              (object sender, EventArgs e)
         {
-            bool _AnyAlarm = false;
-            foreach (var system  in Form_Factory.SystemList)
-            {
-                system.RefreshAlaram();
-                if (system.AnyAlaram())
-                    _AnyAlarm = true;
-            }
-
-            if (_AnyAlarm)
-                new Form_Alarm().ShowDialog(this);
+            if(Form_Factory._Form_Factory_General.HasSrtartupForm())
+	            Form_Factory._Form_Factory_General.GetStartupPage()?.ShowDialog(this);
 
             GetVersion();
             RunUpdate();
         }
+        
         private void    NzChangeUser_Click                  (object sender, EventArgs e)
         {
             InvokeCommand.Invoke(Form_Factory.CmdChangeUser);

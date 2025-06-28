@@ -1,33 +1,33 @@
-﻿namespace NZ.Resaa.Store
+﻿namespace NZ.General.WinForms.Alarm
 {
-    partial class Form_Alarm
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+	partial class Form_Alarm
+	{
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
-        #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
 			this.NzTab = new Janus.Windows.UI.Tab.UITab();
 			((System.ComponentModel.ISupportInitialize)(this.NzTab)).BeginInit();
 			this.SuspendLayout();
@@ -43,8 +43,8 @@
 			this.NzTab.Name = "NzTab";
 			this.NzTab.Office2007CustomColor = System.Drawing.Color.Transparent;
 			this.NzTab.ShowFocusRectangle = false;
-			this.NzTab.Size = new System.Drawing.Size(1046, 404);
-			this.NzTab.TabIndex = 6;
+			this.NzTab.Size = new System.Drawing.Size(953, 404);
+			this.NzTab.TabIndex = 7;
 			this.NzTab.TabsStateStyles.DisabledFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.NzTab.TabsStateStyles.DisabledFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.NzTab.TabsStateStyles.FormatStyle.BackColor = System.Drawing.Color.PowderBlue;
@@ -57,20 +57,20 @@
 			// Form_Alarm
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-			this.ClientSize = new System.Drawing.Size(1046, 404);
+			this.ClientSize = new System.Drawing.Size(953, 404);
 			this.Controls.Add(this.NzTab);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "Form_Alarm";
 			this.Text = "هشدارهای امروز";
-			this.Load += new System.EventHandler(this.Form_Alarm_Load);
+			this.Shown += new System.EventHandler(this.Form_Alarm_Shown);
 			((System.ComponentModel.ISupportInitialize)(this.NzTab)).EndInit();
 			this.ResumeLayout(false);
 
-        }
+		}
 
-        #endregion
+		#endregion
 
-        private Janus.Windows.UI.Tab.UITab NzTab;
-    }
+		private Janus.Windows.UI.Tab.UITab NzTab;
+	}
 }

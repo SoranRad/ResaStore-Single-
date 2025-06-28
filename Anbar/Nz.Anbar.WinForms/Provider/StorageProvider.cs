@@ -268,6 +268,16 @@ namespace Nz.Anbar.WinForms.Provider
 			return _settings;
 		}
 
+		public bool HasSrtartupForm()
+		{
+			return false;
+		}
+
+		public Form GetStartupPage()
+		{
+			return null;
+		}
+
 		#endregion
 
 	}

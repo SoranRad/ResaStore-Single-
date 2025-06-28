@@ -24,23 +24,34 @@ namespace NZ.General.WinForms.Setting
 
 		public void LoadSetting(SettingItems settings)
 		{
-			NsLown.Checked = settings.LownActive;
-			NsConStr.Text = settings.ConStr;
-			NsPayments.Checked = settings.PaymentsActive;
-			NsSms.Checked = settings.SmsActive;
-			NsStorage.Checked = settings.StorageActive;
+			NsLown.Checked		= settings.LownActive;
+			NsConStr.Text		= settings.ConStr;
+			NsPayments.Checked	= settings.PaymentsActive;
+			NsSms.Checked		= settings.SmsActive;
+			NsStorage.Checked	= settings.StorageActive;
+			NsAlarm.Checked		= settings.ShowAlarm;
+			NsLown.Checked		= settings.LownActive;
+			NsBackup.Checked	= settings.ShowBackupOnExit;
+			NsLock.Checked		= settings.DoLock;
+			NsLockTime.MS_Decimal = settings.LockTime;
+			NsMultipleDatabase.Checked = settings.AllowMultipleDatabase;
 		}
 
 		public NsSettingTabPage TabSetting => NsGeneralSetting;
 
 		public SettingItems		Settings =>
 			new SettingItems()
-			{
-				 AqsatActive = NsLown.Checked,
-				 ConStr = NsConStr.Text,
+			{ 
+				 ConStr			= NsConStr.Text,
 				 PaymentsActive = NsPayments.Checked,
-				 SmsActive = NsSms.Checked,
-				 StorageActive = NsStorage.Checked
+				 SmsActive		= NsSms.Checked,
+				 StorageActive	= NsStorage.Checked,
+				 DoLock			= NsLock.Checked,
+				 LownActive		= NsLown.Checked,
+				 LockTime		= Convert.ToInt16( NsLockTime.MS_Decimal),
+				 ShowAlarm		= NsAlarm.Checked,
+				 ShowBackupOnExit = NsBackup.Checked,
+				 AllowMultipleDatabase = NsMultipleDatabase.Checked
 			};
 
 		private void NzTitle_ButtonClick(object sender, EventArgs e)
@@ -52,6 +63,11 @@ namespace NZ.General.WinForms.Setting
 			NsConStr.Text = Frm.MS_Con_str + ConStrDetail;
 			NsMultipleDatabase.Checked = Frm.MultipleDatabase;
 
+		}
+
+		private void NsLock_CheckedChanged(object sender, EventArgs e)
+		{
+			NsLockTime.Enabled = NsLock.Checked;
 		}
 	}
 }

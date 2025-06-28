@@ -71,35 +71,32 @@ namespace Updater
             {
                 //https://localhost:44321/
 
-                var form = new/* Nz.Domain.Model.ValueObject.SendSmsParametter()*/
-                {
-                    Mobile = 9148702984,
-                    TemplateID = 8636,
-                    UserName = "971219",
-                    Password = "darolehsan_1#", 
-                    TemplateParams = new List<object>()
-                    {
-                        new { Name =  "PersonName", Value = "فثسف"},
-                        new { Name =  "Mount", Value = "20.22"},
-                        new { Name =  "Date", Value = "13400/01011"},
-                        new { Name =  "CharityName", Value = "آزمایش"},
+                //var form = new/* Nz.Domain.Model.ValueObject.SendSmsParametter()*/
+                //{
+                //    Mobile = 9148702984,
+                //    TemplateID = 8636,
+                //    UserName = "971219",
+                //    Password = "darolehsan_1#", 
+                //    TemplateParams = new List<object>()
+                //    {
+                //        new { Name =  "PersonName", Value = "فثسف"},
+                //        new { Name =  "Mount", Value = "20.22"},
+                //        new { Name =  "Date", Value = "13400/01011"},
+                //        new { Name =  "CharityName", Value = "آزمایش"},
                        
-                    }
-                };
+                //    }
+                //};
 
-                var http = new EasyHttp.Http.HttpClient();
-                var response = http.Post($"https://localhost:44321/api/SmsService", form, HttpContentTypes.ApplicationJson);
-                var result1 = response.StaticBody<MessageContract>();
+                //var http = new EasyHttp.Http.HttpClient();
+                //var response = http.Post($"https://localhost:44321/api/SmsService", form, HttpContentTypes.ApplicationJson);
+                //var result1 = response.StaticBody<MessageContract>();
 
-                //return result;
+                ////return result;
 
-
-                return;
-                this.Validate();
-                this.Refresh();
+                 
                 //1.
                 LoadSettings();
-
+                return;
                 //2.
                 var service = new ResetService();
 

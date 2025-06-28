@@ -37,10 +37,12 @@ namespace ShareLib.Interfaces
         UITabPage                       GeTabPage               ();
         Task<MS_Chart[]>                GetChartSummarry        ();
 
-        Task<IEnumerable<DailyCircular>> GetDailyCircular (short Year,short Month);
+        Task<IEnumerable<DailyCircular>> GetDailyCircular       (short Year,short Month);
+        NsSettingTabPage                GetSettingTabPage       ();
+        void                            SetSettings             (IEnumerable<dynamic> settings);
+        ISettingItems                   GetSettings             ();
 
-        NsSettingTabPage GetSettingTabPage ();
-        void SetSettings(IEnumerable<dynamic> settings);
-        ISettingItems GetSettings();
+        bool                            HasSrtartupForm         ();
+        Form                            GetStartupPage          ();
     }
 }
