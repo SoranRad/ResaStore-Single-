@@ -15,6 +15,7 @@ using MS_Control;
 using MS_Control.MainForms;
 using MS_Control.Tarikh;
 using NZ.General.Business;
+using NZ.General.WinForms.Setting;
 using ShareLib.Utils;
 using ShareLib.ViewModel;
 
@@ -134,8 +135,21 @@ namespace NZ.General.WinForms.Misc
 
         private void FormExit_Shown             (object sender, EventArgs e)
         {
-            _Manager = new UtilManage();
-            LoadAddress();
+	        if (Form_Factory._Form_Factory_General.GetSettings() is SettingItems setting)
+	        {
+		        if (!setting.ShowBackupOnExit)
+		        {
+			        NsBackupInfo.Visible = false;
+			        NzBackRadio.Checked = false;
+			        this.Height = 62;
+		        }
+		        else
+		        {
+                    _Manager = new UtilManage();
+			        LoadAddress();
+		        }
+	        }
+
         }
     }
 }
