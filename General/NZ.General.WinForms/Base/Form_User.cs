@@ -49,6 +49,8 @@ namespace NZ.General.WinForms.Base
                 ms_Pas_Def.Text                 = _User.OriginalDefaultPassword;
                 ms_Is_Disable.SelectedIndex     = _User.is_disable ? 1 : 0;
                 ms_Kind.SelectedIndex           = _User.kind-1;
+                NsLock.Checked = _User.LockAccount;
+                NsLockTime.MS_Decimal = _User.LockTime;
 
                 if (_User.picture != null)
                 {
@@ -73,16 +75,15 @@ namespace NZ.General.WinForms.Base
                 _User.OriginalPassword          = ms_Pas_Def.Text.Trim();
                 _User.OriginalDefaultPassword   = ms_Pas_Def.Text.Trim();
             }
-            //else
-            //{
-            //    if (ms_Code.MS_Decimal != _User.Code)
-            //        _User.OriginalPassword  = ms_Pas_Def.Text.Trim();
-            //}
+           
             _User.title                     = ms_Title.Text;
             _User.user_name                 = ms_User_Name.Text;
             _User.OriginalDefaultPassword   = ms_Pas_Def.Text;
             _User.is_disable                = ms_Is_Disable.SelectedIndex == 1;
             _User.kind                      = (short) (ms_Kind.SelectedIndex+1);
+            _User.LockAccount               = NsLock.Checked ;
+            _User.LockTime                  = Convert.ToInt16( NsLockTime.MS_Decimal);
+
             if (ms_Pic.Image != null)
             {
                 MemoryStream ms             = new MemoryStream();
@@ -207,5 +208,9 @@ namespace NZ.General.WinForms.Base
             ms_Pic.Image = null;
         }
 
-    }
+		private void NsLock_CheckedChanged(object sender, EventArgs e)
+		{
+			NsLockTime.Enabled = NsLock.Checked;
+		}
+	}
 }

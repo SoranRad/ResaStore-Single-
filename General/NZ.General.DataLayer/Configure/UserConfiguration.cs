@@ -40,6 +40,8 @@ namespace NZ.General.DataLayer.Configure
                 .Property               (e => e.dastressi)
                 .IsUnicode              (false);
 
+
+
             this
                 .HasMany                (e => e.DialogsEdit)
                 .WithRequired           (e => e.UserInsert)

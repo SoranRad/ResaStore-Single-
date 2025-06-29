@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using ShareLib.Interfaces;
@@ -28,6 +29,11 @@ namespace ShareLib.Models
         public short        kind            { get; set; }
         public bool         is_disable      { get; set; }
         public byte[]       picture         { get; set; }
+        public bool         LockAccount     { get; set; }
+        public short        LockTime        { get; set; }
+
+
+
         [Required]
         [StringLength(100)]
         public string       title           { get; set; }
@@ -153,6 +159,8 @@ select
                      Rtrim(Ltrim( default_password )) as  default_password,
                      Rtrim(Ltrim( dastressi )) as dastressi,
                      is_disable ,
+                     LockAccount,
+                     LockTime,
                      picture 
                      from General.tbl_User
 where ID=@ID
@@ -170,6 +178,8 @@ where ID=@ID
                      Rtrim(Ltrim( default_password )) as  default_password,
                      Rtrim(Ltrim( dastressi )) as dastressi,
                      is_disable ,
+                     LockAccount,
+                     LockTime,
                      picture 
                      from General.tbl_User ";
         }
