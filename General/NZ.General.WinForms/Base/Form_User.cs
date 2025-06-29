@@ -49,8 +49,8 @@ namespace NZ.General.WinForms.Base
                 ms_Pas_Def.Text                 = _User.OriginalDefaultPassword;
                 ms_Is_Disable.SelectedIndex     = _User.is_disable ? 1 : 0;
                 ms_Kind.SelectedIndex           = _User.kind-1;
-                NsLock.Checked = _User.LockAccount;
-                NsLockTime.MS_Decimal = _User.LockTime;
+                NsLock.Checked                  = _User.LockAccount;
+                NsLockTime.MS_Decimal           = _User.LockTime;
 
                 if (_User.picture != null)
                 {

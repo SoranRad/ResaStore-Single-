@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem6 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem3 = new Janus.Windows.EditControls.UIComboBoxItem();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_User));
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem4 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem5 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem6 = new Janus.Windows.EditControls.UIComboBoxItem();
 			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem7 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem1 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem2 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem8 = new Janus.Windows.EditControls.UIComboBoxItem();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -117,17 +117,17 @@
 			this.ms_Is_Disable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.ms_Is_Disable.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
 			this.ms_Is_Disable.Cursor = System.Windows.Forms.Cursors.Hand;
-			uiComboBoxItem6.FormatStyle.Alpha = 0;
-			uiComboBoxItem6.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem6.Image")));
-			uiComboBoxItem6.IsSeparator = false;
-			uiComboBoxItem6.Text = "فعال";
-			uiComboBoxItem7.FormatStyle.Alpha = 0;
-			uiComboBoxItem7.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem7.Image")));
-			uiComboBoxItem7.IsSeparator = false;
-			uiComboBoxItem7.Text = "غیر فعال";
+			uiComboBoxItem3.FormatStyle.Alpha = 0;
+			uiComboBoxItem3.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem3.Image")));
+			uiComboBoxItem3.IsSeparator = false;
+			uiComboBoxItem3.Text = "فعال";
+			uiComboBoxItem4.FormatStyle.Alpha = 0;
+			uiComboBoxItem4.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem4.Image")));
+			uiComboBoxItem4.IsSeparator = false;
+			uiComboBoxItem4.Text = "غیر فعال";
 			this.ms_Is_Disable.Items.AddRange(new Janus.Windows.EditControls.UIComboBoxItem[] {
-            uiComboBoxItem6,
-            uiComboBoxItem7});
+            uiComboBoxItem3,
+            uiComboBoxItem4});
 			this.ms_Is_Disable.Location = new System.Drawing.Point(70, 159);
 			this.ms_Is_Disable.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.ms_Is_Disable.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -314,22 +314,22 @@
 			this.ms_Kind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.ms_Kind.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
 			this.ms_Kind.Cursor = System.Windows.Forms.Cursors.Hand;
-			uiComboBoxItem1.FormatStyle.Alpha = 0;
-			uiComboBoxItem1.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem1.Image")));
-			uiComboBoxItem1.IsSeparator = false;
-			uiComboBoxItem1.Text = "مدیر سیستم";
-			uiComboBoxItem2.FormatStyle.Alpha = 0;
-			uiComboBoxItem2.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem2.Image")));
-			uiComboBoxItem2.IsSeparator = false;
-			uiComboBoxItem2.Text = "کاربر ارشد";
-			uiComboBoxItem8.FormatStyle.Alpha = 0;
-			uiComboBoxItem8.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem8.Image")));
-			uiComboBoxItem8.IsSeparator = false;
-			uiComboBoxItem8.Text = "کاربر عادی";
+			uiComboBoxItem5.FormatStyle.Alpha = 0;
+			uiComboBoxItem5.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem5.Image")));
+			uiComboBoxItem5.IsSeparator = false;
+			uiComboBoxItem5.Text = "مدیر سیستم";
+			uiComboBoxItem6.FormatStyle.Alpha = 0;
+			uiComboBoxItem6.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem6.Image")));
+			uiComboBoxItem6.IsSeparator = false;
+			uiComboBoxItem6.Text = "کاربر ارشد";
+			uiComboBoxItem7.FormatStyle.Alpha = 0;
+			uiComboBoxItem7.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem7.Image")));
+			uiComboBoxItem7.IsSeparator = false;
+			uiComboBoxItem7.Text = "کاربر عادی";
 			this.ms_Kind.Items.AddRange(new Janus.Windows.EditControls.UIComboBoxItem[] {
-            uiComboBoxItem1,
-            uiComboBoxItem2,
-            uiComboBoxItem8});
+            uiComboBoxItem5,
+            uiComboBoxItem6,
+            uiComboBoxItem7});
 			this.ms_Kind.Location = new System.Drawing.Point(70, 194);
 			this.ms_Kind.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.ms_Kind.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -525,6 +525,7 @@
 			this.NsLockTime.ButtonText = "000";
 			this.NsLockTime.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NsLockTime.DigitGroup = false;
+			this.NsLockTime.Enabled = false;
 			this.NsLockTime.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.NsLockTime.Location = new System.Drawing.Point(146, 234);
 			this.NsLockTime.MaxLength = 2;

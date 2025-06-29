@@ -32,8 +32,6 @@ namespace NZ.General.WinForms.Setting
 			NsAlarm.Checked		= settings.ShowAlarm;
 			NsLown.Checked		= settings.LownActive;
 			NsBackup.Checked	= settings.ShowBackupOnExit;
-			NsLock.Checked		= settings.DoLock;
-			NsLockTime.MS_Decimal = settings.LockTime;
 			NsMultipleDatabase.Checked = settings.AllowMultipleDatabase;
 		}
 
@@ -46,9 +44,7 @@ namespace NZ.General.WinForms.Setting
 				 PaymentsActive = NsPayments.Checked,
 				 SmsActive		= NsSms.Checked,
 				 StorageActive	= NsStorage.Checked,
-				 DoLock			= NsLock.Checked,
 				 LownActive		= NsLown.Checked,
-				 LockTime		= Convert.ToInt16( NsLockTime.MS_Decimal),
 				 ShowAlarm		= NsAlarm.Checked,
 				 ShowBackupOnExit = NsBackup.Checked,
 				 AllowMultipleDatabase = NsMultipleDatabase.Checked
@@ -64,10 +60,6 @@ namespace NZ.General.WinForms.Setting
 			NsMultipleDatabase.Checked = Frm.MultipleDatabase;
 
 		}
-
-		private void NsLock_CheckedChanged(object sender, EventArgs e)
-		{
-			NsLockTime.Enabled = NsLock.Checked;
-		}
+		 
 	}
 }

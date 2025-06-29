@@ -52,6 +52,7 @@ namespace NZ.Resaa.Store
 			this.NzVersion = new System.Windows.Forms.ToolStripLabel();
 			this.Pic_Back_Main = new System.Windows.Forms.PictureBox();
 			this.NzSidebar = new MS_Control.Controls.MS_Menu();
+			this.NsElapsedLock = new System.Windows.Forms.ToolStripLabel();
 			this.applicationIdle1 = new NZ.Resaa.Store.Components.ApplicationIdle();
 			this.mS_Menu1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ms_MdiTab)).BeginInit();
@@ -172,7 +173,8 @@ namespace NZ.Resaa.Store
             this.toolStripSeparator3,
             this.NzChangePass,
             this.toolStripSeparator4,
-            this.NzVersion});
+            this.NzVersion,
+            this.NsElapsedLock});
 			this.mS_Tool_Strip1.Location = new System.Drawing.Point(0, 383);
 			this.mS_Tool_Strip1.MS_BorderColor = System.Drawing.Color.CornflowerBlue;
 			this.mS_Tool_Strip1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -310,6 +312,20 @@ namespace NZ.Resaa.Store
 			this.NzSidebar.Text = "mS_Menu2";
 			this.NzSidebar.Visible = false;
 			// 
+			// NsElapsedLock
+			// 
+			this.NsElapsedLock.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.NsElapsedLock.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.NsElapsedLock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.NsElapsedLock.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.NsElapsedLock.Name = "NsElapsedLock";
+			this.NsElapsedLock.Size = new System.Drawing.Size(0, 27);
+			this.NsElapsedLock.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			// 
+			// applicationIdle1
+			// 
+			this.applicationIdle1.WarnTime = System.TimeSpan.Parse("00:00:30");
+			// 
 			// Form_Resaa_Store
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -364,6 +380,7 @@ namespace NZ.Resaa.Store
         private MS_Control.Controls.MS_Menu NzSidebar;
         private System.Windows.Forms.ToolStripLabel NzVersion;
 		private Components.ApplicationIdle applicationIdle1;
+		private System.Windows.Forms.ToolStripLabel NsElapsedLock;
 	}
 }
 

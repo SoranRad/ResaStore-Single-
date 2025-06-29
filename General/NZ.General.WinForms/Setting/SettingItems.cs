@@ -20,8 +20,6 @@ namespace NZ.General.WinForms.Setting
 				LownActive				= false,
 				ShowAlarm				= true,
 				ShowBackupOnExit		= true,
-				DoLock					= false,
-				LockTime				= 2
 			};
 		}
 
@@ -38,7 +36,5 @@ namespace NZ.General.WinForms.Setting
 		public bool     AllowMultipleDatabase   { get; set; }
 		public bool		ShowAlarm				{ get; set; }
 		public bool		ShowBackupOnExit		{ get; set; }
-		public bool		DoLock					{ get; set; }
-		public short	LockTime				{ get; set; }
 	}
 }

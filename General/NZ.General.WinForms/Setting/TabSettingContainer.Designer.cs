@@ -30,9 +30,7 @@
 		{
 			this.NzTabs = new Janus.Windows.UI.Tab.UITab();
 			this.NsGeneralSetting = new ShareLib.Component.NsSettingTabPage();
-			this.NsLockTime = new MS_Control.Controls.MS_NumericTextBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.NsLock = new MS_Control.Controls.MS_CheckBox();
 			this.NsBackup = new MS_Control.Controls.MS_CheckBox();
 			this.NsAlarm = new MS_Control.Controls.MS_CheckBox();
 			this.NsMultipleDatabase = new MS_Control.Controls.MS_CheckBox();
@@ -76,9 +74,7 @@
 			// NsGeneralSetting
 			// 
 			this.NsGeneralSetting.AutoScroll = true;
-			this.NsGeneralSetting.Controls.Add(this.NsLockTime);
 			this.NsGeneralSetting.Controls.Add(this.label2);
-			this.NsGeneralSetting.Controls.Add(this.NsLock);
 			this.NsGeneralSetting.Controls.Add(this.NsBackup);
 			this.NsGeneralSetting.Controls.Add(this.NsAlarm);
 			this.NsGeneralSetting.Controls.Add(this.NsMultipleDatabase);
@@ -101,36 +97,6 @@
 			this.NsGeneralSetting.TabStop = true;
 			this.NsGeneralSetting.Text = "عمومی";
 			// 
-			// NsLockTime
-			// 
-			this.NsLockTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.NsLockTime.ButtonText = "000";
-			this.NsLockTime.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsLockTime.DigitGroup = false;
-			this.NsLockTime.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NsLockTime.Location = new System.Drawing.Point(554, 356);
-			this.NsLockTime.MaxLength = 2;
-			this.NsLockTime.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
-			this.NsLockTime.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.NsLockTime.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NsLockTime.MS_Change_Border_Color_On_Enter = true;
-			this.NsLockTime.MS_Change_Color_On_Enter = true;
-			this.NsLockTime.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-			this.NsLockTime.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NsLockTime.MS_Exit_By_Down = true;
-			this.NsLockTime.MS_Exit_By_Enter = true;
-			this.NsLockTime.MS_Exit_By_Up = true;
-			this.NsLockTime.MS_Is_Negative = false;
-			this.NsLockTime.MS_Last_Control = null;
-			this.NsLockTime.MS_Next_Control = null;
-			this.NsLockTime.Name = "NsLockTime";
-			this.NsLockTime.Size = new System.Drawing.Size(28, 29);
-			this.NsLockTime.TabIndex = 829;
-			this.NsLockTime.TabStop = false;
-			this.NsLockTime.Text = "2";
-			this.NsLockTime.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center;
-			this.NsLockTime.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
-			// 
 			// label2
 			// 
 			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -143,35 +109,6 @@
 			this.label2.Size = new System.Drawing.Size(48, 23);
 			this.label2.TabIndex = 828;
 			this.label2.Text = "متفـرقه";
-			// 
-			// NsLock
-			// 
-			this.NsLock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.NsLock.BackColor = System.Drawing.Color.Transparent;
-			this.NsLock.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsLock.Location = new System.Drawing.Point(434, 359);
-			this.NsLock.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
-			this.NsLock.MS_BorderColor = System.Drawing.Color.Transparent;
-			this.NsLock.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NsLock.MS_Change_Border_Color_On_Enter = true;
-			this.NsLock.MS_Change_Color_On_Checked = true;
-			this.NsLock.MS_Change_Color_On_Enter = true;
-			this.NsLock.MS_Checked_Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-			this.NsLock.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-			this.NsLock.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NsLock.MS_Exit_By_Down = true;
-			this.NsLock.MS_Exit_By_Enter = true;
-			this.NsLock.MS_Exit_By_Up = true;
-			this.NsLock.MS_Last_Control = null;
-			this.NsLock.MS_Next_Control = null;
-			this.NsLock.MS_UnChecked_Color = System.Drawing.Color.Transparent;
-			this.NsLock.Name = "NsLock";
-			this.NsLock.ShowFocusRectangle = false;
-			this.NsLock.Size = new System.Drawing.Size(277, 21);
-			this.NsLock.TabIndex = 827;
-			this.NsLock.Text = " حساب کاربری بعد از          دقیـقه قفل شود.";
-			this.NsLock.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
-			this.NsLock.CheckedChanged += new System.EventHandler(this.NsLock_CheckedChanged);
 			// 
 			// NsBackup
 			// 
@@ -456,7 +393,5 @@
 		private MS_Control.Controls.MS_CheckBox NsAlarm;
 		private MS_Control.Controls.MS_CheckBox NsBackup;
 		private System.Windows.Forms.Label label2;
-		private MS_Control.Controls.MS_CheckBox NsLock;
-		private MS_Control.Controls.MS_NumericTextBox NsLockTime;
 	}
 }

@@ -14,6 +14,7 @@ using MdiTabStrip;
 using MS_Control;
 using MS_Control.MainForms;
 using MS_Control.Tarikh;
+using NZ.Resaa.Store.Components;
 using ShareLib;
 using ShareLib.Interfaces;
 using ShareLib.Utils;
@@ -397,8 +398,32 @@ namespace NZ.Resaa.Store
 
             GetVersion();
             RunUpdate();
+
+            var user = SystemConstant.ActiveUser;
+            if (user.LockAccount && user.LockTime>0)
+            {
+	            applicationIdle1.IdleTime = new TimeSpan(0, user.LockTime,0);
+	            applicationIdle1.WarnSetting = WarnSettings.Once;
+                //applicationIdle1.Warn+=ApplicationIdle1OnWarn;
+                applicationIdle1.Tick += ApplicationIdle1OnTick;
+                applicationIdle1.Idle+=ApplicationIdle1OnIdle;
+	            applicationIdle1.Start();
+            }
         }
-        
+
+        private void ApplicationIdle1OnIdle(object sender, EventArgs e)
+        {
+	        new FormUserLock().ShowDialog(this);
+	        applicationIdle1.Restart();
+        }
+
+        private void ApplicationIdle1OnTick(object sender, TickEventArgs e)
+        {
+	        NsElapsedLock.Text = e.IsWarnPeriod 
+		        ? $@"حساب کاربری بعد از {applicationIdle1.TimeRemaining.Seconds} ثانیه قفل خواهد شد " 
+		        : "";
+        }
+
         private void    NzChangeUser_Click                  (object sender, EventArgs e)
         {
             InvokeCommand.Invoke(Form_Factory.CmdChangeUser);
