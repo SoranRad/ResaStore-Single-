@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,12 +42,14 @@ namespace Nz.Bar.Model.Models
 		public DateTime?                    Tarikh_edit				{ get; set; }
 
 
-		public NzObject						Kala					{ get; set; }
-		public Car							Car						{ get; set; }
-		public People						People					{ get; set; }
-		public Year							Year					{ get; set; }
-		public User							UserAdd					{ get; set; }
-		public User							UserEdit				{ get; set; }
+
+
+		//public NzObject						Kala					{ get; set; }
+		public Car Car { get; set; }
+		//public People						People					{ get; set; }
+		//public Year							Year					{ get; set; }
+		//public User							UserAdd					{ get; set; }
+		//public User							UserEdit				{ get; set; }
 
 		public string GetItem()
 		{

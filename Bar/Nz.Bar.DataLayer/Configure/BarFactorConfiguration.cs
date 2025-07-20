@@ -28,43 +28,44 @@ namespace Nz.Bar.DataLayer.Configure
 				.Property						(x => x.Tozihat)
 				.IsOptional						();
 
-
-
-			this
-				.HasRequired					(x => x.Kala)
-				.WithMany						()
-				.HasForeignKey					(x => x.FK_Kala)
-				;
-
+			
 			this
 				.HasOptional					(x => x.Car)
-				.WithMany						()
+				.WithMany						(x=>x.BarFactors)
 				.HasForeignKey					(x => x.FK_Car)
 				;
 
-			this
-				.HasRequired					(x => x.People)
-				.WithMany						()
-				.HasForeignKey					(x => x.FK_People)
-				;
 
-			this
-				.HasRequired					(x => x.Year)
-				.WithMany						()
-				.HasForeignKey					(x => x.FK_Salmali)
-				;
+			//this
+			//	.HasRequired					(x => x.Kala)
+			//	.WithMany						()
+			//	.Map(c=>c.)
+			//	.HasForeignKey					(x => x.FK_Kala)
+			//	;
 
-			this
-				.HasRequired					(x => x.UserAdd)
-				.WithMany						()
-				.HasForeignKey					(x => x.FK_User_Add)
-				;
+			//this
+			//	.HasRequired					(x => x.People)
+			//	.WithMany						()
+			//	.HasForeignKey					(x => x.FK_People)
+			//	;
 
-			this
-				.HasOptional					(x => x.UserEdit)
-				.WithMany						()
-				.HasForeignKey					(x => x.FK_User_Edit)
-				;
+			//this
+			//	.HasRequired					(x => x.Year)
+			//	.WithMany						()
+			//	.HasForeignKey					(x => x.FK_Salmali)
+			//	;
+
+			//this
+			//	.HasRequired					(x => x.UserAdd)
+			//	.WithMany						()
+			//	.HasForeignKey					(x => x.FK_User_Add)
+			//	;
+
+			//this
+			//	.HasOptional					(x => x.UserEdit)
+			//	.WithMany						()
+			//	.HasForeignKey					(x => x.FK_User_Edit)
+			//	;
 
 		}
 	}

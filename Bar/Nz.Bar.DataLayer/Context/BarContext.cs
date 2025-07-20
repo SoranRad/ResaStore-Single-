@@ -1,9 +1,13 @@
-using System.Data.Common;
- 
-using System.Data.Entity;
-using System.Data.Entity.Migrations.History;
+using Nz.Anbar.Model.Model;
+using Nz.Bar.DataLayer.Configure;
 using Nz.Bar.Model.Models;
+using NZ.Anbar.Model;
 using ShareLib.Models;
+using System.Data.Common;
+using System.Data.Entity;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+using Dialog = ShareLib.Models.Dialog;
 
 namespace  Nz.Bar.DataLayer.Context
 {
@@ -19,29 +23,36 @@ namespace  Nz.Bar.DataLayer.Context
             
         }
 
-        public virtual DbSet<Car>            Cars             { get; set; }
-
-        //public virtual DbSet<FactorItem>        FactorItems         { get; set; }
-        //public virtual DbSet<FactorHead>        FactorHeads         { get; set; }
-        //public virtual DbSet<FactorDetail>      FactorDetails       { get; set; }
-        //public virtual DbSet<Storage>           Storages            { get; set; }
-        //public virtual DbSet<StorageAccess>     StorageAccessList   { get; set; }
-        //public virtual DbSet<NzObject>          NzObjects           { get; set; }
-        //public virtual DbSet<Unit>              Units               { get; set; }
-        //public virtual DbSet<MainGroup>         MainGroups          { get; set; }
-        //public virtual DbSet<SubGroup>          SubGroups           { get; set; }
-        //public virtual DbSet<PreFactor>         PreFactors          { get; set; }
-        //public virtual DbSet<PreFactorItems>    PreFactorItems      { get; set; }
-        //public virtual DbSet<BasteBandi>        BsteBandis          { get; set; }
-        //public virtual DbSet<Brand>             Brands              { get; set; }
-        //public virtual DbSet<ObjectImages>      ObjectImages        { get; set; }
-
+        public virtual DbSet<Car>           Cars                    { get; set; }
+        public virtual DbSet<BarFactor>     BarFactors              { get; set; }
 
 
         protected override void         OnModelCreating     (DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.AddFromAssembly(GetType().Assembly);
-            
+            //modelBuilder.Configurations.AddFromAssembly(typeof(BarContext).Assembly);
+            modelBuilder.Ignore<FactorHead>();
+            modelBuilder.Ignore<FactorDetail>();
+            modelBuilder.Ignore<NzObject>();
+            modelBuilder.Ignore<FactorItem>();
+            modelBuilder.Ignore<Kardex>();
+            modelBuilder.Ignore<Year>();
+            modelBuilder.Ignore<Unit>();
+            modelBuilder.Ignore<ObjectImages>();
+            modelBuilder.Ignore<Brand>();
+            modelBuilder.Ignore<BasteBandi>();
+            modelBuilder.Ignore<PreFactor>();
+            modelBuilder.Ignore<PreFactorItems>();
+            modelBuilder.Ignore<ImageDocument>();
+            modelBuilder.Ignore<PeopleGroup>();
+            modelBuilder.Ignore<User>();
+            modelBuilder.Ignore<Dialog>();
+            modelBuilder.Ignore<State>();
+            modelBuilder.Ignore<City>();
+            modelBuilder.Ignore<Bank>();
+            modelBuilder.Ignore<People>(); 
+
+            modelBuilder.Configurations.Add(new CarConfiguration());
+            modelBuilder.Configurations.Add(new BarFactorConfiguration());
         }
     }
 }

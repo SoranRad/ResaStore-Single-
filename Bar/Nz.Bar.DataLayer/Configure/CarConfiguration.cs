@@ -21,11 +21,11 @@ namespace Nz.Bar.DataLayer.Configure
 			this.Property                       (x => x.ID)
 				.HasDatabaseGeneratedOption     (DatabaseGeneratedOption.Identity);
 
-			this
-				.HasRequired					(x => x.People)
-				.WithMany						()
-				.HasForeignKey					(x => x.FK_People)
-				;
+			//this
+			//	.HasRequired					(x => x.People)
+			//	.WithMany						()
+			//	.HasForeignKey					(x => x.FK_People)
+			//	;
 
 		}
 	}

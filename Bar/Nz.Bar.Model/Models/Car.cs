@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using ShareLib;
+﻿using NZ.Anbar.Model;
 using ShareLib.Interfaces;
-
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using ShareLib.Models;
+using System.Collections.Generic;
 
 namespace Nz.Bar.Model.Models
 {
 	public class Car : ISqlQueryMaker, ICodeEntity, IEntityUsage
 	{
+		public Car()
+		{
+			BarFactors         = new HashSet<BarFactor>();
+		}
 		public short        ID						{ get; set; }
 		public short        Code					{ get; set; }
 		public long			FK_People				{ get; set; }
@@ -24,7 +18,8 @@ namespace Nz.Bar.Model.Models
 		public string       CarType					{ get; set; }
 		public bool			IsDisable				{ get; set; }
 
-		public People		People					{ get; set; }
+		public virtual ICollection<BarFactor>      BarFactors         { get; set; }
+		//public People		People					{ get; set; }
 
 
 		public string GetItem()
