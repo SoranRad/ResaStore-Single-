@@ -118,7 +118,6 @@
     <Compile Include="Report\SaleAnalyze.cs" />
     <Compile Include="Report\TopPriceObject.cs" />
     <Compile Include="Report\TransferObject.cs" />
-    <Compile Include="ViewModel\BarcodeSetting.cs" />
     <Compile Include="ViewModel\FactorHeads.cs" />
     <Compile Include="ViewModel\FactorIItemsId.cs" />
     <Compile Include="ViewModel\FactorPayment.cs" />

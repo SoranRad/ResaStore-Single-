@@ -35,8 +35,7 @@ namespace NZ.Anbar.Model
 
 
         public ICollection<FactorItem>      FactorItems         { get; set; }
-        public FactorDetail                 FactorDetail        { get; set; }
-        //public SaleKind                     SaleKind            { get; set; }
+        public FactorDetail                 FactorDetail        { get; set; } 
         public Location                     Location            { get; set; }
     }
 }

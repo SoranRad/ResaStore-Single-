@@ -1,15 +1,13 @@
 using System.Data.Common;
 using Nz.Anbar.Model.Model;
 using NZ.Anbar.Model;
-using System.Data.Entity;
-using System.Data.Entity.Migrations.History; 
-using ShareLib.Models;
+using System.Data.Entity; 
 
 namespace NZ.Anbar.DataLayer.Context
 {
     public class StorageContext : DbContext
     {
-        public StorageContext    (DbConnection Connection , bool Owner) : base      (Connection,true)
+        public StorageContext    (DbConnection Connection , bool Owner) : base (Connection,true)
         {
 
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<StorageContext, Migrations.Configuration>(true));
