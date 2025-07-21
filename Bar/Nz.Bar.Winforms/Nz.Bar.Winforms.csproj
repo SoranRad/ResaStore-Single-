@@ -119,10 +119,12 @@
     <Reference Include="MS_Control, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Output\MS_Control.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MS_Resource, Version=5.4.117.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Output\MS_Resource.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Stimulsoft.Base, Version=2015.2.0.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -197,12 +199,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\FormCar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\FormCar.Designer.cs">
+      <DependentUpon>FormCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\FormCarList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\FormCarList.Designer.cs">
+      <DependentUpon>FormCarList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\FormRizBarShaxs.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Report\FormRizBarShaxs.Designer.cs">
       <DependentUpon>FormRizBarShaxs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings\SettingItems.cs" />
+    <Compile Include="Settings\TabSettingContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\TabSettingContainer.Designer.cs">
+      <DependentUpon>TabSettingContainer.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="App\FormCar.resx">
+      <DependentUpon>FormCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\TabSettingContainer.resx">
+      <DependentUpon>TabSettingContainer.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="..\..\General\MS_Resource\GlobalResources.resx">
       <Link>GlobalResources.resx</Link>
       <Generator>ResXFileCodeGenerator</Generator>
@@ -241,6 +268,10 @@
     <EmbeddedResource Include="App\FormBar.resx">
       <DependentUpon>FormBar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="App\FormCarList.resx">
+      <DependentUpon>FormCarList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -274,6 +305,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Anbar\Nz.Anbar.Model\Nz.Anbar.Model.csproj">
+      <Project>{883F785F-56B0-4C9E-B072-ED0DB1238807}</Project>
+      <Name>Nz.Anbar.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Anbar\Nz.Anbar.WinForms\Nz.Anbar.WinForms.csproj">
+      <Project>{993cba6f-3776-437a-a837-36069af26825}</Project>
+      <Name>Nz.Anbar.WinForms</Name>
+      <Private>False</Private>
+    </ProjectReference>
     <ProjectReference Include="..\..\General\MS_Print_Dialog\MS_Print_Dialog.csproj">
       <Project>{ed81290b-b424-4a06-9589-a45f43c36a59}</Project>
       <Name>MS_Print_Dialog</Name>
@@ -288,6 +328,10 @@
       <Project>{ee295af7-3238-4f98-b5fc-9f16c02391e8}</Project>
       <Name>ShareLib</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Nz.Bar.Bussiness\Nz.Bar.Bussiness.csproj">
+      <Project>{5ec2177d-90c6-4ad8-b841-c2d6441fd0bf}</Project>
+      <Name>Nz.Bar.Bussiness</Name>
     </ProjectReference>
     <ProjectReference Include="..\Nz.Bar.DataLayer\Nz.Bar.DataLayer.csproj">
       <Project>{6993a9e0-7fcb-4d22-8f6c-db5075035231}</Project>

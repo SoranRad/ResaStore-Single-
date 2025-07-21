@@ -35,5 +35,12 @@ namespace Nz.Bar.Winforms.Provider
             frm.MdiParent = BarProvider.MainForm;
             frm.Show();
         }
-    }
+
+		private void NsCar_Click(object sender, EventArgs e)
+		{
+			var frm         = new FormCarList();
+			frm.MdiParent   = BarProvider.MainForm;
+			frm.Show();
+		}
+	}
 }

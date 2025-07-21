@@ -1,34 +1,34 @@
-﻿namespace Nz.Anbar.WinForms.Base
+﻿namespace Nz.Bar.Winforms.App
 {
-    partial class Form_ListLocation
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+	partial class FormCarList
+	{
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
-        #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_ListLocation));
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCarList));
 			Janus.Windows.GridEX.GridEXLayout ms_Grid_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference ms_Grid_DesignTimeLayout_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference ms_Grid_DesignTimeLayout_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.HeaderImage");
@@ -60,8 +60,8 @@
 			this.Tab_Control_Main.Name = "Tab_Control_Main";
 			this.Tab_Control_Main.Office2007CustomColor = System.Drawing.Color.Transparent;
 			this.Tab_Control_Main.ShowFocusRectangle = false;
-			this.Tab_Control_Main.Size = new System.Drawing.Size(800, 425);
-			this.Tab_Control_Main.TabIndex = 727;
+			this.Tab_Control_Main.Size = new System.Drawing.Size(921, 550);
+			this.Tab_Control_Main.TabIndex = 729;
 			this.Tab_Control_Main.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
             this.uiTabPage12,
             this.uiTabPage14});
@@ -86,7 +86,7 @@
 			this.uiTabPage12.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.uiTabPage12.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.uiTabPage12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage12.Size = new System.Drawing.Size(766, 423);
+			this.uiTabPage12.Size = new System.Drawing.Size(887, 548);
 			this.uiTabPage12.TabStop = true;
 			this.uiTabPage12.Text = "اطلاعات";
 			// 
@@ -142,7 +142,7 @@
 			this.ms_Grid.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
 			this.ms_Grid.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
 			this.ms_Grid.SelectOnExpand = false;
-			this.ms_Grid.Size = new System.Drawing.Size(766, 423);
+			this.ms_Grid.Size = new System.Drawing.Size(887, 548);
 			this.ms_Grid.TabIndex = 719;
 			this.ms_Grid.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 			this.ms_Grid.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
@@ -161,7 +161,7 @@
 			this.uiTabPage14.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.uiTabPage14.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.uiTabPage14.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage14.Size = new System.Drawing.Size(766, 423);
+			this.uiTabPage14.Size = new System.Drawing.Size(887, 548);
 			this.uiTabPage14.TabStop = true;
 			this.uiTabPage14.Text = "پرسش و پاسخ";
 			// 
@@ -172,7 +172,7 @@
 			this.helpItems1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.helpItems1.Location = new System.Drawing.Point(0, 0);
 			this.helpItems1.Name = "helpItems1";
-			this.helpItems1.Size = new System.Drawing.Size(766, 423);
+			this.helpItems1.Size = new System.Drawing.Size(887, 548);
 			this.helpItems1.TabIndex = 0;
 			// 
 			// mS_GridX_Setting1
@@ -182,7 +182,7 @@
 			this.mS_GridX_Setting1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator1,
             this.ms_Add});
-			this.mS_GridX_Setting1.Location = new System.Drawing.Point(0, 425);
+			this.mS_GridX_Setting1.Location = new System.Drawing.Point(0, 550);
 			this.mS_GridX_Setting1.MS_BorderColor = System.Drawing.Color.DodgerBlue;
 			this.mS_GridX_Setting1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_GridX_Setting1.MS_Color_End = System.Drawing.Color.PowderBlue;
@@ -190,8 +190,8 @@
 			this.mS_GridX_Setting1.MS_GridX = this.ms_Grid;
 			this.mS_GridX_Setting1.Name = "mS_GridX_Setting1";
 			this.mS_GridX_Setting1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_GridX_Setting1.Size = new System.Drawing.Size(800, 25);
-			this.mS_GridX_Setting1.TabIndex = 726;
+			this.mS_GridX_Setting1.Size = new System.Drawing.Size(921, 25);
+			this.mS_GridX_Setting1.TabIndex = 728;
 			this.mS_GridX_Setting1.Text = "mS_GridX_Setting1";
 			this.mS_GridX_Setting1.MS_On_Print_Clicked += new System.EventHandler(this.mS_GridX_Setting1_MS_On_Print_Clicked);
 			// 
@@ -211,15 +211,15 @@
 			this.ms_Add.ToolTipText = "ردیــف جــدیــد   [Ins]";
 			this.ms_Add.Click += new System.EventHandler(this.ms_Add_Click);
 			// 
-			// Form_ListLocation
+			// FormCarList
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(921, 575);
 			this.Controls.Add(this.Tab_Control_Main);
 			this.Controls.Add(this.mS_GridX_Setting1);
-			this.Name = "Form_ListLocation";
-			this.Text = "موقعیت فروش و خدمات";
+			this.Name = "FormCarList";
+			this.Text = "لیست ماشین ها";
 			this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormListStorage_KeyUp);
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).EndInit();
 			this.Tab_Control_Main.ResumeLayout(false);
@@ -231,17 +231,17 @@
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
-        }
+		}
 
-        #endregion
+		#endregion
 
-        private Janus.Windows.UI.Tab.UITab Tab_Control_Main;
-        private Janus.Windows.UI.Tab.UITabPage uiTabPage12;
-        private MS_Control.Controls.MS_GridX ms_Grid;
-        private Janus.Windows.UI.Tab.UITabPage uiTabPage14;
-        private ShareLib.Component.HelpItems helpItems1;
-        private MS_Control.Controls.MS_GridX_Setting mS_GridX_Setting1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton ms_Add;
-    }
+		private Janus.Windows.UI.Tab.UITab Tab_Control_Main;
+		private Janus.Windows.UI.Tab.UITabPage uiTabPage12;
+		private MS_Control.Controls.MS_GridX ms_Grid;
+		private Janus.Windows.UI.Tab.UITabPage uiTabPage14;
+		private ShareLib.Component.HelpItems helpItems1;
+		private MS_Control.Controls.MS_GridX_Setting mS_GridX_Setting1;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+		private System.Windows.Forms.ToolStripButton ms_Add;
+	}
 }

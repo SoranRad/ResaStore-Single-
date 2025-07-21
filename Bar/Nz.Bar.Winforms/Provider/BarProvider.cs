@@ -7,10 +7,13 @@ using System.Windows.Forms;
 using Janus.Windows.UI.Tab;
 using MS_Control.Controls;
 using Nz.Bar.Winforms.App;
+using Nz.Bar.Winforms.Settings;
+using Nz.Bar.WinForms.Settings;
 using ShareLib;
 using ShareLib.Component;
 using ShareLib.Interfaces;
 using ShareLib.Models;
+using ShareLib.Utils;
 using ShareLib.ViewModel;
 
 namespace Nz.Bar.Winforms.Provider
@@ -25,16 +28,20 @@ namespace Nz.Bar.Winforms.Provider
                     (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         #endregion
         #region Fields
-        public static Form MainForm;
-        private BarMenuItems Menues;
+        public static Form                      MainForm;
+        private BarMenuItems                    Menues;
+        private TabSettingContainer             _settingContainer;
+        private ISettingItems                   _settings;
         #endregion
         #region Constructor
         public ToolStripItem    MainMenuSysytem     => null;
-        public string           GetName             => "میکس و بسته بندی";
+        public string           GetName             => "بـار";
 
         public BarProvider()
         {
             Menues = new BarMenuItems();
+            _settingContainer = new TabSettingContainer();
+
         }
         #endregion
 
@@ -88,8 +95,10 @@ namespace Nz.Bar.Winforms.Provider
         {
             switch (FormKind)
             {
-                case Enums.FormOperation.Factors:
+                case Enums.FormOperation.Bar:
                     return new FormBar();
+                case Enums.FormOperation.Karkhane:
+	                return null;
                 default:
                     return null;
             }
@@ -151,27 +160,34 @@ namespace Nz.Bar.Winforms.Provider
 
 		public NsSettingTabPage GetSettingTabPage()
 		{
-			throw new NotImplementedException();
+			_settingContainer = new TabSettingContainer();
+			_settingContainer.LoadSetting((SettingItems)_settings );
+
+			return _settingContainer.TabSetting;
 		}
 
 		public void SetSettings(IEnumerable<dynamic> settings)
 		{
-			throw new NotImplementedException();
+			var setting = settings.SingleOrDefault(x => x.Name == SettingItems.KeyName);
+			if (setting == null)
+				_settings = SettingItems.GetDefault();
+			else
+				_settings = Converter.Convert<SettingItems>(setting);
 		}
 
 		public ISettingItems GetSettings()
 		{
-			throw new NotImplementedException();
+			return _settings;
 		}
 
 		public bool HasSrtartupForm()
 		{
-			throw new NotImplementedException();
+			return false;
 		}
 
 		public Form GetStartupPage()
 		{
-			throw new NotImplementedException();
+			return null;
 		}
 	}
 }

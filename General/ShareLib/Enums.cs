@@ -176,7 +176,8 @@ namespace ShareLib
             StorageEndYear,
             XazaneEndYear,
             BarcodePayment,
-            Bar
+            Bar,
+            Karkhane
         }
         public enum StorageFeatureItem : short
         {
