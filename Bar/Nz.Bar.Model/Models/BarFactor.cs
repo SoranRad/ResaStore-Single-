@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NZ.Anbar.Model;
 using ShareLib.Interfaces;
-using ShareLib.Models;
 
 namespace Nz.Bar.Model.Models
 {
@@ -34,64 +27,73 @@ namespace Nz.Bar.Model.Models
 		public decimal						VaznOft					{ get; set; }
 		public decimal						Nerkh					{ get; set; }
 		public decimal                      Mablaq					{ get; set; }
-
+		public decimal                      MablaqKeraye			{ get; set; }
+		
 
 		public short                        FK_User_Add				{ get; set; }
 		public short?                       FK_User_Edit			{ get; set; } 
 		public DateTime                     Tarikh_add				{ get; set; }
 		public DateTime?                    Tarikh_edit				{ get; set; }
 
+		 
+		public Car		Car			{ get; set; } 
 
 
-
-		//public NzObject						Kala					{ get; set; }
-		public Car Car { get; set; }
-		//public People						People					{ get; set; }
-		//public Year							Year					{ get; set; }
-		//public User							UserAdd					{ get; set; }
-		//public User							UserEdit				{ get; set; }
 
 		public string GetItem()
 		{
 			return $@"
 SELECT 
-tbb.ID, 
-LTRIM(RTRIM(tbb.Title)) AS Title 
-FROM Base.tbl_BasteBandi AS tbb
-WHERE tbb.ID= @ID
+
+[tbf].[ID],
+[tbf].[FK_Salmali],
+[tbf].[kind],
+[tbf].[is_ok],
+[tbf].[FK_Car],
+[tbf].[FK_People],
+[tbf].[FK_Kala],
+[tbf].[Serial],
+[tbf].[Tarikh],
+LTRIM(RTRIM([tbf].[Tozihat])) AS Tozihat,
+[tbf].[VaznPorMachine],
+[tbf].[VaznKHaliMachine],
+[tbf].[TedadBox],
+[tbf].[VaznKhaliBox],
+[tbf].[VaznOft],
+[tbf].[Nerkh],
+[tbf].[Mablaq],
+[tbf].[MablaqKeraye],
+[tbf].[FK_User_Add],
+[tbf].[FK_User_Edit],
+[tbf].[Tarikh_add],
+[tbf].[Tarikh_edit]
+
+FROM Bar.tbl_BarFactor AS tbf
+WHERE tbf.ID= @ID
 ";
 		}
 
 		public string GetList()
 		{
-			return $@"
-SELECT 
-tbb.ID, 
-LTRIM(RTRIM(tbb.Title)) AS Title 
-FROM Base.tbl_BasteBandi AS tbb
-WHERE tbb.ID= @ID
-";
+			return $@"";
 		}
 
 		public string GenerateCode()
 		{
-			return @"SELECT MAX(tba.Code )
-                        FROM Base.tbl_Base_Anbar AS tba";
+			return @"SELECT MAX(tbf.[Serial]) FROM Bar.tbl_BarFactor AS tbf";
+
 		}
 
 		public string UniqueCode()
 		{
-			return @"SELECT COUNT(tba.ID)
-                    FROM Base.tbl_Base_Anbar AS tba
-                    WHERE tba.Code = @Code";
+			return @"SELECT COUNT(tbf.ID)
+                    FROM Bar.tbl_BarFactor AS tbf
+                    WHERE tbf.Serial = @Code";
 		}
 
 		public string CircularQuery()
 		{
-			return @"
-SELECT TOP(1) tar.ID  FROM Anbar.tbl_Amaliat_Riz AS tar
-WHERE (tar.FK_Anbar_Az=@Code OR tar.FK_Anbar_Be=@Code)
-";
+			return @"";
 		}
 	}
 }

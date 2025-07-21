@@ -70,9 +70,14 @@
     <Compile Include="Context\ContextFactory.cs" />
     <Compile Include="Context\BarContext.cs" />
     <Compile Include="DapperConfig\BarFactorListDapperConfig.cs" />
+    <Compile Include="DapperConfig\CarListDapperConfig.cs" />
     <Compile Include="Migrations\202507201441112_InitialCreate.cs" />
     <Compile Include="Migrations\202507201441112_InitialCreate.Designer.cs">
       <DependentUpon>202507201441112_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202507210528222_Add-Keraye-Mablaq.cs" />
+    <Compile Include="Migrations\202507210528222_Add-Keraye-Mablaq.Designer.cs">
+      <DependentUpon>202507210528222_Add-Keraye-Mablaq.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,6 +102,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202507201441112_InitialCreate.resx">
       <DependentUpon>202507201441112_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507210528222_Add-Keraye-Mablaq.resx">
+      <DependentUpon>202507210528222_Add-Keraye-Mablaq.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

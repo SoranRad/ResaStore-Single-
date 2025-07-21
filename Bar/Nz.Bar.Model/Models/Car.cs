@@ -19,49 +19,46 @@ namespace Nz.Bar.Model.Models
 		public bool			IsDisable				{ get; set; }
 
 		public virtual ICollection<BarFactor>      BarFactors         { get; set; }
-		//public People		People					{ get; set; }
 
 
 		public string GetItem()
 		{
 			return $@"
-SELECT 
-tbb.ID, 
-LTRIM(RTRIM(tbb.Title)) AS Title 
-FROM Base.tbl_BasteBandi AS tbb
-WHERE tbb.ID= @ID
+SELECT    
+
+ tc.[ID],
+ tc.[Code],
+ tc.[FK_People],
+ LTRIM(RTRIM(tc.[Plak])) AS Plak,
+ LTRIM(RTRIM(tc.[CarType])) AS CarType,
+ tc.[IsDisable]    
+  
+FROM [Bar].[tbl_Car] as tc
+WHERE tc.ID= @ID
 ";
 		}
 
 		public string GetList()
 		{
-			return $@"
-SELECT 
-tbb.ID, 
-LTRIM(RTRIM(tbb.Title)) AS Title 
-FROM Base.tbl_BasteBandi AS tbb
-WHERE tbb.ID= @ID
-";
+			return $@"";
 		}
 
 		public string GenerateCode()
 		{
-			return @"SELECT MAX(tba.Code )
-                        FROM Base.tbl_Base_Anbar AS tba";
+			return @"SELECT MAX(tc.[Code]) FROM [Bar].[tbl_Car] as tc";
 		}
 
 		public string UniqueCode()
 		{
-			return @"SELECT COUNT(tba.ID)
-                    FROM Base.tbl_Base_Anbar AS tba
-                    WHERE tba.Code = @Code";
+			return @"SELECT COUNT(tc.ID)  FROM [Bar].[tbl_Car] as tc
+                    WHERE tc.Code = @Code";
 		}
 
 		public string CircularQuery()
 		{
 			return @"
-SELECT TOP(1) tar.ID  FROM Anbar.tbl_Amaliat_Riz AS tar
-WHERE (tar.FK_Anbar_Az=@Code OR tar.FK_Anbar_Be=@Code)
+SELECT TOP(1) tbf.ID  FROM Bar.tbl_BarFactor as tbf 
+WHERE tbf.FK_Car = @Code
 ";
 		}
 	}
