@@ -25,7 +25,7 @@ namespace Nz.Bar.Winforms.Provider
         private void NzXarid_Click(object sender, EventArgs e)
         {
 
-            var frm = new FormBar();
+            var frm = new FormBar(0);
             frm.Show(BarProvider.MainForm);
         }
 

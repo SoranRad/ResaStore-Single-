@@ -211,6 +211,18 @@
     <Compile Include="App\FormCarList.Designer.cs">
       <DependentUpon>FormCarList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Component\NzCarBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Component\NzCarBox.Designer.cs">
+      <DependentUpon>NzCarBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\NzCarGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\NzCarGrid.Designer.cs">
+      <DependentUpon>NzCarGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\FormRizBarShaxs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +238,12 @@
     </Compile>
     <EmbeddedResource Include="App\FormCar.resx">
       <DependentUpon>FormCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\FormListBar.resx">
+      <DependentUpon>FormListBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\NzCarBox.resx">
+      <DependentUpon>NzCarBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\TabSettingContainer.resx">
       <DependentUpon>TabSettingContainer.cs</DependentUpon>

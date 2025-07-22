@@ -96,7 +96,7 @@ namespace Nz.Bar.Winforms.Provider
             switch (FormKind)
             {
                 case Enums.FormOperation.Bar:
-                    return new FormBar();
+                    return new FormBar(0);
                 case Enums.FormOperation.Karkhane:
 	                return null;
                 default:

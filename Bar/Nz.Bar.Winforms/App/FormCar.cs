@@ -19,7 +19,6 @@ namespace Nz.Bar.Winforms.App
 {
 	public partial class FormCar : Form_Mother_IRANSans
 	{
-		private short _id;
 
 		#region Logging
 		private static readonly log4net.ILog log =
@@ -32,6 +31,7 @@ namespace Nz.Bar.Winforms.App
 		private Car					_Item;
 		private bool                _Is_Edit = false;
 		public event EventHandler   MS_Do_Save;
+		private short _id;
 
 
 		public FormCar(short Id)

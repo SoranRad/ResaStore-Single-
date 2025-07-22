@@ -28,7 +28,12 @@ namespace Nz.Bar.DataLayer.Configure
 				.Property						(x => x.Tozihat)
 				.IsOptional						();
 
-			
+			this
+				.Property						(x => x.VaznPorMachine)
+				.HasColumnType					("decimal(18,0)");
+
+
+
 			this
 				.HasOptional					(x => x.Car)
 				.WithMany						(x=>x.BarFactors)

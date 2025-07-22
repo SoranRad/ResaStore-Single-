@@ -25,6 +25,7 @@ namespace Nz.Bar.Model.Models
 		public decimal						TedadBox				{ get; set; }
 		public decimal						VaznKhaliBox			{ get; set; }
 		public decimal						VaznOft					{ get; set; }
+		public decimal						VaznKHales				{ get; set; }
 		public decimal						Nerkh					{ get; set; }
 		public decimal                      Mablaq					{ get; set; }
 		public decimal                      MablaqKeraye			{ get; set; }
@@ -80,7 +81,7 @@ WHERE tbf.ID= @ID
 
 		public string GenerateCode()
 		{
-			return @"SELECT MAX(tbf.[Serial]) FROM Bar.tbl_BarFactor AS tbf";
+			return @"SELECT MAX(tbf.[Serial]) FROM Bar.tbl_BarFactor AS tbf WHERE tbf.FK_Salmali = @Year";
 
 		}
 
