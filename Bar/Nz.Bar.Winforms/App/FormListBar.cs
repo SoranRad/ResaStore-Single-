@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MS_Control.Tarikh;
 using Nz.Bar.Business;
 using Nz.Bar.Bussiness;
 using ShareLib.Utils;
@@ -37,10 +38,21 @@ namespace Nz.Bar.Winforms.App
 			InitializeComponent();
 			this.Icon = global::MS_Resource.GlobalResources.Logo_Resaa;
 			_Manager = new ReportManager();
+			ms_mah.SelectedTabChanged           += NzFactorKinds_SelectedTabChanged;
+			SetCurrentMonth();
 			RefreshGrid();
 		}
 
 		#region Methods
+		private void SetCurrentMonth                    ()
+		{
+			var mah                 = new MS_Structure_Shamsi(DateTime.Now)._Mah;
+			ms_mah.SelectedIndex    = 13 - mah; 
+		}
+		private void NzFactorKinds_SelectedTabChanged   (object sender, Janus.Windows.UI.Tab.TabEventArgs e)
+		{
+			RefreshGrid();
+		}
 		private void Create_Form            (BarFactorList Item)
 		{
 			_FormItem?.Dispose();

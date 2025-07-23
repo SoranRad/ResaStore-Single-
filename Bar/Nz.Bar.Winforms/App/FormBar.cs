@@ -86,9 +86,9 @@ namespace Nz.Bar.Winforms.App
 				NzVaznOft.MS_Decimal			= _Item.VaznOft;
 				NzVaznXales.MS_Decimal			= _Item.VaznKHales;
 
-				NzFi.MS_Decimal					= _Item.Nerkh;
-				NzMablaq.MS_Decimal				= _Item.Mablaq;
-				NzMablaqKeraye.MS_Decimal		= _Item.MablaqKeraye;
+				NzFi.MS_Decimal					= decimal.Ceiling(_Item.Nerkh);
+				NzMablaq.MS_Decimal				= decimal.Ceiling(_Item.Mablaq);
+				NzMablaqKeraye.MS_Decimal		= decimal.Ceiling(_Item.MablaqKeraye);
 
 				_DoRefresh = true;
 			}

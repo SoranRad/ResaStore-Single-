@@ -37,12 +37,11 @@ LTRIM(RTRIM([tbf].[Tozihat])) AS Tozihat,
 [tbf].[FK_User_Edit],
 [tbf].[Tarikh_add],
 [tbf].[Tarikh_edit],
-
  dd.PersianStr,
  dd.PersianMonthNo,
  dd.PersianDayInMonth,
 
-LTRIM(RTRIM(tc.CarType))+N' '+LTRIM(RTRIM(tc.Plak)) AS CarTitle,
+(CASE when tbf.FK_Car IS NULL then null else  LTRIM(RTRIM(taCar.title))+N' '+LTRIM(RTRIM(tc.CarType))+N' '+LTRIM(RTRIM(tc.Plak)) END) AS CarTitle,
 LTRIM(RTRIM(ta.title)) AS PeopleTitle,
 LTRIM(RTRIM(tkx.title)) AS KalaTitle
 
@@ -50,6 +49,7 @@ LTRIM(RTRIM(tkx.title)) AS KalaTitle
 
 FROM                Bar.tbl_BarFactor       AS tbf
 LEFT OUTER JOIN     Bar.tbl_Car             AS tc       ON tc.ID                = tbf.FK_Car
+LEFT outer JOIN     Base.tbl_Ashxas         AS taCar    ON taCar.ID             = tc.FK_People
 INNER JOIN          Base.tbl_Ashxas         AS ta       ON ta.ID                = tbf.FK_People
 INNER JOIN          Base.tbl_Kala_Xadamat   AS tkx      ON tkx.Code             = tbf.FK_Kala
 INNER JOIN          General.DimDate         AS dd       ON dd.GregorianDate     = tbf.tarikh

@@ -113,7 +113,7 @@ namespace Nz.Bar.Winforms.App
 			this.ms_Grid.HeaderFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
 			this.ms_Grid.HeaderFormatStyle.ForeColor = System.Drawing.Color.Black;
 			this.ms_Grid.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
-			this.ms_Grid.Location = new System.Drawing.Point(0, 55);
+			this.ms_Grid.Location = new System.Drawing.Point(0, 49);
 			this.ms_Grid.Name = "ms_Grid";
 			this.ms_Grid.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom;
 			this.ms_Grid.Office2007CustomColor = System.Drawing.SystemColors.HotTrack;
@@ -124,7 +124,7 @@ namespace Nz.Bar.Winforms.App
 			this.ms_Grid.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
 			this.ms_Grid.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
 			this.ms_Grid.SelectOnExpand = false;
-			this.ms_Grid.Size = new System.Drawing.Size(1313, 510);
+			this.ms_Grid.Size = new System.Drawing.Size(1313, 516);
 			this.ms_Grid.TabIndex = 719;
 			this.ms_Grid.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 			this.ms_Grid.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
@@ -184,7 +184,7 @@ namespace Nz.Bar.Winforms.App
 			this.mS_Panel1.MS_Color_End = System.Drawing.Color.SkyBlue;
 			this.mS_Panel1.MS_Color_Start = System.Drawing.Color.AliceBlue;
 			this.mS_Panel1.Name = "mS_Panel1";
-			this.mS_Panel1.Size = new System.Drawing.Size(1313, 55);
+			this.mS_Panel1.Size = new System.Drawing.Size(1313, 49);
 			this.mS_Panel1.TabIndex = 721;
 			// 
 			// mS_Tool_Strip1
@@ -254,7 +254,7 @@ namespace Nz.Bar.Winforms.App
 			this.ms_mah.BackColor = System.Drawing.Color.Transparent;
 			this.ms_mah.FirstTabOffset = 10;
 			this.ms_mah.Font = new System.Drawing.Font("IRANSans(Small)", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.ms_mah.Location = new System.Drawing.Point(254, 26);
+			this.ms_mah.Location = new System.Drawing.Point(254, 20);
 			this.ms_mah.Name = "ms_mah";
 			this.ms_mah.Office2007ColorScheme = Janus.Windows.UI.Office2007ColorScheme.Custom;
 			this.ms_mah.Office2007CustomColor = System.Drawing.Color.AntiqueWhite;
