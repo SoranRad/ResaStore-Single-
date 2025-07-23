@@ -38,12 +38,9 @@ namespace Nz.Bar.Winforms.App
 			this.ms_Grid = new MS_Control.Controls.MS_GridX();
 			this.Tab_Control_Main = new Janus.Windows.UI.Tab.UITab();
 			this.uiTabPage12 = new Janus.Windows.UI.Tab.UITabPage();
-			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
-			this.helpItems1 = new ShareLib.Component.HelpItems();
-			this.mS_GridX_Setting1 = new MS_Control.Controls.MS_GridX_Setting();
 			this.mS_Panel1 = new MS_Control.Controls.MS_Panel();
 			this.mS_Tool_Strip1 = new MS_Control.Controls.MS_Tool_Strip();
-			this.NzItems = new System.Windows.Forms.ToolStripButton();
+			this.NsPrint = new System.Windows.Forms.ToolStripButton();
 			this.NzRefreshList = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.NzAddItem = new System.Windows.Forms.ToolStripButton();
@@ -61,16 +58,18 @@ namespace Nz.Bar.Winforms.App
 			this.uiTabPage16 = new Janus.Windows.UI.Tab.UITabPage();
 			this.uiTabPage17 = new Janus.Windows.UI.Tab.UITabPage();
 			this.uiTabPage18 = new Janus.Windows.UI.Tab.UITabPage();
-			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
+			this.helpItems1 = new ShareLib.Component.HelpItems();
+			this.mS_GridX_Setting1 = new MS_Control.Controls.MS_GridX_Setting();
 			((System.ComponentModel.ISupportInitialize)(this.ms_Grid)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
 			this.uiTabPage12.SuspendLayout();
-			this.uiTabPage14.SuspendLayout();
 			this.mS_Panel1.SuspendLayout();
 			this.mS_Tool_Strip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ms_mah)).BeginInit();
 			this.ms_mah.SuspendLayout();
+			this.uiTabPage14.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// ms_Grid
@@ -131,6 +130,7 @@ namespace Nz.Bar.Winforms.App
 			this.ms_Grid.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
 			this.ms_Grid.TreeLineColor = System.Drawing.Color.Black;
 			this.ms_Grid.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			this.ms_Grid.ColumnButtonClick += new Janus.Windows.GridEX.ColumnActionEventHandler(this.ms_Grid_ColumnButtonClick);
 			// 
 			// Tab_Control_Main
 			// 
@@ -173,47 +173,6 @@ namespace Nz.Bar.Winforms.App
 			this.uiTabPage12.TabStop = true;
 			this.uiTabPage12.Text = "اطلاعات";
 			// 
-			// uiTabPage14
-			// 
-			this.uiTabPage14.AutoScroll = true;
-			this.uiTabPage14.Controls.Add(this.helpItems1);
-			this.uiTabPage14.Location = new System.Drawing.Point(1, 1);
-			this.uiTabPage14.Name = "uiTabPage14";
-			this.uiTabPage14.PanelFormatStyle.Alpha = 70;
-			this.uiTabPage14.PanelFormatStyle.BackColor = System.Drawing.Color.SkyBlue;
-			this.uiTabPage14.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
-			this.uiTabPage14.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
-			this.uiTabPage14.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage14.Size = new System.Drawing.Size(1313, 565);
-			this.uiTabPage14.TabStop = true;
-			this.uiTabPage14.Text = "پرسش و پاسخ";
-			// 
-			// helpItems1
-			// 
-			this.helpItems1.AutoScroll = true;
-			this.helpItems1.BackColor = System.Drawing.Color.Transparent;
-			this.helpItems1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.helpItems1.Location = new System.Drawing.Point(0, 0);
-			this.helpItems1.Name = "helpItems1";
-			this.helpItems1.Size = new System.Drawing.Size(1313, 565);
-			this.helpItems1.TabIndex = 0;
-			// 
-			// mS_GridX_Setting1
-			// 
-			this.mS_GridX_Setting1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.mS_GridX_Setting1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-			this.mS_GridX_Setting1.Location = new System.Drawing.Point(0, 567);
-			this.mS_GridX_Setting1.MS_BorderColor = System.Drawing.Color.DodgerBlue;
-			this.mS_GridX_Setting1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.mS_GridX_Setting1.MS_Color_End = System.Drawing.Color.PowderBlue;
-			this.mS_GridX_Setting1.MS_Color_Start = System.Drawing.Color.AliceBlue;
-			this.mS_GridX_Setting1.MS_GridX = this.ms_Grid;
-			this.mS_GridX_Setting1.Name = "mS_GridX_Setting1";
-			this.mS_GridX_Setting1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_GridX_Setting1.Size = new System.Drawing.Size(1347, 25);
-			this.mS_GridX_Setting1.TabIndex = 730;
-			this.mS_GridX_Setting1.Text = "mS_GridX_Setting1";
-			// 
 			// mS_Panel1
 			// 
 			this.mS_Panel1.Controls.Add(this.mS_Tool_Strip1);
@@ -235,32 +194,31 @@ namespace Nz.Bar.Winforms.App
 			this.mS_Tool_Strip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.mS_Tool_Strip1.ImageScalingSize = new System.Drawing.Size(24, 24);
 			this.mS_Tool_Strip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.NzItems,
+            this.NsPrint,
             this.NzRefreshList,
             this.toolStripSeparator3,
             this.NzAddItem});
-			this.mS_Tool_Strip1.Location = new System.Drawing.Point(1142, 0);
+			this.mS_Tool_Strip1.Location = new System.Drawing.Point(1180, 0);
 			this.mS_Tool_Strip1.MS_BorderColor = System.Drawing.Color.SkyBlue;
 			this.mS_Tool_Strip1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_Tool_Strip1.MS_Color_End = System.Drawing.Color.LightBlue;
 			this.mS_Tool_Strip1.MS_Color_Start = System.Drawing.Color.AliceBlue;
 			this.mS_Tool_Strip1.Name = "mS_Tool_Strip1";
 			this.mS_Tool_Strip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_Tool_Strip1.Size = new System.Drawing.Size(171, 28);
+			this.mS_Tool_Strip1.Size = new System.Drawing.Size(133, 28);
 			this.mS_Tool_Strip1.TabIndex = 709;
 			this.mS_Tool_Strip1.Text = "mS_Tool_Strip1";
 			// 
-			// NzItems
+			// NsPrint
 			// 
-			this.NzItems.CheckOnClick = true;
-			this.NzItems.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.NzItems.Image = ((System.Drawing.Image)(resources.GetObject("NzItems.Image")));
-			this.NzItems.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.NzItems.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-			this.NzItems.Name = "NzItems";
-			this.NzItems.Size = new System.Drawing.Size(28, 28);
-			this.NzItems.Text = "مشاهده ردیف ها";
+			this.NsPrint.CheckOnClick = true;
+			this.NsPrint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.NsPrint.Image = ((System.Drawing.Image)(resources.GetObject("NsPrint.Image")));
+			this.NsPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.NsPrint.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+			this.NsPrint.Name = "NsPrint";
+			this.NsPrint.Size = new System.Drawing.Size(28, 28);
+			this.NsPrint.Text = "مشاهده ردیف ها";
 			// 
 			// NzRefreshList
 			// 
@@ -271,6 +229,7 @@ namespace Nz.Bar.Winforms.App
 			this.NzRefreshList.Name = "NzRefreshList";
 			this.NzRefreshList.Size = new System.Drawing.Size(28, 28);
 			this.NzRefreshList.Text = "بروز رســانی لیست";
+			this.NzRefreshList.Click += new System.EventHandler(this.NzRefreshList_Click);
 			// 
 			// toolStripSeparator3
 			// 
@@ -287,6 +246,7 @@ namespace Nz.Bar.Winforms.App
 			this.NzAddItem.Name = "NzAddItem";
 			this.NzAddItem.Size = new System.Drawing.Size(28, 28);
 			this.NzAddItem.Text = "فاکتور جدید";
+			this.NzAddItem.Click += new System.EventHandler(this.ms_Add_Click);
 			// 
 			// ms_mah
 			// 
@@ -429,37 +389,68 @@ namespace Nz.Bar.Winforms.App
 			this.uiTabPage18.TabStop = true;
 			this.uiTabPage18.Text = "فـروردیـن";
 			// 
-			// toolStripButton1
+			// uiTabPage14
 			// 
-			this.toolStripButton1.CheckOnClick = true;
-			this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-			this.toolStripButton1.Name = "toolStripButton1";
-			this.toolStripButton1.Size = new System.Drawing.Size(28, 28);
-			this.toolStripButton1.Text = "مشاهده ردیف ها";
+			this.uiTabPage14.AutoScroll = true;
+			this.uiTabPage14.Controls.Add(this.helpItems1);
+			this.uiTabPage14.Location = new System.Drawing.Point(1, 1);
+			this.uiTabPage14.Name = "uiTabPage14";
+			this.uiTabPage14.PanelFormatStyle.Alpha = 70;
+			this.uiTabPage14.PanelFormatStyle.BackColor = System.Drawing.Color.SkyBlue;
+			this.uiTabPage14.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
+			this.uiTabPage14.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
+			this.uiTabPage14.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.uiTabPage14.Size = new System.Drawing.Size(1313, 565);
+			this.uiTabPage14.TabStop = true;
+			this.uiTabPage14.Text = "پرسش و پاسخ";
+			// 
+			// helpItems1
+			// 
+			this.helpItems1.AutoScroll = true;
+			this.helpItems1.BackColor = System.Drawing.Color.Transparent;
+			this.helpItems1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.helpItems1.Location = new System.Drawing.Point(0, 0);
+			this.helpItems1.Name = "helpItems1";
+			this.helpItems1.Size = new System.Drawing.Size(1313, 565);
+			this.helpItems1.TabIndex = 0;
+			// 
+			// mS_GridX_Setting1
+			// 
+			this.mS_GridX_Setting1.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.mS_GridX_Setting1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+			this.mS_GridX_Setting1.Location = new System.Drawing.Point(0, 567);
+			this.mS_GridX_Setting1.MS_BorderColor = System.Drawing.Color.DodgerBlue;
+			this.mS_GridX_Setting1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.mS_GridX_Setting1.MS_Color_End = System.Drawing.Color.PowderBlue;
+			this.mS_GridX_Setting1.MS_Color_Start = System.Drawing.Color.AliceBlue;
+			this.mS_GridX_Setting1.MS_GridX = this.ms_Grid;
+			this.mS_GridX_Setting1.Name = "mS_GridX_Setting1";
+			this.mS_GridX_Setting1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.mS_GridX_Setting1.Size = new System.Drawing.Size(1347, 25);
+			this.mS_GridX_Setting1.TabIndex = 730;
+			this.mS_GridX_Setting1.Text = "mS_GridX_Setting1";
+			this.mS_GridX_Setting1.MS_On_Print_Clicked += new System.EventHandler(this.mS_GridX_Setting1_MS_On_Print_Clicked);
 			// 
 			// FormListBar
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.ClientSize = new System.Drawing.Size(1347, 592);
 			this.Controls.Add(this.Tab_Control_Main);
 			this.Controls.Add(this.mS_GridX_Setting1);
 			this.Name = "FormListBar";
-			this.Text = "FormListBar";
+			this.Text = "لیـست بارهـا";
+			this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormListStorage_KeyUp);
 			((System.ComponentModel.ISupportInitialize)(this.ms_Grid)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).EndInit();
 			this.Tab_Control_Main.ResumeLayout(false);
 			this.uiTabPage12.ResumeLayout(false);
-			this.uiTabPage14.ResumeLayout(false);
 			this.mS_Panel1.ResumeLayout(false);
 			this.mS_Panel1.PerformLayout();
 			this.mS_Tool_Strip1.ResumeLayout(false);
 			this.mS_Tool_Strip1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ms_mah)).EndInit();
 			this.ms_mah.ResumeLayout(false);
+			this.uiTabPage14.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -475,8 +466,7 @@ namespace Nz.Bar.Winforms.App
 		private MS_Control.Controls.MS_GridX_Setting mS_GridX_Setting1;
 		private MS_Control.Controls.MS_Panel mS_Panel1;
 		private MS_Control.Controls.MS_Tool_Strip mS_Tool_Strip1;
-		private System.Windows.Forms.ToolStripButton toolStripButton1;
-		private System.Windows.Forms.ToolStripButton NzItems;
+		private System.Windows.Forms.ToolStripButton NsPrint;
 		private System.Windows.Forms.ToolStripButton NzRefreshList;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 		private System.Windows.Forms.ToolStripButton NzAddItem;

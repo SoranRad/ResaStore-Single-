@@ -33,7 +33,7 @@ namespace Nz.Bar.Winforms.App
 		private ReportManager		_Manager;
 		private FormCar				_FormItem;
 		#endregion
-		public FormCarList()
+		public FormCarList	()
 		{
 			InitializeComponent();
 			this.Icon = global::MS_Resource.GlobalResources.Logo_Resaa;

@@ -35,11 +35,11 @@ namespace Nz.Bar.Winforms.App
 	    #endregion
 	    private Manager             _Manager;
 	    private BarFactor			_Item;
-	    private bool                _Is_Edit = false,_DoRefresh = true;
+	    private bool                _Is_Edit = false, _DoRefresh = true;
 	    public event EventHandler   MS_Do_Save;
-	    private short				_id;
+	    private long				_id;
 
-        public FormBar(short Id)
+        public FormBar(long Id)
         {
 	        InitializeComponent();
 	        _id			= Id;
@@ -155,24 +155,25 @@ namespace Nz.Bar.Winforms.App
 				else 
 					NzRanande.MS_Set_Select(null);
 
+				NzDate.MS_Tarikh = new MS_Structure_Shamsi(DateTime.Now);
 				NzKeshavarz.MS_Set_Select(null);
 				NzRanande.Focus();
 
 				_DoRefresh = false;
 
-				NzVazPorMachin.MS_Decimal		= 
-				NzVaznKhaliMachine.MS_Decimal	= 
-				NzTedadBox.MS_Decimal			= 
-				NzVazBoxXali.MS_Decimal			= 
-				NzVaznOft.MS_Decimal			= 
-				NzVaznXales.MS_Decimal			= 
+				NzVazPorMachin.Text			= 
+				NzVaznKhaliMachine.Text		= 
+				NzTedadBox.Text				= 
+				NzVazBoxXali.Text			= 
+				NzVaznOft.Text				= 
+				NzVaznXales.Text			= 
 
-				NzFi.MS_Decimal					= 
-				NzMablaq.MS_Decimal				= 
-				NzMablaqKeraye.MS_Decimal		= 0;
+				NzFi.Text					= 
+				NzMablaq.Text				= 
+				NzMablaqKeraye.Text			= "";
 
 				_DoRefresh = true;
-				NzDescription.Text				= "";
+				NzDescription.Text			= "";
 			}
 			catch (Exception ex)
 			{
@@ -268,10 +269,10 @@ namespace Nz.Bar.Winforms.App
 				.GenerateCode<BarFactor, int>
 				(1, new
 				{
-						 
+					Year = SystemConstant.ActiveYear.Salmali,
 				});
 
-			NzSerial.MS_Decimal = Code;
+			NzSerial.MS_Decimal = Code + 1;
 		}
 
 		private void	RefreshVazn			()

@@ -48,8 +48,8 @@ namespace Nz.Bar.Winforms.Component
 			_Do_Refresh = false;
 			if (e.Data_Row is GridEXRow row)
 			{
-				var item = row.DataRow as People;
-				Text = item.title.Trim();
+				var item = row.DataRow as CarList;
+				Text = item.PeopleTitle.Trim() +" " + item.CarType +" " +item.Plak;
 				_Selected_Item = item;
 				SelectAll();
 			}

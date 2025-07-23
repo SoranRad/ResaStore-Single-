@@ -79,6 +79,10 @@
     <Compile Include="Migrations\202507210528222_Add-Keraye-Mablaq.Designer.cs">
       <DependentUpon>202507210528222_Add-Keraye-Mablaq.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202507230655356_change-column-type-decimal.cs" />
+    <Compile Include="Migrations\202507230655356_change-column-type-decimal.Designer.cs">
+      <DependentUpon>202507230655356_change-column-type-decimal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repo\ReportRepository.cs" />
@@ -105,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202507210528222_Add-Keraye-Mablaq.resx">
       <DependentUpon>202507210528222_Add-Keraye-Mablaq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507230655356_change-column-type-decimal.resx">
+      <DependentUpon>202507230655356_change-column-type-decimal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

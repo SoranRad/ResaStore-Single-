@@ -27,10 +27,14 @@ namespace Nz.Bar.Model.Report
 		public decimal						TedadBox				{ get; set; }
 		public decimal						VaznKhaliBox			{ get; set; }
 		public decimal						VaznOft					{ get; set; }
+		public decimal						VaznKHales				{ get; set; }
 		public decimal						Nerkh					{ get; set; }
 		public decimal                      Mablaq					{ get; set; }
 		public decimal                      MablaqKeraye			{ get; set; }
-		
+
+		public string						PersianStr				{ get; set; }
+		public string						PersianMonthNo			{ get; set; }
+		public string						PersianDayInMonth		{ get; set; }
 
 		public short                        FK_User_Add				{ get; set; }
 		public short?                       FK_User_Edit			{ get; set; } 

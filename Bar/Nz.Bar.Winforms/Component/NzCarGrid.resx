@@ -117,54 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="styleForm.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="NzPrint.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIGSURBVDhPbZPbahNRGIX3u/QRfAcPRCp4QG8VIWlS
-        qV5IjM3kNJlpglGqCFb0qi2l9EALpbRG0pSgYPHGKioWxfa6iJJEjKAu9zfTQFPyw0p+1vrWJuzMmLJf
-        MGfvNszFSs1cqlTNhfL68pniqiKFFUXyB7I7HhkMLB26puQXTcXLmXPWOF/ZMIPemv5K+mnV/heKHY8M
-        BpYOXeP7frDcsac5yRvmlLumtoU396T6bih2PDIYWDp0gw/PK5oxq9vJmzrhVtWy8Jcf0ufvodjxyGBg
-        6QQHuK67nM1mlbMac3M66dfVsfDRwSODgaVD12QymZCwE09c08jIdSUSw4rG4j3CI4PpDl3jpNNqttp6
-        s/1OmWxBnl+S75ftd69CrxQwsHToBgd0Or/VbLc0fv+hHk080cTjp31FBgNLJzzAcbS//00rq+u6fOWq
-        YkMJDcWH+4oMBpYO3eAOvu7u6dnzmu6NP1AyNapbo05fkcHA0gnugNv88HFHG/WGXrx8pYWFJc1bzc0t
-        9giPDAaWDl2Tz+e1/fa9trZeK512FItGNTszq+nJaU1NTgVixyODgaVD16RSqU2WgpXvZnXcq+mX/Yt2
-        7JPzqRmKHY8MBpYOXWNnwOpYVxGvqj8WDt6FA7HjkR1mrQaCxxEFb2WlYU5n5uuDfd5GPDIY2G6v3/T8
-        oiMiOzTG/AcRvHdP1NsVDwAAAABJRU5ErkJggg==
-</value>
+  <data name="ms_grid_DesignTimeLayout.LayoutString" xml:space="preserve">
+    <value>&lt;GridEXLayoutData&gt;&lt;RootTable&gt;&lt;Columns Collection="true" ElementName="Column"&gt;&lt;Column0 ID="Code"&gt;&lt;Caption&gt;کد&lt;/Caption&gt;&lt;DataMember&gt;Code&lt;/DataMember&gt;&lt;Key&gt;Code&lt;/Key&gt;&lt;Position&gt;0&lt;/Position&gt;&lt;TextAlignment&gt;Center&lt;/TextAlignment&gt;&lt;Width&gt;49&lt;/Width&gt;&lt;/Column0&gt;&lt;Column1 ID="PeopleTitle"&gt;&lt;Caption&gt;راننده&lt;/Caption&gt;&lt;DataMember&gt;PeopleTitle&lt;/DataMember&gt;&lt;Key&gt;PeopleTitle&lt;/Key&gt;&lt;Position&gt;1&lt;/Position&gt;&lt;Width&gt;215&lt;/Width&gt;&lt;/Column1&gt;&lt;Column2 ID="CarType"&gt;&lt;Caption&gt;نوع ماشین&lt;/Caption&gt;&lt;DataMember&gt;CarType&lt;/DataMember&gt;&lt;Key&gt;CarType&lt;/Key&gt;&lt;Position&gt;2&lt;/Position&gt;&lt;Width&gt;108&lt;/Width&gt;&lt;/Column2&gt;&lt;Column3 ID="Plak"&gt;&lt;Caption&gt;پلاک&lt;/Caption&gt;&lt;DataMember&gt;Plak&lt;/DataMember&gt;&lt;Key&gt;Plak&lt;/Key&gt;&lt;Position&gt;3&lt;/Position&gt;&lt;Width&gt;98&lt;/Width&gt;&lt;/Column3&gt;&lt;/Columns&gt;&lt;ColumnSetHeaderLines&gt;2&lt;/ColumnSetHeaderLines&gt;&lt;ColumnSetRowCount&gt;1&lt;/ColumnSetRowCount&gt;&lt;GroupCondition /&gt;&lt;HeaderFormatStyle&gt;&lt;LineAlignment&gt;Center&lt;/LineAlignment&gt;&lt;TextAlignment&gt;Center&lt;/TextAlignment&gt;&lt;/HeaderFormatStyle&gt;&lt;/RootTable&gt;&lt;/GridEXLayoutData&gt;</value>
   </data>
-  <data name="NzNew.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHbSURBVDhPjY9NiJJRGEbvNnE1i7ZuIkgiWohQ0apc
-        ySyEwJUbg3FqrBCSkDCFaGvZqlatDJIIAokREclRhEZEMMGwhRjK4B8qiojok8+lV/pj8MLh3u/jnJd7
-        VSgU0oTD4d01e1uyK50KBoOCB1suutKpQCAgeFarFc4F3uPS00+4+jyLG6+ONddeHOHys0Ocf/wBdOhK
-        p/x+v7C/XC61dCXyGY6333D7sKu59e47rr/M48KTj6BDVzrl8/mE/cVioQccN/p48+UH4l8HOKq1/hhA
-        h650yuv1Cnfm87kewCfcfF3UIZ/w+wA6dKVTHo9HuDubzTCZTE6FDl3plNvtFg6m0ymi0ShyuRzi8biG
-        36PRCKlUCsViEXToSqdcLpdwMB6PUa/X/6Hf72/OdOhKp5xOp+AdDofIZDIoFAool8t6r9Vq6HQ6m/90
-        6EqnHA6HcG8wGODk5OS/VKtVDR260im73S7c7/V6iEQiiMViGp4rlQparRay2SySySTo0JVOWSwWZbPZ
-        yANelVf/m2azuYEOXTZs9TKbzcpqtfp41UQigXQ6jXw+r/dSqYRGo7GBDl02ss6sOWsymR52u1202+1T
-        oUOXza9W7ay5aDAY9oxG46NtoMtGKbXzE3GwYmxprUhmAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="ms_Save.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHQSURBVDhPY/j//z9FGKsgKRhCTBdkYJgtxMAwB4hB
-        NIi/SJiBYakIBC8D4hWiDAwrReUZVomeAWIPhuUiBAyYCcTzgWwQhhgmANS0Ie1d+X8gfQaIPUgxgI1h
-        scg8w2POT6MeZf+Pf1nwG8g/Q6wBjAwLhFsVdhjfC7iR+N/7aswvnhVylxgWCvugG+ABxGfANIg/mR8m
-        nim8SuWG2/nwfy5nQ/8KLFe8BrQoGWgoUhhMEwRpOpP0qvgviAbzQQZME/ThmCtxWWeb7W+19eb/+BbI
-        3wLKVzPMABuMZMAk/jMxT3N/eVyI/B/xMPMPiA/EuSxThU8rbzH5objJ6D//fPn7QLEehikCTAxTBRhA
-        GGFAH58HQy/fGf+b8T+V9hj/d7gQ8APEl9qk9Vl6h85//kVyT4D8eQz9/BxAA8CaUQ3o5WNg6OD1YGjn
-        PWN8yvmbxGHN/xpnLP+LH9L4z79K7hVQfB1DF68A0AAG3Aa08zIwNHN7MDRxn5E+oPVF+KzKf75tsu8Z
-        m3l2M7TySAMNYCBsQBM3A0MphwdDEfsZrmViLxjLOI4A+ZoM5RwM2DB2A4rYGRgSmT0Y4pnOAGkLMB+L
-        ZhCGG0AJxipIPP7PAACyD8BnatpX/AAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="mS_Notify1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>123, 17</value>
-  </metadata>
 </root>

@@ -30,48 +30,35 @@ namespace Nz.Bar.DataLayer.Configure
 
 			this
 				.Property						(x => x.VaznPorMachine)
-				.HasColumnType					("decimal(18,0)");
+				.HasPrecision					(18,0);
 
+			this
+				.Property						(x => x.VaznKHaliMachine)
+				.HasPrecision					(18,0);
 
+			this
+				.Property						(x => x.TedadBox)
+				.HasPrecision					(18,0);
+
+			this
+				.Property						(x => x.VaznKhaliBox)
+				.HasPrecision					(18,0);
+
+			this
+				.Property						(x => x.VaznOft)
+				.HasPrecision					(18,0);
+
+			this
+				.Property						(x => x.VaznKHales)
+				.HasPrecision					(18,0);
+
+			 
 
 			this
 				.HasOptional					(x => x.Car)
 				.WithMany						(x=>x.BarFactors)
 				.HasForeignKey					(x => x.FK_Car)
 				;
-
-
-			//this
-			//	.HasRequired					(x => x.Kala)
-			//	.WithMany						()
-			//	.Map(c=>c.)
-			//	.HasForeignKey					(x => x.FK_Kala)
-			//	;
-
-			//this
-			//	.HasRequired					(x => x.People)
-			//	.WithMany						()
-			//	.HasForeignKey					(x => x.FK_People)
-			//	;
-
-			//this
-			//	.HasRequired					(x => x.Year)
-			//	.WithMany						()
-			//	.HasForeignKey					(x => x.FK_Salmali)
-			//	;
-
-			//this
-			//	.HasRequired					(x => x.UserAdd)
-			//	.WithMany						()
-			//	.HasForeignKey					(x => x.FK_User_Add)
-			//	;
-
-			//this
-			//	.HasOptional					(x => x.UserEdit)
-			//	.WithMany						()
-			//	.HasForeignKey					(x => x.FK_User_Edit)
-			//	;
-
 		}
 	}
 }

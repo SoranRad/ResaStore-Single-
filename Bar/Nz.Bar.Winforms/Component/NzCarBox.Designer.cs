@@ -33,12 +33,12 @@
 			// 
 			// NsGrid
 			// 
-			this.NsGrid.Font = new System.Drawing.Font("Tahoma", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.NsGrid.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
 			this.NsGrid.Location = new System.Drawing.Point(0, 0);
 			this.NsGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.NsGrid.Name = "NsGrid";
 			this.NsGrid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.NsGrid.Size = new System.Drawing.Size(378, 316);
+			this.NsGrid.Size = new System.Drawing.Size(472, 266);
 			this.NsGrid.TabIndex = 0;
 			this.NsGrid.MS_On_Row_Selected += new MS_Control.TSDD.Row_Seleced(this.NzList_Selected);
 			this.ResumeLayout(false);

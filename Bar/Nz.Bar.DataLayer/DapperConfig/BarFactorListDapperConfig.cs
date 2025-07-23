@@ -14,7 +14,6 @@ namespace Nz.Bar.DataLayer.DapperConfig
 		public BarFactorListDapperConfig()
 		{
 			SetList($@"
-
 SELECT 
 
 [tbf].[ID],
@@ -39,14 +38,23 @@ LTRIM(RTRIM([tbf].[Tozihat])) AS Tozihat,
 [tbf].[Tarikh_add],
 [tbf].[Tarikh_edit],
 
+ dd.PersianStr,
+ dd.PersianMonthNo,
+ dd.PersianDayInMonth,
+
 LTRIM(RTRIM(tc.CarType))+N' '+LTRIM(RTRIM(tc.Plak)) AS CarTitle,
 LTRIM(RTRIM(ta.title)) AS PeopleTitle,
 LTRIM(RTRIM(tkx.title)) AS KalaTitle
 
+
+
 FROM                Bar.tbl_BarFactor       AS tbf
-LEFT OUT JOIN       Bar.tbl_Car             AS tc   ON tc.ID    = tbf.FK_Car
-INNER JOIN          Base.tbl_Ashxas         AS ta   ON ta.ID    = tbf.FK_People
-INNER JOIN          Base.tbl_Kala_Xadamat   AS tkx  ON tkx.Code = tbf.FK_Kala
+LEFT OUTER JOIN     Bar.tbl_Car             AS tc       ON tc.ID                = tbf.FK_Car
+INNER JOIN          Base.tbl_Ashxas         AS ta       ON ta.ID                = tbf.FK_People
+INNER JOIN          Base.tbl_Kala_Xadamat   AS tkx      ON tkx.Code             = tbf.FK_Kala
+INNER JOIN          General.DimDate         AS dd       ON dd.GregorianDate     = tbf.tarikh
+
+WHERE tbf.FK_Salmali =@Year AND (dd.PersianMonthNo=@Month OR @Month=13)
 
 ");
 		}
