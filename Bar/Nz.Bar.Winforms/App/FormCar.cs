@@ -145,7 +145,7 @@ namespace Nz.Bar.Winforms.App
 			else
 				Reset();
 		}
-		private void    MaxCode    ()
+		private void    MaxCode				()
 		{
 			var Code = _Manager
 				.GenerateCode<Car, short>

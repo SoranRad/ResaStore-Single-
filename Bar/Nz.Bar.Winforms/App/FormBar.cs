@@ -333,7 +333,8 @@ namespace Nz.Bar.Winforms.App
 		}
 		private void	NzPrint_Click		(object sender, EventArgs e)
 		{
-
+			if(_Item.ID>0)
+				new Print.Print(new List<long>(){_Item.ID}).Show(this);
 		}
 
 		private void    FormStorage_Shown   (object sender, EventArgs e)

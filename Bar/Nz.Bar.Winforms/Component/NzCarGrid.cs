@@ -141,7 +141,7 @@ namespace Nz.Bar.Winforms.Component
             var ID      = Convert.ToInt16(frm.Tag);
             var row     = ms_grid
                                 .GetDataRows()
-                                .SingleOrDefault(x => ((People)x.DataRow)?.ID == ID);
+                                .SingleOrDefault(x => ((CarList)x.DataRow)?.ID == ID);
 
             if (row != null)
             {

@@ -287,7 +287,7 @@
             <Text16 Ref="18" type="Text" isKey="true">
               <Border>None;Black;2;Solid;False;4;Black;True</Border>
               <Brush>White</Brush>
-              <ClientRectangle>0,3.2,3.2,0.6</ClientRectangle>
+              <ClientRectangle>0,3.2,3.2,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum) Medium,11</Font>
               <Guid>55cf130512ac47d99cf71a7d96f46749</Guid>
@@ -802,10 +802,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>7/24/2025 4:57:03 PM</ReportChanged>
+  <ReportChanged>7/24/2025 5:02:47 PM</ReportChanged>
   <ReportCreated>9/16/2014 9:44:57 AM</ReportCreated>
   <ReportFile>E:\_Workspace_Project_\_ResaStore_Single_\Output\Print\Bar\FactorBar_A5.mrt</ReportFile>
-  <ReportGuid>f9fdd87c9b6b4784ba6fe02d9402a730</ReportGuid>
+  <ReportGuid>7ff65f425b254aa38d900991c5837f2b</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2015.2.0</ReportVersion>
