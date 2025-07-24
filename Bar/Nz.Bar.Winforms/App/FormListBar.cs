@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Janus.Windows.GridEX;
 using MS_Control.Tarikh;
 using Nz.Bar.Business;
 using Nz.Bar.Bussiness;
@@ -169,6 +170,30 @@ namespace Nz.Bar.Winforms.App
 		private void NzRefreshList_Click(object sender, EventArgs e)
 		{
 			RefreshGrid();
+		}
+
+		private void NsPrint_Click(object sender, EventArgs e)
+		{
+			List<long> ListIDs;
+
+			if (ms_Grid.GetCheckedRows().Any())
+			{
+				ListIDs = ms_Grid
+					.GetCheckedRows()
+					.Select(x => ((BarFactorList)x.DataRow).ID)
+					.ToList();
+			}
+			else
+			{
+				if(ms_Grid.CurrentRow.RowType!=RowType.Record)
+					return;
+
+				var ID =(ms_Grid.CurrentRow.DataRow as BarFactorList).ID;
+
+				ListIDs = new List<long>(){ID};
+			}
+
+			new Print.Print(ListIDs).Show(this);
 		}
 	}
 }

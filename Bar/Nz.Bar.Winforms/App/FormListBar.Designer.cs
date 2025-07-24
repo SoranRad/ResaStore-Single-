@@ -198,14 +198,14 @@ namespace Nz.Bar.Winforms.App
             this.NzRefreshList,
             this.toolStripSeparator3,
             this.NzAddItem});
-			this.mS_Tool_Strip1.Location = new System.Drawing.Point(1180, 0);
+			this.mS_Tool_Strip1.Location = new System.Drawing.Point(1149, 0);
 			this.mS_Tool_Strip1.MS_BorderColor = System.Drawing.Color.SkyBlue;
 			this.mS_Tool_Strip1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_Tool_Strip1.MS_Color_End = System.Drawing.Color.LightBlue;
 			this.mS_Tool_Strip1.MS_Color_Start = System.Drawing.Color.AliceBlue;
 			this.mS_Tool_Strip1.Name = "mS_Tool_Strip1";
 			this.mS_Tool_Strip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_Tool_Strip1.Size = new System.Drawing.Size(133, 28);
+			this.mS_Tool_Strip1.Size = new System.Drawing.Size(164, 28);
 			this.mS_Tool_Strip1.TabIndex = 709;
 			this.mS_Tool_Strip1.Text = "mS_Tool_Strip1";
 			// 
@@ -219,6 +219,7 @@ namespace Nz.Bar.Winforms.App
 			this.NsPrint.Name = "NsPrint";
 			this.NsPrint.Size = new System.Drawing.Size(28, 28);
 			this.NsPrint.Text = "مشاهده ردیف ها";
+			this.NsPrint.Click += new System.EventHandler(this.NsPrint_Click);
 			// 
 			// NzRefreshList
 			// 

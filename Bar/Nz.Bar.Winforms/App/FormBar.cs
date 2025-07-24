@@ -90,6 +90,8 @@ namespace Nz.Bar.Winforms.App
 				NzMablaq.MS_Decimal				= decimal.Ceiling(_Item.Mablaq);
 				NzMablaqKeraye.MS_Decimal		= decimal.Ceiling(_Item.MablaqKeraye);
 
+				NzDescription.Text				= _Item.Tozihat;
+
 				_DoRefresh = true;
 			}
 			catch (Exception ex)
@@ -307,7 +309,9 @@ namespace Nz.Bar.Winforms.App
 				if (!IsOK())
 					return;
 				Save();
+
 				_Manager.Save(_Item);
+
 				MS_Do_Save?.Invoke(_Is_Edit, new AddingNewEventArgs(_Item.ID));
 
 				new Form_Notify("ذخـیـره سـازی", "اطـلاعـات بـا مـوفـقـیـت ثـبـت شـــد.",

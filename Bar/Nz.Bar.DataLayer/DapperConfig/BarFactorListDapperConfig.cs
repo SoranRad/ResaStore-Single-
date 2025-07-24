@@ -30,6 +30,7 @@ LTRIM(RTRIM([tbf].[Tozihat])) AS Tozihat,
 [tbf].[VaznKHaliMachine],
 [tbf].[TedadBox],
 [tbf].[VaznKhaliBox],
+[tbf].[VaznKHales],
 [tbf].[VaznOft],
 [tbf].[Nerkh],
 [tbf].[Mablaq],
@@ -54,7 +55,53 @@ INNER JOIN          Base.tbl_Ashxas         AS ta       ON ta.ID                
 INNER JOIN          Base.tbl_Kala_Xadamat   AS tkx      ON tkx.Code             = tbf.FK_Kala
 INNER JOIN          General.DimDate         AS dd       ON dd.GregorianDate     = tbf.tarikh
 
-WHERE tbf.FK_Salmali =@Year AND (dd.PersianMonthNo=@Month OR @Month=13)
+WHERE (tbf.FK_Salmali =@Year AND (dd.PersianMonthNo=@Month OR @Month=13))
+
+");
+
+			SetItem(@"
+SELECT 
+
+[tbf].[ID],
+[tbf].[FK_Salmali],
+[tbf].[kind],
+[tbf].[is_ok],
+[tbf].[FK_Car],
+[tbf].[FK_People],
+[tbf].[FK_Kala],
+[tbf].[Serial],
+[tbf].[Tarikh],
+LTRIM(RTRIM([tbf].[Tozihat])) AS Tozihat,
+[tbf].[VaznPorMachine],
+[tbf].[VaznKHaliMachine],
+[tbf].[TedadBox],
+[tbf].[VaznKhaliBox],
+[tbf].[VaznKHales],
+[tbf].[VaznOft],
+[tbf].[Nerkh],
+[tbf].[Mablaq],
+[tbf].[FK_User_Add],
+[tbf].[FK_User_Edit],
+[tbf].[Tarikh_add],
+[tbf].[Tarikh_edit],
+ dd.PersianStr,
+ dd.PersianMonthNo,
+ dd.PersianDayInMonth,
+
+(CASE when tbf.FK_Car IS NULL then null else  LTRIM(RTRIM(taCar.title))+N' '+LTRIM(RTRIM(tc.CarType))+N' '+LTRIM(RTRIM(tc.Plak)) END) AS CarTitle,
+LTRIM(RTRIM(ta.title)) AS PeopleTitle,
+LTRIM(RTRIM(tkx.title)) AS KalaTitle
+
+
+
+FROM                Bar.tbl_BarFactor       AS tbf
+LEFT OUTER JOIN     Bar.tbl_Car             AS tc       ON tc.ID                = tbf.FK_Car
+LEFT outer JOIN     Base.tbl_Ashxas         AS taCar    ON taCar.ID             = tc.FK_People
+INNER JOIN          Base.tbl_Ashxas         AS ta       ON ta.ID                = tbf.FK_People
+INNER JOIN          Base.tbl_Kala_Xadamat   AS tkx      ON tkx.Code             = tbf.FK_Kala
+INNER JOIN          General.DimDate         AS dd       ON dd.GregorianDate     = tbf.tarikh
+
+WHERE tbf.ID =@ID
 
 ");
 		}
