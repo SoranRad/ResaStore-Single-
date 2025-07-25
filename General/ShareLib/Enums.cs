@@ -55,15 +55,15 @@ namespace ShareLib
         public enum MS_System
         {
             General = 1,
-            Anbar,
-            Aqsat,
-            Xazane,
-            Cheque,
-            Shoraka,
-            Archive,
-            Mali,
-            Bar,
-            Machine
+            Anbar   = 2,
+            Aqsat   = 3,
+            Xazane  = 4,
+            Cheque  = 5,
+            Shoraka = 6,
+            Archive = 7,
+            Mali    = 8,
+            Bar     = 9,
+            Machine = 10,
         }
         public enum NzAccountKind : byte
         {

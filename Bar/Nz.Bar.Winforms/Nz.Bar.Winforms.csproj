@@ -248,6 +248,9 @@
     <EmbeddedResource Include="Component\NzCarGrid.resx">
       <DependentUpon>NzCarGrid.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormRizBarShaxs.resx">
+      <DependentUpon>FormRizBarShaxs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings\TabSettingContainer.resx">
       <DependentUpon>TabSettingContainer.cs</DependentUpon>
     </EmbeddedResource>
