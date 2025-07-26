@@ -32,23 +32,20 @@ namespace Nz.Bar.Winforms.Provider
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BarMenuItems));
 			this.mS_Menu1 = new MS_Control.Controls.MS_Menu();
 			this.ms_baseinfo = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsCar = new System.Windows.Forms.ToolStripMenuItem();
 			this.StorageMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.NzXaridBar = new System.Windows.Forms.ToolStripMenuItem();
-			this.NsFactory = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.NsListBar = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.NsFactory = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsFactoryList = new System.Windows.Forms.ToolStripMenuItem();
 			this.NzReport = new System.Windows.Forms.ToolStripMenuItem();
 			this.NzRizTarakonesh = new System.Windows.Forms.ToolStripMenuItem();
-			this.NsCar = new System.Windows.Forms.ToolStripMenuItem();
-			this.NsFactoryList = new System.Windows.Forms.ToolStripMenuItem();
 			this.صورتحسابحامعکشاورزToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ریزبـارهاییککشاورزخاصToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
 			this.صورتحسـابکارخـانهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ریزارسـالیبهکارخانهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-			this.صورتحسابرانندگانToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.ریزبارهاییکرانندهخاصToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.mS_Menu1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -84,6 +81,15 @@ namespace Nz.Bar.Winforms.Provider
 			this.ms_baseinfo.Tag = "1";
 			this.ms_baseinfo.Text = "اطـلاعـات پـایه";
 			// 
+			// NsCar
+			// 
+			this.NsCar.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NsCar.Image = ((System.Drawing.Image)(resources.GetObject("NsCar.Image")));
+			this.NsCar.Name = "NsCar";
+			this.NsCar.Size = new System.Drawing.Size(196, 28);
+			this.NsCar.Text = "تعریف ماشین و راننده";
+			this.NsCar.Click += new System.EventHandler(this.NsCar_Click);
+			// 
 			// StorageMenu
 			// 
 			this.StorageMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -109,20 +115,6 @@ namespace Nz.Bar.Winforms.Provider
 			this.NzXaridBar.Text = "خـرید بـار";
 			this.NzXaridBar.Click += new System.EventHandler(this.NzXarid_Click);
 			// 
-			// NsFactory
-			// 
-			this.NsFactory.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NsFactory.Image = ((System.Drawing.Image)(resources.GetObject("NsFactory.Image")));
-			this.NsFactory.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			this.NsFactory.Name = "NsFactory";
-			this.NsFactory.Size = new System.Drawing.Size(226, 28);
-			this.NsFactory.Text = "ارسـال به کارخـانه";
-			// 
-			// toolStripSeparator1
-			// 
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(223, 6);
-			// 
 			// NsListBar
 			// 
 			this.NsListBar.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
@@ -133,6 +125,29 @@ namespace Nz.Bar.Winforms.Provider
 			this.NsListBar.Text = "لیست بارهای خریداری شده";
 			this.NsListBar.Click += new System.EventHandler(this.NzListFactor_Click);
 			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(223, 6);
+			// 
+			// NsFactory
+			// 
+			this.NsFactory.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NsFactory.Image = ((System.Drawing.Image)(resources.GetObject("NsFactory.Image")));
+			this.NsFactory.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+			this.NsFactory.Name = "NsFactory";
+			this.NsFactory.Size = new System.Drawing.Size(226, 28);
+			this.NsFactory.Text = "ارسـال به کارخـانه";
+			// 
+			// NsFactoryList
+			// 
+			this.NsFactoryList.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NsFactoryList.Image = ((System.Drawing.Image)(resources.GetObject("NsFactoryList.Image")));
+			this.NsFactoryList.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+			this.NsFactoryList.Name = "NsFactoryList";
+			this.NsFactoryList.Size = new System.Drawing.Size(226, 28);
+			this.NsFactoryList.Text = "لیست ارسالی ها به کارخانه";
+			// 
 			// NzReport
 			// 
 			this.NzReport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -141,10 +156,7 @@ namespace Nz.Bar.Winforms.Provider
             this.ریزبـارهاییککشاورزخاصToolStripMenuItem,
             this.toolStripMenuItem3,
             this.صورتحسـابکارخـانهToolStripMenuItem,
-            this.ریزارسـالیبهکارخانهToolStripMenuItem,
-            this.toolStripMenuItem2,
-            this.صورتحسابرانندگانToolStripMenuItem,
-            this.ریزبارهاییکرانندهخاصToolStripMenuItem});
+            this.ریزارسـالیبهکارخانهToolStripMenuItem});
 			this.NzReport.Font = new System.Drawing.Font("IRANSans(Small) Medium", 15F);
 			this.NzReport.Image = ((System.Drawing.Image)(resources.GetObject("NzReport.Image")));
 			this.NzReport.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -163,24 +175,6 @@ namespace Nz.Bar.Winforms.Provider
 			this.NzRizTarakonesh.Text = "         کـشـاورز";
 			this.NzRizTarakonesh.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
 			// 
-			// NsCar
-			// 
-			this.NsCar.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NsCar.Image = ((System.Drawing.Image)(resources.GetObject("NsCar.Image")));
-			this.NsCar.Name = "NsCar";
-			this.NsCar.Size = new System.Drawing.Size(200, 28);
-			this.NsCar.Text = "تعریف ماشین و راننده";
-			this.NsCar.Click += new System.EventHandler(this.NsCar_Click);
-			// 
-			// NsFactoryList
-			// 
-			this.NsFactoryList.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NsFactoryList.Image = ((System.Drawing.Image)(resources.GetObject("NsFactoryList.Image")));
-			this.NsFactoryList.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			this.NsFactoryList.Name = "NsFactoryList";
-			this.NsFactoryList.Size = new System.Drawing.Size(226, 28);
-			this.NsFactoryList.Text = "لیست ارسالی ها به کارخانه";
-			// 
 			// صورتحسابحامعکشاورزToolStripMenuItem
 			// 
 			this.صورتحسابحامعکشاورزToolStripMenuItem.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
@@ -195,16 +189,16 @@ namespace Nz.Bar.Winforms.Provider
 			this.ریزبـارهاییککشاورزخاصToolStripMenuItem.Size = new System.Drawing.Size(234, 34);
 			this.ریزبـارهاییککشاورزخاصToolStripMenuItem.Text = "ریز بـارهای یک کشاورز خاص";
 			// 
-			// toolStripMenuItem2
+			// toolStripMenuItem3
 			// 
-			this.toolStripMenuItem2.BackColor = System.Drawing.Color.Gainsboro;
-			this.toolStripMenuItem2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-			this.toolStripMenuItem2.Font = new System.Drawing.Font("IRANSans(Small) Medium", 17F);
-			this.toolStripMenuItem2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-			this.toolStripMenuItem2.Size = new System.Drawing.Size(234, 34);
-			this.toolStripMenuItem2.Text = "      راننده گان";
-			this.toolStripMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+			this.toolStripMenuItem3.BackColor = System.Drawing.Color.Gainsboro;
+			this.toolStripMenuItem3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.toolStripMenuItem3.Font = new System.Drawing.Font("IRANSans(Small) Medium", 17F);
+			this.toolStripMenuItem3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+			this.toolStripMenuItem3.Size = new System.Drawing.Size(234, 34);
+			this.toolStripMenuItem3.Text = "       کـارخـانه";
+			this.toolStripMenuItem3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
 			// 
 			// صورتحسـابکارخـانهToolStripMenuItem
 			// 
@@ -219,31 +213,6 @@ namespace Nz.Bar.Winforms.Provider
 			this.ریزارسـالیبهکارخانهToolStripMenuItem.Name = "ریزارسـالیبهکارخانهToolStripMenuItem";
 			this.ریزارسـالیبهکارخانهToolStripMenuItem.Size = new System.Drawing.Size(234, 34);
 			this.ریزارسـالیبهکارخانهToolStripMenuItem.Text = "ریز ارسـالی به کارخانه";
-			// 
-			// toolStripMenuItem3
-			// 
-			this.toolStripMenuItem3.BackColor = System.Drawing.Color.Gainsboro;
-			this.toolStripMenuItem3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-			this.toolStripMenuItem3.Font = new System.Drawing.Font("IRANSans(Small) Medium", 17F);
-			this.toolStripMenuItem3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-			this.toolStripMenuItem3.Size = new System.Drawing.Size(234, 34);
-			this.toolStripMenuItem3.Text = "       کـارخـانه";
-			this.toolStripMenuItem3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-			// 
-			// صورتحسابرانندگانToolStripMenuItem
-			// 
-			this.صورتحسابرانندگانToolStripMenuItem.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.صورتحسابرانندگانToolStripMenuItem.Name = "صورتحسابرانندگانToolStripMenuItem";
-			this.صورتحسابرانندگانToolStripMenuItem.Size = new System.Drawing.Size(234, 34);
-			this.صورتحسابرانندگانToolStripMenuItem.Text = "صورت حساب رانندگان";
-			// 
-			// ریزبارهاییکرانندهخاصToolStripMenuItem
-			// 
-			this.ریزبارهاییکرانندهخاصToolStripMenuItem.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.ریزبارهاییکرانندهخاصToolStripMenuItem.Name = "ریزبارهاییکرانندهخاصToolStripMenuItem";
-			this.ریزبارهاییکرانندهخاصToolStripMenuItem.Size = new System.Drawing.Size(234, 34);
-			this.ریزبارهاییکرانندهخاصToolStripMenuItem.Text = "ریز بارهای یک راننده خاص";
 			// 
 			// BarMenuItems
 			// 
@@ -276,8 +245,5 @@ namespace Nz.Bar.Winforms.Provider
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
 		private System.Windows.Forms.ToolStripMenuItem صورتحسـابکارخـانهToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem ریزارسـالیبهکارخانهToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-		private System.Windows.Forms.ToolStripMenuItem صورتحسابرانندگانToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem ریزبارهاییکرانندهخاصToolStripMenuItem;
 	}
 }

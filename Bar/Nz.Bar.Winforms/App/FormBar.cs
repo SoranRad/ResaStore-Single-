@@ -52,7 +52,13 @@ namespace Nz.Bar.Winforms.App
 
         public void Set_Form_Param(params object[] List_Parametter)
         {
-             
+	        foreach (var Item in List_Parametter)
+	        {
+		        if (Item is long ItemID)
+			        _id     = (long) ItemID;
+	        }
+
+	        Init();
         }
 
 		#region Methods

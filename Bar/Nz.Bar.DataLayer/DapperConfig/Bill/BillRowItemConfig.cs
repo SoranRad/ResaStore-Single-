@@ -31,7 +31,7 @@ AND (tbf.tarikh     >= @DateFrom  OR @DateFrom IS NULL)
 AND (tbf.tarikh     <= @DateTo    OR @DateTo   IS NULL)
 AND (tbf.FK_People   = @People) 
 
-GROUP BY tbf.FK_Kala, tkx.title
+GROUP BY tbf.FK_Kala, tkx.title,tbf.kind
 
 ");
 		}

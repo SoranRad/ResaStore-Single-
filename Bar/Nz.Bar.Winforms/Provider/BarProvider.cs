@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Janus.Windows.UI.Tab;
+using MS_Control;
 using MS_Control.Controls;
+using Nz.Bar.Business;
 using Nz.Bar.Winforms.App;
 using Nz.Bar.Winforms.Settings;
 using Nz.Bar.WinForms.Settings;
@@ -47,20 +49,86 @@ namespace Nz.Bar.Winforms.Provider
 
         public IEnumerable<BillRowItem>         GetBillDetail           (long People, short? Year, DateTime? DateFrom, DateTime? DateTo, byte Group)
         {
-            return null;
+	        try
+	        {
+		        var Mgr     = new ReportManager();
+		        var list    = Mgr.GetReport<BillRowItem>(new {People,Year, DateFrom, DateTo, Group}, string.Empty);
+
+		        list.MSZ_ForEach(x =>
+		        {
+			        x.KindTitle = ((Enums.NzFactorKind) x.Kind).NzToString();
+
+		        });
+
+		        return list;
+	        }
+	        catch (Exception ex)
+	        {
+		        log.Error(ex);
+		        return null;
+	        }
         }
         public IEnumerable<CircularRowItem>     GetBillItems            (long People, short? Year, DateTime? DateFrom, DateTime? DateTo, byte Group)
         {
-            return null;
+	        try
+	        {
+		        var Mgr  = new ReportManager();
+		        var list = Mgr.GetReport<CircularRowItem>(new {People, Year, DateFrom, DateTo, TopCount= Group }, string.Empty);
+
+		        //list?.MSZ_ForEach(x =>
+		        //{
+			       // x.Title = ((Enums.NzFactorKind) x.Kind).NzToString() +@"(" + x.Title + @")";
+		        //});
+
+		        return list;
+	        }
+	        catch (Exception ex)
+	        {
+		        log.Error(ex);
+		        return null;
+	        }
         }
 
         public decimal                          GetRemaind              (long ID)
         {
-            return 0;
+	        try
+	        {
+		        var Mgr     = new ReportManager();
+		        var item    = Mgr.GetItem<RemaindBalance>(new
+		        {
+			        ID , 
+			        Year = SystemConstant.ActiveYear.Salmali
+		        },null);
+		        return item?.Balance ?? 0;
+
+	        }
+	        catch (Exception ex)
+	        {
+		        log.Error(ex);
+	        }
+
+	        return 0;
         }
         public IEnumerable<RemaindPeople>       GetListRemaind          (DateTime? AzTarikh, DateTime? TaTarikh)
         {
-            return null;
+	        try
+	        {
+		        var Mgr     = new ReportManager();
+		        var list    = Mgr.GetReport<RemaindPeople>
+		        (new
+			        {
+				        Year = SystemConstant.ActiveYear.Salmali,
+				        AzTarikh,
+				        TaTarikh
+			        }, string.Empty
+		        );
+		        return list;
+	        }
+	        catch (Exception ex)
+	        {
+		        log.Error(ex);
+		        return null;
+	        }
         }
         public decimal                          GetRemainAll            (long IDCustomer)
         {

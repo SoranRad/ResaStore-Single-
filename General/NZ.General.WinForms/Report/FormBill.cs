@@ -94,14 +94,14 @@ namespace NZ.General.WinForms.Report
         }
         
         #endregion
-        private void NzPrint_Click                  (object sender, EventArgs e)
+        private void NzPrint_Click                      (object sender, EventArgs e)
         {
             if(NzTabInfo.SelectedIndex == 0)
                 PrintSummary();
             else
                 PrintDatail();
         }
-        private void NzReport_Click                 (object sender, EventArgs e)
+        private void NzReport_Click                     (object sender, EventArgs e)
         {
             if(NzCustomer.MS_Get_Selected()==null)
                 return;
@@ -157,7 +157,7 @@ namespace NZ.General.WinForms.Report
                                         .ToList();
         }
 
-        private void NzGrid_FormattingRow           (object sender, RowLoadEventArgs e)
+        private void NzGrid_FormattingRow               (object sender, RowLoadEventArgs e)
         {
             if (e.Row.RowType == RowType.TotalRow)
             {
@@ -199,11 +199,11 @@ namespace NZ.General.WinForms.Report
             }
         }
 
-        private void FormBill_Shown                 (object sender, EventArgs e)
+        private void FormBill_Shown                     (object sender, EventArgs e)
         {
             NzCustomer.Focus();
         }
-        private void NzGridDetails_FormattingRow    (object sender, RowLoadEventArgs e)
+        private void NzGridDetails_FormattingRow        (object sender, RowLoadEventArgs e)
         {
             if (e.Row.RowType == RowType.TotalRow)
             {
@@ -227,7 +227,7 @@ namespace NZ.General.WinForms.Report
                 };
             }
         }
-        private void NzCustomer_MS_On_Row_Selected  (object sender, MS_Control.TSDD.On_Selected e)
+        private void NzCustomer_MS_On_Row_Selected      (object sender, MS_Control.TSDD.On_Selected e)
         {
             var current = NzCustomer.MS_Get_Selected() as People;
             if (current == null)
@@ -240,7 +240,7 @@ namespace NZ.General.WinForms.Report
             }
         }
 
-        private void NzGridDetails_ColumnButtonClick(object sender, ColumnActionEventArgs e)
+        private void NzGridDetails_ColumnButtonClick    (object sender, ColumnActionEventArgs e)
         {
             if (NzGridDetails.CurrentRow?.DataRow is CircularRowItem row)
             {
@@ -311,11 +311,23 @@ namespace NZ.General.WinForms.Report
                     }
                     
                 }
+                else if (row.SubSystem == (byte) Enums.MS_System.Bar)
+                {
+	                var factor = Form_Factory
+		                .SystemList
+		                .FirstOrDefault
+			                (x => x.GetSystemKind() == Enums.MS_System.Bar);
+
+	                IForm_Editor frm = null;
+
+	                frm = factor.GetFormForEdit(Enums.FormOperation.Bar);
+	                frm?.Set_Form_Param(row.ID);
+	                (frm as Form)?.ShowDialog();
+                }
 
             }
         }
-
-        private void NzXaridar_CheckedChanged(object sender, EventArgs e)
+        private void NzXaridar_CheckedChanged           (object sender, EventArgs e)
         {
             NzDateFrom.Enabled = NzDateTo.Enabled = !NzAllYears.Checked;
         }

@@ -134,15 +134,15 @@
     <Compile Include="DapperConfig\Report\Profit\ProfitMonthlyConfig.cs" />
     <Compile Include="DapperConfig\Report\Profit\ProfitObjectConfig.cs" />
     <Compile Include="DapperConfig\Report\Profit\ProfitSummaryConfig.cs" />
-    <Compile Include="DapperConfig\Report\RemaindPeopleConfig.cs" />
+    <Compile Include="DapperConfig\Report\Bill\RemaindPeopleConfig.cs" />
     <Compile Include="DapperConfig\Report\PepoleCircularDetailConfig.cs" />
     <Compile Include="DapperConfig\Report\SaleAnalyzeConfig.cs" />
     <Compile Include="DapperConfig\Report\StorageConfig.cs" />
     <Compile Include="DapperConfig\Report\TopPriceObjectConfig.cs" />
     <Compile Include="DapperConfig\Report\TransferObjectConfig.cs" />
     <Compile Include="DapperConfig\Report\XolaseTarakoneshConfig.cs" />
-    <Compile Include="DapperConfig\ViewModel\BillRowItemConfig.cs" />
-    <Compile Include="DapperConfig\ViewModel\CircularRowItemConfig.cs" />
+    <Compile Include="DapperConfig\Report\Bill\BillRowItemConfig.cs" />
+    <Compile Include="DapperConfig\Report\Bill\CircularRowItemConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\FactorHeadsConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\FactorIItemsIdConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\FactorPaymentConfig.cs" />
@@ -158,7 +158,7 @@
     <Compile Include="Context\StorageContext.cs" />
     <Compile Include="DapperConfig\FactorDapperConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\PrintTranferConfiguration.cs" />
-    <Compile Include="DapperConfig\ViewModel\RemaindConfig.cs" />
+    <Compile Include="DapperConfig\Report\Bill\RemaindConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\TransferConfiguration.cs" />
     <Compile Include="DapperConfig\ViewModel\UpdateFactorStateConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\UpdatePaymentConfig.cs" />

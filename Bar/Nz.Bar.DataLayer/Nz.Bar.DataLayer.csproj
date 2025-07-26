@@ -73,6 +73,7 @@
     <Compile Include="DapperConfig\Bill\BillRowItemConfig.cs" />
     <Compile Include="DapperConfig\Bill\CircularRowItemConfig.cs" />
     <Compile Include="DapperConfig\Bill\RemaindConfig.cs" />
+    <Compile Include="DapperConfig\Bill\RemaindPeopleConfig.cs" />
     <Compile Include="DapperConfig\CarListDapperConfig.cs" />
     <Compile Include="Migrations\202507201441112_InitialCreate.cs" />
     <Compile Include="Migrations\202507201441112_InitialCreate.Designer.cs">
