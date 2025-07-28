@@ -8,6 +8,7 @@ using Janus.Windows.UI.Tab;
 using MS_Control;
 using MS_Control.Controls;
 using Nz.Bar.Business;
+using Nz.Bar.Model.Report;
 using Nz.Bar.Winforms.App;
 using Nz.Bar.Winforms.Settings;
 using Nz.Bar.WinForms.Settings;
@@ -79,6 +80,23 @@ namespace Nz.Bar.Winforms.Provider
 		        //{
 			       // x.Title = ((Enums.NzFactorKind) x.Kind).NzToString() +@"(" + x.Title + @")";
 		        //});
+
+		        return list;
+	        }
+	        catch (Exception ex)
+	        {
+		        log.Error(ex);
+		        return null;
+	        }
+        }
+        public IEnumerable<object>              GetBillRows             (long People, short? Year, DateTime? DateFrom, DateTime? DateTo)
+        {
+	        try
+	        {
+		        var Mgr     = new ReportManager();
+		        var list = Mgr.GetReport<BillRow>(new {People, Year, DateFrom, DateTo}, string.Empty);
+
+		         
 
 		        return list;
 	        }

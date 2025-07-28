@@ -96,6 +96,7 @@
     <Compile Include="Report\AllCircular.cs" />
     <Compile Include="Report\AnalyzeStorage.cs" />
     <Compile Include="Report\BarcodeUnique.cs" />
+    <Compile Include="Report\BillRow.cs" />
     <Compile Include="Report\CircularObject.cs" />
     <Compile Include="Report\CircularOfLocation.cs" />
     <Compile Include="Report\ObjectRemaindOnDate.cs" />

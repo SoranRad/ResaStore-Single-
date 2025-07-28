@@ -178,7 +178,6 @@ namespace NZ.Xazane.WinForms.Report
                 NzCustomerRemain.Text   = "";
             }
         }
-
         private void NzPrint_Click              (object sender, EventArgs e)
         {
 
@@ -204,7 +203,6 @@ namespace NZ.Xazane.WinForms.Report
             
             PrnDiag.ShowDialog(this);
         }
-
         private void NzGrid_FormattingRow       (object sender, RowLoadEventArgs e)
         {
             if (e.Row.RowType == RowType.TotalRow && e.Row.Table==NzGrid.RootTable)

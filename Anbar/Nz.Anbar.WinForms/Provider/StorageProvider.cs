@@ -9,6 +9,7 @@ using MS_Control;
 using MS_Control.Controls;
 using Nz.Anbar.WinForms.App;
 using NZ.Anbar.Business;
+using Nz.Anbar.Model.Report;
 using Nz.Anbar.WinForms.Alarm;
 using Nz.Anbar.WinForms.Component;
 using Nz.Anbar.WinForms.EndYear;
@@ -93,6 +94,25 @@ namespace Nz.Anbar.WinForms.Provider
             }
 
         }
+
+        public IEnumerable<object> GetBillRows(long People, short? Year, DateTime? DateFrom, DateTime? DateTo)
+        {
+	        try
+	        {
+		        var Mgr     = new ReportManager();
+		        var list = Mgr.GetReport<BillRow>(new {People, Year, DateFrom, DateTo}, string.Empty);
+
+		         
+
+		        return list;
+	        }
+	        catch (Exception ex)
+	        {
+		        log.Error(ex);
+		        return null;
+	        }
+        }
+
         public IForm_Editor                 GetFormForEdit      (Enums.FormOperation FormKind,params object[] otherParam)
         {
             switch (FormKind)

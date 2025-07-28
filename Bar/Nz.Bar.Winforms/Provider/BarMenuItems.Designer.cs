@@ -181,6 +181,7 @@ namespace Nz.Bar.Winforms.Provider
 			this.صورتحسابحامعکشاورزToolStripMenuItem.Name = "صورتحسابحامعکشاورزToolStripMenuItem";
 			this.صورتحسابحامعکشاورزToolStripMenuItem.Size = new System.Drawing.Size(234, 34);
 			this.صورتحسابحامعکشاورزToolStripMenuItem.Text = "صورت حساب جامع کشاورز";
+			this.صورتحسابحامعکشاورزToolStripMenuItem.Click += new System.EventHandler(this.صورتحسابحامعکشاورزToolStripMenuItem_Click);
 			// 
 			// ریزبـارهاییککشاورزخاصToolStripMenuItem
 			// 

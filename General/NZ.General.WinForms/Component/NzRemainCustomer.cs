@@ -19,6 +19,8 @@ namespace NZ.General.WinForms.Component
         private decimal     _balance;
         private long        _Id_People;
 
+        public decimal Balance => _balance;
+
         public NzRemainCustomer()
         {
             InitializeComponent();

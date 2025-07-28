@@ -15,6 +15,7 @@ using ShareLib.Utils;
 using ShareLib.ViewModel;
 using Janus.Windows.UI.Tab;
 using MS_Control.Controls;
+using NZ.General.Business;
 using NZ.General.WinForms.Alarm;
 using NZ.General.WinForms.Component;
 using ShareLib.Component;
@@ -55,16 +56,21 @@ namespace NZ.General.WinForms
         #region Methods
         public string                   GetName =>          "عمومی";
         public ToolStripItem            MainMenuSysytem =>  null;
-        public Enums.MS_System          GetSystemKind()     => Enums.MS_System.General;
-        public IEnumerable<BillRowItem> GetBillDetail       (long People, short? Year, DateTime? DateFrom, DateTime? DateTo, byte Group)
+        public Enums.MS_System              GetSystemKind       ()     => Enums.MS_System.General;
+        public IEnumerable<BillRowItem>     GetBillDetail       (long People, short? Year, DateTime? DateFrom, DateTime? DateTo, byte Group)
         {
             return null;
         }
-        public IEnumerable<CircularRowItem> GetBillItems    (long People, short? Year, DateTime? DateFrom, DateTime? DateTo, byte Group)
+        public IEnumerable<CircularRowItem> GetBillItems        (long People, short? Year, DateTime? DateFrom, DateTime? DateTo, byte Group)
         {
 
             return null;
         }
+        public IEnumerable<object>          GetBillRows         (long People, short? Year, DateTime? DateFrom, DateTime? DateTo)
+        {
+	        return null;
+        }
+
         public IForm_Editor             GetFormForEdit      (Enums.FormOperation FormKind,params object[] otherParam)
         {
             throw new NotImplementedException();

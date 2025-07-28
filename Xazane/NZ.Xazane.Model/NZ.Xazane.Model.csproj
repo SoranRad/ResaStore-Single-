@@ -91,6 +91,7 @@
     <Compile Include="Report\AnalyzeCheque.cs" />
     <Compile Include="Report\AnalyzeChequeDetail.cs" />
     <Compile Include="Report\AnalyzeChequeMonthly.cs" />
+    <Compile Include="Report\BillRow.cs" />
     <Compile Include="Report\HazineDaramadGroping.cs" />
     <Compile Include="Report\MoneyCircular.cs" />
     <Compile Include="Report\PaymentItems.cs" />

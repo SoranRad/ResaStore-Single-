@@ -26,7 +26,7 @@ INNER JOIN	Base.tbl_Kala_Xadamat	AS tkx ON tkx.Code = tbf.FK_Kala
 
 WHERE
 
-    (tbf.FK_Salmali  = @Year     OR @Year IS NULL)
+    (tbf.FK_Salmali  = @Year      OR @Year IS NULL)
 AND (tbf.tarikh     >= @DateFrom  OR @DateFrom IS NULL)
 AND (tbf.tarikh     <= @DateTo    OR @DateTo   IS NULL)
 AND (tbf.FK_People   = @People) 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Nz.Bar.Winforms.App;
+using Nz.Bar.Winforms.Report;
 
 namespace Nz.Bar.Winforms.Provider
 {
@@ -39,6 +40,13 @@ namespace Nz.Bar.Winforms.Provider
 		private void NsCar_Click(object sender, EventArgs e)
 		{
 			var frm         = new FormCarList();
+			frm.MdiParent   = BarProvider.MainForm;
+			frm.Show();
+		}
+
+		private void صورتحسابحامعکشاورزToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var frm         = new FormSuratHesabKeshavarz();
 			frm.MdiParent   = BarProvider.MainForm;
 			frm.Show();
 		}

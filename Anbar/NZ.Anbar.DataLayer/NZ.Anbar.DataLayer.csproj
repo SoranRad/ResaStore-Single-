@@ -117,6 +117,7 @@
     <Compile Include="DapperConfig\PreFactorDapperConfig.cs" />
     <Compile Include="DapperConfig\Report\AllCircularConfig.cs" />
     <Compile Include="DapperConfig\Report\AnalyzeStorageConfig.cs" />
+    <Compile Include="DapperConfig\Report\Bill\BillRowConfig.cs" />
     <Compile Include="DapperConfig\Report\ChartSummarryConfig.cs" />
     <Compile Include="DapperConfig\Report\CircularObjectConfig.cs" />
     <Compile Include="DapperConfig\Report\CircularOfLocationConfig.cs" />

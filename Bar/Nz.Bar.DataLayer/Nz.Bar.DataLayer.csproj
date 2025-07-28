@@ -70,6 +70,7 @@
     <Compile Include="Context\ContextFactory.cs" />
     <Compile Include="Context\BarContext.cs" />
     <Compile Include="DapperConfig\BarFactorListDapperConfig.cs" />
+    <Compile Include="DapperConfig\Bill\BillRowConfig.cs" />
     <Compile Include="DapperConfig\Bill\BillRowItemConfig.cs" />
     <Compile Include="DapperConfig\Bill\CircularRowItemConfig.cs" />
     <Compile Include="DapperConfig\Bill\RemaindConfig.cs" />

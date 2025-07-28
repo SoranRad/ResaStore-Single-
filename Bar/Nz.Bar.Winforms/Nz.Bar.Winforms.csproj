@@ -229,6 +229,12 @@
     <Compile Include="Report\FormRizBarShaxs.Designer.cs">
       <DependentUpon>FormRizBarShaxs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\FormSuratHesabKeshavarz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormSuratHesabKeshavarz.Designer.cs">
+      <DependentUpon>FormSuratHesabKeshavarz.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings\SettingItems.cs" />
     <Compile Include="Settings\TabSettingContainer.cs">
       <SubType>UserControl</SubType>
@@ -250,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report\FormRizBarShaxs.resx">
       <DependentUpon>FormRizBarShaxs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormSuratHesabKeshavarz.resx">
+      <DependentUpon>FormSuratHesabKeshavarz.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\TabSettingContainer.resx">
       <DependentUpon>TabSettingContainer.cs</DependentUpon>

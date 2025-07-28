@@ -95,6 +95,7 @@
     <Compile Include="DapperConfig\Report\AnalyzeChequeConfig.cs" />
     <Compile Include="DapperConfig\Report\AnalyzeChequeDetailConfig.cs" />
     <Compile Include="DapperConfig\Report\AnalyzeChequeMonthlyConfig.cs" />
+    <Compile Include="DapperConfig\Report\Bill\BillRowConfig.cs" />
     <Compile Include="DapperConfig\Report\DailyCircularConfig.cs" />
     <Compile Include="DapperConfig\Report\HazineDaramadGropingConfig.cs" />
     <Compile Include="DapperConfig\Report\MoneyCircularConfig.cs" />
@@ -108,10 +109,10 @@
     <Compile Include="DapperConfig\Report\UsentChequeConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\AssignChequeConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\AssignChequeInDateConfig.cs" />
-    <Compile Include="DapperConfig\ViewModel\BillRowItemConfig.cs" />
+    <Compile Include="DapperConfig\Report\Bill\BillRowItemConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\ChequeListConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\ChequeStateConfig.cs" />
-    <Compile Include="DapperConfig\ViewModel\CircularRowItemConfig.cs" />
+    <Compile Include="DapperConfig\Report\Bill\CircularRowItemConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\DeficitAdditionDapperConfig.cs" />
     <Compile Include="Context\XazaneContext.cs" />
     <Compile Include="DapperConfig\DpOperationDapperConfig.cs" />
@@ -123,8 +124,8 @@
     <Compile Include="DapperConfig\ViewModel\PrintDPConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\RecieveChequeArriveInDateConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\RecieveChequeArriveConfig.cs" />
-    <Compile Include="DapperConfig\ViewModel\RemainGeneralConfig.cs" />
-    <Compile Include="DapperConfig\ViewModel\RemainListConfig.cs" />
+    <Compile Include="DapperConfig\Report\Bill\RemainGeneralConfig.cs" />
+    <Compile Include="DapperConfig\Report\Bill\RemainListConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\RemoveChequeConfig.cs" />
     <Compile Include="Migrations\202203190652175_InitialCreate.cs" />
     <Compile Include="Migrations\202203190652175_InitialCreate.designer.cs">

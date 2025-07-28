@@ -10,6 +10,7 @@ using MDIWindowManager;
 using MS_Control;
 using MS_Control.Controls;
 using NZ.Xazane.Business;
+using NZ.Xazane.Model.Report;
 using NZ.Xazane.WinForms.Alarm;
 using NZ.Xazane.WinForms.App;
 using NZ.Xazane.WinForms.Base;
@@ -50,6 +51,7 @@ namespace NZ.Xazane.WinForms
 
         public string                       GetName             => "خزانه داری";
         public ToolStripItem                MainMenuSysytem     => null;
+
         public IEnumerable<BillRowItem>     GetBillDetail       (long People, short? Year, DateTime? DateFrom, DateTime? DateTo, byte Group)
         {
             try
@@ -103,6 +105,24 @@ namespace NZ.Xazane.WinForms
             }
 
         }
+        public IEnumerable<object>          GetBillRows         (long People, short? Year, DateTime? DateFrom, DateTime? DateTo)
+        {
+	        try
+	        {
+		        var Mgr     = new ReportManager();
+		        var list = Mgr.GetReport<BillRow>(new {People, Year, DateFrom, DateTo}, string.Empty);
+
+		         
+
+		        return list;
+	        }
+	        catch (Exception ex)
+	        {
+		        log.Error(ex);
+		        return null;
+	        }
+        }
+
         public IForm_Editor                 GetFormForEdit      (Enums.FormOperation FormKind,params object[] otherParam)
         {
             switch (FormKind)
