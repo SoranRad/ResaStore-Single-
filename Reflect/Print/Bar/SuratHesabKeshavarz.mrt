@@ -57,11 +57,10 @@
     <DataSources isList="true" count="0" />
     <Relations isList="true" count="0" />
     <Report isRef="0" />
-    <Variables isList="true" count="4">
+    <Variables isList="true" count="3">
       <value>,company,company,System.String,,False,False</value>
       <value>,Keshavarz,Keshavarz,System.String,,False,False</value>
       <value>,Mande,Mande,System.Nullable`1[System.Decimal],,False,False</value>
-      <value>,MandeTitle,MandeTitle,System.String,,False,False</value>
     </Variables>
   </Dictionary>
   <EngineVersion>EngineV2</EngineVersion>
@@ -481,7 +480,7 @@
           <Border>Top;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
           <ClientRectangle>0,18.4,28.7,1.6</ClientRectangle>
-          <Components isList="true" count="12">
+          <Components isList="true" count="10">
             <Text42 Ref="29" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>24.8,0,3.8,0.8</ClientRectangle>
@@ -688,42 +687,6 @@
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </Text18>
-            <Text8 Ref="44" type="Text" isKey="true">
-              <Border>None;Black;2;Solid;False;4;Black;True</Border>
-              <Brush>White</Brush>
-              <ClientRectangle>0,1,5.7,0.6</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>IRANSans(FaNum) Medium,7</Font>
-              <Guid>c5646048e11e4e9eb03cab30758ed182</Guid>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text8</Name>
-              <Page isRef="5" />
-              <Parent isRef="28" />
-              <Text>حسابداری رسـا -(2984 870 0914 )-  www.NikShaho.ir </Text>
-              <TextBrush>Black</TextBrush>
-              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
-              <TextQuality>Typographic</TextQuality>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text8>
-            <Text9 Ref="45" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>6,0.8,2.8,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>IRANSans(FaNum),11,Bold</Font>
-              <Guid>88d2a5768e5c4e88a2e3b7257c74fa25</Guid>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text9</Name>
-              <Page isRef="5" />
-              <Parent isRef="28" />
-              <Text>{MandeTitle}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
-              <TextQuality>Typographic</TextQuality>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text9>
           </Components>
           <Conditions isList="true" count="0" />
           <Name>PageFooterBand1</Name>
@@ -731,22 +694,22 @@
           <Parent isRef="5" />
           <PrintOn>OnlyLastPage</PrintOn>
         </PageFooterBand1>
-        <Panel1 Ref="46" type="Panel" isKey="true">
+        <Panel1 Ref="44" type="Panel" isKey="true">
           <Brush>Transparent</Brush>
           <CanGrow>True</CanGrow>
           <ClientRectangle>0,3.8,28.7,13.8</ClientRectangle>
           <Components isList="true" count="3">
-            <Panel2 Ref="47" type="Panel" isKey="true">
+            <Panel2 Ref="45" type="Panel" isKey="true">
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>18.9,0,9.8,13.8</ClientRectangle>
               <Components isList="true" count="1">
-                <DataBand1 Ref="48" type="DataBand" isKey="true">
+                <DataBand1 Ref="46" type="DataBand" isKey="true">
                   <Brush>Transparent</Brush>
                   <BusinessObjectGuid>53cbd63ab26146aba73ab90ae70ae3c4</BusinessObjectGuid>
                   <ClientRectangle>0,0.4,9.8,0.8</ClientRectangle>
                   <Components isList="true" count="5">
-                    <Text10 Ref="49" type="Text" isKey="true">
+                    <Text10 Ref="47" type="Text" isKey="true">
                       <Border>Left, Bottom;[0:0:0];1;Solid;False;4;[0:0:0]</Border>
                       <Brush>Transparent</Brush>
                       <ClientRectangle>7.9,0,1.9,0.8</ClientRectangle>
@@ -757,7 +720,7 @@
                       <Margins>0,0,0,0</Margins>
                       <Name>Text10</Name>
                       <Page isRef="5" />
-                      <Parent isRef="48" />
+                      <Parent isRef="46" />
                       <Text>{Bar.PersianStr}</Text>
                       <TextBrush>Black</TextBrush>
                       <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
@@ -765,7 +728,7 @@
                       <Type>DataColumn</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text10>
-                    <Text11 Ref="50" type="Text" isKey="true">
+                    <Text11 Ref="48" type="Text" isKey="true">
                       <Border>Left, Bottom;[0:0:0];1;Solid;False;4;[0:0:0]</Border>
                       <Brush>Transparent</Brush>
                       <ClientRectangle>6.9,0,1,0.8</ClientRectangle>
@@ -776,7 +739,7 @@
                       <Margins>0,0,0,0</Margins>
                       <Name>Text11</Name>
                       <Page isRef="5" />
-                      <Parent isRef="48" />
+                      <Parent isRef="46" />
                       <Text>{Bar.Serial}</Text>
                       <TextBrush>Black</TextBrush>
                       <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
@@ -784,7 +747,7 @@
                       <Type>DataColumn</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text11>
-                    <Text12 Ref="51" type="Text" isKey="true">
+                    <Text12 Ref="49" type="Text" isKey="true">
                       <Border>Left, Bottom;[0:0:0];1;Solid;False;4;[0:0:0]</Border>
                       <Brush>Transparent</Brush>
                       <ClientRectangle>4.7,0,2.2,0.8</ClientRectangle>
@@ -795,8 +758,33 @@
                       <Margins>0,0,0,0</Margins>
                       <Name>Text12</Name>
                       <Page isRef="5" />
-                      <Parent isRef="48" />
+                      <Parent isRef="46" />
                       <Text>{Bar.VaznKHales}</Text>
+                      <TextBrush>Black</TextBrush>
+                      <TextFormat Ref="50" type="NumberFormat" isKey="true">
+                        <DecimalDigits>0</DecimalDigits>
+                        <GroupSeparator>,</GroupSeparator>
+                        <NegativePattern>1</NegativePattern>
+                        <UseLocalSetting>False</UseLocalSetting>
+                      </TextFormat>
+                      <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+                      <TextQuality>Typographic</TextQuality>
+                      <Type>DataColumn</Type>
+                      <VertAlignment>Center</VertAlignment>
+                    </Text12>
+                    <Text13 Ref="51" type="Text" isKey="true">
+                      <Border>Left, Bottom;[0:0:0];1;Solid;False;4;[0:0:0]</Border>
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>2.7,0,2,0.8</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Font>IRANSans(FaNum),10</Font>
+                      <Guid>3b7f2cdb44194a199a4808da4e721ebf</Guid>
+                      <HorAlignment>Center</HorAlignment>
+                      <Margins>0,0,0,0</Margins>
+                      <Name>Text13</Name>
+                      <Page isRef="5" />
+                      <Parent isRef="46" />
+                      <Text>{Bar.Nerkh}</Text>
                       <TextBrush>Black</TextBrush>
                       <TextFormat Ref="52" type="NumberFormat" isKey="true">
                         <DecimalDigits>0</DecimalDigits>
@@ -808,33 +796,8 @@
                       <TextQuality>Typographic</TextQuality>
                       <Type>DataColumn</Type>
                       <VertAlignment>Center</VertAlignment>
-                    </Text12>
-                    <Text13 Ref="53" type="Text" isKey="true">
-                      <Border>Left, Bottom;[0:0:0];1;Solid;False;4;[0:0:0]</Border>
-                      <Brush>Transparent</Brush>
-                      <ClientRectangle>2.7,0,2,0.8</ClientRectangle>
-                      <Conditions isList="true" count="0" />
-                      <Font>IRANSans(FaNum),10</Font>
-                      <Guid>3b7f2cdb44194a199a4808da4e721ebf</Guid>
-                      <HorAlignment>Center</HorAlignment>
-                      <Margins>0,0,0,0</Margins>
-                      <Name>Text13</Name>
-                      <Page isRef="5" />
-                      <Parent isRef="48" />
-                      <Text>{Bar.Nerkh}</Text>
-                      <TextBrush>Black</TextBrush>
-                      <TextFormat Ref="54" type="NumberFormat" isKey="true">
-                        <DecimalDigits>0</DecimalDigits>
-                        <GroupSeparator>,</GroupSeparator>
-                        <NegativePattern>1</NegativePattern>
-                        <UseLocalSetting>False</UseLocalSetting>
-                      </TextFormat>
-                      <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
-                      <TextQuality>Typographic</TextQuality>
-                      <Type>DataColumn</Type>
-                      <VertAlignment>Center</VertAlignment>
                     </Text13>
-                    <Text14 Ref="55" type="Text" isKey="true">
+                    <Text14 Ref="53" type="Text" isKey="true">
                       <Border>Left, Bottom;[0:0:0];1;Solid;False;4;[0:0:0]</Border>
                       <Brush>Transparent</Brush>
                       <ClientRectangle>0,0,2.7,0.8</ClientRectangle>
@@ -845,10 +808,10 @@
                       <Margins>0,0,0,0</Margins>
                       <Name>Text14</Name>
                       <Page isRef="5" />
-                      <Parent isRef="48" />
+                      <Parent isRef="46" />
                       <Text>{Bar.Mablaq}</Text>
                       <TextBrush>Black</TextBrush>
-                      <TextFormat Ref="56" type="NumberFormat" isKey="true">
+                      <TextFormat Ref="54" type="NumberFormat" isKey="true">
                         <DecimalDigits>0</DecimalDigits>
                         <GroupSeparator>,</GroupSeparator>
                         <NegativePattern>1</NegativePattern>
@@ -866,7 +829,7 @@
                   <Filters isList="true" count="0" />
                   <Name>DataBand1</Name>
                   <Page isRef="5" />
-                  <Parent isRef="47" />
+                  <Parent isRef="45" />
                   <Sort isList="true" count="0" />
                 </DataBand1>
               </Components>
@@ -875,19 +838,19 @@
               <GrowToHeight>True</GrowToHeight>
               <Name>Panel2</Name>
               <Page isRef="5" />
-              <Parent isRef="46" />
+              <Parent isRef="44" />
             </Panel2>
-            <Panel3 Ref="57" type="Panel" isKey="true">
+            <Panel3 Ref="55" type="Panel" isKey="true">
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>0,0,8.6,13.8</ClientRectangle>
               <Components isList="true" count="1">
-                <DataBand3 Ref="58" type="DataBand" isKey="true">
+                <DataBand3 Ref="56" type="DataBand" isKey="true">
                   <Brush>Transparent</Brush>
                   <BusinessObjectGuid>36f17ed22a82497387f529093d33168c</BusinessObjectGuid>
                   <ClientRectangle>0,0.4,8.6,0.8</ClientRectangle>
                   <Components isList="true" count="4">
-                    <Text38 Ref="59" type="Text" isKey="true">
+                    <Text38 Ref="57" type="Text" isKey="true">
                       <Border>Left, Bottom;[0:0:0];1;Solid;False;4;[0:0:0]</Border>
                       <Brush>Transparent</Brush>
                       <ClientRectangle>6.8,0,1.8,0.8</ClientRectangle>
@@ -898,7 +861,7 @@
                       <Margins>0,0,0,0</Margins>
                       <Name>Text38</Name>
                       <Page isRef="5" />
-                      <Parent isRef="58" />
+                      <Parent isRef="56" />
                       <Text>{Xazane.PersianStr}</Text>
                       <TextBrush>Black</TextBrush>
                       <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
@@ -906,7 +869,7 @@
                       <Type>DataColumn</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text38>
-                    <Text39 Ref="60" type="Text" isKey="true">
+                    <Text39 Ref="58" type="Text" isKey="true">
                       <Border>Left, Bottom;[0:0:0];1;Solid;False;4;[0:0:0]</Border>
                       <Brush>Transparent</Brush>
                       <ClientRectangle>4.2,0,2.6,0.8</ClientRectangle>
@@ -917,7 +880,7 @@
                       <Margins>0,0,0,0</Margins>
                       <Name>Text39</Name>
                       <Page isRef="5" />
-                      <Parent isRef="58" />
+                      <Parent isRef="56" />
                       <Text>{Xazane.Title}</Text>
                       <TextBrush>Black</TextBrush>
                       <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
@@ -925,7 +888,7 @@
                       <Type>DataColumn</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text39>
-                    <Text40 Ref="61" type="Text" isKey="true">
+                    <Text40 Ref="59" type="Text" isKey="true">
                       <Border>Left, Bottom;[0:0:0];1;Solid;False;4;[0:0:0]</Border>
                       <Brush>Transparent</Brush>
                       <ClientRectangle>2.4,0,1.8,0.8</ClientRectangle>
@@ -936,7 +899,7 @@
                       <Margins>0,0,0,0</Margins>
                       <Name>Text40</Name>
                       <Page isRef="5" />
-                      <Parent isRef="58" />
+                      <Parent isRef="56" />
                       <Text>{Xazane.serialPeygiri}</Text>
                       <TextBrush>Black</TextBrush>
                       <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
@@ -944,7 +907,7 @@
                       <Type>DataColumn</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text40>
-                    <Text41 Ref="62" type="Text" isKey="true">
+                    <Text41 Ref="60" type="Text" isKey="true">
                       <Border>Left, Bottom;[0:0:0];1;Solid;False;4;[0:0:0]</Border>
                       <Brush>Transparent</Brush>
                       <ClientRectangle>0,0,2.4,0.8</ClientRectangle>
@@ -955,10 +918,10 @@
                       <Margins>0,0,0,0</Margins>
                       <Name>Text41</Name>
                       <Page isRef="5" />
-                      <Parent isRef="58" />
+                      <Parent isRef="56" />
                       <Text>{Xazane.mablaq}</Text>
                       <TextBrush>Black</TextBrush>
-                      <TextFormat Ref="63" type="NumberFormat" isKey="true">
+                      <TextFormat Ref="61" type="NumberFormat" isKey="true">
                         <DecimalDigits>0</DecimalDigits>
                         <GroupSeparator>,</GroupSeparator>
                         <NegativePattern>1</NegativePattern>
@@ -977,7 +940,7 @@
                   <Guid>eee010a50bf44c708769109d710dbb7c</Guid>
                   <Name>DataBand3</Name>
                   <Page isRef="5" />
-                  <Parent isRef="57" />
+                  <Parent isRef="55" />
                   <Sort isList="true" count="0" />
                 </DataBand3>
               </Components>
@@ -986,20 +949,20 @@
               <GrowToHeight>True</GrowToHeight>
               <Name>Panel3</Name>
               <Page isRef="5" />
-              <Parent isRef="46" />
+              <Parent isRef="44" />
             </Panel3>
-            <Panel4 Ref="64" type="Panel" isKey="true">
+            <Panel4 Ref="62" type="Panel" isKey="true">
               <Border>Left, Right;[0:0:0];1;Solid;False;4;[0:0:0]</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>8.6,0,10.3,13.8</ClientRectangle>
               <Components isList="true" count="3">
-                <DataBand2 Ref="65" type="DataBand" isKey="true">
+                <DataBand2 Ref="63" type="DataBand" isKey="true">
                   <Brush>Transparent</Brush>
                   <BusinessObjectGuid>31edf0c56d9443b3b4f3e5d39e0e3491</BusinessObjectGuid>
                   <ClientRectangle>0,0.4,10.3,0.8</ClientRectangle>
                   <Components isList="true" count="5">
-                    <Text25 Ref="66" type="Text" isKey="true">
+                    <Text25 Ref="64" type="Text" isKey="true">
                       <Border>Left, Bottom;[0:0:0];1;Solid;False;4;[0:0:0]</Border>
                       <Brush>Transparent</Brush>
                       <ClientRectangle>8.4,0,1.8,0.8</ClientRectangle>
@@ -1010,7 +973,7 @@
                       <Margins>0,0,0,0</Margins>
                       <Name>Text25</Name>
                       <Page isRef="5" />
-                      <Parent isRef="65" />
+                      <Parent isRef="63" />
                       <Text>{Anbar.PersianStr}</Text>
                       <TextBrush>Black</TextBrush>
                       <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
@@ -1018,7 +981,7 @@
                       <Type>DataColumn</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text25>
-                    <Text26 Ref="67" type="Text" isKey="true">
+                    <Text26 Ref="65" type="Text" isKey="true">
                       <Border>Left, Bottom;[0:0:0];1;Solid;False;4;[0:0:0]</Border>
                       <Brush>Transparent</Brush>
                       <ClientRectangle>5.8,0,2.6,0.8</ClientRectangle>
@@ -1029,7 +992,7 @@
                       <Margins>0,0,0,0</Margins>
                       <Name>Text26</Name>
                       <Page isRef="5" />
-                      <Parent isRef="65" />
+                      <Parent isRef="63" />
                       <Text>{Anbar.ObjectTitle}</Text>
                       <TextBrush>Black</TextBrush>
                       <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
@@ -1037,7 +1000,7 @@
                       <Type>DataColumn</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text26>
-                    <Text27 Ref="68" type="Text" isKey="true">
+                    <Text27 Ref="66" type="Text" isKey="true">
                       <Border>Left, Bottom;[0:0:0];1;Solid;False;4;[0:0:0]</Border>
                       <Brush>Transparent</Brush>
                       <ClientRectangle>4.8,0,1,0.8</ClientRectangle>
@@ -1048,8 +1011,33 @@
                       <Margins>0,0,0,0</Margins>
                       <Name>Text27</Name>
                       <Page isRef="5" />
-                      <Parent isRef="65" />
+                      <Parent isRef="63" />
                       <Text>{Anbar.meqdar}</Text>
+                      <TextBrush>Black</TextBrush>
+                      <TextFormat Ref="67" type="NumberFormat" isKey="true">
+                        <DecimalDigits>0</DecimalDigits>
+                        <GroupSeparator>,</GroupSeparator>
+                        <NegativePattern>1</NegativePattern>
+                        <UseLocalSetting>False</UseLocalSetting>
+                      </TextFormat>
+                      <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+                      <TextQuality>Typographic</TextQuality>
+                      <Type>DataColumn</Type>
+                      <VertAlignment>Center</VertAlignment>
+                    </Text27>
+                    <Text28 Ref="68" type="Text" isKey="true">
+                      <Border>Left, Bottom;[0:0:0];1;Solid;False;4;[0:0:0]</Border>
+                      <Brush>Transparent</Brush>
+                      <ClientRectangle>2.8,0,2,0.8</ClientRectangle>
+                      <Conditions isList="true" count="0" />
+                      <Font>IRANSans(FaNum),10</Font>
+                      <Guid>d3e990a95a3d45ba9a5038af93aad418</Guid>
+                      <HorAlignment>Center</HorAlignment>
+                      <Margins>0,0,0,0</Margins>
+                      <Name>Text28</Name>
+                      <Page isRef="5" />
+                      <Parent isRef="63" />
+                      <Text>{Anbar.nerkh}</Text>
                       <TextBrush>Black</TextBrush>
                       <TextFormat Ref="69" type="NumberFormat" isKey="true">
                         <DecimalDigits>0</DecimalDigits>
@@ -1061,33 +1049,8 @@
                       <TextQuality>Typographic</TextQuality>
                       <Type>DataColumn</Type>
                       <VertAlignment>Center</VertAlignment>
-                    </Text27>
-                    <Text28 Ref="70" type="Text" isKey="true">
-                      <Border>Left, Bottom;[0:0:0];1;Solid;False;4;[0:0:0]</Border>
-                      <Brush>Transparent</Brush>
-                      <ClientRectangle>2.8,0,2,0.8</ClientRectangle>
-                      <Conditions isList="true" count="0" />
-                      <Font>IRANSans(FaNum),10</Font>
-                      <Guid>d3e990a95a3d45ba9a5038af93aad418</Guid>
-                      <HorAlignment>Center</HorAlignment>
-                      <Margins>0,0,0,0</Margins>
-                      <Name>Text28</Name>
-                      <Page isRef="5" />
-                      <Parent isRef="65" />
-                      <Text>{Anbar.nerkh}</Text>
-                      <TextBrush>Black</TextBrush>
-                      <TextFormat Ref="71" type="NumberFormat" isKey="true">
-                        <DecimalDigits>0</DecimalDigits>
-                        <GroupSeparator>,</GroupSeparator>
-                        <NegativePattern>1</NegativePattern>
-                        <UseLocalSetting>False</UseLocalSetting>
-                      </TextFormat>
-                      <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
-                      <TextQuality>Typographic</TextQuality>
-                      <Type>DataColumn</Type>
-                      <VertAlignment>Center</VertAlignment>
                     </Text28>
-                    <Text29 Ref="72" type="Text" isKey="true">
+                    <Text29 Ref="70" type="Text" isKey="true">
                       <Border>Left, Bottom;[0:0:0];1;Solid;False;4;[0:0:0]</Border>
                       <Brush>Transparent</Brush>
                       <ClientRectangle>0,0,2.8,0.8</ClientRectangle>
@@ -1098,10 +1061,10 @@
                       <Margins>0,0,0,0</Margins>
                       <Name>Text29</Name>
                       <Page isRef="5" />
-                      <Parent isRef="65" />
+                      <Parent isRef="63" />
                       <Text>{Anbar.mablaq}</Text>
                       <TextBrush>Black</TextBrush>
-                      <TextFormat Ref="73" type="NumberFormat" isKey="true">
+                      <TextFormat Ref="71" type="NumberFormat" isKey="true">
                         <DecimalDigits>0</DecimalDigits>
                         <GroupSeparator>,</GroupSeparator>
                         <NegativePattern>1</NegativePattern>
@@ -1120,14 +1083,14 @@
                   <Guid>f0c2bfa9e24c4dbcbc07f9a81468b3bc</Guid>
                   <Name>DataBand2</Name>
                   <Page isRef="5" />
-                  <Parent isRef="64" />
+                  <Parent isRef="62" />
                   <Sort isList="true" count="0" />
                 </DataBand2>
-                <GroupHeaderBand1 Ref="74" type="GroupHeaderBand" isKey="true">
+                <GroupHeaderBand1 Ref="72" type="GroupHeaderBand" isKey="true">
                   <Brush>Transparent</Brush>
                   <ClientRectangle>0,2,10.3,0.8</ClientRectangle>
                   <Components isList="true" count="2">
-                    <Text30 Ref="75" type="Text" isKey="true">
+                    <Text30 Ref="73" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>5.6,0,4.6,0.6</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -1136,7 +1099,7 @@
                       <Margins>0,0,0,0</Margins>
                       <Name>Text30</Name>
                       <Page isRef="5" />
-                      <Parent isRef="74" />
+                      <Parent isRef="72" />
                       <Text>{Anbar.ObjectTitle}</Text>
                       <TextBrush>Black</TextBrush>
                       <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
@@ -1144,7 +1107,7 @@
                       <Type>Expression</Type>
                       <VertAlignment>Center</VertAlignment>
                     </Text30>
-                    <Text4 Ref="76" type="Text" isKey="true">
+                    <Text4 Ref="74" type="Text" isKey="true">
                       <Brush>Transparent</Brush>
                       <ClientRectangle>0.2,0,5.4,0.6</ClientRectangle>
                       <Conditions isList="true" count="0" />
@@ -1154,10 +1117,10 @@
                       <Margins>0,0,0,0</Margins>
                       <Name>Text4</Name>
                       <Page isRef="5" />
-                      <Parent isRef="74" />
+                      <Parent isRef="72" />
                       <Text>{Sum(GroupHeaderBand1,Anbar.mablaq)}</Text>
                       <TextBrush>Black</TextBrush>
-                      <TextFormat Ref="77" type="NumberFormat" isKey="true">
+                      <TextFormat Ref="75" type="NumberFormat" isKey="true">
                         <DecimalDigits>0</DecimalDigits>
                         <GroupSeparator>,</GroupSeparator>
                         <NegativePattern>1</NegativePattern>
@@ -1173,10 +1136,10 @@
                   <Conditions isList="true" count="0" />
                   <Name>GroupHeaderBand1</Name>
                   <Page isRef="5" />
-                  <Parent isRef="64" />
+                  <Parent isRef="62" />
                   <PrintAtBottom>True</PrintAtBottom>
                 </GroupHeaderBand1>
-                <DataBand4 Ref="78" type="DataBand" isKey="true">
+                <DataBand4 Ref="76" type="DataBand" isKey="true">
                   <Brush>Transparent</Brush>
                   <BusinessObjectGuid>31edf0c56d9443b3b4f3e5d39e0e3491</BusinessObjectGuid>
                   <ClientRectangle>0,3.6,10.3,0</ClientRectangle>
@@ -1187,7 +1150,7 @@
                   <Guid>6624f778b5c64c43896f2fede9cc26d9</Guid>
                   <Name>DataBand4</Name>
                   <Page isRef="5" />
-                  <Parent isRef="64" />
+                  <Parent isRef="62" />
                   <Sort isList="true" count="0" />
                 </DataBand4>
               </Components>
@@ -1196,7 +1159,7 @@
               <GrowToHeight>True</GrowToHeight>
               <Name>Panel4</Name>
               <Page isRef="5" />
-              <Parent isRef="46" />
+              <Parent isRef="44" />
             </Panel4>
           </Components>
           <Conditions isList="true" count="0" />
@@ -1217,13 +1180,13 @@
       <PaperSize>A4</PaperSize>
       <Report isRef="0" />
       <RightToLeft>True</RightToLeft>
-      <Watermark Ref="79" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="77" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="80" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="78" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -1235,10 +1198,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/2/2025 10:54:32 AM</ReportChanged>
+  <ReportChanged>7/28/2025 5:15:47 PM</ReportChanged>
   <ReportCreated>7/27/2025 5:40:06 PM</ReportCreated>
   <ReportFile>E:\_Workspace_Project_\_ResaStore_Single_\Output\Print\Bar\SuratHesabKeshavarz.mrt</ReportFile>
-  <ReportGuid>ccf9f5e051e14919873e8da07393893d</ReportGuid>
+  <ReportGuid>0d87375beef349bb92bc8c664aa2a561</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2015.2.0</ReportVersion>
@@ -1267,7 +1230,7 @@ namespace Reports
 </Script>
   <ScriptLanguage>CSharp</ScriptLanguage>
   <Styles isList="true" count="1">
-    <Style1 Ref="81" type="Stimulsoft.Report.StiStyle" isKey="true">
+    <Style1 Ref="79" type="Stimulsoft.Report.StiStyle" isKey="true">
       <Brush>[242:242:242]</Brush>
       <Conditions isList="true" count="0" />
       <Font>Arial,8</Font>

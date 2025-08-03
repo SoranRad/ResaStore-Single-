@@ -40,6 +40,20 @@ END
 ",true);
 
             Sql(@"
+
+IF NOT EXISTS (
+    SELECT 1 
+    FROM sys.schemas 
+    WHERE name = 'Bar'  
+)
+BEGIN
+    EXEC('CREATE SCHEMA [Bar]') 
+END
+GO
+
+",true);
+
+            Sql(@"
 CREATE TABLE [Bar].[tbl_Car](
 	[ID] [smallint] IDENTITY(1,1) NOT NULL,
 	[Code] [smallint] NOT NULL,

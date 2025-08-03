@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Janus.Windows.UI.Tab;
+﻿using Janus.Windows.UI.Tab;
 using MS_Control;
 using MS_Control.Controls;
 using Nz.Bar.Business;
@@ -18,6 +12,13 @@ using ShareLib.Interfaces;
 using ShareLib.Models;
 using ShareLib.Utils;
 using ShareLib.ViewModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using static ShareLib.Enums;
 
 namespace Nz.Bar.Winforms.Provider
 {
@@ -38,7 +39,7 @@ namespace Nz.Bar.Winforms.Provider
         #endregion
         #region Constructor
         public ToolStripItem    MainMenuSysytem     => null;
-        public string           GetName             => "بـار";
+        public string           GetName             => "محـصولات";
 
         public BarProvider()
         {
@@ -114,7 +115,7 @@ namespace Nz.Bar.Winforms.Provider
 		        var Mgr     = new ReportManager();
 		        var item    = Mgr.GetItem<RemaindBalance>(new
 		        {
-			        ID , 
+			        People = ID , 
 			        Year = SystemConstant.ActiveYear.Salmali
 		        },null);
 		        return item?.Balance ?? 0;

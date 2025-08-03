@@ -34,7 +34,6 @@ namespace Nz.Bar.Winforms.App
 			this.uiTabPage12 = new Janus.Windows.UI.Tab.UITabPage();
 			this.uiGroupBox2 = new Janus.Windows.EditControls.UIGroupBox();
 			this.NzRanande = new Nz.Bar.Winforms.Component.NzCarBox();
-			this.nzRemainRanande = new NZ.General.WinForms.Component.NzRemainCustomer();
 			this.label2 = new System.Windows.Forms.Label();
 			this.NzCustomerKeshavarz = new NZ.General.WinForms.Component.NzRemainCustomer();
 			this.NzDate = new MS_Control.Tarikh.MS_Tarikh_TextBox();
@@ -44,6 +43,12 @@ namespace Nz.Bar.Winforms.App
 			this.NzKeshavarz = new NZ.General.WinForms.Component.NzPeople();
 			this.NzCustomerLable = new System.Windows.Forms.Label();
 			this.uiGroupBox1 = new Janus.Windows.EditControls.UIGroupBox();
+			this.label28 = new System.Windows.Forms.Label();
+			this.label27 = new System.Windows.Forms.Label();
+			this.label26 = new System.Windows.Forms.Label();
+			this.label25 = new System.Windows.Forms.Label();
+			this.label24 = new System.Windows.Forms.Label();
+			this.label23 = new System.Windows.Forms.Label();
 			this.label22 = new System.Windows.Forms.Label();
 			this.NzDescription = new MS_Control.Controls.MS_TextBox();
 			this.NzObjectSelection = new Nz.Anbar.WinForms.Component.NzObjectCombo();
@@ -140,7 +145,6 @@ namespace Nz.Bar.Winforms.App
 			this.uiGroupBox2.BackColor = System.Drawing.Color.Transparent;
 			this.uiGroupBox2.BorderColor = System.Drawing.Color.LightBlue;
 			this.uiGroupBox2.Controls.Add(this.NzRanande);
-			this.uiGroupBox2.Controls.Add(this.nzRemainRanande);
 			this.uiGroupBox2.Controls.Add(this.label2);
 			this.uiGroupBox2.Controls.Add(this.NzCustomerKeshavarz);
 			this.uiGroupBox2.Controls.Add(this.NzDate);
@@ -183,20 +187,6 @@ namespace Nz.Bar.Winforms.App
 			this.NzRanande.Size = new System.Drawing.Size(260, 29);
 			this.NzRanande.TabIndex = 2;
 			this.NzRanande.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
-			// 
-			// nzRemainRanande
-			// 
-			this.nzRemainRanande.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.nzRemainRanande.Location = new System.Drawing.Point(8, 16);
-			this.nzRemainRanande.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.nzRemainRanande.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.nzRemainRanande.MS_Color_End = System.Drawing.Color.Empty;
-			this.nzRemainRanande.MS_Color_Start = System.Drawing.Color.Empty;
-			this.nzRemainRanande.Name = "nzRemainRanande";
-			this.nzRemainRanande.Size = new System.Drawing.Size(126, 29);
-			this.nzRemainRanande.TabIndex = 769;
-			this.nzRemainRanande.Text = "0";
-			this.nzRemainRanande.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// label2
 			// 
@@ -336,6 +326,7 @@ namespace Nz.Bar.Winforms.App
 			this.NzKeshavarz.Size = new System.Drawing.Size(260, 29);
 			this.NzKeshavarz.TabIndex = 3;
 			this.NzKeshavarz.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			this.NzKeshavarz.MS_On_Row_Selected += new System.EventHandler<MS_Control.TSDD.On_Selected>(this.NzKeshavarz_MS_On_Row_Selected);
 			// 
 			// NzCustomerLable
 			// 
@@ -355,6 +346,12 @@ namespace Nz.Bar.Winforms.App
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.uiGroupBox1.BackColor = System.Drawing.Color.Transparent;
 			this.uiGroupBox1.BorderColor = System.Drawing.Color.LightBlue;
+			this.uiGroupBox1.Controls.Add(this.label28);
+			this.uiGroupBox1.Controls.Add(this.label27);
+			this.uiGroupBox1.Controls.Add(this.label26);
+			this.uiGroupBox1.Controls.Add(this.label25);
+			this.uiGroupBox1.Controls.Add(this.label24);
+			this.uiGroupBox1.Controls.Add(this.label23);
 			this.uiGroupBox1.Controls.Add(this.label22);
 			this.uiGroupBox1.Controls.Add(this.NzDescription);
 			this.uiGroupBox1.Controls.Add(this.NzObjectSelection);
@@ -383,6 +380,78 @@ namespace Nz.Bar.Winforms.App
 			this.uiGroupBox1.Name = "uiGroupBox1";
 			this.uiGroupBox1.Size = new System.Drawing.Size(618, 343);
 			this.uiGroupBox1.TabIndex = 1;
+			// 
+			// label28
+			// 
+			this.label28.AutoSize = true;
+			this.label28.BackColor = System.Drawing.Color.Transparent;
+			this.label28.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.label28.ForeColor = System.Drawing.Color.Maroon;
+			this.label28.Location = new System.Drawing.Point(30, 101);
+			this.label28.Name = "label28";
+			this.label28.Size = new System.Drawing.Size(48, 23);
+			this.label28.TabIndex = 761;
+			this.label28.Text = "کیلوگرم";
+			// 
+			// label27
+			// 
+			this.label27.AutoSize = true;
+			this.label27.BackColor = System.Drawing.Color.Transparent;
+			this.label27.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.label27.ForeColor = System.Drawing.Color.Maroon;
+			this.label27.Location = new System.Drawing.Point(30, 64);
+			this.label27.Name = "label27";
+			this.label27.Size = new System.Drawing.Size(48, 23);
+			this.label27.TabIndex = 761;
+			this.label27.Text = "کیلوگرم";
+			// 
+			// label26
+			// 
+			this.label26.AutoSize = true;
+			this.label26.BackColor = System.Drawing.Color.Transparent;
+			this.label26.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.label26.ForeColor = System.Drawing.Color.Maroon;
+			this.label26.Location = new System.Drawing.Point(322, 193);
+			this.label26.Name = "label26";
+			this.label26.Size = new System.Drawing.Size(48, 23);
+			this.label26.TabIndex = 761;
+			this.label26.Text = "کیلوگرم";
+			// 
+			// label25
+			// 
+			this.label25.AutoSize = true;
+			this.label25.BackColor = System.Drawing.Color.Transparent;
+			this.label25.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.label25.ForeColor = System.Drawing.Color.Maroon;
+			this.label25.Location = new System.Drawing.Point(322, 155);
+			this.label25.Name = "label25";
+			this.label25.Size = new System.Drawing.Size(48, 23);
+			this.label25.TabIndex = 761;
+			this.label25.Text = "کیلوگرم";
+			// 
+			// label24
+			// 
+			this.label24.AutoSize = true;
+			this.label24.BackColor = System.Drawing.Color.Transparent;
+			this.label24.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.label24.ForeColor = System.Drawing.Color.Maroon;
+			this.label24.Location = new System.Drawing.Point(322, 101);
+			this.label24.Name = "label24";
+			this.label24.Size = new System.Drawing.Size(48, 23);
+			this.label24.TabIndex = 761;
+			this.label24.Text = "کیلوگرم";
+			// 
+			// label23
+			// 
+			this.label23.AutoSize = true;
+			this.label23.BackColor = System.Drawing.Color.Transparent;
+			this.label23.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.label23.ForeColor = System.Drawing.Color.Maroon;
+			this.label23.Location = new System.Drawing.Point(322, 64);
+			this.label23.Name = "label23";
+			this.label23.Size = new System.Drawing.Size(48, 23);
+			this.label23.TabIndex = 761;
+			this.label23.Text = "کیلوگرم";
 			// 
 			// label22
 			// 
@@ -607,7 +676,6 @@ namespace Nz.Bar.Winforms.App
 			this.NzVazBoxXali.Font = new System.Drawing.Font("IRANSans(Small)", 15F);
 			this.NzVazBoxXali.Location = new System.Drawing.Point(371, 188);
 			this.NzVazBoxXali.MaxLength = 0;
-			this.NzVazBoxXali.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
 			this.NzVazBoxXali.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzVazBoxXali.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzVazBoxXali.MS_Change_Border_Color_On_Enter = true;
@@ -843,7 +911,7 @@ namespace Nz.Bar.Winforms.App
 			this.uiTabPage14.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.uiTabPage14.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.uiTabPage14.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage14.Size = new System.Drawing.Size(589, 405);
+			this.uiTabPage14.Size = new System.Drawing.Size(632, 455);
 			this.uiTabPage14.TabStop = true;
 			this.uiTabPage14.Text = "پرسش و پاسخ";
 			// 
@@ -853,7 +921,7 @@ namespace Nz.Bar.Winforms.App
 			this.label10.AutoSize = true;
 			this.label10.BackColor = System.Drawing.Color.Transparent;
 			this.label10.Font = new System.Drawing.Font("IRANSans(Small)", 15F);
-			this.label10.Location = new System.Drawing.Point(391, 127);
+			this.label10.Location = new System.Drawing.Point(434, 127);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(81, 25);
 			this.label10.TabIndex = 165;
@@ -865,7 +933,7 @@ namespace Nz.Bar.Winforms.App
 			this.label9.AutoSize = true;
 			this.label9.BackColor = System.Drawing.Color.Transparent;
 			this.label9.Font = new System.Drawing.Font("IRANSans(Small)", 15F);
-			this.label9.Location = new System.Drawing.Point(391, 93);
+			this.label9.Location = new System.Drawing.Point(434, 93);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(81, 25);
 			this.label9.TabIndex = 166;
@@ -878,7 +946,7 @@ namespace Nz.Bar.Winforms.App
 			this.label13.BackColor = System.Drawing.Color.Transparent;
 			this.label13.Font = new System.Drawing.Font("IRANSans(Small)", 15F);
 			this.label13.ForeColor = System.Drawing.Color.Green;
-			this.label13.Location = new System.Drawing.Point(478, 127);
+			this.label13.Location = new System.Drawing.Point(521, 127);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(79, 25);
 			this.label13.TabIndex = 167;
@@ -891,7 +959,7 @@ namespace Nz.Bar.Winforms.App
 			this.label12.BackColor = System.Drawing.Color.Transparent;
 			this.label12.Font = new System.Drawing.Font("IRANSans(Small)", 15F);
 			this.label12.ForeColor = System.Drawing.Color.Green;
-			this.label12.Location = new System.Drawing.Point(478, 93);
+			this.label12.Location = new System.Drawing.Point(521, 93);
 			this.label12.Name = "label12";
 			this.label12.Size = new System.Drawing.Size(67, 25);
 			this.label12.TabIndex = 168;
@@ -904,7 +972,7 @@ namespace Nz.Bar.Winforms.App
 			this.label11.BackColor = System.Drawing.Color.Transparent;
 			this.label11.Font = new System.Drawing.Font("IRANSans(Small)", 15F);
 			this.label11.ForeColor = System.Drawing.Color.Green;
-			this.label11.Location = new System.Drawing.Point(478, 57);
+			this.label11.Location = new System.Drawing.Point(521, 57);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(45, 25);
 			this.label11.TabIndex = 169;
@@ -916,7 +984,7 @@ namespace Nz.Bar.Winforms.App
 			this.label7.AutoSize = true;
 			this.label7.BackColor = System.Drawing.Color.Transparent;
 			this.label7.Font = new System.Drawing.Font("IRANSans(Small)", 15F);
-			this.label7.Location = new System.Drawing.Point(374, 57);
+			this.label7.Location = new System.Drawing.Point(417, 57);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(98, 25);
 			this.label7.TabIndex = 170;
@@ -929,7 +997,7 @@ namespace Nz.Bar.Winforms.App
 			this.label3.BackColor = System.Drawing.Color.Transparent;
 			this.label3.Font = new System.Drawing.Font("IRANSans(Small)", 20F, System.Drawing.FontStyle.Bold);
 			this.label3.ForeColor = System.Drawing.Color.SteelBlue;
-			this.label3.Location = new System.Drawing.Point(380, 9);
+			this.label3.Location = new System.Drawing.Point(423, 9);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(197, 34);
 			this.label3.TabIndex = 171;
@@ -1109,12 +1177,17 @@ namespace Nz.Bar.Winforms.App
 		private MS_Control.Controls.MS_NumericTextBox NzVaznKhaliMachine;
 		private MS_Control.Controls.MS_NumericTextBox NzVazPorMachin;
 		private MS_Control.Controls.MS_NumericTextBox NzMablaqKeraye;
-		private NZ.General.WinForms.Component.NzRemainCustomer nzRemainRanande;
 		private Component.NzCarBox NzRanande;
 		private MS_Control.Controls.MS_Notify mS_Notify1;
 		private Anbar.WinForms.Component.NzObjectCombo NzObjectSelection;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label label22;
 		private MS_Control.Controls.MS_TextBox NzDescription;
+		private System.Windows.Forms.Label label28;
+		private System.Windows.Forms.Label label27;
+		private System.Windows.Forms.Label label26;
+		private System.Windows.Forms.Label label25;
+		private System.Windows.Forms.Label label24;
+		private System.Windows.Forms.Label label23;
 	}
 }

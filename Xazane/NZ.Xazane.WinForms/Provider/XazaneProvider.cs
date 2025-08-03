@@ -49,7 +49,7 @@ namespace NZ.Xazane.WinForms
             Menues = new XazaneMenuItems();
         }
 
-        public string                       GetName             => "خزانه داری";
+        public string                       GetName             => "دریافت و پرداخت";
         public ToolStripItem                MainMenuSysytem     => null;
 
         public IEnumerable<BillRowItem>     GetBillDetail       (long People, short? Year, DateTime? DateFrom, DateTime? DateTo, byte Group)

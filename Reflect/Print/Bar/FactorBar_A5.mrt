@@ -802,10 +802,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/2/2025 10:50:26 AM</ReportChanged>
+  <ReportChanged>7/24/2025 5:02:47 PM</ReportChanged>
   <ReportCreated>9/16/2014 9:44:57 AM</ReportCreated>
   <ReportFile>E:\_Workspace_Project_\_ResaStore_Single_\Output\Print\Bar\FactorBar_A5.mrt</ReportFile>
-  <ReportGuid>a6946389d6524d7cb5c5d6de55a6dfe8</ReportGuid>
+  <ReportGuid>7ff65f425b254aa38d900991c5837f2b</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2015.2.0</ReportVersion>

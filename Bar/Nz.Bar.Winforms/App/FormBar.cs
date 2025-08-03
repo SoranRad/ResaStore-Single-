@@ -81,6 +81,7 @@ namespace Nz.Bar.Winforms.App
 				
 				NzRanande.					MS_Set_Select(_Item.FK_Car);
 				NzKeshavarz.				MS_Set_Select(_Item.FK_People);
+				NzCustomerKeshavarz.		NzSetCustoemr(_Item.FK_People);
 				NzObjectSelection.			MS_Set_Select(_Item.FK_Kala);
 
 				_DoRefresh = false;
@@ -199,6 +200,15 @@ namespace Nz.Bar.Winforms.App
 				return false;
 			}
 
+			if (NzCustomerKeshavarz.IsUserBlocked(_Item.Mablaq))
+			{ 
+				MS_Message.Show("سقف اعتبار کاربر پرشده است. " +
+				                "نمی توانید بیشتر از اعتبار مشتری فاکتور صادر کنید"  );
+				NzKeshavarz.Focus();
+				mS_Notify1.Show(NzKeshavarz);
+				return false;
+			}
+
 			var Code = Convert.ToInt16(NzSerial.MS_Decimal);
 			if(_Item.ID==0 || (_Item.ID>0 && _Item.Serial!=Code))
 				if (!_Manager.IsCodeUnique<BarFactor>
@@ -291,7 +301,7 @@ namespace Nz.Bar.Winforms.App
 			_DoRefresh = false;
 
 			NzVaznXales.MS_Decimal =   (NzVazPorMachin.MS_Decimal	- NzVaznKhaliMachine.MS_Decimal)
-			                         - (NzVazBoxXali.MS_Decimal		* NzTedadBox.MS_Decimal)
+			                         - decimal.Ceiling(NzVazBoxXali.MS_Decimal		* NzTedadBox.MS_Decimal)
 			                         -  NzVaznOft.MS_Decimal;
 			_DoRefresh = true;
 		}
@@ -360,6 +370,18 @@ namespace Nz.Bar.Winforms.App
 		{
 			RefreshMount();
 		}
+
+		private void NzKeshavarz_MS_On_Row_Selected(object sender, MS_Control.TSDD.On_Selected e)
+		{
+			if (NzKeshavarz.MS_Get_Selected() == null)
+				NzCustomerKeshavarz.Text = "0";
+			else
+			{
+				var tmp = NzKeshavarz.MS_Get_Selected() as People;
+				NzCustomerKeshavarz.NzSetCustoemr(tmp?.ID ?? 0);
+			}
+		}
+
 		private void	Vazn_TextChanged	(object sender, EventArgs e)
 		{
 			RefreshVazn();

@@ -49,7 +49,8 @@ namespace Nz.Bar.Winforms.Report
 			 
 			report.Dictionary.Variables["company"].Value	= SystemConstant.ActiveCompany.title;
 			report.Dictionary.Variables["Keshavarz"].Value	= (NzCustomer.MS_Get_Selected() as People).title;
-			report.Dictionary.Variables["Mande"].Value	= NzCustomerRemain.Balance.ToString();
+			report.Dictionary.Variables["Mande"].Value		= NzCustomerRemain.Balance.ToString();
+			report.Dictionary.Variables["MandeTitle"].Value	= NzCustomerRemain.Balance>0?"بدهکار":"بستانکار";
 
 			report.Render(true);
 

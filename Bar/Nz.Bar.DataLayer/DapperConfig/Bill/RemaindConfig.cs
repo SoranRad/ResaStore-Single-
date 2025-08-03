@@ -12,7 +12,7 @@ namespace Nz.Bar.DataLayer.DapperConfig.Bill
 	{
 		public RemaindConfig()
 		{
-			SetList(@"
+			SetItem(@"
 SELECT 
  
 -SUM(tbf.Mablaq) AS Balance  

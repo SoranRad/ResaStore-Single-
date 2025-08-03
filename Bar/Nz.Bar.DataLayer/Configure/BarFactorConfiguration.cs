@@ -42,7 +42,7 @@ namespace Nz.Bar.DataLayer.Configure
 
 			this
 				.Property						(x => x.VaznKhaliBox)
-				.HasPrecision					(18,0);
+				.HasPrecision					(18,2);
 
 			this
 				.Property						(x => x.VaznOft)

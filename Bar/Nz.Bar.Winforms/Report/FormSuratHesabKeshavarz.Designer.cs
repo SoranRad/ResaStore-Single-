@@ -34,7 +34,6 @@
 			this.NzCustomerRemain = new NZ.General.WinForms.Component.NzRemainCustomer();
 			this.NzCustomer = new NZ.General.WinForms.Component.NzPeople();
 			this.NzReport = new MS_Control.Controls.MS_Button_GridX();
-			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.mS_Panel1.SuspendLayout();
 			this.SuspendLayout();
@@ -45,7 +44,7 @@
 			this.stiViewerControl1.BackColor = System.Drawing.Color.LightSteelBlue;
 			this.stiViewerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.stiViewerControl1.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.stiViewerControl1.Location = new System.Drawing.Point(0, 74);
+			this.stiViewerControl1.Location = new System.Drawing.Point(0, 48);
 			this.stiViewerControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.stiViewerControl1.Name = "stiViewerControl1";
 			this.stiViewerControl1.PageViewMode = Stimulsoft.Report.Viewer.StiPageViewMode.SinglePage;
@@ -62,7 +61,7 @@
 			this.stiViewerControl1.ShowPageSize = false;
 			this.stiViewerControl1.ShowThumbsPanel = false;
 			this.stiViewerControl1.ShowZoom = true;
-			this.stiViewerControl1.Size = new System.Drawing.Size(1357, 641);
+			this.stiViewerControl1.Size = new System.Drawing.Size(1357, 667);
 			this.stiViewerControl1.TabIndex = 3;
 			this.stiViewerControl1.ThumbsPanelEnabled = false;
 			// 
@@ -71,7 +70,6 @@
 			this.mS_Panel1.Controls.Add(this.NzCustomerRemain);
 			this.mS_Panel1.Controls.Add(this.NzCustomer);
 			this.mS_Panel1.Controls.Add(this.NzReport);
-			this.mS_Panel1.Controls.Add(this.label3);
 			this.mS_Panel1.Controls.Add(this.label2);
 			this.mS_Panel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.mS_Panel1.Location = new System.Drawing.Point(0, 0);
@@ -82,7 +80,7 @@
 			this.mS_Panel1.MS_Color_Start = System.Drawing.Color.AliceBlue;
 			this.mS_Panel1.Name = "mS_Panel1";
 			this.mS_Panel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_Panel1.Size = new System.Drawing.Size(1357, 74);
+			this.mS_Panel1.Size = new System.Drawing.Size(1357, 48);
 			this.mS_Panel1.TabIndex = 723;
 			// 
 			// NzCustomerRemain
@@ -90,13 +88,13 @@
 			this.NzCustomerRemain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzCustomerRemain.BackColor = System.Drawing.Color.White;
 			this.NzCustomerRemain.Font = new System.Drawing.Font("IRANSans(Small)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.NzCustomerRemain.Location = new System.Drawing.Point(1087, 38);
+			this.NzCustomerRemain.Location = new System.Drawing.Point(754, 8);
 			this.NzCustomerRemain.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzCustomerRemain.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzCustomerRemain.MS_Color_End = System.Drawing.Color.Empty;
 			this.NzCustomerRemain.MS_Color_Start = System.Drawing.Color.Empty;
 			this.NzCustomerRemain.Name = "NzCustomerRemain";
-			this.NzCustomerRemain.Size = new System.Drawing.Size(180, 28);
+			this.NzCustomerRemain.Size = new System.Drawing.Size(203, 28);
 			this.NzCustomerRemain.TabIndex = 768;
 			this.NzCustomerRemain.Text = "0";
 			this.NzCustomerRemain.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -140,7 +138,7 @@
 			this.NzReport.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.NzReport.Image = ((System.Drawing.Image)(resources.GetObject("NzReport.Image")));
 			this.NzReport.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
-			this.NzReport.Location = new System.Drawing.Point(825, 8);
+			this.NzReport.Location = new System.Drawing.Point(626, 7);
 			this.NzReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.NzReport.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzReport.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -161,18 +159,6 @@
 			this.NzReport.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
 			this.NzReport.WordWrap = false;
 			this.NzReport.Click += new System.EventHandler(this.NzReport_Click);
-			// 
-			// label3
-			// 
-			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.label3.AutoSize = true;
-			this.label3.BackColor = System.Drawing.Color.Transparent;
-			this.label3.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label3.Location = new System.Drawing.Point(1268, 41);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(86, 23);
-			this.label3.TabIndex = 761;
-			this.label3.Text = "وضعیت فعلی :";
 			// 
 			// label2
 			// 
@@ -209,7 +195,6 @@
 		private NZ.General.WinForms.Component.NzRemainCustomer NzCustomerRemain;
 		private NZ.General.WinForms.Component.NzPeople NzCustomer;
 		private MS_Control.Controls.MS_Button_GridX NzReport;
-		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
 	}
 }
