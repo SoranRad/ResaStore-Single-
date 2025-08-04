@@ -51,10 +51,12 @@
   <ItemGroup>
     <Compile Include="Models\BarFactor.cs" />
     <Compile Include="Models\Car.cs" />
+    <Compile Include="Models\ErsalKarkhane.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report\BarFactorList.cs" />
     <Compile Include="Report\BillRow.cs" />
     <Compile Include="Report\CarList.cs" />
+    <Compile Include="Report\ErsalKarkhaneList.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>

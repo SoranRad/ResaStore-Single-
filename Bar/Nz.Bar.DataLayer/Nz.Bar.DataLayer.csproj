@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Configure\BarFactorConfiguration.cs" />
     <Compile Include="Configure\CarConfiguration.cs" />
+    <Compile Include="Configure\ErsalKarkhaneConfiguration.cs" />
     <Compile Include="Context\ContextFactory.cs" />
     <Compile Include="Context\BarContext.cs" />
     <Compile Include="DapperConfig\BarFactorListDapperConfig.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="DapperConfig\Bill\RemaindConfig.cs" />
     <Compile Include="DapperConfig\Bill\RemaindPeopleConfig.cs" />
     <Compile Include="DapperConfig\CarListDapperConfig.cs" />
+    <Compile Include="DapperConfig\ErsalKarkhaneListConfig.cs" />
     <Compile Include="Migrations\202507201441112_InitialCreate.cs" />
     <Compile Include="Migrations\202507201441112_InitialCreate.Designer.cs">
       <DependentUpon>202507201441112_InitialCreate.cs</DependentUpon>
@@ -91,6 +93,10 @@
     <Compile Include="Migrations\202507301558431_change-vaz-box-xali.cs" />
     <Compile Include="Migrations\202507301558431_change-vaz-box-xali.Designer.cs">
       <DependentUpon>202507301558431_change-vaz-box-xali.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202508031451109_add-ersal-karkhane.cs" />
+    <Compile Include="Migrations\202508031451109_add-ersal-karkhane.Designer.cs">
+      <DependentUpon>202508031451109_add-ersal-karkhane.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -124,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202507301558431_change-vaz-box-xali.resx">
       <DependentUpon>202507301558431_change-vaz-box-xali.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202508031451109_add-ersal-karkhane.resx">
+      <DependentUpon>202508031451109_add-ersal-karkhane.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

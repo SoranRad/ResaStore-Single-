@@ -88,9 +88,7 @@ WHERE tbf.ID= @ID
 
 		public string UniqueCode()
 		{
-			return @"SELECT COUNT(tbf.ID)
-                    FROM Bar.tbl_BarFactor AS tbf
-                    WHERE tbf.Serial = @Code";
+			return @"SELECT COUNT(tbf.ID) FROM Bar.tbl_BarFactor AS tbf  WHERE tbf.Serial = @Code";
 		}
 
 		public string CircularQuery()

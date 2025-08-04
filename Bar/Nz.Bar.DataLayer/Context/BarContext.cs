@@ -53,6 +53,7 @@ namespace  Nz.Bar.DataLayer.Context
 
             modelBuilder.Configurations.Add(new CarConfiguration());
             modelBuilder.Configurations.Add(new BarFactorConfiguration());
+            modelBuilder.Configurations.Add(new ErsalKarkhaneConfiguration());
         }
     }
 }

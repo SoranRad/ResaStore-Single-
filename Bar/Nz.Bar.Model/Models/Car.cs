@@ -9,7 +9,8 @@ namespace Nz.Bar.Model.Models
 	{
 		public Car()
 		{
-			BarFactors         = new HashSet<BarFactor>();
+			BarFactors			= new HashSet<BarFactor>();
+			ErsalKarkhanes      = new HashSet<ErsalKarkhane>();
 		}
 		public short        ID						{ get; set; }
 		public short        Code					{ get; set; }
@@ -18,7 +19,8 @@ namespace Nz.Bar.Model.Models
 		public string       CarType					{ get; set; }
 		public bool			IsDisable				{ get; set; }
 
-		public virtual ICollection<BarFactor>      BarFactors         { get; set; }
+		public virtual ICollection<BarFactor>			BarFactors				{ get; set; }
+		public virtual ICollection<ErsalKarkhane>		ErsalKarkhanes			{ get; set; }
 
 
 		public string GetItem()

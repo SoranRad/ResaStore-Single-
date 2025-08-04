@@ -52,8 +52,6 @@ namespace Nz.Bar.DataLayer.Configure
 				.Property						(x => x.VaznKHales)
 				.HasPrecision					(18,0);
 
-			 
-
 			this
 				.HasOptional					(x => x.Car)
 				.WithMany						(x=>x.BarFactors)

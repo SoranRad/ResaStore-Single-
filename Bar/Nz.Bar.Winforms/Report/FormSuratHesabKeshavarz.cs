@@ -53,14 +53,8 @@ namespace Nz.Bar.Winforms.Report
 			report.Dictionary.Variables["MandeTitle"].Value	= NzCustomerRemain.Balance>0?"بدهکار":"بستانکار";
 
 			report.Render(true);
-
-			//report["company"] = SystemConstant.ActiveCompany.title;
-			//report["Keshavarz"] =(NzCustomer.MS_Get_Selected() as People).title;
-
-
-			stiViewerControl1.Report = report;
-			//report["company"] = SystemConstant.ActiveCompany.title;
-			//report["Keshavarz"] =(NzCustomer.MS_Get_Selected() as People).title;
+			 
+			stiViewerControl1.Report = report; 
 
 		}
 
