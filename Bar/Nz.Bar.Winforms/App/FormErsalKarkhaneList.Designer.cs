@@ -34,7 +34,6 @@
 			Janus.Windows.Common.Layouts.JanusLayoutReference ms_Grid_DesignTimeLayout_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.HeaderImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference ms_Grid_DesignTimeLayout_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference ms_Grid_DesignTimeLayout_Reference_3 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.HeaderImage");
-			this.mS_GridX_Setting1 = new MS_Control.Controls.MS_GridX_Setting();
 			this.ms_Grid = new MS_Control.Controls.MS_GridX();
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
 			this.helpItems1 = new ShareLib.Component.HelpItems();
@@ -60,6 +59,7 @@
 			this.NsPrint = new System.Windows.Forms.ToolStripButton();
 			this.NzRefreshList = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+			this.mS_GridX_Setting1 = new MS_Control.Controls.MS_GridX_Setting();
 			((System.ComponentModel.ISupportInitialize)(this.ms_Grid)).BeginInit();
 			this.uiTabPage14.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ms_mah)).BeginInit();
@@ -71,23 +71,6 @@
 			this.mS_Tool_Strip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// mS_GridX_Setting1
-			// 
-			this.mS_GridX_Setting1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.mS_GridX_Setting1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-			this.mS_GridX_Setting1.Location = new System.Drawing.Point(0, 671);
-			this.mS_GridX_Setting1.MS_BorderColor = System.Drawing.Color.DodgerBlue;
-			this.mS_GridX_Setting1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.mS_GridX_Setting1.MS_Color_End = System.Drawing.Color.PowderBlue;
-			this.mS_GridX_Setting1.MS_Color_Start = System.Drawing.Color.AliceBlue;
-			this.mS_GridX_Setting1.MS_GridX = this.ms_Grid;
-			this.mS_GridX_Setting1.Name = "mS_GridX_Setting1";
-			this.mS_GridX_Setting1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_GridX_Setting1.Size = new System.Drawing.Size(1339, 25);
-			this.mS_GridX_Setting1.TabIndex = 732;
-			this.mS_GridX_Setting1.Text = "mS_GridX_Setting1";
-			this.mS_GridX_Setting1.MS_On_Print_Clicked += new System.EventHandler(this.mS_GridX_Setting1_MS_On_Print_Clicked);
-			// 
 			// ms_Grid
 			// 
 			this.ms_Grid.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.False;
@@ -97,6 +80,7 @@
 			this.ms_Grid.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.ms_Grid.BorderStyle = Janus.Windows.GridEX.BorderStyle.RaisedLight3D;
 			this.ms_Grid.BuiltInTextsData = resources.GetString("ms_Grid.BuiltInTextsData");
+			this.ms_Grid.ColumnAutoResize = true;
 			this.ms_Grid.ColumnSetNavigation = Janus.Windows.GridEX.ColumnSetNavigation.ColumnSet;
 			this.ms_Grid.Cursor = System.Windows.Forms.Cursors.Arrow;
 			this.ms_Grid.DefaultFilterRowComparison = Janus.Windows.GridEX.FilterConditionOperator.Contains;
@@ -140,7 +124,7 @@
 			this.ms_Grid.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
 			this.ms_Grid.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
 			this.ms_Grid.SelectOnExpand = false;
-			this.ms_Grid.Size = new System.Drawing.Size(1305, 645);
+			this.ms_Grid.Size = new System.Drawing.Size(1305, 620);
 			this.ms_Grid.TabIndex = 719;
 			this.ms_Grid.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 			this.ms_Grid.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
@@ -159,7 +143,7 @@
 			this.uiTabPage14.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.uiTabPage14.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.uiTabPage14.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage14.Size = new System.Drawing.Size(1305, 694);
+			this.uiTabPage14.Size = new System.Drawing.Size(1305, 669);
 			this.uiTabPage14.TabStop = true;
 			this.uiTabPage14.Text = "پرسش و پاسخ";
 			// 
@@ -170,7 +154,7 @@
 			this.helpItems1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.helpItems1.Location = new System.Drawing.Point(0, 0);
 			this.helpItems1.Name = "helpItems1";
-			this.helpItems1.Size = new System.Drawing.Size(1305, 694);
+			this.helpItems1.Size = new System.Drawing.Size(1305, 669);
 			this.helpItems1.TabIndex = 0;
 			// 
 			// uiTabPage6
@@ -355,6 +339,7 @@
 			// 
 			this.uiTabPage12.Controls.Add(this.ms_Grid);
 			this.uiTabPage12.Controls.Add(this.mS_Panel1);
+			this.uiTabPage12.Controls.Add(this.mS_GridX_Setting1);
 			this.uiTabPage12.Location = new System.Drawing.Point(1, 1);
 			this.uiTabPage12.Name = "uiTabPage12";
 			this.uiTabPage12.PanelFormatStyle.Alpha = 70;
@@ -431,11 +416,26 @@
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
 			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 28);
 			// 
+			// mS_GridX_Setting1
+			// 
+			this.mS_GridX_Setting1.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.mS_GridX_Setting1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+			this.mS_GridX_Setting1.Location = new System.Drawing.Point(0, 669);
+			this.mS_GridX_Setting1.MS_BorderColor = System.Drawing.Color.DodgerBlue;
+			this.mS_GridX_Setting1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.mS_GridX_Setting1.MS_Color_End = System.Drawing.Color.PowderBlue;
+			this.mS_GridX_Setting1.MS_Color_Start = System.Drawing.Color.AliceBlue;
+			this.mS_GridX_Setting1.MS_GridX = this.ms_Grid;
+			this.mS_GridX_Setting1.Name = "mS_GridX_Setting1";
+			this.mS_GridX_Setting1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.mS_GridX_Setting1.Size = new System.Drawing.Size(1305, 25);
+			this.mS_GridX_Setting1.TabIndex = 735;
+			this.mS_GridX_Setting1.Text = "mS_GridX_Setting1";
+			// 
 			// FormErsalKarkhaneList
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.ClientSize = new System.Drawing.Size(1339, 696);
-			this.Controls.Add(this.mS_GridX_Setting1);
 			this.Controls.Add(this.Tab_Control_Main);
 			this.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
 			this.Name = "FormErsalKarkhaneList";
@@ -448,18 +448,16 @@
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).EndInit();
 			this.Tab_Control_Main.ResumeLayout(false);
 			this.uiTabPage12.ResumeLayout(false);
+			this.uiTabPage12.PerformLayout();
 			this.mS_Panel1.ResumeLayout(false);
 			this.mS_Panel1.PerformLayout();
 			this.mS_Tool_Strip1.ResumeLayout(false);
 			this.mS_Tool_Strip1.PerformLayout();
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 
 		#endregion
-
-		private MS_Control.Controls.MS_GridX_Setting mS_GridX_Setting1;
 		private MS_Control.Controls.MS_GridX ms_Grid;
 		private Janus.Windows.UI.Tab.UITabPage uiTabPage14;
 		private ShareLib.Component.HelpItems helpItems1;
@@ -485,5 +483,6 @@
 		private System.Windows.Forms.ToolStripButton NsPrint;
 		private System.Windows.Forms.ToolStripButton NzRefreshList;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+		private MS_Control.Controls.MS_GridX_Setting mS_GridX_Setting1;
 	}
 }

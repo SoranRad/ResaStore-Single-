@@ -125,7 +125,7 @@
 			this.NzNew.ShowFocusRectangle = false;
 			this.NzNew.Size = new System.Drawing.Size(147, 32);
 			this.NzNew.TabIndex = 1;
-			this.NzNew.Text = "فاکتور جدید    [F4]";
+			this.NzNew.Text = "محموله جدید    [F4]";
 			this.NzNew.TextHorizontalAlignment = Janus.Windows.EditControls.TextAlignment.Near;
 			this.NzNew.UseThemes = false;
 			this.NzNew.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
