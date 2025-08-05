@@ -50,5 +50,18 @@ namespace Nz.Bar.Winforms.Provider
 			frm.MdiParent   = BarProvider.MainForm;
 			frm.Show();
 		}
+
+		private void NsFactory_Click(object sender, EventArgs e)
+		{
+			var frm = new FormErsalKarkhane(0);
+			frm.Show(BarProvider.MainForm);
+		}
+
+		private void NsFactoryList_Click(object sender, EventArgs e)
+		{
+			var frm         = new FormErsalKarkhaneList();
+			frm.MdiParent   = BarProvider.MainForm;
+			frm.Show();
+		}
 	}
 }

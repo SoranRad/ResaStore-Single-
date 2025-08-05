@@ -138,6 +138,7 @@ namespace Nz.Bar.Winforms.Provider
 			this.NsFactory.Name = "NsFactory";
 			this.NsFactory.Size = new System.Drawing.Size(226, 28);
 			this.NsFactory.Text = "ارسـال به کارخـانه";
+			this.NsFactory.Click += new System.EventHandler(this.NsFactory_Click);
 			// 
 			// NsFactoryList
 			// 
@@ -147,6 +148,7 @@ namespace Nz.Bar.Winforms.Provider
 			this.NsFactoryList.Name = "NsFactoryList";
 			this.NsFactoryList.Size = new System.Drawing.Size(226, 28);
 			this.NsFactoryList.Text = "لیست ارسالی ها به کارخانه";
+			this.NsFactoryList.Click += new System.EventHandler(this.NsFactoryList_Click);
 			// 
 			// NzReport
 			// 
