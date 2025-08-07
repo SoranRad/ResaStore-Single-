@@ -57,6 +57,7 @@
     <Compile Include="Report\BillRow.cs" />
     <Compile Include="Report\CarList.cs" />
     <Compile Include="Report\ErsalKarkhaneList.cs" />
+    <Compile Include="Report\RemaindKarkhane.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>

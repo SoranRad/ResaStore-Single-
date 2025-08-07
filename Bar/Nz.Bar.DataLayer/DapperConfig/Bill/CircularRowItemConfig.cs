@@ -34,10 +34,38 @@ LEFT OUTER JOIN General.DimDate     AS dd   ON  tbf.tarikh  = dd.GregorianDate
 
 WHERE
 
-    (tbf.FK_Salmali  =  @Year     OR @Year IS NULL)
-AND (tbf.FK_People   =  @People ) 
+    (tbf.FK_Salmali  = @Year      OR @Year IS NULL)
+AND (tbf.FK_People   = @People ) 
 AND (tbf.tarikh     >= @DateFrom  OR @DateFrom IS NULL)
 AND (tbf.tarikh     <= @DateTo    OR @DateTo   IS NULL)
+
+
+UNION ALL
+
+SELECT
+
+(11)         AS SubSystem ,
+tek.ID ,
+dd.PersianStr,
+tek.tarikh  AS Date,
+(11)        AS kind,
+LTRIM(RTRIM(tek.Tozihat))  AS Description,
+N'ارسال ' + FORMAT(tek.VaznKHales, 'N0')+ N' کیلو به کارخانه به شماره قبض ' + CAST( tek.ShomareGhabz AS nvarchar) AS Title,
+
+tek.Mablaq       AS Debit,
+(0)              AS Credit, 
+
+(0) AS Remaind 
+
+FROM Bar.tbl_ErsalKarkhane          AS tek 
+LEFT OUTER JOIN General.DimDate     AS dd   ON  tek.tarikh  = dd.GregorianDate 
+
+WHERE
+
+    (tek.FK_Salmali  = @Year      OR @Year IS NULL)
+AND (tek.tarikh     >= @DateFrom  OR @DateFrom IS NULL)
+AND (tek.tarikh     <= @DateTo    OR @DateTo   IS NULL)
+AND (tek.FK_Karkhane = @People) 
 
 ");
 		}

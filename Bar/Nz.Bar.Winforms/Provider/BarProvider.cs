@@ -58,8 +58,10 @@ namespace Nz.Bar.Winforms.Provider
 
 		        list.MSZ_ForEach(x =>
 		        {
-			        x.KindTitle = ((Enums.NzFactorKind) x.Kind).NzToString();
-
+                    if(((Enums.MS_System) x.Subsystem)==MS_System.Bar)
+			            x.KindTitle = "خرید محصول";
+                    else if (((Enums.MS_System) x.Subsystem)==MS_System.ErsalKarkhane)
+	                    x.KindTitle = "ارسال محموله";
 		        });
 
 		        return list;

@@ -63,5 +63,12 @@ namespace Nz.Bar.Winforms.Provider
 			frm.MdiParent   = BarProvider.MainForm;
 			frm.Show();
 		}
+
+		private void صورتحسـابکارخـانهToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var frm         = new FormKholaseVaziatKarxaneh();
+			frm.MdiParent   = BarProvider.MainForm;
+			frm.Show();
+		}
 	}
 }

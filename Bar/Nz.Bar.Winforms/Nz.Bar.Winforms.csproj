@@ -235,6 +235,12 @@
     <Compile Include="Component\NzCarGrid.Designer.cs">
       <DependentUpon>NzCarGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\FormKholaseVaziatKarxaneh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormKholaseVaziatKarxaneh.Designer.cs">
+      <DependentUpon>FormKholaseVaziatKarxaneh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\FormRizBarShaxs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -271,6 +277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Component\NzCarGrid.resx">
       <DependentUpon>NzCarGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormKholaseVaziatKarxaneh.resx">
+      <DependentUpon>FormKholaseVaziatKarxaneh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\FormRizBarShaxs.resx">
       <DependentUpon>FormRizBarShaxs.cs</DependentUpon>

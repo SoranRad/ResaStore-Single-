@@ -45,7 +45,6 @@ namespace Nz.Bar.Winforms.Provider
 			this.ریزبـارهاییککشاورزخاصToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
 			this.صورتحسـابکارخـانهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.ریزارسـالیبهکارخانهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.mS_Menu1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -157,8 +156,7 @@ namespace Nz.Bar.Winforms.Provider
             this.صورتحسابحامعکشاورزToolStripMenuItem,
             this.ریزبـارهاییککشاورزخاصToolStripMenuItem,
             this.toolStripMenuItem3,
-            this.صورتحسـابکارخـانهToolStripMenuItem,
-            this.ریزارسـالیبهکارخانهToolStripMenuItem});
+            this.صورتحسـابکارخـانهToolStripMenuItem});
 			this.NzReport.Font = new System.Drawing.Font("IRANSans(Small) Medium", 15F);
 			this.NzReport.Image = ((System.Drawing.Image)(resources.GetObject("NzReport.Image")));
 			this.NzReport.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -208,14 +206,8 @@ namespace Nz.Bar.Winforms.Provider
 			this.صورتحسـابکارخـانهToolStripMenuItem.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
 			this.صورتحسـابکارخـانهToolStripMenuItem.Name = "صورتحسـابکارخـانهToolStripMenuItem";
 			this.صورتحسـابکارخـانهToolStripMenuItem.Size = new System.Drawing.Size(234, 34);
-			this.صورتحسـابکارخـانهToolStripMenuItem.Text = "صورت حسـاب کارخـانه";
-			// 
-			// ریزارسـالیبهکارخانهToolStripMenuItem
-			// 
-			this.ریزارسـالیبهکارخانهToolStripMenuItem.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.ریزارسـالیبهکارخانهToolStripMenuItem.Name = "ریزارسـالیبهکارخانهToolStripMenuItem";
-			this.ریزارسـالیبهکارخانهToolStripMenuItem.Size = new System.Drawing.Size(234, 34);
-			this.ریزارسـالیبهکارخانهToolStripMenuItem.Text = "ریز ارسـالی به کارخانه";
+			this.صورتحسـابکارخـانهToolStripMenuItem.Text = "خلاصه وضعیت کارخانجات";
+			this.صورتحسـابکارخـانهToolStripMenuItem.Click += new System.EventHandler(this.صورتحسـابکارخـانهToolStripMenuItem_Click);
 			// 
 			// BarMenuItems
 			// 
@@ -247,6 +239,5 @@ namespace Nz.Bar.Winforms.Provider
 		private System.Windows.Forms.ToolStripMenuItem ریزبـارهاییککشاورزخاصToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
 		private System.Windows.Forms.ToolStripMenuItem صورتحسـابکارخـانهToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem ریزارسـالیبهکارخانهToolStripMenuItem;
 	}
 }

@@ -64,6 +64,7 @@ namespace ShareLib
             Mali    = 8,
             Bar     = 9,
             Machine = 10,
+            ErsalKarkhane =11,
         }
         public enum NzAccountKind : byte
         {

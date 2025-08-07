@@ -26,7 +26,7 @@ RTRIM(LTRIM(ta.namePedar))	AS  namePedar,
 RTRIM(LTRIM(ta.codeMeli))	AS  codeMeli,
 RTRIM(LTRIM(ta.tel))		AS tel ,
 RTRIM(LTRIM(ta.mobile))		AS mobile,
-Bar.Balance
+ISNULL(Bar.Balance,0)+ ISNULL(Ersal.Balance,0)  AS  Balance
 
 
 FROM Base.tbl_Ashxas AS ta
@@ -47,6 +47,22 @@ AND  (tbf.tarikh <=@TaTarikh OR @TaTarikh IS NULL)
 GROUP BY  tbf.FK_People
 
 ) AS Bar on Bar.FK_People = ta.ID
+
+LEFT OUTER JOIN(
+
+SELECT 
+tek.FK_Karkhane ,
+SUM(tek.Mablaq) AS Balance  
+
+FROM Bar.tbl_ErsalKarkhane          AS tek 
+
+WHERE tek.FK_Salmali = @Year 
+AND  (tek.tarikh >=@AzTarikh OR @AzTarikh IS NULL)
+AND  (tek.tarikh <=@TaTarikh OR @TaTarikh IS NULL)
+
+GROUP BY  tek.FK_Karkhane
+
+) AS Ersal on Ersal.FK_Karkhane = ta.ID
 
 ");
 		}

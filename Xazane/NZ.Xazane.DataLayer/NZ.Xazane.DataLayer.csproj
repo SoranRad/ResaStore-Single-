@@ -100,7 +100,7 @@
     <Compile Include="DapperConfig\Report\HazineDaramadGropingConfig.cs" />
     <Compile Include="DapperConfig\Report\MoneyCircularConfig.cs" />
     <Compile Include="DapperConfig\Report\PaymentsTransactionConfig.cs" />
-    <Compile Include="DapperConfig\Report\RemaindPeopleConfig.cs" />
+    <Compile Include="DapperConfig\Report\Bill\RemaindPeopleConfig.cs" />
     <Compile Include="DapperConfig\Report\ReviewAccountDailyConfig.cs" />
     <Compile Include="DapperConfig\Report\ReviewAccountDetailConfig.cs" />
     <Compile Include="DapperConfig\Report\ReviewAccoutnSumarryConfig.cs" />

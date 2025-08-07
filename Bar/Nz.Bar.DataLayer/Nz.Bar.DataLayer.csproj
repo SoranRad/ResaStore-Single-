@@ -78,6 +78,7 @@
     <Compile Include="DapperConfig\Bill\RemaindPeopleConfig.cs" />
     <Compile Include="DapperConfig\CarListDapperConfig.cs" />
     <Compile Include="DapperConfig\ErsalKarkhaneListConfig.cs" />
+    <Compile Include="DapperConfig\Report\RemaindKarkhaneDapperConfig.cs" />
     <Compile Include="Migrations\202507201441112_InitialCreate.cs" />
     <Compile Include="Migrations\202507201441112_InitialCreate.Designer.cs">
       <DependentUpon>202507201441112_InitialCreate.cs</DependentUpon>
