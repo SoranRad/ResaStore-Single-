@@ -561,7 +561,7 @@
               <Name>Text17</Name>
               <Page isRef="5" />
               <Parent isRef="28" />
-              <Text>{Sum(Bar.Mablaq)}</Text>
+              <Text>{Sum(DataBand1,Bar.Mablaq)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="34" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -585,7 +585,7 @@
               <Name>Text5</Name>
               <Page isRef="5" />
               <Parent isRef="28" />
-              <Text>{Sum(Anbar.mablaq)}</Text>
+              <Text>{Sum(DataBand2,Anbar.mablaq)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="36" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -609,7 +609,7 @@
               <Name>Text6</Name>
               <Page isRef="5" />
               <Parent isRef="28" />
-              <Text>{Sum(Xazane.mablaq)}</Text>
+              <Text>{Sum(DataBand3,Xazane.mablaq)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="38" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -1235,10 +1235,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/2/2025 10:54:32 AM</ReportChanged>
+  <ReportChanged>8/7/2025 12:14:31 PM</ReportChanged>
   <ReportCreated>7/27/2025 5:40:06 PM</ReportCreated>
   <ReportFile>E:\_Workspace_Project_\_ResaStore_Single_\Output\Print\Bar\SuratHesabKeshavarz.mrt</ReportFile>
-  <ReportGuid>ccf9f5e051e14919873e8da07393893d</ReportGuid>
+  <ReportGuid>0b7a96f5fdd948d7b5e0b4aacd4bafa2</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2015.2.0</ReportVersion>

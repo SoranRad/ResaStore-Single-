@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ShareLib;
 
 namespace Nz.Anbar.Model.Report
 {
@@ -17,6 +18,9 @@ namespace Nz.Anbar.Model.Report
 		public DateTime			tarikh				{ get; set; }
 		public int				Serial				{ get; set; }
 		public byte				kind				{ get; set; }
+
+		public string			KindTitle			=> ((Enums.NzFactorKind)this.kind).NzToString();
+
 
 	}
 }

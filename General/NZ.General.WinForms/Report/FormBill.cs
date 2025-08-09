@@ -92,7 +92,47 @@ namespace NZ.General.WinForms.Report
 
             PrnDiag.ShowDialog(this);
         }
-        
+
+        private void RefreshPrintSuratHesab()
+        {
+	        var People = (NzCustomer.MS_Get_Selected() as People);
+	        var Year = SystemConstant.ActiveYear.Salmali;
+
+	        var ReportPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+	        ReportPath += "\\Print\\General\\SuratHesabJame.mrt";
+
+	        var report = new StiReport();
+	        report.Load(ReportPath);
+
+	        var Anbar	= Form_Factory._Form_Factory_Anbar.GetBillRows(People.ID, Year, null, null);
+	        var Xazane	= Form_Factory._Form_Factory_Xazaneh.GetBillRows(People.ID, Year, null, null);
+
+	        if(Anbar!=null)
+		        report.RegBusinessObject("Anbar",Anbar);
+
+	        if(Xazane!=null)
+		        report.RegBusinessObject("Xazane",Xazane);
+
+			 
+	        report.Dictionary.Variables["company"].Value	= SystemConstant.ActiveCompany.title; 
+            report.Dictionary.Variables["Mande"].Value = NzCustomerRemain.Balance.ToString();
+            report.Dictionary.Variables["MandeTitle"].Value = NzCustomerRemain.Balance > 0 ? "بدهکار" : "بستانکار";
+
+
+            report.Dictionary.Variables["User"             ].Value	= SystemConstant.ActiveUser.title;
+            //report.Dictionary.Variables["Company"          ].Value	= SystemConstant.ActiveCompany.title;
+	        report.Dictionary.Variables["tarikh"           ].Value	= new MS_Structure_Shamsi(DateTime.Now).ToShamsi();
+	        report.Dictionary.Variables["Name"             ].Value	= People?.title;
+	        //report.Dictionary.Variables["Address"          ].Value	= People?.addressHome;
+	        report.Dictionary.Variables["CodeMeli"         ].Value	= People?.codeMeli;
+	        report.Dictionary.Variables["Mobile"           ].Value	= People?.mobile;
+	        //report.Dictionary.Variables["Tel"              ].Value	= People?.tel;
+
+
+	        report.Render(true);
+			 
+	        stiViewerControl1.Report = report; 
+        }
         #endregion
         private void NzPrint_Click                      (object sender, EventArgs e)
         {
@@ -106,7 +146,10 @@ namespace NZ.General.WinForms.Report
             if(NzCustomer.MS_Get_Selected()==null)
                 return;
 
+
             var People      = NzCustomer.MS_Get_Selected() as People;
+            NzCustomerRemain.NzSetCustoemr(People?.ID ?? 0);
+
             var DateFrom    = NzDateFrom.MS_Tarikh.HasValue && !NzAllYears.Checked
                                 ? (DateTime?) NzDateFrom.MS_Tarikh.Value.ToDatetime()
                                 : null;
@@ -155,6 +198,8 @@ namespace NZ.General.WinForms.Report
                                         .ThenBy(x=>x.SubSystem)
                                         .ThenBy(x=>x.Kind)
                                         .ToList();
+
+            RefreshPrintSuratHesab();
         }
 
         private void NzGrid_FormattingRow               (object sender, RowLoadEventArgs e)
@@ -232,6 +277,8 @@ namespace NZ.General.WinForms.Report
             var current = NzCustomer.MS_Get_Selected() as People;
             if (current == null)
                 return;
+
+            NzCustomerRemain.NzSetCustoemr(current?.ID ?? 0);
 
             if (current.ID != _IDPeople)
             {

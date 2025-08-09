@@ -87,6 +87,7 @@ namespace Nz.Bar.Winforms.Report
 
 		private void NzGroup_MS_On_Row_Selected(object sender, MS_Control.TSDD.On_Selected e)
 		{
+			RefreshGrid();
 
 		}
 	}
