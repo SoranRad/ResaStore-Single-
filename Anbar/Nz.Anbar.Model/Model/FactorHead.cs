@@ -7,7 +7,6 @@ namespace NZ.Anbar.Model
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    //[Table("Anbar.tbl_Amaliat_Title")]
     public class FactorHead
     {
         public FactorHead()

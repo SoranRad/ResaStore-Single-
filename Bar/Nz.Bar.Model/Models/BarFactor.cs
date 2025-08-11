@@ -24,6 +24,9 @@ namespace Nz.Bar.Model.Models
 		public decimal						VaznKHaliMachine		{ get; set; }
 		public decimal						TedadBox				{ get; set; }
 		public decimal						VaznKhaliBox			{ get; set; }
+		public decimal						SumKhaliBox				{ get; set; }
+
+		public decimal						DarsadOft				{ get; set; }
 		public decimal						VaznOft					{ get; set; }
 		public decimal						VaznKHales				{ get; set; }
 		public decimal						Nerkh					{ get; set; }
@@ -60,7 +63,9 @@ LTRIM(RTRIM([tbf].[Tozihat])) AS Tozihat,
 [tbf].[VaznKHaliMachine],
 [tbf].[TedadBox],
 [tbf].[VaznKhaliBox],
+[tbf].[SumKhaliBox],
 [tbf].[VaznKHales],
+[tbf].[DarsadOft],
 [tbf].[VaznOft],
 [tbf].[Nerkh],
 [tbf].[Mablaq],

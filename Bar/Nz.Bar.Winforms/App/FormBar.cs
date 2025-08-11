@@ -93,6 +93,9 @@ namespace Nz.Bar.Winforms.App
 				NzVaznOft.MS_Decimal			= _Item.VaznOft;
 				NzVaznXales.MS_Decimal			= _Item.VaznKHales;
 
+				NzDarsadOft.MS_Decimal			= _Item.DarsadOft;
+				NzSumKhaliBox.MS_Decimal		= _Item.SumKhaliBox;
+
 				NzFi.MS_Decimal					= decimal.Ceiling(_Item.Nerkh);
 				NzMablaq.MS_Decimal				= decimal.Ceiling(_Item.Mablaq);
 				NzMablaqKeraye.MS_Decimal		= decimal.Ceiling(_Item.MablaqKeraye);
@@ -141,7 +144,9 @@ namespace Nz.Bar.Winforms.App
 			_Item.VaznKhaliBox		= NzVazBoxXali.MS_Decimal;
 			_Item.VaznOft			= NzVaznOft.MS_Decimal;
 			_Item.VaznKHales		= NzVaznXales.MS_Decimal;
-			
+			_Item.SumKhaliBox		= NzSumKhaliBox.MS_Decimal;
+			_Item.DarsadOft			= NzDarsadOft.MS_Decimal;
+
 			_Item.Nerkh				= NzFi.MS_Decimal;
 			_Item.Mablaq			= NzMablaq.MS_Decimal;
 			_Item.MablaqKeraye		= NzMablaqKeraye.MS_Decimal;
@@ -176,6 +181,8 @@ namespace Nz.Bar.Winforms.App
 				NzVazBoxXali.Text			= 
 				NzVaznOft.Text				= 
 				NzVaznXales.Text			= 
+				NzSumKhaliBox.Text			=
+				NzDarsadOft.Text			=
 
 				NzFi.Text					= 
 				NzMablaq.Text				= 
@@ -300,9 +307,12 @@ namespace Nz.Bar.Winforms.App
 
 			_DoRefresh = false;
 
-			NzVaznXales.MS_Decimal =   (NzVazPorMachin.MS_Decimal	- NzVaznKhaliMachine.MS_Decimal)
-			                         - decimal.Ceiling(NzVazBoxXali.MS_Decimal		* NzTedadBox.MS_Decimal)
-			                         -  NzVaznOft.MS_Decimal;
+			NzSumKhaliBox.MS_Decimal = decimal.Ceiling(NzVazBoxXali.MS_Decimal * NzTedadBox.MS_Decimal);
+
+			NzVaznXales.MS_Decimal =   NzVazPorMachin.MS_Decimal	
+			                         - NzVaznKhaliMachine.MS_Decimal
+			                         - NzSumKhaliBox.MS_Decimal
+			                         - NzVaznOft.MS_Decimal;
 			_DoRefresh = true;
 		}
 		private void	RefreshMount		()
@@ -375,7 +385,24 @@ namespace Nz.Bar.Winforms.App
 			RefreshVazn();
 			RefreshMount();
 		}
-		
+
+		private void NzDarsadOft_TextChanged(object sender, EventArgs e)
+		{
+			_DoRefresh = false;
+
+			var vaznNaKhales =	 NzVazPorMachin.MS_Decimal
+			                   - NzVaznKhaliMachine.MS_Decimal
+			                   - NzSumKhaliBox.MS_Decimal;
+
+			NzVaznOft.MS_Decimal = decimal.Ceiling( vaznNaKhales * NzDarsadOft.MS_Decimal / 100);
+
+
+
+			_DoRefresh = true;
+			RefreshVazn();
+			RefreshMount();
+		}
+
 		private void	NzKeshavarz_MS_On_Row_Selected(object sender, MS_Control.TSDD.On_Selected e)
 		{
 			if (NzKeshavarz.MS_Get_Selected() == null)

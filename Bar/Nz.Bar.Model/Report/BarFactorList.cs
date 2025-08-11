@@ -26,6 +26,9 @@ namespace Nz.Bar.Model.Report
 		public decimal						VaznKHaliMachine		{ get; set; }
 		public decimal						TedadBox				{ get; set; }
 		public decimal						VaznKhaliBox			{ get; set; }
+		public decimal						SumKhaliBox				{ get; set; }
+		
+		public decimal						DarsadOft				{ get; set; }
 		public decimal						VaznOft					{ get; set; }
 		public decimal						VaznKHales				{ get; set; }
 		public decimal						Nerkh					{ get; set; }

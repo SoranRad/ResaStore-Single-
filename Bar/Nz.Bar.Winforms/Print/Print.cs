@@ -74,6 +74,7 @@ namespace Nz.Bar.Winforms.Print
                         x.PersianStr,
                         x.VaznPorMachine,
                         x.VaznKHaliMachine,
+                        x.SumKhaliBox,
                         x.TedadBox,
                         x.VaznKhaliBox,
                         x.VaznOft,
@@ -96,7 +97,7 @@ namespace Nz.Bar.Winforms.Print
                                 {"VaznKHaliMachine" , x.Key.VaznKHaliMachine},
                                 {"TedadBox"         , x.Key.TedadBox},
 
-                                {"VaznKhaliBox"     , x.Key.VaznKhaliBox},
+                                {"VaznKhaliBox"     , x.Key.SumKhaliBox},
                                 {"VaznOft"          , x.Key.VaznOft},
                                 {"VaznKHales"       , x.Key.VaznKHales},
                                 {"Nerkh"            , x.Key.Nerkh},

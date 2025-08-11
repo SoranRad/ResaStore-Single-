@@ -24,6 +24,7 @@ namespace Nz.Bar.Model.Report
 
 		public decimal						VaznNaKhales			{ get; set; }
 		public decimal						VaznKHali				{ get; set; }
+
 		public decimal						DarsadOft				{ get; set; }
 		public decimal						VaznOft					{ get; set; }
 		public decimal						VaznKHales				{ get; set; }

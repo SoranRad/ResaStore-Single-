@@ -88,7 +88,7 @@ namespace Nz.Bar.Winforms.App
 				var mgr = new Manager();
 				var ha = mgr.HaveCircular<Car>(new
 				{
-					Item.ID
+					Code = Item.ID
 				});
 
 				if (ha)

@@ -79,11 +79,6 @@ namespace Nz.Bar.Winforms.Provider
 		        var Mgr  = new ReportManager();
 		        var list = Mgr.GetReport<CircularRowItem>(new {People, Year, DateFrom, DateTo, TopCount= Group }, string.Empty);
 
-		        //list?.MSZ_ForEach(x =>
-		        //{
-			       // x.Title = ((Enums.NzFactorKind) x.Kind).NzToString() +@"(" + x.Title + @")";
-		        //});
-
 		        return list;
 	        }
 	        catch (Exception ex)

@@ -45,6 +45,14 @@ namespace Nz.Bar.DataLayer.Configure
 				.HasPrecision					(18,2);
 
 			this
+				.Property						(x => x.SumKhaliBox)
+				.HasPrecision					(18,0);
+
+			this
+				.Property						(x => x.DarsadOft)
+				.HasPrecision					(18,2);
+
+			this
 				.Property						(x => x.VaznOft)
 				.HasPrecision					(18,0);
 
