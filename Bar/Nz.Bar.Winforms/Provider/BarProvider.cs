@@ -223,12 +223,12 @@ namespace Nz.Bar.Winforms.Provider
             return null;
         }
 
-        public async Task<MS_Chart[]> GetChartSummarry()
+        public async Task<MS_Chart[]>           GetChartSummarry        ()
         {
             return null;
         }
 
-        public Task<IEnumerable<DailyCircular>> GetDailyCircular(short Year, short Month)
+        public Task<IEnumerable<DailyCircular>> GetDailyCircular        (short Year, short Month)
         {
             try
             {
@@ -242,7 +242,7 @@ namespace Nz.Bar.Winforms.Provider
             }
         }
 
-		public NsSettingTabPage GetSettingTabPage()
+		public NsSettingTabPage                 GetSettingTabPage       ()
 		{
 			_settingContainer = new TabSettingContainer();
 			_settingContainer.LoadSetting((SettingItems)_settings );
@@ -250,7 +250,7 @@ namespace Nz.Bar.Winforms.Provider
 			return _settingContainer.TabSetting;
 		}
 
-		public void SetSettings(IEnumerable<dynamic> settings)
+		public void                             SetSettings             (IEnumerable<dynamic> settings)
 		{
 			var setting = settings.SingleOrDefault(x => x.Name == SettingItems.KeyName);
 			if (setting == null)
@@ -259,17 +259,17 @@ namespace Nz.Bar.Winforms.Provider
 				_settings = Converter.Convert<SettingItems>(setting);
 		}
 
-		public ISettingItems GetSettings()
+		public ISettingItems                    GetSettings             ()
 		{
 			return _settings;
 		}
 
-		public bool HasSrtartupForm()
+		public bool                             HasSrtartupForm         ()
 		{
 			return false;
 		}
 
-		public Form GetStartupPage()
+		public Form                             GetStartupPage          ()
 		{
 			return null;
 		}

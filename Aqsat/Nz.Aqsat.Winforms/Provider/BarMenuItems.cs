@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Nz.Aqsat.Winforms.App;
 
 namespace Nz.Bar.Winforms.Provider
 {
@@ -21,6 +22,11 @@ namespace Nz.Bar.Winforms.Provider
             //NzBrandMenu.Visible    = false;
             //ms_Storage.Visible     = false;
         }
-       
+
+		private void تعریفانواعقسطToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var frm = new FormAqsatKind();
+			frm.Show(AqsatProvider.MainForm);
+		}
 	}
 }

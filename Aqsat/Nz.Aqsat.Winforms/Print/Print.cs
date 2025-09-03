@@ -1,10 +1,10 @@
 ﻿using MS_Control;
 using MS_Control.Tarikh;
 using MS_Print_Dialog;
-using Nz.Bar.Business;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
+using Nz.Aqsat.Business;
 
 namespace Nz.Aqsat.Winforms.Print
 {

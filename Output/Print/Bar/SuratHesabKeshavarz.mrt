@@ -484,10 +484,11 @@
           <Components isList="true" count="12">
             <Text42 Ref="29" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>24.8,0,3.8,0.8</ClientRectangle>
+              <ClientRectangle>25.1,0,3.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),11,Bold</Font>
               <Guid>db3da9f2a1ac47e2801cc1a0f61ca0c4</Guid>
+              <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text42</Name>
               <Page isRef="5" />
@@ -501,10 +502,11 @@
             </Text42>
             <Text43 Ref="30" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>15,0,3.8,0.8</ClientRectangle>
+              <ClientRectangle>15.2,0,3.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),11,Bold</Font>
               <Guid>92554cec8cc7489f914e4bf85b2285b6</Guid>
+              <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text43</Name>
               <Page isRef="5" />
@@ -518,7 +520,7 @@
             </Text43>
             <Text44 Ref="31" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>5.6,0,2.8,0.8</ClientRectangle>
+              <ClientRectangle>6,0,2.4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),11,Bold</Font>
               <Guid>24778e9f209149e0a2d3a8eecafad4b8</Guid>
@@ -535,10 +537,11 @@
             </Text44>
             <Text45 Ref="32" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>15,0.8,3.8,0.8</ClientRectangle>
+              <ClientRectangle>15.2,0.8,3.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),11,Bold</Font>
               <Guid>3e1927fc42ad462b8e243c3ceafad890</Guid>
+              <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text45</Name>
               <Page isRef="5" />
@@ -552,7 +555,7 @@
             </Text45>
             <Text17 Ref="33" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>19.3,0,5.4,0.8</ClientRectangle>
+              <ClientRectangle>19.3,0,5.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),11</Font>
               <Guid>c4a4f4d6094e47c9927626f81505979a</Guid>
@@ -561,7 +564,7 @@
               <Name>Text17</Name>
               <Page isRef="5" />
               <Parent isRef="28" />
-              <Text>{Sum(DataBand1,Bar.Mablaq)}</Text>
+              <Text>{SumRunning(DataBand1,Bar.Mablaq)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="34" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -576,7 +579,7 @@
             </Text17>
             <Text5 Ref="35" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>9,0,6,0.8</ClientRectangle>
+              <ClientRectangle>9,0,6.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),11</Font>
               <Guid>d89c038469094c1c9deb0a52b7b966f5</Guid>
@@ -585,7 +588,7 @@
               <Name>Text5</Name>
               <Page isRef="5" />
               <Parent isRef="28" />
-              <Text>{Sum(DataBand2,Anbar.mablaq)}</Text>
+              <Text>{SumRunning(DataBand2,Anbar.mablaq)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="36" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -600,7 +603,7 @@
             </Text5>
             <Text6 Ref="37" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>0.2,0,5.2,0.8</ClientRectangle>
+              <ClientRectangle>0.2,0,5.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),11</Font>
               <Guid>f0803a87e40940f3a5a7a9adc7f0fe1e</Guid>
@@ -609,7 +612,7 @@
               <Name>Text6</Name>
               <Page isRef="5" />
               <Parent isRef="28" />
-              <Text>{Sum(DataBand3,Xazane.mablaq)}</Text>
+              <Text>{SumRunning(DataBand3,Xazane.mablaq)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="38" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -624,7 +627,7 @@
             </Text6>
             <Text7 Ref="39" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>9,0.8,6,0.8</ClientRectangle>
+              <ClientRectangle>9,0.8,6.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),11</Font>
               <Guid>0c99d10ad4834239a96420ec7e1a78cb</Guid>
@@ -652,7 +655,7 @@
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),11,Bold</Font>
               <Guid>9bab84614c00487988251e0a4361b9e6</Guid>
-              <HorAlignment>Center</HorAlignment>
+              <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text15</Name>
               <Page isRef="5" />
@@ -666,7 +669,7 @@
             </Text15>
             <Text18 Ref="42" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>19.3,0.8,5.4,0.8</ClientRectangle>
+              <ClientRectangle>19.3,0.8,5.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),11</Font>
               <Guid>38b253b2cbdd4d69a0f0c1a647dbec9b</Guid>
@@ -675,7 +678,7 @@
               <Name>Text18</Name>
               <Page isRef="5" />
               <Parent isRef="28" />
-              <Text>{Sum(Bar.VaznKHales)}</Text>
+              <Text>{SumRunning(DataBand1,Bar.VaznKHales)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="43" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -1235,10 +1238,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/7/2025 12:14:31 PM</ReportChanged>
+  <ReportChanged>8/13/2025 10:26:21 AM</ReportChanged>
   <ReportCreated>7/27/2025 5:40:06 PM</ReportCreated>
   <ReportFile>E:\_Workspace_Project_\_ResaStore_Single_\Output\Print\Bar\SuratHesabKeshavarz.mrt</ReportFile>
-  <ReportGuid>0b7a96f5fdd948d7b5e0b4aacd4bafa2</ReportGuid>
+  <ReportGuid>69701bddeaa542d3bd62cc02fba19b0d</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2015.2.0</ReportVersion>

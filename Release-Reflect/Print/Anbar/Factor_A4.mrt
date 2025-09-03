@@ -69,7 +69,7 @@
     <Page1 Ref="3" type="Page" isKey="true">
       <Border>All;Black;2;Solid;False;4;Black</Border>
       <Brush>Transparent</Brush>
-      <Components isList="true" count="9">
+      <Components isList="true" count="8">
         <PageHeaderBand1 Ref="4" type="PageHeaderBand" isKey="true">
           <Border>Bottom;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
@@ -657,8 +657,8 @@
         </PageHeaderBand2>
         <PageFooterBand1 Ref="39" type="PageFooterBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,28,19.75,0.7</ClientRectangle>
-          <Components isList="true" count="2">
+          <ClientRectangle>0,27.8,19.75,0.9</ClientRectangle>
+          <Components isList="true" count="3">
             <Text15 Ref="40" type="Text" isKey="true">
               <Border>AdvBlack;1;None;Black;2;None;Black;1;None;Black;1;None;False;4;Black</Border>
               <Brush>[141:179:226]</Brush>
@@ -692,6 +692,26 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text52>
+            <Text56 Ref="42" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black;True</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0.5,19.75,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <DockStyle>Bottom</DockStyle>
+              <Font>IRANSans(FaNum) Medium,10,Bold</Font>
+              <Guid>52f8a803f9794b3d8fae460df146dbff</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text56</Name>
+              <Page isRef="3" />
+              <Parent isRef="39" />
+              <Text>حسابداری رسـا -(2984 870 0914 )-  www.NikShaho.ir </Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text56>
           </Components>
           <Conditions isList="true" count="0" />
           <Guid>34f9a45a0ba745698bf46e754306745b</Guid>
@@ -699,25 +719,6 @@
           <Page isRef="3" />
           <Parent isRef="3" />
         </PageFooterBand1>
-        <Text56 Ref="42" type="Text" isKey="true">
-          <Border>None;Black;2;Solid;False;4;Black;True</Border>
-          <Brush>White</Brush>
-          <ClientRectangle>-0.4,20.4,0.4,8.3</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Font>IRANSans(FaNum) Medium,10,Bold</Font>
-          <Guid>98a25bfe8cdd495b880d7b012f151d7b</Guid>
-          <HorAlignment>Center</HorAlignment>
-          <Margins>0,0,0,0</Margins>
-          <Name>Text56</Name>
-          <Page isRef="3" />
-          <Parent isRef="3" />
-          <Text>حسابداری رسـا -(2984 870 0914 )-  www.NikShaho.ir </Text>
-          <TextBrush>Black</TextBrush>
-          <TextOptions>,,RightToLeft=True,,,Angle=90</TextOptions>
-          <TextQuality>Typographic</TextQuality>
-          <Type>Expression</Type>
-          <VertAlignment>Center</VertAlignment>
-        </Text56>
         <HeaderBand1 Ref="43" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,7.75,19.75,1.1</ClientRectangle>
@@ -1800,10 +1801,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/31/2023 3:49:13 AM</ReportChanged>
+  <ReportChanged>8/18/2025 9:34:57 AM</ReportChanged>
   <ReportCreated>9/16/2014 9:44:57 AM</ReportCreated>
-  <ReportFile>H:\_Workspace_Project_\_NzResaaStore_GitHub_\Output\Print\Anbar\Factor_A4.mrt</ReportFile>
-  <ReportGuid>a30af070be4049faabe33f8dfd51a9fc</ReportGuid>
+  <ReportFile>E:\_Workspace_Project_\_ResaStore_Single_\Output\Print\Anbar\Factor_A4.mrt</ReportFile>
+  <ReportGuid>7b2d8722eb17461ab7b81c682568ba36</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2015.2.0</ReportVersion>

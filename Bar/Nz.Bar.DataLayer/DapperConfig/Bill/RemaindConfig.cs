@@ -45,7 +45,7 @@ AND (tek.FK_Karkhane    =  @People )
 
 )
 
-SELECT @Mahsul + @Ersal  AS Balance
+SELECT ISNULL(@Mahsul,0) + ISNULL(@Ersal,0)  AS Balance
 ");
 		}
 	}

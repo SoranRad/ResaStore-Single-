@@ -421,11 +421,12 @@
         <Text50 Ref="29" type="Text" isKey="true">
           <Border>None;Black;2;Solid;False;4;Black;True</Border>
           <Brush>EmptyBrush</Brush>
-          <ClientRectangle>0,20,7.2,0.4</ClientRectangle>
+          <ClientRectangle>0,19.6,28.7,0.4</ClientRectangle>
           <Conditions isList="true" count="0" />
+          <DockStyle>Bottom</DockStyle>
           <Font>IRANSans(FaNum) Medium,8</Font>
           <Guid>c5101804fb904af5b94a21490080ec5e</Guid>
-          <HorAlignment>Center</HorAlignment>
+          <HorAlignment>Right</HorAlignment>
           <Margins>0,0,0,0</Margins>
           <Name>Text50</Name>
           <Page isRef="3" />
@@ -876,10 +877,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/31/2023 3:51:45 AM</ReportChanged>
+  <ReportChanged>8/18/2025 9:39:03 AM</ReportChanged>
   <ReportCreated>5/27/2018 7:51:55 AM</ReportCreated>
-  <ReportFile>H:\_Workspace_Project_\_NzResaaStore_GitHub_\Output\Print\General\RizSuratHesab.mrt</ReportFile>
-  <ReportGuid>86b1c6348cd646cd8be20ca931be890b</ReportGuid>
+  <ReportFile>E:\_Workspace_Project_\_ResaStore_Single_\Output\Print\General\RizSuratHesab.mrt</ReportFile>
+  <ReportGuid>06fe6a63caf4424599abb623a59188a7</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2015.2.0</ReportVersion>

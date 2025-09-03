@@ -180,8 +180,9 @@
         <Text50 Ref="12" type="Text" isKey="true">
           <Border>None;Black;2;Solid;False;4;Black;True</Border>
           <Brush>EmptyBrush</Brush>
-          <ClientRectangle>0,19.6,7.2,0.4</ClientRectangle>
+          <ClientRectangle>0,19.6,13.8,0.4</ClientRectangle>
           <Conditions isList="true" count="0" />
+          <DockStyle>Bottom</DockStyle>
           <Font>IRANSans(FaNum) Medium,8</Font>
           <Guid>b6dc495e30e34626916d2c2cd3769167</Guid>
           <HorAlignment>Center</HorAlignment>
@@ -325,8 +326,8 @@
   <ReportAlias>Report</ReportAlias>
   <ReportChanged>8/31/2023 3:50:46 AM</ReportChanged>
   <ReportCreated>9/16/2014 9:44:57 AM</ReportCreated>
-  <ReportFile>H:\_Workspace_Project_\_NzResaaStore_GitHub_\Output\Print\Anbar\Prefactor_A5.mrt</ReportFile>
-  <ReportGuid>954d165049f8455eb2ad4cd85b95aaa5</ReportGuid>
+  <ReportFile>E:\_Workspace_Project_\_ResaStore_Single_\Output\Print\Anbar\Prefactor_A5.mrt</ReportFile>
+  <ReportGuid>adfcc4a1617044eb86328ea954da3ca6</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2015.2.0</ReportVersion>

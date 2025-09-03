@@ -1,7 +1,6 @@
 ﻿using Janus.Windows.UI.Tab;
 using MS_Control;
 using MS_Control.Controls;
-using Nz.Bar.Business;  
 using ShareLib;
 using ShareLib.Component;
 using ShareLib.Interfaces;
@@ -14,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Nz.Aqsat.Business;
 using Nz.Aqsat.Model.Report;
 using Nz.Aqsat.WinForms.Settings;
 using Nz.Asat.Winforms.Settings;

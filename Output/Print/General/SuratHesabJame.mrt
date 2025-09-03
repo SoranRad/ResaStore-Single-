@@ -1137,10 +1137,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/9/2025 2:14:08 PM</ReportChanged>
+  <ReportChanged>8/18/2025 9:40:09 AM</ReportChanged>
   <ReportCreated>7/27/2025 5:40:06 PM</ReportCreated>
   <ReportFile>E:\_Workspace_Project_\_ResaStore_Single_\Output\Print\General\SuratHesabJame.mrt</ReportFile>
-  <ReportGuid>348d4c7cf29c420894b2bee6fc0e39e3</ReportGuid>
+  <ReportGuid>694a0cfcfc4441928200051e17539076</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2015.2.0</ReportVersion>

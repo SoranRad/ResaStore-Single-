@@ -49,9 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\IAqsatRepository.cs" />
     <Compile Include="Models\Aqsat_Kind.cs" />
     <Compile Include="Models\Aqsat_Main.cs" />
     <Compile Include="Models\Aqsat_Riz.cs" />
+    <Compile Include="Models\Aqsat_SmsLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report\BillRow.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />

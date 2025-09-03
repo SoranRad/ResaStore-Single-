@@ -447,11 +447,12 @@
         <Text50 Ref="30" type="Text" isKey="true">
           <Border>None;Black;2;Solid;False;4;Black;True</Border>
           <Brush>EmptyBrush</Brush>
-          <ClientRectangle>0.2,19.5,7.8,0.5</ClientRectangle>
+          <ClientRectangle>0,19.5,28.7,0.5</ClientRectangle>
           <Conditions isList="true" count="0" />
+          <DockStyle>Bottom</DockStyle>
           <Font>IRANSans(FaNum) Medium,9</Font>
           <Guid>d515291eb00f40d6b93019e6e8da8961</Guid>
-          <HorAlignment>Center</HorAlignment>
+          <HorAlignment>Right</HorAlignment>
           <Margins>0,0,0,0</Margins>
           <Name>Text50</Name>
           <OnlyText>True</OnlyText>
@@ -1552,10 +1553,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/31/2023 3:50:19 AM</ReportChanged>
+  <ReportChanged>8/18/2025 9:36:21 AM</ReportChanged>
   <ReportCreated>5/27/2018 7:51:55 AM</ReportCreated>
-  <ReportFile>H:\_Workspace_Project_\_NzResaaStore_GitHub_\Output\Print\Anbar\PeopleCircular.mrt</ReportFile>
-  <ReportGuid>8f5224f58a444a8f9f1c2956992f42ec</ReportGuid>
+  <ReportFile>E:\_Workspace_Project_\_ResaStore_Single_\Output\Print\Anbar\PeopleCircular.mrt</ReportFile>
+  <ReportGuid>e03983e15b0d41e6bafb1b50189eba6d</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2015.2.0</ReportVersion>

@@ -27,6 +27,9 @@ namespace Nz.Bar.Winforms.Report
 			var People = (NzCustomer.MS_Get_Selected() as People).ID;
 			var Year = SystemConstant.ActiveYear.Salmali;
 
+			NzCustomerRemain.NzSetCustoemr(People);
+
+
 			var ReportPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 			ReportPath += "\\Print\\Bar\\SuratHesabKeshavarz.mrt";
 

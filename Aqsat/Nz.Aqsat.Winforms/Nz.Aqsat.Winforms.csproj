@@ -199,6 +199,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\AqsatKindBinding.cs" />
+    <Compile Include="App\FormAqsatKind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\FormAqsatKind.Designer.cs">
+      <DependentUpon>FormAqsatKind.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings\SettingItems.cs" />
     <Compile Include="Settings\TabSettingContainer.cs">
       <SubType>UserControl</SubType>
@@ -206,6 +213,9 @@
     <Compile Include="Settings\TabSettingContainer.Designer.cs">
       <DependentUpon>TabSettingContainer.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="App\FormAqsatKind.resx">
+      <DependentUpon>FormAqsatKind.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings\TabSettingContainer.resx">
       <DependentUpon>TabSettingContainer.cs</DependentUpon>
     </EmbeddedResource>
@@ -281,10 +291,9 @@
       <Name>ShareLib</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\..\Bar\Nz.Bar.Bussiness\Nz.Bar.Bussiness.csproj">
-      <Project>{5ec2177d-90c6-4ad8-b841-c2d6441fd0bf}</Project>
-      <Name>Nz.Bar.Bussiness</Name>
-      <Private>False</Private>
+    <ProjectReference Include="..\Nz.Aqsat.Bussiness\Nz.Aqsat.Bussiness.csproj">
+      <Project>{3fb32b5d-bfff-4192-a6ab-1d51b6d33fd2}</Project>
+      <Name>Nz.Aqsat.Bussiness</Name>
     </ProjectReference>
     <ProjectReference Include="..\Nz.Aqsat.Model\Nz.Aqsat.Model.csproj">
       <Project>{4ee4f2a0-7f13-4eb4-bd26-230b9b0135b7}</Project>
@@ -293,7 +302,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\" />
     <Folder Include="Component\" />
     <Folder Include="Report\" />
   </ItemGroup>

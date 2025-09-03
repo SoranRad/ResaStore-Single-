@@ -146,8 +146,8 @@ namespace NZ.General.WinForms.Provider
         private void    NzSupport_Click             (object sender, EventArgs e)
         {
             var path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            if (File.Exists(path + @"\Support\Support.exe"))
-                Process.Start(path + @"\Support\Support.exe");
+            if (File.Exists(path + @"\DorsanDesk\DorsanDesk.exe"))
+                Process.Start(path + @"\DorsanDesk\DorsanDesk.exe");
             else
                 MS_Message.Show("متاسفانه برنامه پشـتیبانی یافت نشد" +
                                 "\n با تیم پشتیبانی تماس حاصل نمایید");

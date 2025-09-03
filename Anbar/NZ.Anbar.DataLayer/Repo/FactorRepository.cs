@@ -1,27 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ShareLib.Interfaces;
 using ShareLib.Utils;
-using System.Data.Common;
-using System.Data.Entity.Core.Mapping;
 using System.Data.Entity.Infrastructure;
-using System.Data.Entity.Migrations;
 using Dapper;
 using Nz.Anbar.Model.Interface;
 using NZ.Anbar.DataLayer.Context;
 using NZ.Anbar.Model;
 using System.Reflection;
-using System.Threading;
 using MS_Control;
 using ShareLib;
 using Nz.Anbar.Model.ViewModel;
-using ShareLib.Models;
 
 namespace NZ.Anbar.DataLayer.Repo
 {

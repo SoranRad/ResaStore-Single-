@@ -366,6 +366,9 @@ namespace Nz.Anbar.WinForms.App
                                 "\n  نمی توانید ادامه دهید ");
                 return false;
             }
+
+
+
             if (NzSerial.MS_Decimal == 0)
             {
                 NzSerial.Focus();
@@ -397,18 +400,33 @@ namespace Nz.Anbar.WinForms.App
                 mS_Notify1.Show(NzCustomer);
                 return false;
             }
-            //if (!_Factor.FactorItems.Any())
-            //{
-            //    MS_Message.Show("یک یا چند قلم کالا را وارد کنید.");
-            //    NzGrid.Focus();
-            //    mS_Notify1.Show(NzGrid);
-            //    return false;
-            //}
-            //var Customer = NzCustomer.MS_Get_Selected() as People;
-            //if (Customer.isBlock ?? false)
-            //{
 
-            //}
+            if (_ID > 0 && NzSumFactor.MS_Decimal > _Factor.mablaq)
+            {
+                var delta = NzSumFactor.MS_Decimal - _Factor.mablaq;
+                if (NzCustomerRemain.IsUserBlocked(delta ?? 0))
+                {
+                    var result = MS_Message.Show("سقف اعتبار کاربر پرشده است. " +
+                                    "آیا مایلید که فاکتور را ثبت کنید؟",
+	                    "حد مجاز حساب کاربر",MessageBoxButtons.YesNo);
+                    NzCustomerRemain.Focus();
+                    mS_Notify1.Show(NzCustomerRemain);
+                    return result == DialogResult.Yes;
+                }
+            }
+            else
+            {
+                if (NzCustomerRemain.IsUserBlocked(_Factor.mablaq))
+                {
+	                var result = MS_Message.Show("سقف اعتبار کاربر پرشده است. " +
+	                                             "آیا مایلید که فاکتور را ثبت کنید؟",
+		                "حد مجاز حساب کاربر",MessageBoxButtons.YesNo);
+	                NzCustomerRemain.Focus();
+	                mS_Notify1.Show(NzCustomerRemain);
+	                return result == DialogResult.Yes;
+                }
+            }
+
             try
             {
                 if ((_Factor.ID == 0 && _Serial != NzSerial.MS_Decimal)
@@ -498,6 +516,14 @@ namespace Nz.Anbar.WinForms.App
                         }));
                     else
                         NzCustomer.MS_Set_Select(Setting.MiscID);
+
+                    if(NzCustomerRemain.InvokeRequired)
+	                    NzCustomerRemain.Invoke(new MethodInvoker(delegate
+	                    {
+		                    NzCustomerRemain.NzSetCustoemr(Setting.MiscID);
+	                    }));
+                    else
+	                    NzCustomerRemain.NzSetCustoemr(Setting.MiscID);
 
                     //==================================================
                     if(NzLocation.InvokeRequired)
@@ -1569,9 +1595,16 @@ namespace Nz.Anbar.WinForms.App
 
         private void NzCustomer_MS_On_Row_Selected      (object sender, MS_Control.TSDD.On_Selected e)
         {
-            if((NzCustomer.MS_Get_Selected()is People custmer )&&(_PaymentControl is IPaymentCommand cmd))
-                cmd.SetPerson(custmer.ID);
-                
+	        if ((NzCustomer.MS_Get_Selected() is People custmer) && (_PaymentControl is IPaymentCommand cmd))
+	        {
+		        cmd.SetPerson(custmer.ID);
+                //NzCustomerRemain.NzSetCustoemr(custmer.ID);
+	        }
+
+	        if ((NzCustomer.MS_Get_Selected() is People custmer1))
+	        {
+		        NzCustomerRemain.NzSetCustoemr(custmer1.ID);
+	        } 
         }
         private void NzCirculr_Click                    (object sender, EventArgs e)
         {

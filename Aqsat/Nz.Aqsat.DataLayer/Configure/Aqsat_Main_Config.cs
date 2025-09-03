@@ -3,9 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Nz.Aqsat.DataLayer.Configure
 {
@@ -21,6 +19,10 @@ namespace Nz.Aqsat.DataLayer.Configure
 
 			this
 				.Property						(x => x.Tarikh)
+				.HasColumnType					("Date");
+
+			this
+				.Property						(x => x.StartDate)
 				.HasColumnType					("Date");
 
 			this
@@ -44,16 +46,33 @@ namespace Nz.Aqsat.DataLayer.Configure
 				.HasPrecision					(18,0);
 
 			this
-				.Property						(x => x.MablaqMandeAqsat)
+				.Property						(x => x.DarsadSoud)
+				.HasPrecision					(18,2);
+
+			this
+				.Property						(x => x.MablaqSoud)
 				.HasPrecision					(18,0);
 
 			this
-				.Property						(x => x.MablaqMandeAqsat)
+				.Property						(x => x.MablaqFinalAqsat)
 				.HasPrecision					(18,0);
 
-			//this
-			//	.Property						(x => x.VaznKhaliBox)
-				//.HasPrecision					(18,2);
+			this
+				.Property						(x => x.MablaqSoud)
+				.HasPrecision					(18,0);
+
+
+			this
+				.HasRequired					(x => x.AqsatKind)
+				.WithMany						(x => x.AqsatMains)
+				.HasForeignKey					(x => x.FK_Noh);
+
+			this
+				.HasMany						(x => x.AqsatRizs)
+				.WithRequired					(x => x.AqsatMain)
+				.HasForeignKey					(x => x.FK_Main)
+				.WillCascadeOnDelete			(true)
+				;
 
 		}
 	}

@@ -436,11 +436,12 @@ RtbPOS.Enabled = POS &gt;0;
         <Text50 Ref="27" type="Text" isKey="true">
           <Border>None;Black;2;Solid;False;4;Black;True</Border>
           <Brush>EmptyBrush</Brush>
-          <ClientRectangle>0,20,7.2,0.4</ClientRectangle>
+          <ClientRectangle>0,19.6,13.8,0.4</ClientRectangle>
           <Conditions isList="true" count="0" />
+          <DockStyle>Bottom</DockStyle>
           <Font>IRANSans(FaNum) Medium,8</Font>
           <Guid>9fc2f851bf9544e09222e7f000154544</Guid>
-          <HorAlignment>Center</HorAlignment>
+          <HorAlignment>Right</HorAlignment>
           <Margins>0,0,0,0</Margins>
           <Name>Text50</Name>
           <Page isRef="3" />
@@ -1122,10 +1123,10 @@ DataBand1.Enabled = Totals.Count(ListCheque)&gt;0;</EndRenderEvent>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/31/2023 3:51:28 AM</ReportChanged>
+  <ReportChanged>8/18/2025 9:38:39 AM</ReportChanged>
   <ReportCreated>5/30/2018 4:31:03 PM</ReportCreated>
-  <ReportFile>H:\_Workspace_Project_\_NzResaaStore_GitHub_\Output\Print\DP\ResidDP_A5.mrt</ReportFile>
-  <ReportGuid>5a9a007707ab448d80b6c3bc12a2258d</ReportGuid>
+  <ReportFile>E:\_Workspace_Project_\_ResaStore_Single_\Output\Print\DP\ResidDP_A5.mrt</ReportFile>
+  <ReportGuid>c40166ab57e54e5cb630bcf281379f85</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2015.2.0</ReportVersion>

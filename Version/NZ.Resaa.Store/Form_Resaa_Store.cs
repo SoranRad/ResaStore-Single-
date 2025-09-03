@@ -73,6 +73,7 @@ namespace NZ.Resaa.Store
             loadingMadul = LoadStorage(_config);
             loadingMadul = LoadBar(_config); 
             loadingMadul = LoadXazane(_config); 
+            loadingMadul = LoadAqsat(_config); 
             return true;
         }
         private bool    LoadGeneral                 (Config config)
@@ -211,6 +212,7 @@ namespace NZ.Resaa.Store
                         .AddRange(tmp.GetMenu(Enums.MenuKind.BaseInfo)
                             .OfType<ToolStripItem>()
                             .ToArray());
+
                 var optMenu = new ToolStripMenuItem(tmp.GetName)
                 {
                     Font = new Font("IRANSans(Small) Medium", 14.5f),
@@ -224,6 +226,7 @@ namespace NZ.Resaa.Store
                         .ToArray());
 
                 mS_Menu1.Items.Insert(mS_Menu1.Items.Count - 3, optMenu);
+
                 NzSidebar
                     .Items
                     .AddRange(
@@ -311,7 +314,78 @@ namespace NZ.Resaa.Store
 	        }
 	        return true;
         }
-        
+        private bool    LoadAqsat                   (Config config)
+        {
+	        try
+	        {
+
+		        var dir=Path.GetDirectoryName(Application.ExecutablePath);
+
+		        if (!File.Exists(Path.Combine(dir, "Nz.Aqsat.Winforms.dll")))
+			        return true;
+
+		        Assembly asm = Assembly.LoadFrom("Nz.Aqsat.Winforms.dll");
+		        var i = asm
+			        .GetTypes()
+			        .FirstOrDefault(x => x.GetInterfaces().Contains(typeof(IEntryProvider)));
+
+		        var costruc = i.GetConstructors();
+		        if (!costruc.Any())
+			        return false;
+
+		        var item = costruc.FirstOrDefault();
+
+		        if (item == null)
+			        return false;
+
+		        object c = item.Invoke(null);
+
+		        Form_Factory._Form_Factory_Aqsat = c as IEntryProvider;
+		        var tmp = (c as IEntryProvider);
+		        Form_Factory.SystemList.Add(tmp);
+
+		        if (tmp == null)
+			        return false;
+
+		        tmp.SetMainForm(this);
+		        tmp?.SetSettings(config.Settings); 
+
+
+		        ms_baseinfo
+			        .DropDownItems
+			        .AddRange(tmp.GetMenu(Enums.MenuKind.BaseInfo)
+				        .OfType<ToolStripItem>()
+				        .ToArray());
+		        var optMenu = new ToolStripMenuItem(tmp.GetName)
+		        {
+			        Font = new Font("IRANSans(Small) Medium", 14.5f),
+			        Image =  global::MS_Resource.GlobalResources.StoreHouse,
+		        };
+
+		        optMenu
+			        .DropDownItems
+			        .AddRange(tmp.GetMenu(Enums.MenuKind.Operation)
+				        .OfType<ToolStripItem>()
+				        .ToArray());
+
+		        mS_Menu1.Items.Insert(mS_Menu1.Items.Count - 3, optMenu);
+		        NzSidebar
+			        .Items
+			        .AddRange(
+				        tmp
+					        .GetMenu(Enums.MenuKind.Sidebar)
+					        .OfType<ToolStripItem>()
+					        .ToArray()
+			        );
+
+	        }
+	        catch (Exception ex)
+	        {
+		        log.Error(ex);
+	        }
+	        return true;
+        }
+
         private void    LoadReportMenus             ()
         {
             try

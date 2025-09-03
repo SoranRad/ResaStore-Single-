@@ -68,7 +68,7 @@
     <Page1 Ref="3" type="Page" isKey="true">
       <Border>All;Black;2;Solid;False;4;Black</Border>
       <Brush>Transparent</Brush>
-      <Components isList="true" count="9">
+      <Components isList="true" count="8">
         <PageHeaderBand1 Ref="4" type="PageHeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,0.4,13.8,1</ClientRectangle>
@@ -673,8 +673,8 @@
         </PageHeaderBand2>
         <PageFooterBand1 Ref="43" type="PageFooterBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,19.6,13.8,0.4</ClientRectangle>
-          <Components isList="true" count="2">
+          <ClientRectangle>0,19.2,13.8,0.8</ClientRectangle>
+          <Components isList="true" count="3">
             <Text56 Ref="44" type="Text" isKey="true">
               <Border>AdvBlack;1;None;Black;2;None;Black;1;None;Black;1;None;False;4;Black</Border>
               <Brush>[141:179:226]</Brush>
@@ -695,11 +695,11 @@
             </Text56>
             <Text15 Ref="45" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.2,0,11,0.4</ClientRectangle>
+              <ClientRectangle>2.2,0,11.6,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum) Medium,10</Font>
               <GrowToHeight>True</GrowToHeight>
-              <HorAlignment>Center</HorAlignment>
+              <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text15</Name>
               <Page isRef="3" />
@@ -711,6 +711,26 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text15>
+            <Text61 Ref="46" type="Text" isKey="true">
+              <Border>None;Black;2;Solid;False;4;Black;True</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0.4,13.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <DockStyle>Bottom</DockStyle>
+              <Font>IRANSans(FaNum) Medium,7</Font>
+              <Guid>b794a731b7994892a6acfa312e5e00d9</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text61</Name>
+              <Page isRef="3" />
+              <Parent isRef="43" />
+              <Text>حسابداری رسـا -(2984 870 0914 )-  www.NikShaho.ir </Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text61>
           </Components>
           <Conditions isList="true" count="0" />
           <Guid>11a2d49160ec427581c66d7966d0cf82</Guid>
@@ -718,7 +738,7 @@
           <Page isRef="3" />
           <Parent isRef="3" />
         </PageFooterBand1>
-        <Text52 Ref="46" type="Text" isKey="true">
+        <Text52 Ref="47" type="Text" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>-0.4,20.6,0.4,3</ClientRectangle>
           <Conditions isList="true" count="0" />
@@ -735,25 +755,6 @@
           <Type>Expression</Type>
           <VertAlignment>Center</VertAlignment>
         </Text52>
-        <Text61 Ref="47" type="Text" isKey="true">
-          <Border>None;Black;2;Solid;False;4;Black;True</Border>
-          <Brush>White</Brush>
-          <ClientRectangle>-0.36,13.99,0.4,6.1</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Font>IRANSans(FaNum) Medium,7</Font>
-          <Guid>7b7cae85f42445ba93df9192841d50f3</Guid>
-          <HorAlignment>Center</HorAlignment>
-          <Margins>0,0,0,0</Margins>
-          <Name>Text61</Name>
-          <Page isRef="3" />
-          <Parent isRef="3" />
-          <Text>حسابداری رسـا -(2984 870 0914 )-  www.NikShaho.ir </Text>
-          <TextBrush>Black</TextBrush>
-          <TextOptions>,,RightToLeft=True,,,Angle=90</TextOptions>
-          <TextQuality>Typographic</TextQuality>
-          <Type>Expression</Type>
-          <VertAlignment>Center</VertAlignment>
-        </Text61>
         <HeaderBand1 Ref="48" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,7.1,13.8,0.8</ClientRectangle>
@@ -1817,10 +1818,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/31/2023 3:50:06 AM</ReportChanged>
+  <ReportChanged>8/18/2025 9:35:52 AM</ReportChanged>
   <ReportCreated>9/16/2014 9:44:57 AM</ReportCreated>
-  <ReportFile>H:\_Workspace_Project_\_NzResaaStore_GitHub_\Output\Print\Anbar\Factor_A5.mrt</ReportFile>
-  <ReportGuid>e20db41217644ebeb767066f4e20707b</ReportGuid>
+  <ReportFile>E:\_Workspace_Project_\_ResaStore_Single_\Output\Print\Anbar\Factor_A5.mrt</ReportFile>
+  <ReportGuid>5f5279d567d1486980932f77074ed011</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2015.2.0</ReportVersion>

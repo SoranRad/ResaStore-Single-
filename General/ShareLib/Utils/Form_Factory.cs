@@ -13,15 +13,17 @@ namespace ShareLib.Utils
         #region Fields
         public static   IForm_Factory
                                                 //_Form_Factory_General,
-                                                _Form_Factory_Aqsat,
+                                                
                                                 _Form_Factory_Shoraka,
                                                 _Form_Factory_Tajmihi;
 
         public static IEntryProvider            _Form_Factory_Anbar, 
                                                 _Form_Factory_Xazaneh,
                                                 _Form_Factory_General,
-                                                _Form_Factory_Machine,
-                                                _Form_Factory_Bar;
+                                                //_Form_Factory_Machine,
+                                                _Form_Factory_Bar,
+                                                _Form_Factory_Aqsat
+                                                ;
 
         public static List<IEntryProvider>      SystemList = new List<IEntryProvider>();
         #endregion

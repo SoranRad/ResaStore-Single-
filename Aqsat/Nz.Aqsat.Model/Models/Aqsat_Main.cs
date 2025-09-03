@@ -35,7 +35,7 @@ namespace Nz.Aqsat.Model.Models
 		public bool					IsTasvie					{ get; set; }
 
 		public Aqsat_Kind				AqsatKind				{ get; set; }
-		public ICollection<Aqsat_Riz>	AqsatRizs				{ get; set; }
+		public virtual ICollection<Aqsat_Riz>	AqsatRizs		{ get; set; }
 
 	}
 }

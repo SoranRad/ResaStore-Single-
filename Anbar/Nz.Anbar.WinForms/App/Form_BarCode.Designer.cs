@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
 			this.components = new System.ComponentModel.Container();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem1 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem2 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem3 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem4 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem5 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem6 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem7 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem8 = new Janus.Windows.EditControls.UIComboBoxItem();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_BarCode));
 			Janus.Windows.GridEX.GridEXLayout NzGrid_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
@@ -131,6 +131,7 @@
 			this.nzObjectPopup1 = new Nz.Anbar.WinForms.Component.NzObjectPopup();
 			this.mS_Notify1 = new MS_Control.Controls.MS_Notify();
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.NzCustomerRemain = new NZ.General.WinForms.Component.NzRemainCustomer();
 			((System.ComponentModel.ISupportInitialize)(this.uiTab1)).BeginInit();
 			this.uiTab1.SuspendLayout();
 			this.uiTabPage1.SuspendLayout();
@@ -352,23 +353,23 @@
 			this.NzKind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzKind.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
 			this.NzKind.Cursor = System.Windows.Forms.Cursors.Hand;
-			uiComboBoxItem1.FormatStyle.Alpha = 0;
-			uiComboBoxItem1.IsSeparator = false;
-			uiComboBoxItem1.Text = "فروش عادی";
-			uiComboBoxItem2.FormatStyle.Alpha = 0;
-			uiComboBoxItem2.IsSeparator = false;
-			uiComboBoxItem2.Text = "فروش عمده";
-			uiComboBoxItem3.FormatStyle.Alpha = 0;
-			uiComboBoxItem3.IsSeparator = false;
-			uiComboBoxItem3.Text = "همکاری";
-			uiComboBoxItem4.FormatStyle.Alpha = 0;
-			uiComboBoxItem4.IsSeparator = false;
-			uiComboBoxItem4.Text = "تخفیفات";
+			uiComboBoxItem5.FormatStyle.Alpha = 0;
+			uiComboBoxItem5.IsSeparator = false;
+			uiComboBoxItem5.Text = "فروش عادی";
+			uiComboBoxItem6.FormatStyle.Alpha = 0;
+			uiComboBoxItem6.IsSeparator = false;
+			uiComboBoxItem6.Text = "فروش عمده";
+			uiComboBoxItem7.FormatStyle.Alpha = 0;
+			uiComboBoxItem7.IsSeparator = false;
+			uiComboBoxItem7.Text = "همکاری";
+			uiComboBoxItem8.FormatStyle.Alpha = 0;
+			uiComboBoxItem8.IsSeparator = false;
+			uiComboBoxItem8.Text = "تخفیفات";
 			this.NzKind.Items.AddRange(new Janus.Windows.EditControls.UIComboBoxItem[] {
-            uiComboBoxItem1,
-            uiComboBoxItem2,
-            uiComboBoxItem3,
-            uiComboBoxItem4});
+            uiComboBoxItem5,
+            uiComboBoxItem6,
+            uiComboBoxItem7,
+            uiComboBoxItem8});
 			this.NzKind.Location = new System.Drawing.Point(4, 29);
 			this.NzKind.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzKind.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -584,6 +585,7 @@
 			this.uiGroupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.uiGroupBox5.BackColor = System.Drawing.Color.Transparent;
 			this.uiGroupBox5.BorderColor = System.Drawing.Color.DarkTurquoise;
+			this.uiGroupBox5.Controls.Add(this.NzCustomerRemain);
 			this.uiGroupBox5.Controls.Add(this.NzCirculr);
 			this.uiGroupBox5.Controls.Add(this.NzCustomer);
 			this.uiGroupBox5.Controls.Add(this.label19);
@@ -1734,6 +1736,21 @@
 			this.contextMenuStrip1.Text = "انتـخاب کالا هایی با بارکد یکسان";
 			this.contextMenuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip1_ItemClicked);
 			// 
+			// NzCustomerRemain
+			// 
+			this.NzCustomerRemain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NzCustomerRemain.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.NzCustomerRemain.Location = new System.Drawing.Point(4, 89);
+			this.NzCustomerRemain.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NzCustomerRemain.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NzCustomerRemain.MS_Color_End = System.Drawing.Color.Empty;
+			this.NzCustomerRemain.MS_Color_Start = System.Drawing.Color.Empty;
+			this.NzCustomerRemain.Name = "NzCustomerRemain";
+			this.NzCustomerRemain.Size = new System.Drawing.Size(225, 29);
+			this.NzCustomerRemain.TabIndex = 771;
+			this.NzCustomerRemain.Text = "0";
+			this.NzCustomerRemain.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
 			// Form_BarCode
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1872,5 +1889,6 @@
 		private MS_Control.Controls.MS_Decimal_Label NsHamkari;
 		private MS_Control.Controls.MS_Decimal_Label NsTakhfifPrice;
 		private MS_Control.Controls.MS_Button_GridX NsCopyBarcode;
+		private NZ.General.WinForms.Component.NzRemainCustomer NzCustomerRemain;
 	}
 }
