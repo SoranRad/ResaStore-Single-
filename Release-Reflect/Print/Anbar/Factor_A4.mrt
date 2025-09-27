@@ -6,7 +6,7 @@
         <Alias>List</Alias>
         <BusinessObjects isList="true" count="0" />
         <Category />
-        <Columns isList="true" count="9">
+        <Columns isList="true" count="10">
           <value>radif,System.Int32</value>
           <value>FK_Kala,System.String</value>
           <value>ObjectTitle,System.String</value>
@@ -16,6 +16,7 @@
           <value>takhfif,System.Decimal</value>
           <value>takhfif_darsad,System.Decimal</value>
           <value>mablaq,System.Decimal</value>
+          <value>Barcode,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
         <Guid>fef1aaa4abf947e794e3a183f1874e89</Guid>
@@ -662,8 +663,9 @@
             <Text15 Ref="40" type="Text" isKey="true">
               <Border>AdvBlack;1;None;Black;2;None;Black;1;None;Black;1;None;False;4;Black</Border>
               <Brush>[141:179:226]</Brush>
-              <ClientRectangle>0,0,1.6,0.5</ClientRectangle>
+              <ClientRectangle>0,0,1.6,0.9</ClientRectangle>
               <Conditions isList="true" count="0" />
+              <DockStyle>Left</DockStyle>
               <Font>IRANSans(FaNum) Medium,7,Bold</Font>
               <Guid>cbfa774c512a43b68a1f9e4fbe116304</Guid>
               <HorAlignment>Center</HorAlignment>
@@ -676,26 +678,10 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text15>
-            <Text52 Ref="41" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>1.6,0,18.2,0.6</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>IRANSans(FaNum) Medium,11,Bold</Font>
-              <GrowToHeight>True</GrowToHeight>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text52</Name>
-              <Page isRef="3" />
-              <Parent isRef="39" />
-              <Text>{mola}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text52>
-            <Text56 Ref="42" type="Text" isKey="true">
+            <Text56 Ref="41" type="Text" isKey="true">
               <Border>None;Black;2;Solid;False;4;Black;True</Border>
               <Brush>White</Brush>
-              <ClientRectangle>0,0.5,19.75,0.4</ClientRectangle>
+              <ClientRectangle>1.6,0.5,18.15,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <DockStyle>Bottom</DockStyle>
               <Font>IRANSans(FaNum) Medium,10,Bold</Font>
@@ -712,9 +698,29 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text56>
+            <Text52 Ref="42" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.6,0,18.15,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <DockStyle>Fill</DockStyle>
+              <Font>IRANSans(FaNum) Medium,11,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Right</HorAlignment>
+              <Linked>True</Linked>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text52</Name>
+              <Page isRef="3" />
+              <Parent isRef="39" />
+              <Text>{mola}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text52>
           </Components>
           <Conditions isList="true" count="0" />
           <Guid>34f9a45a0ba745698bf46e754306745b</Guid>
+          <Linked>True</Linked>
           <Name>PageFooterBand1</Name>
           <Page isRef="3" />
           <Parent isRef="3" />
@@ -909,11 +915,14 @@
             <Text31 Ref="54" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Dash;Black;2;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
               <ClientRectangle>10.1,0,1.7,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),9</Font>
+              <GrowToHeight>True</GrowToHeight>
               <Guid>b08ae57c31a54477b760d70fa370fde1</Guid>
               <HorAlignment>Center</HorAlignment>
+              <Linked>True</Linked>
               <Margins>0,0,0,0</Margins>
               <Name>Text31</Name>
               <Page isRef="3" />
@@ -931,11 +940,14 @@
             <Text32 Ref="56" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Dash;Black;2;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
               <ClientRectangle>8.1,0,2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>IRANSans(FaNum),8</Font>
+              <Font>IRANSans(FaNum),9</Font>
+              <GrowToHeight>True</GrowToHeight>
               <Guid>33406f6ee6794ef8aa12c0cb55ec1e70</Guid>
               <HorAlignment>Center</HorAlignment>
+              <Linked>True</Linked>
               <Margins>0,0,0,0</Margins>
               <Name>Text32</Name>
               <Page isRef="3" />
@@ -953,11 +965,14 @@
             <Text33 Ref="58" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Dash;Black;2;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
               <ClientRectangle>5.8,0,2.3,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),9</Font>
+              <GrowToHeight>True</GrowToHeight>
               <Guid>591fd4bb745c4c9c8f2d0026cd95e63e</Guid>
               <HorAlignment>Center</HorAlignment>
+              <Linked>True</Linked>
               <Margins>0,0,0,0</Margins>
               <Name>Text33</Name>
               <Page isRef="3" />
@@ -975,11 +990,14 @@
             <Text34 Ref="60" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Dash;Black;2;Dash;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
               <ClientRectangle>3.6,0,2.2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),9</Font>
+              <GrowToHeight>True</GrowToHeight>
               <Guid>8cad48055ccc454ab17c7e75cbb78f09</Guid>
               <HorAlignment>Center</HorAlignment>
+              <Linked>True</Linked>
               <Margins>0,0,0,0</Margins>
               <Name>Text34</Name>
               <Page isRef="3" />
@@ -997,11 +1015,14 @@
             <Text36 Ref="62" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Dash;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
               <ClientRectangle>0,0,3.1,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),9</Font>
+              <GrowToHeight>True</GrowToHeight>
               <Guid>27d7601d682847188c7a1c03d2ce1738</Guid>
               <HorAlignment>Center</HorAlignment>
+              <Linked>True</Linked>
               <Margins>0,0,0,0</Margins>
               <Name>Text36</Name>
               <Page isRef="3" />
@@ -1019,10 +1040,13 @@
             <Text30 Ref="64" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Dash;Black;2;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
               <ClientRectangle>11.8,0,5.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>IRANSans(FaNum) Medium,8</Font>
+              <Font>IRANSans(FaNum) Medium,9</Font>
+              <GrowToHeight>True</GrowToHeight>
               <Guid>9383bbe786124f3a9c0d8bd7eb652133</Guid>
+              <Linked>True</Linked>
               <Margins>0,0,0,0</Margins>
               <Name>Text30</Name>
               <Page isRef="3" />
@@ -1037,11 +1061,14 @@
             <Text29 Ref="65" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Dash;Black;2;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
               <ClientRectangle>17.4,0,1.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>IRANSans(FaNum) Medium,8</Font>
+              <Font>IRANSans(FaNum) Medium,9</Font>
+              <GrowToHeight>True</GrowToHeight>
               <Guid>345a7abe23b34660a7d5320ba35463d7</Guid>
               <HorAlignment>Center</HorAlignment>
+              <Linked>True</Linked>
               <Margins>0,0,0,0</Margins>
               <Name>Text29</Name>
               <Page isRef="3" />
@@ -1056,10 +1083,13 @@
             <Text28 Ref="66" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Dash;Black;2;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
               <ClientRectangle>19,0,0.7,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),9</Font>
+              <GrowToHeight>True</GrowToHeight>
               <HorAlignment>Center</HorAlignment>
+              <Linked>True</Linked>
               <Margins>0,0,0,0</Margins>
               <Name>Text28</Name>
               <Page isRef="3" />
@@ -1074,11 +1104,14 @@
             <Text60 Ref="67" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Dash;Black;2;Solid;Black;1;Dash;False;4;Black</Border>
               <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
               <ClientRectangle>3.1,0,0.5,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),9</Font>
+              <GrowToHeight>True</GrowToHeight>
               <Guid>f06254308e8a4f42aaf3e3c7858e4be9</Guid>
               <HorAlignment>Center</HorAlignment>
+              <Linked>True</Linked>
               <Margins>0,0,0,0</Margins>
               <Name>Text60</Name>
               <Page isRef="3" />
@@ -1099,6 +1132,7 @@
           <DataSourceName isNull="true" />
           <EvenStyle>Style2</EvenStyle>
           <Filters isList="true" count="0" />
+          <Linked>True</Linked>
           <Name>DataBand1</Name>
           <Page isRef="3" />
           <Parent isRef="3" />
@@ -1801,10 +1835,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/18/2025 9:34:57 AM</ReportChanged>
+  <ReportChanged>9/27/2025 10:19:31 AM</ReportChanged>
   <ReportCreated>9/16/2014 9:44:57 AM</ReportCreated>
   <ReportFile>E:\_Workspace_Project_\_ResaStore_Single_\Output\Print\Anbar\Factor_A4.mrt</ReportFile>
-  <ReportGuid>7b2d8722eb17461ab7b81c682568ba36</ReportGuid>
+  <ReportGuid>24f7f1cb2f304aa984f94b245168a750</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2015.2.0</ReportVersion>

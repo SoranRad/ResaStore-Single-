@@ -61,7 +61,7 @@
 			this.Tab_Control_Main.Name = "Tab_Control_Main";
 			this.Tab_Control_Main.Office2007CustomColor = System.Drawing.Color.Transparent;
 			this.Tab_Control_Main.ShowFocusRectangle = false;
-			this.Tab_Control_Main.Size = new System.Drawing.Size(820, 396);
+			this.Tab_Control_Main.Size = new System.Drawing.Size(1047, 396);
 			this.Tab_Control_Main.TabIndex = 729;
 			this.Tab_Control_Main.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
             this.uiTabPage12,
@@ -87,7 +87,7 @@
 			this.uiTabPage12.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.uiTabPage12.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.uiTabPage12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage12.Size = new System.Drawing.Size(786, 394);
+			this.uiTabPage12.Size = new System.Drawing.Size(1013, 394);
 			this.uiTabPage12.TabStop = true;
 			this.uiTabPage12.Text = "اطلاعات";
 			// 
@@ -147,7 +147,7 @@
 			this.ms_Grid.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
 			this.ms_Grid.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
 			this.ms_Grid.SelectOnExpand = false;
-			this.ms_Grid.Size = new System.Drawing.Size(786, 394);
+			this.ms_Grid.Size = new System.Drawing.Size(1013, 394);
 			this.ms_Grid.TabIndex = 719;
 			this.ms_Grid.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 			this.ms_Grid.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
@@ -185,7 +185,7 @@
 			this.mS_GridX_Setting1.MS_GridX = this.ms_Grid;
 			this.mS_GridX_Setting1.Name = "mS_GridX_Setting1";
 			this.mS_GridX_Setting1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_GridX_Setting1.Size = new System.Drawing.Size(820, 25);
+			this.mS_GridX_Setting1.Size = new System.Drawing.Size(1047, 25);
 			this.mS_GridX_Setting1.TabIndex = 728;
 			this.mS_GridX_Setting1.Text = "mS_GridX_Setting1";
 			this.mS_GridX_Setting1.MS_On_Print_Clicked += new System.EventHandler(this.mS_GridX_Setting1_MS_On_Print_Clicked);
@@ -210,7 +210,7 @@
 			// 
 			this.NzBarcode.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
 			this.NzBarcode.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.NzBarcode.Image = global::MS_Resource.GlobalResources.Resa_L__6_;
+			this.NzBarcode.Image = ((System.Drawing.Image)(resources.GetObject("NzBarcode.Image")));
 			this.NzBarcode.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.NzBarcode.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
 			this.NzBarcode.Name = "NzBarcode";
@@ -222,7 +222,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(820, 421);
+			this.ClientSize = new System.Drawing.Size(1047, 421);
 			this.Controls.Add(this.Tab_Control_Main);
 			this.Controls.Add(this.mS_GridX_Setting1);
 			this.Font = new System.Drawing.Font("IRANSans(Small)", 11F);

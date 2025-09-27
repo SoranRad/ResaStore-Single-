@@ -1,17 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-using Janus.Windows.GridEX;
+﻿using Janus.Windows.GridEX;
 using MS_Control;
 using MS_Control.Tarikh;
+using Nz.Anbar.Model.Report;
 using Nz.Anbar.Model.ViewModel;
+using Nz.Anbar.WinForms.Provider;
 using NZ.Anbar.Business;
 using NZ.Anbar.Model;
-using Nz.Anbar.WinForms.Provider;
 using ShareLib;
 using ShareLib.Utils;
 using ShareLib.ViewModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Nz.Anbar.WinForms.App
 {
@@ -169,11 +170,20 @@ namespace Nz.Anbar.WinForms.App
                 }, null);
 
             NzGridItems.DataSource = list?.ToList();
-            if (list != null && list.Count() > 20)
-                NzGridItems.FilterMode = FilterMode.Automatic;
-            else
-                NzGridItems.FilterMode = FilterMode.None;
 
+            NzGridItems.FilterMode = NzGridItems.RowCount > 20 
+	            ? FilterMode.Automatic 
+	            : FilterMode.None;
+
+            var detail = _Manager.GetItem<FactorDetails>(new { ID },null);
+
+            if (detail != null)
+            {
+	            NsTarikhCreate.Text = detail.tarikh_add.ToPersianDate();
+	            NsTarikhEdit.Text   = detail.tarikh_edit?.ToPersianDate();
+	            NsUserCreate.Text   = detail.UserCreate;
+	            NsUserEdit.Text     = detail.UserEdit;
+            }
         }
         private void EditFactor                         ()
         {
@@ -300,6 +310,8 @@ namespace Nz.Anbar.WinForms.App
 
             if (NzItems.Checked)
                 RefreshItem();
+
+
         }
 
         private void NzPrint_Click                      (object sender, EventArgs e)

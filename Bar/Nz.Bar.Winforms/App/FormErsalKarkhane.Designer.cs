@@ -329,7 +329,7 @@
 			this.NzSerial.DigitGroup = false;
 			this.NzSerial.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.NzSerial.Location = new System.Drawing.Point(503, 56);
-			this.NzSerial.MaxLength = 4;
+			this.NzSerial.MaxLength = 0;
 			this.NzSerial.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
 			this.NzSerial.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzSerial.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -462,7 +462,7 @@
 			this.NzShaomareQabz.DigitGroup = false;
 			this.NzShaomareQabz.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.NzShaomareQabz.Location = new System.Drawing.Point(488, 24);
-			this.NzShaomareQabz.MaxLength = 4;
+			this.NzShaomareQabz.MaxLength = 0;
 			this.NzShaomareQabz.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
 			this.NzShaomareQabz.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzShaomareQabz.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;

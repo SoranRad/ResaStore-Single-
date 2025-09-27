@@ -58,7 +58,7 @@ namespace Nz.Anbar.WinForms.App
 
         private List<NzObject>      _ListObjects    = new List<NzObject>();
         private string              _FormatString = "0,0.##;(0,0.##); ";
-        private Control             _PaymentControl = null;
+        //private Control             _PaymentControl = null;
         #endregion
         public Form_BarCode(long ID = 0)
         {
@@ -106,7 +106,7 @@ namespace Nz.Anbar.WinForms.App
             LoadSettings();
             NzObjectSelector.Refresh_Grid   ((object)null);
             RefreshPrefactor                ();
-            AddPayment                      ();
+            //AddPayment                      ();
             ValidationDemo                  ();
             NzKind.SelectedIndexChanged     += NzKind_SelectedIndexChanged;
         }
@@ -133,6 +133,7 @@ namespace Nz.Anbar.WinForms.App
                 NzOffPrice.Text             = (_Factor?.FactorDetail?.mablaq_takhfif ?? 0).ToString(_FormatString);
                 NzKind.SelectedIndex        = _Factor.FK_Kind_Frosh??0;
                 NzLocation.SetLocation      (_Factor.FK_Location);
+                NzDescription.Text          = _Factor.sharh;
                 RefreshFactorSum            ();
 
                 _DoRefresh = true;
@@ -143,31 +144,31 @@ namespace Nz.Anbar.WinForms.App
                 log.Error(ex);
             }
         }
-        private void AddPayment                     ()
-        {
-            //var Xazane = Form_Factory
-            //                .SystemList
-            //                .FirstOrDefault
-            //                    (x => x.GetSystemKind() == Enums.MS_System.Xazane);
+        //private void AddPayment                     ()
+        //{
+        //    //var Xazane = Form_Factory
+        //    //                .SystemList
+        //    //                .FirstOrDefault
+        //    //                    (x => x.GetSystemKind() == Enums.MS_System.Xazane);
 
-            //if (Xazane == null)
-            //{
-            //    uiTab2.ShowTabs = false;
-            //    uiTab2.TabPages.Remove(uiTabPage4);
-            //}
-            //else if (Xazane is IFactoryControl FControl)
-            //{
-            //    _PaymentControl         = FControl.CreateControl(Enums.NzFactoryControlKind.CachePos);
+        //    //if (Xazane == null)
+        //    //{
+        //    //    uiTab2.ShowTabs = false;
+        //    //    uiTab2.TabPages.Remove(uiTabPage4);
+        //    //}
+        //    //else if (Xazane is IFactoryControl FControl)
+        //    //{
+        //    //    _PaymentControl         = FControl.CreateControl(Enums.NzFactoryControlKind.CachePos);
 
-            //    if (_PaymentControl == null)
-            //        return;
+        //    //    if (_PaymentControl == null)
+        //    //        return;
 
-            //    uiTabPage4.Controls.Add(_PaymentControl);
-            //    _PaymentControl.Location = new Point(uiTabPage4.Width - _PaymentControl.Width+25, 0);
-            //    if(_PaymentControl is IPaymentCommand cmd)
-            //        cmd.LoadComponent(_ID,_Factor.mablaq);
-            //}
-        }
+        //    //    uiTabPage4.Controls.Add(_PaymentControl);
+        //    //    _PaymentControl.Location = new Point(uiTabPage4.Width - _PaymentControl.Width+25, 0);
+        //    //    if(_PaymentControl is IPaymentCommand cmd)
+        //    //        cmd.LoadComponent(_ID,_Factor.mablaq);
+        //    //}
+        //}
         private void Save                           (bool ShowPopup = false)
         {
             try
@@ -187,7 +188,7 @@ namespace Nz.Anbar.WinForms.App
                 _Factor.Serial          = Convert.ToInt32(NzSerial.MS_Decimal);
                 _Factor.FK_AshXas_ID    = (NzCustomer.MS_Get_Selected() as People).ID;
                 _Factor.tarikh          = NzDate.MS_Tarikh.Value.ToDatetime().Date;
-                _Factor.sharh           = null;
+                _Factor.sharh           = NzDescription.Text;
 
                 if (NzOffPrice.MS_Decimal > 0 )
                 {
@@ -237,12 +238,12 @@ namespace Nz.Anbar.WinForms.App
 
                 NzSerial.MS_Decimal = _Factor.Serial;
                 SetItemsNoChanges();
-                if (_PaymentControl is IPaymentCommand pay)
-                {
-                    pay.SetPerson   (_Factor.FK_AshXas_ID.Value);
-                    pay.SetFactore  (_Factor.ID);
-                    pay.SetMount    (_Factor.mablaq);
-                }
+                //if (_PaymentControl is IPaymentCommand pay)
+                //{
+                //    pay.SetPerson   (_Factor.FK_AshXas_ID.Value);
+                //    pay.SetFactore  (_Factor.ID);
+                //    pay.SetMount    (_Factor.mablaq);
+                //}
             }
             catch (Exception ex)
             {
@@ -283,9 +284,9 @@ namespace Nz.Anbar.WinForms.App
             NzKind.SelectedIndex        = 0;
 
             nzBarcodeReader1.Focus();
-
-            if (_PaymentControl is IPaymentCommand pay)
-                pay.ResetPay();
+            NzDescription.Text = "";
+            //if (_PaymentControl is IPaymentCommand pay)
+            //    pay.ResetPay();
 
             _DoRefresh                  = true;
         }
@@ -541,13 +542,19 @@ namespace Nz.Anbar.WinForms.App
         {
             var Co = SystemConstant.ActiveCompany;
             var Cu = NzCustomer.MS_Get_Selected() as People;
-            decimal cache = 0,pos=0 ;
+            //decimal cache = 0,pos=0 ;
 
-            if (_PaymentControl is IPaymentCommand cmd)
-            {
-                cache = cmd.GetCache();
-                pos = cmd.GetPos();
-            }
+            //if (_PaymentControl is IPaymentCommand cmd)
+            //{
+            //    cache = cmd.GetCache();
+            //    pos = cmd.GetPos();
+            //}
+
+            var Factors             = _Manager.GetPrintFactor(_Factor.ID);
+            var factor              = Factors.FirstOrDefault();
+
+            if (factor == null)
+	            return;
 
             var dic = new Dictionary<string, object>()
             {
@@ -573,9 +580,9 @@ namespace Nz.Anbar.WinForms.App
                 {"mobile_1"         , (Co.mobile??"") + " " + (Co.mobile2??"")},
                 {"address_1"        , Co.address},
 
-                {"banki"            ,pos},
-                {"naqdi"            ,cache},
-                {"chak"             ,0m},
+                {"banki"            ,factor.Pos},
+                {"naqdi"            ,factor.Cache},
+                {"chak"             ,factor.Cheque},
 
                 {"mablaq_takhfif"   ,_Factor.FactorDetail?.mablaq_takhfif},
                 {"Darsad_Takhfif"   ,_Factor.FactorDetail?.Darsad_Takhfif},
@@ -941,20 +948,7 @@ namespace Nz.Anbar.WinForms.App
                 log.Error(ex);
             }
         }
-        private void EditTextBoxOnGotFocus          (object sender, EventArgs eventArgs)
-        {
-            if (NzGrid.EditTextBox != null)
-                NzGrid.EditTextBox.Text = NzGrid.CurrentRow.Cells[NzGrid.CurrentColumn].Text;
-        }
-        private void EditTextBoxOnKeyDown           (object sender, KeyEventArgs keyEventArgs)
-        {
-            if (NzGrid.EditTextBox != null)
-            {
-                _Pos            = NzGrid.EditTextBox.SelectionStart + NzGrid.EditTextBox.SelectionLength;
-                _Len            = NzGrid.EditTextBox.Text.Length; 
-            }
-        }
-
+         
         private void Set_Cursor_Location            ()
         {
             try
@@ -1368,34 +1362,34 @@ namespace Nz.Anbar.WinForms.App
                 log.Error(ex);
             }
         }
-        private void NzTaxPercent_TextChanged           (object sender, EventArgs e)
-        {
-            try
-            {
-                if (!_DoRefresh)
-                    return;
-                _DoRefresh = false;
+        //private void NzTaxPercent_TextChanged           (object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (!_DoRefresh)
+        //            return;
+        //        _DoRefresh = false;
 
-                var total = (NzSumRows.MS_Decimal ?? 0) - NzOffPrice.MS_Decimal;
-                //var tax = decimal.Round(NzTaxPercent.MS_Decimal / 100 * total);
-                //NzTaxPrice.MS_Decimal = tax;
-                RefreshFactorSum();
+        //        var total = (NzSumRows.MS_Decimal ?? 0) - NzOffPrice.MS_Decimal;
+        //        //var tax = decimal.Round(NzTaxPercent.MS_Decimal / 100 * total);
+        //        //NzTaxPrice.MS_Decimal = tax;
+        //        RefreshFactorSum();
 
-                _DoRefresh = true;
-            }
-            catch (Exception ex)
-            {
-                log.Error(ex);
-            }
-        }
-        private void NzExtend_TextChanged               (object sender, EventArgs e)
-        {
-            if (!_DoRefresh)
-                return;
-            _DoRefresh = false;
-            RefreshFactorSum();
-            _DoRefresh = true;
-        }
+        //        _DoRefresh = true;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        log.Error(ex);
+        //    }
+        //}
+        //private void NzExtend_TextChanged               (object sender, EventArgs e)
+        //{
+        //    if (!_DoRefresh)
+        //        return;
+        //    _DoRefresh = false;
+        //    RefreshFactorSum();
+        //    _DoRefresh = true;
+        //}
 
         private void Form_Purchase_Shown                (object sender, EventArgs e)
         {
@@ -1432,29 +1426,29 @@ namespace Nz.Anbar.WinForms.App
                     break;
             }
 
-            if ((e.KeyCode == Keys.F7 || e.KeyCode == Keys.F5 || e.KeyCode == Keys.F9)
-                && (_PaymentControl is IPaymentCommand cmd))
-            {
-                //if (!_PaymentLoaded)
-                //{
-                //    cmd.LoadComponent();
-                //    _PaymentLoaded = true;
-                //}
-                //uiTab2.SelectedTab = uiTabPage4;
+            //if ((e.KeyCode == Keys.F7 || e.KeyCode == Keys.F5 || e.KeyCode == Keys.F9)
+            //    /*&& (_PaymentControl is IPaymentCommand cmd)*/)
+            //{
+            //    //if (!_PaymentLoaded)
+            //    //{
+            //    //    cmd.LoadComponent();
+            //    //    _PaymentLoaded = true;
+            //    //}
+            //    //uiTab2.SelectedTab = uiTabPage4;
 
-                switch (e.KeyCode)
-                {
-                    case Keys.F7:
-                            cmd.CachePayment();
-                        break;
-                    case Keys.F9:
-                            cmd.BankPayment();
-                        break;
-                    case Keys.F5:
-                            cmd.SendToPos();
-                        break;
-                }
-            }
+            //    switch (e.KeyCode)
+            //    {
+            //        case Keys.F7:
+            //                cmd.CachePayment();
+            //            break;
+            //        case Keys.F9:
+            //                cmd.BankPayment();
+            //            break;
+            //        case Keys.F5:
+            //                cmd.SendToPos();
+            //            break;
+            //    }
+            //}
         }
 
         private void NzPrint_Click                      (object sender, EventArgs e)
@@ -1494,30 +1488,30 @@ namespace Nz.Anbar.WinForms.App
             frm.Show();
         }
         
-        private void NzExtend_KeyPress                  (object sender, KeyPressEventArgs e)
-        {
-            if(e.KeyChar==(char)13)
-                Save();
-        }
+        //private void NzExtend_KeyPress                  (object sender, KeyPressEventArgs e)
+        //{
+        //    if(e.KeyChar==(char)13)
+        //        Save();
+        //}
 
-        private void NzRefreshBarcode_Click             (object sender, EventArgs e)
-        {
-            Task.Run(() =>
-            {
-                var mgr = new Manager();
+        //private void NzRefreshBarcode_Click             (object sender, EventArgs e)
+        //{
+        //    Task.Run(() =>
+        //    {
+        //        var mgr = new Manager();
 
-                _ListObjects = mgr
-                    .GetList<NzObject>(
-                        new
-                        {
-                            Year = SystemConstant.ActiveYear.Salmali
-                        })
-                    .ToList();
-                new Form_Notify("بروزرسانی لیست کالا", "بروزرسـانی شد",
-                        Form_Notify.FarsiMessageBoxIcon.چـک_باکس)
-                    .Popup(Form_Notify.Direction_Show.Right_To_Left, 1000);
-            });
-        }
+        //        _ListObjects = mgr
+        //            .GetList<NzObject>(
+        //                new
+        //                {
+        //                    Year = SystemConstant.ActiveYear.Salmali
+        //                })
+        //            .ToList();
+        //        new Form_Notify("بروزرسانی لیست کالا", "بروزرسـانی شد",
+        //                Form_Notify.FarsiMessageBoxIcon.چـک_باکس)
+        //            .Popup(Form_Notify.Direction_Show.Right_To_Left, 1000);
+        //    });
+        //}
         private void contextMenuStrip1_ItemClicked      (object sender, ToolStripItemClickedEventArgs e)
         {
             if (e.ClickedItem.Tag is NzObject Item)
@@ -1589,33 +1583,33 @@ namespace Nz.Anbar.WinForms.App
             //    _PaymentLoaded = true;
             //}
 
-            if (uiTab2.SelectedIndex == 1)
-                _PaymentControl?.Focus();
+            //if (uiTab2.SelectedIndex == 1)
+            //    _PaymentControl?.Focus();
         }
 
         private void NzCustomer_MS_On_Row_Selected      (object sender, MS_Control.TSDD.On_Selected e)
         {
-	        if ((NzCustomer.MS_Get_Selected() is People custmer) && (_PaymentControl is IPaymentCommand cmd))
-	        {
-		        cmd.SetPerson(custmer.ID);
-                //NzCustomerRemain.NzSetCustoemr(custmer.ID);
-	        }
+	        //if ((NzCustomer.MS_Get_Selected() is People custmer) && (_PaymentControl is IPaymentCommand cmd))
+	        //{
+		       // cmd.SetPerson(custmer.ID);
+         //       //NzCustomerRemain.NzSetCustoemr(custmer.ID);
+	        //}
 
 	        if ((NzCustomer.MS_Get_Selected() is People custmer1))
 	        {
 		        NzCustomerRemain.NzSetCustoemr(custmer1.ID);
 	        } 
         }
-        private void NzCirculr_Click                    (object sender, EventArgs e)
-        {
-            var people = NzCustomer.MS_Get_Selected() as People;
-            if (people == null)
-                return;
+        //private void NzCirculr_Click                    (object sender, EventArgs e)
+        //{
+        //    var people = NzCustomer.MS_Get_Selected() as People;
+        //    if (people == null)
+        //        return;
 
-            var frm         = new FormPepoleCircular(people.ID);
-            frm.MdiParent   = StorageProvider.MainForm;
-            frm.Show        ();
-        }
+        //    var frm         = new FormPepoleCircular(people.ID);
+        //    frm.MdiParent   = StorageProvider.MainForm;
+        //    frm.Show        ();
+        //}
         private void NzPrefactorGrid_ColumnButtonClick  (object sender, ColumnActionEventArgs e)
         { 
             try
@@ -1662,12 +1656,10 @@ namespace Nz.Anbar.WinForms.App
                             );
                 if(result==DialogResult.Yes)
                     NzNew.PerformClick();
-
-
             }
         }
 
-		private void NzKind_SelectedIndexChanged(object sender, EventArgs e)
+		private void NzKind_SelectedIndexChanged        (object sender, EventArgs e)
 		{
 			if (NzGrid.GetDataRows().Any())
 			{
@@ -1699,8 +1691,7 @@ namespace Nz.Anbar.WinForms.App
                 _DoRefresh = true;
 			}
 		}
-
-		private void NsCopyBarcode_Click(object sender, EventArgs e)
+		private void NsCopyBarcode_Click                (object sender, EventArgs e)
 		{
             nzBarcodeReader1.Text = NzBarcodePrice.Text;
             nzBarcodeReader1.Focus();

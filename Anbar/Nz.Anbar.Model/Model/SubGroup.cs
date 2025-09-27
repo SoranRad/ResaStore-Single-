@@ -18,6 +18,8 @@ namespace Nz.Anbar.Model.Model
         [StringLength(200)]
         public string   title               { get; set; }
 
+        public bool ShowInBarcode { get; set; }
+
         [NotMapped]
         public string   MainGroup           { get; set; }
         [NotMapped]

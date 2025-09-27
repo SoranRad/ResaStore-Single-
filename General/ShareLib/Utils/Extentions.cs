@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing.Printing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -78,6 +79,11 @@ namespace ShareLib.Utils
 	        return FromJsonString<T>(File.ReadAllText(FileName));
         }
 
+        public static string ToPersianDate(this DateTime date)
+        {
+	        var pd = new PersianCalendar();
+	        return pd.GetYear(date) + "/" + pd.GetMonth(date) + "/" + pd.GetDayOfMonth(date);
+        }
         
         public static void  FillParametter          (this MS_GridX_Setting GridSetting ,string Title="")
         {
