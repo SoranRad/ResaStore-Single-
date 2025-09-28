@@ -18,6 +18,7 @@ using NZ.Anbar.Business;
 using NZ.Anbar.Model;
 using Nz.Anbar.Model.Model;
 using Nz.Anbar.Model.Report;
+using Nz.Anbar.WinForms.Component;
 using Nz.Anbar.WinForms.Provider;
 using Nz.Anbar.WinForms.Report;
 using Nz.Anbar.WinForms.Settings;
@@ -91,9 +92,12 @@ namespace Nz.Anbar.WinForms.App
             nzObjectPopup1.NzSelectObject   += NzObjectPopup1OnNzSelectObject;
             nzObjectPopup1.NzEscapedPress   += NzObjectPopup1OnNzEscapedPress;
             NzGrid.FilterMode               = FilterMode.None;
-
+            
             NzLocation.RefreshItems(_ID>0);
             LoadObjects();
+            SubGroupsPanel.RefreshGroup();
+            SubGroupsPanel.OnSubGroupChanged+=SubGroupsPanelOnOnSubGroupChanged;
+
 
             if(_ID==0)
                 Reset();
@@ -110,6 +114,12 @@ namespace Nz.Anbar.WinForms.App
             ValidationDemo                  ();
             NzKind.SelectedIndexChanged     += NzKind_SelectedIndexChanged;
         }
+
+        private void SubGroupsPanelOnOnSubGroupChanged(object sender, SubGroupEventArgs e)
+        {
+	        NzGroupKala.DataSource = _ListObjects.Where(x => x.FK_GroupKala_2th == e.SubGroup.Code).ToList();
+        }
+
         private void LoadItem                       ()
         {
             try
@@ -1575,17 +1585,17 @@ namespace Nz.Anbar.WinForms.App
         {
             nzBarcodeReader1.SelectAll();
         }
-        private void uiTab2_SelectedTabChanged          (object sender, Janus.Windows.UI.Tab.TabEventArgs e)
-        {
-            //if(uiTab2.SelectedTab==uiTabPage4 && !_PaymentLoaded)
-            //{
-            //    (_PaymentControl as IPaymentCommand)?.LoadComponent();
-            //    _PaymentLoaded = true;
-            //}
+        //private void uiTab2_SelectedTabChanged          (object sender, Janus.Windows.UI.Tab.TabEventArgs e)
+        //{
+        //    //if(uiTab2.SelectedTab==uiTabPage4 && !_PaymentLoaded)
+        //    //{
+        //    //    (_PaymentControl as IPaymentCommand)?.LoadComponent();
+        //    //    _PaymentLoaded = true;
+        //    //}
 
-            //if (uiTab2.SelectedIndex == 1)
-            //    _PaymentControl?.Focus();
-        }
+        //    //if (uiTab2.SelectedIndex == 1)
+        //    //    _PaymentControl?.Focus();
+        //}
 
         private void NzCustomer_MS_On_Row_Selected      (object sender, MS_Control.TSDD.On_Selected e)
         {
@@ -1690,12 +1700,24 @@ namespace Nz.Anbar.WinForms.App
                 Save();
                 _DoRefresh = true;
 			}
+
+			 
+			NzGroupKala.RootTable.Columns[nameof(NzObject.nerkh_frosh)].DataMember = 
+					NzKind.SelectedIndex == 0 
+						? nameof(NzObject.nerkh_frosh)
+                        : nameof(NzObject.nerkh_frosh) + NzKind.SelectedIndex;
+			 
 		}
 		private void NsCopyBarcode_Click                (object sender, EventArgs e)
 		{
             nzBarcodeReader1.Text = NzBarcodePrice.Text;
             nzBarcodeReader1.Focus();
             SendKeys.Send("{ENTER}");
+		}
+
+		private void NzGroupKala_ColumnButtonClick(object sender, ColumnActionEventArgs e)
+		{
+
 		}
 	}
 }

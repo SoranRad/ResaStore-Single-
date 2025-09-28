@@ -1,26 +1,26 @@
 USE [master]
 GO
-/****** Object:  Database [DB_NzResaaStore]    Script Date: 25/08/2025 9:48:25 AM ******/
+
 CREATE DATABASE [DB_NzResaaStore]
  CONTAINMENT = NONE
  ON  PRIMARY 
-( NAME = N'ResaaStore_Primary', FILENAME = N'%%DIR%%Data\ResaaStore_Primary.mdf' , SIZE = 102400KB , MAXSIZE = UNLIMITED, FILEGROWTH = 20%), 
+( NAME = N'ResaaStore_Primary', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Empty\ResaaStore_Primary.mdf' , SIZE = 102400KB , MAXSIZE = UNLIMITED, FILEGROWTH = 20%), 
  FILEGROUP [FG_Anbar] 
-( NAME = N'ResaaStore_Anabr', FILENAME = N'%%DIR%%Data\ResaaStore_Anabr.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 20%), 
+( NAME = N'ResaaStore_Anabr', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Empty\ResaaStore_Anabr.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 20%), 
  FILEGROUP [FG_Aqsat] 
-( NAME = N'ResaaStore_Aqsat', FILENAME = N'%%DIR%%Data\ResaaStore_Aqsat.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 20%), 
+( NAME = N'ResaaStore_Aqsat', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Empty\ResaaStore_Aqsat.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 20%), 
  FILEGROUP [FG_Base] 
-( NAME = N'ResaaStore_Base', FILENAME = N'%%DIR%%Data\ResaaStore_Base.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 10%), 
+( NAME = N'ResaaStore_Base', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Empty\ResaaStore_Base.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 10%), 
  FILEGROUP [FG_DimDate] 
-( NAME = N'ResaaStore_DimDate', FILENAME = N'%%DIR%%Data\ResaaStore_DimDate.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 10%), 
+( NAME = N'ResaaStore_DimDate', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Empty\ResaaStore_DimDate.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 10%), 
  FILEGROUP [FG_General] 
-( NAME = N'ResaaStore_General', FILENAME = N'%%DIR%%Data\ResaaStore_General.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 10%), 
+( NAME = N'ResaaStore_General', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Empty\ResaaStore_General.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 10%), 
  FILEGROUP [FG_ImageData] 
-( NAME = N'RessaStor_ImageData', FILENAME = N'%%DIR%%Data\RessaStor_ImageData.ndf' , SIZE = 102400KB , MAXSIZE = UNLIMITED, FILEGROWTH = 20%), 
+( NAME = N'RessaStor_ImageData', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Empty\RessaStor_ImageData.ndf' , SIZE = 102400KB , MAXSIZE = UNLIMITED, FILEGROWTH = 20%), 
  FILEGROUP [FG_Xazaneh] 
-( NAME = N'ResaaStore_Xazaneh', FILENAME = N'%%DIR%%Data\ResaaStore_Xazaneh.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 20%)
+( NAME = N'ResaaStore_Xazaneh', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Empty\ResaaStore_Xazaneh.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 20%)
  LOG ON 
-( NAME = N'ResaaStore_log', FILENAME = N'%%DIR%%Data\ResaaStore_log.ldf' , SIZE = 256000KB , MAXSIZE = 2048GB , FILEGROWTH = 256000KB )
+( NAME = N'ResaaStore_log', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Empty\ResaaStore_log.ldf' , SIZE = 256000KB , MAXSIZE = 2048GB , FILEGROWTH = 256000KB )
  WITH CATALOG_COLLATION = DATABASE_DEFAULT
 GO
 ALTER DATABASE [DB_NzResaaStore] SET COMPATIBILITY_LEVEL = 120

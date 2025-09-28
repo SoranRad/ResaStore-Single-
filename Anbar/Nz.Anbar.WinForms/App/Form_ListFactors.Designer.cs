@@ -91,8 +91,6 @@
 			this.uiTabPage16 = new Janus.Windows.UI.Tab.UITabPage();
 			this.uiTabPage17 = new Janus.Windows.UI.Tab.UITabPage();
 			this.uiTabPage18 = new Janus.Windows.UI.Tab.UITabPage();
-			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
-			this.ms_Save = new MS_Control.Controls.MS_Button_GridX();
 			this.mS_Panel2 = new MS_Control.Controls.MS_Panel();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
@@ -103,6 +101,8 @@
 			this.NsUserCreate = new System.Windows.Forms.Label();
 			this.label15 = new System.Windows.Forms.Label();
 			this.NzGridItems = new MS_Control.Controls.MS_GridX();
+			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
+			this.ms_Save = new MS_Control.Controls.MS_Button_GridX();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
 			this.uiTabPage12.SuspendLayout();
@@ -114,9 +114,9 @@
 			this.mS_Tool_Strip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ms_mah)).BeginInit();
 			this.ms_mah.SuspendLayout();
-			this.uiTabPage14.SuspendLayout();
 			this.mS_Panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NzGridItems)).BeginInit();
+			this.uiTabPage14.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// Tab_Control_Main
@@ -733,51 +733,6 @@
 			this.uiTabPage18.TabStop = true;
 			this.uiTabPage18.Text = "فـروردیـن";
 			// 
-			// uiTabPage14
-			// 
-			this.uiTabPage14.AutoScroll = true;
-			this.uiTabPage14.Controls.Add(this.ms_Save);
-			this.uiTabPage14.Location = new System.Drawing.Point(1, 1);
-			this.uiTabPage14.Name = "uiTabPage14";
-			this.uiTabPage14.PanelFormatStyle.Alpha = 70;
-			this.uiTabPage14.PanelFormatStyle.BackColor = System.Drawing.Color.SkyBlue;
-			this.uiTabPage14.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
-			this.uiTabPage14.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
-			this.uiTabPage14.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage14.Size = new System.Drawing.Size(1180, 444);
-			this.uiTabPage14.TabStop = true;
-			this.uiTabPage14.Text = "پرسش و پاسخ";
-			this.uiTabPage14.KeyUp += new System.Windows.Forms.KeyEventHandler(this.uiTabPage14_KeyUp);
-			// 
-			// ms_Save
-			// 
-			this.ms_Save.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.ms_Save.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-			this.ms_Save.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.ms_Save.Image = ((System.Drawing.Image)(resources.GetObject("ms_Save.Image")));
-			this.ms_Save.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
-			this.ms_Save.Location = new System.Drawing.Point(1048, 11);
-			this.ms_Save.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.ms_Save.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.ms_Save.MS_Change_Border_Color_On_Enter = false;
-			this.ms_Save.MS_Change_Color_On_Enter = false;
-			this.ms_Save.MS_Enter_Border_Color = System.Drawing.Color.Empty;
-			this.ms_Save.MS_Enter_Color = System.Drawing.Color.Empty;
-			this.ms_Save.Name = "ms_Save";
-			this.ms_Save.Office2007ColorScheme = Janus.Windows.UI.Office2007ColorScheme.Custom;
-			this.ms_Save.Office2007CustomColor = System.Drawing.Color.DodgerBlue;
-			this.ms_Save.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.ms_Save.ShowFocusRectangle = false;
-			this.ms_Save.Size = new System.Drawing.Size(103, 30);
-			this.ms_Save.TabIndex = 1;
-			this.ms_Save.Text = "ثـبــت   [F2]";
-			this.ms_Save.TextHorizontalAlignment = Janus.Windows.EditControls.TextAlignment.Near;
-			this.ms_Save.UseThemes = false;
-			this.ms_Save.Visible = false;
-			this.ms_Save.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
-			this.ms_Save.WordWrap = false;
-			this.ms_Save.Click += new System.EventHandler(this.ms_Save_Click);
-			// 
 			// mS_Panel2
 			// 
 			this.mS_Panel2.Controls.Add(this.label3);
@@ -948,6 +903,51 @@
 			this.NzGridItems.UpdateMode = Janus.Windows.GridEX.UpdateMode.CellUpdate;
 			this.NzGridItems.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
 			// 
+			// uiTabPage14
+			// 
+			this.uiTabPage14.AutoScroll = true;
+			this.uiTabPage14.Controls.Add(this.ms_Save);
+			this.uiTabPage14.Location = new System.Drawing.Point(1, 1);
+			this.uiTabPage14.Name = "uiTabPage14";
+			this.uiTabPage14.PanelFormatStyle.Alpha = 70;
+			this.uiTabPage14.PanelFormatStyle.BackColor = System.Drawing.Color.SkyBlue;
+			this.uiTabPage14.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
+			this.uiTabPage14.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
+			this.uiTabPage14.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.uiTabPage14.Size = new System.Drawing.Size(1180, 444);
+			this.uiTabPage14.TabStop = true;
+			this.uiTabPage14.Text = "پرسش و پاسخ";
+			this.uiTabPage14.KeyUp += new System.Windows.Forms.KeyEventHandler(this.uiTabPage14_KeyUp);
+			// 
+			// ms_Save
+			// 
+			this.ms_Save.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.ms_Save.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.ms_Save.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.ms_Save.Image = ((System.Drawing.Image)(resources.GetObject("ms_Save.Image")));
+			this.ms_Save.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
+			this.ms_Save.Location = new System.Drawing.Point(1048, 11);
+			this.ms_Save.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.ms_Save.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.ms_Save.MS_Change_Border_Color_On_Enter = false;
+			this.ms_Save.MS_Change_Color_On_Enter = false;
+			this.ms_Save.MS_Enter_Border_Color = System.Drawing.Color.Empty;
+			this.ms_Save.MS_Enter_Color = System.Drawing.Color.Empty;
+			this.ms_Save.Name = "ms_Save";
+			this.ms_Save.Office2007ColorScheme = Janus.Windows.UI.Office2007ColorScheme.Custom;
+			this.ms_Save.Office2007CustomColor = System.Drawing.Color.DodgerBlue;
+			this.ms_Save.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.ms_Save.ShowFocusRectangle = false;
+			this.ms_Save.Size = new System.Drawing.Size(103, 30);
+			this.ms_Save.TabIndex = 1;
+			this.ms_Save.Text = "ثـبــت   [F2]";
+			this.ms_Save.TextHorizontalAlignment = Janus.Windows.EditControls.TextAlignment.Near;
+			this.ms_Save.UseThemes = false;
+			this.ms_Save.Visible = false;
+			this.ms_Save.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
+			this.ms_Save.WordWrap = false;
+			this.ms_Save.Click += new System.EventHandler(this.ms_Save_Click);
+			// 
 			// Form_ListFactors
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -977,10 +977,10 @@
 			this.mS_Tool_Strip1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ms_mah)).EndInit();
 			this.ms_mah.ResumeLayout(false);
-			this.uiTabPage14.ResumeLayout(false);
 			this.mS_Panel2.ResumeLayout(false);
 			this.mS_Panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NzGridItems)).EndInit();
+			this.uiTabPage14.ResumeLayout(false);
 			this.ResumeLayout(false);
 
         }

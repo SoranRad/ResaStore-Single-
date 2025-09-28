@@ -101,6 +101,7 @@
     <Compile Include="Report\CircularOfLocation.cs" />
     <Compile Include="Report\FactorDetails.cs" />
     <Compile Include="Report\ObjectRemaindOnDate.cs" />
+    <Compile Include="Report\ObjectsOfActiveGroup.cs" />
     <Compile Include="Report\PriceChartMonthly.cs" />
     <Compile Include="Report\Profit\ChartSummarry.cs" />
     <Compile Include="Report\PurchaceAnalyze.cs" />
