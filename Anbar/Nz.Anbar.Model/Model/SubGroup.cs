@@ -46,7 +46,8 @@ WHERE tgk.FK_GroupKala_1th=@Code
 SELECT tgk.ID ,
        tgk.FK_GroupKala_1th ,
        tgk.Code ,
-       LTRIM(RTRIM(tgk.title )) AS title
+       LTRIM(RTRIM(tgk.title )) AS title,
+       tgk.ShowInBarcode
 FROM Base.tbl_GroupKala_2th AS tgk
 WHERE tgk.ID = @ID
 
@@ -60,7 +61,8 @@ SELECT tgk.ID ,
        tgk.Code ,
        LTRIM(RTRIM(tgk.title )) AS title ,
 	   LTRIM(RTRIM(tgk2.title)) AS MainGroup,
-	   COUNT(tkx.ID)			AS ObjectCount
+	   COUNT(tkx.ID)			AS ObjectCount,
+       tgk.ShowInBarcode
 FROM Base.tbl_GroupKala_2th AS tgk
 LEFT OUTER JOIN Base.tbl_GroupKala_1th	AS tgk2 ON tgk2.Code = tgk.FK_GroupKala_1th
 LEFT OUTER JOIN Base.tbl_Kala_Xadamat	AS tkx	ON tkx.FK_GroupKala_2th = tgk.Code	
@@ -68,7 +70,8 @@ GROUP BY tgk.ID ,
        tgk.FK_GroupKala_1th ,
        tgk.Code ,
        tgk.title ,
-	   tgk2.title 
+	   tgk2.title ,
+       tgk.ShowInBarcode
 ";
         }
         public string UniqueCode        ()

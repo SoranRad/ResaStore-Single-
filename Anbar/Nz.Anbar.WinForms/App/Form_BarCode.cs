@@ -108,7 +108,6 @@ namespace Nz.Anbar.WinForms.App
             NzGrid.DataSource               = _Bind;
 
             LoadSettings();
-            NzObjectSelector.Refresh_Grid   ((object)null);
             RefreshPrefactor                ();
             //AddPayment                      ();
             ValidationDemo                  ();
@@ -117,7 +116,7 @@ namespace Nz.Anbar.WinForms.App
 
         private void SubGroupsPanelOnOnSubGroupChanged(object sender, SubGroupEventArgs e)
         {
-	        NzGroupKala.DataSource = _ListObjects.Where(x => x.FK_GroupKala_2th == e.SubGroup.Code).ToList();
+	        NzGroupKala.DataSource = _ListObjects.Where(x => x.FK_GroupKala_2th == e.SubGroup.Code && !x.is_disabled).ToList();
         }
 
         private void LoadItem                       ()
@@ -1706,6 +1705,7 @@ namespace Nz.Anbar.WinForms.App
 					NzKind.SelectedIndex == 0 
 						? nameof(NzObject.nerkh_frosh)
                         : nameof(NzObject.nerkh_frosh) + NzKind.SelectedIndex;
+            NzGroupKala.Refetch();
 			 
 		}
 		private void NsCopyBarcode_Click                (object sender, EventArgs e)
@@ -1717,7 +1717,11 @@ namespace Nz.Anbar.WinForms.App
 
 		private void NzGroupKala_ColumnButtonClick(object sender, ColumnActionEventArgs e)
 		{
+			var kala = NzGroupKala.CurrentRow.DataRow as NzObject;
+			var item = _ListObjects.SingleOrDefault(x => x.ID== kala.ID);
 
+			if(item!=null)
+				AddObject(item);
 		}
 	}
 }

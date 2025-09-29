@@ -50,6 +50,7 @@ namespace Nz.Anbar.WinForms.Base
                             });
 
                 NzTitle.Text    = _Item.title;
+                NzShowInBarcode.Checked = _Item.ShowInBarcode;
                
                 NzMainGroup.MS_Set_Select(_Item.FK_GroupKala_1th);
                 if (_Item.FK_GroupKala_1th.HasValue)
@@ -77,6 +78,7 @@ namespace Nz.Anbar.WinForms.Base
             _Item.title                 = NzTitle.Text;
             _Item.Code                  = Convert.ToInt16(NzCode.ButtonText + NzCode.Text);
             _Item.FK_GroupKala_1th      = (NzMainGroup.MS_Get_Selected() as MainGroup).Code;
+            _Item.ShowInBarcode = NzShowInBarcode.Checked;
         }
         private void    Reset      ()
         {
