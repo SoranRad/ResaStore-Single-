@@ -179,8 +179,8 @@ namespace Nz.Anbar.WinForms.App
 
             if (detail != null)
             {
-	            NsTarikhCreate.Text = detail.tarikh_add.ToPersianDate();
-	            NsTarikhEdit.Text   = detail.tarikh_edit?.ToPersianDate();
+	            NsTarikhCreate.Text = detail.tarikh_add.ToPersianDate()+" " +detail.tarikh_add.ToString("HH:m");
+	            NsTarikhEdit.Text   = detail.tarikh_edit?.ToPersianDate() +" "+detail.tarikh_edit?.ToString("HH:m");
 	            NsUserCreate.Text   = detail.UserCreate;
 	            NsUserEdit.Text     = detail.UserEdit;
             }
@@ -306,7 +306,7 @@ namespace Nz.Anbar.WinForms.App
         private void NzItems_Click                      (object sender, EventArgs e)
         {
             Splitter1.Visible   = NzItems.Checked;
-            NzGridItems.Visible = NzItems.Checked;
+            mS_Panel2.Visible = NzItems.Checked;
 
             if (NzItems.Checked)
                 RefreshItem();

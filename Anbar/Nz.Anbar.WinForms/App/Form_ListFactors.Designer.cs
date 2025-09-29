@@ -795,6 +795,7 @@
 			this.NsTarikhEdit.ForeColor = System.Drawing.Color.Blue;
 			this.NsTarikhEdit.Location = new System.Drawing.Point(3, 116);
 			this.NsTarikhEdit.Name = "NsTarikhEdit";
+			this.NsTarikhEdit.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.NsTarikhEdit.Size = new System.Drawing.Size(137, 28);
 			this.NsTarikhEdit.TabIndex = 773;
 			// 
@@ -805,6 +806,7 @@
 			this.NsTarikhCreate.ForeColor = System.Drawing.Color.Blue;
 			this.NsTarikhCreate.Location = new System.Drawing.Point(3, 39);
 			this.NsTarikhCreate.Name = "NsTarikhCreate";
+			this.NsTarikhCreate.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.NsTarikhCreate.Size = new System.Drawing.Size(137, 28);
 			this.NsTarikhCreate.TabIndex = 773;
 			// 

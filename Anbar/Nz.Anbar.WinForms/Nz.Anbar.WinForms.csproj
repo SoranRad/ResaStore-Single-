@@ -204,12 +204,6 @@
       <DependentUpon>StorageAlarm.cs</DependentUpon>
     </Compile>
     <Compile Include="App\ConvertToFactor.cs" />
-    <Compile Include="App\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="App\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="App\FormCopyToYear.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -680,9 +674,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Alarm\StorageAlarm.resx">
       <DependentUpon>StorageAlarm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="App\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="App\FormCopyToYear.resx">
       <DependentUpon>FormCopyToYear.cs</DependentUpon>
