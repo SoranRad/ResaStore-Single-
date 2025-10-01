@@ -7,7 +7,7 @@ using Dapper;
 using ShareLib.Interfaces;
 using ShareLib.Utils;
 
-namespace NZ.Bar.DataLayer.Repo
+namespace NZ.Aqsat.DataLayer.Repo
 {
     public class ReportRepository : IReportRepository
     {

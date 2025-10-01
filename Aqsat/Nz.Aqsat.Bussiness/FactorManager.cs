@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using NZ.Anbar.DataLayer.Repo;
+﻿using System.Data.Common;
 using Nz.Aqsat.Model.Interface;
 using Nz.Aqsat.Model.Models;
+
+using NZ.Aqsat.DataLayer.Repo;
 using ShareLib.Utils;
 
-namespace NZ.Anbar.Business
+namespace NZ.Aqsat.Business
 {
     public class AqsatManager
     {

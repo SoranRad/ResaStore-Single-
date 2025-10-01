@@ -612,7 +612,6 @@ namespace Nz.Anbar.WinForms.App
             var mgr = new PrefactorManager();
             NzPrefactorGrid.DataSource = mgr.GetList(null).ToList();
         }
-
         private void AddPrefactor                   (int IdPrefactor)
         {
             var mgr         = new PrefactorManager();
@@ -1260,12 +1259,13 @@ namespace Nz.Anbar.WinForms.App
             var menues = List
                 .Select(x => new ToolStripMenuItem
                 {
-                    Text = x.title,
+                    Text =x.Code + " - " + x.title+ " - " + x.UnitTitle ,
                     Tag = x,
                 });
             contextMenuStrip1.Items.Clear();
             contextMenuStrip1.Items.AddRange(menues.ToArray());
-            contextMenuStrip1.Show(nzBarcodeReader1, new Point(0, nzBarcodeReader1.Height),ToolStripDropDownDirection.Left);
+            contextMenuStrip1.Show(nzBarcodeReader1, new Point(nzBarcodeReader1.Width / 2, nzBarcodeReader1.Height), ToolStripDropDownDirection.Left);
+            //contextMenuStrip1.Show(nzBarcodeReader1,ToolStripDropDownDirection.Left);
         }
         #endregion
         //====================================

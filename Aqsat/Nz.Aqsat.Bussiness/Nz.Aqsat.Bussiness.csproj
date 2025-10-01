@@ -50,14 +50,17 @@
     <ProjectReference Include="..\..\General\ShareLib\ShareLib.csproj">
       <Project>{ee295af7-3238-4f98-b5fc-9f16c02391e8}</Project>
       <Name>ShareLib</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\Nz.Aqsat.DataLayer\Nz.Aqsat.DataLayer.csproj">
       <Project>{e1214def-ef36-4e99-b7d5-c576c7894917}</Project>
       <Name>Nz.Aqsat.DataLayer</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\Nz.Aqsat.Model\Nz.Aqsat.Model.csproj">
       <Project>{4ee4f2a0-7f13-4eb4-bd26-230b9b0135b7}</Project>
       <Name>Nz.Aqsat.Model</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

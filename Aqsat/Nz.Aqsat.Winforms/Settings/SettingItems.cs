@@ -11,7 +11,7 @@ namespace Nz.Aqsat.WinForms.Settings
 {
 	public class SettingItems : ISettingItems
 	{
-		public static readonly string KeyName = "Bar";
+		public static readonly string KeyName = "Aqsat";
 
 		public static SettingItems GetDefault()
 		{

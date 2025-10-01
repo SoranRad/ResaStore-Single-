@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Common; 
-using NZ.Bar.DataLayer.Repo;
+using NZ.Aqsat.DataLayer.Repo;
 using ShareLib.Interfaces;
 using ShareLib.Utils;
 

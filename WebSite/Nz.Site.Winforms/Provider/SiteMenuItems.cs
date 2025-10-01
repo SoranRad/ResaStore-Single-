@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Nz.Site.Winforms.Provider
+{
+    public partial class SiteMenuItems : UserControl
+    {
+        public SiteMenuItems()
+        {
+            InitializeComponent();
+        }
+        public void SetMenu()
+        {
+            //NzBrandMenu.Visible    = false;
+            //ms_Storage.Visible     = false;
+        }
+
+		private void تعریفانواعقسطToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			
+		}
+	}
+}

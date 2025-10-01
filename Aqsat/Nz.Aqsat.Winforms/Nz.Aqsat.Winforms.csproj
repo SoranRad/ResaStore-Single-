@@ -121,11 +121,6 @@
       <HintPath>..\..\Output\MS_Control.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="MS_Resource, Version=5.4.117.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Output\MS_Resource.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Stimulsoft.Base, Version=2015.2.0.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Output\Stimulsoft.Base.dll</HintPath>
@@ -281,6 +276,11 @@
       <Name>MS_Print_Dialog</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\..\General\MS_Resource\MS_Resource.csproj">
+      <Project>{0dc2a135-5cbd-4912-8305-d2898cf70e85}</Project>
+      <Name>MS_Resource</Name>
+      <Private>False</Private>
+    </ProjectReference>
     <ProjectReference Include="..\..\General\NZ.General.WinForms\NZ.General.WinForms.csproj">
       <Project>{79123bf7-a7b6-4ff6-88be-a7810d4fc11c}</Project>
       <Name>NZ.General.WinForms</Name>
@@ -294,6 +294,7 @@
     <ProjectReference Include="..\Nz.Aqsat.Bussiness\Nz.Aqsat.Bussiness.csproj">
       <Project>{3fb32b5d-bfff-4192-a6ab-1d51b6d33fd2}</Project>
       <Name>Nz.Aqsat.Bussiness</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\Nz.Aqsat.Model\Nz.Aqsat.Model.csproj">
       <Project>{4ee4f2a0-7f13-4eb4-bd26-230b9b0135b7}</Project>
