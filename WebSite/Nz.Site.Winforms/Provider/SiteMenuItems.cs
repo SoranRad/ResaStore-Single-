@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Nz.Site.Winforms.App;
 
 namespace Nz.Site.Winforms.Provider
 {
@@ -22,9 +23,11 @@ namespace Nz.Site.Winforms.Provider
             //ms_Storage.Visible     = false;
         }
 
-		private void تعریفانواعقسطToolStripMenuItem_Click(object sender, EventArgs e)
+		private void NsProducts_Click(object sender, EventArgs e)
 		{
-			
+			var frm         = new FormProducts();
+			frm.MdiParent   = SiteProvider.MainForm;
+			frm.Show();
 		}
 	}
 }

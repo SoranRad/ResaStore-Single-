@@ -9,20 +9,24 @@ namespace Nz.Site.Winforms.Settings
 		public TabSettingContainer()
 		{
 			InitializeComponent();
-			NsBarSetting.SettingFunction += () => Settings;
+			NsSiteSetting.SettingFunction += () => Settings;
 		}
 
 		public void LoadSetting(SettingItems settings)
 		{
-			 
+			NsWebSite.Text		= settings.WebSite;
+			NsApiKey.Text		= settings.ApiKey;
+			NsSecretKey.Text	= settings.SecretKey;
 		}
 
-		public NsSettingTabPage TabSetting => NsBarSetting;
+		public NsSettingTabPage TabSetting => NsSiteSetting;
 
 		public SettingItems		Settings =>
 			new SettingItems()
 			{
-				 
+				 WebSite = NsWebSite.Text,
+				 ApiKey = NsApiKey.Text,
+				 SecretKey = NsSecretKey.Text
 			};
 	}
 }

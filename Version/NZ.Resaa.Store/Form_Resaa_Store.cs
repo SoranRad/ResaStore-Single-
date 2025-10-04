@@ -74,7 +74,7 @@ namespace NZ.Resaa.Store
             loadingMadul = LoadBar(_config); 
             loadingMadul = LoadXazane(_config); 
             loadingMadul = LoadAqsat(_config); 
-            loadingMadul = LoadWebSite(_config); 
+            loadingMadul = LoadWebSite(_config);
             return true;
         }
         private bool    LoadGeneral                 (Config config)
@@ -412,7 +412,7 @@ namespace NZ.Resaa.Store
 
 		        object c = item.Invoke(null);
 
-		        Form_Factory._Form_Factory_Aqsat = c as IEntryProvider;
+		        Form_Factory._Form_Factory_Site = c as IEntryProvider;
 		        var tmp = (c as IEntryProvider);
 		        Form_Factory.SystemList.Add(tmp);
 

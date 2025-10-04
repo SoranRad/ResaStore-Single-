@@ -262,10 +262,7 @@ namespace Nz.Site.Winforms.Provider
 		public void SetSettings(IEnumerable<dynamic> settings)
 		{
 			var setting = settings.SingleOrDefault(x => x.Name == SettingItems.KeyName);
-			if (setting == null)
-				_settings = SettingItems.GetDefault();
-			else
-				_settings = Converter.Convert<SettingItems>(setting);
+			_settings = setting == null ? SettingItems.GetDefault() : (ISettingItems)Converter.Convert<SettingItems>(setting);
 		}
 
 		public ISettingItems GetSettings()

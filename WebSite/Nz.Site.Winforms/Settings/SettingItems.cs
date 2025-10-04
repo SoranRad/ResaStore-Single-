@@ -17,7 +17,7 @@ namespace Nz.Site.WinForms.Settings
 		{
 			return new SettingItems()
 			{
-				 DefaultKala = 0
+				  
 			};
 		}
 
@@ -26,6 +26,9 @@ namespace Nz.Site.WinForms.Settings
 			Name = KeyName;
 		}
 
-		public int DefaultKala { get; set; }
+		public string	WebSite		{ get; set; }
+		public string	ApiKey		{ get; set; }
+		public string	SecretKey		{ get; set; }
+
 	}
 }

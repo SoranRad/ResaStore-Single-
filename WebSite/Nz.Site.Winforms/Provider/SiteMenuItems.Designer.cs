@@ -32,14 +32,10 @@ namespace Nz.Site.Winforms.Provider
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SiteMenuItems));
 			this.mS_Menu1 = new MS_Control.Controls.MS_Menu();
 			this.ms_baseinfo = new System.Windows.Forms.ToolStripMenuItem();
-			this.تعریفانواعقسطToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsProducts = new System.Windows.Forms.ToolStripMenuItem();
 			this.StorageMenu = new System.Windows.Forms.ToolStripMenuItem();
-			this.ایجادقسطجدیدToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.لیستاقساطToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.NzReport = new System.Windows.Forms.ToolStripMenuItem();
-			this.داشبوردماهانهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.mS_Menu1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -66,7 +62,8 @@ namespace Nz.Site.Winforms.Provider
 			// ms_baseinfo
 			// 
 			this.ms_baseinfo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.تعریفانواعقسطToolStripMenuItem});
+            this.toolStripSeparator1,
+            this.NsProducts});
 			this.ms_baseinfo.Font = new System.Drawing.Font("IRANSans(Small) Medium", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.ms_baseinfo.Image = ((System.Drawing.Image)(resources.GetObject("ms_baseinfo.Image")));
 			this.ms_baseinfo.Name = "ms_baseinfo";
@@ -75,18 +72,15 @@ namespace Nz.Site.Winforms.Provider
 			this.ms_baseinfo.Tag = "1";
 			this.ms_baseinfo.Text = "اطـلاعـات پـایه";
 			// 
-			// تعریفانواعقسطToolStripMenuItem
+			// NsProducts
 			// 
-			this.تعریفانواعقسطToolStripMenuItem.Name = "تعریفانواعقسطToolStripMenuItem";
-			this.تعریفانواعقسطToolStripMenuItem.Size = new System.Drawing.Size(185, 30);
-			this.تعریفانواعقسطToolStripMenuItem.Text = "تعریف انواع قسط";
-			this.تعریفانواعقسطToolStripMenuItem.Click += new System.EventHandler(this.تعریفانواعقسطToolStripMenuItem_Click);
+			this.NsProducts.Name = "NsProducts";
+			this.NsProducts.Size = new System.Drawing.Size(180, 30);
+			this.NsProducts.Text = "محصـولات";
+			this.NsProducts.Click += new System.EventHandler(this.NsProducts_Click);
 			// 
 			// StorageMenu
 			// 
-			this.StorageMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ایجادقسطجدیدToolStripMenuItem,
-            this.لیستاقساطToolStripMenuItem});
 			this.StorageMenu.Font = new System.Drawing.Font("IRANSans(Small) Medium", 15F);
 			this.StorageMenu.Image = ((System.Drawing.Image)(resources.GetObject("StorageMenu.Image")));
 			this.StorageMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -94,24 +88,8 @@ namespace Nz.Site.Winforms.Provider
 			this.StorageMenu.Size = new System.Drawing.Size(97, 28);
 			this.StorageMenu.Text = "وب سایت";
 			// 
-			// ایجادقسطجدیدToolStripMenuItem
-			// 
-			this.ایجادقسطجدیدToolStripMenuItem.Name = "ایجادقسطجدیدToolStripMenuItem";
-			this.ایجادقسطجدیدToolStripMenuItem.Size = new System.Drawing.Size(184, 30);
-			this.ایجادقسطجدیدToolStripMenuItem.Text = "ایجاد قسط جدید";
-			// 
-			// لیستاقساطToolStripMenuItem
-			// 
-			this.لیستاقساطToolStripMenuItem.Name = "لیستاقساطToolStripMenuItem";
-			this.لیستاقساطToolStripMenuItem.Size = new System.Drawing.Size(184, 30);
-			this.لیستاقساطToolStripMenuItem.Text = "لیست اقساط";
-			// 
 			// NzReport
 			// 
-			this.NzReport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.داشبوردماهانهToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem});
 			this.NzReport.Font = new System.Drawing.Font("IRANSans(Small) Medium", 15F);
 			this.NzReport.Image = ((System.Drawing.Image)(resources.GetObject("NzReport.Image")));
 			this.NzReport.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -119,22 +97,10 @@ namespace Nz.Site.Winforms.Provider
 			this.NzReport.Size = new System.Drawing.Size(96, 28);
 			this.NzReport.Text = "گـزارشـات";
 			// 
-			// داشبوردماهانهToolStripMenuItem
-			// 
-			this.داشبوردماهانهToolStripMenuItem.Name = "داشبوردماهانهToolStripMenuItem";
-			this.داشبوردماهانهToolStripMenuItem.Size = new System.Drawing.Size(266, 30);
-			this.داشبوردماهانهToolStripMenuItem.Text = "داشبورد ماهانه";
-			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(263, 6);
-			// 
-			// گزارشاقساطبهتفکیکوضعیتToolStripMenuItem
-			// 
-			this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem.Name = "گزارشاقساطبهتفکیکوضعیتToolStripMenuItem";
-			this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem.Size = new System.Drawing.Size(266, 30);
-			this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem.Text = "گزارش اقساط به تفکیک وضعیت";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
 			// 
 			// SiteMenuItems
 			// 
@@ -155,11 +121,7 @@ namespace Nz.Site.Winforms.Provider
         public System.Windows.Forms.ToolStripMenuItem ms_baseinfo;
         public System.Windows.Forms.ToolStripMenuItem StorageMenu;
         public System.Windows.Forms.ToolStripMenuItem NzReport;
-		private System.Windows.Forms.ToolStripMenuItem تعریفانواعقسطToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem ایجادقسطجدیدToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem لیستاقساطToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem داشبوردماهانهToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem NsProducts;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-		private System.Windows.Forms.ToolStripMenuItem گزارشاقساطبهتفکیکوضعیتToolStripMenuItem;
 	}
 }

@@ -153,31 +153,6 @@ namespace Nz.Anbar.WinForms.App
                 log.Error(ex);
             }
         }
-        //private void AddPayment                     ()
-        //{
-        //    //var Xazane = Form_Factory
-        //    //                .SystemList
-        //    //                .FirstOrDefault
-        //    //                    (x => x.GetSystemKind() == Enums.MS_System.Xazane);
-
-        //    //if (Xazane == null)
-        //    //{
-        //    //    uiTab2.ShowTabs = false;
-        //    //    uiTab2.TabPages.Remove(uiTabPage4);
-        //    //}
-        //    //else if (Xazane is IFactoryControl FControl)
-        //    //{
-        //    //    _PaymentControl         = FControl.CreateControl(Enums.NzFactoryControlKind.CachePos);
-
-        //    //    if (_PaymentControl == null)
-        //    //        return;
-
-        //    //    uiTabPage4.Controls.Add(_PaymentControl);
-        //    //    _PaymentControl.Location = new Point(uiTabPage4.Width - _PaymentControl.Width+25, 0);
-        //    //    if(_PaymentControl is IPaymentCommand cmd)
-        //    //        cmd.LoadComponent(_ID,_Factor.mablaq);
-        //    //}
-        //}
         private void Save                           (bool ShowPopup = false)
         {
             try
@@ -260,7 +235,7 @@ namespace Nz.Anbar.WinForms.App
                 MS_Message.Show("خطا در برنامه", "", ex.Message, MessageBoxButtons.OK);
             }
         }
-        private void LoadObjects()
+        private void LoadObjects                    ()
         {
             var mgr= new Manager();
 

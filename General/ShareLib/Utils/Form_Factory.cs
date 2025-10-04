@@ -11,16 +11,16 @@ namespace ShareLib.Utils
     public static class Form_Factory
     {
         #region Fields
-        public static   IForm_Factory
-                                                //_Form_Factory_General,
+        //public static   IForm_Factory
+        //                                        //_Form_Factory_General,
                                                 
-                                                _Form_Factory_Shoraka,
-                                                _Form_Factory_Tajmihi;
+        //                                        _Form_Factory_Shoraka,
+        //                                        _Form_Factory_Tajmihi;
 
         public static IEntryProvider            _Form_Factory_Anbar, 
                                                 _Form_Factory_Xazaneh,
                                                 _Form_Factory_General,
-                                                //_Form_Factory_Machine,
+                                                _Form_Factory_Site,
                                                 _Form_Factory_Bar,
                                                 _Form_Factory_Aqsat
                                                 ;
