@@ -34,6 +34,22 @@ namespace ShareLib
                     return Kind.ToString();
             }
         }
+        public static string NzTostring (this Enums.NzObjectWebSiteKind            Kind)
+        {
+	        switch (Kind)
+	        {
+		        case Enums.NzObjectWebSiteKind.Simple:
+			        return "ساده";
+		        case Enums.NzObjectWebSiteKind.Grouped:
+			        return "دسته بندی شده";
+		        case Enums.NzObjectWebSiteKind.Afilit:
+			        return "خارجی";
+		        case Enums.NzObjectWebSiteKind.Variant:
+			        return "متغیر";
+		        default:
+			        return null;
+	        }
+        }
         public static string NzTostring(this Enums.NzObjectSeason Kind)
         {
             switch (Kind)

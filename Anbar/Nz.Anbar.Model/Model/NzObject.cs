@@ -33,6 +33,9 @@ namespace NZ.Anbar.Model
         public decimal?     nerkh_frosh3        { get; set; }
         public long?        FK_Image            { get; set; }
 
+        public byte?        WebSiteProductKind       { get; set; }
+        public long?        WebSiteProductId1        { get; set; }
+        public long?        WebSiteProductId2        { get; set; }
        
          
 
@@ -82,6 +85,7 @@ namespace NZ.Anbar.Model
 
         [NotMapped]
         public string       KindTitle           => ((Enums.NzObjectKind)this.kind).NzTostring();
+        public string       WebSiteProductKindTitle  => ((Enums.NzObjectWebSiteKind)(this.WebSiteProductKind??0)).NzTostring();
         [NotMapped]
         public string       StateTitle          => this.is_disabled ? "غیر فعال " : "فعال";
         [NotMapped]
@@ -89,7 +93,7 @@ namespace NZ.Anbar.Model
         [NotMapped]
         public string       BastebandiTitle     { get; set; }
         [NotMapped]
-        public string       SeasonTitle         => Season == null ? string.Empty : ((Enums.NzObjectSeason)this.kind).NzTostring();
+        public string       SeasonTitle         => Season == null ? string.Empty : ((Enums.NzObjectSeason)this.Season).NzTostring();
 
          
 
@@ -145,7 +149,10 @@ SELECT tkx.ID ,
        tkx.FK_Vahed_Fari,
        Rtrim(Ltrim(tkx.Gender))             AS Gender ,
 	   LTRIM(RTRIM(tb.Title))               AS BrandTitle,
-	   LTRIM(RTRIM(tbb.Title))              AS BastebandiTitle
+	   LTRIM(RTRIM(tbb.Title))              AS BastebandiTitle,
+       tkx.WebSiteProductKind,
+       tkx.WebSiteProductId1, 
+       tkx.WebSiteProductId2 
 
 FROM Base.tbl_Kala_Xadamat              AS tkx
 INNER JOIN Base.tbl_Vahed               AS tv       ON tv.ID        = tkx.FK_Vahed
@@ -194,7 +201,10 @@ SELECT tkx.ID ,
        tkx.FK_Vahed_Fari,
        Rtrim(Ltrim(tkx.Gender)) AS Gender,
 	   LTRIM(RTRIM(tb.Title))  AS BrandTitle,
-	   LTRIM(RTRIM(tbb.Title)) AS BastebandiTitle
+	   LTRIM(RTRIM(tbb.Title)) AS BastebandiTitle,
+        tkx.WebSiteProductKind,
+       tkx.WebSiteProductId1, 
+       tkx.WebSiteProductId2 
 
 FROM Base.tbl_Kala_Xadamat              AS tkx
 INNER JOIN Base.tbl_Vahed               AS tv       ON tv.ID        = tkx.FK_Vahed

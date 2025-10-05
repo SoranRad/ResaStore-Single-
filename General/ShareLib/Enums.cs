@@ -120,6 +120,13 @@ namespace ShareLib
             Object=1,
             Service,
         }
+        public enum NzObjectWebSiteKind : byte
+        {
+	        Simple=1,
+            Grouped = 2,
+            Afilit =3,
+	        Variant =4,
+        }
         public enum NzObjectSeason : byte
         {
             Spring = 0,
