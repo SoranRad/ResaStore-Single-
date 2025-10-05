@@ -287,6 +287,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Anbar\Nz.Anbar.Model\Nz.Anbar.Model.csproj">
+      <Project>{883f785f-56b0-4c9e-b072-ed0db1238807}</Project>
+      <Name>Nz.Anbar.Model</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Anbar\Nz.Anbar.WinForms\Nz.Anbar.WinForms.csproj">
+      <Project>{993cba6f-3776-437a-a837-36069af26825}</Project>
+      <Name>Nz.Anbar.WinForms</Name>
+      <Private>False</Private>
+    </ProjectReference>
     <ProjectReference Include="..\..\General\MS_Print_Dialog\MS_Print_Dialog.csproj">
       <Project>{ed81290b-b424-4a06-9589-a45f43c36a59}</Project>
       <Name>MS_Print_Dialog</Name>
@@ -300,6 +310,16 @@
     <ProjectReference Include="..\..\General\ShareLib\ShareLib.csproj">
       <Project>{ee295af7-3238-4f98-b5fc-9f16c02391e8}</Project>
       <Name>ShareLib</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Xazane\NZ.Xazane.Model\NZ.Xazane.Model.csproj">
+      <Project>{b22dfb8e-ef80-4076-8655-16584b4372ba}</Project>
+      <Name>NZ.Xazane.Model</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Xazane\NZ.Xazane.WinForms\NZ.Xazane.WinForms.csproj">
+      <Project>{c1c006f8-7866-44b5-9513-12cabb4912bf}</Project>
+      <Name>NZ.Xazane.WinForms</Name>
       <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\Nz.Site.Bussiness\Nz.Site.Bussiness.csproj">

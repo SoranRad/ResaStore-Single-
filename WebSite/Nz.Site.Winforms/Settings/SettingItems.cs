@@ -26,9 +26,14 @@ namespace Nz.Site.WinForms.Settings
 			Name = KeyName;
 		}
 
-		public string	WebSite		{ get; set; }
-		public string	ApiKey		{ get; set; }
-		public string	SecretKey		{ get; set; }
+		public string	WebSite				{ get; set; }
+		public string	ApiKey				{ get; set; }
+		public string	SecretKey			{ get; set; }
+
+		public short?	FK_Location			{ get; set; }
+		public short?	KindFrosh			{ get; set; }
+		public int?		FK_BankAccount		{ get; set; }
+
 
 	}
 }
