@@ -229,5 +229,32 @@ namespace ShareLib
                     return "";
             }
         }
+
+        public static string NzWebsiteStateOrderToPersian(this string Kind)
+        {
+            //on-hold, , , ,  and 
+	        switch (Kind)
+	        {
+                case "pending":
+	                return "در انتظار پرداخت";
+                case "processing":
+	                return "در حال انجام";
+                case "on-hold":
+	                return "در انتظار بررسی";
+                case "completed":
+	                return "تکمیل شده";
+                case "cancelled":
+	                return "لغو شده";
+                case "refunded":
+	                return "مسترد شده";
+                case "failed":
+	                return "ناموفق";
+                case "trash":
+	                return "حذف شده";
+                default:
+	                return "";
+	        }
+        }
+
     }
 }

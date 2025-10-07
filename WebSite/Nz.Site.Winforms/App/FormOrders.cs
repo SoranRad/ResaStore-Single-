@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Janus.Windows.GridEX;
 using Nz.Site.Model.Report;
 using WooCommerceNET;
 using WooCommerceNET.WooCommerce.v3;
@@ -33,7 +34,8 @@ namespace Nz.Site.Winforms.App
 		#endregion
 
 		SettingItems _settingItems;
-		List<OrderDto> _orders;
+		List<OrderDto> _ordersDto;
+		List<Order> _orders;
 
 		public FormOrders()
 		{
@@ -46,7 +48,7 @@ namespace Nz.Site.Winforms.App
 			.Where(x=>x.Value!=null)
 			.MSZ_ForEach(item =>
 			{
-				NsStatusOrder.Items.Add(new DropDownItem(){Text = item.Text,Value = item.Value});
+				NsStatusOrderUpdate.Items.Add(new DropDownItem(){Text = item.Text,Value = item.Value});
 			});
 		}
 
@@ -54,22 +56,52 @@ namespace Nz.Site.Winforms.App
 		{
 			if(!NzItems.Checked)
 				return;
+			if(ms_Grid.CurrentRow.RowType!=RowType.Record)
+				return;
+			 
+			if (ms_Grid.CurrentRow.DataRow is OrderDto orderDto)
+			{
+				var order = _orders.SingleOrDefault(x => x.id == orderDto.id);
+				if (order== null)
+					return;
 
+
+				//==1. items
+				NsGridItems.DataSource = order.line_items;
+
+				//==2. Customer
+				var customer			= order.billing;
+				nsBillName.Text			= customer?.first_name;
+				NsBillLastName.Text		= customer?.last_name;
+				NsBillCode.Text			= order.customer_id?.ToString();
+				NsBillEmail.Text		= customer?.email;
+				NsBillMobile.Text		= customer?.phone;
+				NsBillAddress.Text		= customer?.country + " " + customer?.state + " " + customer?.city + " " +
+										  customer?.address_1 + " " + customer?.address_2 + " " + customer?.postcode;
+				//==3. Shipp
+				var shipp				= order.shipping;
+				NsShippName.Text		= shipp?.first_name;
+				NsShippLastName.Text	= shipp?.last_name;
+				NsShippCompany.Text		= shipp?.company;
+				NsShippAddress.Text		= shipp?.country + " " + shipp?.state + " " + shipp?.city + " " +
+					                      shipp?.address_1 + " " + shipp?.address_2 + " " + shipp?.postcode;
+
+			}
 
 		}
-		private async void FormOrders_Load(object sender, EventArgs e)
+		private async void FormOrders_Load			(object sender, EventArgs e)
 		{
-			RestAPI rest = new RestAPI(_settingItems.WebSite + "/wp-json/wc/v3/", _settingItems.ApiKey, _settingItems.SecretKey);
-			WCObject wc = new WCObject(rest);
+			//RestAPI rest = new RestAPI(_settingItems.WebSite + "/wp-json/wc/v3/", _settingItems.ApiKey, _settingItems.SecretKey);
+			//WCObject wc = new WCObject(rest);
 
 
-			var list = await wc.Order.GetAll();
-			ms_Grid.DataSource = list;
-			//ms_Grid.DataSource = await wc.Order.GetAll();
-			ms_Grid.RetrieveStructure(true);
+			//var list = await wc.Order.GetAll();
+			//ms_Grid.DataSource = list;
+			////ms_Grid.DataSource = await wc.Order.GetAll();
+			//ms_Grid.RetrieveStructure(true);
 		}
 
-		private async void NzReport_Click(object sender, EventArgs e)
+		private async void NzReport_Click			(object sender, EventArgs e)
 		{
 			NzReport.Enabled = false;
 			NzLoading2.Show();
@@ -82,7 +114,8 @@ namespace Nz.Site.Winforms.App
 			bool morePagesExist		= true;
 			RestAPI rest			= new RestAPI(_settingItems.WebSite + "/wp-json/wc/v3/", _settingItems.ApiKey, _settingItems.SecretKey);
 			WCObject wc				= new WCObject(rest);
-			_orders					= new List<OrderDto>();
+			_ordersDto				= new List<OrderDto>();
+			_orders					= new List<Order>();
 
 
 			if (NzDateFrom.MS_Tarikh.HasValue)
@@ -104,18 +137,10 @@ namespace Nz.Site.Winforms.App
 
 			parametters.Add("page", currentPage.ToString());
 			parametters.Add("per_page", ordersPerPage.ToString());
-			//parametters.Add("per_page", "-1");
 
 
 			//=================================================================
-
-			//_orders = await wc.Order.GetAll(parametters);
-
-			//ms_Grid.DataSource = _orders;
-			//ms_Grid.RetrieveStructure(true);
-
-			ms_Grid.DataSource = _orders;
-			//ms_Grid.RetrieveStructure(true);
+			ms_Grid.DataSource = _ordersDto;
 
 			try
 			{
@@ -131,20 +156,21 @@ namespace Nz.Site.Winforms.App
 						var tt = ordersPage.Select(x => new OrderDto()
 						{
 							
-							Address = x.shipping?.state +" "+x.shipping?.city+" "+x.shipping?.address_1,
-							Customer = x.billing?.first_name +" " +x.billing?.last_name + " " + x.billing?.phone,
-							date_created = x.date_created?.ToPersianDate(),
-							date_paid = x.date_paid?.ToPersianDate(),
-							discount_total = x.discount_total,
-							id = x.id,
-							number = x.number,
-							set_paid = x.set_paid,
-							shipping_total = x.shipping_total,
-							statusTitle = x.status,
-							total = x.total
-
+							Address			= x.shipping?.state +" "+x.shipping?.city+" "+x.shipping?.address_1,
+							Customer		= x.billing?.first_name +" " +x.billing?.last_name + " " + x.billing?.phone,
+							date_created	= x.date_created?.ToPersianDate(),
+							date_paid		= x.date_paid?.ToPersianDate(),
+							discount_total	= x.discount_total,
+							id				= x.id,
+							number			= x.number,
+							set_paid		= x.set_paid,
+							shipping_total	= x.shipping_total,
+							statusTitle		= x.status.NzWebsiteStateOrderToPersian(),
+							total			= x.total
 						});
-						_orders.AddRange(tt);
+
+						_orders.AddRange(ordersPage);
+						_ordersDto.AddRange(tt);
 						currentPage++;
 					}
 					else
@@ -152,7 +178,7 @@ namespace Nz.Site.Winforms.App
 						morePagesExist = false;
 					}
 
-					ms_Grid.DataSource = _orders;
+					ms_Grid.DataSource = _ordersDto;
 					ms_Grid.Refetch();
 					ms_Grid.Invalidate();
 				}
@@ -170,15 +196,53 @@ namespace Nz.Site.Winforms.App
 			
 		}
 
-		private void NzItems_CheckedChanged(object sender, EventArgs e)
+		private void NzItems_CheckedChanged			(object sender, EventArgs e)
 		{
-			tableLayoutPanel1.Visible = Splitter1.Visible = NzItems.Checked;
+			mS_Panel2.Visible = Splitter1.Visible = NzItems.Checked;
 			LoadDetails();
 		}
 
-		private void ms_Grid_SelectionChanged(object sender, EventArgs e)
+		private void ms_Grid_SelectionChanged		(object sender, EventArgs e)
 		{
 			LoadDetails();
+		}
+
+		private async void NsUpdateOrders_Click(object sender, EventArgs e)
+		{
+			if (!ms_Grid.GetCheckedRows().Any())
+			{
+				MS_Message.Show("کاربر گرامی یک یا چند ردیف را انتخاب کنید", "خطا", MessageBoxButtons.OK);
+				return;
+			}
+
+			if (NsStatusOrderUpdate.SelectedIndex < 0)
+			{
+				MS_Message.Show("کاربر گرامی وضعیت جدید را انتخاب کنید", "خطا", MessageBoxButtons.OK);
+				NsStatusOrderUpdate.DroppedDown = true;
+				return;
+			}
+
+			var state = NsStatusOrderUpdate.SelectedItem as DropDownItem;
+			var stateUiItem = state.Value;
+			RestAPI rest			= new RestAPI(_settingItems.WebSite + "/wp-json/wc/v3/", _settingItems.ApiKey, _settingItems.SecretKey);
+			WCObject wc				= new WCObject(rest);
+			OrderBatch bc			= new OrderBatch();
+
+
+			var updates = ms_Grid
+				.GetCheckedRows()
+				.Select(x => x.DataRow as OrderDto)
+				.Select(x => new Order()
+				{
+					id = x.id, 
+					status = stateUiItem.ToString()
+				})
+				.ToList();
+
+			bc.update = updates;
+			var result = await wc.Order.UpdateRange(bc);
+
+			MessageBox.Show(result.update.Count.ToString());
 		}
 	}
 }

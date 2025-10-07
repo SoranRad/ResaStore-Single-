@@ -30,6 +30,7 @@ namespace ShareLib
             Extend  = 2,
             Tax     = 3,
         }
+
         public enum NzFactorKind : byte
         {
             //===========Not Effect
