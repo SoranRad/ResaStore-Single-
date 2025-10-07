@@ -1,0 +1,184 @@
+﻿using Janus.Windows.EditControls;
+using MS_Control;
+using Nz.Site.WinForms.Settings;
+using ShareLib;
+using ShareLib.Utils;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Nz.Site.Model.Report;
+using WooCommerceNET;
+using WooCommerceNET.WooCommerce.v3;
+using WooCommerceNET.WooCommerce.v3.Extension;
+
+namespace Nz.Site.Winforms.App
+{
+	public partial class FormOrders : Form
+	{
+		#region Logging
+		private static readonly log4net.ILog 
+			log =
+				log4net
+					.LogManager
+					.GetLogger
+						(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+		#endregion
+
+		SettingItems _settingItems;
+		List<OrderDto> _orders;
+
+		public FormOrders()
+		{
+			InitializeComponent();
+			_settingItems = Form_Factory._Form_Factory_Site.GetSettings() as SettingItems ;
+
+			NsOrderStatusFilter
+			.Items
+			.OfType<UIComboBoxItem>()
+			.Where(x=>x.Value!=null)
+			.MSZ_ForEach(item =>
+			{
+				NsStatusOrder.Items.Add(new DropDownItem(){Text = item.Text,Value = item.Value});
+			});
+		}
+
+		private void LoadDetails()
+		{
+			if(!NzItems.Checked)
+				return;
+
+
+		}
+		private async void FormOrders_Load(object sender, EventArgs e)
+		{
+			RestAPI rest = new RestAPI(_settingItems.WebSite + "/wp-json/wc/v3/", _settingItems.ApiKey, _settingItems.SecretKey);
+			WCObject wc = new WCObject(rest);
+
+
+			var list = await wc.Order.GetAll();
+			ms_Grid.DataSource = list;
+			//ms_Grid.DataSource = await wc.Order.GetAll();
+			ms_Grid.RetrieveStructure(true);
+		}
+
+		private async void NzReport_Click(object sender, EventArgs e)
+		{
+			NzReport.Enabled = false;
+			NzLoading2.Show();
+			NzLoading2.Invalidate();
+			NzReport.Focus();
+
+			var parametters			= new Dictionary<string, string>();
+			int currentPage			= 1;
+			int ordersPerPage		= 100;  
+			bool morePagesExist		= true;
+			RestAPI rest			= new RestAPI(_settingItems.WebSite + "/wp-json/wc/v3/", _settingItems.ApiKey, _settingItems.SecretKey);
+			WCObject wc				= new WCObject(rest);
+			_orders					= new List<OrderDto>();
+
+
+			if (NzDateFrom.MS_Tarikh.HasValue)
+			{
+				var d = NzDateFrom.MS_Tarikh.Value.ToDatetime().Date;
+				var after = new DateTime(d.Year, d.Month, d.Day, 0, 0, 0, DateTimeKind.Utc);
+				parametters.Add("after",after.ToString("yyyy-MM-ddTHH:mm:ssZ"));
+			}
+
+			if (NzDateTo.MS_Tarikh.HasValue)
+			{
+				var d = NzDateTo.MS_Tarikh.Value.ToDatetime().Date;
+				var before = new DateTime(d.Year, d.Month, d.Day, 0, 0, 0, DateTimeKind.Utc);
+				parametters.Add("before",before.ToString("yyyy-MM-ddTHH:mm:ssZ"));
+			}
+
+			if (NsOrderStatusFilter.SelectedIndex >= 1)
+				parametters.Add("status",NsOrderStatusFilter.SelectedItem.Value.ToString());
+
+			parametters.Add("page", currentPage.ToString());
+			parametters.Add("per_page", ordersPerPage.ToString());
+			//parametters.Add("per_page", "-1");
+
+
+			//=================================================================
+
+			//_orders = await wc.Order.GetAll(parametters);
+
+			//ms_Grid.DataSource = _orders;
+			//ms_Grid.RetrieveStructure(true);
+
+			ms_Grid.DataSource = _orders;
+			//ms_Grid.RetrieveStructure(true);
+
+			try
+			{
+				while (morePagesExist)
+				{
+					parametters["page"] = currentPage.ToString();
+					parametters["per_page"] = ordersPerPage.ToString();
+					var ordersPage = await wc.Order.GetAll(parametters);
+
+
+					if (ordersPage != null && ordersPage.Count > 0)
+					{
+						var tt = ordersPage.Select(x => new OrderDto()
+						{
+							
+							Address = x.shipping?.state +" "+x.shipping?.city+" "+x.shipping?.address_1,
+							Customer = x.billing?.first_name +" " +x.billing?.last_name + " " + x.billing?.phone,
+							date_created = x.date_created?.ToPersianDate(),
+							date_paid = x.date_paid?.ToPersianDate(),
+							discount_total = x.discount_total,
+							id = x.id,
+							number = x.number,
+							set_paid = x.set_paid,
+							shipping_total = x.shipping_total,
+							statusTitle = x.status,
+							total = x.total
+
+						});
+						_orders.AddRange(tt);
+						currentPage++;
+					}
+					else
+					{
+						morePagesExist = false;
+					}
+
+					ms_Grid.DataSource = _orders;
+					ms_Grid.Refetch();
+					ms_Grid.Invalidate();
+				}
+
+			}
+			catch (Exception ex)
+			{
+				MS_Message.Show("سیستم قادر به خواندن اطلاعات نیست", "خطا در خواندن اطلاعات", ex.Message, MessageBoxButtons.OK);
+				log.Error(ex);
+			}
+
+			NzReport.Enabled = true;
+			NzLoading2.Hide();
+
+			
+		}
+
+		private void NzItems_CheckedChanged(object sender, EventArgs e)
+		{
+			tableLayoutPanel1.Visible = Splitter1.Visible = NzItems.Checked;
+			LoadDetails();
+		}
+
+		private void ms_Grid_SelectionChanged(object sender, EventArgs e)
+		{
+			LoadDetails();
+		}
+	}
+}

@@ -104,6 +104,7 @@
     <Compile Include="Component\NsSettingTabPage.Designer.cs">
       <DependentUpon>NsSettingTabPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="DropDownItem.cs" />
     <Compile Include="Interfaces\DapperEntityConfiguration.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IFactoryControl.cs" />

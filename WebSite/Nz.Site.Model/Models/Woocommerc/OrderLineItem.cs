@@ -8,96 +8,20 @@ namespace Nz.Site.Model.Models.Woocommerc
 {
 	public class OrderLineItem 
     {
-        /// <summary>
-        /// Item ID. 
-        /// read-only
-        /// </summary>
-        
-        public ulong? id { get; set; }
-
-        /// <summary>
-        /// Product name.
-        /// </summary>
-        
-        public string name { get; set; }
-
-        /// <summary>
-        /// Product ID.
-        /// </summary>
-        
-        public ulong? product_id { get; set; }
-
-        /// <summary>
-        /// Variation ID, if applicable.
-        /// </summary>
-        
-        public ulong? variation_id { get; set; }
-
-        /// <summary>
-        /// Quantity ordered.
-        /// </summary>
-        
-        public decimal? quantity { get; set; }
-
-        /// <summary>
-        /// Tax class of product.
-        /// </summary>
-        
-        public string tax_class { get; set; }
-
-
-        
-        /// <summary>
-        /// Line subtotal (before discounts).
-        /// </summary>
-        public string subtotal { get; set; }
-
-        
-        /// <summary>
-        /// Line subtotal tax (before discounts). 
-        /// read-only
-        /// </summary>
-        public string subtotal_tax { get; set; }
-
-        
-        /// <summary>
-        /// Line total (after discounts).
-        /// </summary>
-        public string total { get; set; }
-
-        
-        /// <summary>
-        /// Line total tax (after discounts). 
-        /// read-only
-        /// </summary>
-        public string total_tax { get; set; }
-
-        /// <summary>
-        /// Line taxes. See Order - Taxes properties 
-        /// read-only
-        /// </summary>
-        
-        //public List<TaxItem> taxes { get; set; }
-
-        /// <summary>
-        /// Meta data. See Order - Meta data properties
-        /// </summary>
-        
+        public ulong?       id                  { get; set; }
+        public string       name                { get; set; }
+		public ulong?       product_id          { get; set; }
+		public ulong?       variation_id        { get; set; }
+        public decimal?     quantity            { get; set; }
+        public string       tax_class           { get; set; }
+        public string       subtotal            { get; set; }
+        public string       subtotal_tax        { get; set; }
+        public string       total               { get; set; }
+        public string       total_tax           { get; set; }
+        public string       sku                 { get; set; }
+        public decimal      price               { get; set; }
         public List<OrderMeta> meta_data { get; set; }
-
-        /// <summary>
-        /// Product SKU. 
-        /// read-only
-        /// </summary>
-        
-        public string sku { get; set; }
-
-        /// <summary>
-        /// Product price. 
-        /// read-only
-        /// </summary>
-        
-        public decimal price { get; set; }
+	
 
     }
 

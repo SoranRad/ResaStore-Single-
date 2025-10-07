@@ -8,7 +8,17 @@ namespace Nz.Site.Model.Report
 {
 	public class OrderDto
 	{
-		public ulong? id { get; set; }
+		public ulong?		id					{ get; set; }
+		public string		number				{ get; set; }
+		public string		statusTitle			{ get; set; }
+		public string		date_created		{ get; set; }
+		public decimal?		discount_total		{ get; set; }
+		public decimal?		shipping_total		{ get; set; }
+		public decimal?		total				{ get; set; }
+		public string		date_paid			{ get; set; }
+		public bool?		set_paid			{ get; set; }
+		public string		Customer			{ get; set; }
+		public string		Address				{ get; set; }
 
 	}
 }

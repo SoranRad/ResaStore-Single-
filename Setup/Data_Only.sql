@@ -1,3 +1,5 @@
+SET ansi_warnings OFF
+GO
 USE [DB_NzResaaStore]
 GO
 SET IDENTITY_INSERT [Base].[tbl_Ostan] ON 
