@@ -93,6 +93,8 @@
 			this.NsStatusOrderUpdate = new System.Windows.Forms.ToolStripComboBox();
 			this.NsUpdateOrders = new System.Windows.Forms.ToolStripButton();
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
+			this.label12 = new System.Windows.Forms.Label();
+			this.NsCustomerNote = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.ms_Grid)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
@@ -352,6 +354,8 @@
 			// 
 			// panel2
 			// 
+			this.panel2.Controls.Add(this.NsCustomerNote);
+			this.panel2.Controls.Add(this.label12);
 			this.panel2.Controls.Add(this.NsShippAddress);
 			this.panel2.Controls.Add(this.NsShippCompany);
 			this.panel2.Controls.Add(this.NsShippLastName);
@@ -386,7 +390,7 @@
 			this.NsShippCompany.BackColor = System.Drawing.Color.Transparent;
 			this.NsShippCompany.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.NsShippCompany.ForeColor = System.Drawing.Color.SteelBlue;
-			this.NsShippCompany.Location = new System.Drawing.Point(248, 65);
+			this.NsShippCompany.Location = new System.Drawing.Point(19, 94);
 			this.NsShippCompany.Name = "NsShippCompany";
 			this.NsShippCompany.Size = new System.Drawing.Size(148, 23);
 			this.NsShippCompany.TabIndex = 773;
@@ -410,7 +414,7 @@
 			this.NsShippName.ForeColor = System.Drawing.Color.SteelBlue;
 			this.NsShippName.Location = new System.Drawing.Point(248, 36);
 			this.NsShippName.Name = "NsShippName";
-			this.NsShippName.Size = new System.Drawing.Size(152, 23);
+			this.NsShippName.Size = new System.Drawing.Size(140, 23);
 			this.NsShippName.TabIndex = 775;
 			// 
 			// label20
@@ -419,7 +423,7 @@
 			this.label20.AutoSize = true;
 			this.label20.BackColor = System.Drawing.Color.Transparent;
 			this.label20.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label20.Location = new System.Drawing.Point(398, 94);
+			this.label20.Location = new System.Drawing.Point(386, 92);
 			this.label20.Name = "label20";
 			this.label20.Size = new System.Drawing.Size(46, 23);
 			this.label20.TabIndex = 765;
@@ -431,7 +435,7 @@
 			this.label22.AutoSize = true;
 			this.label22.BackColor = System.Drawing.Color.Transparent;
 			this.label22.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label22.Location = new System.Drawing.Point(398, 65);
+			this.label22.Location = new System.Drawing.Point(169, 94);
 			this.label22.Name = "label22";
 			this.label22.Size = new System.Drawing.Size(49, 23);
 			this.label22.TabIndex = 767;
@@ -455,7 +459,7 @@
 			this.label24.AutoSize = true;
 			this.label24.BackColor = System.Drawing.Color.Transparent;
 			this.label24.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label24.Location = new System.Drawing.Point(398, 36);
+			this.label24.Location = new System.Drawing.Point(386, 37);
 			this.label24.Name = "label24";
 			this.label24.Size = new System.Drawing.Size(32, 23);
 			this.label24.TabIndex = 769;
@@ -1027,6 +1031,29 @@
 			this.uiTabPage14.TabStop = true;
 			this.uiTabPage14.Text = "پرسش و پاسخ";
 			// 
+			// label12
+			// 
+			this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label12.AutoSize = true;
+			this.label12.BackColor = System.Drawing.Color.Transparent;
+			this.label12.Font = new System.Drawing.Font("IRANSans(Small)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.label12.Location = new System.Drawing.Point(386, 64);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(59, 20);
+			this.label12.TabIndex = 776;
+			this.label12.Text = "توضیحات :";
+			// 
+			// NsCustomerNote
+			// 
+			this.NsCustomerNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsCustomerNote.BackColor = System.Drawing.Color.Transparent;
+			this.NsCustomerNote.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.NsCustomerNote.ForeColor = System.Drawing.Color.SteelBlue;
+			this.NsCustomerNote.Location = new System.Drawing.Point(3, 64);
+			this.NsCustomerNote.Name = "NsCustomerNote";
+			this.NsCustomerNote.Size = new System.Drawing.Size(385, 23);
+			this.NsCustomerNote.TabIndex = 777;
+			// 
 			// FormOrders
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1120,5 +1147,7 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+		private System.Windows.Forms.Label label12;
+		private System.Windows.Forms.Label NsCustomerNote;
 	}
 }

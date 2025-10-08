@@ -39,7 +39,6 @@ namespace Nz.Site.DataLayer.Repo
                     (SqlStr, Params);
             }
         }
-
         public T Item<T>(object Params, string WhereClauseAppend)
         {
             Assembly asm        = Assembly.Load(this.GetType().Assembly.GetName());

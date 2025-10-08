@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\SyncOrdersInfo.cs" />
+    <Compile Include="Models\SyncOrdersInFactors.cs" />
     <Compile Include="Report\OrderDto.cs" />
     <Compile Include="Models\Woocommerc\MetaData.cs" />
     <Compile Include="Models\Woocommerc\Order.cs" />

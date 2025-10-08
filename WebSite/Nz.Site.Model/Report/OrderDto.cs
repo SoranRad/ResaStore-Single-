@@ -19,6 +19,8 @@ namespace Nz.Site.Model.Report
 		public bool?		set_paid			{ get; set; }
 		public string		Customer			{ get; set; }
 		public string		Address				{ get; set; }
-
+		public long?		FactorId			{ get; set; }
+		public string		FactorDate			{ get; set; }
+		public int?			Serial				{ get; set; }
 	}
 }

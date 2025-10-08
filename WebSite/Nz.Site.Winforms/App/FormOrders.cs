@@ -14,6 +14,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Janus.Windows.GridEX;
+using Nz.Site.Business;
+using Nz.Site.Model.Models;
 using Nz.Site.Model.Report;
 using WooCommerceNET;
 using WooCommerceNET.WooCommerce.v3;
@@ -52,11 +54,11 @@ namespace Nz.Site.Winforms.App
 			});
 		}
 
-		private void LoadDetails()
+		private void			LoadDetails						()
 		{
 			if(!NzItems.Checked)
 				return;
-			if(ms_Grid.CurrentRow.RowType!=RowType.Record)
+			if(ms_Grid.CurrentRow?.RowType!=RowType.Record)
 				return;
 			 
 			if (ms_Grid.CurrentRow.DataRow is OrderDto orderDto)
@@ -78,6 +80,7 @@ namespace Nz.Site.Winforms.App
 				NsBillMobile.Text		= customer?.phone;
 				NsBillAddress.Text		= customer?.country + " " + customer?.state + " " + customer?.city + " " +
 										  customer?.address_1 + " " + customer?.address_2 + " " + customer?.postcode;
+				NsCustomerNote.Text		= order.customer_note;
 				//==3. Shipp
 				var shipp				= order.shipping;
 				NsShippName.Text		= shipp?.first_name;
@@ -86,10 +89,12 @@ namespace Nz.Site.Winforms.App
 				NsShippAddress.Text		= shipp?.country + " " + shipp?.state + " " + shipp?.city + " " +
 					                      shipp?.address_1 + " " + shipp?.address_2 + " " + shipp?.postcode;
 
+
 			}
 
 		}
-		private async void FormOrders_Load			(object sender, EventArgs e)
+		
+		private async void		FormOrders_Load					(object sender, EventArgs e)
 		{
 			//RestAPI rest = new RestAPI(_settingItems.WebSite + "/wp-json/wc/v3/", _settingItems.ApiKey, _settingItems.SecretKey);
 			//WCObject wc = new WCObject(rest);
@@ -101,13 +106,9 @@ namespace Nz.Site.Winforms.App
 			//ms_Grid.RetrieveStructure(true);
 		}
 
-		private async void NzReport_Click			(object sender, EventArgs e)
+		private async void		NzReport_Click					(object sender, EventArgs e)
 		{
-			NzReport.Enabled = false;
-			NzLoading2.Show();
-			NzLoading2.Invalidate();
-			NzReport.Focus();
-
+			
 			var parametters			= new Dictionary<string, string>();
 			int currentPage			= 1;
 			int ordersPerPage		= 100;  
@@ -116,6 +117,13 @@ namespace Nz.Site.Winforms.App
 			WCObject wc				= new WCObject(rest);
 			_ordersDto				= new List<OrderDto>();
 			_orders					= new List<Order>();
+			var mgr					= new ReportManager();
+
+
+			NzReport.Enabled = false;
+			NzLoading2.Show();
+			NzLoading2.Invalidate();
+			NzReport.Focus();
 
 
 			if (NzDateFrom.MS_Tarikh.HasValue)
@@ -153,6 +161,34 @@ namespace Nz.Site.Winforms.App
 
 					if (ordersPage != null && ordersPage.Count > 0)
 					{
+						//var ids = "(" + string.Join(",", ordersPage.Select(x => x.id)) + ")";
+						//var factors = mgr.GetReport<SyncOrdersInFactors>(null,ids);
+
+
+						//var result = ordersPage
+						//	.GroupJoin(factors,
+						//		order => (long?)order.id, factor => factor.WebSiteId, 
+						//		(order, factor) => new { Key = order, Factors = factor });
+
+						//var ttt = result.Select(x => new OrderDto()
+						//{
+							
+						//	Address			= x.Key.shipping?.state +" "+x.Key.shipping?.city+" "+x.Key.shipping?.address_1,
+						//	Customer		= x.Key.billing?.first_name +" " +x.Key.billing?.last_name + " " + x.Key.billing?.phone,
+						//	date_created	= x.Key.date_created?.ToPersianDate(),
+						//	date_paid		= x.Key.date_paid?.ToPersianDate(),
+						//	discount_total	= x.Key.discount_total,
+						//	id				= x.Key.id,
+						//	number			= x.Key.number,
+						//	set_paid		= x.Key.set_paid,
+						//	shipping_total	= x.Key.shipping_total,
+						//	statusTitle		= x.Key.status.NzWebsiteStateOrderToPersian(),
+						//	total			= x.Key.total,
+						//	FactorDate = x.Factors.SingleOrDefault()?.tarikh.ToPersianDate(),
+						//	FactorId = x.Factors.SingleOrDefault()?.ID,
+						//	Serial = x.Factors.SingleOrDefault()?.Serial
+						//});
+
 						var tt = ordersPage.Select(x => new OrderDto()
 						{
 							
@@ -183,6 +219,39 @@ namespace Nz.Site.Winforms.App
 					ms_Grid.Invalidate();
 				}
 
+				if (_orders.Any())
+				{
+					var ids = "(" + string.Join(",", _orders.Select(x => x.id)) + ")";
+					var factors = mgr.GetReport<SyncOrdersInFactors>(null,ids);
+
+					var result = _orders
+						.GroupJoin(factors,
+							order => (long?)order.id, factor => factor.WebSiteId, 
+							(order, factor) => new { Key = order, Factors = factor });
+
+					_ordersDto	= result.Select(x => new OrderDto()
+						{
+							
+							Address			= x.Key.shipping?.state +" "+x.Key.shipping?.city+" "+x.Key.shipping?.address_1,
+							Customer		= x.Key.billing?.first_name +" " +x.Key.billing?.last_name + " " + x.Key.billing?.phone,
+							date_created	= x.Key.date_created?.ToPersianDate(),
+							date_paid		= x.Key.date_paid?.ToPersianDate(),
+							discount_total	= x.Key.discount_total,
+							id				= x.Key.id,
+							number			= x.Key.number,
+							set_paid		= x.Key.set_paid,
+							shipping_total	= x.Key.shipping_total,
+							statusTitle		= x.Key.status.NzWebsiteStateOrderToPersian(),
+							total			= x.Key.total,
+							FactorDate		= x.Factors.SingleOrDefault()?.tarikh.ToPersianDate(),
+							FactorId		= x.Factors.SingleOrDefault()?.ID,
+							Serial			= x.Factors.SingleOrDefault()?.Serial
+						})
+						.ToList();
+
+					ms_Grid.DataSource = _ordersDto;
+				}
+
 			}
 			catch (Exception ex)
 			{
@@ -192,22 +261,20 @@ namespace Nz.Site.Winforms.App
 
 			NzReport.Enabled = true;
 			NzLoading2.Hide();
-
-			
 		}
 
-		private void NzItems_CheckedChanged			(object sender, EventArgs e)
+		private void			NzItems_CheckedChanged			(object sender, EventArgs e)
 		{
 			mS_Panel2.Visible = Splitter1.Visible = NzItems.Checked;
 			LoadDetails();
 		}
 
-		private void ms_Grid_SelectionChanged		(object sender, EventArgs e)
+		private void			ms_Grid_SelectionChanged		(object sender, EventArgs e)
 		{
 			LoadDetails();
 		}
 
-		private async void NsUpdateOrders_Click(object sender, EventArgs e)
+		private async void		NsUpdateOrders_Click			(object sender, EventArgs e)
 		{
 			if (!ms_Grid.GetCheckedRows().Any())
 			{
