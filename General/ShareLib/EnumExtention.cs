@@ -289,6 +289,50 @@ namespace ShareLib
 			        return "";
 	        }
         }
+        public static string NzWebsiteStateToPersian(this string Kind)
+        {
+	        if (string.IsNullOrWhiteSpace(Kind))
+		        return "";
+
+	        switch (Kind)
+	        {
+                case "KHZ":return "خوزستان";
+                case "THR":return "تهران";
+                case "ILM":return "ایلام";
+                case "BHR":return "بوشهر";
+                case "ADL":return "اردبیل";
+                case "ESF":return "اصفهان";
+                case "YZD":return "یزد";
+                case "KRH":return "کرمانشاه";
+                case "KRN":return "کرمان";
+                case "HDN":return "همدان";
+                case "GZN":return "قزوین";
+                case "ZJN":return "زنجان";
+                case "LRS":return "لرستان";
+                case "ABZ":return "البرز";
+                case "EAZ":return "آذربایجان شرقی";
+                case "WAZ":return "آذربایجان غربی";
+                case "CHB":return "چهارمحال و بختیاری";
+                case "SKH":return "خراسان جنوبی";
+                case "RKH":return "خراسان رضوی";
+                case "NKH":return "خراسان شمالی";
+                case "SMN":return "سمنان";
+                case "FRS":return "فارس";
+                case "QHM":return "قم";
+                case "KRD":return "کردستان";
+                case "KBD":return "کهگیلویه و بویراحمد";
+                case "GLS":return "گلستان";
+                case "GIL":return "گیلان";
+                case "MZN":return "مازندران";
+                case "MKZ":return "مرکزی";
+                case "HRZ":return "هرمزگان";
+                case "SBN":return "سیستان و بلوچستان";		         
+
+		        default:
+			        return "";
+	        }
+        }
+
 
 
     }

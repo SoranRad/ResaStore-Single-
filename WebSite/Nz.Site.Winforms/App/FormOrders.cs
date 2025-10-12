@@ -78,7 +78,7 @@ namespace Nz.Site.Winforms.App
 				NsBillCode.Text			= order.customer_id?.ToString();
 				NsBillEmail.Text		= customer?.email;
 				NsBillMobile.Text		= customer?.phone;
-				NsBillAddress.Text		= customer?.country + " " + customer?.state + " " + customer?.city + " " +
+				NsBillAddress.Text		= customer?.country + " " + customer?.state.NzWebsiteStateToPersian() + " " + customer?.city + " " +
 										  customer?.address_1 + " " + customer?.address_2 + " " + customer?.postcode;
 				NsCustomerNote.Text		= order.customer_note;
 				//==3. Shipp
@@ -86,7 +86,7 @@ namespace Nz.Site.Winforms.App
 				NsShippName.Text		= shipp?.first_name;
 				NsShippLastName.Text	= shipp?.last_name;
 				NsShippCompany.Text		= shipp?.company;
-				NsShippAddress.Text		= shipp?.country + " " + shipp?.state + " " + shipp?.city + " " +
+				NsShippAddress.Text		= shipp?.country + " " + shipp?.state.NzWebsiteStateToPersian() + " " + shipp?.city + " " +
 					                      shipp?.address_1 + " " + shipp?.address_2 + " " + shipp?.postcode;
 
 
@@ -152,7 +152,7 @@ namespace Nz.Site.Winforms.App
 						var temp = ordersPage.Select(x => new OrderDto()
 						{
 							
-							Address			= x.shipping?.state +" "+x.shipping?.city+" "+x.shipping?.address_1,
+							Address			= x.shipping?.state.NzWebsiteStateToPersian() +" "+x.shipping?.city+" "+x.shipping?.address_1,
 							Customer		= x.billing?.first_name +" " +x.billing?.last_name + " " + x.billing?.phone,
 							date_created	= x.date_created?.ToPersianDate(),
 							date_paid		= x.date_paid?.ToPersianDate(),
@@ -192,7 +192,7 @@ namespace Nz.Site.Winforms.App
 					_ordersDto	= result.Select(x => new OrderDto()
 						{
 							
-							Address			= x.Key.shipping?.state +" "+x.Key.shipping?.city+" "+x.Key.shipping?.address_1,
+							Address			= x.Key.shipping?.state.NzWebsiteStateToPersian() +" "+x.Key.shipping?.city+" "+x.Key.shipping?.address_1,
 							Customer		= x.Key.billing?.first_name +" " +x.Key.billing?.last_name + " " + x.Key.billing?.phone,
 							date_created	= x.Key.date_created?.ToPersianDate(),
 							date_paid		= x.Key.date_paid?.ToPersianDate(),
