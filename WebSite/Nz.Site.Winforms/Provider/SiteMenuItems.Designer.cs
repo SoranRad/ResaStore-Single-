@@ -32,10 +32,11 @@ namespace Nz.Site.Winforms.Provider
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SiteMenuItems));
 			this.mS_Menu1 = new MS_Control.Controls.MS_Menu();
 			this.ms_baseinfo = new System.Windows.Forms.ToolStripMenuItem();
-			this.NsProducts = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.StorageMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.NzReport = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.NsOrders = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsProducts = new System.Windows.Forms.ToolStripMenuItem();
 			this.mS_Menu1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -62,8 +63,7 @@ namespace Nz.Site.Winforms.Provider
 			// ms_baseinfo
 			// 
 			this.ms_baseinfo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator1,
-            this.NsProducts});
+            this.toolStripSeparator1});
 			this.ms_baseinfo.Font = new System.Drawing.Font("IRANSans(Small) Medium", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.ms_baseinfo.Image = ((System.Drawing.Image)(resources.GetObject("ms_baseinfo.Image")));
 			this.ms_baseinfo.Name = "ms_baseinfo";
@@ -72,15 +72,16 @@ namespace Nz.Site.Winforms.Provider
 			this.ms_baseinfo.Tag = "1";
 			this.ms_baseinfo.Text = "اطـلاعـات پـایه";
 			// 
-			// NsProducts
+			// toolStripSeparator1
 			// 
-			this.NsProducts.Name = "NsProducts";
-			this.NsProducts.Size = new System.Drawing.Size(180, 30);
-			this.NsProducts.Text = "محصـولات";
-			this.NsProducts.Click += new System.EventHandler(this.NsProducts_Click);
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
 			// 
 			// StorageMenu
 			// 
+			this.StorageMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NsProducts,
+            this.NsOrders});
 			this.StorageMenu.Font = new System.Drawing.Font("IRANSans(Small) Medium", 15F);
 			this.StorageMenu.Image = ((System.Drawing.Image)(resources.GetObject("StorageMenu.Image")));
 			this.StorageMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -97,10 +98,19 @@ namespace Nz.Site.Winforms.Provider
 			this.NzReport.Size = new System.Drawing.Size(96, 28);
 			this.NzReport.Text = "گـزارشـات";
 			// 
-			// toolStripSeparator1
+			// NsOrders
 			// 
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+			this.NsOrders.Name = "NsOrders";
+			this.NsOrders.Size = new System.Drawing.Size(184, 30);
+			this.NsOrders.Text = "سفارشات";
+			this.NsOrders.Click += new System.EventHandler(this.NsOrders_Click);
+			// 
+			// NsProducts
+			// 
+			this.NsProducts.Name = "NsProducts";
+			this.NsProducts.Size = new System.Drawing.Size(184, 30);
+			this.NsProducts.Text = "محصـولات سایت";
+			this.NsProducts.Click += new System.EventHandler(this.NsProducts_Click);
 			// 
 			// SiteMenuItems
 			// 
@@ -121,7 +131,8 @@ namespace Nz.Site.Winforms.Provider
         public System.Windows.Forms.ToolStripMenuItem ms_baseinfo;
         public System.Windows.Forms.ToolStripMenuItem StorageMenu;
         public System.Windows.Forms.ToolStripMenuItem NzReport;
-		private System.Windows.Forms.ToolStripMenuItem NsProducts;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+		private System.Windows.Forms.ToolStripMenuItem NsOrders;
+		private System.Windows.Forms.ToolStripMenuItem NsProducts;
 	}
 }

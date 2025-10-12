@@ -77,6 +77,8 @@
     <Compile Include="DapperConfig\Bill\CircularRowItemConfig.cs" />
     <Compile Include="DapperConfig\Bill\RemaindConfig.cs" />
     <Compile Include="DapperConfig\Bill\RemaindPeopleConfig.cs" />
+    <Compile Include="DapperConfig\Report\SyncObjectsInProductsConfig.cs" />
+    <Compile Include="DapperConfig\Report\SyncOrdersInFactorsConfig.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repo\ReportRepository.cs" />
@@ -98,7 +100,6 @@
   <ItemGroup>
     <Folder Include="Configure\" />
     <Folder Include="DapperConfig\Model\" />
-    <Folder Include="DapperConfig\Report\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

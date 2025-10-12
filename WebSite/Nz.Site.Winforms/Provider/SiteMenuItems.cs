@@ -29,5 +29,14 @@ namespace Nz.Site.Winforms.Provider
 			frm.MdiParent   = SiteProvider.MainForm;
 			frm.Show();
 		}
+
+		private void NsOrders_Click(object sender, EventArgs e)
+		{
+			var frm         = new FormOrders();
+			frm.MdiParent   = SiteProvider.MainForm;
+			frm.Show();
+		}
+
+		 
 	}
 }

@@ -23,6 +23,10 @@ namespace NZ.Anbar.Model
         public decimal?             Darsad_Porsant      { get; set; }
         [Column(TypeName = "date")]
         public DateTime?            tarikh_etebar       { get; set; }
+
+        public long?                WebSiteId           { get; set; }
+        public string               Address             { get; set; }
+
         public FactorHead           FactorHead          { get; set; }
 
         [NotMapped]

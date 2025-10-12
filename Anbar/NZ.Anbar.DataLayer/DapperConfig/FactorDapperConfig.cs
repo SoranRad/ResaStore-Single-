@@ -74,7 +74,9 @@ SELECT tatd.ID ,
        tatd.Darsad_Takhfif ,
        tatd.FK_Vaset ,
        tatd.Ezafat,
-       tatd.Darsad_Porsant 
+       tatd.Darsad_Porsant ,
+       tatd.WebSiteId,
+       tatd.Address    
 	   
 FROM Anbar.tbl_Amaliat_Title_Detail AS tatd
 WHERE tatd.ID=@ID ;

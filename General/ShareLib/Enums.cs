@@ -30,6 +30,7 @@ namespace ShareLib
             Extend  = 2,
             Tax     = 3,
         }
+
         public enum NzFactorKind : byte
         {
             //===========Not Effect
@@ -119,6 +120,13 @@ namespace ShareLib
         {
             Object=1,
             Service,
+        }
+        public enum NzObjectWebSiteKind : byte
+        {
+	        Simple=1,
+            Grouped = 2,
+            Afilit =3,
+	        Variant =4,
         }
         public enum NzObjectSeason : byte
         {

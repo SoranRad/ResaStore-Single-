@@ -177,6 +177,14 @@
     <Compile Include="Migrations\202509270817377_change-sub-group.Designer.cs">
       <DependentUpon>202509270817377_change-sub-group.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202510050555510_add-website-fields.cs" />
+    <Compile Include="Migrations\202510050555510_add-website-fields.Designer.cs">
+      <DependentUpon>202510050555510_add-website-fields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202510091348300_change-website-kind.cs" />
+    <Compile Include="Migrations\202510091348300_change-website-kind.Designer.cs">
+      <DependentUpon>202510091348300_change-website-kind.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repo\FactorRepository.cs" />
@@ -194,6 +202,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202509270817377_change-sub-group.resx">
       <DependentUpon>202509270817377_change-sub-group.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202510050555510_add-website-fields.resx">
+      <DependentUpon>202510050555510_add-website-fields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202510091348300_change-website-kind.resx">
+      <DependentUpon>202510091348300_change-website-kind.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

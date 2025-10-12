@@ -86,7 +86,9 @@ namespace Nz.Anbar.WinForms.Base
                 nzUnit_2.MS_Set_Select(_Item.FK_Vahed_Fari);
                 Nz_Zarib.Text     = _Item.Zarib.ToString("0,0.##;0,0.##; ");
 
-
+                NsWebsiteKind.SelectedValue = _Item.WebSiteProductKind;
+                NsWebsiteProductID1.Text = _Item.WebSiteProductId1 ?.ToString();
+                NsWebsiteProductID2.Text = _Item.WebSiteProductId2 ?.ToString();
             }
             catch (Exception ex)
             {
@@ -123,6 +125,20 @@ namespace Nz.Anbar.WinForms.Base
 
             _Item.Color             = string.IsNullOrWhiteSpace(NzColor.Text)?null: (int?)Convert.ToInt32(NzColor.Text);
 
+            if (NsWebsiteKind.SelectedIndex >= 0)
+	            _Item.WebSiteProductKind = NsWebsiteKind.SelectedValue.ToString();
+            else
+	            _Item.WebSiteProductKind = null;
+            if (NsWebsiteProductID1.MS_Decimal > 0)
+	            _Item.WebSiteProductId1 = Convert.ToInt64(NsWebsiteProductID1.MS_Decimal);
+            else
+	            _Item.WebSiteProductId1 = null;
+
+            if (NsWebsiteProductID2.MS_Decimal > 0)
+	            _Item.WebSiteProductId2 = Convert.ToInt64(NsWebsiteProductID2.MS_Decimal);
+            else 
+	            _Item.WebSiteProductId2 = null;
+            
             if (string.IsNullOrWhiteSpace(nzUnit_2.Text))
             {
                 _Item.FK_Vahed_Fari = null;

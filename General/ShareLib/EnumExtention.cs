@@ -34,6 +34,22 @@ namespace ShareLib
                     return Kind.ToString();
             }
         }
+        public static string NzTostring (this Enums.NzObjectWebSiteKind            Kind)
+        {
+	        switch (Kind)
+	        {
+		        case Enums.NzObjectWebSiteKind.Simple:
+			        return "ساده";
+		        case Enums.NzObjectWebSiteKind.Grouped:
+			        return "دسته بندی شده";
+		        case Enums.NzObjectWebSiteKind.Afilit:
+			        return "خارجی";
+		        case Enums.NzObjectWebSiteKind.Variant:
+			        return "متغیر";
+		        default:
+			        return null;
+	        }
+        }
         public static string NzTostring(this Enums.NzObjectSeason Kind)
         {
             switch (Kind)
@@ -213,5 +229,111 @@ namespace ShareLib
                     return "";
             }
         }
+
+        public static string NzWebsiteStateOrderToPersian(this string Kind)
+        {
+             
+	        switch (Kind)
+	        {
+                case "pending":
+	                return "در انتظار پرداخت";
+                case "processing":
+	                return "در حال انجام";
+                case "on-hold":
+	                return "در انتظار بررسی";
+                case "completed":
+	                return "تکمیل شده";
+                case "cancelled":
+	                return "لغو شده";
+                case "refunded":
+	                return "مسترد شده";
+                case "failed":
+	                return "ناموفق";
+                case "trash":
+	                return "حذف شده";
+                default:
+	                return "";
+	        }
+        }
+
+        public static string NzWebsiteStockStatusToPersian(this string Kind)
+        {
+             
+	        switch (Kind)
+	        {
+		        case "instock":
+			        return "موجود";
+		        case "outofstock":
+			        return "ناموجود";
+		        case "onbackorder":
+			        return "در پیش‌خرید";
+		        default:
+			        return "";
+	        }
+        }
+
+        public static string NzWebsiteProductTypeToPersian(this string Kind)
+        {
+             
+	        switch (Kind)
+	        {
+		        case "simple":
+			        return "ساده";
+		        case "grouped":
+			        return "دسته بندی";
+		        case "external":
+			        return "خارجی";
+		        case "variable":
+			        return "متغیر";
+		        default:
+			        return "";
+	        }
+        }
+        public static string NzWebsiteStateToPersian(this string Kind)
+        {
+	        if (string.IsNullOrWhiteSpace(Kind))
+		        return "";
+
+	        switch (Kind)
+	        {
+                case "KHZ":return "خوزستان";
+                case "THR":return "تهران";
+                case "ILM":return "ایلام";
+                case "BHR":return "بوشهر";
+                case "ADL":return "اردبیل";
+                case "ESF":return "اصفهان";
+                case "YZD":return "یزد";
+                case "KRH":return "کرمانشاه";
+                case "KRN":return "کرمان";
+                case "HDN":return "همدان";
+                case "GZN":return "قزوین";
+                case "ZJN":return "زنجان";
+                case "LRS":return "لرستان";
+                case "ABZ":return "البرز";
+                case "EAZ":return "آذربایجان شرقی";
+                case "WAZ":return "آذربایجان غربی";
+                case "CHB":return "چهارمحال و بختیاری";
+                case "SKH":return "خراسان جنوبی";
+                case "RKH":return "خراسان رضوی";
+                case "NKH":return "خراسان شمالی";
+                case "SMN":return "سمنان";
+                case "FRS":return "فارس";
+                case "QHM":return "قم";
+                case "KRD":return "کردستان";
+                case "KBD":return "کهگیلویه و بویراحمد";
+                case "GLS":return "گلستان";
+                case "GIL":return "گیلان";
+                case "MZN":return "مازندران";
+                case "MKZ":return "مرکزی";
+                case "HRZ":return "هرمزگان";
+                case "SBN":return "سیستان و بلوچستان";		         
+
+		        default:
+			        return "";
+	        }
+        }
+
+
+
     }
 }
