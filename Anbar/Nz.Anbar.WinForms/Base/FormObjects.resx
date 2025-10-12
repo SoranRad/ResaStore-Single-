@@ -150,7 +150,7 @@
         J7WEL1GIn37iG1uQZEpMAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="uiComboBoxItem14.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="uiComboBoxItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHQSURBVDhPY/j//z9FGKsgKRhCTBdkYJgtxMAwB4hB
@@ -164,7 +164,7 @@
         ZhCGG0AJxipIPP7PAACyD8BnatpX/AAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="uiComboBoxItem15.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="uiComboBoxItem2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAE2SURBVDhPpZCtS0NhFMbPvzDY6trqYGVtcWAYLKyO
@@ -175,7 +175,7 @@
         n6eoeCwpmKU4ILinoKmdoopdlhQQ2AzBNAVN7VmBx5KCv8Y9/jywD7NnD9bBC4S3AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="uiComboBoxItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="uiComboBoxItem3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAh9JREFUOE+1
         kF9IU2EYxp/lmAVbRNRFF7ZYWdFACpdaNll2IcVcUFmCrAZif5BISCqZHF2msXSNKLM1QREjKaz0xoQF
@@ -190,7 +190,7 @@
         jiqQdgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="uiComboBoxItem2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="uiComboBoxItem4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIWSURBVDhPpZBPaJJxGMd/TkXEDnqxUSkjlBFqjFcY
@@ -205,7 +205,7 @@
         OSfCmeXYzAUznEscL+fKf8APwZ0hIvYLhJTqJrA/zJYAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="uiComboBoxItem3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="uiComboBoxItem5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
         DwAAjA8AAP1SAACBQAAAfXkAAOmLAAA85QAAGcxzPIV3AAAKOWlDQ1BQaG90b3Nob3AgSUNDIHByb2Zp
@@ -262,7 +262,7 @@
         nab4ElYI/NEUpouNaM5fhE2RLWkmt2Pc/QLYzkDGY9UqyAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="uiComboBoxItem4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="uiComboBoxItem6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
         DwAAjA8AAP1SAACBQAAAfXkAAOmLAAA85QAAGcxzPIV3AAAKOWlDQ1BQaG90b3Nob3AgSUNDIHByb2Zp
@@ -309,7 +309,7 @@
         XTesb3QPLh88M+QwdP6m681Lt7xuXbu94vbgcOjwnZHokdE77DtTd1PuvriXeW/h/sYH6AdFD6UeVjxS
         fNTws+7PbaOWo6fHXMf6Hwc/vj/OGn/2S8Yv7ycKnpCfVEyqTDZPmU2dmnafvvF05dOJZ+nPFmYKf5X+
         tfa5zvMffnP8rX82YnbiBf/Fp99LXsq/PPRq2aueuYC5R69TXy/MF72Rf3P4LeNt37vwd5MLWe+x7ys/
-        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAALDwAACw8BkvkDpQAAAQtJREFUOE+10z9LQlEc
+        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAALDQAACw0B7QfALAAAAQtJREFUOE+10z9LQlEc
         xvFDa4MgRQjSKJUtobQ59AJa3MOxqaU30eQmWm0uDS22KQ1tvYzEsQKV6A9Jw+37eH73UnDPNYoe+MDv
         nHt4PJeLLoqiP0lLC5cooI1zrOECZ1iYJ6i6jGfMsGV7b1iYKXR4E3FByfb+p6AKXTFOVsEERawjSRd6
         2JyvnHtAqGCIHZs7UJk7tY0bLcg9sgq2bb7F/OZ17GuwZL3CI7S/h2B+9RX0zQ/96MYIFbxCaWDXjz5H

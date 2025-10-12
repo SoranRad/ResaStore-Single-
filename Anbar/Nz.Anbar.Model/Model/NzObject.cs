@@ -33,7 +33,7 @@ namespace NZ.Anbar.Model
         public decimal?     nerkh_frosh3        { get; set; }
         public long?        FK_Image            { get; set; }
 
-        public byte?        WebSiteProductKind       { get; set; }
+        public string       WebSiteProductKind       { get; set; }
         public long?        WebSiteProductId1        { get; set; }
         public long?        WebSiteProductId2        { get; set; }
        
@@ -85,7 +85,7 @@ namespace NZ.Anbar.Model
 
         [NotMapped]
         public string       KindTitle           => ((Enums.NzObjectKind)this.kind).NzTostring();
-        public string       WebSiteProductKindTitle  => ((Enums.NzObjectWebSiteKind)(this.WebSiteProductKind??0)).NzTostring();
+        public string       WebSiteProductKindTitle  => (WebSiteProductKind).NzWebsiteProductTypeToPersian();
         [NotMapped]
         public string       StateTitle          => this.is_disabled ? "غیر فعال " : "فعال";
         [NotMapped]

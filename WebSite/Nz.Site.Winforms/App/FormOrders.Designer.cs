@@ -31,15 +31,15 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOrders));
 			Janus.Windows.GridEX.GridEXLayout ms_Grid_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.GridEX.GridEXLayout NsGridItems_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem10 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem11 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem12 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem13 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem14 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem15 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem16 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem17 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem18 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem1 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem2 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem3 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem4 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem5 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem6 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem7 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem8 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem9 = new Janus.Windows.EditControls.UIComboBoxItem();
 			this.ms_Grid = new MS_Control.Controls.MS_GridX();
 			this.Tab_Control_Main = new Janus.Windows.UI.Tab.UITab();
 			this.uiTabPage12 = new Janus.Windows.UI.Tab.UITabPage();
@@ -50,6 +50,8 @@
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.NsGridItems = new MS_Control.Controls.MS_GridX();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.NsCustomerNote = new System.Windows.Forms.Label();
+			this.label12 = new System.Windows.Forms.Label();
 			this.NsShippAddress = new System.Windows.Forms.Label();
 			this.NsShippCompany = new System.Windows.Forms.Label();
 			this.NsShippLastName = new System.Windows.Forms.Label();
@@ -93,8 +95,6 @@
 			this.NsStatusOrderUpdate = new System.Windows.Forms.ToolStripComboBox();
 			this.NsUpdateOrders = new System.Windows.Forms.ToolStripButton();
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
-			this.label12 = new System.Windows.Forms.Label();
-			this.NsCustomerNote = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.ms_Grid)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
@@ -370,6 +370,29 @@
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(448, 183);
 			this.panel2.TabIndex = 755;
+			// 
+			// NsCustomerNote
+			// 
+			this.NsCustomerNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsCustomerNote.BackColor = System.Drawing.Color.Transparent;
+			this.NsCustomerNote.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.NsCustomerNote.ForeColor = System.Drawing.Color.SteelBlue;
+			this.NsCustomerNote.Location = new System.Drawing.Point(3, 64);
+			this.NsCustomerNote.Name = "NsCustomerNote";
+			this.NsCustomerNote.Size = new System.Drawing.Size(385, 23);
+			this.NsCustomerNote.TabIndex = 777;
+			// 
+			// label12
+			// 
+			this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label12.AutoSize = true;
+			this.label12.BackColor = System.Drawing.Color.Transparent;
+			this.label12.Font = new System.Drawing.Font("IRANSans(Small)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.label12.Location = new System.Drawing.Point(386, 64);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(59, 20);
+			this.label12.TabIndex = 776;
+			this.label12.Text = "توضیحات :";
 			// 
 			// NsShippAddress
 			// 
@@ -744,51 +767,51 @@
 			this.NsOrderStatusFilter.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
 			this.NsOrderStatusFilter.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NsOrderStatusFilter.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			uiComboBoxItem10.FormatStyle.Alpha = 0;
-			uiComboBoxItem10.IsSeparator = false;
-			uiComboBoxItem10.Text = "همه سفارشات";
-			uiComboBoxItem11.FormatStyle.Alpha = 0;
-			uiComboBoxItem11.IsSeparator = false;
-			uiComboBoxItem11.Text = "در انتظار پرداخت";
-			uiComboBoxItem11.Value = "pending";
-			uiComboBoxItem12.FormatStyle.Alpha = 0;
-			uiComboBoxItem12.IsSeparator = false;
-			uiComboBoxItem12.Text = "در حال انجام";
-			uiComboBoxItem12.Value = "processing";
-			uiComboBoxItem13.FormatStyle.Alpha = 0;
-			uiComboBoxItem13.IsSeparator = false;
-			uiComboBoxItem13.Text = "در انتظار بررسی";
-			uiComboBoxItem13.Value = "on-hold";
-			uiComboBoxItem14.FormatStyle.Alpha = 0;
-			uiComboBoxItem14.IsSeparator = false;
-			uiComboBoxItem14.Text = "تکمیل شده";
-			uiComboBoxItem14.Value = "completed";
-			uiComboBoxItem15.FormatStyle.Alpha = 0;
-			uiComboBoxItem15.IsSeparator = false;
-			uiComboBoxItem15.Text = "لغو شده";
-			uiComboBoxItem15.Value = "cancelled";
-			uiComboBoxItem16.FormatStyle.Alpha = 0;
-			uiComboBoxItem16.IsSeparator = false;
-			uiComboBoxItem16.Text = "مسترد شده";
-			uiComboBoxItem16.Value = "refunded";
-			uiComboBoxItem17.FormatStyle.Alpha = 0;
-			uiComboBoxItem17.IsSeparator = false;
-			uiComboBoxItem17.Text = "ناموفق";
-			uiComboBoxItem17.Value = "failed";
-			uiComboBoxItem18.FormatStyle.Alpha = 0;
-			uiComboBoxItem18.IsSeparator = false;
-			uiComboBoxItem18.Text = "حذف شده";
-			uiComboBoxItem18.Value = "trash";
+			uiComboBoxItem1.FormatStyle.Alpha = 0;
+			uiComboBoxItem1.IsSeparator = false;
+			uiComboBoxItem1.Text = "همه سفارشات";
+			uiComboBoxItem2.FormatStyle.Alpha = 0;
+			uiComboBoxItem2.IsSeparator = false;
+			uiComboBoxItem2.Text = "در انتظار پرداخت";
+			uiComboBoxItem2.Value = "pending";
+			uiComboBoxItem3.FormatStyle.Alpha = 0;
+			uiComboBoxItem3.IsSeparator = false;
+			uiComboBoxItem3.Text = "در حال انجام";
+			uiComboBoxItem3.Value = "processing";
+			uiComboBoxItem4.FormatStyle.Alpha = 0;
+			uiComboBoxItem4.IsSeparator = false;
+			uiComboBoxItem4.Text = "در انتظار بررسی";
+			uiComboBoxItem4.Value = "on-hold";
+			uiComboBoxItem5.FormatStyle.Alpha = 0;
+			uiComboBoxItem5.IsSeparator = false;
+			uiComboBoxItem5.Text = "تکمیل شده";
+			uiComboBoxItem5.Value = "completed";
+			uiComboBoxItem6.FormatStyle.Alpha = 0;
+			uiComboBoxItem6.IsSeparator = false;
+			uiComboBoxItem6.Text = "لغو شده";
+			uiComboBoxItem6.Value = "cancelled";
+			uiComboBoxItem7.FormatStyle.Alpha = 0;
+			uiComboBoxItem7.IsSeparator = false;
+			uiComboBoxItem7.Text = "مسترد شده";
+			uiComboBoxItem7.Value = "refunded";
+			uiComboBoxItem8.FormatStyle.Alpha = 0;
+			uiComboBoxItem8.IsSeparator = false;
+			uiComboBoxItem8.Text = "ناموفق";
+			uiComboBoxItem8.Value = "failed";
+			uiComboBoxItem9.FormatStyle.Alpha = 0;
+			uiComboBoxItem9.IsSeparator = false;
+			uiComboBoxItem9.Text = "حذف شده";
+			uiComboBoxItem9.Value = "trash";
 			this.NsOrderStatusFilter.Items.AddRange(new Janus.Windows.EditControls.UIComboBoxItem[] {
-            uiComboBoxItem10,
-            uiComboBoxItem11,
-            uiComboBoxItem12,
-            uiComboBoxItem13,
-            uiComboBoxItem14,
-            uiComboBoxItem15,
-            uiComboBoxItem16,
-            uiComboBoxItem17,
-            uiComboBoxItem18});
+            uiComboBoxItem1,
+            uiComboBoxItem2,
+            uiComboBoxItem3,
+            uiComboBoxItem4,
+            uiComboBoxItem5,
+            uiComboBoxItem6,
+            uiComboBoxItem7,
+            uiComboBoxItem8,
+            uiComboBoxItem9});
 			this.NsOrderStatusFilter.Location = new System.Drawing.Point(348, 12);
 			this.NsOrderStatusFilter.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NsOrderStatusFilter.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -1031,29 +1054,6 @@
 			this.uiTabPage14.TabStop = true;
 			this.uiTabPage14.Text = "پرسش و پاسخ";
 			// 
-			// label12
-			// 
-			this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.label12.AutoSize = true;
-			this.label12.BackColor = System.Drawing.Color.Transparent;
-			this.label12.Font = new System.Drawing.Font("IRANSans(Small)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label12.Location = new System.Drawing.Point(386, 64);
-			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(59, 20);
-			this.label12.TabIndex = 776;
-			this.label12.Text = "توضیحات :";
-			// 
-			// NsCustomerNote
-			// 
-			this.NsCustomerNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.NsCustomerNote.BackColor = System.Drawing.Color.Transparent;
-			this.NsCustomerNote.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NsCustomerNote.ForeColor = System.Drawing.Color.SteelBlue;
-			this.NsCustomerNote.Location = new System.Drawing.Point(3, 64);
-			this.NsCustomerNote.Name = "NsCustomerNote";
-			this.NsCustomerNote.Size = new System.Drawing.Size(385, 23);
-			this.NsCustomerNote.TabIndex = 777;
-			// 
 			// FormOrders
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1062,7 +1062,6 @@
 			this.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
 			this.Name = "FormOrders";
 			this.Text = "سفارشات";
-			this.Load += new System.EventHandler(this.FormOrders_Load);
 			((System.ComponentModel.ISupportInitialize)(this.ms_Grid)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).EndInit();
 			this.Tab_Control_Main.ResumeLayout(false);

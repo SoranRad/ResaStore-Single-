@@ -232,7 +232,7 @@ namespace ShareLib
 
         public static string NzWebsiteStateOrderToPersian(this string Kind)
         {
-            //on-hold, , , ,  and 
+             
 	        switch (Kind)
 	        {
                 case "pending":
@@ -255,6 +255,41 @@ namespace ShareLib
 	                return "";
 	        }
         }
+
+        public static string NzWebsiteStockStatusToPersian(this string Kind)
+        {
+             
+	        switch (Kind)
+	        {
+		        case "instock":
+			        return "موجود";
+		        case "outofstock":
+			        return "ناموجود";
+		        case "onbackorder":
+			        return "در پیش‌خرید";
+		        default:
+			        return "";
+	        }
+        }
+
+        public static string NzWebsiteProductTypeToPersian(this string Kind)
+        {
+             
+	        switch (Kind)
+	        {
+		        case "simple":
+			        return "ساده";
+		        case "grouped":
+			        return "دسته بندی";
+		        case "external":
+			        return "خارجی";
+		        case "variable":
+			        return "متغیر";
+		        default:
+			        return "";
+	        }
+        }
+
 
     }
 }

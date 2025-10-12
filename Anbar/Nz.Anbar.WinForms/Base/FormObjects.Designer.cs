@@ -31,19 +31,19 @@ namespace Nz.Anbar.WinForms.Base
         private void InitializeComponent()
         {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormObjects));
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem14 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem15 = new Janus.Windows.EditControls.UIComboBoxItem();
 			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem1 = new Janus.Windows.EditControls.UIComboBoxItem();
 			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem2 = new Janus.Windows.EditControls.UIComboBoxItem();
 			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem3 = new Janus.Windows.EditControls.UIComboBoxItem();
 			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem4 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem16 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem17 = new Janus.Windows.EditControls.UIComboBoxItem();
 			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem5 = new Janus.Windows.EditControls.UIComboBoxItem();
 			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem6 = new Janus.Windows.EditControls.UIComboBoxItem();
 			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem7 = new Janus.Windows.EditControls.UIComboBoxItem();
 			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem8 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem18 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem9 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem10 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem11 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem12 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem13 = new Janus.Windows.EditControls.UIComboBoxItem();
 			this.Panel_Foother = new MS_Control.Controls.MS_Panel();
 			this.ms_Save = new MS_Control.Controls.MS_Button_GridX();
 			this.ms_Exit = new MS_Control.Controls.MS_Button_GridX();
@@ -382,17 +382,17 @@ namespace Nz.Anbar.WinForms.Base
 			this.NzState.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzState.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
 			this.NzState.Cursor = System.Windows.Forms.Cursors.Hand;
-			uiComboBoxItem14.FormatStyle.Alpha = 0;
-			uiComboBoxItem14.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem14.Image")));
-			uiComboBoxItem14.IsSeparator = false;
-			uiComboBoxItem14.Text = "فعال";
-			uiComboBoxItem15.FormatStyle.Alpha = 0;
-			uiComboBoxItem15.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem15.Image")));
-			uiComboBoxItem15.IsSeparator = false;
-			uiComboBoxItem15.Text = "غیر فعال";
+			uiComboBoxItem1.FormatStyle.Alpha = 0;
+			uiComboBoxItem1.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem1.Image")));
+			uiComboBoxItem1.IsSeparator = false;
+			uiComboBoxItem1.Text = "فعال";
+			uiComboBoxItem2.FormatStyle.Alpha = 0;
+			uiComboBoxItem2.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem2.Image")));
+			uiComboBoxItem2.IsSeparator = false;
+			uiComboBoxItem2.Text = "غیر فعال";
 			this.NzState.Items.AddRange(new Janus.Windows.EditControls.UIComboBoxItem[] {
-            uiComboBoxItem14,
-            uiComboBoxItem15});
+            uiComboBoxItem1,
+            uiComboBoxItem2});
 			this.NzState.Location = new System.Drawing.Point(75, 209);
 			this.NzState.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzState.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -446,17 +446,17 @@ namespace Nz.Anbar.WinForms.Base
 			this.NzKind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzKind.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
 			this.NzKind.Cursor = System.Windows.Forms.Cursors.Hand;
-			uiComboBoxItem1.FormatStyle.Alpha = 0;
-			uiComboBoxItem1.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem1.Image")));
-			uiComboBoxItem1.IsSeparator = false;
-			uiComboBoxItem1.Text = "کـالا";
-			uiComboBoxItem2.FormatStyle.Alpha = 0;
-			uiComboBoxItem2.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem2.Image")));
-			uiComboBoxItem2.IsSeparator = false;
-			uiComboBoxItem2.Text = "خدمـات";
+			uiComboBoxItem3.FormatStyle.Alpha = 0;
+			uiComboBoxItem3.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem3.Image")));
+			uiComboBoxItem3.IsSeparator = false;
+			uiComboBoxItem3.Text = "کـالا";
+			uiComboBoxItem4.FormatStyle.Alpha = 0;
+			uiComboBoxItem4.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem4.Image")));
+			uiComboBoxItem4.IsSeparator = false;
+			uiComboBoxItem4.Text = "خدمـات";
 			this.NzKind.Items.AddRange(new Janus.Windows.EditControls.UIComboBoxItem[] {
-            uiComboBoxItem1,
-            uiComboBoxItem2});
+            uiComboBoxItem3,
+            uiComboBoxItem4});
 			this.NzKind.Location = new System.Drawing.Point(89, 177);
 			this.NzKind.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzKind.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -748,10 +748,10 @@ namespace Nz.Anbar.WinForms.Base
 			this.uiGroupBox1.Controls.Add(this.label29);
 			this.uiGroupBox1.Controls.Add(this.NsWebsiteKind);
 			this.uiGroupBox1.Controls.Add(this.label27);
-			this.uiGroupBox1.Location = new System.Drawing.Point(415, 289);
+			this.uiGroupBox1.Location = new System.Drawing.Point(376, 289);
 			this.uiGroupBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.uiGroupBox1.Name = "uiGroupBox1";
-			this.uiGroupBox1.Size = new System.Drawing.Size(272, 143);
+			this.uiGroupBox1.Size = new System.Drawing.Size(311, 143);
 			this.uiGroupBox1.TabIndex = 856;
 			this.uiGroupBox1.Text = " وب سایت (ورد پرس)";
 			// 
@@ -762,7 +762,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NsWebsiteProductID2.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NsWebsiteProductID2.DigitGroup = false;
 			this.NsWebsiteProductID2.Font = new System.Drawing.Font("IRANSans(Small) Medium", 14F);
-			this.NsWebsiteProductID2.Location = new System.Drawing.Point(57, 104);
+			this.NsWebsiteProductID2.Location = new System.Drawing.Point(96, 104);
 			this.NsWebsiteProductID2.MaxLength = 0;
 			this.NsWebsiteProductID2.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
 			this.NsWebsiteProductID2.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -789,7 +789,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label28.AutoSize = true;
 			this.label28.BackColor = System.Drawing.Color.Transparent;
 			this.label28.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label28.Location = new System.Drawing.Point(193, 104);
+			this.label28.Location = new System.Drawing.Point(232, 104);
 			this.label28.Name = "label28";
 			this.label28.Size = new System.Drawing.Size(60, 23);
 			this.label28.TabIndex = 837;
@@ -802,7 +802,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NsWebsiteProductID1.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NsWebsiteProductID1.DigitGroup = false;
 			this.NsWebsiteProductID1.Font = new System.Drawing.Font("IRANSans(Small) Medium", 14F);
-			this.NsWebsiteProductID1.Location = new System.Drawing.Point(57, 68);
+			this.NsWebsiteProductID1.Location = new System.Drawing.Point(96, 68);
 			this.NsWebsiteProductID1.MaxLength = 0;
 			this.NsWebsiteProductID1.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
 			this.NsWebsiteProductID1.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -829,7 +829,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label29.AutoSize = true;
 			this.label29.BackColor = System.Drawing.Color.Transparent;
 			this.label29.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label29.Location = new System.Drawing.Point(193, 70);
+			this.label29.Location = new System.Drawing.Point(232, 70);
 			this.label29.Name = "label29";
 			this.label29.Size = new System.Drawing.Size(58, 23);
 			this.label29.TabIndex = 836;
@@ -840,26 +840,30 @@ namespace Nz.Anbar.WinForms.Base
 			this.NsWebsiteKind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsWebsiteKind.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
 			this.NsWebsiteKind.Cursor = System.Windows.Forms.Cursors.Hand;
-			uiComboBoxItem3.FormatStyle.Alpha = 0;
-			uiComboBoxItem3.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem3.Image")));
-			uiComboBoxItem3.IsSeparator = false;
-			uiComboBoxItem3.Text = "ساده";
-			uiComboBoxItem4.FormatStyle.Alpha = 0;
-			uiComboBoxItem4.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem4.Image")));
-			uiComboBoxItem4.IsSeparator = false;
-			uiComboBoxItem4.Text = "گروه بندی";
-			uiComboBoxItem16.FormatStyle.Alpha = 0;
-			uiComboBoxItem16.IsSeparator = false;
-			uiComboBoxItem16.Text = "خارجی";
-			uiComboBoxItem17.FormatStyle.Alpha = 0;
-			uiComboBoxItem17.IsSeparator = false;
-			uiComboBoxItem17.Text = "متغیر";
+			uiComboBoxItem5.FormatStyle.Alpha = 0;
+			uiComboBoxItem5.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem5.Image")));
+			uiComboBoxItem5.IsSeparator = false;
+			uiComboBoxItem5.Text = "ساده";
+			uiComboBoxItem5.Value = "simple";
+			uiComboBoxItem6.FormatStyle.Alpha = 0;
+			uiComboBoxItem6.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem6.Image")));
+			uiComboBoxItem6.IsSeparator = false;
+			uiComboBoxItem6.Text = "گروه بندی";
+			uiComboBoxItem6.Value = "grouped";
+			uiComboBoxItem7.FormatStyle.Alpha = 0;
+			uiComboBoxItem7.IsSeparator = false;
+			uiComboBoxItem7.Text = "خارجی";
+			uiComboBoxItem7.Value = "external";
+			uiComboBoxItem8.FormatStyle.Alpha = 0;
+			uiComboBoxItem8.IsSeparator = false;
+			uiComboBoxItem8.Text = "متغیر";
+			uiComboBoxItem8.Value = "variable";
 			this.NsWebsiteKind.Items.AddRange(new Janus.Windows.EditControls.UIComboBoxItem[] {
-            uiComboBoxItem3,
-            uiComboBoxItem4,
-            uiComboBoxItem16,
-            uiComboBoxItem17});
-			this.NsWebsiteKind.Location = new System.Drawing.Point(36, 35);
+            uiComboBoxItem5,
+            uiComboBoxItem6,
+            uiComboBoxItem7,
+            uiComboBoxItem8});
+			this.NsWebsiteKind.Location = new System.Drawing.Point(75, 35);
 			this.NsWebsiteKind.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NsWebsiteKind.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsWebsiteKind.MS_Change_Border_Color_On_Enter = true;
@@ -882,7 +886,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label27.AutoSize = true;
 			this.label27.BackColor = System.Drawing.Color.Transparent;
 			this.label27.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label27.Location = new System.Drawing.Point(193, 38);
+			this.label27.Location = new System.Drawing.Point(232, 38);
 			this.label27.Name = "label27";
 			this.label27.Size = new System.Drawing.Size(81, 23);
 			this.label27.TabIndex = 820;
@@ -1163,27 +1167,27 @@ namespace Nz.Anbar.WinForms.Base
 			this.NzSeason.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzSeason.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
 			this.NzSeason.Cursor = System.Windows.Forms.Cursors.Hand;
-			uiComboBoxItem5.FormatStyle.Alpha = 0;
-			uiComboBoxItem5.IsSeparator = false;
-			uiComboBoxItem5.Text = "بهاری";
-			uiComboBoxItem6.FormatStyle.Alpha = 0;
-			uiComboBoxItem6.IsSeparator = false;
-			uiComboBoxItem6.Text = "تابستانی";
-			uiComboBoxItem7.FormatStyle.Alpha = 0;
-			uiComboBoxItem7.IsSeparator = false;
-			uiComboBoxItem7.Text = "پاییزی";
-			uiComboBoxItem8.FormatStyle.Alpha = 0;
-			uiComboBoxItem8.IsSeparator = false;
-			uiComboBoxItem8.Text = "زمستانی";
-			uiComboBoxItem18.FormatStyle.Alpha = 0;
-			uiComboBoxItem18.IsSeparator = false;
-			uiComboBoxItem18.Text = "عمومی";
+			uiComboBoxItem9.FormatStyle.Alpha = 0;
+			uiComboBoxItem9.IsSeparator = false;
+			uiComboBoxItem9.Text = "بهاری";
+			uiComboBoxItem10.FormatStyle.Alpha = 0;
+			uiComboBoxItem10.IsSeparator = false;
+			uiComboBoxItem10.Text = "تابستانی";
+			uiComboBoxItem11.FormatStyle.Alpha = 0;
+			uiComboBoxItem11.IsSeparator = false;
+			uiComboBoxItem11.Text = "پاییزی";
+			uiComboBoxItem12.FormatStyle.Alpha = 0;
+			uiComboBoxItem12.IsSeparator = false;
+			uiComboBoxItem12.Text = "زمستانی";
+			uiComboBoxItem13.FormatStyle.Alpha = 0;
+			uiComboBoxItem13.IsSeparator = false;
+			uiComboBoxItem13.Text = "عمومی";
 			this.NzSeason.Items.AddRange(new Janus.Windows.EditControls.UIComboBoxItem[] {
-            uiComboBoxItem5,
-            uiComboBoxItem6,
-            uiComboBoxItem7,
-            uiComboBoxItem8,
-            uiComboBoxItem18});
+            uiComboBoxItem9,
+            uiComboBoxItem10,
+            uiComboBoxItem11,
+            uiComboBoxItem12,
+            uiComboBoxItem13});
 			this.NzSeason.Location = new System.Drawing.Point(79, 115);
 			this.NzSeason.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzSeason.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;

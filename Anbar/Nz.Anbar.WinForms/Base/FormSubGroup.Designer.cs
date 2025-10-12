@@ -329,7 +329,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label16.Location = new System.Drawing.Point(41, 107);
 			this.label16.Name = "label16";
 			this.label16.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.label16.Size = new System.Drawing.Size(22, 47);
+			this.label16.Size = new System.Drawing.Size(5, 47);
 			this.label16.TabIndex = 6;
 			this.label16.Text = "کاربر به کلمه عبور پیش فرض تغییر می کند و کاربر می تواند مجدداً رمز عبور را تعیین" +
     " کند .";
@@ -370,7 +370,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label13.Location = new System.Drawing.Point(11, 98);
 			this.label13.Name = "label13";
 			this.label13.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.label13.Size = new System.Drawing.Size(45, 22);
+			this.label13.Size = new System.Drawing.Size(28, 22);
 			this.label13.TabIndex = 2;
 			this.label13.Text = "در صورتی که کاربر رمز عبور خود را فراموش کرد چکار باید کرد ؟";
 			// 
@@ -383,7 +383,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label2.Location = new System.Drawing.Point(5, 41);
 			this.label2.Name = "label2";
 			this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.label2.Size = new System.Drawing.Size(45, 45);
+			this.label2.Size = new System.Drawing.Size(28, 45);
 			this.label2.TabIndex = 1;
 			this.label2.Text = "در هنگام تعریف کاربران، رمز ورود با رمز عبور پیش فرض تعیین می گردد. در اولین ورود" +
     " کاربر به برنامه از وی رمز عبور جدید درخواست می شود.";
@@ -398,7 +398,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label1.Location = new System.Drawing.Point(5, 13);
 			this.label1.Name = "label1";
 			this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.label1.Size = new System.Drawing.Size(45, 22);
+			this.label1.Size = new System.Drawing.Size(28, 22);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "رمز ورود کاربر چیست ؟";
 			// 

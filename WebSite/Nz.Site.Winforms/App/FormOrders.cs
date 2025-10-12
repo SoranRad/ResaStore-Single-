@@ -93,18 +93,6 @@ namespace Nz.Site.Winforms.App
 			}
 
 		}
-		
-		private async void		FormOrders_Load					(object sender, EventArgs e)
-		{
-			//RestAPI rest = new RestAPI(_settingItems.WebSite + "/wp-json/wc/v3/", _settingItems.ApiKey, _settingItems.SecretKey);
-			//WCObject wc = new WCObject(rest);
-
-
-			//var list = await wc.Order.GetAll();
-			//ms_Grid.DataSource = list;
-			////ms_Grid.DataSource = await wc.Order.GetAll();
-			//ms_Grid.RetrieveStructure(true);
-		}
 
 		private async void		NzReport_Click					(object sender, EventArgs e)
 		{
@@ -148,7 +136,7 @@ namespace Nz.Site.Winforms.App
 
 
 			//=================================================================
-			ms_Grid.DataSource = _ordersDto;
+			//ms_Grid.DataSource = _ordersDto;
 
 			try
 			{
@@ -161,35 +149,7 @@ namespace Nz.Site.Winforms.App
 
 					if (ordersPage != null && ordersPage.Count > 0)
 					{
-						//var ids = "(" + string.Join(",", ordersPage.Select(x => x.id)) + ")";
-						//var factors = mgr.GetReport<SyncOrdersInFactors>(null,ids);
-
-
-						//var result = ordersPage
-						//	.GroupJoin(factors,
-						//		order => (long?)order.id, factor => factor.WebSiteId, 
-						//		(order, factor) => new { Key = order, Factors = factor });
-
-						//var ttt = result.Select(x => new OrderDto()
-						//{
-							
-						//	Address			= x.Key.shipping?.state +" "+x.Key.shipping?.city+" "+x.Key.shipping?.address_1,
-						//	Customer		= x.Key.billing?.first_name +" " +x.Key.billing?.last_name + " " + x.Key.billing?.phone,
-						//	date_created	= x.Key.date_created?.ToPersianDate(),
-						//	date_paid		= x.Key.date_paid?.ToPersianDate(),
-						//	discount_total	= x.Key.discount_total,
-						//	id				= x.Key.id,
-						//	number			= x.Key.number,
-						//	set_paid		= x.Key.set_paid,
-						//	shipping_total	= x.Key.shipping_total,
-						//	statusTitle		= x.Key.status.NzWebsiteStateOrderToPersian(),
-						//	total			= x.Key.total,
-						//	FactorDate = x.Factors.SingleOrDefault()?.tarikh.ToPersianDate(),
-						//	FactorId = x.Factors.SingleOrDefault()?.ID,
-						//	Serial = x.Factors.SingleOrDefault()?.Serial
-						//});
-
-						var tt = ordersPage.Select(x => new OrderDto()
+						var temp = ordersPage.Select(x => new OrderDto()
 						{
 							
 							Address			= x.shipping?.state +" "+x.shipping?.city+" "+x.shipping?.address_1,
@@ -206,7 +166,7 @@ namespace Nz.Site.Winforms.App
 						});
 
 						_orders.AddRange(ordersPage);
-						_ordersDto.AddRange(tt);
+						_ordersDto.AddRange(temp);
 						currentPage++;
 					}
 					else
