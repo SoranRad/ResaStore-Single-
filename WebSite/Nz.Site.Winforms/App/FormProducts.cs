@@ -99,32 +99,7 @@ namespace Nz.Site.Winforms.App
 		private async void FormProducts_Load(object sender, EventArgs e)
 		{
 			await LoadCategories();
-			//RestAPI rest = new RestAPI(_settingItems.WebSite + "/wp-json/wc/v3/", _settingItems.ApiKey, _settingItems.SecretKey);
-			//WCObject wc = new WCObject(rest);
-
-
-			//var  list = await wc.Product.GetAll();
-			//var varia = await wc.Product.Variations.GetAll(97054);
-			//ms_Grid.DataSource = list;
-			////ms_Grid.DataSource = await wc.Order.GetAll();
-			//ms_Grid.RetrieveStructure(true);
-
-			////var options = new RestClientOptions(_settingItems.WebSite + "/wp-json/wc/v3/")
-			//{
-			//	Authenticator = new HttpBasicAuthenticator(_settingItems.ApiKey, _settingItems.SecretKey)
-			//};
-
-			//var client = new RestClient(options,
-			//	configureSerialization: s => s.UseSystemTextJson(new JsonSerializerOptions { PropertyNameCaseInsensitive = true })
-			//	);
-
-			//var request = new RestRequest("/orders ", Method.Get);
-
-			////var response = await client.GetAsync(request);
-
-			//var list = await client.GetAsync<IEnumerable<Order>>(request);
-			//ms_Grid.DataSource = list;
-			//ms_Grid.RetrieveStructure(true);
+			
 		}
 
 		private async void NzReport_Click(object sender, EventArgs e)

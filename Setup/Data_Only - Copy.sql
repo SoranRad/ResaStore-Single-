@@ -1,4 +1,4 @@
-﻿SET ansi_warnings OFF
+SET ansi_warnings OFF
 GO
 USE [DB_NzResaaStore]
 GO

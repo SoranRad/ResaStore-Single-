@@ -182,7 +182,7 @@
 			// 
 			this.NsUpdatePrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsUpdatePrice.BackColor = System.Drawing.Color.Transparent;
-			this.NsUpdatePrice.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsUpdatePrice.Cursor = System.Windows.Forms.Cursors.Default;
 			this.NsUpdatePrice.Location = new System.Drawing.Point(1142, 7);
 			this.NsUpdatePrice.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
 			this.NsUpdatePrice.MS_BorderColor = System.Drawing.Color.Transparent;
@@ -212,7 +212,7 @@
 			// 
 			this.NsUpdateMeqdar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsUpdateMeqdar.BackColor = System.Drawing.Color.Transparent;
-			this.NsUpdateMeqdar.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsUpdateMeqdar.Cursor = System.Windows.Forms.Cursors.Default;
 			this.NsUpdateMeqdar.Location = new System.Drawing.Point(1321, 7);
 			this.NsUpdateMeqdar.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
 			this.NsUpdateMeqdar.MS_BorderColor = System.Drawing.Color.Transparent;
@@ -240,7 +240,7 @@
 			// NsCategories
 			// 
 			this.NsCategories.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
-			this.NsCategories.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsCategories.Cursor = System.Windows.Forms.Cursors.Default;
 			this.NsCategories.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			uiComboBoxItem1.FormatStyle.Alpha = 0;
 			uiComboBoxItem1.IsSeparator = false;
@@ -267,7 +267,7 @@
 			// NsStockStatus
 			// 
 			this.NsStockStatus.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
-			this.NsStockStatus.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsStockStatus.Cursor = System.Windows.Forms.Cursors.Default;
 			this.NsStockStatus.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			uiComboBoxItem2.FormatStyle.Alpha = 0;
 			uiComboBoxItem2.IsSeparator = false;
@@ -310,7 +310,7 @@
 			// 
 			this.NsPriceKind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsPriceKind.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
-			this.NsPriceKind.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsPriceKind.Cursor = System.Windows.Forms.Cursors.Default;
 			this.NsPriceKind.Enabled = false;
 			this.NsPriceKind.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			uiComboBoxItem6.FormatStyle.Alpha = 0;
@@ -350,7 +350,7 @@
 			// NsUpdate
 			// 
 			this.NsUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.NsUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsUpdate.Cursor = System.Windows.Forms.Cursors.Default;
 			this.NsUpdate.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.NsUpdate.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.NsUpdate.Image = ((System.Drawing.Image)(resources.GetObject("NsUpdate.Image")));
@@ -380,6 +380,7 @@
 			// 
 			this.NzLoading2.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.NzLoading2.BackColor = System.Drawing.Color.Transparent;
+			this.NzLoading2.Cursor = System.Windows.Forms.Cursors.Default;
 			this.NzLoading2.Image = ((System.Drawing.Image)(resources.GetObject("NzLoading2.Image")));
 			this.NzLoading2.Location = new System.Drawing.Point(709, 8);
 			this.NzLoading2.Name = "NzLoading2";
@@ -391,7 +392,7 @@
 			// 
 			// NzReport
 			// 
-			this.NzReport.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NzReport.Cursor = System.Windows.Forms.Cursors.Default;
 			this.NzReport.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.NzReport.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.NzReport.Image = ((System.Drawing.Image)(resources.GetObject("NzReport.Image")));
@@ -421,6 +422,7 @@
 			// 
 			this.label2.AutoSize = true;
 			this.label2.BackColor = System.Drawing.Color.Transparent;
+			this.label2.Cursor = System.Windows.Forms.Cursors.Default;
 			this.label2.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.label2.Location = new System.Drawing.Point(281, 11);
 			this.label2.Name = "label2";
@@ -432,6 +434,7 @@
 			// 
 			this.label1.AutoSize = true;
 			this.label1.BackColor = System.Drawing.Color.Transparent;
+			this.label1.Cursor = System.Windows.Forms.Cursors.Default;
 			this.label1.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.label1.Location = new System.Drawing.Point(607, 11);
 			this.label1.Name = "label1";

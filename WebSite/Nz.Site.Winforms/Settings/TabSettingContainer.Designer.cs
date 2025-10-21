@@ -123,6 +123,7 @@
 			// 
 			this.NzBankAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzBankAccount.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.DownArrow;
+			this.NzBankAccount.Cursor = System.Windows.Forms.Cursors.Default;
 			this.NzBankAccount.DropSize = new System.Drawing.Size(289, 32);
 			this.NzBankAccount.Font = new System.Drawing.Font("IRANSans(Small)", 15F);
 			this.NzBankAccount.Location = new System.Drawing.Point(231, 133);
@@ -153,7 +154,7 @@
 			// 
 			this.NzLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzLocation.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.DownArrow;
-			this.NzLocation.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NzLocation.Cursor = System.Windows.Forms.Cursors.Default;
 			this.NzLocation.DropSize = new System.Drawing.Size(132, 29);
 			this.NzLocation.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.NzLocation.Location = new System.Drawing.Point(388, 41);
@@ -181,7 +182,7 @@
 			// 
 			this.NzKindSale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzKindSale.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
-			this.NzKindSale.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NzKindSale.Cursor = System.Windows.Forms.Cursors.Default;
 			this.NzKindSale.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			uiComboBoxItem1.FormatStyle.Alpha = 0;
 			uiComboBoxItem1.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem1.Image")));
@@ -202,7 +203,7 @@
             uiComboBoxItem2,
             uiComboBoxItem3,
             uiComboBoxItem4});
-			this.NzKindSale.Location = new System.Drawing.Point(379, 85);
+			this.NzKindSale.Location = new System.Drawing.Point(401, 85);
 			this.NzKindSale.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzKindSale.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzKindSale.MS_Change_Border_Color_On_Enter = true;
@@ -215,7 +216,7 @@
 			this.NzKindSale.MS_Last_Control = null;
 			this.NzKindSale.MS_Next_Control = null;
 			this.NzKindSale.Name = "NzKindSale";
-			this.NzKindSale.Size = new System.Drawing.Size(141, 29);
+			this.NzKindSale.Size = new System.Drawing.Size(119, 29);
 			this.NzKindSale.TabIndex = 768;
 			this.NzKindSale.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
 			// 
@@ -224,6 +225,7 @@
 			this.NzKindSaleLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzKindSaleLbl.AutoSize = true;
 			this.NzKindSaleLbl.BackColor = System.Drawing.Color.Transparent;
+			this.NzKindSaleLbl.Cursor = System.Windows.Forms.Cursors.Default;
 			this.NzKindSaleLbl.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
 			this.NzKindSaleLbl.Location = new System.Drawing.Point(526, 88);
 			this.NzKindSaleLbl.Name = "NzKindSaleLbl";
@@ -234,8 +236,10 @@
 			// 
 			// label4
 			// 
+			this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label4.AutoSize = true;
 			this.label4.BackColor = System.Drawing.Color.Transparent;
+			this.label4.Cursor = System.Windows.Forms.Cursors.Default;
 			this.label4.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
 			this.label4.Location = new System.Drawing.Point(526, 126);
 			this.label4.Name = "label4";
@@ -247,8 +251,10 @@
 			// 
 			// label6
 			// 
+			this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label6.AutoSize = true;
 			this.label6.BackColor = System.Drawing.Color.Transparent;
+			this.label6.Cursor = System.Windows.Forms.Cursors.Default;
 			this.label6.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
 			this.label6.Location = new System.Drawing.Point(526, 44);
 			this.label6.Name = "label6";

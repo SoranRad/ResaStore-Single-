@@ -6,9 +6,10 @@
     <DataSources isList="true" count="0" />
     <Relations isList="true" count="0" />
     <Report isRef="0" />
-    <Variables isList="true" count="2">
+    <Variables isList="true" count="3">
       <value>,BarCode,BarCode,System.String,,False,False</value>
       <value>,Title,Title,System.String,,False,False</value>
+      <value>,Company,Company,System.String,,False,False</value>
     </Variables>
   </Dictionary>
   <EngineVersion>EngineV2</EngineVersion>
@@ -18,13 +19,13 @@
     <Page1 Ref="2" type="Page" isKey="true">
       <Border>None;Black;2;Solid;False;4;Black</Border>
       <Brush>Transparent</Brush>
-      <Components isList="true" count="4">
+      <Components isList="true" count="3">
         <BarCode1 Ref="3" type="Stimulsoft.Report.BarCodes.StiBarCode" isKey="true">
           <AutoScale>True</AutoScale>
           <BackColor>Transparent</BackColor>
           <BarCodeType Ref="4" type="Stimulsoft.Report.BarCodes.StiEAN128AutoBarCodeType" isKey="true" />
           <Border>All;Black;1;Solid;False;4;Black</Border>
-          <ClientRectangle>0.2,1.2,3.8,1.4</ClientRectangle>
+          <ClientRectangle>0.2,1.4,4.4,1.2</ClientRectangle>
           <Code>{BarCode}</Code>
           <Conditions isList="true" count="0" />
           <Font>Arial,8,Bold,Pixel</Font>
@@ -36,7 +37,7 @@
         <Text1 Ref="5" type="Text" isKey="true">
           <Border>All;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
-          <ClientRectangle>0.2,0.2,3.8,1</ClientRectangle>
+          <ClientRectangle>0.2,0.8,4.4,0.6</ClientRectangle>
           <Conditions isList="true" count="0" />
           <Font>IRANSans(FaNum),7</Font>
           <GrowToHeight>True</GrowToHeight>
@@ -51,35 +52,20 @@
           <Type>Expression</Type>
           <VertAlignment>Center</VertAlignment>
         </Text1>
-        <BarCode2 Ref="6" type="Stimulsoft.Report.BarCodes.StiBarCode" isKey="true">
-          <AutoScale>True</AutoScale>
-          <BackColor>Transparent</BackColor>
-          <BarCodeType Ref="7" type="Stimulsoft.Report.BarCodes.StiEAN128AutoBarCodeType" isKey="true" />
-          <Border>All;Black;1;Solid;False;4;Black</Border>
-          <ClientRectangle>4.6,1.2,4,1.4</ClientRectangle>
-          <Code>{BarCode}</Code>
-          <Conditions isList="true" count="0" />
-          <Font>Arial,8,Bold,Pixel</Font>
-          <ForeColor>Black</ForeColor>
-          <Guid>151961608090480eace2534f86fdc3e0</Guid>
-          <Name>BarCode2</Name>
-          <Page isRef="2" />
-          <Parent isRef="2" />
-        </BarCode2>
-        <Text2 Ref="8" type="Text" isKey="true">
+        <Text2 Ref="6" type="Text" isKey="true">
           <Border>All;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
-          <ClientRectangle>4.6,0.2,4,1</ClientRectangle>
+          <ClientRectangle>0.2,0,4.4,0.8</ClientRectangle>
           <Conditions isList="true" count="0" />
           <Font>IRANSans(FaNum),7</Font>
           <GrowToHeight>True</GrowToHeight>
-          <Guid>5a553edbdf8c4c84851506037618b5c9</Guid>
+          <Guid>bd499eecad8343d7863042ebc1b24b52</Guid>
           <HorAlignment>Center</HorAlignment>
           <Margins>0,0,0,0</Margins>
           <Name>Text2</Name>
           <Page isRef="2" />
           <Parent isRef="2" />
-          <Text>{Title}</Text>
+          <Text>{Company}</Text>
           <TextBrush>Black</TextBrush>
           <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
           <Type>Expression</Type>
@@ -93,16 +79,16 @@
       <Margins>0,0,0,0</Margins>
       <Name>Page1</Name>
       <PageHeight>3</PageHeight>
-      <PageWidth>9</PageWidth>
+      <PageWidth>5</PageWidth>
       <Report isRef="0" />
       <RightToLeft>True</RightToLeft>
-      <Watermark Ref="9" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="7" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="10" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="8" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -114,10 +100,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>9/29/2025 10:35:46 AM</ReportChanged>
+  <ReportChanged>10/21/2025 5:04:06 PM</ReportChanged>
   <ReportCreated>8/21/2014 7:32:51 PM</ReportCreated>
   <ReportFile>E:\_Workspace_Project_\_ResaStore_Single_\Output\Print\\Anbar\Barcode.mrt</ReportFile>
-  <ReportGuid>1299ed6531404c1cac8c644fc31a3017</ReportGuid>
+  <ReportGuid>b4d75167c23b422c9c4c9c98dfa7107d</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2015.2.0</ReportVersion>

@@ -224,7 +224,9 @@ namespace Nz.Anbar.WinForms.Base
                 
 
                 PrnDiag.Set_Variable("BarCode"           , kala.barcode);
+                PrnDiag.Set_Variable("Company"           , SystemConstant.ActiveCompany.title);
                 PrnDiag.Set_Variable("Title"             , kala.title);
+                PrnDiag.Set_Variable("Title2"             , kala.nameFani);
               
 
                 PrnDiag.ShowDialog(this);
