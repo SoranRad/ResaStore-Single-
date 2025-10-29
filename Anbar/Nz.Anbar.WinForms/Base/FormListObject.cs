@@ -90,16 +90,6 @@ namespace Nz.Anbar.WinForms.Base
                 ms_Grid.DataSource =
                         _Manager.GetList<NzObject>()
                                 ?.ToList();
-
-                //await Task.Run(() =>
-                //{
-                //    var list =
-                //_Manager.GetList<NzObject>()
-                //                ?.ToList();
-                //    if (ms_Grid.InvokeRequired)
-                //        ms_Grid.Invoke(new MethodInvoker(() => { ms_Grid.DataSource = list; }));
-                //    else ms_Grid.DataSource = list;
-                //});
             }
             catch (Exception ex)
             {
@@ -129,7 +119,7 @@ namespace Nz.Anbar.WinForms.Base
             Create_Form(null);
             _FormItem.Show(this);
         }
-        private void ms_Grid_ColumnButtonClick  (object sender, Janus.Windows.GridEX.ColumnActionEventArgs e)
+        private void ms_Grid_ColumnButtonClick  (object sender, ColumnActionEventArgs e)
         {
             var Row = ms_Grid.CurrentRow.DataRow as NzObject;
             if (e.Column.Key == "E")
@@ -200,6 +190,8 @@ namespace Nz.Anbar.WinForms.Base
         {
             if (e.KeyCode == Keys.Insert)
                 ms_Add.PerformClick();
+            if(e.KeyCode == Keys.F4)
+                NzBarcode.PerformClick();
         }
 
         private void mS_GridX_Setting1_MS_On_Print_Clicked(object sender, EventArgs e)
@@ -209,32 +201,12 @@ namespace Nz.Anbar.WinForms.Base
 
 		private void NzBarcode_Click(object sender, EventArgs e)
 		{
-			//if (ms_Grid.SelectedItems.Count == 0)
+			if (ms_Grid.GetCheckedRows().Any())
 			{
-                if(ms_Grid.CurrentRow == null)
-                    return;
-                if(ms_Grid.CurrentRow.RowType != RowType.Record)
-                    return;
+				var kalaHa = ms_Grid.GetCheckedRows().Select(x => x.DataRow as NzObject).ToList();
 
-                var kala = ms_Grid.CurrentRow.DataRow as NzObject;
-
-                var path = Utility.GetPrintDirectory()+ "\\Anbar\\Barcode.mrt";
-                
-                var PrnDiag = new Print_Dialog(path);
-                
-
-                PrnDiag.Set_Variable("BarCode"           , kala.barcode);
-                PrnDiag.Set_Variable("Company"           , SystemConstant.ActiveCompany.title);
-                PrnDiag.Set_Variable("Title"             , kala.title);
-                PrnDiag.Set_Variable("Title2"             , kala.nameFani);
-              
-
-                PrnDiag.ShowDialog(this);
+				new Print.PrintBarcode(kalaHa).Show(this);
 			}
-			//else
-			//{
-
-			//}
 		}
 	}
 }

@@ -382,6 +382,7 @@
     <Compile Include="EndYear\FormEndYear.Designer.cs">
       <DependentUpon>FormEndYear.cs</DependentUpon>
     </Compile>
+    <Compile Include="Print\PrintBarcode.cs" />
     <Compile Include="Print\PrintPrefactor.cs" />
     <Compile Include="Report\FormAllCircular.cs">
       <SubType>Form</SubType>
