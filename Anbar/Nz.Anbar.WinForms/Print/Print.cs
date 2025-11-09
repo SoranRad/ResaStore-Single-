@@ -31,6 +31,8 @@ namespace Nz.Anbar.WinForms.Print
         #region Property
         [DefaultValue(false)]
         public bool DirectPrint { get; set; }
+
+        public string DefaultPrinter { get; set; }
         #endregion
         #region Constructor
         public              Print   (FactorManager Manager, long ID,            Enums.NzKindPrint PrintKind,string Remaind=null)
@@ -229,6 +231,10 @@ namespace Nz.Anbar.WinForms.Print
             _PrintDiag = new Print_Dialog(_ListReport);
             FrmWait.Close();
             Print_Dialog._Do_Direct_Print = DirectPrint;
+
+            if(!string.IsNullOrEmpty(DefaultPrinter))
+                _PrintDiag.DefaultPrinterName = DefaultPrinter;
+            
             _PrintDiag.ShowDialog(Frm);
         }
 

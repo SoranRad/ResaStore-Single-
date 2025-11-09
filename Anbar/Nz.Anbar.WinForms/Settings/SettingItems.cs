@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using ShareLib;
 
 namespace Nz.Anbar.WinForms.Settings
 {
@@ -35,5 +36,8 @@ namespace Nz.Anbar.WinForms.Settings
 		public bool		MainGroupActivated		{ get; set; }
 		public long     MiscID					{ get; set; }
 		public short    LocationID				{ get; set; }
+		public string	FishPrinter				{ get; set; }
+		public Enums.NzKindPrint KindPrint { get; set; }
+
 	}
 }

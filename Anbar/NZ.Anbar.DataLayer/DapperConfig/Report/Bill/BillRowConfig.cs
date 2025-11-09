@@ -26,7 +26,8 @@ INNER JOIN Anbar.tbl_Amaliat_Title  AS tat  ON tat.ID       = tar.FK_Title
 LEFT OUTER JOIN General.DimDate     AS dd   ON dd.GregorianDate = tat.tarikh 
 
 
-WHERE tat.FK_Salmali=@Year and tat.FK_AshXas_ID =@People
+WHERE tat.FK_Salmali=@Year and tat.FK_AshXas_ID = @People
+AND (tat.kind>=11 AND tat.kind<=55)
 
 UNION ALL
 
@@ -46,6 +47,7 @@ INNER JOIN Anbar.tbl_Amaliat_Title_Detail   AS tatd ON  tat.ID = tatd.ID
 LEFT OUTER JOIN General.DimDate     AS dd   ON dd.GregorianDate = tat.tarikh 
 
 WHERE tat.FK_Salmali=@Year and tat.FK_AshXas_ID =@People AND tatd.mablaq_takhfif>0
+AND (tat.kind>=11 AND tat.kind<=55)
 
 UNION ALL
 
@@ -65,6 +67,7 @@ INNER JOIN Anbar.tbl_Amaliat_Title_Detail   AS tatd ON  tat.ID = tatd.ID
 LEFT OUTER JOIN General.DimDate     AS dd   ON dd.GregorianDate = tat.tarikh 
 
 WHERE tat.FK_Salmali=@Year and tat.FK_AshXas_ID =@People AND tatd.Ezafat>0
+AND (tat.kind>=11 AND tat.kind<=55)
 
 UNION ALL
 
@@ -84,7 +87,7 @@ INNER JOIN Anbar.tbl_Amaliat_Title_Detail   AS tatd ON  tat.ID = tatd.ID
 LEFT OUTER JOIN General.DimDate     AS dd   ON dd.GregorianDate = tat.tarikh 
 
 WHERE tat.FK_Salmali=@Year and tat.FK_AshXas_ID =@People AND tatd.mablaq_Maliat > 0
-
+AND (tat.kind>=11 AND tat.kind<=55)
 
 ");
 		}

@@ -55,11 +55,13 @@ namespace Nz.Anbar.WinForms.App
         #region Methods
         private void Init                           ()
         {
+	        
             nzObjectPopup1.RefreshControl   (new Size(550, 170));
             nzObjectPopup1.NzSelectObject   += NzObjectPopup1OnNzSelectObject;
             nzObjectPopup1.NzEscapedPress   += NzObjectPopup1OnNzEscapedPress;
             LoadItem();
             _Bind               = new BidingFactorItems(_Factor);
+            _Bind.AllowEdit     = false;
             NzGrid.DataSource   = _Bind;
 
             if (_RowSelect.HasValue)
@@ -325,7 +327,11 @@ namespace Nz.Anbar.WinForms.App
             }
             else if (e.Column.Key == "E")
             {
+	            _Bind.AllowEdit = true;
+	            NzGrid.AllowEdit = InheritableBoolean.True;
+                NzGrid.CurrentRow.BeginEdit();
                 NzGrid.CurrentColumn = NzGrid.RootTable.Columns["ObjectTitle"];
+                
                 ShowMenu();
             }
         }
@@ -334,6 +340,8 @@ namespace Nz.Anbar.WinForms.App
             var row = NzGrid.CurrentRow.DataRow as FactorItem;
             if (row?.ID > 0)
                 row.State = Enums.NzItemState.Modified;
+
+          
         }
         private void NzGrid_CancelingRowEdit        (object sender, RowActionCancelEventArgs e)
         {
@@ -347,13 +355,26 @@ namespace Nz.Anbar.WinForms.App
                         _Bind.Remove(row);
                 }
                 NzGrid.CurrentRow?.CancelEdit();
+                _Bind.AllowEdit = false;
+                NzGrid.AllowEdit = InheritableBoolean.False;
+                NzGrid.CurrentRow?.EndEdit();
             }
             catch (Exception ex)
             {
                 log.Error(ex);
             }
         }
-
+        private void NzGrid_RecordAdded             (object sender, EventArgs e)
+        {
+	        NzSave_Click(sender,  e);
+        }
+        private void NzGrid_RecordUpdated           (object sender, EventArgs e)
+        {
+	        NzSave_Click(sender, e);
+	        _Bind.AllowEdit = false;
+	        NzGrid.AllowEdit = InheritableBoolean.False;
+	        NzGrid.CurrentRow.EndEdit();
+        }
         #endregion
         #region TextBox Events
         private void EditTextBoxOnKeyPress          (object sender, KeyPressEventArgs e)
@@ -621,7 +642,10 @@ namespace Nz.Anbar.WinForms.App
         }
         private void Form_InitialStock_Shown            (object sender, EventArgs e)
         {
+	        var frm = new MSWait();
+	        frm.Show(this);
             Init();
+            frm.Close();
         }
         private void Form_InitialStock_KeyUp            (object sender, KeyEventArgs e)
         {
@@ -644,14 +668,6 @@ namespace Nz.Anbar.WinForms.App
 
         }
 
-        private void NzGrid_RecordAdded(object sender, EventArgs e)
-        {
-            NzSave_Click(sender,  e);
-        }
-
-        private void NzGrid_RecordUpdated(object sender, EventArgs e)
-        {
-            NzSave_Click(sender, e);
-        }
+       
     }
 }

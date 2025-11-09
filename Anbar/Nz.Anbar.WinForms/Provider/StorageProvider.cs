@@ -95,7 +95,7 @@ namespace Nz.Anbar.WinForms.Provider
 
         }
 
-        public IEnumerable<object> GetBillRows(long People, short? Year, DateTime? DateFrom, DateTime? DateTo)
+        public IEnumerable<object>          GetBillRows         (long People, short? Year, DateTime? DateFrom, DateTime? DateTo)
         {
 	        try
 	        {
@@ -288,12 +288,11 @@ namespace Nz.Anbar.WinForms.Provider
 			return _settings;
 		}
 
-		public bool HasSrtartupForm()
+		public bool                             HasSrtartupForm     ()
 		{
 			return false;
 		}
-
-		public Form GetStartupPage()
+		public Form                             GetStartupPage      ()
 		{
 			return null;
 		}

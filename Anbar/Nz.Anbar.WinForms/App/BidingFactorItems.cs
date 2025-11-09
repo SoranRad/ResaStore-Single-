@@ -23,6 +23,7 @@ namespace Nz.Anbar.WinForms.App
         #region Fields
         private ListChangedEventHandler     onListChanged;
         private FactorHead                  _Factor;
+
         #endregion
         #region constructor
         public BidingFactorItems       (FactorHead Factor)
@@ -50,11 +51,12 @@ namespace Nz.Anbar.WinForms.App
         }
 
         public bool         AllowNew                    => true;
-        public bool         AllowEdit                   => true;
+        public bool         AllowEdit                   { get; set; } = true;
+    
         public bool         AllowRemove                 => true;
         public int          Count                       => _Factor.FactorItems.Count(x => x.State != Enums.NzItemState.Deleted);
 
-        public object       SyncRoot                    => throw new NotImplementedException();
+        public object       SyncRoot                    => null;//throw new NotImplementedException();
         public bool         IsSorted                    => true;
         public bool         IsSynchronized              => false;
         public bool         IsReadOnly                  => false;
@@ -66,8 +68,8 @@ namespace Nz.Anbar.WinForms.App
         #endregion
         #region Methods
 
-        public PropertyDescriptor               SortProperty  => throw new NotImplementedException();
-        public ListSortDirection                SortDirection  => throw new NotImplementedException();
+        public PropertyDescriptor               SortProperty   => null;//throw new NotImplementedException();
+        public ListSortDirection                SortDirection  => ListSortDirection.Ascending;
         public event ListChangedEventHandler    ListChanged
         {
             add
@@ -300,7 +302,7 @@ namespace Nz.Anbar.WinForms.App
 		        }
 	        }
         }
-        public int         GetNewRowNumber         ()
+        public int          GetNewRowNumber         ()
         {
             if (!_Factor.FactorItems.Any())
                 return 0;
@@ -309,7 +311,7 @@ namespace Nz.Anbar.WinForms.App
                     .Where(x => x.State != Enums.NzItemState.Deleted)
                     .Max(x=>x.radif);
         }
-        public int          CopyRow             (object value)
+        public int          CopyRow                 (object value)
         {
 	        if (value == null)
 		        return -1;

@@ -53,7 +53,12 @@ namespace MS_Print_Dialog
                                                     _Is_Rendered = false;
         private int                                 TempHeight = 400;
         private delegate void Progress_Change();
+
         //=====
+        #endregion
+
+        #region Proprties
+        public string DefaultPrinterName { get; set; }
         #endregion
         #region متد
         private void Load_Printer_Setting           ()
@@ -153,6 +158,9 @@ namespace MS_Print_Dialog
 
             Set_Printer_Default();
             _Printer_Setting = new PrinterSettings();
+            _Printer_Setting.PrinterName = !string.IsNullOrWhiteSpace(DefaultPrinterName) 
+	            ? DefaultPrinterName 
+	            : Row.Cells["title"].Text;
             _Printer_Setting.PrinterName = Row.Cells["title"].Text;
             _Printer_Setting.PrintToFile = ms_print_file.Checked;
             _Printer_Setting.Copies = Convert.ToInt16(ms_copy.MS_Decimal);
@@ -240,7 +248,7 @@ namespace MS_Print_Dialog
             stiReport1.Load(Report_Stream);
             stiReport1.RegBusinessObject(Business_Object_Name, Data_Source);
             stiReport1.Compile();
-
+            this.Shown+=Print_Dialog_Shown;
         }
         public Print_Dialog         (string Report_Stream, string Business_Object_Name, object Data_Source, string Name, Image Tasvir)
         {
@@ -252,6 +260,8 @@ namespace MS_Print_Dialog
             StiImage image = stiReport1.GetComponents()[Name] as StiImage;
             image.Image = Tasvir;
             stiReport1.Compile();
+            this.Shown+=Print_Dialog_Shown;
+
         }
         public Print_Dialog         (string Report_Stream, string[] Business_Object_Names, object[] Data_Sources)
         {
@@ -265,6 +275,7 @@ namespace MS_Print_Dialog
                     stiReport1.RegBusinessObject(Business_Object_Names[i], Data_Sources[i]);
 
             stiReport1.Compile();
+            this.Shown+=Print_Dialog_Shown;
         }
         public Print_Dialog         (string Report_Stream)
         {
@@ -273,7 +284,7 @@ namespace MS_Print_Dialog
             stiReport1 = new Stimulsoft.Report.StiReport();
             stiReport1.Load(Report_Stream);
             stiReport1.Compile();
-
+            this.Shown+=Print_Dialog_Shown;
         }
         public Print_Dialog         (byte[] Report_Stream, string Business_Object_Name, object Data_Source)
         {
@@ -284,6 +295,8 @@ namespace MS_Print_Dialog
             stiReport1.RegBusinessObject(Business_Object_Name, Data_Source);
             stiReport1.Compile();
             ms_design.Enabled = false;
+            this.Shown+=Print_Dialog_Shown;
+
         }
         public Print_Dialog         (byte[] Report_Stream)
         {
@@ -292,6 +305,7 @@ namespace MS_Print_Dialog
             stiReport1.Load(Report_Stream);
             stiReport1.Compile();
             ms_design.Enabled = false;
+            this.Shown+=Print_Dialog_Shown;
         }
         public Print_Dialog         (List<MS_Report_Loading> List_Report)
         {
@@ -302,7 +316,7 @@ namespace MS_Print_Dialog
             stiReport1.RenderedPages.Clear();
             stiReport1.NeedsCompiling = false;
             stiReport1.IsRendered = true;
-
+            
             //====================
             _List_Report = List_Report;
             _Print_List = true;
@@ -316,23 +330,35 @@ namespace MS_Print_Dialog
             this.Height = 448;
 
 
-            this.Shown += (z, y) =>
+            this.Shown +=async (z, y) =>
             {
                 Application.DoEvents();
-                List_Report.MSZ_ForEach((x) =>
+
+                var reports = List_Report.Select(x =>
                 {
-                    new Thread(new ThreadStart(() =>
-                    {
-                        x.Load();
-                        Progress_Increase();
+	                var t= new Task(o =>
+	                {
+		                var rep = (MS_Report_Loading)o;
+		                rep.Load();
+		                Progress_Increase();
                         Application.DoEvents();
-                    })).Start();
-                });
-                //this.Height = h;
+	                },x);
+                    t.Start();
+	                return t;
+
+                }).ToList();
+
+                await Task.WhenAll(reports);
+
+                ms_preview.Enabled = ms_design.Enabled = ms_print.Enabled = true;
+                if (!_Do_Direct_Print.HasValue)
+                    return;
+                if (_Do_Direct_Print.Value)
+                    ms_print.PerformClick();
+                 
             };
             Application.DoEvents();
         }
-
 
         public void Set_Variable    (string Name, object Value)
         {
@@ -354,25 +380,6 @@ namespace MS_Print_Dialog
         }
         private void ms_preview_Click   (object sender, EventArgs e)
         {
-            //if (_Print_List && !_Is_Rendered)
-            //{
-            //    stiReport1.Show(this);
-            //    _List_Report.MSZ_ForEach((x) =>
-            //    {
-            //        new Thread(new ThreadStart(() =>
-            //        {
-            //            x.Render();
-            //            lock (stiReport1)
-            //            {
-            //                stiReport1.RenderedPages.AddRange(x._Report.CompiledReport.RenderedPages);
-            //                stiReport1.InvokeRefreshViewer();
-            //            }
-            //        })).Start();
-            //    });
-            //    _Is_Rendered = true;
-            //}
-            //else stiReport1.Show(this);
-
             if (_Print_List && !_Is_Rendered)
             {
                 stiReport1.RenderedPages.Clear();
@@ -387,9 +394,12 @@ namespace MS_Print_Dialog
                         {
                             foreach (StiPage page in x._Report.RenderedPages.Items)
                             {
-                                page.Report = stiReport1;
-                                stiReport1.RenderedPages.Add(page);
-                                stiReport1.InvokeRefreshViewer();
+                                for (int i = 0; i < x.CopyCount; i++)
+                                {
+		                            page.Report = stiReport1;
+		                            stiReport1.RenderedPages.Add(page);
+		                            stiReport1.InvokeRefreshViewer();
+	                            }
                             }
                         }
                     })).Start();
@@ -400,29 +410,6 @@ namespace MS_Print_Dialog
         }
         private void ms_print_Click     (object sender, EventArgs e)
         {
-            //if (_Print_List && !_Is_Rendered)
-            //{
-            //    _List_Report.MSZ_ForEach((x) =>
-            //    {
-            //        new Thread(new ThreadStart(() =>
-            //        {
-            //            x.Render();
-            //            lock (stiReport1)
-            //            {
-            //                stiReport1.RenderedPages.AddRange(x._Report.CompiledReport.RenderedPages);
-            //                //stiReport1.InvokeRefreshViewer();
-            //            }
-            //        })).Start();
-            //    });
-            //}
-            //_Is_Rendered = true;
-            //_Do_Direct_Print = ms_direct_print.Checked;
-            //Load_Form_Dar_Printer();
-            //stiReport1.Print(false, _Printer_Setting);
-            //if (_Do_Direct_Print.HasValue && _Do_Direct_Print.Value)
-            //    //if (!_Do_Direct_Print.HasValue || (_Do_Direct_Print.HasValue && !_Do_Direct_Print.Value))
-            //    this.Close();
-
             if (_Print_List && !_Is_Rendered)
             {
                 stiReport1.RenderedPages.Clear();
@@ -434,8 +421,11 @@ namespace MS_Print_Dialog
                     {
                         foreach (StiPage page in x._Report.RenderedPages.Items)
                         {
-                            page.Report = stiReport1;
-                            stiReport1.RenderedPages.Add(page);
+	                        for (int i = 0; i < x.CopyCount; i++)
+	                        {
+		                        page.Report = stiReport1;
+		                        stiReport1.RenderedPages.Add(page);
+	                        }
                         }
                     }
                 });
@@ -444,16 +434,18 @@ namespace MS_Print_Dialog
             _Do_Direct_Print = ms_direct_print.Checked;
             Load_Form_Dar_Printer();
             stiReport1.Print(false, _Printer_Setting);
-            if (!_Do_Direct_Print.HasValue || (_Do_Direct_Print.HasValue && !_Do_Direct_Print.Value))
+            if (_Do_Direct_Print.HasValue && _Do_Direct_Print.Value)
                 this.Close();
         }
         private void Print_Dialog_Shown (object sender, EventArgs e)
         {
-            if (!_Do_Direct_Print.HasValue) return;
-            if (_Do_Direct_Print.Value)
-                ms_print.PerformClick();
-        }
-        private void Print_Dialog_KeyUp (object sender, KeyEventArgs e)
+	        if (!_Do_Direct_Print.HasValue)
+		        return;
+
+	        if (_Do_Direct_Print.Value)
+		        ms_print.PerformClick();
+		}
+		private void Print_Dialog_KeyUp (object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F4)
             {

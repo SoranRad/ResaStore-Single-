@@ -17,7 +17,9 @@ namespace MS_Print_Dialog
         public string           Report_Address          { get; set; }
         public string           BusinessObject_Name     { get; set; }
         public object           List_Data               { get; set; }
-        public Dictionary<string,object> List_Parametter { get; set; }
+        public Dictionary<string,object> List_Parametter{ get; set; }
+        public int              CopyCount               { get; set; } = 1;
+
 
         public MS_Report_Loading()
         {
@@ -28,6 +30,7 @@ namespace MS_Print_Dialog
         {
             _Report.Load(Report_Address);
             _Report.RegBusinessObject(BusinessObject_Name, List_Data);
+            _Report.PageCopyNumber = CopyCount;
             _Report.Compile();
         }
 

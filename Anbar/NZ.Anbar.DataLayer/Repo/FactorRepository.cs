@@ -13,6 +13,7 @@ using System.Reflection;
 using MS_Control;
 using ShareLib;
 using Nz.Anbar.Model.ViewModel;
+using System.Threading.Tasks;
 
 namespace NZ.Anbar.DataLayer.Repo
 {
@@ -327,16 +328,33 @@ namespace NZ.Anbar.DataLayer.Repo
                                     .Where(x => x.ID > 0 && x.State == Enums.NzItemState.Deleted)
                                     .Select(x => x.ID)
                                     .ToList();
-
-                            foreach (FactorItem item in Factor.FactorItems.Where(x=>x.ID>0).ToList())
+                            var list = Factor.FactorItems.Where(x => x.ID > 0).ToList();
+                            
+                            Parallel.ForEach(list, item =>
                             {
                                 if (item.State == Enums.NzItemState.Deleted)
                                     db.Entry(item).State = EntityState.Deleted;
                                 else if (item.State == Enums.NzItemState.Modified)
                                     db.Entry(item).State = EntityState.Modified;
                                 else if (item.ID > 0)
-                                    db.FactorItems.Attach(item);
-                            }
+                                {
+	                                lock (list)
+	                                {
+	                                    db.FactorItems.Attach(item);
+	                                }
+                                }
+                            });
+                            //Factor.FactorItems.Where(x=>x.ID>0)
+	                            
+                            //foreach (FactorItem item in Factor.FactorItems.Where(x=>x.ID>0))//.ToList())
+                            //{
+                            //    if (item.State == Enums.NzItemState.Deleted)
+                            //        db.Entry(item).State = EntityState.Deleted;
+                            //    else if (item.State == Enums.NzItemState.Modified)
+                            //        db.Entry(item).State = EntityState.Modified;
+                            //    else if (item.ID > 0)
+                            //        db.FactorItems.Attach(item);
+                            //}
 
                             if (Factor?.FactorDetail?.State == Enums.NzItemState.Modified)
                                 db.Entry(Factor.FactorDetail).State = EntityState.Modified;

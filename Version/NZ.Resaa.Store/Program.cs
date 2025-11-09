@@ -62,7 +62,7 @@ namespace NZ.Resaa.Store
 
                 LoadGeneral();
 
-                //_log.Info("===show loading forms===\n");
+                //_log.Info("===show loading forms===\n");52547
 
                 if (Form_Factory.LoadingForm?.ShowDialog() == DialogResult.OK)
                     if(Form_Factory.LoginForm.ShowDialog() == DialogResult.OK)

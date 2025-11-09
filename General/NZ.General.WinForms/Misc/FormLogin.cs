@@ -341,5 +341,10 @@ namespace NZ.General.WinForms.Misc
         {
             NzPass.Focus();
         }
-    }
+
+		private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			System.Diagnostics.Process.Start("http://www.nikshaho.com");
+		}
+	}
 }

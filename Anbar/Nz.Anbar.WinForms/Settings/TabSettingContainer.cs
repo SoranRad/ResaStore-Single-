@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Janus.Windows.EditControls;
 
 namespace Nz.Anbar.WinForms.Settings
 {
@@ -21,6 +22,15 @@ namespace Nz.Anbar.WinForms.Settings
 			NsStorageSetting.SettingFunction += () => Settings;
 			NzCustomer.Refresh_Grid(null,2);
 			NzLocation.RefreshItems();
+			var printers = System
+				.Drawing
+				.Printing
+				.PrinterSettings
+				.InstalledPrinters
+				.OfType<string>()
+				.Select(x=>new UIComboBoxItem(x,x))
+				.ToArray();
+			NsPrinters.Items.AddRange(printers);
 		}
 
 		public void LoadSetting(SettingItems settings)
@@ -33,6 +43,10 @@ namespace Nz.Anbar.WinForms.Settings
 				NzCustomer.MS_Set_Select(settings.MiscID);
 			if(settings.LocationID>0)
 				NzLocation.SetLocation(settings.LocationID);
+
+			if (!string.IsNullOrWhiteSpace(settings.FishPrinter))
+				NsPrinters.SelectedValue = settings.FishPrinter;
+
 		}
 
 		public NsSettingTabPage TabSetting => NsStorageSetting;
@@ -45,6 +59,7 @@ namespace Nz.Anbar.WinForms.Settings
 				ShowRemaind			= NsPrintRemaind.Checked,
 				LocationID			= (NzLocation.SelectedItem?.DataRow as Location)?.ID??0,
 				MiscID				= (NzCustomer.MS_Get_Selected() as People)?.ID??0,
+				FishPrinter			= NsPrinters.Text
 			};
 	}
 }

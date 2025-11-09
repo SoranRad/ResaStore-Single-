@@ -28,12 +28,11 @@ namespace Nz.Anbar.WinForms.Print
 
 		public PrintBarcode(List<NzObject> ListKala)
 		{
-			_listKala = ListKala;
+			_listKala       = ListKala;
 			FrmWait         .Show();
 			Application     .DoEvents();
 			SetPrintFile    ();
 			Load            ();
-
 		}
 
 		private void        SetPrintFile    ()

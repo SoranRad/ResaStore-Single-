@@ -63,6 +63,7 @@
 			this.groupBox1.Controls.Add(this.ms_grid);
 			this.groupBox1.Controls.Add(this.groupBox3);
 			this.groupBox1.Controls.Add(this.groupBox2);
+			this.groupBox1.Font = new System.Drawing.Font("IRANSans(Small)", 12.5F);
 			this.groupBox1.Location = new System.Drawing.Point(3, -6);
 			this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
 			this.groupBox1.Name = "groupBox1";
@@ -100,7 +101,7 @@
 			this.ms_grid.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
 			this.ms_grid.FocusCellFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
 			this.ms_grid.FocusStyle = Janus.Windows.GridEX.FocusStyle.Solid;
-			this.ms_grid.Font = new System.Drawing.Font("Tahoma", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.ms_grid.Font = new System.Drawing.Font("IRANSans(Small)", 12F);
 			this.ms_grid.GridLineColor = System.Drawing.Color.Red;
 			this.ms_grid.GridLines = Janus.Windows.GridEX.GridLines.Vertical;
 			this.ms_grid.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid;
@@ -141,8 +142,8 @@
 			// 
 			// ms_copy
 			// 
-			this.ms_copy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.ms_copy.Location = new System.Drawing.Point(4, 52);
+			this.ms_copy.Font = new System.Drawing.Font("IRANSans(Small)", 12F);
+			this.ms_copy.Location = new System.Drawing.Point(6, 44);
 			this.ms_copy.Margin = new System.Windows.Forms.Padding(4);
 			this.ms_copy.MS_BorderColor = System.Drawing.Color.Black;
 			this.ms_copy.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -157,7 +158,7 @@
 			this.ms_copy.MS_Last_Control = this.ms_ta;
 			this.ms_copy.MS_Next_Control = null;
 			this.ms_copy.Name = "ms_copy";
-			this.ms_copy.Size = new System.Drawing.Size(45, 23);
+			this.ms_copy.Size = new System.Drawing.Size(45, 27);
 			this.ms_copy.TabIndex = 0;
 			this.ms_copy.TabStop = false;
 			this.ms_copy.Text = "0";
@@ -166,8 +167,8 @@
 			// ms_ta
 			// 
 			this.ms_ta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.ms_ta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.ms_ta.Location = new System.Drawing.Point(12, 53);
+			this.ms_ta.Font = new System.Drawing.Font("IRANSans(Small)", 12F);
+			this.ms_ta.Location = new System.Drawing.Point(13, 44);
 			this.ms_ta.Margin = new System.Windows.Forms.Padding(4);
 			this.ms_ta.MS_BorderColor = System.Drawing.Color.Black;
 			this.ms_ta.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -182,7 +183,7 @@
 			this.ms_ta.MS_Last_Control = this.ms_az;
 			this.ms_ta.MS_Next_Control = this.ms_copy;
 			this.ms_ta.Name = "ms_ta";
-			this.ms_ta.Size = new System.Drawing.Size(40, 23);
+			this.ms_ta.Size = new System.Drawing.Size(40, 27);
 			this.ms_ta.TabIndex = 2;
 			this.ms_ta.TabStop = false;
 			this.ms_ta.Text = "0";
@@ -191,8 +192,8 @@
 			// ms_az
 			// 
 			this.ms_az.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.ms_az.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.ms_az.Location = new System.Drawing.Point(101, 53);
+			this.ms_az.Font = new System.Drawing.Font("IRANSans(Small)", 12F);
+			this.ms_az.Location = new System.Drawing.Point(102, 44);
 			this.ms_az.Margin = new System.Windows.Forms.Padding(4);
 			this.ms_az.MS_BorderColor = System.Drawing.Color.Black;
 			this.ms_az.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -207,7 +208,7 @@
 			this.ms_az.MS_Last_Control = null;
 			this.ms_az.MS_Next_Control = this.ms_ta;
 			this.ms_az.Name = "ms_az";
-			this.ms_az.Size = new System.Drawing.Size(42, 23);
+			this.ms_az.Size = new System.Drawing.Size(42, 27);
 			this.ms_az.TabIndex = 1;
 			this.ms_az.TabStop = false;
 			this.ms_az.Text = "0";
@@ -217,10 +218,11 @@
 			// 
 			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(49, 56);
+			this.label3.Font = new System.Drawing.Font("IRANSans(Small)", 12F);
+			this.label3.Location = new System.Drawing.Point(51, 48);
 			this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(131, 16);
+			this.label3.Size = new System.Drawing.Size(116, 20);
 			this.label3.TabIndex = 20;
 			this.label3.Text = "تعـداد کپـی هر صفحه :";
 			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -248,10 +250,11 @@
 			this.ms_page_as_ta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.ms_page_as_ta.AutoSize = true;
 			this.ms_page_as_ta.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.ms_page_as_ta.Location = new System.Drawing.Point(146, 54);
+			this.ms_page_as_ta.Font = new System.Drawing.Font("IRANSans(Small)", 12F);
+			this.ms_page_as_ta.Location = new System.Drawing.Point(152, 48);
 			this.ms_page_as_ta.Margin = new System.Windows.Forms.Padding(4);
 			this.ms_page_as_ta.Name = "ms_page_as_ta";
-			this.ms_page_as_ta.Size = new System.Drawing.Size(146, 20);
+			this.ms_page_as_ta.Size = new System.Drawing.Size(140, 24);
 			this.ms_page_as_ta.TabIndex = 0;
 			this.ms_page_as_ta.Text = "چـــاپ صفحــات     از :";
 			this.ms_page_as_ta.UseVisualStyleBackColor = true;
@@ -262,10 +265,11 @@
 			this.ms_all_page.AutoSize = true;
 			this.ms_all_page.Checked = true;
 			this.ms_all_page.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.ms_all_page.Location = new System.Drawing.Point(150, 23);
+			this.ms_all_page.Font = new System.Drawing.Font("IRANSans(Small)", 12F);
+			this.ms_all_page.Location = new System.Drawing.Point(150, 20);
 			this.ms_all_page.Margin = new System.Windows.Forms.Padding(4);
 			this.ms_all_page.Name = "ms_all_page";
-			this.ms_all_page.Size = new System.Drawing.Size(142, 20);
+			this.ms_all_page.Size = new System.Drawing.Size(142, 24);
 			this.ms_all_page.TabIndex = 0;
 			this.ms_all_page.TabStop = true;
 			this.ms_all_page.Text = "چــاپ کلیــه صفحـــات";
@@ -275,21 +279,22 @@
 			// 
 			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(51, 56);
+			this.label2.Font = new System.Drawing.Font("IRANSans(Small)", 12F);
+			this.label2.Location = new System.Drawing.Point(52, 47);
 			this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(33, 16);
+			this.label2.Size = new System.Drawing.Size(37, 20);
 			this.label2.TabIndex = 20;
 			this.label2.Text = "تـــا :";
 			// 
 			// ms_preview
 			// 
 			this.ms_preview.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.ms_preview.Font = new System.Drawing.Font("Tahoma", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.ms_preview.Font = new System.Drawing.Font("IRANSans(Small)", 12.5F, System.Drawing.FontStyle.Bold);
 			this.ms_preview.Image = ((System.Drawing.Image)(resources.GetObject("ms_preview.Image")));
 			this.ms_preview.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
 			this.ms_preview.ImageSize = new System.Drawing.Size(25, 25);
-			this.ms_preview.Location = new System.Drawing.Point(167, 343);
+			this.ms_preview.Location = new System.Drawing.Point(169, 343);
 			this.ms_preview.Margin = new System.Windows.Forms.Padding(4);
 			this.ms_preview.Name = "ms_preview";
 			this.ms_preview.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -306,7 +311,7 @@
 			// ms_design
 			// 
 			this.ms_design.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.ms_design.Font = new System.Drawing.Font("Tahoma", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.ms_design.Font = new System.Drawing.Font("IRANSans(Small)", 12.5F, System.Drawing.FontStyle.Bold);
 			this.ms_design.Image = ((System.Drawing.Image)(resources.GetObject("ms_design.Image")));
 			this.ms_design.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
 			this.ms_design.ImageSize = new System.Drawing.Size(25, 25);
@@ -327,11 +332,11 @@
 			// ms_print
 			// 
 			this.ms_print.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.ms_print.Font = new System.Drawing.Font("Tahoma", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.ms_print.Font = new System.Drawing.Font("IRANSans(Small)", 12.5F, System.Drawing.FontStyle.Bold);
 			this.ms_print.Image = ((System.Drawing.Image)(resources.GetObject("ms_print.Image")));
 			this.ms_print.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
 			this.ms_print.ImageSize = new System.Drawing.Size(25, 25);
-			this.ms_print.Location = new System.Drawing.Point(330, 343);
+			this.ms_print.Location = new System.Drawing.Point(333, 343);
 			this.ms_print.Margin = new System.Windows.Forms.Padding(4);
 			this.ms_print.Name = "ms_print";
 			this.ms_print.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -349,9 +354,9 @@
 			// 
 			this.ms_direct_print.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.ms_direct_print.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.ms_direct_print.Font = new System.Drawing.Font("Tahoma", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.ms_direct_print.Font = new System.Drawing.Font("IRANSans(Small)", 12.5F);
 			this.ms_direct_print.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-			this.ms_direct_print.Location = new System.Drawing.Point(317, 286);
+			this.ms_direct_print.Location = new System.Drawing.Point(273, 291);
 			this.ms_direct_print.MS_BorderColor = System.Drawing.Color.Transparent;
 			this.ms_direct_print.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.ms_direct_print.MS_Change_Border_Color_On_Enter = true;
@@ -369,20 +374,20 @@
 			this.ms_direct_print.Name = "ms_direct_print";
 			this.ms_direct_print.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.ms_direct_print.ShowFocusRectangle = false;
-			this.ms_direct_print.Size = new System.Drawing.Size(183, 20);
+			this.ms_direct_print.Size = new System.Drawing.Size(224, 20);
 			this.ms_direct_print.TabIndex = 4;
 			this.ms_direct_print.Text = "   سریعـاً به چاپگر ارسال شود";
 			// 
 			// ms_print_file
 			// 
 			this.ms_print_file.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.ms_print_file.Font = new System.Drawing.Font("Tahoma", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.ms_print_file.Font = new System.Drawing.Font("IRANSans(Small)", 12.5F);
 			this.ms_print_file.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-			this.ms_print_file.Location = new System.Drawing.Point(327, 309);
+			this.ms_print_file.Location = new System.Drawing.Point(273, 314);
 			this.ms_print_file.Margin = new System.Windows.Forms.Padding(4);
 			this.ms_print_file.Name = "ms_print_file";
 			this.ms_print_file.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.ms_print_file.Size = new System.Drawing.Size(173, 20);
+			this.ms_print_file.Size = new System.Drawing.Size(224, 22);
 			this.ms_print_file.TabIndex = 5;
 			this.ms_print_file.TabStop = false;
 			this.ms_print_file.Text = "چـاپ در فایل";
@@ -415,12 +420,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.msLblWhite.AutoSize = true;
 			this.msLblWhite.BackColor = System.Drawing.Color.Transparent;
-			this.msLblWhite.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-			this.msLblWhite.Location = new System.Drawing.Point(130, 396);
+			this.msLblWhite.Font = new System.Drawing.Font("IRANSans(Small)", 15F, System.Drawing.FontStyle.Bold);
+			this.msLblWhite.Location = new System.Drawing.Point(146, 392);
 			this.msLblWhite.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.msLblWhite.Name = "msLblWhite";
 			this.msLblWhite.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.msLblWhite.Size = new System.Drawing.Size(246, 20);
+			this.msLblWhite.Size = new System.Drawing.Size(229, 25);
 			this.msLblWhite.TabIndex = 36;
 			this.msLblWhite.Text = "پردازش توسط سیستم، کمی صبر نمائید.";
 			this.msLblWhite.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -434,13 +439,13 @@
 			this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
 			this.progressBar1.Name = "progressBar1";
 			this.progressBar1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.progressBar1.Size = new System.Drawing.Size(500, 30);
+			this.progressBar1.Size = new System.Drawing.Size(500, 27);
 			this.progressBar1.TabIndex = 37;
 			// 
 			// Print_Dialog
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-			this.ClientSize = new System.Drawing.Size(504, 391);
+			this.ClientSize = new System.Drawing.Size(504, 390);
 			this.Controls.Add(this.msLblWhite);
 			this.Controls.Add(this.progressBar1);
 			this.Controls.Add(this.ms_preview);
@@ -449,12 +454,12 @@
 			this.Controls.Add(this.ms_direct_print);
 			this.Controls.Add(this.ms_print_file);
 			this.Controls.Add(this.groupBox1);
+			this.Font = new System.Drawing.Font("IRANSans(Small)", 16F);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "Print_Dialog";
 			this.Text = "                                               چــاپ گــزارش";
 			this.Load += new System.EventHandler(this.Print_Dialog_Load);
-			this.Shown += new System.EventHandler(this.Print_Dialog_Shown);
 			this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Print_Dialog_KeyUp);
 			this.groupBox1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.ms_grid)).EndInit();

@@ -34,9 +34,10 @@ namespace NZ.General.WinForms.Component
 
 		public  void    NzSetCustoemr       (long FK_People)
         {
+	        _Id_People = FK_People;
+
             Task.Run( async () =>
             {
-	            _Id_People = FK_People;
                 List<decimal> Balance = new List<decimal>();
                 Form_Factory.SystemList.MSZ_ForEach(x =>
                 {
@@ -56,6 +57,19 @@ namespace NZ.General.WinForms.Component
 
         public bool IsUserBlocked(decimal Mablaq)
         {
+	        if (_people == null)
+	        {
+		        if (_Id_People > 0)
+		        {
+			        var mgr = new Manager();
+			        _people = mgr.GetItem<People>(new { ID = _Id_People });
+		        }
+		        else
+			        return false;
+	        }
+
+
+
 	        if (!_people.isBlock.HasValue)
 		        return false;
 

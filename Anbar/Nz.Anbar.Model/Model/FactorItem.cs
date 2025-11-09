@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Data;
 using ShareLib;
 
 namespace NZ.Anbar.Model
@@ -51,7 +52,7 @@ namespace NZ.Anbar.Model
         [NotMapped]
         public string               UnitTitle       { get; set; }
         [NotMapped]
-        public Enums.NzItemState    State           { get; set; }
+        public Enums.NzItemState State { get; set; }
         [NotMapped]
         public byte                 StateID         => (byte) this.State;
 

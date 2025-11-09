@@ -4,6 +4,8 @@ using System.Windows.Forms;
 using MS_Control;
 using Nz.Anbar.Model.Report;
 using NZ.Anbar.Business;
+using NZ.Anbar.Model;
+using Nz.Anbar.WinForms.Print;
 using ShareLib.Utils;
 
 namespace Nz.Anbar.WinForms.Report
@@ -18,7 +20,8 @@ namespace Nz.Anbar.WinForms.Report
                 .GetLogger
                 (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         #endregion
-        private string _ObjectTitle = "";
+        private string  _ObjectTitle = "";
+        private bool    LimitData;
         #region Constractor
         public FormObjectRemaid     ()
         {
@@ -64,9 +67,9 @@ namespace Nz.Anbar.WinForms.Report
             }
         }
         private void NzRefresh_Click              (object sender, EventArgs e)
-      {
-          FormObjectRemaid_Shown(sender, e);
-      }
+          {
+              FormObjectRemaid_Shown(sender, e);
+          }
         private void NzCirculr_Click              (object sender, EventArgs e)
         {
             try
@@ -104,5 +107,29 @@ namespace Nz.Anbar.WinForms.Report
                 MS_Message.Show("خطا در خواندن اطلاعات ", "خطا", ex.Message, MessageBoxButtons.OK);
             }
         }
-    }
+
+		private void NzBarcode_Click(object sender, EventArgs e)
+		{
+			if (!ms_Grid.GetCheckedRows().Any())
+                return;
+
+			var objects     = new Manager().GetList<NzObject>()?.ToList();
+			var rows        = ms_Grid.GetCheckedRows().Select(x => x.DataRow as ObjectRemaind).ToList();
+
+			var list = (
+				from i in objects
+				join j in rows on i.Code equals j.Code
+
+				select new ObjectCount
+				{
+					Count = Convert.ToInt32(j.Remaind),
+					NzObject = i
+				}
+			).ToList();
+
+			var print = new PrintBarcodeWithCount(list);
+            print.Show(this);
+
+		}
+	}
 }
