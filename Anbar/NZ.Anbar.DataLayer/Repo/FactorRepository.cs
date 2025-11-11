@@ -311,10 +311,17 @@ namespace NZ.Anbar.DataLayer.Repo
                         else
                         {
                             //===Add
-                            if (Factor.FactorItems.Any(x => x.ID == 0))
-                                foreach (FactorItem item in Factor.FactorItems.Where(x => x.ID == 0))
-                                    if (item.State == Enums.NzItemState.AddedNew)
-                                        db.Entry(item).State = EntityState.Added;
+                            if (Factor.FactorItems.Any(x => x.ID == 0 && x.State == Enums.NzItemState.AddedNew))
+                            {
+	                            db.FactorItems.AddRange(
+		                            Factor.FactorItems.Where(x =>
+		                                                        x.ID == 0 
+		                                                        && x.State == Enums.NzItemState.AddedNew
+		                                                    ));
+                            }
+                                //foreach (FactorItem item in Factor.FactorItems.Where(x => x.ID == 0))
+                                //    if (item.State == Enums.NzItemState.AddedNew)
+                                //        db.Entry(item).State = EntityState.Added;
 
                             //==== AddDetail
                             if (Factor.FactorDetail?.ID == 0)
@@ -328,33 +335,17 @@ namespace NZ.Anbar.DataLayer.Repo
                                     .Where(x => x.ID > 0 && x.State == Enums.NzItemState.Deleted)
                                     .Select(x => x.ID)
                                     .ToList();
-                            var list = Factor.FactorItems.Where(x => x.ID > 0).ToList();
-                            
-                            Parallel.ForEach(list, item =>
+
+
+                            foreach (FactorItem item in Factor.FactorItems.Where(x => x.ID > 0).ToList())
                             {
                                 if (item.State == Enums.NzItemState.Deleted)
                                     db.Entry(item).State = EntityState.Deleted;
                                 else if (item.State == Enums.NzItemState.Modified)
                                     db.Entry(item).State = EntityState.Modified;
-                                else if (item.ID > 0)
-                                {
-	                                lock (list)
-	                                {
-	                                    db.FactorItems.Attach(item);
-	                                }
-                                }
-                            });
-                            //Factor.FactorItems.Where(x=>x.ID>0)
-	                            
-                            //foreach (FactorItem item in Factor.FactorItems.Where(x=>x.ID>0))//.ToList())
-                            //{
-                            //    if (item.State == Enums.NzItemState.Deleted)
-                            //        db.Entry(item).State = EntityState.Deleted;
-                            //    else if (item.State == Enums.NzItemState.Modified)
-                            //        db.Entry(item).State = EntityState.Modified;
-                            //    else if (item.ID > 0)
-                            //        db.FactorItems.Attach(item);
-                            //}
+                                else
+                                    db.Entry(item).State = EntityState.Unchanged;
+                            }
 
                             if (Factor?.FactorDetail?.State == Enums.NzItemState.Modified)
                                 db.Entry(Factor.FactorDetail).State = EntityState.Modified;

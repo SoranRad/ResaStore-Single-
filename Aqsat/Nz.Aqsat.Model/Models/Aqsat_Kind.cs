@@ -19,27 +19,27 @@ namespace Nz.Aqsat.Model.Models
 
 		public string GetItem()
 		{
-			throw new System.NotImplementedException();
+			return " ";
 		}
 
 		public string GetList()
 		{
-			throw new System.NotImplementedException();
+			return " ";
 		}
 
 		public string GenerateCode()
 		{
-			throw new System.NotImplementedException();
+			return " ";
 		}
 
 		public string UniqueCode()
 		{
-			throw new System.NotImplementedException();
+			return " ";
 		}
 
 		public string CircularQuery()
 		{
-			throw new System.NotImplementedException();
+			return " ";
 		}
 	}
 }

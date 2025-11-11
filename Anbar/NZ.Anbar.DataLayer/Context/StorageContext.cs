@@ -14,7 +14,8 @@ namespace NZ.Anbar.DataLayer.Context
             this.Database.Initialize(false);
             this.Configuration.LazyLoadingEnabled = false;
             
-            
+            Configuration.AutoDetectChangesEnabled = false;
+            Configuration.ValidateOnSaveEnabled = false;
         }
 
         public virtual DbSet<Kardex>            Kadexes             { get; set; }

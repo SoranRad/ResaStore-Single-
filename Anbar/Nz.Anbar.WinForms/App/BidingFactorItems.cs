@@ -23,12 +23,14 @@ namespace Nz.Anbar.WinForms.App
         #region Fields
         private ListChangedEventHandler     onListChanged;
         private FactorHead                  _Factor;
-
+        private IOrderedEnumerable<FactorItem> _orderedItems;
+        private List<FactorItem> _orderedItemsList=new List<FactorItem>();
         #endregion
         #region constructor
         public BidingFactorItems       (FactorHead Factor)
         {
             _Factor = Factor;
+            RefreshListIndex();
         }
         #endregion
         #region Property
@@ -36,19 +38,36 @@ namespace Nz.Anbar.WinForms.App
         {
             get
             {
-                var list = _Factor.FactorItems.Where(x => x.State != Enums.NzItemState.Deleted).OrderBy(x=>x.radif);
-                return index < list.Count() 
-                                ? list.ToList()[index] 
-                                : null;
+                //if(Loading)
+	                return _orderedItemsList[index];
+                //else
+                //{
+                //    var list = _Factor.FactorItems.Where(x => x.State != Enums.NzItemState.Deleted).OrderBy(x => x.radif);
+                //    return index < list.Count()
+                //                    ? list.ToList()[index]
+                //                    : null;
+                //}
+                //var list = _Factor.FactorItems.Where(x => x.State != Enums.NzItemState.Deleted).OrderBy(x=>x.radif);
+                //return index < list.Count() 
+                //                ? list.ToList()[index] 
+                //                : null;
+                //return _orderedItemsList[index];
+                //return _orderedItems.ToList()[index];
             }
             set
             {
-                var list = _Factor.FactorItems.Where(x => x.State != Enums.NzItemState.Deleted).OrderBy(x=>x.radif);
-                if(index < list.Count())
-                    list.ToList()[index] = (FactorItem)value;
+                //if(Loading)
+
+                //var list = _Factor.FactorItems.Where(x => x.State != Enums.NzItemState.Deleted).OrderBy(x=>x.radif);
+                //if(index < list.Count())
+                //    list.ToList()[index] = (FactorItem)value;
+                //_orderedItemsList[index] = (FactorItem)value;
+                _Factor.FactorItems.Where(x => x.State != Enums.NzItemState.Deleted).ToList()[index] = (FactorItem)value;
             }
                 //=> _Factor.FactorItems.Where(x => x.State != Enums.NzItemState.Deleted).ToList()[index] =(FactorItem) value;
         }
+
+        public bool Loading { get; set; } = true;
 
         public bool         AllowNew                    => true;
         public bool         AllowEdit                   { get; set; } = true;
@@ -62,7 +81,7 @@ namespace Nz.Anbar.WinForms.App
         public bool         IsReadOnly                  => false;
         public bool         IsFixedSize                 => false;
 
-        public bool         SupportsChangeNotification  => true;
+        public bool         SupportsChangeNotification   { get; set; } = true;
         public bool         SupportsSearching           => true;
         public bool         SupportsSorting             => false;
         #endregion
@@ -87,6 +106,15 @@ namespace Nz.Anbar.WinForms.App
 
         #region Methods
 
+        private void RefreshListIndex()
+        {
+	        lock (_orderedItemsList)
+	        {
+		        _orderedItems = _Factor.FactorItems.Where(x => x.State != Enums.NzItemState.Deleted).OrderBy(x=>x.radif);
+		        _orderedItemsList = _orderedItems.ToList();
+	        }
+	       
+        }
         public int          Add             (object value)
         {
             var item            = (FactorItem) value;
@@ -99,6 +127,8 @@ namespace Nz.Anbar.WinForms.App
             item.FK_Salmali     = SystemConstant.ActiveYear.Salmali;
             item.FactorHead     = _Factor;
             _Factor.FactorItems.Add(item);
+            RefreshListIndex();
+
             return 0;
         }
         public void         AddIndex        (PropertyDescriptor property)
@@ -116,6 +146,8 @@ namespace Nz.Anbar.WinForms.App
             r.FK_Anbar_Az   = 1;
             r.FactorHead    = _Factor;
             _Factor.FactorItems.Add(r);
+            RefreshListIndex();
+
             return r;
         }
         public void         ApplySort       (PropertyDescriptor property, ListSortDirection direction)
@@ -173,7 +205,9 @@ namespace Nz.Anbar.WinForms.App
             else 
                 i.State = Enums.NzItemState.Deleted;
 
-            ReOrderRowNumber((i.radif));
+            RefreshListIndex();
+            ReOrderRowNumber(i.radif);
+
         }
         public void         RemoveAt        (int index)
         {
@@ -182,8 +216,10 @@ namespace Nz.Anbar.WinForms.App
                 _Factor.FactorItems.Remove(i);
             else
                 i.State = Enums.NzItemState.Deleted;
-
+            
+            RefreshListIndex();
             ReOrderRowNumber(i.radif);
+
         }
         public void         RemoveIndex     (PropertyDescriptor property)
         {
@@ -282,6 +318,8 @@ namespace Nz.Anbar.WinForms.App
                     log.Error(ex);
                 }
             }
+            RefreshListIndex();
+
         }
         #endregion
         #region Misc Methods

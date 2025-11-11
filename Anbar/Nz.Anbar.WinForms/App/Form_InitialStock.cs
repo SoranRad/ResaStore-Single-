@@ -62,7 +62,9 @@ namespace Nz.Anbar.WinForms.App
             LoadItem();
             _Bind               = new BidingFactorItems(_Factor);
             _Bind.AllowEdit     = false;
+            //_Bind.SupportsChangeNotification = false;
             NzGrid.DataSource   = _Bind;
+            //_Bind.SupportsChangeNotification = true;
 
             if (_RowSelect.HasValue)
             {
@@ -341,7 +343,6 @@ namespace Nz.Anbar.WinForms.App
             if (row?.ID > 0)
                 row.State = Enums.NzItemState.Modified;
 
-          
         }
         private void NzGrid_CancelingRowEdit        (object sender, RowActionCancelEventArgs e)
         {
