@@ -518,21 +518,19 @@ namespace Nz.Anbar.WinForms.App
         }
         private void NzDirecrPrint                  ()
         {
-            var Co = SystemConstant.ActiveCompany;
-            var Cu = NzCustomer.MS_Get_Selected() as People;
-            //decimal cache = 0,pos=0 ;
-
-            //if (_PaymentControl is IPaymentCommand cmd)
-            //{
-            //    cache = cmd.GetCache();
-            //    pos = cmd.GetPos();
-            //}
-
+            var Co                  = SystemConstant.ActiveCompany;
+            var Cu                  = NzCustomer.MS_Get_Selected() as People;
+            var printerName         = "";
             var Factors             = _Manager.GetPrintFactor(_Factor.ID);
             var factor              = Factors.FirstOrDefault();
 
+
             if (factor == null)
 	            return;
+
+            if (Form_Factory._Form_Factory_Anbar.GetSettings() is SettingItems Setting)
+	            printerName = Setting.FishPrinter;
+
 
             var dic = new Dictionary<string, object>()
             {
@@ -573,7 +571,7 @@ namespace Nz.Anbar.WinForms.App
             };
             var prnFile = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             prnFile += "\\Print\\Anbar\\Pos_Print.mrt";
-            var p = new DirectPrint(prnFile, new Dictionary<string, object>() {{"List", _Factor.FactorItems}}, dic,true,true);
+            var p = new DirectPrint(prnFile, new Dictionary<string, object>() {{"List", _Factor.FactorItems}}, dic,true,true,printerName);
 
         }
         private void RefreshPrefactor               ()
@@ -1210,7 +1208,7 @@ namespace Nz.Anbar.WinForms.App
         }
         private void AddObject                      (NzObject Item,decimal Meqdar = 1)
         {
-            _Bind.AddOrUpdate(Item,(Enums.NzSalingKind)NzKind.SelectedIndex,Meqdar);
+            _Bind.AddOrUpdate(Item,(Enums.NzSalingKind)((byte)NzKind.SelectedIndex),Meqdar);
             NzFindObject.ForeColor          = Color.DarkGreen;
             nzBarcodeReader1.BackColor      = Color.White;
             NzFindObject.Text               = Item.title;
@@ -1395,7 +1393,7 @@ namespace Nz.Anbar.WinForms.App
         {
 
             var prn = new Print.Print(_Manager, _Factor.ID, Enums.NzKindPrint.PosPrint);
-            prn.DirectPrint = true;
+            //prn.DirectPrint = true;
 
             if (Form_Factory._Form_Factory_Anbar.GetSettings() is SettingItems Setting)
 	            prn.DefaultPrinter = Setting.FishPrinter;
@@ -1403,7 +1401,7 @@ namespace Nz.Anbar.WinForms.App
             prn.Show(this);
         }
 
-        private void NzSave_Click                 (object sender, EventArgs e)
+        private void NzSave_Click                       (object sender, EventArgs e)
         { 
             Save(true);
         }
@@ -1437,7 +1435,7 @@ namespace Nz.Anbar.WinForms.App
                 nzBarcodeReader1.SelectAll();
             }
         }
-        private void NzEnterPressed(object sender, KeyEventArgs e)
+        private void NzEnterPressed                     (object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -1539,14 +1537,14 @@ namespace Nz.Anbar.WinForms.App
                 switch (result)
                 {
 	                case DialogResult.Retry:
-                        NzPosPrint.PerformClick();
+                        NzDirecrPrint();
                         NzNew.PerformClick();
                         break;
 	                case DialogResult.Yes:
 		                NzNew.PerformClick();
 		                break;
 	                case DialogResult.No:
-		                NzPosPrint.PerformClick();
+		                NzDirecrPrint();
 		                break;
 	                case DialogResult.Cancel:
 
@@ -1603,7 +1601,7 @@ namespace Nz.Anbar.WinForms.App
             SendKeys.Send("{ENTER}");
 		}
 
-		private void NzGroupKala_ColumnButtonClick(object sender, ColumnActionEventArgs e)
+		private void NzGroupKala_ColumnButtonClick      (object sender, ColumnActionEventArgs e)
 		{
 			var kala = NzGroupKala.CurrentRow.DataRow as NzObject;
 			var item = _ListObjects.SingleOrDefault(x => x.ID== kala.ID);

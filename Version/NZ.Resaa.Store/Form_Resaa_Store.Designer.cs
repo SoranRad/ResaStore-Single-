@@ -50,10 +50,11 @@ namespace NZ.Resaa.Store
 			this.NzChangePass = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
 			this.NzVersion = new System.Windows.Forms.ToolStripLabel();
+			this.NsElapsedLock = new System.Windows.Forms.ToolStripLabel();
 			this.Pic_Back_Main = new System.Windows.Forms.PictureBox();
 			this.NzSidebar = new MS_Control.Controls.MS_Menu();
-			this.NsElapsedLock = new System.Windows.Forms.ToolStripLabel();
 			this.applicationIdle1 = new NZ.Resaa.Store.Components.ApplicationIdle();
+			this.NsLockAccount = new System.Windows.Forms.ToolStripButton();
 			this.mS_Menu1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ms_MdiTab)).BeginInit();
 			this.mS_Tool_Strip1.SuspendLayout();
@@ -76,7 +77,7 @@ namespace NZ.Resaa.Store
 			this.mS_Menu1.MS_Color_Start = System.Drawing.Color.AliceBlue;
 			this.mS_Menu1.Name = "mS_Menu1";
 			this.mS_Menu1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_Menu1.Size = new System.Drawing.Size(972, 32);
+			this.mS_Menu1.Size = new System.Drawing.Size(1229, 32);
 			this.mS_Menu1.TabIndex = 4;
 			this.mS_Menu1.Text = "mS_Menu1";
 			// 
@@ -147,7 +148,7 @@ namespace NZ.Resaa.Store
 			this.ms_MdiTab.Padding = new System.Windows.Forms.Padding(2, 3, 10, 2);
 			this.ms_MdiTab.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.ms_MdiTab.ShowTabToolTip = false;
-			this.ms_MdiTab.Size = new System.Drawing.Size(972, 33);
+			this.ms_MdiTab.Size = new System.Drawing.Size(1229, 33);
 			this.ms_MdiTab.TabIndex = 5;
 			this.ms_MdiTab.Visible = false;
 			this.ms_MdiTab.CurrentMdiTabChanged += new MdiTabStrip.MdiTabStrip.CurrentMdiTabChangedEventHandler(this.ms_MdiTab_CurrentMdiTabChanged);
@@ -174,15 +175,16 @@ namespace NZ.Resaa.Store
             this.NzChangePass,
             this.toolStripSeparator4,
             this.NzVersion,
-            this.NsElapsedLock});
-			this.mS_Tool_Strip1.Location = new System.Drawing.Point(0, 383);
+            this.NsElapsedLock,
+            this.NsLockAccount});
+			this.mS_Tool_Strip1.Location = new System.Drawing.Point(0, 470);
 			this.mS_Tool_Strip1.MS_BorderColor = System.Drawing.Color.CornflowerBlue;
 			this.mS_Tool_Strip1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_Tool_Strip1.MS_Color_End = System.Drawing.Color.LightSteelBlue;
 			this.mS_Tool_Strip1.MS_Color_Start = System.Drawing.Color.AliceBlue;
 			this.mS_Tool_Strip1.Name = "mS_Tool_Strip1";
 			this.mS_Tool_Strip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_Tool_Strip1.Size = new System.Drawing.Size(972, 30);
+			this.mS_Tool_Strip1.Size = new System.Drawing.Size(1229, 30);
 			this.mS_Tool_Strip1.TabIndex = 7;
 			this.mS_Tool_Strip1.Text = "mS_Tool_Strip1";
 			// 
@@ -281,6 +283,16 @@ namespace NZ.Resaa.Store
 			this.NzVersion.Size = new System.Drawing.Size(26, 27);
 			this.NzVersion.Text = "....";
 			// 
+			// NsElapsedLock
+			// 
+			this.NsElapsedLock.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.NsElapsedLock.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.NsElapsedLock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.NsElapsedLock.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.NsElapsedLock.Name = "NsElapsedLock";
+			this.NsElapsedLock.Size = new System.Drawing.Size(0, 27);
+			this.NsElapsedLock.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			// 
 			// Pic_Back_Main
 			// 
 			this.Pic_Back_Main.BackColor = System.Drawing.Color.Transparent;
@@ -289,7 +301,7 @@ namespace NZ.Resaa.Store
 			this.Pic_Back_Main.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.Pic_Back_Main.Location = new System.Drawing.Point(0, 65);
 			this.Pic_Back_Main.Name = "Pic_Back_Main";
-			this.Pic_Back_Main.Size = new System.Drawing.Size(972, 318);
+			this.Pic_Back_Main.Size = new System.Drawing.Size(1229, 405);
 			this.Pic_Back_Main.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.Pic_Back_Main.TabIndex = 16;
 			this.Pic_Back_Main.TabStop = false;
@@ -312,24 +324,26 @@ namespace NZ.Resaa.Store
 			this.NzSidebar.Text = "mS_Menu2";
 			this.NzSidebar.Visible = false;
 			// 
-			// NsElapsedLock
-			// 
-			this.NsElapsedLock.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-			this.NsElapsedLock.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-			this.NsElapsedLock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.NsElapsedLock.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.NsElapsedLock.Name = "NsElapsedLock";
-			this.NsElapsedLock.Size = new System.Drawing.Size(0, 27);
-			this.NsElapsedLock.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			// 
 			// applicationIdle1
 			// 
 			this.applicationIdle1.WarnTime = System.TimeSpan.Parse("00:00:30");
 			// 
+			// NsLockAccount
+			// 
+			this.NsLockAccount.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.NsLockAccount.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.NsLockAccount.Image = global::MS_Resource.GlobalResources.Negin__38_;
+			this.NsLockAccount.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.NsLockAccount.Margin = new System.Windows.Forms.Padding(5, 1, 5, 2);
+			this.NsLockAccount.Name = "NsLockAccount";
+			this.NsLockAccount.Size = new System.Drawing.Size(23, 27);
+			this.NsLockAccount.Text = "قفل حساب کاربری";
+			this.NsLockAccount.Click += new System.EventHandler(this.NsLockAccount_Click);
+			// 
 			// Form_Resaa_Store
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-			this.ClientSize = new System.Drawing.Size(972, 413);
+			this.ClientSize = new System.Drawing.Size(1229, 500);
 			this.Controls.Add(this.Pic_Back_Main);
 			this.Controls.Add(this.ms_MdiTab);
 			this.Controls.Add(this.NzSidebar);
@@ -381,6 +395,7 @@ namespace NZ.Resaa.Store
         private System.Windows.Forms.ToolStripLabel NzVersion;
 		private Components.ApplicationIdle applicationIdle1;
 		private System.Windows.Forms.ToolStripLabel NsElapsedLock;
-	}
+        private System.Windows.Forms.ToolStripButton NsLockAccount;
+    }
 }
 

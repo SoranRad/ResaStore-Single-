@@ -44,15 +44,16 @@ namespace ShareLib
             BargshtFrosh    = 13,
             BargshtFrosh_Ba_Mabna = 14,
             XaridBar        = 15,
-            EnteqalBeynAnbarVorud =16,
+			ResidVorud = 16,
             //=================Out
             Frosh           = 50,
             BargashXarid    = 51,
             BargashXarid_Ba_Mabna=52,
             HavaleZayeat    = 53,
             HavaleMasrafi   = 54,
-            EnteqalBeynAnbarXoruj =55,
-        }
+			EnteqalBeynAnbar = 55,
+			HavaleXoruj = 56,
+		}
         public enum MS_System
         {
             General = 1,

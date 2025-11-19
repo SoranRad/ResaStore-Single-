@@ -132,8 +132,6 @@ namespace ShareLib
                     return @"برگشت فروش با مبنا";
                 case Enums.NzFactorKind.XaridBar:
                     return @"خرید بار";
-                case Enums.NzFactorKind.EnteqalBeynAnbarVorud:
-                    return @"انتقال بین انبار(ورود)";
                 case Enums.NzFactorKind.Frosh:
                     return @"فروش";
                 case Enums.NzFactorKind.BargashXarid:
@@ -144,9 +142,13 @@ namespace ShareLib
                     return @"حواله ضایعات";
                 case Enums.NzFactorKind.HavaleMasrafi:
                     return @"حواله مصرف";
-                case Enums.NzFactorKind.EnteqalBeynAnbarXoruj:
-                    return @"انتقال بین انبار(خروج)";
-                default:
+				case Enums.NzFactorKind.EnteqalBeynAnbar:
+					return @"انتقال بین انبار ";
+				case Enums.NzFactorKind.ResidVorud:
+					return @"رسید ورود کالا";
+				case Enums.NzFactorKind.HavaleXoruj:
+					return @"حواله خروج کالا";
+				default:
                     return @"";
             }
         }

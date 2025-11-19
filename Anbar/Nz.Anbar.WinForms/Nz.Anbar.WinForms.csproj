@@ -922,7 +922,6 @@
     <ProjectReference Include="..\NZ.Anbar.Business\NZ.Anbar.Business.csproj">
       <Project>{45109af9-e2a5-46de-8a7f-35834f74054f}</Project>
       <Name>NZ.Anbar.Business</Name>
-      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\Nz.Anbar.Model\Nz.Anbar.Model.csproj">
       <Project>{883f785f-56b0-4c9e-b072-ed0db1238807}</Project>

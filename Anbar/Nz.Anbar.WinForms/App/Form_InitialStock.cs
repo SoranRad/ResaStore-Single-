@@ -61,10 +61,7 @@ namespace Nz.Anbar.WinForms.App
             nzObjectPopup1.NzEscapedPress   += NzObjectPopup1OnNzEscapedPress;
             LoadItem();
             _Bind               = new BidingFactorItems(_Factor);
-            _Bind.AllowEdit     = false;
-            //_Bind.SupportsChangeNotification = false;
-            NzGrid.DataSource   = _Bind;
-            //_Bind.SupportsChangeNotification = true;
+            NzGrid.DataSource   = _Bind; 
 
             if (_RowSelect.HasValue)
             {
@@ -328,8 +325,7 @@ namespace Nz.Anbar.WinForms.App
                 Save();
             }
             else if (e.Column.Key == "E")
-            {
-	            _Bind.AllowEdit = true;
+            { 
 	            NzGrid.AllowEdit = InheritableBoolean.True;
                 NzGrid.CurrentRow.BeginEdit();
                 NzGrid.CurrentColumn = NzGrid.RootTable.Columns["ObjectTitle"];
@@ -356,9 +352,6 @@ namespace Nz.Anbar.WinForms.App
                         _Bind.Remove(row);
                 }
                 NzGrid.CurrentRow?.CancelEdit();
-                _Bind.AllowEdit = false;
-                NzGrid.AllowEdit = InheritableBoolean.False;
-                NzGrid.CurrentRow?.EndEdit();
             }
             catch (Exception ex)
             {
@@ -372,9 +365,6 @@ namespace Nz.Anbar.WinForms.App
         private void NzGrid_RecordUpdated           (object sender, EventArgs e)
         {
 	        NzSave_Click(sender, e);
-	        _Bind.AllowEdit = false;
-	        NzGrid.AllowEdit = InheritableBoolean.False;
-	        NzGrid.CurrentRow.EndEdit();
         }
         #endregion
         #region TextBox Events

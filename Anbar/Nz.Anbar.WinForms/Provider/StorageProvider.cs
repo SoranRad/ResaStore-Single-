@@ -102,8 +102,6 @@ namespace Nz.Anbar.WinForms.Provider
 		        var Mgr     = new ReportManager();
 		        var list = Mgr.GetReport<BillRow>(new {People, Year, DateFrom, DateTo}, string.Empty);
 
-		         
-
 		        return list;
 	        }
 	        catch (Exception ex)

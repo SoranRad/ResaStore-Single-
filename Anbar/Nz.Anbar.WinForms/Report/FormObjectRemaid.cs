@@ -108,7 +108,7 @@ namespace Nz.Anbar.WinForms.Report
             }
         }
 
-		private void NzBarcode_Click(object sender, EventArgs e)
+		private void NzBarcode_Click              (object sender, EventArgs e)
 		{
 			if (!ms_Grid.GetCheckedRows().Any())
                 return;
@@ -128,8 +128,16 @@ namespace Nz.Anbar.WinForms.Report
 			).ToList();
 
 			var print = new PrintBarcodeWithCount(list);
+			print.DirectPrint = false;
             print.Show(this);
 
+		}
+		private void FormObjectRemaid_KeyUp       (object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.F5)
+			{
+                NzBarcode.PerformClick();
+			}
 		}
 	}
 }

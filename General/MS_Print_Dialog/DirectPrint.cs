@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,9 @@ namespace MS_Print_Dialog
                             Dictionary<string,object>   DataSource, 
                             Dictionary<string, object>  Variables,
                             bool                        Print       = false,
-                            bool                        Progress    = false)
+                            bool                        Progress    = false,
+                            string                      PrinterName = ""
+                            )
         {
             var report = new StiReport();
             report.Load(PathReport);
@@ -29,13 +32,25 @@ namespace MS_Print_Dialog
                 foreach (var variable in Variables)
                     report[variable.Key] = variable.Value;
 
-            if(Print)
-                report.Print(false);
+            if (Print)
+            {
+	            if (!string.IsNullOrEmpty(PrinterName))
+	            {
+                    PrinterSettings printerSettings = new PrinterSettings();
+                    printerSettings.PrinterName = PrinterName;
+                    report.Print(false,printerSettings);
+	            }
+	            else report.Print(false);
+            }
             else 
                 report.Show(Progress);
         }
 
-        public DirectPrint(IEnumerable<NzStimulReport> ListReport, bool Print = false, bool Progress = false)
+        public DirectPrint(
+	        IEnumerable<NzStimulReport> ListReport, 
+	        bool                        Print = false, 
+	        bool                        Progress = false,
+	        string                      PrinterName = "")
         {
             var MainReport = new StiReport();
 
@@ -72,7 +87,15 @@ namespace MS_Print_Dialog
             }
             MainReport.InvokeRefreshViewer();
             if (Print)
-                MainReport.Print(false);
+            {
+	            if (!string.IsNullOrEmpty(PrinterName))
+	            {
+		            PrinterSettings printerSettings = new PrinterSettings();
+		            printerSettings.PrinterName = PrinterName;
+		            MainReport.Print(false,printerSettings);
+	            }
+	            else MainReport.Print(false);
+            }
             else
                 MainReport.Show(Progress);
         }

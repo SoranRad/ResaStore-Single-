@@ -665,5 +665,12 @@ namespace NZ.Resaa.Store
             new FormAbout().ShowDialog(this);
              
         }
+
+        private void NsLockAccount_Click(object sender, EventArgs e)
+        {
+	        applicationIdle1.Stop();
+	        ApplicationIdle1OnIdle(null, null);
+	        applicationIdle1.Start();
+		}
     }
 }

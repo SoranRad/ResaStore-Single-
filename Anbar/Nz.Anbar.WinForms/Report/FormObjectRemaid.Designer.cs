@@ -38,12 +38,12 @@
 			this.mS_GridX_Setting1 = new MS_Control.Controls.MS_GridX_Setting();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.NzRefresh = new System.Windows.Forms.ToolStripButton();
+			this.NzBarcode = new System.Windows.Forms.ToolStripButton();
 			this.mS_Panel1 = new MS_Control.Controls.MS_Panel();
 			this.NzCirculr = new MS_Control.Controls.MS_Button_GridX();
 			this.NzDate = new MS_Control.Tarikh.MS_Tarikh_TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
-			this.NzBarcode = new System.Windows.Forms.ToolStripButton();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
 			this.uiTabPage12.SuspendLayout();
@@ -189,6 +189,19 @@
 			this.NzRefresh.Text = "بروز رسانی لیست";
 			this.NzRefresh.Click += new System.EventHandler(this.NzRefresh_Click);
 			// 
+			// NzBarcode
+			// 
+			this.NzBarcode.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.NzBarcode.Font = new System.Drawing.Font("IRANSans(Small)", 12F);
+			this.NzBarcode.Image = ((System.Drawing.Image)(resources.GetObject("NzBarcode.Image")));
+			this.NzBarcode.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.NzBarcode.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+			this.NzBarcode.Name = "NzBarcode";
+			this.NzBarcode.Size = new System.Drawing.Size(149, 24);
+			this.NzBarcode.Text = " چاپ بارکد به تعداد    [F5]";
+			this.NzBarcode.ToolTipText = " چاپ بارکد به تعداد    [F5]";
+			this.NzBarcode.Click += new System.EventHandler(this.NzBarcode_Click);
+			// 
 			// mS_Panel1
 			// 
 			this.mS_Panel1.Controls.Add(this.NzCirculr);
@@ -292,18 +305,6 @@
 			this.uiTabPage14.TabStop = true;
 			this.uiTabPage14.Text = "پرسش و پاسخ";
 			// 
-			// NzBarcode
-			// 
-			this.NzBarcode.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-			this.NzBarcode.Font = new System.Drawing.Font("IRANSans(Small)", 12F);
-			this.NzBarcode.Image = ((System.Drawing.Image)(resources.GetObject("NzBarcode.Image")));
-			this.NzBarcode.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.NzBarcode.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
-			this.NzBarcode.Name = "NzBarcode";
-			this.NzBarcode.Size = new System.Drawing.Size(148, 24);
-			this.NzBarcode.Text = " چاپ بارکد به تعداد    [F4]";
-			this.NzBarcode.Click += new System.EventHandler(this.NzBarcode_Click);
-			// 
 			// FormObjectRemaid
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -314,6 +315,7 @@
 			this.Name = "FormObjectRemaid";
 			this.Text = "موجودی کالا ";
 			this.Shown += new System.EventHandler(this.FormObjectRemaid_Shown);
+			this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormObjectRemaid_KeyUp);
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).EndInit();
 			this.Tab_Control_Main.ResumeLayout(false);
 			this.uiTabPage12.ResumeLayout(false);

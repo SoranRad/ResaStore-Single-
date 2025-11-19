@@ -21,10 +21,7 @@ namespace MS_Print_Dialog
 {
     public partial class Print_Dialog : MS_Mother_Two
     {
-        public Print_Dialog()
-        {
-            InitializeComponent();
-        }
+      
         #region DllImport
         [DllImport("winspool.Drv", EntryPoint = "DocumentPropertiesW", SetLastError = true,
         ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
@@ -63,11 +60,13 @@ namespace MS_Print_Dialog
         #region متد
         private void Load_Printer_Setting           ()
         {
-            //_Do_Refresh = false;
-            if (_Printer_Setting == null)
-                _Printer_Setting = new PrinterSettings();
-            Load_List_Printers();
-            //_Do_Refresh = true;
+	        if (_Printer_Setting == null)
+	        {
+		        _Printer_Setting = new PrinterSettings();
+		        if (!string.IsNullOrEmpty(DefaultPrinterName))
+			        _Printer_Setting.PrinterName = DefaultPrinterName;
+	        }
+            Load_List_Printers(); 
             ms_copy.MS_Decimal = _Printer_Setting.Copies;
             ms_az.MS_Decimal = _Printer_Setting.FromPage;
             ms_ta.MS_Decimal = _Printer_Setting.ToPage;
@@ -79,15 +78,16 @@ namespace MS_Print_Dialog
             try
             {
                 //=============================
-                MemoryStream ms = new MemoryStream();
+                MemoryStream ms         = new MemoryStream();
                 Properties.Resources.check.Save(ms, Properties.Resources.check.RawFormat);
-                byte[] arrImage = ms.GetBuffer();
+                byte[] arrImage         = ms.GetBuffer();
+                
 
                 var list = (from i in  System.Drawing.Printing.PrinterSettings.InstalledPrinters.OfType<string>()
                            select new 
                            {
                                title = i,
-                               is_default = _Printer_Setting.PrinterName.Equals(i)
+                               is_default =  _Printer_Setting.PrinterName.Equals(i)
 	                               ? arrImage
                                    : null,
                            })
@@ -105,45 +105,6 @@ namespace MS_Print_Dialog
                     ms_grid.EnsureVisible(r.Position);
                 }
 
-                //foreach (string printer in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
-                //{
-                // MessageBox.Show(printer);
-                //}
-
-                //if (search == null)
-                //{
-                //    search = new ManagementObjectSearcher();
-                //    search = new ManagementObjectSearcher("select * from win32_printer");
-                //    results = search.Get();
-                //}
-                ////=============================
-                //MemoryStream ms = new MemoryStream();
-                //Properties.Resources.check.Save(ms, Properties.Resources.check.RawFormat);
-                //byte[] arrImage = ms.GetBuffer();
-
-                //var list = (from print in results.OfType<ManagementObject>()
-                //            select new
-                //            {
-                //                title = print["Name"],
-                //                vaziat = print["ExtendedPrinterStatus"] != null
-                //                ? ((Printer_Structure.Extended_Printer_Status)
-                //                    Convert.ToInt32(print["ExtendedPrinterStatus"].ToString())
-                //                    ).ToString()
-                //                : string.Empty,
-                //                is_default = _Printer_Setting.PrinterName.Equals(print["Name"])
-                //                ? arrImage
-                //                : null,
-                //            }).ToList();
-                //ms_grid.DataSource = list;
-                //ms_grid.FilterMode = FilterMode.None;
-                //ms_grid.Refresh();
-                //var r = ms_grid.GetRows()
-                //    .FirstOrDefault(x => x.Cells["title"].Text == _Printer_Setting.PrinterName);
-                //if (r != null)
-                //{
-                //    ms_grid.MoveTo(r);
-                //    ms_grid.EnsureVisible(r.Position);
-                //}
             }
             catch (Exception)
             { 
@@ -239,7 +200,10 @@ namespace MS_Print_Dialog
             }
         }
         #endregion
-
+        public Print_Dialog()
+        {
+	        InitializeComponent();
+        }
         public Print_Dialog         (string Report_Stream, string Business_Object_Name, object Data_Source)
         {
             InitializeComponent();
@@ -501,6 +465,7 @@ namespace MS_Print_Dialog
         {
             if (e.Column.Key == "P")
             {
+                DefaultPrinterName = ms_grid.CurrentRow.Cells["title"].Text;
                 ms_print.PerformClick();
             }
             else if (e.Column.Key == "T")

@@ -111,6 +111,10 @@
     <Compile Include="Migrations\202506290614099_add-user-lock.Designer.cs">
       <DependentUpon>202506290614099_add-user-lock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202506300549278_add-user-lock.cs" />
+    <Compile Include="Migrations\202506300549278_add-user-lock.Designer.cs">
+      <DependentUpon>202506300549278_add-user-lock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repo\ReportRepository.cs" />
@@ -132,6 +136,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202506290614099_add-user-lock.resx">
       <DependentUpon>202506290614099_add-user-lock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202506300549278_add-user-lock.resx">
+      <DependentUpon>202506300549278_add-user-lock.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
