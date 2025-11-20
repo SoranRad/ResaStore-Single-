@@ -13,7 +13,7 @@ namespace NZ.General.DataLayer.Context
     {
         public GeneralContext Create()
         {
-            ConnectionManager.ConStr = @"Server=.\sqlentr;Database=DB_NzResaaStore_Karim;User Id=sa;Password=123456;MultipleActiveResultSets=True;Persist Security Info = True;MultipleActiveResultSets=true;App=NzResaaStore;";
+            ConnectionManager.ConStr = @"Server=.\sqlentr;Database=DB_NzResaaStore3;User Id=sa;Password=123456;MultipleActiveResultSets=True;Persist Security Info = True;MultipleActiveResultSets=true;App=NzResaaStore;";
             return new GeneralContext(ConnectionManager.Create(), true);
         }
     }
