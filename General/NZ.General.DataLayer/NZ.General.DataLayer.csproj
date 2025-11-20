@@ -103,17 +103,9 @@
     <Compile Include="DapperConfig\LoginConfig.cs" />
     <Compile Include="DapperConfig\NoteOfDateConfig.cs" />
     <Compile Include="DapperConfig\SummaryNoteConfig.cs" />
-    <Compile Include="Migrations\202203161358401_InitialCreate.cs" />
-    <Compile Include="Migrations\202203161358401_InitialCreate.designer.cs">
-      <DependentUpon>202203161358401_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202506290614099_add-user-lock.cs" />
-    <Compile Include="Migrations\202506290614099_add-user-lock.Designer.cs">
-      <DependentUpon>202506290614099_add-user-lock.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202506300549278_add-user-lock.cs" />
-    <Compile Include="Migrations\202506300549278_add-user-lock.Designer.cs">
-      <DependentUpon>202506300549278_add-user-lock.cs</DependentUpon>
+    <Compile Include="Migrations\202511200602104_InitialCreate.cs" />
+    <Compile Include="Migrations\202511200602104_InitialCreate.Designer.cs">
+      <DependentUpon>202511200602104_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -131,15 +123,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202203161358401_InitialCreate.resx">
-      <DependentUpon>202203161358401_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202506290614099_add-user-lock.resx">
-      <DependentUpon>202506290614099_add-user-lock.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202506300549278_add-user-lock.resx">
-      <DependentUpon>202506300549278_add-user-lock.cs</DependentUpon>
-      <SubType>Designer</SubType>
+    <EmbeddedResource Include="Migrations\202511200602104_InitialCreate.resx">
+      <DependentUpon>202511200602104_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
