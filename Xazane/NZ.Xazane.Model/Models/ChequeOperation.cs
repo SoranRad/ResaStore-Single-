@@ -48,9 +48,11 @@ namespace NZ.Xazane.Model.Models
         public DateTime?        Tarix_Add_Vaziat        { get; set; }
         [StringLength(100)]
         public string           Sharh_Vaziat            { get; set; }
-        
 
-        public DPOperation          DpHead              { get; set; }
+		public string           Shenase_Sayadi          { get; set; }
+
+
+		public DPOperation          DpHead              { get; set; }
         public Accounts             PayAccount          { get; set; }
         public ChequeBookDetail     ChequeBookDetail    { get; set; }
         public Accounts             StateAccount        { get; set; }

@@ -25,6 +25,7 @@ dd.PersianStr,
 dd.PersianMonthNo,
 dd.PersianDayInMonth,
 tac.tarikh_sar_resid,
+tac.Shenase_Sayadi,
 
 ddState.PersianStr AS StateDate,
 LTRIM(RTRIM(ta.title)) AS CustomerTitle,

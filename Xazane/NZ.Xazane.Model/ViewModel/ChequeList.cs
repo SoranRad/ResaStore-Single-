@@ -23,9 +23,11 @@ namespace NZ.Xazane.Model.ViewModel
         public string       PayAccountTitle     { get; set; }
         public string       CustomerTitle       { get; set; }
         public byte?        Kind_Vaziat         { get; set; }
-        public string       StateDate           { get; set; }   
+        public string       StateDate           { get; set; }
+		public string       Shenase_Sayadi      { get; set; }
 
-        public string       StateTitle          => Kind_Vaziat == null 
+
+		public string       StateTitle          => Kind_Vaziat == null 
                                                     ? @"نزد صندوق" 
                                                     : ((Enums.NzChequeStateFlag)this.Kind_Vaziat)
                                                             .NzToString();

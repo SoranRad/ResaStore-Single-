@@ -294,7 +294,7 @@ namespace NZ.Xazane.WinForms.Factor
 			this.NzTabPos.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.NzTabPos.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.NzTabPos.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.NzTabPos.Size = new System.Drawing.Size(798, 156);
+			this.NzTabPos.Size = new System.Drawing.Size(968, 156);
 			this.NzTabPos.TabStop = true;
 			this.NzTabPos.Text = "(حواله بانکی / کارتخوان)";
 			// 
@@ -305,7 +305,7 @@ namespace NZ.Xazane.WinForms.Factor
 			this.NzPosAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.NzPosAmount.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.NzPosAmount.ForeColor = System.Drawing.SystemColors.HotTrack;
-			this.NzPosAmount.Location = new System.Drawing.Point(326, 69);
+			this.NzPosAmount.Location = new System.Drawing.Point(496, 69);
 			this.NzPosAmount.MS_BorderColor = System.Drawing.Color.Empty;
 			this.NzPosAmount.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzPosAmount.MS_Decimal = new decimal(new int[] {
@@ -326,7 +326,7 @@ namespace NZ.Xazane.WinForms.Factor
 			this.label1.AutoSize = true;
 			this.label1.BackColor = System.Drawing.Color.Transparent;
 			this.label1.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label1.Location = new System.Drawing.Point(496, 101);
+			this.label1.Location = new System.Drawing.Point(666, 101);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(43, 23);
 			this.label1.TabIndex = 850;
@@ -338,7 +338,7 @@ namespace NZ.Xazane.WinForms.Factor
 			this.label2.AutoSize = true;
 			this.label2.BackColor = System.Drawing.Color.Transparent;
 			this.label2.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label2.Location = new System.Drawing.Point(496, 71);
+			this.label2.Location = new System.Drawing.Point(666, 71);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(40, 23);
 			this.label2.TabIndex = 851;
@@ -351,7 +351,7 @@ namespace NZ.Xazane.WinForms.Factor
 			this.NzPosDesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.NzPosDesc.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.NzPosDesc.ForeColor = System.Drawing.SystemColors.HotTrack;
-			this.NzPosDesc.Location = new System.Drawing.Point(136, 100);
+			this.NzPosDesc.Location = new System.Drawing.Point(306, 100);
 			this.NzPosDesc.Name = "NzPosDesc";
 			this.NzPosDesc.Size = new System.Drawing.Size(360, 50);
 			this.NzPosDesc.TabIndex = 852;
@@ -364,7 +364,7 @@ namespace NZ.Xazane.WinForms.Factor
 			this.NzPosIdentity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.NzPosIdentity.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.NzPosIdentity.ForeColor = System.Drawing.SystemColors.HotTrack;
-			this.NzPosIdentity.Location = new System.Drawing.Point(295, 38);
+			this.NzPosIdentity.Location = new System.Drawing.Point(465, 38);
 			this.NzPosIdentity.Name = "NzPosIdentity";
 			this.NzPosIdentity.Size = new System.Drawing.Size(201, 27);
 			this.NzPosIdentity.TabIndex = 853;
@@ -376,7 +376,7 @@ namespace NZ.Xazane.WinForms.Factor
 			this.label6.AutoSize = true;
 			this.label6.BackColor = System.Drawing.Color.Transparent;
 			this.label6.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label6.Location = new System.Drawing.Point(496, 39);
+			this.label6.Location = new System.Drawing.Point(666, 39);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(89, 23);
 			this.label6.TabIndex = 854;
@@ -389,7 +389,7 @@ namespace NZ.Xazane.WinForms.Factor
 			this.NzPosTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.NzPosTitle.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.NzPosTitle.ForeColor = System.Drawing.SystemColors.HotTrack;
-			this.NzPosTitle.Location = new System.Drawing.Point(224, 7);
+			this.NzPosTitle.Location = new System.Drawing.Point(394, 7);
 			this.NzPosTitle.Name = "NzPosTitle";
 			this.NzPosTitle.Size = new System.Drawing.Size(272, 27);
 			this.NzPosTitle.TabIndex = 853;
@@ -401,7 +401,7 @@ namespace NZ.Xazane.WinForms.Factor
 			this.label5.AutoSize = true;
 			this.label5.BackColor = System.Drawing.Color.Transparent;
 			this.label5.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label5.Location = new System.Drawing.Point(496, 9);
+			this.label5.Location = new System.Drawing.Point(666, 9);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(84, 23);
 			this.label5.TabIndex = 854;
@@ -423,7 +423,7 @@ namespace NZ.Xazane.WinForms.Factor
 			this.NzTabCache.PanelFormatStyle.Alpha = 70;
 			this.NzTabCache.PanelFormatStyle.BackColor = System.Drawing.Color.SkyBlue;
 			this.NzTabCache.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
-			this.NzTabCache.Size = new System.Drawing.Size(798, 156);
+			this.NzTabCache.Size = new System.Drawing.Size(968, 156);
 			this.NzTabCache.TabStop = true;
 			this.NzTabCache.Text = "نـقـــدی";
 			// 
@@ -433,7 +433,7 @@ namespace NZ.Xazane.WinForms.Factor
 			this.NzCacheAmount.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.NzCacheAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.NzCacheAmount.ForeColor = System.Drawing.SystemColors.HotTrack;
-			this.NzCacheAmount.Location = new System.Drawing.Point(326, 44);
+			this.NzCacheAmount.Location = new System.Drawing.Point(496, 44);
 			this.NzCacheAmount.MS_BorderColor = System.Drawing.Color.Empty;
 			this.NzCacheAmount.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzCacheAmount.MS_Decimal = new decimal(new int[] {
@@ -453,7 +453,7 @@ namespace NZ.Xazane.WinForms.Factor
 			this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label9.AutoSize = true;
 			this.label9.BackColor = System.Drawing.Color.Transparent;
-			this.label9.Location = new System.Drawing.Point(496, 77);
+			this.label9.Location = new System.Drawing.Point(666, 77);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(43, 23);
 			this.label9.TabIndex = 846;
@@ -464,7 +464,7 @@ namespace NZ.Xazane.WinForms.Factor
 			this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label10.AutoSize = true;
 			this.label10.BackColor = System.Drawing.Color.Transparent;
-			this.label10.Location = new System.Drawing.Point(496, 47);
+			this.label10.Location = new System.Drawing.Point(666, 47);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(40, 23);
 			this.label10.TabIndex = 847;
@@ -476,7 +476,7 @@ namespace NZ.Xazane.WinForms.Factor
 			this.NzCacheDesc.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.NzCacheDesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.NzCacheDesc.ForeColor = System.Drawing.SystemColors.HotTrack;
-			this.NzCacheDesc.Location = new System.Drawing.Point(136, 77);
+			this.NzCacheDesc.Location = new System.Drawing.Point(306, 77);
 			this.NzCacheDesc.Name = "NzCacheDesc";
 			this.NzCacheDesc.Size = new System.Drawing.Size(360, 50);
 			this.NzCacheDesc.TabIndex = 848;
@@ -488,7 +488,7 @@ namespace NZ.Xazane.WinForms.Factor
 			this.NzCacheTitle.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.NzCacheTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.NzCacheTitle.ForeColor = System.Drawing.SystemColors.HotTrack;
-			this.NzCacheTitle.Location = new System.Drawing.Point(224, 13);
+			this.NzCacheTitle.Location = new System.Drawing.Point(394, 13);
 			this.NzCacheTitle.Name = "NzCacheTitle";
 			this.NzCacheTitle.Size = new System.Drawing.Size(272, 27);
 			this.NzCacheTitle.TabIndex = 848;
@@ -499,7 +499,7 @@ namespace NZ.Xazane.WinForms.Factor
 			this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label12.AutoSize = true;
 			this.label12.BackColor = System.Drawing.Color.Transparent;
-			this.label12.Location = new System.Drawing.Point(496, 15);
+			this.label12.Location = new System.Drawing.Point(666, 15);
 			this.label12.Name = "label12";
 			this.label12.Size = new System.Drawing.Size(55, 23);
 			this.label12.TabIndex = 848;
