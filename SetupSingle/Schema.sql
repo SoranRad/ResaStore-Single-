@@ -1,26 +1,26 @@
-USE [master]
+﻿USE [master]
 GO
-
+/****** Object:  Database [DB_NzResaaStore]    Script Date: 23/11/2025 6:47:27 PM ******/
 CREATE DATABASE [DB_NzResaaStore]
  CONTAINMENT = NONE
  ON  PRIMARY 
-( NAME = N'ResaaStore_Primary', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Empty\ResaaStore_Primary.mdf' , SIZE = 102400KB , MAXSIZE = UNLIMITED, FILEGROWTH = 20%), 
+( NAME = N'ResaaStore_Primary', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Test\ResaaStore_Primary.mdf' , SIZE = 102400KB , MAXSIZE = UNLIMITED, FILEGROWTH = 20%), 
  FILEGROUP [FG_Anbar] 
-( NAME = N'ResaaStore_Anabr', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Empty\ResaaStore_Anabr.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 20%), 
+( NAME = N'ResaaStore_Anabr', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Test\ResaaStore_Anabr.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 20%), 
  FILEGROUP [FG_Aqsat] 
-( NAME = N'ResaaStore_Aqsat', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Empty\ResaaStore_Aqsat.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 20%), 
+( NAME = N'ResaaStore_Aqsat', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Test\ResaaStore_Aqsat.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 20%), 
  FILEGROUP [FG_Base] 
-( NAME = N'ResaaStore_Base', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Empty\ResaaStore_Base.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 10%), 
+( NAME = N'ResaaStore_Base', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Test\ResaaStore_Base.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 10%), 
  FILEGROUP [FG_DimDate] 
-( NAME = N'ResaaStore_DimDate', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Empty\ResaaStore_DimDate.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 10%), 
+( NAME = N'ResaaStore_DimDate', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Test\ResaaStore_DimDate.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 10%), 
  FILEGROUP [FG_General] 
-( NAME = N'ResaaStore_General', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Empty\ResaaStore_General.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 10%), 
+( NAME = N'ResaaStore_General', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Test\ResaaStore_General.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 10%), 
  FILEGROUP [FG_ImageData] 
-( NAME = N'RessaStor_ImageData', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Empty\RessaStor_ImageData.ndf' , SIZE = 102400KB , MAXSIZE = UNLIMITED, FILEGROWTH = 20%), 
+( NAME = N'RessaStor_ImageData', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Test\RessaStor_ImageData.ndf' , SIZE = 102400KB , MAXSIZE = UNLIMITED, FILEGROWTH = 20%), 
  FILEGROUP [FG_Xazaneh] 
-( NAME = N'ResaaStore_Xazaneh', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Empty\ResaaStore_Xazaneh.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 20%)
+( NAME = N'ResaaStore_Xazaneh', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Test\ResaaStore_Xazaneh.ndf' , SIZE = 51200KB , MAXSIZE = UNLIMITED, FILEGROWTH = 20%)
  LOG ON 
-( NAME = N'ResaaStore_log', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Empty\ResaaStore_log.ldf' , SIZE = 256000KB , MAXSIZE = 2048GB , FILEGROWTH = 256000KB )
+( NAME = N'ResaaStore_log', FILENAME = N'E:\Work_Space_DataBase\Nz_Resaastore\Test\ResaaStore_log.ldf' , SIZE = 256000KB , MAXSIZE = 2048GB , FILEGROWTH = 256000KB )
  WITH CATALOG_COLLATION = DATABASE_DEFAULT
 GO
 ALTER DATABASE [DB_NzResaaStore] SET COMPATIBILITY_LEVEL = 120
@@ -96,37 +96,37 @@ ALTER DATABASE [DB_NzResaaStore] SET QUERY_STORE = OFF
 GO
 USE [DB_NzResaaStore]
 GO
-/****** Object:  Schema [Anbar]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Schema [Anbar]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE SCHEMA [Anbar]
 GO
-/****** Object:  Schema [Aqsat]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Schema [Aqsat]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE SCHEMA [Aqsat]
 GO
-/****** Object:  Schema [Base]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Schema [Base]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE SCHEMA [Base]
 GO
-/****** Object:  Schema [Dim_Date]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Schema [Dim_Date]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE SCHEMA [Dim_Date]
 GO
-/****** Object:  Schema [General]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Schema [General]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE SCHEMA [General]
 GO
-/****** Object:  Schema [Machine]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Schema [Machine]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE SCHEMA [Machine]
 GO
-/****** Object:  Schema [Shoraka]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Schema [Shoraka]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE SCHEMA [Shoraka]
 GO
-/****** Object:  Schema [SMS]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Schema [SMS]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE SCHEMA [SMS]
 GO
-/****** Object:  Schema [Tajmihi]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Schema [Tajmihi]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE SCHEMA [Tajmihi]
 GO
-/****** Object:  Schema [Xazane]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Schema [Xazane]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE SCHEMA [Xazane]
 GO
-/****** Object:  UserDefinedFunction [Anbar].[Get_Faktor_Name]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  UserDefinedFunction [Anbar].[Get_Faktor_Name]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -172,7 +172,7 @@ END
 
 
 GO
-/****** Object:  UserDefinedFunction [Anbar].[Get_Last_Nerx_Xarid]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  UserDefinedFunction [Anbar].[Get_Last_Nerx_Xarid]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -208,7 +208,7 @@ END
 
 
 GO
-/****** Object:  UserDefinedFunction [Anbar].[GetFactorDetail]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  UserDefinedFunction [Anbar].[GetFactorDetail]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -248,7 +248,7 @@ BEGIN
 
 END
 GO
-/****** Object:  UserDefinedFunction [General].[MS_Get_Date]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  UserDefinedFunction [General].[MS_Get_Date]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -273,7 +273,7 @@ END
 
 
 GO
-/****** Object:  UserDefinedFunction [General].[RestoteDB]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  UserDefinedFunction [General].[RestoteDB]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -320,7 +320,7 @@ BEGIN
 
 END
 GO
-/****** Object:  UserDefinedFunction [Xazane].[GetDPDetail]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  UserDefinedFunction [Xazane].[GetDPDetail]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -384,7 +384,7 @@ RETURN @Str
 END
 
 GO
-/****** Object:  Table [Anbar].[tbl_Amaliat_Kardex]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Anbar].[tbl_Amaliat_Kardex]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -415,7 +415,7 @@ CREATE TABLE [Anbar].[tbl_Amaliat_Kardex](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Anbar]
 ) ON [FG_Anbar]
 GO
-/****** Object:  Table [Anbar].[tbl_Amaliat_Riz]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Anbar].[tbl_Amaliat_Riz]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -445,13 +445,13 @@ CREATE TABLE [Anbar].[tbl_Amaliat_Riz](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Anbar]
 ) ON [FG_Anbar] TEXTIMAGE_ON [FG_Anbar]
 GO
-/****** Object:  Index [IX_tbl_Amaliat_Riz]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Index [IX_tbl_Amaliat_Riz]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE CLUSTERED INDEX [IX_tbl_Amaliat_Riz] ON [Anbar].[tbl_Amaliat_Riz]
 (
 	[FK_Salmali] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Anbar]
 GO
-/****** Object:  Table [Anbar].[tbl_Amaliat_Title]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Anbar].[tbl_Amaliat_Title]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -477,13 +477,13 @@ CREATE TABLE [Anbar].[tbl_Amaliat_Title](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Anbar]
 ) ON [FG_Anbar]
 GO
-/****** Object:  Index [IX_tbl_Amaliat_Title]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Index [IX_tbl_Amaliat_Title]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE CLUSTERED INDEX [IX_tbl_Amaliat_Title] ON [Anbar].[tbl_Amaliat_Title]
 (
 	[FK_Salmali] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Anbar]
 GO
-/****** Object:  Table [Anbar].[tbl_Amaliat_Title_Detail]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Anbar].[tbl_Amaliat_Title_Detail]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -500,13 +500,15 @@ CREATE TABLE [Anbar].[tbl_Amaliat_Title_Detail](
 	[FK_Vaset] [bigint] NULL,
 	[Darsad_Porsant] [decimal](6, 2) NULL,
 	[Ezafat] [decimal](18, 2) NULL,
+	[WebSiteId] [bigint] NULL,
+	[Address] [nvarchar](max) NULL,
  CONSTRAINT [PK_tbl_Amaliat_Title_Detail] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Anbar]
-) ON [FG_Anbar]
+) ON [FG_Anbar] TEXTIMAGE_ON [FG_Anbar]
 GO
-/****** Object:  Table [Aqsat].[tbl_Aqsat_Main]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Aqsat].[tbl_Aqsat_Main]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -555,7 +557,7 @@ CREATE TABLE [Aqsat].[tbl_Aqsat_Main](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Aqsat]
 ) ON [FG_Aqsat]
 GO
-/****** Object:  Table [Aqsat].[tbl_Aqsat_Noh]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Aqsat].[tbl_Aqsat_Noh]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -570,7 +572,7 @@ CREATE TABLE [Aqsat].[tbl_Aqsat_Noh](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Aqsat]
 ) ON [FG_Aqsat]
 GO
-/****** Object:  Table [Aqsat].[tbl_Aqsat_Riz]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Aqsat].[tbl_Aqsat_Riz]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -593,7 +595,7 @@ CREATE TABLE [Aqsat].[tbl_Aqsat_Riz](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Aqsat]
 ) ON [FG_Aqsat]
 GO
-/****** Object:  Table [Base].[tbl_Ashxas]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Base].[tbl_Ashxas]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -644,7 +646,7 @@ CREATE TABLE [Base].[tbl_Ashxas](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [FG_General]
 GO
-/****** Object:  Table [Base].[tbl_Bank]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Base].[tbl_Bank]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -658,7 +660,7 @@ CREATE TABLE [Base].[tbl_Bank](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Base]
 ) ON [FG_Base]
 GO
-/****** Object:  Table [Base].[tbl_Base_Anbar]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Base].[tbl_Base_Anbar]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -679,7 +681,7 @@ CREATE TABLE [Base].[tbl_Base_Anbar](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [FG_Base]
 GO
-/****** Object:  Table [Base].[tbl_Base_Anbar_Dastresi]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Base].[tbl_Base_Anbar_Dastresi]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -695,7 +697,7 @@ CREATE TABLE [Base].[tbl_Base_Anbar_Dastresi](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Base]
 ) ON [FG_Base]
 GO
-/****** Object:  Table [Base].[tbl_Base_Location]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Base].[tbl_Base_Location]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -710,7 +712,7 @@ CREATE TABLE [Base].[tbl_Base_Location](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Base].[tbl_BasteBandi]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Base].[tbl_BasteBandi]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -724,7 +726,7 @@ CREATE TABLE [Base].[tbl_BasteBandi](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Base]
 ) ON [FG_Base]
 GO
-/****** Object:  Table [Base].[tbl_Brand]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Base].[tbl_Brand]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -739,7 +741,7 @@ CREATE TABLE [Base].[tbl_Brand](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Base]
 ) ON [FG_Base]
 GO
-/****** Object:  Table [Base].[tbl_Group_Ashxas]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Base].[tbl_Group_Ashxas]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -753,7 +755,7 @@ CREATE TABLE [Base].[tbl_Group_Ashxas](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Base]
 ) ON [FG_Base]
 GO
-/****** Object:  Table [Base].[tbl_GroupKala_1th]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Base].[tbl_GroupKala_1th]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -772,7 +774,7 @@ CREATE TABLE [Base].[tbl_GroupKala_1th](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [FG_Base]
 GO
-/****** Object:  Table [Base].[tbl_GroupKala_2th]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Base].[tbl_GroupKala_2th]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -782,6 +784,7 @@ CREATE TABLE [Base].[tbl_GroupKala_2th](
 	[FK_GroupKala_1th] [smallint] NULL,
 	[Code] [smallint] NOT NULL,
 	[title] [nchar](200) NOT NULL,
+	[ShowInBarcode] [bit] NOT NULL,
  CONSTRAINT [PK_tbl_Group_B] PRIMARY KEY NONCLUSTERED 
 (
 	[ID] ASC
@@ -792,7 +795,7 @@ CREATE TABLE [Base].[tbl_GroupKala_2th](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [FG_Base]
 GO
-/****** Object:  Table [Base].[tbl_Kala_Xadamat]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Base].[tbl_Kala_Xadamat]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -826,6 +829,9 @@ CREATE TABLE [Base].[tbl_Kala_Xadamat](
 	[Size] [nchar](20) NULL,
 	[Zarib] [decimal](18, 3) NOT NULL,
 	[FK_Vahed_Fari] [smallint] NULL,
+	[WebSiteProductKind] [nvarchar](max) NULL,
+	[WebSiteProductId1] [bigint] NULL,
+	[WebSiteProductId2] [bigint] NULL,
  CONSTRAINT [PK_tbl_Base_Kala_Xadamat] PRIMARY KEY NONCLUSTERED 
 (
 	[ID] ASC
@@ -834,9 +840,9 @@ CREATE TABLE [Base].[tbl_Kala_Xadamat](
 (
 	[Code] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [FG_Base]
+) ON [FG_Base] TEXTIMAGE_ON [FG_Base]
 GO
-/****** Object:  Table [Base].[tbl_Ostan]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Base].[tbl_Ostan]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -850,7 +856,7 @@ CREATE TABLE [Base].[tbl_Ostan](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_DimDate]
 ) ON [FG_DimDate]
 GO
-/****** Object:  Table [Base].[tbl_Prefactor]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Base].[tbl_Prefactor]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -864,7 +870,7 @@ CREATE TABLE [Base].[tbl_Prefactor](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Base]
 ) ON [FG_Base]
 GO
-/****** Object:  Table [Base].[tbl_PreFactorItems]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Base].[tbl_PreFactorItems]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -880,7 +886,7 @@ CREATE TABLE [Base].[tbl_PreFactorItems](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Base]
 ) ON [FG_Base]
 GO
-/****** Object:  Table [Base].[tbl_Shahr]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Base].[tbl_Shahr]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -895,7 +901,7 @@ CREATE TABLE [Base].[tbl_Shahr](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_DimDate]
 ) ON [FG_DimDate]
 GO
-/****** Object:  Table [Base].[tbl_Vahed]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Base].[tbl_Vahed]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -909,7 +915,7 @@ CREATE TABLE [Base].[tbl_Vahed](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Base]
 ) ON [FG_Base]
 GO
-/****** Object:  Table [dbo].[__MigrationHistory]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [dbo].[__MigrationHistory]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -926,7 +932,7 @@ CREATE TABLE [dbo].[__MigrationHistory](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [General].[DimDate]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [General].[DimDate]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -985,7 +991,7 @@ CREATE TABLE [General].[DimDate](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 85, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_DimDate]
 ) ON [FG_DimDate]
 GO
-/****** Object:  Table [General].[tbl_Config]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [General].[tbl_Config]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1001,7 +1007,7 @@ CREATE TABLE [General].[tbl_Config](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_General]
 ) ON [FG_General] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [General].[tbl_DailyNote]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [General].[tbl_DailyNote]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1017,7 +1023,7 @@ CREATE TABLE [General].[tbl_DailyNote](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_General]
 ) ON [FG_General] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [General].[tbl_Image]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [General].[tbl_Image]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1031,7 +1037,7 @@ CREATE TABLE [General].[tbl_Image](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_ImageData]
 ) ON [FG_ImageData] TEXTIMAGE_ON [FG_ImageData]
 GO
-/****** Object:  Table [General].[tbl_Info]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [General].[tbl_Info]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1062,7 +1068,7 @@ CREATE TABLE [General].[tbl_Info](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_General]
 ) ON [FG_General] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [General].[tbl_Mokaleme_Ashxas]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [General].[tbl_Mokaleme_Ashxas]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1085,7 +1091,7 @@ CREATE TABLE [General].[tbl_Mokaleme_Ashxas](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_General]
 ) ON [FG_General]
 GO
-/****** Object:  Table [General].[tbl_Salmali]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [General].[tbl_Salmali]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1103,7 +1109,7 @@ CREATE TABLE [General].[tbl_Salmali](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_General]
 ) ON [FG_General]
 GO
-/****** Object:  Table [General].[tbl_Sharh]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [General].[tbl_Sharh]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1118,7 +1124,7 @@ CREATE TABLE [General].[tbl_Sharh](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_General]
 ) ON [FG_General]
 GO
-/****** Object:  Table [General].[tbl_User]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [General].[tbl_User]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1134,6 +1140,8 @@ CREATE TABLE [General].[tbl_User](
 	[dastressi] [varchar](max) NULL,
 	[is_disable] [bit] NOT NULL,
 	[picture] [varbinary](max) NULL,
+	[LockAccount] [bit] NOT NULL,
+	[LockTime] [smallint] NOT NULL,
  CONSTRAINT [PK_tbl_User] PRIMARY KEY NONCLUSTERED 
 (
 	[ID] ASC
@@ -1148,7 +1156,7 @@ CREATE TABLE [General].[tbl_User](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [FG_General] TEXTIMAGE_ON [FG_ImageData]
 GO
-/****** Object:  Table [SMS].[SmsPanel]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [SMS].[SmsPanel]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1165,7 +1173,7 @@ CREATE TABLE [SMS].[SmsPanel](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [SMS].[SmsReady]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [SMS].[SmsReady]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1180,7 +1188,7 @@ CREATE TABLE [SMS].[SmsReady](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Xazane].[tbl_Amaliat_Check]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Xazane].[tbl_Amaliat_Check]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1218,13 +1226,13 @@ CREATE TABLE [Xazane].[tbl_Amaliat_Check](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Xazaneh]
 ) ON [FG_Xazaneh]
 GO
-/****** Object:  Index [IX_tbl_Amaliat_Check]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Index [IX_tbl_Amaliat_Check]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE CLUSTERED INDEX [IX_tbl_Amaliat_Check] ON [Xazane].[tbl_Amaliat_Check]
 (
 	[FK_DP] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Xazaneh]
 GO
-/****** Object:  Table [Xazane].[tbl_Amaliat_DP]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Xazane].[tbl_Amaliat_DP]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1253,13 +1261,13 @@ CREATE TABLE [Xazane].[tbl_Amaliat_DP](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Xazaneh]
 ) ON [FG_Xazaneh]
 GO
-/****** Object:  Index [IX_tbl_Amaliat_DP]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Index [IX_tbl_Amaliat_DP]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE CLUSTERED INDEX [IX_tbl_Amaliat_DP] ON [Xazane].[tbl_Amaliat_DP]
 (
 	[FK_Salmali] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Xazaneh]
 GO
-/****** Object:  Table [Xazane].[tbl_Amaliat_Xazaneh]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Xazane].[tbl_Amaliat_Xazaneh]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1286,13 +1294,13 @@ CREATE TABLE [Xazane].[tbl_Amaliat_Xazaneh](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Xazaneh]
 ) ON [FG_Xazaneh]
 GO
-/****** Object:  Index [IX_tbl_Amaliat_Xazaneh]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Index [IX_tbl_Amaliat_Xazaneh]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE CLUSTERED INDEX [IX_tbl_Amaliat_Xazaneh] ON [Xazane].[tbl_Amaliat_Xazaneh]
 (
 	[FK_Salmali] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Xazaneh]
 GO
-/****** Object:  Table [Xazane].[tbl_Daste_Cheque_Riz]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Xazane].[tbl_Daste_Cheque_Riz]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1309,7 +1317,7 @@ CREATE TABLE [Xazane].[tbl_Daste_Cheque_Riz](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Base]
 ) ON [FG_Base]
 GO
-/****** Object:  Table [Xazane].[tbl_Daste_Chque]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Xazane].[tbl_Daste_Chque]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1333,7 +1341,7 @@ CREATE TABLE [Xazane].[tbl_Daste_Chque](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [FG_Base]
 GO
-/****** Object:  Table [Xazane].[tbl_Hesab_Xazaneh]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Table [Xazane].[tbl_Hesab_Xazaneh]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1356,43 +1364,43 @@ CREATE TABLE [Xazane].[tbl_Hesab_Xazaneh](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Base]
 ) ON [FG_Base]
 GO
-/****** Object:  Index [IX_tbl_Amaliat_Riz_1]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Index [IX_tbl_Amaliat_Riz_1]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE NONCLUSTERED INDEX [IX_tbl_Amaliat_Riz_1] ON [Anbar].[tbl_Amaliat_Riz]
 (
 	[FK_Title] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Anbar]
 GO
-/****** Object:  Index [IX_tbl_Amaliat_Title_1]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Index [IX_tbl_Amaliat_Title_1]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE NONCLUSTERED INDEX [IX_tbl_Amaliat_Title_1] ON [Anbar].[tbl_Amaliat_Title]
 (
 	[kind] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Anbar]
 GO
-/****** Object:  Index [IX_tbl_Aqsat_Noh]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Index [IX_tbl_Aqsat_Noh]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE UNIQUE NONCLUSTERED INDEX [IX_tbl_Aqsat_Noh] ON [Aqsat].[tbl_Aqsat_Noh]
 (
 	[code] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = OFF, ALLOW_PAGE_LOCKS = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IX_DimDate]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Index [IX_DimDate]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE NONCLUSTERED INDEX [IX_DimDate] ON [General].[DimDate]
 (
 	[PersianYearInt] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 85, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_DimDate]
 GO
-/****** Object:  Index [IX_tbl_Mokaleme_Ashxas]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Index [IX_tbl_Mokaleme_Ashxas]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE NONCLUSTERED INDEX [IX_tbl_Mokaleme_Ashxas] ON [General].[tbl_Mokaleme_Ashxas]
 (
 	[FK_Shaxs_ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_General]
 GO
-/****** Object:  Index [IX_tbl_Amaliat_Xazaneh_1]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Index [IX_tbl_Amaliat_Xazaneh_1]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE NONCLUSTERED INDEX [IX_tbl_Amaliat_Xazaneh_1] ON [Xazane].[tbl_Amaliat_Xazaneh]
 (
 	[FK_DP] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [FG_Xazaneh]
 GO
-/****** Object:  Index [IX_tbl_Hesab_Xazaneh]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  Index [IX_tbl_Hesab_Xazaneh]    Script Date: 23/11/2025 6:47:28 PM ******/
 CREATE NONCLUSTERED INDEX [IX_tbl_Hesab_Xazaneh] ON [Xazane].[tbl_Hesab_Xazaneh]
 (
 	[Code] ASC,
@@ -1415,6 +1423,8 @@ ALTER TABLE [Base].[tbl_Base_Location] ADD  CONSTRAINT [DF_tbl_Base_Location_Is_
 GO
 ALTER TABLE [Base].[tbl_Brand] ADD  DEFAULT ((0)) FOR [test]
 GO
+ALTER TABLE [Base].[tbl_GroupKala_2th] ADD  DEFAULT ((0)) FOR [ShowInBarcode]
+GO
 ALTER TABLE [Base].[tbl_Kala_Xadamat] ADD  CONSTRAINT [DF_tbl_Base_Kala_Xadamat_nerkh_frosh]  DEFAULT ((0)) FOR [nerkh_frosh]
 GO
 ALTER TABLE [Base].[tbl_Kala_Xadamat] ADD  DEFAULT ((0)) FOR [Zarib]
@@ -1428,6 +1438,10 @@ GO
 ALTER TABLE [General].[tbl_User] ADD  CONSTRAINT [DF_tbl_User_Code_2]  DEFAULT ((0)) FOR [Code]
 GO
 ALTER TABLE [General].[tbl_User] ADD  CONSTRAINT [DF_tbl_User_is_disable]  DEFAULT ((0)) FOR [is_disable]
+GO
+ALTER TABLE [General].[tbl_User] ADD  DEFAULT ((0)) FOR [LockAccount]
+GO
+ALTER TABLE [General].[tbl_User] ADD  DEFAULT ((2)) FOR [LockTime]
 GO
 ALTER TABLE [Xazane].[tbl_Amaliat_Xazaneh] ADD  CONSTRAINT [DF_tbl_Amaliat_Xazaneh_FK_User_Add]  DEFAULT ((1)) FOR [FK_User_Add]
 GO
@@ -1711,7 +1725,7 @@ REFERENCES [Base].[tbl_Bank] ([ID])
 GO
 ALTER TABLE [Xazane].[tbl_Hesab_Xazaneh] CHECK CONSTRAINT [FK_tbl_Base_Xazaneh_tbl_Bank]
 GO
-/****** Object:  StoredProcedure [dbo].[CreateBackup]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  StoredProcedure [dbo].[CreateBackup]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1773,7 +1787,7 @@ END
 
 
 GO
-/****** Object:  StoredProcedure [General].[CreateBackup]    Script Date: 25/08/2025 9:48:26 AM ******/
+/****** Object:  StoredProcedure [General].[CreateBackup]    Script Date: 23/11/2025 6:47:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

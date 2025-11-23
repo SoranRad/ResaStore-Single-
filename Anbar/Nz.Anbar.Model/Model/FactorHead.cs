@@ -33,28 +33,7 @@ namespace NZ.Anbar.Model
         public string                       sharh               { get; set; }
         public long?                        FK_Mabna            { get; set; }
 
-        //public object   this[int index]
-        //{
-        // get
-        // {
-        //  //var list = _Factor.FactorItems.Where(x => x.State != Enums.NzItemState.Deleted).OrderBy(x=>x.radif);
-        //  //return index < list.Count() 
-        //  //                ? list.ToList()[index] 
-        //  //                : null;
-        //  //FactorItems.Where(x => x.State != Enums.NzItemState.Deleted).OrderBy(x => x.radif).ToList()[index];
-        //  return _orderedItemsList[index];
-        // }
-        // set
-        // {
-        //  //var list = _Factor.FactorItems.Where(x => x.State != Enums.NzItemState.Deleted).OrderBy(x=>x.radif);
-        //  //if(index < list.Count())
-        //  //    list.ToList()[index] = (FactorItem)value;
-        //  _order
-        // }
-        // //=> _Factor.FactorItems.Where(x => x.State != Enums.NzItemState.Deleted).ToList()[index] =(FactorItem) value;
-        //}
-        //public List<FactorItem>             FactorItems         { get; set; }
-
+       
         public ICollection<FactorItem> FactorItems { get; set; }
         public FactorDetail                 FactorDetail        { get; set; } 
         public Location                     Location            { get; set; }

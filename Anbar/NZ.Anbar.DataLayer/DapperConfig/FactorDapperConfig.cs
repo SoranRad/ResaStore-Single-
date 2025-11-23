@@ -56,9 +56,6 @@ SELECT tar.ID ,
 	   tar.nerkh_2,
 	   RTRIM(LTRIM(tar.CostDescriptor)) AS CostDescriptor
 
-
-
-
 FROM Anbar.tbl_Amaliat_Riz AS tar
 INNER JOIN Base.tbl_Kala_Xadamat AS tkx ON  tkx.Code = tar.FK_Kala
 INNER JOIN Base.tbl_Vahed AS tv ON tv.ID = tkx.FK_Vahed
@@ -76,7 +73,10 @@ SELECT tatd.ID ,
        tatd.Ezafat,
        tatd.Darsad_Porsant ,
        tatd.WebSiteId,
-       tatd.Address    
+       RTRIM(LTRIM(tatd.TitleGirande  )) AS  TitleGirande,  
+       RTRIM(LTRIM(tatd.MobileGirande )) AS  MobileGirande,
+       RTRIM(LTRIM(tatd.AddressGirande)) AS  AddressGirande,
+       tatd.Sent          
 	   
 FROM Anbar.tbl_Amaliat_Title_Detail AS tatd
 WHERE tatd.ID=@ID ;
