@@ -22,21 +22,24 @@ namespace Nz.Anbar.Model.ViewModel
         public decimal?     nerkh_frosh2        { get; set; }
         public decimal?     nerkh_frosh3        { get; set; }
         public decimal      remaind             { get; set; }
-        public long?        FK_Image            { get; set; }
+        //public long?        FK_Image            { get; set; }
 
         public string       title               { get; set; }
         public string       barcode             { get; set; }
         public string       nameFani            { get; set; }
         public string       codeFani            { get; set; }
-        public string       keshvarSazande      { get; set; }
+        //public string       keshvarSazande      { get; set; }
 
         public string       UnitTitle           { get; set; }
         public string       MainGroupTitle      { get; set; }
         public string       SubGroupTitle       { get; set; }
 
-        public decimal       Zarib              { get; set; }
-        public short?        FK_Vahed_Fari      { get; set; }
-        public string        Unit2Title         { get; set; }
-       
-    }
+        //public decimal      Zarib              { get; set; }
+        //public short?       FK_Vahed_Fari      { get; set; }
+        //public string       Unit2Title         { get; set; }
+
+		public bool         IsOffActive         { get; set; }
+		public bool         IsOffPercent        { get; set; }
+		public decimal      OffAmount           { get; set; }
+	}
 }

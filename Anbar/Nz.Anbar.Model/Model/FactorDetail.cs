@@ -25,9 +25,14 @@ namespace NZ.Anbar.Model
         public DateTime?            tarikh_etebar       { get; set; }
 
         public long?                WebSiteId           { get; set; }
-        public string               Address             { get; set; }
 
-        public FactorHead           FactorHead          { get; set; }
+        public string               TitleGirande        { get; set; }
+        public string               MobileGirande       { get; set; }
+        public string               AddressGirande      { get; set; }
+        public bool?                Sent                { get; set; }
+
+
+		public FactorHead           FactorHead          { get; set; }
 
         [NotMapped]
         public Enums.NzItemState    State               { get; set; }

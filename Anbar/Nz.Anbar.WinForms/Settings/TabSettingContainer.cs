@@ -47,6 +47,9 @@ namespace Nz.Anbar.WinForms.Settings
 			if (!string.IsNullOrWhiteSpace(settings.FishPrinter))
 				NsPrinters.SelectedValue = settings.FishPrinter;
 
+			NsIsOffActive.Checked = settings.IsOffActive;
+			NsIsOffPercent.Checked = settings.IsOffPercent;
+			NsOffAmount.MS_Decimal = settings.OffAmount;
 		}
 
 		public NsSettingTabPage TabSetting => NsStorageSetting;
@@ -59,7 +62,15 @@ namespace Nz.Anbar.WinForms.Settings
 				ShowRemaind			= NsPrintRemaind.Checked,
 				LocationID			= (NzLocation.SelectedItem?.DataRow as Location)?.ID??0,
 				MiscID				= (NzCustomer.MS_Get_Selected() as People)?.ID??0,
-				FishPrinter			= NsPrinters.Text
+				FishPrinter			= NsPrinters.Text,
+				IsOffActive			= NsIsOffActive.Checked,
+				IsOffPercent		= NsIsOffPercent.Checked,
+				OffAmount			= NsOffAmount.MS_Decimal
 			};
-	}
+
+        private void NsIsOffActive_CheckedChanged(object sender, EventArgs e)
+        {
+	        NsOffAmount.Enabled = NsIsOffPercent.Enabled = NsIsOffAmount.Enabled = NsIsOffActive.Checked;
+        }
+    }
 }

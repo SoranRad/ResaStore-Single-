@@ -120,7 +120,7 @@ namespace Nz.Anbar.WinForms.App
 
             var FactorMabna     = SystemConstant.OurAccount && _Kind == Enums.NzFactorKind.Frosh;
             NzFactors.Visible   = FactorMabna;
-            label14.Visible     = FactorMabna;
+            label15.Visible     = FactorMabna;
 
             if (FactorMabna)
                 NzFactors.Refresh_Grid();
@@ -130,7 +130,7 @@ namespace Nz.Anbar.WinForms.App
             else
             {
                 LoadItem();
-                if(_Factor.FactorItems.Count>20)
+                if(_Factor.FactorItems.Count>10)
                     NzGrid.FilterMode = FilterMode.Automatic;
             }
 
@@ -202,6 +202,14 @@ namespace Nz.Anbar.WinForms.App
                 NzTaxPercent.Text           = (_Factor?.FactorDetail?.Darsad_Maliat ?? 0).ToString(_FormatString);
                 NzTaxPrice.Text             = (_Factor?.FactorDetail?.mablaq_Maliat ?? 0).ToString(_FormatString);
 
+                NsAddressGirande.Text       = _Factor?.FactorDetail?.AddressGirande;
+                NsMobileGirande.Text        = _Factor?.FactorDetail?.MobileGirande;
+                NsTitleGirande.Text         = _Factor?.FactorDetail?.TitleGirande;
+                NsSendToGirande.Checked     = _Factor?.FactorDetail?.Sent ?? false;
+
+				if (_Factor.FactorDetail?.tarikh_etebar != null)
+					NsMohlatTasvieh.MS_Tarikh = new MS_Structure_Shamsi(_Factor.FactorDetail?.tarikh_etebar.Value);
+
                 if(_Kind == Enums.NzFactorKind.Frosh)
                     NzLocation.MS_Set_Select    (_Factor.FK_Location);
 
@@ -253,7 +261,12 @@ namespace Nz.Anbar.WinForms.App
 	                || NzOffPrice.MS_Decimal > 0
 	                || NzOffPercent.MS_Decimal > 0
 	                || NzExtend.MS_Decimal > 0
-	                || _Factor.ID > 0
+	                || !string.IsNullOrWhiteSpace(NsAddressGirande.Text)
+	                || !string.IsNullOrWhiteSpace(NsMobileGirande.Text)
+	                || !string.IsNullOrWhiteSpace(NsTitleGirande.Text)
+	                || NsSendToGirande.Checked
+                    || NsMohlatTasvieh.MS_Tarikh.HasValue
+					|| _Factor.ID > 0
                 )
                 {
 	                if (_Factor.FactorDetail == null)
@@ -278,11 +291,27 @@ namespace Nz.Anbar.WinForms.App
 	                _Factor.FactorDetail.Ezafat =
 		                NzExtend.MS_Decimal == 0 ? null : (decimal?)NzExtend.MS_Decimal;
 
-	                if (_Factor.ID > 0)
-	                {
-		                _Factor.FactorDetail.FK_User_Edit = SystemConstant.ActiveUser.ID;
-		                _Factor.FactorDetail.tarikh_edit = DateTime.Now;
-	                }
+	                if (!string.IsNullOrWhiteSpace(NsAddressGirande.Text))
+		                _Factor.FactorDetail.AddressGirande = NsAddressGirande.Text;
+
+	                if (!string.IsNullOrWhiteSpace(NsTitleGirande.Text))
+		                _Factor.FactorDetail.TitleGirande = NsTitleGirande.Text;
+
+	                if (!string.IsNullOrWhiteSpace(NsMobileGirande.Text))
+		                _Factor.FactorDetail.MobileGirande = NsMobileGirande.Text;
+
+	                _Factor.FactorDetail.Sent = NsSendToGirande.Checked;
+
+	                if (NsMohlatTasvieh.MS_Tarikh.HasValue)
+		                _Factor.FactorDetail.tarikh_etebar = NsMohlatTasvieh.MS_Tarikh.Value.ToDatetime().Date;
+	                else
+		                _Factor.FactorDetail.tarikh_etebar = null;
+
+                    if (_Factor.ID > 0)
+                    {
+                        _Factor.FactorDetail.FK_User_Edit = SystemConstant.ActiveUser.ID;
+                        _Factor.FactorDetail.tarikh_edit = DateTime.Now;
+                    }
                 
                 }
                
@@ -1275,8 +1304,25 @@ namespace Nz.Anbar.WinForms.App
                     Current.Cells["nerkh"].Value = obj.nerkh_frosh3;
                 else
                     Current.Cells["nerkh"].Value = obj.nerkh_frosh;
+                if (obj.OffAmount > 0)
+                {
+	                if (obj.IsOffPercent)
+	                {
+		                Current.Cells[nameof(FactorItem.takhfif_darsad)].Value = obj.OffAmount;
+		                Current.Cells[nameof(FactorItem.takhfif)].Value = 0;
+	                }
+	                else
+	                {
+		                Current.Cells[nameof(FactorItem.takhfif_darsad)].Value = 0;
+		                Current.Cells[nameof(FactorItem.takhfif)].Value = obj.OffAmount; 
+					}
 
-                RefreshPrice();
+	                if (Convert.ToDecimal(Current.Cells[nameof(FactorItem.meqdar)].Value) <= 0)
+		                Current.Cells[nameof(FactorItem.meqdar)].Value = 1;
+
+				}
+
+				RefreshPrice();
                 RefreshFactorSum();
             }
 

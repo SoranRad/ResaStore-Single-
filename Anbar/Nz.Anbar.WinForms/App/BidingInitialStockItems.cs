@@ -13,7 +13,7 @@ using ShareLib.Utils;
 
 namespace Nz.Anbar.WinForms.App
 {
-    public class BidingFactorItems : IBindingList
+    public class BidingInitialStockItems : IBindingList
     {
         private static readonly log4net.ILog log =
             log4net
@@ -25,7 +25,7 @@ namespace Nz.Anbar.WinForms.App
         private FactorHead                  _Factor;
         #endregion
         #region constructor
-        public BidingFactorItems       (FactorHead Factor)
+        public BidingInitialStockItems(FactorHead Factor)
         {
             _Factor = Factor;
         }

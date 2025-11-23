@@ -2,6 +2,7 @@
 using ShareLib;
 using ShareLib.Interfaces;
 using ShareLib.Models;
+using ShareLib.Utils;
 
 namespace NZ.Anbar.Model
 {
@@ -17,8 +18,6 @@ namespace NZ.Anbar.Model
         {
             PreFactorItemses = new HashSet<PreFactorItems>();
         }
-
-
 
         public long         ID                  { get; set; }
         public short        FK_GroupKala_2th    { get; set; }
@@ -36,9 +35,10 @@ namespace NZ.Anbar.Model
         public string       WebSiteProductKind       { get; set; }
         public long?        WebSiteProductId1        { get; set; }
         public long?        WebSiteProductId2        { get; set; }
-       
-         
 
+        public bool         IsOffActive              { get; set; }
+        public bool         IsOffPercent             { get; set; }
+        public decimal      OffAmount                { get; set; }
 
         [Required]
         [StringLength(500)]
@@ -95,7 +95,17 @@ namespace NZ.Anbar.Model
         [NotMapped]
         public string       SeasonTitle         => Season == null ? string.Empty : ((Enums.NzObjectSeason)this.Season).NzTostring();
 
-         
+        [NotMapped]
+        public string OffTitle
+        {
+	        get
+	        {
+		        if (!this.IsOffActive)
+			        return null;
+			    
+		        return this.OffAmount.ToString("0,0.##;(0,0.##); ")+ " " + (this.IsOffPercent ? "%" : SystemConstant.ActiveYear.Money);
+	        }
+        }
 
         public string       CircularQuery       ()
         {
@@ -152,7 +162,10 @@ SELECT tkx.ID ,
 	   LTRIM(RTRIM(tbb.Title))              AS BastebandiTitle,
        tkx.WebSiteProductKind,
        tkx.WebSiteProductId1, 
-       tkx.WebSiteProductId2 
+       tkx.WebSiteProductId2,
+       tkx.IsOffActive,
+       tkx.IsOffPercent,
+       tkx.OffAmount      
 
 FROM Base.tbl_Kala_Xadamat              AS tkx
 INNER JOIN Base.tbl_Vahed               AS tv       ON tv.ID        = tkx.FK_Vahed
@@ -204,7 +217,10 @@ SELECT tkx.ID ,
 	   LTRIM(RTRIM(tbb.Title)) AS BastebandiTitle,
         tkx.WebSiteProductKind,
        tkx.WebSiteProductId1, 
-       tkx.WebSiteProductId2 
+       tkx.WebSiteProductId2 ,
+       tkx.IsOffActive,
+       tkx.IsOffPercent,
+       tkx.OffAmount      
 
 FROM Base.tbl_Kala_Xadamat              AS tkx
 INNER JOIN Base.tbl_Vahed               AS tv       ON tv.ID        = tkx.FK_Vahed

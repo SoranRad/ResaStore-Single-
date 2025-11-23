@@ -37,7 +37,7 @@ namespace Nz.Anbar.WinForms.Component
         private MS_Control.Controls.MS_GridX NzGrid;
         private int                     NzHeight = 600;
         private AvailObject             _SelectObject;
-        private ReportManager           _Manager = new ReportManager();
+        private ReportManager _Manager;
         private List<AvailObject>       _List           = new List<AvailObject>();
         //====
         public event EventHandler       NzSelectObject,
@@ -58,7 +58,9 @@ namespace Nz.Anbar.WinForms.Component
         public          NzObjectPopup       ()
         {
             InitializeComponent();
-            Capture                     = true;
+
+			_Manager = new ReportManager();
+			Capture                     = true;
             DoubleBuffered              = true;
             ResizeRedraw                = true;
             RightToLeft                 = RightToLeft.Yes;

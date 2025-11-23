@@ -23,6 +23,9 @@ namespace Nz.Anbar.WinForms.Settings
 				 MainGroupActivated = true,
 				 MiscID = 0,
 				 LocationID = 0,
+				 IsOffActive = false,
+				 IsOffPercent = true,
+				 OffAmount = 0
 			};
 		}
 
@@ -37,7 +40,10 @@ namespace Nz.Anbar.WinForms.Settings
 		public long     MiscID					{ get; set; }
 		public short    LocationID				{ get; set; }
 		public string	FishPrinter				{ get; set; }
-		public Enums.NzKindPrint KindPrint { get; set; }
+		public bool		IsOffActive				{ get; set; }
+		public bool		IsOffPercent			{ get; set; }
+		public decimal	OffAmount				{ get; set; }
+		public Enums.NzKindPrint KindPrint		{ get; set; }
 
 	}
 }

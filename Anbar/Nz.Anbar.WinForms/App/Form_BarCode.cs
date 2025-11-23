@@ -512,6 +512,31 @@ namespace Nz.Anbar.WinForms.App
                         }));
                     else
                         NzLocation.SetLocation      (Setting.LocationID);
+                    //==================================================
+                    if (Setting.IsOffActive && Setting.OffAmount>0)
+                    {
+	                    if (Setting.IsOffPercent)
+	                    {
+		                    if (NzOffPercent.InvokeRequired)
+			                    NzOffPercent.Invoke(new MethodInvoker(delegate
+			                    {
+				                    NzOffPercent.MS_Decimal =Setting.OffAmount;
+			                    }));
+		                    else
+								NzOffPercent.MS_Decimal = Setting.OffAmount;
+						}
+	                    else
+	                    {
+		                    if (NzOffPrice.InvokeRequired)
+			                    NzOffPrice.Invoke(new MethodInvoker(delegate
+			                    {
+				                    NzOffPrice.MS_Decimal = Setting.OffAmount;
+			                    }));
+		                    else
+			                    NzOffPrice.MS_Decimal = Setting.OffAmount;
+						}
+
+                    }
 
                 }
             });
@@ -1208,7 +1233,7 @@ namespace Nz.Anbar.WinForms.App
         }
         private void AddObject                      (NzObject Item,decimal Meqdar = 1)
         {
-            _Bind.AddOrUpdate(Item,(Enums.NzSalingKind)((byte)NzKind.SelectedIndex),Meqdar);
+            _Bind.AddOrUpdate(Item,(Enums.NzSalingKind)((byte)NzKind.SelectedIndex),Meqdar,Item.IsOffPercent,Item.IsOffActive?Item.OffAmount:0);
             NzFindObject.ForeColor          = Color.DarkGreen;
             nzBarcodeReader1.BackColor      = Color.White;
             NzFindObject.Text               = Item.title;
@@ -1263,7 +1288,14 @@ namespace Nz.Anbar.WinForms.App
                 else
 	                Current.Cells["nerkh"].Value = obj.nerkh_frosh;
 
-                NzGrid.CurrentColumn = NzGrid.RootTable.Columns["meqdar"];
+                if (obj.IsOffActive && obj.OffAmount > 0)
+	                Current.Cells
+		                [
+			                obj.IsOffPercent ? nameof(FactorItem.takhfif_darsad) : nameof(FactorItem.takhfif)
+		                ]
+		                .Value = obj.OffAmount;
+
+				NzGrid.CurrentColumn = NzGrid.RootTable.Columns["meqdar"];
             }
             catch (Exception ex)
             {

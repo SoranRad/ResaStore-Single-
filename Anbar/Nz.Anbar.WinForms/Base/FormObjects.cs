@@ -89,6 +89,11 @@ namespace Nz.Anbar.WinForms.Base
                 NsWebsiteKind.SelectedValue = _Item.WebSiteProductKind;
                 NsWebsiteProductID1.Text = _Item.WebSiteProductId1 ?.ToString();
                 NsWebsiteProductID2.Text = _Item.WebSiteProductId2 ?.ToString();
+
+                NsIsOffActive.Checked = _Item.IsOffActive;
+                NsIsOffPercent.Checked = _Item.IsOffPercent;
+                NsOffAmount.MS_Decimal = _Item.IsOffActive ? _Item.OffAmount : 0;
+
             }
             catch (Exception ex)
             {
@@ -138,6 +143,10 @@ namespace Nz.Anbar.WinForms.Base
 	            _Item.WebSiteProductId2 = Convert.ToInt64(NsWebsiteProductID2.MS_Decimal);
             else 
 	            _Item.WebSiteProductId2 = null;
+
+            _Item.IsOffActive       = NsIsOffActive.Checked;
+            _Item.IsOffPercent      = NsIsOffPercent.Checked;
+            _Item.OffAmount         = NsOffAmount.MS_Decimal;
             
             if (string.IsNullOrWhiteSpace(nzUnit_2.Text))
             {
@@ -504,6 +513,11 @@ namespace Nz.Anbar.WinForms.Base
         {
             TranslateUnits();
 
+        }
+
+        private void NsIsOffActive_CheckedChanged(object sender, EventArgs e)
+        {
+	        NsIsOffPercent.Enabled = NsIsOffAmount.Enabled = NsOffAmount.Enabled = NsIsOffActive.Checked;
         }
     }
 }

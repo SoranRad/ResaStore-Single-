@@ -51,6 +51,14 @@ namespace Nz.Anbar.WinForms.Base
 			this.uiTabPage12 = new Janus.Windows.UI.Tab.UITabPage();
 			this.uiTab1 = new Janus.Windows.UI.Tab.UITab();
 			this.uiTabPage1 = new Janus.Windows.UI.Tab.UITabPage();
+			this.NsIsOffActive = new MS_Control.Controls.MS_CheckBox();
+			this.NsOffAmount = new MS_Control.Controls.MS_NumericTextBox();
+			this.NsIsOffAmount = new MS_Control.Controls.MS_RadioBox();
+			this.mS_Text_Simple1 = new MS_Control.Controls.MS_Text_Simple();
+			this.mS_Text_Simple3 = new MS_Control.Controls.MS_Text_Simple();
+			this.mS_Text_Simple2 = new MS_Control.Controls.MS_Text_Simple();
+			this.NsIsOffPercent = new MS_Control.Controls.MS_RadioBox();
+			this.mS_Text_Simple4 = new MS_Control.Controls.MS_Text_Simple();
 			this.NzOrderPoint = new MS_Control.Controls.MS_NumericTextBox();
 			this.label11 = new System.Windows.Forms.Label();
 			this.label19 = new System.Windows.Forms.Label();
@@ -140,7 +148,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.Panel_Foother.MS_Color_End = System.Drawing.Color.Gainsboro;
 			this.Panel_Foother.MS_Color_Start = System.Drawing.Color.WhiteSmoke;
 			this.Panel_Foother.Name = "Panel_Foother";
-			this.Panel_Foother.Size = new System.Drawing.Size(700, 51);
+			this.Panel_Foother.Size = new System.Drawing.Size(702, 51);
 			this.Panel_Foother.TabIndex = 1;
 			// 
 			// ms_Save
@@ -211,7 +219,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.Tab_Control_Main.Name = "Tab_Control_Main";
 			this.Tab_Control_Main.Office2007CustomColor = System.Drawing.Color.Transparent;
 			this.Tab_Control_Main.ShowFocusRectangle = false;
-			this.Tab_Control_Main.Size = new System.Drawing.Size(730, 475);
+			this.Tab_Control_Main.Size = new System.Drawing.Size(732, 475);
 			this.Tab_Control_Main.TabIndex = 0;
 			this.Tab_Control_Main.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
             this.uiTabPage12,
@@ -236,7 +244,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.uiTabPage12.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.uiTabPage12.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.uiTabPage12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage12.Size = new System.Drawing.Size(698, 473);
+			this.uiTabPage12.Size = new System.Drawing.Size(700, 473);
 			this.uiTabPage12.TabStop = true;
 			this.uiTabPage12.Text = "اطلاعات";
 			// 
@@ -251,7 +259,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.uiTab1.Name = "uiTab1";
 			this.uiTab1.Office2007CustomColor = System.Drawing.Color.Transparent;
 			this.uiTab1.ShowFocusRectangle = false;
-			this.uiTab1.Size = new System.Drawing.Size(698, 473);
+			this.uiTab1.Size = new System.Drawing.Size(700, 473);
 			this.uiTab1.TabIndex = 0;
 			this.uiTab1.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
             this.uiTabPage1,
@@ -268,6 +276,14 @@ namespace Nz.Anbar.WinForms.Base
 			// 
 			// uiTabPage1
 			// 
+			this.uiTabPage1.Controls.Add(this.NsIsOffActive);
+			this.uiTabPage1.Controls.Add(this.NsOffAmount);
+			this.uiTabPage1.Controls.Add(this.NsIsOffAmount);
+			this.uiTabPage1.Controls.Add(this.mS_Text_Simple1);
+			this.uiTabPage1.Controls.Add(this.mS_Text_Simple3);
+			this.uiTabPage1.Controls.Add(this.mS_Text_Simple2);
+			this.uiTabPage1.Controls.Add(this.NsIsOffPercent);
+			this.uiTabPage1.Controls.Add(this.mS_Text_Simple4);
 			this.uiTabPage1.Controls.Add(this.NzOrderPoint);
 			this.uiTabPage1.Controls.Add(this.label11);
 			this.uiTabPage1.Controls.Add(this.label19);
@@ -295,16 +311,220 @@ namespace Nz.Anbar.WinForms.Base
 			this.uiTabPage1.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.uiTabPage1.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.uiTabPage1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage1.Size = new System.Drawing.Size(696, 441);
+			this.uiTabPage1.Size = new System.Drawing.Size(698, 441);
 			this.uiTabPage1.TabStop = true;
 			this.uiTabPage1.Text = "اطلاعات";
+			// 
+			// NsIsOffActive
+			// 
+			this.NsIsOffActive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsIsOffActive.BackColor = System.Drawing.Color.Transparent;
+			this.NsIsOffActive.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsIsOffActive.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
+			this.NsIsOffActive.Location = new System.Drawing.Point(193, 172);
+			this.NsIsOffActive.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NsIsOffActive.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.None;
+			this.NsIsOffActive.MS_Change_Border_Color_On_Enter = true;
+			this.NsIsOffActive.MS_Change_Color_On_Checked = true;
+			this.NsIsOffActive.MS_Change_Color_On_Enter = true;
+			this.NsIsOffActive.MS_Checked_Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.NsIsOffActive.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsIsOffActive.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsIsOffActive.MS_Exit_By_Down = true;
+			this.NsIsOffActive.MS_Exit_By_Enter = true;
+			this.NsIsOffActive.MS_Exit_By_Up = true;
+			this.NsIsOffActive.MS_Last_Control = null;
+			this.NsIsOffActive.MS_Next_Control = null;
+			this.NsIsOffActive.MS_UnChecked_Color = System.Drawing.Color.Transparent;
+			this.NsIsOffActive.Name = "NsIsOffActive";
+			this.NsIsOffActive.ShowFocusRectangle = false;
+			this.NsIsOffActive.Size = new System.Drawing.Size(117, 26);
+			this.NsIsOffActive.TabIndex = 854;
+			this.NsIsOffActive.Text = "  تخـفیـف فروش : ";
+			this.NsIsOffActive.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
+			this.NsIsOffActive.CheckedChanged += new System.EventHandler(this.NsIsOffActive_CheckedChanged);
+			// 
+			// NsOffAmount
+			// 
+			this.NsOffAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsOffAmount.ButtonText = "000";
+			this.NsOffAmount.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsOffAmount.Enabled = false;
+			this.NsOffAmount.Font = new System.Drawing.Font("IRANSans(Small) Medium", 14F);
+			this.NsOffAmount.Location = new System.Drawing.Point(3, 166);
+			this.NsOffAmount.MaxLength = 0;
+			this.NsOffAmount.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
+			this.NsOffAmount.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NsOffAmount.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsOffAmount.MS_Change_Border_Color_On_Enter = true;
+			this.NsOffAmount.MS_Change_Color_On_Enter = true;
+			this.NsOffAmount.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsOffAmount.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsOffAmount.MS_Exit_By_Down = true;
+			this.NsOffAmount.MS_Exit_By_Enter = true;
+			this.NsOffAmount.MS_Exit_By_Up = true;
+			this.NsOffAmount.MS_Is_Negative = false;
+			this.NsOffAmount.MS_Last_Control = null;
+			this.NsOffAmount.MS_Next_Control = null;
+			this.NsOffAmount.Name = "NsOffAmount";
+			this.NsOffAmount.Size = new System.Drawing.Size(100, 30);
+			this.NsOffAmount.TabIndex = 853;
+			this.NsOffAmount.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far;
+			this.NsOffAmount.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			// 
+			// NsIsOffAmount
+			// 
+			this.NsIsOffAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsIsOffAmount.BackColor = System.Drawing.Color.LightBlue;
+			this.NsIsOffAmount.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsIsOffAmount.Enabled = false;
+			this.NsIsOffAmount.Location = new System.Drawing.Point(109, 195);
+			this.NsIsOffAmount.MS_BorderColor = System.Drawing.Color.Empty;
+			this.NsIsOffAmount.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsIsOffAmount.MS_Change_Border_Color_On_Enter = true;
+			this.NsIsOffAmount.MS_Change_Color_On_Checked = true;
+			this.NsIsOffAmount.MS_Change_Color_On_Enter = true;
+			this.NsIsOffAmount.MS_Checked_Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsIsOffAmount.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsIsOffAmount.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsIsOffAmount.MS_Exit_By_Down = true;
+			this.NsIsOffAmount.MS_Exit_By_Enter = true;
+			this.NsIsOffAmount.MS_Exit_By_Up = true;
+			this.NsIsOffAmount.MS_Last_Control = null;
+			this.NsIsOffAmount.MS_Next_Control = null;
+			this.NsIsOffAmount.MS_UnChecked_Color = System.Drawing.Color.LightBlue;
+			this.NsIsOffAmount.Name = "NsIsOffAmount";
+			this.NsIsOffAmount.ShowFocusRectangle = false;
+			this.NsIsOffAmount.Size = new System.Drawing.Size(55, 23);
+			this.NsIsOffAmount.TabIndex = 848;
+			this.NsIsOffAmount.Text = "مبلغ";
+			// 
+			// mS_Text_Simple1
+			// 
+			this.mS_Text_Simple1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.mS_Text_Simple1.BackColor = System.Drawing.Color.LimeGreen;
+			this.mS_Text_Simple1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.mS_Text_Simple1.Location = new System.Drawing.Point(170, 205);
+			this.mS_Text_Simple1.MS_BorderColor = System.Drawing.Color.Empty;
+			this.mS_Text_Simple1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.None;
+			this.mS_Text_Simple1.MS_Change_Border_Color_On_Enter = false;
+			this.mS_Text_Simple1.MS_Change_Color_On_Enter = false;
+			this.mS_Text_Simple1.MS_Enter_Border_Color = System.Drawing.Color.Empty;
+			this.mS_Text_Simple1.MS_Enter_Color = System.Drawing.Color.Empty;
+			this.mS_Text_Simple1.MS_Exit_By_Down = false;
+			this.mS_Text_Simple1.MS_Exit_By_Enter = false;
+			this.mS_Text_Simple1.MS_Exit_By_Up = false;
+			this.mS_Text_Simple1.MS_Last_Control = null;
+			this.mS_Text_Simple1.MS_Next_Control = null;
+			this.mS_Text_Simple1.Multiline = true;
+			this.mS_Text_Simple1.Name = "mS_Text_Simple1";
+			this.mS_Text_Simple1.Size = new System.Drawing.Size(12, 2);
+			this.mS_Text_Simple1.TabIndex = 851;
+			// 
+			// mS_Text_Simple3
+			// 
+			this.mS_Text_Simple3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.mS_Text_Simple3.BackColor = System.Drawing.Color.LimeGreen;
+			this.mS_Text_Simple3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.mS_Text_Simple3.Location = new System.Drawing.Point(181, 183);
+			this.mS_Text_Simple3.MS_BorderColor = System.Drawing.Color.Empty;
+			this.mS_Text_Simple3.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.None;
+			this.mS_Text_Simple3.MS_Change_Border_Color_On_Enter = false;
+			this.mS_Text_Simple3.MS_Change_Color_On_Enter = false;
+			this.mS_Text_Simple3.MS_Enter_Border_Color = System.Drawing.Color.Empty;
+			this.mS_Text_Simple3.MS_Enter_Color = System.Drawing.Color.Empty;
+			this.mS_Text_Simple3.MS_Exit_By_Down = false;
+			this.mS_Text_Simple3.MS_Exit_By_Enter = false;
+			this.mS_Text_Simple3.MS_Exit_By_Up = false;
+			this.mS_Text_Simple3.MS_Last_Control = null;
+			this.mS_Text_Simple3.MS_Next_Control = null;
+			this.mS_Text_Simple3.Multiline = true;
+			this.mS_Text_Simple3.Name = "mS_Text_Simple3";
+			this.mS_Text_Simple3.Size = new System.Drawing.Size(16, 2);
+			this.mS_Text_Simple3.TabIndex = 849;
+			// 
+			// mS_Text_Simple2
+			// 
+			this.mS_Text_Simple2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.mS_Text_Simple2.BackColor = System.Drawing.Color.LimeGreen;
+			this.mS_Text_Simple2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.mS_Text_Simple2.Location = new System.Drawing.Point(181, 156);
+			this.mS_Text_Simple2.MS_BorderColor = System.Drawing.Color.Empty;
+			this.mS_Text_Simple2.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.None;
+			this.mS_Text_Simple2.MS_Change_Border_Color_On_Enter = false;
+			this.mS_Text_Simple2.MS_Change_Color_On_Enter = false;
+			this.mS_Text_Simple2.MS_Enter_Border_Color = System.Drawing.Color.Empty;
+			this.mS_Text_Simple2.MS_Enter_Color = System.Drawing.Color.Empty;
+			this.mS_Text_Simple2.MS_Exit_By_Down = false;
+			this.mS_Text_Simple2.MS_Exit_By_Enter = false;
+			this.mS_Text_Simple2.MS_Exit_By_Up = false;
+			this.mS_Text_Simple2.MS_Last_Control = null;
+			this.mS_Text_Simple2.MS_Next_Control = null;
+			this.mS_Text_Simple2.Multiline = true;
+			this.mS_Text_Simple2.Name = "mS_Text_Simple2";
+			this.mS_Text_Simple2.Size = new System.Drawing.Size(2, 50);
+			this.mS_Text_Simple2.TabIndex = 850;
+			// 
+			// NsIsOffPercent
+			// 
+			this.NsIsOffPercent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsIsOffPercent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsIsOffPercent.Checked = true;
+			this.NsIsOffPercent.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsIsOffPercent.Enabled = false;
+			this.NsIsOffPercent.FormatStyle.Alpha = 70;
+			this.NsIsOffPercent.FormatStyle.BackColor = System.Drawing.Color.SkyBlue;
+			this.NsIsOffPercent.FormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
+			this.NsIsOffPercent.Location = new System.Drawing.Point(109, 145);
+			this.NsIsOffPercent.MS_BorderColor = System.Drawing.Color.Empty;
+			this.NsIsOffPercent.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsIsOffPercent.MS_Change_Border_Color_On_Enter = true;
+			this.NsIsOffPercent.MS_Change_Color_On_Checked = true;
+			this.NsIsOffPercent.MS_Change_Color_On_Enter = true;
+			this.NsIsOffPercent.MS_Checked_Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsIsOffPercent.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsIsOffPercent.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsIsOffPercent.MS_Exit_By_Down = true;
+			this.NsIsOffPercent.MS_Exit_By_Enter = true;
+			this.NsIsOffPercent.MS_Exit_By_Up = true;
+			this.NsIsOffPercent.MS_Last_Control = null;
+			this.NsIsOffPercent.MS_Next_Control = null;
+			this.NsIsOffPercent.MS_UnChecked_Color = System.Drawing.Color.Empty;
+			this.NsIsOffPercent.Name = "NsIsOffPercent";
+			this.NsIsOffPercent.ShowFocusRectangle = false;
+			this.NsIsOffPercent.Size = new System.Drawing.Size(55, 23);
+			this.NsIsOffPercent.TabIndex = 847;
+			this.NsIsOffPercent.TabStop = true;
+			this.NsIsOffPercent.Text = "درصد";
+			// 
+			// mS_Text_Simple4
+			// 
+			this.mS_Text_Simple4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.mS_Text_Simple4.BackColor = System.Drawing.Color.LimeGreen;
+			this.mS_Text_Simple4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.mS_Text_Simple4.Location = new System.Drawing.Point(170, 155);
+			this.mS_Text_Simple4.MS_BorderColor = System.Drawing.Color.Empty;
+			this.mS_Text_Simple4.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.None;
+			this.mS_Text_Simple4.MS_Change_Border_Color_On_Enter = false;
+			this.mS_Text_Simple4.MS_Change_Color_On_Enter = false;
+			this.mS_Text_Simple4.MS_Enter_Border_Color = System.Drawing.Color.Empty;
+			this.mS_Text_Simple4.MS_Enter_Color = System.Drawing.Color.Empty;
+			this.mS_Text_Simple4.MS_Exit_By_Down = false;
+			this.mS_Text_Simple4.MS_Exit_By_Enter = false;
+			this.mS_Text_Simple4.MS_Exit_By_Up = false;
+			this.mS_Text_Simple4.MS_Last_Control = null;
+			this.mS_Text_Simple4.MS_Next_Control = null;
+			this.mS_Text_Simple4.Multiline = true;
+			this.mS_Text_Simple4.Name = "mS_Text_Simple4";
+			this.mS_Text_Simple4.Size = new System.Drawing.Size(12, 2);
+			this.mS_Text_Simple4.TabIndex = 852;
 			// 
 			// NzOrderPoint
 			// 
 			this.NzOrderPoint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzOrderPoint.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzOrderPoint.DigitGroup = false;
-			this.NzOrderPoint.Location = new System.Drawing.Point(119, 144);
+			this.NzOrderPoint.Location = new System.Drawing.Point(143, 231);
 			this.NzOrderPoint.MaxLength = 4;
 			this.NzOrderPoint.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
 			this.NzOrderPoint.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -331,7 +551,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label11.AutoSize = true;
 			this.label11.BackColor = System.Drawing.Color.Transparent;
 			this.label11.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label11.Location = new System.Drawing.Point(191, 146);
+			this.label11.Location = new System.Drawing.Point(215, 233);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(85, 23);
 			this.label11.TabIndex = 845;
@@ -344,7 +564,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label19.BackColor = System.Drawing.Color.Transparent;
 			this.label19.Font = new System.Drawing.Font("IRANSans(Small) Light", 13F);
 			this.label19.ForeColor = System.Drawing.Color.Red;
-			this.label19.Location = new System.Drawing.Point(17, 113);
+			this.label19.Location = new System.Drawing.Point(41, 109);
 			this.label19.Name = "label19";
 			this.label19.Size = new System.Drawing.Size(35, 23);
 			this.label19.TabIndex = 834;
@@ -356,7 +576,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NzPrice.ButtonText = "000";
 			this.NzPrice.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzPrice.Font = new System.Drawing.Font("IRANSans(Small) Medium", 14F);
-			this.NzPrice.Location = new System.Drawing.Point(55, 109);
+			this.NzPrice.Location = new System.Drawing.Point(79, 105);
 			this.NzPrice.MaxLength = 0;
 			this.NzPrice.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
 			this.NzPrice.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -393,7 +613,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NzState.Items.AddRange(new Janus.Windows.EditControls.UIComboBoxItem[] {
             uiComboBoxItem1,
             uiComboBoxItem2});
-			this.NzState.Location = new System.Drawing.Point(75, 209);
+			this.NzState.Location = new System.Drawing.Point(99, 303);
 			this.NzState.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzState.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzState.MS_Change_Border_Color_On_Enter = true;
@@ -416,7 +636,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NzSubGroups.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.DownArrow;
 			this.NzSubGroups.DropSize = new System.Drawing.Size(229, 29);
 			this.NzSubGroups.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NzSubGroups.Location = new System.Drawing.Point(353, 113);
+			this.NzSubGroups.Location = new System.Drawing.Point(379, 109);
 			this.NzSubGroups.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.NzSubGroups.MS_Auto_Popup = false;
 			this.NzSubGroups.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -457,7 +677,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NzKind.Items.AddRange(new Janus.Windows.EditControls.UIComboBoxItem[] {
             uiComboBoxItem3,
             uiComboBoxItem4});
-			this.NzKind.Location = new System.Drawing.Point(89, 177);
+			this.NzKind.Location = new System.Drawing.Point(113, 267);
 			this.NzKind.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzKind.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzKind.MS_Change_Border_Color_On_Enter = true;
@@ -480,7 +700,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NzUnits.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.DownArrow;
 			this.NzUnits.DropSize = new System.Drawing.Size(156, 29);
 			this.NzUnits.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NzUnits.Location = new System.Drawing.Point(426, 214);
+			this.NzUnits.Location = new System.Drawing.Point(452, 232);
 			this.NzUnits.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.NzUnits.MS_Auto_Popup = false;
 			this.NzUnits.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -511,7 +731,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label2.AutoSize = true;
 			this.label2.BackColor = System.Drawing.Color.Transparent;
 			this.label2.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label2.Location = new System.Drawing.Point(583, 184);
+			this.label2.Location = new System.Drawing.Point(609, 195);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(46, 23);
 			this.label2.TabIndex = 161;
@@ -523,7 +743,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label16.AutoSize = true;
 			this.label16.BackColor = System.Drawing.Color.Transparent;
 			this.label16.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label16.Location = new System.Drawing.Point(191, 113);
+			this.label16.Location = new System.Drawing.Point(215, 109);
 			this.label16.Name = "label16";
 			this.label16.Size = new System.Drawing.Size(83, 23);
 			this.label16.TabIndex = 166;
@@ -535,7 +755,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label7.AutoSize = true;
 			this.label7.BackColor = System.Drawing.Color.Transparent;
 			this.label7.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label7.Location = new System.Drawing.Point(583, 250);
+			this.label7.Location = new System.Drawing.Point(609, 277);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(41, 23);
 			this.label7.TabIndex = 166;
@@ -547,7 +767,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label1.AutoSize = true;
 			this.label1.BackColor = System.Drawing.Color.Transparent;
 			this.label1.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label1.Location = new System.Drawing.Point(583, 151);
+			this.label1.Location = new System.Drawing.Point(609, 156);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(40, 23);
 			this.label1.TabIndex = 162;
@@ -559,7 +779,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label6.AutoSize = true;
 			this.label6.BackColor = System.Drawing.Color.Transparent;
 			this.label6.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label6.Location = new System.Drawing.Point(191, 211);
+			this.label6.Location = new System.Drawing.Point(215, 305);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(59, 23);
 			this.label6.TabIndex = 165;
@@ -569,7 +789,7 @@ namespace Nz.Anbar.WinForms.Base
 			// 
 			this.NzTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzTitle.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzTitle.Location = new System.Drawing.Point(322, 182);
+			this.NzTitle.Location = new System.Drawing.Point(348, 193);
 			this.NzTitle.MaxLength = 200;
 			this.NzTitle.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzTitle.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -592,7 +812,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label5.AutoSize = true;
 			this.label5.BackColor = System.Drawing.Color.Transparent;
 			this.label5.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label5.Location = new System.Drawing.Point(191, 179);
+			this.label5.Location = new System.Drawing.Point(215, 269);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(54, 23);
 			this.label5.TabIndex = 165;
@@ -603,7 +823,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NzBarCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzBarCode.BackColor = System.Drawing.Color.White;
 			this.NzBarCode.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzBarCode.Location = new System.Drawing.Point(390, 248);
+			this.NzBarCode.Location = new System.Drawing.Point(416, 275);
 			this.NzBarCode.MaxLength = 200;
 			this.NzBarCode.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzBarCode.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -626,7 +846,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label4.AutoSize = true;
 			this.label4.BackColor = System.Drawing.Color.Transparent;
 			this.label4.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label4.Location = new System.Drawing.Point(583, 217);
+			this.label4.Location = new System.Drawing.Point(609, 235);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(86, 23);
 			this.label4.TabIndex = 164;
@@ -640,7 +860,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NzCode.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzCode.DigitGroup = false;
 			this.NzCode.Font = new System.Drawing.Font("IRANSans(Small) Medium", 14F);
-			this.NzCode.Location = new System.Drawing.Point(455, 147);
+			this.NzCode.Location = new System.Drawing.Point(481, 152);
 			this.NzCode.MaxLength = 4;
 			this.NzCode.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
 			this.NzCode.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -668,7 +888,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label3.AutoSize = true;
 			this.label3.BackColor = System.Drawing.Color.Transparent;
 			this.label3.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label3.Location = new System.Drawing.Point(583, 116);
+			this.label3.Location = new System.Drawing.Point(609, 112);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(68, 23);
 			this.label3.TabIndex = 163;
@@ -681,7 +901,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label23.BackColor = System.Drawing.Color.Transparent;
 			this.label23.Font = new System.Drawing.Font("IRANSans(Small) Light", 13F);
 			this.label23.ForeColor = System.Drawing.Color.Red;
-			this.label23.Location = new System.Drawing.Point(390, 217);
+			this.label23.Location = new System.Drawing.Point(413, 235);
 			this.label23.Name = "label23";
 			this.label23.Size = new System.Drawing.Size(37, 23);
 			this.label23.TabIndex = 843;
@@ -731,7 +951,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.uiTabPage2.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.uiTabPage2.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.uiTabPage2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage2.Size = new System.Drawing.Size(696, 441);
+			this.uiTabPage2.Size = new System.Drawing.Size(698, 441);
 			this.uiTabPage2.TabStop = true;
 			this.uiTabPage2.Text = "اطلاعات تکمیلی";
 			// 
@@ -751,7 +971,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.uiGroupBox1.Location = new System.Drawing.Point(376, 289);
 			this.uiGroupBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.uiGroupBox1.Name = "uiGroupBox1";
-			this.uiGroupBox1.Size = new System.Drawing.Size(311, 143);
+			this.uiGroupBox1.Size = new System.Drawing.Size(313, 143);
 			this.uiGroupBox1.TabIndex = 856;
 			this.uiGroupBox1.Text = " وب سایت (ورد پرس)";
 			// 
@@ -762,7 +982,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NsWebsiteProductID2.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NsWebsiteProductID2.DigitGroup = false;
 			this.NsWebsiteProductID2.Font = new System.Drawing.Font("IRANSans(Small) Medium", 14F);
-			this.NsWebsiteProductID2.Location = new System.Drawing.Point(96, 104);
+			this.NsWebsiteProductID2.Location = new System.Drawing.Point(98, 104);
 			this.NsWebsiteProductID2.MaxLength = 0;
 			this.NsWebsiteProductID2.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
 			this.NsWebsiteProductID2.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -789,7 +1009,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label28.AutoSize = true;
 			this.label28.BackColor = System.Drawing.Color.Transparent;
 			this.label28.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label28.Location = new System.Drawing.Point(232, 104);
+			this.label28.Location = new System.Drawing.Point(234, 104);
 			this.label28.Name = "label28";
 			this.label28.Size = new System.Drawing.Size(60, 23);
 			this.label28.TabIndex = 837;
@@ -802,7 +1022,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NsWebsiteProductID1.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NsWebsiteProductID1.DigitGroup = false;
 			this.NsWebsiteProductID1.Font = new System.Drawing.Font("IRANSans(Small) Medium", 14F);
-			this.NsWebsiteProductID1.Location = new System.Drawing.Point(96, 68);
+			this.NsWebsiteProductID1.Location = new System.Drawing.Point(98, 68);
 			this.NsWebsiteProductID1.MaxLength = 0;
 			this.NsWebsiteProductID1.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
 			this.NsWebsiteProductID1.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -829,7 +1049,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label29.AutoSize = true;
 			this.label29.BackColor = System.Drawing.Color.Transparent;
 			this.label29.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label29.Location = new System.Drawing.Point(232, 70);
+			this.label29.Location = new System.Drawing.Point(234, 70);
 			this.label29.Name = "label29";
 			this.label29.Size = new System.Drawing.Size(58, 23);
 			this.label29.TabIndex = 836;
@@ -863,7 +1083,7 @@ namespace Nz.Anbar.WinForms.Base
             uiComboBoxItem6,
             uiComboBoxItem7,
             uiComboBoxItem8});
-			this.NsWebsiteKind.Location = new System.Drawing.Point(75, 35);
+			this.NsWebsiteKind.Location = new System.Drawing.Point(77, 35);
 			this.NsWebsiteKind.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NsWebsiteKind.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsWebsiteKind.MS_Change_Border_Color_On_Enter = true;
@@ -886,7 +1106,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label27.AutoSize = true;
 			this.label27.BackColor = System.Drawing.Color.Transparent;
 			this.label27.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label27.Location = new System.Drawing.Point(232, 38);
+			this.label27.Location = new System.Drawing.Point(234, 38);
 			this.label27.Name = "label27";
 			this.label27.Size = new System.Drawing.Size(81, 23);
 			this.label27.TabIndex = 820;
@@ -898,7 +1118,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NzBasteBandi.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.DownArrow;
 			this.NzBasteBandi.DropSize = new System.Drawing.Size(156, 29);
 			this.NzBasteBandi.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NzBasteBandi.Location = new System.Drawing.Point(451, 255);
+			this.NzBasteBandi.Location = new System.Drawing.Point(453, 255);
 			this.NzBasteBandi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.NzBasteBandi.MS_Auto_Popup = false;
 			this.NzBasteBandi.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -928,7 +1148,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label22.AutoSize = true;
 			this.label22.BackColor = System.Drawing.Color.Transparent;
 			this.label22.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label22.Location = new System.Drawing.Point(608, 259);
+			this.label22.Location = new System.Drawing.Point(610, 259);
 			this.label22.Name = "label22";
 			this.label22.Size = new System.Drawing.Size(72, 23);
 			this.label22.TabIndex = 855;
@@ -940,7 +1160,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NzBrand.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.DownArrow;
 			this.NzBrand.DropSize = new System.Drawing.Size(192, 29);
 			this.NzBrand.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NzBrand.Location = new System.Drawing.Point(415, 221);
+			this.NzBrand.Location = new System.Drawing.Point(417, 221);
 			this.NzBrand.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.NzBrand.MS_Auto_Popup = false;
 			this.NzBrand.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -970,7 +1190,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label21.AutoSize = true;
 			this.label21.BackColor = System.Drawing.Color.Transparent;
 			this.label21.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label21.Location = new System.Drawing.Point(608, 224);
+			this.label21.Location = new System.Drawing.Point(610, 224);
 			this.label21.Name = "label21";
 			this.label21.Size = new System.Drawing.Size(48, 23);
 			this.label21.TabIndex = 854;
@@ -980,7 +1200,7 @@ namespace Nz.Anbar.WinForms.Base
 			// 
 			this.NzSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzSize.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzSize.Location = new System.Drawing.Point(472, 44);
+			this.NzSize.Location = new System.Drawing.Point(474, 44);
 			this.NzSize.MaxLength = 0;
 			this.NzSize.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzSize.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -1004,7 +1224,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label17.AutoSize = true;
 			this.label17.BackColor = System.Drawing.Color.Transparent;
 			this.label17.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label17.Location = new System.Drawing.Point(608, 46);
+			this.label17.Location = new System.Drawing.Point(610, 46);
 			this.label17.Name = "label17";
 			this.label17.Size = new System.Drawing.Size(44, 23);
 			this.label17.TabIndex = 851;
@@ -1016,7 +1236,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.Nz_Zarib.ButtonText = "000";
 			this.Nz_Zarib.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.Nz_Zarib.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.Nz_Zarib.Location = new System.Drawing.Point(321, 8);
+			this.Nz_Zarib.Location = new System.Drawing.Point(323, 8);
 			this.Nz_Zarib.MaxLength = 0;
 			this.Nz_Zarib.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.Nz_Zarib.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -1043,7 +1263,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label26.AutoSize = true;
 			this.label26.BackColor = System.Drawing.Color.Transparent;
 			this.label26.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label26.Location = new System.Drawing.Point(376, 10);
+			this.label26.Location = new System.Drawing.Point(378, 10);
 			this.label26.Name = "label26";
 			this.label26.Size = new System.Drawing.Size(84, 23);
 			this.label26.TabIndex = 847;
@@ -1055,7 +1275,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.nzUnit_2.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.DownArrow;
 			this.nzUnit_2.DropSize = new System.Drawing.Size(135, 29);
 			this.nzUnit_2.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.nzUnit_2.Location = new System.Drawing.Point(472, 8);
+			this.nzUnit_2.Location = new System.Drawing.Point(474, 8);
 			this.nzUnit_2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.nzUnit_2.MS_Auto_Popup = false;
 			this.nzUnit_2.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -1086,7 +1306,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label24.AutoSize = true;
 			this.label24.BackColor = System.Drawing.Color.Transparent;
 			this.label24.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label24.Location = new System.Drawing.Point(608, 6);
+			this.label24.Location = new System.Drawing.Point(610, 6);
 			this.label24.Name = "label24";
 			this.label24.Size = new System.Drawing.Size(86, 23);
 			this.label24.TabIndex = 845;
@@ -1099,7 +1319,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label25.BackColor = System.Drawing.Color.Transparent;
 			this.label25.Font = new System.Drawing.Font("IRANSans(Small) Light", 13F);
 			this.label25.ForeColor = System.Drawing.Color.Red;
-			this.label25.Location = new System.Drawing.Point(635, 22);
+			this.label25.Location = new System.Drawing.Point(637, 22);
 			this.label25.Name = "label25";
 			this.label25.Size = new System.Drawing.Size(39, 23);
 			this.label25.TabIndex = 846;
@@ -1117,7 +1337,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NzColor.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzColor.FlatBorderColor = System.Drawing.SystemColors.InactiveCaptionText;
 			this.NzColor.Font = new System.Drawing.Font("IRANSans(Small) Medium", 10F);
-			this.NzColor.Location = new System.Drawing.Point(79, 148);
+			this.NzColor.Location = new System.Drawing.Point(81, 148);
 			this.NzColor.MaxLength = 200;
 			this.NzColor.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzColor.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -1144,7 +1364,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label18.AutoSize = true;
 			this.label18.BackColor = System.Drawing.Color.Transparent;
 			this.label18.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label18.Location = new System.Drawing.Point(181, 149);
+			this.label18.Location = new System.Drawing.Point(183, 149);
 			this.label18.Name = "label18";
 			this.label18.Size = new System.Drawing.Size(39, 23);
 			this.label18.TabIndex = 839;
@@ -1156,7 +1376,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label20.AutoSize = true;
 			this.label20.BackColor = System.Drawing.Color.Transparent;
 			this.label20.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label20.Location = new System.Drawing.Point(181, 117);
+			this.label20.Location = new System.Drawing.Point(183, 117);
 			this.label20.Name = "label20";
 			this.label20.Size = new System.Drawing.Size(42, 23);
 			this.label20.TabIndex = 841;
@@ -1188,7 +1408,7 @@ namespace Nz.Anbar.WinForms.Base
             uiComboBoxItem11,
             uiComboBoxItem12,
             uiComboBoxItem13});
-			this.NzSeason.Location = new System.Drawing.Point(79, 115);
+			this.NzSeason.Location = new System.Drawing.Point(81, 115);
 			this.NzSeason.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzSeason.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzSeason.MS_Change_Border_Color_On_Enter = true;
@@ -1209,7 +1429,7 @@ namespace Nz.Anbar.WinForms.Base
 			// 
 			this.NzGender.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzGender.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzGender.Location = new System.Drawing.Point(472, 187);
+			this.NzGender.Location = new System.Drawing.Point(474, 187);
 			this.NzGender.MaxLength = 150;
 			this.NzGender.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzGender.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -1232,7 +1452,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label15.AutoSize = true;
 			this.label15.BackColor = System.Drawing.Color.Transparent;
 			this.label15.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label15.Location = new System.Drawing.Point(608, 187);
+			this.label15.Location = new System.Drawing.Point(610, 187);
 			this.label15.Name = "label15";
 			this.label15.Size = new System.Drawing.Size(47, 23);
 			this.label15.TabIndex = 833;
@@ -1245,7 +1465,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NzHeight.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzHeight.DigitGroup = false;
 			this.NzHeight.Font = new System.Drawing.Font("IRANSans(Small) Medium", 14F);
-			this.NzHeight.Location = new System.Drawing.Point(472, 151);
+			this.NzHeight.Location = new System.Drawing.Point(474, 151);
 			this.NzHeight.MaxLength = 0;
 			this.NzHeight.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
 			this.NzHeight.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -1273,7 +1493,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NzWidth.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzWidth.DigitGroup = false;
 			this.NzWidth.Font = new System.Drawing.Font("IRANSans(Small) Medium", 14F);
-			this.NzWidth.Location = new System.Drawing.Point(472, 115);
+			this.NzWidth.Location = new System.Drawing.Point(474, 115);
 			this.NzWidth.MaxLength = 0;
 			this.NzWidth.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
 			this.NzWidth.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -1301,7 +1521,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NzLength.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzLength.DigitGroup = false;
 			this.NzLength.Font = new System.Drawing.Font("IRANSans(Small) Medium", 14F);
-			this.NzLength.Location = new System.Drawing.Point(472, 79);
+			this.NzLength.Location = new System.Drawing.Point(474, 79);
 			this.NzLength.MaxLength = 0;
 			this.NzLength.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
 			this.NzLength.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -1328,7 +1548,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label14.AutoSize = true;
 			this.label14.BackColor = System.Drawing.Color.Transparent;
 			this.label14.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label14.Location = new System.Drawing.Point(608, 153);
+			this.label14.Location = new System.Drawing.Point(610, 153);
 			this.label14.Name = "label14";
 			this.label14.Size = new System.Drawing.Size(48, 23);
 			this.label14.TabIndex = 831;
@@ -1340,7 +1560,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label13.AutoSize = true;
 			this.label13.BackColor = System.Drawing.Color.Transparent;
 			this.label13.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label13.Location = new System.Drawing.Point(608, 119);
+			this.label13.Location = new System.Drawing.Point(610, 119);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(45, 23);
 			this.label13.TabIndex = 830;
@@ -1352,7 +1572,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label12.AutoSize = true;
 			this.label12.BackColor = System.Drawing.Color.Transparent;
 			this.label12.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label12.Location = new System.Drawing.Point(608, 85);
+			this.label12.Location = new System.Drawing.Point(610, 85);
 			this.label12.Name = "label12";
 			this.label12.Size = new System.Drawing.Size(40, 23);
 			this.label12.TabIndex = 830;
@@ -1362,7 +1582,7 @@ namespace Nz.Anbar.WinForms.Base
 			// 
 			this.NzTechNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzTechNumber.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzTechNumber.Location = new System.Drawing.Point(24, 79);
+			this.NzTechNumber.Location = new System.Drawing.Point(26, 79);
 			this.NzTechNumber.MaxLength = 200;
 			this.NzTechNumber.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzTechNumber.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -1386,7 +1606,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.ms_Delete_Pic.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.ms_Delete_Pic.Image = ((System.Drawing.Image)(resources.GetObject("ms_Delete_Pic.Image")));
 			this.ms_Delete_Pic.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Center;
-			this.ms_Delete_Pic.Location = new System.Drawing.Point(187, 327);
+			this.ms_Delete_Pic.Location = new System.Drawing.Point(189, 327);
 			this.ms_Delete_Pic.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.ms_Delete_Pic.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.ms_Delete_Pic.MS_Change_Border_Color_On_Enter = false;
@@ -1413,7 +1633,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NzPic.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.NzPic.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.NzPic.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzPic.Location = new System.Drawing.Point(10, 187);
+			this.NzPic.Location = new System.Drawing.Point(12, 187);
 			this.NzPic.Margin = new System.Windows.Forms.Padding(4);
 			this.NzPic.Name = "NzPic";
 			this.NzPic.Size = new System.Drawing.Size(170, 163);
@@ -1428,7 +1648,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.ms_Open_Pic.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.ms_Open_Pic.Image = ((System.Drawing.Image)(resources.GetObject("ms_Open_Pic.Image")));
 			this.ms_Open_Pic.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Center;
-			this.ms_Open_Pic.Location = new System.Drawing.Point(187, 299);
+			this.ms_Open_Pic.Location = new System.Drawing.Point(189, 299);
 			this.ms_Open_Pic.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.ms_Open_Pic.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.ms_Open_Pic.MS_Change_Border_Color_On_Enter = false;
@@ -1453,7 +1673,7 @@ namespace Nz.Anbar.WinForms.Base
 			// 
 			this.NzContryMade.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzContryMade.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzContryMade.Location = new System.Drawing.Point(24, 14);
+			this.NzContryMade.Location = new System.Drawing.Point(26, 14);
 			this.NzContryMade.MaxLength = 200;
 			this.NzContryMade.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzContryMade.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -1474,7 +1694,7 @@ namespace Nz.Anbar.WinForms.Base
 			// 
 			this.NzTechName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzTechName.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzTechName.Location = new System.Drawing.Point(24, 46);
+			this.NzTechName.Location = new System.Drawing.Point(26, 46);
 			this.NzTechName.MaxLength = 200;
 			this.NzTechName.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzTechName.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -1497,7 +1717,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label8.AutoSize = true;
 			this.label8.BackColor = System.Drawing.Color.Transparent;
 			this.label8.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label8.Location = new System.Drawing.Point(181, 83);
+			this.label8.Location = new System.Drawing.Point(183, 83);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(69, 23);
 			this.label8.TabIndex = 829;
@@ -1509,7 +1729,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label9.AutoSize = true;
 			this.label9.BackColor = System.Drawing.Color.Transparent;
 			this.label9.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label9.Location = new System.Drawing.Point(181, 52);
+			this.label9.Location = new System.Drawing.Point(183, 52);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(55, 23);
 			this.label9.TabIndex = 823;
@@ -1521,7 +1741,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.label10.AutoSize = true;
 			this.label10.BackColor = System.Drawing.Color.Transparent;
 			this.label10.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.label10.Location = new System.Drawing.Point(181, 17);
+			this.label10.Location = new System.Drawing.Point(183, 17);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(81, 23);
 			this.label10.TabIndex = 824;
@@ -1533,7 +1753,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.Nz_Translate.BackColor = System.Drawing.Color.Transparent;
 			this.Nz_Translate.Font = new System.Drawing.Font("IRANSans(Small) Light", 13F);
 			this.Nz_Translate.ForeColor = System.Drawing.Color.Green;
-			this.Nz_Translate.Location = new System.Drawing.Point(257, 33);
+			this.Nz_Translate.Location = new System.Drawing.Point(259, 33);
 			this.Nz_Translate.Name = "Nz_Translate";
 			this.Nz_Translate.Size = new System.Drawing.Size(200, 38);
 			this.Nz_Translate.TabIndex = 849;
@@ -1557,7 +1777,7 @@ namespace Nz.Anbar.WinForms.Base
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(733, 526);
+			this.ClientSize = new System.Drawing.Size(735, 526);
 			this.Controls.Add(this.Panel_Foother);
 			this.Controls.Add(this.Tab_Control_Main);
 			this.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
@@ -1658,5 +1878,13 @@ namespace Nz.Anbar.WinForms.Base
 		private MS_Control.Controls.MS_ComboBox_Janus NsWebsiteKind;
 		private System.Windows.Forms.Label label27;
 		private MS_Control.Controls.MS_NumericTextBox NsWebsiteProductID2;
-	}
+        private MS_Control.Controls.MS_RadioBox NsIsOffAmount;
+        private MS_Control.Controls.MS_Text_Simple mS_Text_Simple1;
+        private MS_Control.Controls.MS_Text_Simple mS_Text_Simple3;
+        private MS_Control.Controls.MS_Text_Simple mS_Text_Simple2;
+        private MS_Control.Controls.MS_RadioBox NsIsOffPercent;
+        private MS_Control.Controls.MS_Text_Simple mS_Text_Simple4;
+        private MS_Control.Controls.MS_NumericTextBox NsOffAmount;
+        private MS_Control.Controls.MS_CheckBox NsIsOffActive;
+    }
 }

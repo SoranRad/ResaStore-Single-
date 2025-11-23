@@ -185,6 +185,10 @@
     <Compile Include="Migrations\202510091348300_change-website-kind.Designer.cs">
       <DependentUpon>202510091348300_change-website-kind.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202511220729523_modify-factor-object.cs" />
+    <Compile Include="Migrations\202511220729523_modify-factor-object.Designer.cs">
+      <DependentUpon>202511220729523_modify-factor-object.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repo\FactorRepository.cs" />
@@ -208,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202510091348300_change-website-kind.resx">
       <DependentUpon>202510091348300_change-website-kind.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202511220729523_modify-factor-object.resx">
+      <DependentUpon>202511220729523_modify-factor-object.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -245,6 +245,7 @@ namespace Nz.Anbar.WinForms.App
                     || !string.IsNullOrWhiteSpace(NsMobileGirande.Text)
                     || !string.IsNullOrWhiteSpace(NsTitleGirande.Text)
                     || NsSendToGirande.Checked
+                    || NsMohlatTasvieh.MS_Tarikh.HasValue
 	                || _Factor.ID > 0
                     
                 )
@@ -281,6 +282,11 @@ namespace Nz.Anbar.WinForms.App
 		                _Factor.FactorDetail.MobileGirande = NsMobileGirande.Text;
 
 	                _Factor.FactorDetail.Sent = NsSendToGirande.Checked;
+
+                     if (NsMohlatTasvieh.MS_Tarikh.HasValue)
+                        _Factor.FactorDetail.tarikh_etebar = NsMohlatTasvieh.MS_Tarikh.Value.ToDatetime().Date;
+                    else
+                        _Factor.FactorDetail.tarikh_etebar = null;
 
 	                if (_Factor.ID > 0)
 	                {

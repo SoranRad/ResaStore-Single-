@@ -11,7 +11,7 @@ namespace ShareLib.Utils
     public static class ConnectionManager
     {
         #region Fields
-        public static string ConStr = "";
+        public static string ConStr = "Server=.\\sqlentr;Database=Nz_ResaaStore;User Id=sa;Password=123456;Trusted_Connection=True;MultipleActiveResultSets=true;";
         #endregion
         #region Methods
         public static DbConnection  Create() => new SqlConnection(ConStr);
