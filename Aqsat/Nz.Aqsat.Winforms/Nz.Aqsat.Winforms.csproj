@@ -230,11 +230,11 @@
       <Link>GlobalResources.resx</Link>
     </None>-->
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Provider\BarMenuItems.cs">
+    <Compile Include="Provider\AqsatMenuItems.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Provider\BarMenuItems.Designer.cs">
-      <DependentUpon>BarMenuItems.cs</DependentUpon>
+    <Compile Include="Provider\AqsatMenuItems.Designer.cs">
+      <DependentUpon>AqsatMenuItems.cs</DependentUpon>
     </Compile>
     <Compile Include="Provider\AqsatProvider.cs" />
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -248,8 +248,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Provider\BarMenuItems.resx">
-      <DependentUpon>BarMenuItems.cs</DependentUpon>
+    <EmbeddedResource Include="Provider\AqsatMenuItems.resx">
+      <DependentUpon>AqsatMenuItems.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

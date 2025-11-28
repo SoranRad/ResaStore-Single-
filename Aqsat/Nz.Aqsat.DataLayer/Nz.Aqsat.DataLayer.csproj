@@ -86,6 +86,10 @@
     <Compile Include="Migrations\202508180723424_InitialCreate.Designer.cs">
       <DependentUpon>202508180723424_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202511281619385_remove-code-from-aqsat-kind.cs" />
+    <Compile Include="Migrations\202511281619385_remove-code-from-aqsat-kind.Designer.cs">
+      <DependentUpon>202511281619385_remove-code-from-aqsat-kind.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repo\AqsatRepository.cs" />
@@ -111,6 +115,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202508180723424_InitialCreate.resx">
       <DependentUpon>202508180723424_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202511281619385_remove-code-from-aqsat-kind.resx">
+      <DependentUpon>202511281619385_remove-code-from-aqsat-kind.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

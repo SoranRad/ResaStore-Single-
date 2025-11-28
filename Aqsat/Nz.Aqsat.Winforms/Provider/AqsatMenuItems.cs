@@ -11,9 +11,9 @@ using Nz.Aqsat.Winforms.App;
 
 namespace Nz.Bar.Winforms.Provider
 {
-    public partial class BarMenuItems : UserControl
+    public partial class AqsatMenuItems : UserControl
     {
-        public BarMenuItems()
+        public AqsatMenuItems()
         {
             InitializeComponent();
         }
@@ -23,10 +23,12 @@ namespace Nz.Bar.Winforms.Provider
             //ms_Storage.Visible     = false;
         }
 
-		private void تعریفانواعقسطToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			var frm = new FormAqsatKind();
-			frm.Show(AqsatProvider.MainForm);
+
+        private void تعریفانواعقسطToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+	        var frm = new FormAqsatKind();
+			frm.MdiParent = AqsatProvider.MainForm;
+			frm.Show();
 		}
-	}
+    }
 }

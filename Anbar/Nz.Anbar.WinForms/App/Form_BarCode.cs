@@ -247,7 +247,7 @@ namespace Nz.Anbar.WinForms.App
 
 
             GetMaxSerial                ();
-            LoadSettings();
+            //LoadSettings();
 
             _ID                         = 0;
             _Factor                     = new FactorHead();
@@ -263,9 +263,7 @@ namespace Nz.Anbar.WinForms.App
 
             nzBarcodeReader1.Focus();
             NzDescription.Text = "";
-            //if (_PaymentControl is IPaymentCommand pay)
-            //    pay.ResetPay();
-
+          
             _DoRefresh                  = true;
         }
         private void ShowMenu                       ()
@@ -622,9 +620,20 @@ namespace Nz.Anbar.WinForms.App
             }
 
         }
-        #endregion
-        #region Grid Events
-        private void ms_grid_EditModeChanged        (object sender, EventArgs e)
+		private void CheckForItemExist()
+		{
+			if (!_Factor.FactorItems.Any() && _Factor.ID>0)
+			{
+                var customer = NzCustomer.MS_Get_Selected() as People;
+				_Manager.Delete(_Factor.ID);
+                Reset();
+                NzCustomer.MS_Set_Select(customer);
+			}
+		}
+
+		#endregion
+		#region Grid Events
+		private void ms_grid_EditModeChanged        (object sender, EventArgs e)
         {
             try
             {
@@ -801,6 +810,7 @@ namespace Nz.Anbar.WinForms.App
                     _DoRefresh = false;
                     RefreshFactorSum();
                     Save();
+                    CheckForItemExist();
                     _DoRefresh = true;
                 }
                 else if (e.Column.Key == "E")
@@ -815,6 +825,8 @@ namespace Nz.Anbar.WinForms.App
                 log.Error(ex);
             }
         }
+
+      
         private void ms_grid_CellUpdated            (object sender, ColumnActionEventArgs e)
         {
             try
@@ -1440,7 +1452,7 @@ namespace Nz.Anbar.WinForms.App
         private void NzNew_Click                        (object sender, EventArgs e)
         {
             Reset();
-            
+            LoadSettings();
         }
         private void NzNewWindows_Click                 (object sender, EventArgs e)
         {

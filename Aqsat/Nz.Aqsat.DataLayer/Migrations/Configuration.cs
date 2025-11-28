@@ -12,8 +12,8 @@ namespace Nz.Aqsat.DataLayer.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationDataLossAllowed = false;
             //SetHistoryContextFactory();
             ContextKey = nameof(AqsatContext);
         }

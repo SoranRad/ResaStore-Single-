@@ -32,7 +32,7 @@ namespace Nz.Bar.Winforms.Provider
         #endregion
         #region Fields
         public static Form                      MainForm;
-        private BarMenuItems                    Menues;
+        private AqsatMenuItems                    Menues;
         private TabSettingContainer             _settingContainer;
         private ISettingItems                   _settings;
         #endregion
@@ -42,7 +42,7 @@ namespace Nz.Bar.Winforms.Provider
 
         public AqsatProvider()
         {
-            Menues = new BarMenuItems();
+            Menues = new AqsatMenuItems();
             _settingContainer = new TabSettingContainer();
 
         }

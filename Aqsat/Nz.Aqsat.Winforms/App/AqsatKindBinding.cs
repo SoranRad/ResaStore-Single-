@@ -138,11 +138,11 @@ namespace Nz.Aqsat.Winforms.App
         }
         public void         RemoveIndex     (PropertyDescriptor property)
         {
-            throw new NotImplementedException();
+          
         }
         public void         RemoveSort      ()
         {
-            throw new NotImplementedException();
+            
         }
         public IEnumerator  GetEnumerator   ()
         {

@@ -9,8 +9,8 @@
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled  = true;
-            AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationsEnabled  = false;
+            AutomaticMigrationDataLossAllowed = false;
 
             ContextKey = nameof(GeneralContext);
         }
