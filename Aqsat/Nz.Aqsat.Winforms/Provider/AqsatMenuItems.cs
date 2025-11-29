@@ -30,5 +30,11 @@ namespace Nz.Bar.Winforms.Provider
 			frm.MdiParent = AqsatProvider.MainForm;
 			frm.Show();
 		}
+
+        private void NsCreateAqsat_Click(object sender, EventArgs e)
+        {
+	        var frm = new Form_Aqsat_Jadid();
+	        frm.Show();
+		}
     }
 }

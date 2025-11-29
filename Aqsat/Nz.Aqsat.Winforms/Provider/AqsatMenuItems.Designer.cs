@@ -35,7 +35,7 @@ namespace Nz.Bar.Winforms.Provider
 			this.StorageMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.تعریفانواعقسطToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.ایجادقسطجدیدToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsCreateAqsat = new System.Windows.Forms.ToolStripMenuItem();
 			this.لیستاقساطToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.NzReport = new System.Windows.Forms.ToolStripMenuItem();
 			this.داشبوردماهانهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,7 +79,7 @@ namespace Nz.Bar.Winforms.Provider
 			this.StorageMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.تعریفانواعقسطToolStripMenuItem,
             this.toolStripSeparator2,
-            this.ایجادقسطجدیدToolStripMenuItem,
+            this.NsCreateAqsat,
             this.لیستاقساطToolStripMenuItem});
 			this.StorageMenu.Font = new System.Drawing.Font("IRANSans(Small) Medium", 15F);
 			this.StorageMenu.Image = ((System.Drawing.Image)(resources.GetObject("StorageMenu.Image")));
@@ -100,11 +100,12 @@ namespace Nz.Bar.Winforms.Provider
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
 			this.toolStripSeparator2.Size = new System.Drawing.Size(182, 6);
 			// 
-			// ایجادقسطجدیدToolStripMenuItem
+			// NsCreateAqsat
 			// 
-			this.ایجادقسطجدیدToolStripMenuItem.Name = "ایجادقسطجدیدToolStripMenuItem";
-			this.ایجادقسطجدیدToolStripMenuItem.Size = new System.Drawing.Size(185, 30);
-			this.ایجادقسطجدیدToolStripMenuItem.Text = "ایجاد قسط جدید";
+			this.NsCreateAqsat.Name = "NsCreateAqsat";
+			this.NsCreateAqsat.Size = new System.Drawing.Size(185, 30);
+			this.NsCreateAqsat.Text = "ایجاد قسط جدید";
+			this.NsCreateAqsat.Click += new System.EventHandler(this.NsCreateAqsat_Click);
 			// 
 			// لیستاقساطToolStripMenuItem
 			// 
@@ -161,7 +162,7 @@ namespace Nz.Bar.Winforms.Provider
         public System.Windows.Forms.ToolStripMenuItem ms_baseinfo;
         public System.Windows.Forms.ToolStripMenuItem StorageMenu;
         public System.Windows.Forms.ToolStripMenuItem NzReport;
-		private System.Windows.Forms.ToolStripMenuItem ایجادقسطجدیدToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem NsCreateAqsat;
 		private System.Windows.Forms.ToolStripMenuItem لیستاقساطToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem داشبوردماهانهToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;

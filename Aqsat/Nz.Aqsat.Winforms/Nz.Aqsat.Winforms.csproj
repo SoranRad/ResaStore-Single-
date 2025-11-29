@@ -201,6 +201,12 @@
     <Compile Include="App\FormAqsatKind.Designer.cs">
       <DependentUpon>FormAqsatKind.cs</DependentUpon>
     </Compile>
+    <Compile Include="App\Form_Aqsat_Jadid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\Form_Aqsat_Jadid.Designer.cs">
+      <DependentUpon>Form_Aqsat_Jadid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings\SettingItems.cs" />
     <Compile Include="Settings\TabSettingContainer.cs">
       <SubType>UserControl</SubType>
@@ -210,6 +216,9 @@
     </Compile>
     <EmbeddedResource Include="App\FormAqsatKind.resx">
       <DependentUpon>FormAqsatKind.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\Form_Aqsat_Jadid.resx">
+      <DependentUpon>Form_Aqsat_Jadid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\TabSettingContainer.resx">
       <DependentUpon>TabSettingContainer.cs</DependentUpon>
