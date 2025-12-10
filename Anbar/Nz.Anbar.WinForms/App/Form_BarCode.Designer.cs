@@ -39,17 +39,15 @@
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.HeaderImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_0_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_0_Reference_3 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.HeaderImage");
+			Janus.Windows.GridEX.GridEXLayout NsGridFavorites_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
+			Janus.Windows.Common.Layouts.JanusLayoutReference NsGridFavorites_DesignTimeLayout_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.ButtonImage");
 			Janus.Windows.GridEX.GridEXLayout NzPrefactorGrid_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzPrefactorGrid_DesignTimeLayout_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.ButtonImage");
 			Janus.Windows.GridEX.GridEXLayout NzGroupKala_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGroupKala_DesignTimeLayout_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.ButtonImage");
-			Janus.Windows.GridEX.GridEXLayout NsGridFavorites_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
-			Janus.Windows.Common.Layouts.JanusLayoutReference NsGridFavorites_DesignTimeLayout_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.ButtonImage");
 			this.uiTab1 = new Janus.Windows.UI.Tab.UITab();
-			this.uiTabPage1 = new Janus.Windows.UI.Tab.UITabPage();
 			this.Splitter1 = new DevComponents.DotNetBar.ExpandableSplitter();
 			this.uiTab2 = new Janus.Windows.UI.Tab.UITab();
-			this.uiTabPage5 = new Janus.Windows.UI.Tab.UITabPage();
 			this.NzDescription = new MS_Control.Controls.MS_TextBox();
 			this.label37 = new System.Windows.Forms.Label();
 			this.uiGroupBox2 = new Janus.Windows.EditControls.UIGroupBox();
@@ -70,39 +68,27 @@
 			this.NzDate = new MS_Control.Tarikh.MS_Tarikh_TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.uiGroupBox5 = new Janus.Windows.EditControls.UIGroupBox();
-			this.NzCustomerRemain = new NZ.General.WinForms.Component.NzRemainCustomer();
-			this.NzCustomer = new NZ.General.WinForms.Component.NzPeople();
 			this.label19 = new System.Windows.Forms.Label();
 			this.NzGrid = new MS_Control.Controls.MS_GridX();
 			this.uiGroupBox6 = new Janus.Windows.EditControls.UIGroupBox();
 			this.NzFactorKinds = new Janus.Windows.UI.Tab.UITab();
-			this.uiTabPage2 = new Janus.Windows.UI.Tab.UITabPage();
-			this.NzTabPurchaseBack = new Janus.Windows.UI.Tab.UITabPage();
+			this.NsGridFavorites = new MS_Control.Controls.MS_GridX();
 			this.NzPrefactorGrid = new MS_Control.Controls.MS_GridX();
-			this.NsGroupKala = new Janus.Windows.UI.Tab.UITabPage();
 			this.NzGroupKala = new MS_Control.Controls.MS_GridX();
-			this.SubGroupsPanel = new Nz.Anbar.WinForms.Component.GroupKalaFlayoutPanel();
-			this.NzTabPurchase = new Janus.Windows.UI.Tab.UITabPage();
 			this.NsCopyBarcode = new MS_Control.Controls.MS_Button_GridX();
 			this.NsTakhfifPrice = new MS_Control.Controls.MS_Decimal_Label();
 			this.NsHamkari = new MS_Control.Controls.MS_Decimal_Label();
 			this.NsOmdePrice = new MS_Control.Controls.MS_Decimal_Label();
 			this.NsAdiPrice = new MS_Control.Controls.MS_Decimal_Label();
-			this.NzBarcodePrice = new Nz.Anbar.WinForms.Component.NzBarcodeReader();
 			this.label36 = new System.Windows.Forms.Label();
 			this.label35 = new System.Windows.Forms.Label();
 			this.label34 = new System.Windows.Forms.Label();
 			this.label11 = new System.Windows.Forms.Label();
 			this.label33 = new System.Windows.Forms.Label();
-			this.NsPriceBarcodeTitle = new Nz.Anbar.WinForms.Component.NzLabel();
 			this.label32 = new System.Windows.Forms.Label();
-			this.NzLocation = new Nz.Anbar.WinForms.Component.NzLocation();
 			this.NzLableLocation = new System.Windows.Forms.Label();
-			this.NzFindObject = new Nz.Anbar.WinForms.Component.NzLabel();
-			this.nzBarcodeReader1 = new Nz.Anbar.WinForms.Component.NzBarcodeReader();
 			this.label13 = new System.Windows.Forms.Label();
 			this.label15 = new System.Windows.Forms.Label();
-			this.uiTabPage3 = new Janus.Windows.UI.Tab.UITabPage();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
@@ -134,14 +120,26 @@
 			this.NzNewWindows = new MS_Control.Controls.MS_Button_GridX();
 			this.NzPayment = new MS_Control.Controls.MS_Button_GridX();
 			this.NzSave = new MS_Control.Controls.MS_Button_GridX();
+			this.uiTabPage1 = new Janus.Windows.UI.Tab.UITabPage();
+			this.uiTabPage3 = new Janus.Windows.UI.Tab.UITabPage();
+			this.uiTabPage5 = new Janus.Windows.UI.Tab.UITabPage();
+			this.NzCustomerRemain = new NZ.General.WinForms.Component.NzRemainCustomer();
+			this.NzCustomer = new NZ.General.WinForms.Component.NzPeople();
+			this.uiTabPage2 = new Janus.Windows.UI.Tab.UITabPage();
+			this.NzTabPurchaseBack = new Janus.Windows.UI.Tab.UITabPage();
+			this.NsGroupKala = new Janus.Windows.UI.Tab.UITabPage();
+			this.SubGroupsPanel = new Nz.Anbar.WinForms.Component.GroupKalaFlayoutPanel();
+			this.NzTabPurchase = new Janus.Windows.UI.Tab.UITabPage();
+			this.NzBarcodePrice = new Nz.Anbar.WinForms.Component.NzBarcodeReader();
+			this.NsPriceBarcodeTitle = new Nz.Anbar.WinForms.Component.NzLabel();
+			this.NzLocation = new Nz.Anbar.WinForms.Component.NzLocation();
+			this.NzFindObject = new Nz.Anbar.WinForms.Component.NzLabel();
+			this.nzBarcodeReader1 = new Nz.Anbar.WinForms.Component.NzBarcodeReader();
 			this.nzObjectPopup1 = new Nz.Anbar.WinForms.Component.NzObjectPopup();
-			this.NsGridFavorites = new MS_Control.Controls.MS_GridX();
 			((System.ComponentModel.ISupportInitialize)(this.uiTab1)).BeginInit();
 			this.uiTab1.SuspendLayout();
-			this.uiTabPage1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.uiTab2)).BeginInit();
 			this.uiTab2.SuspendLayout();
-			this.uiTabPage5.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox2)).BeginInit();
 			this.uiGroupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox3)).BeginInit();
@@ -155,15 +153,17 @@
 			this.uiGroupBox6.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NzFactorKinds)).BeginInit();
 			this.NzFactorKinds.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.NsGridFavorites)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.NzPrefactorGrid)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.NzGroupKala)).BeginInit();
+			this.mS_Panel2.SuspendLayout();
+			this.uiTabPage1.SuspendLayout();
+			this.uiTabPage3.SuspendLayout();
+			this.uiTabPage5.SuspendLayout();
 			this.uiTabPage2.SuspendLayout();
 			this.NzTabPurchaseBack.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.NzPrefactorGrid)).BeginInit();
 			this.NsGroupKala.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.NzGroupKala)).BeginInit();
 			this.NzTabPurchase.SuspendLayout();
-			this.uiTabPage3.SuspendLayout();
-			this.mS_Panel2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.NsGridFavorites)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// uiTab1
@@ -192,23 +192,6 @@
 			this.uiTab1.UseThemes = false;
 			this.uiTab1.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2003;
 			// 
-			// uiTabPage1
-			// 
-			this.uiTabPage1.Controls.Add(this.Splitter1);
-			this.uiTabPage1.Controls.Add(this.uiTab2);
-			this.uiTabPage1.Controls.Add(this.uiGroupBox6);
-			this.uiTabPage1.Location = new System.Drawing.Point(1, 1);
-			this.uiTabPage1.Name = "uiTabPage1";
-			this.uiTabPage1.PanelFormatStyle.Alpha = 150;
-			this.uiTabPage1.PanelFormatStyle.BackColor = System.Drawing.Color.PowderBlue;
-			this.uiTabPage1.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
-			this.uiTabPage1.PanelFormatStyle.BackColorGradient = System.Drawing.Color.LightSkyBlue;
-			this.uiTabPage1.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
-			this.uiTabPage1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage1.Size = new System.Drawing.Size(1380, 622);
-			this.uiTabPage1.TabStop = true;
-			this.uiTabPage1.Text = "فاکتور";
-			// 
 			// Splitter1
 			// 
 			this.Splitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
@@ -236,7 +219,7 @@
 			this.Splitter1.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(236)))), ((int)(((byte)(255)))));
 			this.Splitter1.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-			this.Splitter1.Location = new System.Drawing.Point(804, 0);
+			this.Splitter1.Location = new System.Drawing.Point(807, 0);
 			this.Splitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Splitter1.Name = "Splitter1";
 			this.Splitter1.Size = new System.Drawing.Size(7, 622);
@@ -257,7 +240,7 @@
 			this.uiTab2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.uiTab2.ShowFocusRectangle = false;
 			this.uiTab2.ShowTabs = false;
-			this.uiTab2.Size = new System.Drawing.Size(811, 622);
+			this.uiTab2.Size = new System.Drawing.Size(814, 622);
 			this.uiTab2.TabIndex = 766;
 			this.uiTab2.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
             this.uiTabPage5});
@@ -269,24 +252,6 @@
 			this.uiTab2.TextOrientation = Janus.Windows.UI.Tab.TextOrientation.Horizontal;
 			this.uiTab2.UseThemes = false;
 			this.uiTab2.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2003;
-			// 
-			// uiTabPage5
-			// 
-			this.uiTabPage5.Controls.Add(this.NzDescription);
-			this.uiTabPage5.Controls.Add(this.label37);
-			this.uiTabPage5.Controls.Add(this.uiGroupBox2);
-			this.uiTabPage5.Controls.Add(this.uiGroupBox3);
-			this.uiTabPage5.Controls.Add(this.uiGroupBox1);
-			this.uiTabPage5.Controls.Add(this.uiGroupBox5);
-			this.uiTabPage5.Controls.Add(this.NzGrid);
-			this.uiTabPage5.Location = new System.Drawing.Point(1, 1);
-			this.uiTabPage5.Name = "uiTabPage5";
-			this.uiTabPage5.PanelFormatStyle.Alpha = 150;
-			this.uiTabPage5.PanelFormatStyle.BackColor = System.Drawing.Color.PowderBlue;
-			this.uiTabPage5.PanelFormatStyle.BackColorGradient = System.Drawing.Color.PowderBlue;
-			this.uiTabPage5.Size = new System.Drawing.Size(809, 620);
-			this.uiTabPage5.TabStop = true;
-			this.uiTabPage5.Text = "ریـز فـاکتـور";
 			// 
 			// NzDescription
 			// 
@@ -308,7 +273,7 @@
 			this.NzDescription.MS_Next_Control = null;
 			this.NzDescription.Multiline = true;
 			this.NzDescription.Name = "NzDescription";
-			this.NzDescription.Size = new System.Drawing.Size(131, 94);
+			this.NzDescription.Size = new System.Drawing.Size(190, 94);
 			this.NzDescription.TabIndex = 162;
 			// 
 			// label37
@@ -317,7 +282,7 @@
 			this.label37.AutoSize = true;
 			this.label37.BackColor = System.Drawing.Color.Transparent;
 			this.label37.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label37.Location = new System.Drawing.Point(93, 7);
+			this.label37.Location = new System.Drawing.Point(96, 7);
 			this.label37.Name = "label37";
 			this.label37.Size = new System.Drawing.Size(41, 23);
 			this.label37.TabIndex = 163;
@@ -332,7 +297,7 @@
 			this.uiGroupBox2.Controls.Add(this.NzSumRows);
 			this.uiGroupBox2.Controls.Add(this.mS_Lable_Ex6);
 			this.uiGroupBox2.Controls.Add(this.mS_Lable_Ex1);
-			this.uiGroupBox2.Location = new System.Drawing.Point(139, 3);
+			this.uiGroupBox2.Location = new System.Drawing.Point(142, 3);
 			this.uiGroupBox2.Margin = new System.Windows.Forms.Padding(2);
 			this.uiGroupBox2.Name = "uiGroupBox2";
 			this.uiGroupBox2.Size = new System.Drawing.Size(168, 120);
@@ -421,7 +386,7 @@
 			this.uiGroupBox3.Controls.Add(this.label9);
 			this.uiGroupBox3.Controls.Add(this.mS_Lable_Ex7);
 			this.uiGroupBox3.Controls.Add(this.label10);
-			this.uiGroupBox3.Location = new System.Drawing.Point(312, 3);
+			this.uiGroupBox3.Location = new System.Drawing.Point(315, 3);
 			this.uiGroupBox3.Margin = new System.Windows.Forms.Padding(2);
 			this.uiGroupBox3.Name = "uiGroupBox3";
 			this.uiGroupBox3.Size = new System.Drawing.Size(135, 120);
@@ -566,7 +531,7 @@
 			this.uiGroupBox1.Controls.Add(this.label3);
 			this.uiGroupBox1.Controls.Add(this.NzDate);
 			this.uiGroupBox1.Controls.Add(this.label1);
-			this.uiGroupBox1.Location = new System.Drawing.Point(451, 3);
+			this.uiGroupBox1.Location = new System.Drawing.Point(454, 3);
 			this.uiGroupBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.uiGroupBox1.Name = "uiGroupBox1";
 			this.uiGroupBox1.Size = new System.Drawing.Size(111, 120);
@@ -667,57 +632,11 @@
 			this.uiGroupBox5.Controls.Add(this.NzCustomerRemain);
 			this.uiGroupBox5.Controls.Add(this.NzCustomer);
 			this.uiGroupBox5.Controls.Add(this.label19);
-			this.uiGroupBox5.Location = new System.Drawing.Point(565, 2);
+			this.uiGroupBox5.Location = new System.Drawing.Point(568, 2);
 			this.uiGroupBox5.Margin = new System.Windows.Forms.Padding(2);
 			this.uiGroupBox5.Name = "uiGroupBox5";
 			this.uiGroupBox5.Size = new System.Drawing.Size(234, 121);
 			this.uiGroupBox5.TabIndex = 5;
-			// 
-			// NzCustomerRemain
-			// 
-			this.NzCustomerRemain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.NzCustomerRemain.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.NzCustomerRemain.Location = new System.Drawing.Point(4, 89);
-			this.NzCustomerRemain.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.NzCustomerRemain.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NzCustomerRemain.MS_Color_End = System.Drawing.Color.Empty;
-			this.NzCustomerRemain.MS_Color_Start = System.Drawing.Color.Empty;
-			this.NzCustomerRemain.Name = "NzCustomerRemain";
-			this.NzCustomerRemain.Size = new System.Drawing.Size(225, 29);
-			this.NzCustomerRemain.TabIndex = 771;
-			this.NzCustomerRemain.Text = "0";
-			this.NzCustomerRemain.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// NzCustomer
-			// 
-			this.NzCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.NzCustomer.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.DownArrow;
-			this.NzCustomer.DropSize = new System.Drawing.Size(225, 31);
-			this.NzCustomer.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
-			this.NzCustomer.Location = new System.Drawing.Point(4, 29);
-			this.NzCustomer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.NzCustomer.MS_Auto_Popup = false;
-			this.NzCustomer.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.NzCustomer.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NzCustomer.MS_CaptureFocus = false;
-			this.NzCustomer.MS_Change_Border_Color_On_Enter = true;
-			this.NzCustomer.MS_Change_Color_On_Enter = true;
-			this.NzCustomer.MS_Drop_Direction = MS_Control.TSDD.KindShow.Right;
-			this.NzCustomer.MS_DropDownSizeMode = MS_Control.TSDD.SizeMode.Control_Size;
-			this.NzCustomer.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-			this.NzCustomer.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NzCustomer.MS_Exit_By_Down = true;
-			this.NzCustomer.MS_Exit_By_Enter = true;
-			this.NzCustomer.MS_Exit_By_Up = true;
-			this.NzCustomer.MS_Last_Control = null;
-			this.NzCustomer.MS_Next_Control = null;
-			this.NzCustomer.Name = "NzCustomer";
-			this.NzCustomer.Office2007CustomColor = System.Drawing.Color.SkyBlue;
-			this.NzCustomer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.NzCustomer.Size = new System.Drawing.Size(225, 31);
-			this.NzCustomer.TabIndex = 0;
-			this.NzCustomer.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
-			this.NzCustomer.MS_On_Row_Selected += new System.EventHandler<MS_Control.TSDD.On_Selected>(this.NzCustomer_MS_On_Row_Selected);
 			// 
 			// label19
 			// 
@@ -792,7 +711,7 @@
 			this.NzGrid.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
 			this.NzGrid.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.AntiqueWhite;
 			this.NzGrid.SelectOnExpand = false;
-			this.NzGrid.Size = new System.Drawing.Size(799, 492);
+			this.NzGrid.Size = new System.Drawing.Size(802, 492);
 			this.NzGrid.TabIndex = 1;
 			this.NzGrid.TabKeyBehavior = Janus.Windows.GridEX.TabKeyBehavior.ControlNavigation;
 			this.NzGrid.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -824,10 +743,10 @@
 			this.uiGroupBox6.Controls.Add(this.label13);
 			this.uiGroupBox6.Controls.Add(this.label15);
 			this.uiGroupBox6.Dock = System.Windows.Forms.DockStyle.Right;
-			this.uiGroupBox6.Location = new System.Drawing.Point(811, 0);
+			this.uiGroupBox6.Location = new System.Drawing.Point(814, 0);
 			this.uiGroupBox6.Margin = new System.Windows.Forms.Padding(2);
 			this.uiGroupBox6.Name = "uiGroupBox6";
-			this.uiGroupBox6.Size = new System.Drawing.Size(569, 622);
+			this.uiGroupBox6.Size = new System.Drawing.Size(566, 622);
 			this.uiGroupBox6.TabIndex = 0;
 			// 
 			// NzFactorKinds
@@ -842,7 +761,7 @@
 			this.NzFactorKinds.Name = "NzFactorKinds";
 			this.NzFactorKinds.PageBorder = Janus.Windows.UI.Tab.PageBorder.StripLine;
 			this.NzFactorKinds.SettingsKey = "NzFactorKinds";
-			this.NzFactorKinds.Size = new System.Drawing.Size(568, 512);
+			this.NzFactorKinds.Size = new System.Drawing.Size(565, 512);
 			this.NzFactorKinds.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
 			this.NzFactorKinds.TabIndex = 783;
 			this.NzFactorKinds.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
@@ -857,24 +776,64 @@
 			this.NzFactorKinds.UseCompatibleTextRendering = false;
 			this.NzFactorKinds.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2007;
 			// 
-			// uiTabPage2
+			// NsGridFavorites
 			// 
-			this.uiTabPage2.Controls.Add(this.NsGridFavorites);
-			this.uiTabPage2.Location = new System.Drawing.Point(0, 0);
-			this.uiTabPage2.Name = "uiTabPage2";
-			this.uiTabPage2.Size = new System.Drawing.Size(568, 479);
-			this.uiTabPage2.TabStop = true;
-			this.uiTabPage2.Text = "کالاها";
-			// 
-			// NzTabPurchaseBack
-			// 
-			this.NzTabPurchaseBack.Controls.Add(this.NzPrefactorGrid);
-			this.NzTabPurchaseBack.Key = "NzTabPurchaseBack";
-			this.NzTabPurchaseBack.Location = new System.Drawing.Point(0, 0);
-			this.NzTabPurchaseBack.Name = "NzTabPurchaseBack";
-			this.NzTabPurchaseBack.Size = new System.Drawing.Size(568, 479);
-			this.NzTabPurchaseBack.TabStop = true;
-			this.NzTabPurchaseBack.Text = " اقلام آماده ";
+			this.NsGridFavorites.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.False;
+			this.NsGridFavorites.AllowRemoveColumns = Janus.Windows.GridEX.InheritableBoolean.True;
+			this.NsGridFavorites.AlternatingColors = true;
+			this.NsGridFavorites.AlternatingRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.NsGridFavorites.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.NsGridFavorites.BorderStyle = Janus.Windows.GridEX.BorderStyle.Flat;
+			this.NsGridFavorites.BuiltInTextsData = resources.GetString("NsGridFavorites.BuiltInTextsData");
+			this.NsGridFavorites.CardHeaders = false;
+			this.NsGridFavorites.CardInnerSpacing = 3;
+			this.NsGridFavorites.CardSpacing = 10;
+			this.NsGridFavorites.CardWidth = 170;
+			this.NsGridFavorites.ColumnAutoResize = true;
+			this.NsGridFavorites.ColumnHeaders = Janus.Windows.GridEX.InheritableBoolean.False;
+			this.NsGridFavorites.ColumnSetNavigation = Janus.Windows.GridEX.ColumnSetNavigation.ColumnSet;
+			this.NsGridFavorites.Cursor = System.Windows.Forms.Cursors.Arrow;
+			this.NsGridFavorites.DefaultFilterRowComparison = Janus.Windows.GridEX.FilterConditionOperator.Contains;
+			NsGridFavorites_DesignTimeLayout_Reference_0.Instance = ((object)(resources.GetObject("NsGridFavorites_DesignTimeLayout_Reference_0.Instance")));
+			NsGridFavorites_DesignTimeLayout.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
+            NsGridFavorites_DesignTimeLayout_Reference_0});
+			NsGridFavorites_DesignTimeLayout.LayoutString = resources.GetString("NsGridFavorites_DesignTimeLayout.LayoutString");
+			this.NsGridFavorites.DesignTimeLayout = NsGridFavorites_DesignTimeLayout;
+			this.NsGridFavorites.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.NsGridFavorites.DynamicFiltering = true;
+			this.NsGridFavorites.EnterKeyBehavior = Janus.Windows.GridEX.EnterKeyBehavior.None;
+			this.NsGridFavorites.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic;
+			this.NsGridFavorites.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
+			this.NsGridFavorites.FilterRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsGridFavorites.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
+			this.NsGridFavorites.FocusCellDisplayMode = Janus.Windows.GridEX.FocusCellDisplayMode.UseSelectedFormatStyle;
+			this.NsGridFavorites.FocusStyle = Janus.Windows.GridEX.FocusStyle.None;
+			this.NsGridFavorites.Font = new System.Drawing.Font("IRANSans(Small)", 16F);
+			this.NsGridFavorites.GridLineColor = System.Drawing.Color.Black;
+			this.NsGridFavorites.GridLines = Janus.Windows.GridEX.GridLines.Vertical;
+			this.NsGridFavorites.GroupByBoxVisible = false;
+			this.NsGridFavorites.HeaderFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+			this.NsGridFavorites.HeaderFormatStyle.ForeColor = System.Drawing.Color.Black;
+			this.NsGridFavorites.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
+			this.NsGridFavorites.Location = new System.Drawing.Point(0, 0);
+			this.NsGridFavorites.Name = "NsGridFavorites";
+			this.NsGridFavorites.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom;
+			this.NsGridFavorites.Office2007CustomColor = System.Drawing.SystemColors.HotTrack;
+			this.NsGridFavorites.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NsGridFavorites.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowIndex;
+			this.NsGridFavorites.SelectedFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+			this.NsGridFavorites.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
+			this.NsGridFavorites.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+			this.NsGridFavorites.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
+			this.NsGridFavorites.SelectOnExpand = false;
+			this.NsGridFavorites.Size = new System.Drawing.Size(565, 479);
+			this.NsGridFavorites.TabIndex = 783;
+			this.NsGridFavorites.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsGridFavorites.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
+			this.NsGridFavorites.TreeLineColor = System.Drawing.Color.Black;
+			this.NsGridFavorites.View = Janus.Windows.GridEX.View.CardView;
+			this.NsGridFavorites.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			this.NsGridFavorites.ColumnButtonClick += new Janus.Windows.GridEX.ColumnActionEventHandler(this.NsGridFavorites_ColumnButtonClick);
 			// 
 			// NzPrefactorGrid
 			// 
@@ -935,16 +894,6 @@
 			this.NzPrefactorGrid.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
 			this.NzPrefactorGrid.ColumnButtonClick += new Janus.Windows.GridEX.ColumnActionEventHandler(this.NzPrefactorGrid_ColumnButtonClick);
 			// 
-			// NsGroupKala
-			// 
-			this.NsGroupKala.Controls.Add(this.NzGroupKala);
-			this.NsGroupKala.Controls.Add(this.SubGroupsPanel);
-			this.NsGroupKala.Location = new System.Drawing.Point(0, 0);
-			this.NsGroupKala.Name = "NsGroupKala";
-			this.NsGroupKala.Size = new System.Drawing.Size(568, 479);
-			this.NsGroupKala.TabStop = true;
-			this.NsGroupKala.Text = "  گروه کالا  ";
-			// 
 			// NzGroupKala
 			// 
 			this.NzGroupKala.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.False;
@@ -1004,46 +953,6 @@
 			this.NzGroupKala.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
 			this.NzGroupKala.ColumnButtonClick += new Janus.Windows.GridEX.ColumnActionEventHandler(this.NzGroupKala_ColumnButtonClick);
 			// 
-			// SubGroupsPanel
-			// 
-			this.SubGroupsPanel.AutoSize = true;
-			this.SubGroupsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.SubGroupsPanel.BackColor = System.Drawing.Color.Transparent;
-			this.SubGroupsPanel.Dock = System.Windows.Forms.DockStyle.Top;
-			this.SubGroupsPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-			this.SubGroupsPanel.Location = new System.Drawing.Point(0, 0);
-			this.SubGroupsPanel.MinimumSize = new System.Drawing.Size(0, 20);
-			this.SubGroupsPanel.Name = "SubGroupsPanel";
-			this.SubGroupsPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.SubGroupsPanel.Size = new System.Drawing.Size(568, 20);
-			this.SubGroupsPanel.TabIndex = 783;
-			// 
-			// NzTabPurchase
-			// 
-			this.NzTabPurchase.Controls.Add(this.NsCopyBarcode);
-			this.NzTabPurchase.Controls.Add(this.NsTakhfifPrice);
-			this.NzTabPurchase.Controls.Add(this.NsHamkari);
-			this.NzTabPurchase.Controls.Add(this.NsOmdePrice);
-			this.NzTabPurchase.Controls.Add(this.NsAdiPrice);
-			this.NzTabPurchase.Controls.Add(this.NzBarcodePrice);
-			this.NzTabPurchase.Controls.Add(this.label36);
-			this.NzTabPurchase.Controls.Add(this.label35);
-			this.NzTabPurchase.Controls.Add(this.label34);
-			this.NzTabPurchase.Controls.Add(this.label11);
-			this.NzTabPurchase.Controls.Add(this.label33);
-			this.NzTabPurchase.Controls.Add(this.NsPriceBarcodeTitle);
-			this.NzTabPurchase.Controls.Add(this.label32);
-			this.NzTabPurchase.Key = "NzTabPurchase";
-			this.NzTabPurchase.Location = new System.Drawing.Point(0, 0);
-			this.NzTabPurchase.Name = "NzTabPurchase";
-			this.NzTabPurchase.PanelFormatStyle.Alpha = 150;
-			this.NzTabPurchase.PanelFormatStyle.BackColor = System.Drawing.Color.PowderBlue;
-			this.NzTabPurchase.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
-			this.NzTabPurchase.PanelFormatStyle.BackColorGradient = System.Drawing.Color.LightSkyBlue;
-			this.NzTabPurchase.Size = new System.Drawing.Size(568, 479);
-			this.NzTabPurchase.TabStop = true;
-			this.NzTabPurchase.Text = "مشاهده قیمت";
-			// 
 			// NsCopyBarcode
 			// 
 			this.NsCopyBarcode.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -1087,7 +996,7 @@
             0});
 			this.NsTakhfifPrice.MS_Format_String = "0,0.##;(0,0.##); ";
 			this.NsTakhfifPrice.Name = "NsTakhfifPrice";
-			this.NsTakhfifPrice.Size = new System.Drawing.Size(491, 32);
+			this.NsTakhfifPrice.Size = new System.Drawing.Size(678, 32);
 			this.NsTakhfifPrice.TabIndex = 786;
 			this.NsTakhfifPrice.Text = " ";
 			this.NsTakhfifPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1109,7 +1018,7 @@
             0});
 			this.NsHamkari.MS_Format_String = "0,0.##;(0,0.##); ";
 			this.NsHamkari.Name = "NsHamkari";
-			this.NsHamkari.Size = new System.Drawing.Size(491, 32);
+			this.NsHamkari.Size = new System.Drawing.Size(678, 32);
 			this.NsHamkari.TabIndex = 786;
 			this.NsHamkari.Text = " ";
 			this.NsHamkari.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1131,7 +1040,7 @@
             0});
 			this.NsOmdePrice.MS_Format_String = "0,0.##;(0,0.##); ";
 			this.NsOmdePrice.Name = "NsOmdePrice";
-			this.NsOmdePrice.Size = new System.Drawing.Size(491, 32);
+			this.NsOmdePrice.Size = new System.Drawing.Size(678, 32);
 			this.NsOmdePrice.TabIndex = 786;
 			this.NsOmdePrice.Text = " ";
 			this.NsOmdePrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1153,28 +1062,10 @@
             0});
 			this.NsAdiPrice.MS_Format_String = "0,0.##;(0,0.##); ";
 			this.NsAdiPrice.Name = "NsAdiPrice";
-			this.NsAdiPrice.Size = new System.Drawing.Size(491, 32);
+			this.NsAdiPrice.Size = new System.Drawing.Size(678, 32);
 			this.NsAdiPrice.TabIndex = 786;
 			this.NsAdiPrice.Text = " ";
 			this.NsAdiPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// NzBarcodePrice
-			// 
-			this.NzBarcodePrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.NzBarcodePrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.NzBarcodePrice.Font = new System.Drawing.Font("IRANSans(Small) Medium", 20F);
-			this.NzBarcodePrice.Location = new System.Drawing.Point(34, 35);
-			this.NzBarcodePrice.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.NzBarcodePrice.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NzBarcodePrice.MS_Change_Border_Color_On_Enter = true;
-			this.NzBarcodePrice.MS_Change_Color_On_Enter = true;
-			this.NzBarcodePrice.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-			this.NzBarcodePrice.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NzBarcodePrice.Name = "NzBarcodePrice";
-			this.NzBarcodePrice.Size = new System.Drawing.Size(505, 33);
-			this.NzBarcodePrice.TabIndex = 785;
-			this.NzBarcodePrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// label36
 			// 
@@ -1182,7 +1073,7 @@
 			this.label36.AutoSize = true;
 			this.label36.BackColor = System.Drawing.Color.Transparent;
 			this.label36.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label36.Location = new System.Drawing.Point(500, 293);
+			this.label36.Location = new System.Drawing.Point(687, 293);
 			this.label36.Name = "label36";
 			this.label36.Size = new System.Drawing.Size(63, 23);
 			this.label36.TabIndex = 783;
@@ -1194,7 +1085,7 @@
 			this.label35.AutoSize = true;
 			this.label35.BackColor = System.Drawing.Color.Transparent;
 			this.label35.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label35.Location = new System.Drawing.Point(500, 243);
+			this.label35.Location = new System.Drawing.Point(687, 243);
 			this.label35.Name = "label35";
 			this.label35.Size = new System.Drawing.Size(59, 23);
 			this.label35.TabIndex = 783;
@@ -1206,7 +1097,7 @@
 			this.label34.AutoSize = true;
 			this.label34.BackColor = System.Drawing.Color.Transparent;
 			this.label34.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label34.Location = new System.Drawing.Point(500, 193);
+			this.label34.Location = new System.Drawing.Point(687, 193);
 			this.label34.Name = "label34";
 			this.label34.Size = new System.Drawing.Size(43, 23);
 			this.label34.TabIndex = 783;
@@ -1219,7 +1110,7 @@
 			this.label11.BackColor = System.Drawing.Color.Transparent;
 			this.label11.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.label11.ForeColor = System.Drawing.Color.Green;
-			this.label11.Location = new System.Drawing.Point(276, 9);
+			this.label11.Location = new System.Drawing.Point(463, 9);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(283, 23);
 			this.label11.TabIndex = 783;
@@ -1231,25 +1122,11 @@
 			this.label33.AutoSize = true;
 			this.label33.BackColor = System.Drawing.Color.Transparent;
 			this.label33.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label33.Location = new System.Drawing.Point(500, 143);
+			this.label33.Location = new System.Drawing.Point(687, 143);
 			this.label33.Name = "label33";
 			this.label33.Size = new System.Drawing.Size(43, 23);
 			this.label33.TabIndex = 783;
 			this.label33.Text = "عادی :";
-			// 
-			// NsPriceBarcodeTitle
-			// 
-			this.NsPriceBarcodeTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.NsPriceBarcodeTitle.BackColor = System.Drawing.Color.Transparent;
-			this.NsPriceBarcodeTitle.Font = new System.Drawing.Font("IRANSans(Small) Medium", 17F);
-			this.NsPriceBarcodeTitle.Location = new System.Drawing.Point(0, 69);
-			this.NsPriceBarcodeTitle.Name = "NsPriceBarcodeTitle";
-			this.NsPriceBarcodeTitle.Size = new System.Drawing.Size(569, 29);
-			this.NsPriceBarcodeTitle.TabIndex = 782;
-			this.NsPriceBarcodeTitle.Text = "...";
-			this.NsPriceBarcodeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label32
 			// 
@@ -1257,34 +1134,10 @@
 			this.label32.BackColor = System.Drawing.Color.Transparent;
 			this.label32.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.label32.Image = ((System.Drawing.Image)(resources.GetObject("label32.Image")));
-			this.label32.Location = new System.Drawing.Point(542, 39);
+			this.label32.Location = new System.Drawing.Point(729, 39);
 			this.label32.Name = "label32";
 			this.label32.Size = new System.Drawing.Size(22, 27);
 			this.label32.TabIndex = 780;
-			// 
-			// NzLocation
-			// 
-			this.NzLocation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.NzLocation.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
-			this.NzLocation.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzLocation.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NzLocation.Location = new System.Drawing.Point(5, 11);
-			this.NzLocation.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.NzLocation.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NzLocation.MS_Change_Border_Color_On_Enter = true;
-			this.NzLocation.MS_Change_Color_On_Enter = true;
-			this.NzLocation.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-			this.NzLocation.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NzLocation.MS_Exit_By_Down = true;
-			this.NzLocation.MS_Exit_By_Enter = true;
-			this.NzLocation.MS_Exit_By_Up = true;
-			this.NzLocation.MS_Last_Control = null;
-			this.NzLocation.MS_Next_Control = null;
-			this.NzLocation.Name = "NzLocation";
-			this.NzLocation.Size = new System.Drawing.Size(534, 29);
-			this.NzLocation.TabIndex = 782;
-			this.NzLocation.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
 			// 
 			// NzLableLocation
 			// 
@@ -1292,45 +1145,11 @@
 			this.NzLableLocation.BackColor = System.Drawing.Color.Transparent;
 			this.NzLableLocation.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
 			this.NzLableLocation.Image = ((System.Drawing.Image)(resources.GetObject("NzLableLocation.Image")));
-			this.NzLableLocation.Location = new System.Drawing.Point(543, 11);
+			this.NzLableLocation.Location = new System.Drawing.Point(540, 11);
 			this.NzLableLocation.Name = "NzLableLocation";
 			this.NzLableLocation.Size = new System.Drawing.Size(25, 23);
 			this.NzLableLocation.TabIndex = 781;
 			this.NzLableLocation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// NzFindObject
-			// 
-			this.NzFindObject.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.NzFindObject.Font = new System.Drawing.Font("IRANSans(Small) Medium", 17F);
-			this.NzFindObject.Location = new System.Drawing.Point(0, 76);
-			this.NzFindObject.Name = "NzFindObject";
-			this.NzFindObject.Size = new System.Drawing.Size(569, 29);
-			this.NzFindObject.TabIndex = 779;
-			this.NzFindObject.Text = "...";
-			this.NzFindObject.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// nzBarcodeReader1
-			// 
-			this.nzBarcodeReader1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.nzBarcodeReader1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.nzBarcodeReader1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.nzBarcodeReader1.Font = new System.Drawing.Font("IRANSans(Small) Medium", 20F);
-			this.nzBarcodeReader1.Location = new System.Drawing.Point(5, 42);
-			this.nzBarcodeReader1.MS_BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-			this.nzBarcodeReader1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.nzBarcodeReader1.MS_Change_Border_Color_On_Enter = true;
-			this.nzBarcodeReader1.MS_Change_Color_On_Enter = true;
-			this.nzBarcodeReader1.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-			this.nzBarcodeReader1.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.nzBarcodeReader1.Name = "nzBarcodeReader1";
-			this.nzBarcodeReader1.Size = new System.Drawing.Size(534, 33);
-			this.nzBarcodeReader1.TabIndex = 778;
-			this.nzBarcodeReader1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.nzBarcodeReader1.Click += new System.EventHandler(this.nzBarcodeReader1_Enter);
-			this.nzBarcodeReader1.Enter += new System.EventHandler(this.nzBarcodeReader1_Enter);
 			// 
 			// label13
 			// 
@@ -1338,7 +1157,7 @@
 			this.label13.BackColor = System.Drawing.Color.Transparent;
 			this.label13.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.label13.Image = ((System.Drawing.Image)(resources.GetObject("label13.Image")));
-			this.label13.Location = new System.Drawing.Point(542, 48);
+			this.label13.Location = new System.Drawing.Point(539, 48);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(22, 27);
 			this.label13.TabIndex = 766;
@@ -1354,38 +1173,6 @@
 			this.label15.Size = new System.Drawing.Size(34, 23);
 			this.label15.TabIndex = 767;
 			this.label15.Text = "[F3]";
-			// 
-			// uiTabPage3
-			// 
-			this.uiTabPage3.Controls.Add(this.label7);
-			this.uiTabPage3.Controls.Add(this.label6);
-			this.uiTabPage3.Controls.Add(this.label5);
-			this.uiTabPage3.Controls.Add(this.label30);
-			this.uiTabPage3.Controls.Add(this.label8);
-			this.uiTabPage3.Controls.Add(this.label28);
-			this.uiTabPage3.Controls.Add(this.label31);
-			this.uiTabPage3.Controls.Add(this.label16);
-			this.uiTabPage3.Controls.Add(this.label4);
-			this.uiTabPage3.Controls.Add(this.label23);
-			this.uiTabPage3.Controls.Add(this.label22);
-			this.uiTabPage3.Controls.Add(this.label21);
-			this.uiTabPage3.Controls.Add(this.label20);
-			this.uiTabPage3.Controls.Add(this.label27);
-			this.uiTabPage3.Controls.Add(this.label29);
-			this.uiTabPage3.Controls.Add(this.label14);
-			this.uiTabPage3.Controls.Add(this.label12);
-			this.uiTabPage3.Controls.Add(this.label2);
-			this.uiTabPage3.Controls.Add(this.label25);
-			this.uiTabPage3.Controls.Add(this.label26);
-			this.uiTabPage3.Controls.Add(this.label24);
-			this.uiTabPage3.Location = new System.Drawing.Point(1, 1);
-			this.uiTabPage3.Name = "uiTabPage3";
-			this.uiTabPage3.PanelFormatStyle.Alpha = 70;
-			this.uiTabPage3.PanelFormatStyle.BackColor = System.Drawing.Color.SkyBlue;
-			this.uiTabPage3.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
-			this.uiTabPage3.Size = new System.Drawing.Size(1380, 622);
-			this.uiTabPage3.TabStop = true;
-			this.uiTabPage3.Text = "پرسش و پاسخ";
 			// 
 			// label7
 			// 
@@ -1899,6 +1686,278 @@
 			this.NzSave.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
 			this.NzSave.Click += new System.EventHandler(this.NzSave_Click);
 			// 
+			// uiTabPage1
+			// 
+			this.uiTabPage1.Controls.Add(this.Splitter1);
+			this.uiTabPage1.Controls.Add(this.uiTab2);
+			this.uiTabPage1.Controls.Add(this.uiGroupBox6);
+			this.uiTabPage1.Location = new System.Drawing.Point(1, 1);
+			this.uiTabPage1.Name = "uiTabPage1";
+			this.uiTabPage1.PanelFormatStyle.Alpha = 150;
+			this.uiTabPage1.PanelFormatStyle.BackColor = System.Drawing.Color.PowderBlue;
+			this.uiTabPage1.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
+			this.uiTabPage1.PanelFormatStyle.BackColorGradient = System.Drawing.Color.LightSkyBlue;
+			this.uiTabPage1.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
+			this.uiTabPage1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.uiTabPage1.Size = new System.Drawing.Size(1380, 622);
+			this.uiTabPage1.TabStop = true;
+			this.uiTabPage1.Text = "فاکتور";
+			// 
+			// uiTabPage3
+			// 
+			this.uiTabPage3.Controls.Add(this.label7);
+			this.uiTabPage3.Controls.Add(this.label6);
+			this.uiTabPage3.Controls.Add(this.label5);
+			this.uiTabPage3.Controls.Add(this.label30);
+			this.uiTabPage3.Controls.Add(this.label8);
+			this.uiTabPage3.Controls.Add(this.label28);
+			this.uiTabPage3.Controls.Add(this.label31);
+			this.uiTabPage3.Controls.Add(this.label16);
+			this.uiTabPage3.Controls.Add(this.label4);
+			this.uiTabPage3.Controls.Add(this.label23);
+			this.uiTabPage3.Controls.Add(this.label22);
+			this.uiTabPage3.Controls.Add(this.label21);
+			this.uiTabPage3.Controls.Add(this.label20);
+			this.uiTabPage3.Controls.Add(this.label27);
+			this.uiTabPage3.Controls.Add(this.label29);
+			this.uiTabPage3.Controls.Add(this.label14);
+			this.uiTabPage3.Controls.Add(this.label12);
+			this.uiTabPage3.Controls.Add(this.label2);
+			this.uiTabPage3.Controls.Add(this.label25);
+			this.uiTabPage3.Controls.Add(this.label26);
+			this.uiTabPage3.Controls.Add(this.label24);
+			this.uiTabPage3.Location = new System.Drawing.Point(1, 1);
+			this.uiTabPage3.Name = "uiTabPage3";
+			this.uiTabPage3.PanelFormatStyle.Alpha = 70;
+			this.uiTabPage3.PanelFormatStyle.BackColor = System.Drawing.Color.SkyBlue;
+			this.uiTabPage3.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
+			this.uiTabPage3.Size = new System.Drawing.Size(1380, 622);
+			this.uiTabPage3.TabStop = true;
+			this.uiTabPage3.Text = "پرسش و پاسخ";
+			// 
+			// uiTabPage5
+			// 
+			this.uiTabPage5.Controls.Add(this.NzDescription);
+			this.uiTabPage5.Controls.Add(this.label37);
+			this.uiTabPage5.Controls.Add(this.uiGroupBox2);
+			this.uiTabPage5.Controls.Add(this.uiGroupBox3);
+			this.uiTabPage5.Controls.Add(this.uiGroupBox1);
+			this.uiTabPage5.Controls.Add(this.uiGroupBox5);
+			this.uiTabPage5.Controls.Add(this.NzGrid);
+			this.uiTabPage5.Location = new System.Drawing.Point(1, 1);
+			this.uiTabPage5.Name = "uiTabPage5";
+			this.uiTabPage5.PanelFormatStyle.Alpha = 150;
+			this.uiTabPage5.PanelFormatStyle.BackColor = System.Drawing.Color.PowderBlue;
+			this.uiTabPage5.PanelFormatStyle.BackColorGradient = System.Drawing.Color.PowderBlue;
+			this.uiTabPage5.Size = new System.Drawing.Size(812, 620);
+			this.uiTabPage5.TabStop = true;
+			this.uiTabPage5.Text = "ریـز فـاکتـور";
+			// 
+			// NzCustomerRemain
+			// 
+			this.NzCustomerRemain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NzCustomerRemain.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.NzCustomerRemain.Location = new System.Drawing.Point(4, 89);
+			this.NzCustomerRemain.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NzCustomerRemain.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NzCustomerRemain.MS_Color_End = System.Drawing.Color.Empty;
+			this.NzCustomerRemain.MS_Color_Start = System.Drawing.Color.Empty;
+			this.NzCustomerRemain.Name = "NzCustomerRemain";
+			this.NzCustomerRemain.Size = new System.Drawing.Size(225, 29);
+			this.NzCustomerRemain.TabIndex = 771;
+			this.NzCustomerRemain.Text = "0";
+			this.NzCustomerRemain.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// NzCustomer
+			// 
+			this.NzCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NzCustomer.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.DownArrow;
+			this.NzCustomer.DropSize = new System.Drawing.Size(225, 31);
+			this.NzCustomer.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
+			this.NzCustomer.Location = new System.Drawing.Point(4, 29);
+			this.NzCustomer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.NzCustomer.MS_Auto_Popup = false;
+			this.NzCustomer.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NzCustomer.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NzCustomer.MS_CaptureFocus = false;
+			this.NzCustomer.MS_Change_Border_Color_On_Enter = true;
+			this.NzCustomer.MS_Change_Color_On_Enter = true;
+			this.NzCustomer.MS_Drop_Direction = MS_Control.TSDD.KindShow.Right;
+			this.NzCustomer.MS_DropDownSizeMode = MS_Control.TSDD.SizeMode.Control_Size;
+			this.NzCustomer.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NzCustomer.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NzCustomer.MS_Exit_By_Down = true;
+			this.NzCustomer.MS_Exit_By_Enter = true;
+			this.NzCustomer.MS_Exit_By_Up = true;
+			this.NzCustomer.MS_Last_Control = null;
+			this.NzCustomer.MS_Next_Control = null;
+			this.NzCustomer.Name = "NzCustomer";
+			this.NzCustomer.Office2007CustomColor = System.Drawing.Color.SkyBlue;
+			this.NzCustomer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NzCustomer.Size = new System.Drawing.Size(225, 31);
+			this.NzCustomer.TabIndex = 0;
+			this.NzCustomer.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			this.NzCustomer.MS_On_Row_Selected += new System.EventHandler<MS_Control.TSDD.On_Selected>(this.NzCustomer_MS_On_Row_Selected);
+			// 
+			// uiTabPage2
+			// 
+			this.uiTabPage2.Controls.Add(this.NsGridFavorites);
+			this.uiTabPage2.Location = new System.Drawing.Point(0, 0);
+			this.uiTabPage2.Name = "uiTabPage2";
+			this.uiTabPage2.Size = new System.Drawing.Size(565, 479);
+			this.uiTabPage2.TabStop = true;
+			this.uiTabPage2.Text = "کالاها";
+			// 
+			// NzTabPurchaseBack
+			// 
+			this.NzTabPurchaseBack.Controls.Add(this.NzPrefactorGrid);
+			this.NzTabPurchaseBack.Key = "NzTabPurchaseBack";
+			this.NzTabPurchaseBack.Location = new System.Drawing.Point(0, 0);
+			this.NzTabPurchaseBack.Name = "NzTabPurchaseBack";
+			this.NzTabPurchaseBack.Size = new System.Drawing.Size(568, 479);
+			this.NzTabPurchaseBack.TabStop = true;
+			this.NzTabPurchaseBack.Text = " اقلام آماده ";
+			// 
+			// NsGroupKala
+			// 
+			this.NsGroupKala.Controls.Add(this.NzGroupKala);
+			this.NsGroupKala.Controls.Add(this.SubGroupsPanel);
+			this.NsGroupKala.Location = new System.Drawing.Point(0, 0);
+			this.NsGroupKala.Name = "NsGroupKala";
+			this.NsGroupKala.Size = new System.Drawing.Size(568, 479);
+			this.NsGroupKala.TabStop = true;
+			this.NsGroupKala.Text = "  گروه کالا  ";
+			// 
+			// SubGroupsPanel
+			// 
+			this.SubGroupsPanel.AutoSize = true;
+			this.SubGroupsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.SubGroupsPanel.BackColor = System.Drawing.Color.Transparent;
+			this.SubGroupsPanel.Dock = System.Windows.Forms.DockStyle.Top;
+			this.SubGroupsPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+			this.SubGroupsPanel.Location = new System.Drawing.Point(0, 0);
+			this.SubGroupsPanel.MinimumSize = new System.Drawing.Size(0, 20);
+			this.SubGroupsPanel.Name = "SubGroupsPanel";
+			this.SubGroupsPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.SubGroupsPanel.Size = new System.Drawing.Size(568, 20);
+			this.SubGroupsPanel.TabIndex = 783;
+			// 
+			// NzTabPurchase
+			// 
+			this.NzTabPurchase.Controls.Add(this.NsCopyBarcode);
+			this.NzTabPurchase.Controls.Add(this.NsTakhfifPrice);
+			this.NzTabPurchase.Controls.Add(this.NsHamkari);
+			this.NzTabPurchase.Controls.Add(this.NsOmdePrice);
+			this.NzTabPurchase.Controls.Add(this.NsAdiPrice);
+			this.NzTabPurchase.Controls.Add(this.NzBarcodePrice);
+			this.NzTabPurchase.Controls.Add(this.label36);
+			this.NzTabPurchase.Controls.Add(this.label35);
+			this.NzTabPurchase.Controls.Add(this.label34);
+			this.NzTabPurchase.Controls.Add(this.label11);
+			this.NzTabPurchase.Controls.Add(this.label33);
+			this.NzTabPurchase.Controls.Add(this.NsPriceBarcodeTitle);
+			this.NzTabPurchase.Controls.Add(this.label32);
+			this.NzTabPurchase.Key = "NzTabPurchase";
+			this.NzTabPurchase.Location = new System.Drawing.Point(0, 0);
+			this.NzTabPurchase.Name = "NzTabPurchase";
+			this.NzTabPurchase.PanelFormatStyle.Alpha = 150;
+			this.NzTabPurchase.PanelFormatStyle.BackColor = System.Drawing.Color.PowderBlue;
+			this.NzTabPurchase.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
+			this.NzTabPurchase.PanelFormatStyle.BackColorGradient = System.Drawing.Color.LightSkyBlue;
+			this.NzTabPurchase.Size = new System.Drawing.Size(755, 479);
+			this.NzTabPurchase.TabStop = true;
+			this.NzTabPurchase.Text = "مشاهده قیمت";
+			// 
+			// NzBarcodePrice
+			// 
+			this.NzBarcodePrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.NzBarcodePrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.NzBarcodePrice.Font = new System.Drawing.Font("IRANSans(Small) Medium", 20F);
+			this.NzBarcodePrice.Location = new System.Drawing.Point(34, 35);
+			this.NzBarcodePrice.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NzBarcodePrice.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NzBarcodePrice.MS_Change_Border_Color_On_Enter = true;
+			this.NzBarcodePrice.MS_Change_Color_On_Enter = true;
+			this.NzBarcodePrice.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NzBarcodePrice.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NzBarcodePrice.Name = "NzBarcodePrice";
+			this.NzBarcodePrice.Size = new System.Drawing.Size(692, 33);
+			this.NzBarcodePrice.TabIndex = 785;
+			this.NzBarcodePrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			// 
+			// NsPriceBarcodeTitle
+			// 
+			this.NsPriceBarcodeTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsPriceBarcodeTitle.BackColor = System.Drawing.Color.Transparent;
+			this.NsPriceBarcodeTitle.Font = new System.Drawing.Font("IRANSans(Small) Medium", 17F);
+			this.NsPriceBarcodeTitle.Location = new System.Drawing.Point(0, 69);
+			this.NsPriceBarcodeTitle.Name = "NsPriceBarcodeTitle";
+			this.NsPriceBarcodeTitle.Size = new System.Drawing.Size(756, 29);
+			this.NsPriceBarcodeTitle.TabIndex = 782;
+			this.NsPriceBarcodeTitle.Text = "...";
+			this.NsPriceBarcodeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// NzLocation
+			// 
+			this.NzLocation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.NzLocation.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
+			this.NzLocation.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NzLocation.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.NzLocation.Location = new System.Drawing.Point(5, 11);
+			this.NzLocation.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NzLocation.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NzLocation.MS_Change_Border_Color_On_Enter = true;
+			this.NzLocation.MS_Change_Color_On_Enter = true;
+			this.NzLocation.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NzLocation.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NzLocation.MS_Exit_By_Down = true;
+			this.NzLocation.MS_Exit_By_Enter = true;
+			this.NzLocation.MS_Exit_By_Up = true;
+			this.NzLocation.MS_Last_Control = null;
+			this.NzLocation.MS_Next_Control = null;
+			this.NzLocation.Name = "NzLocation";
+			this.NzLocation.Size = new System.Drawing.Size(531, 29);
+			this.NzLocation.TabIndex = 782;
+			this.NzLocation.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
+			// 
+			// NzFindObject
+			// 
+			this.NzFindObject.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.NzFindObject.Font = new System.Drawing.Font("IRANSans(Small) Medium", 17F);
+			this.NzFindObject.Location = new System.Drawing.Point(0, 76);
+			this.NzFindObject.Name = "NzFindObject";
+			this.NzFindObject.Size = new System.Drawing.Size(566, 29);
+			this.NzFindObject.TabIndex = 779;
+			this.NzFindObject.Text = "...";
+			this.NzFindObject.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// nzBarcodeReader1
+			// 
+			this.nzBarcodeReader1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.nzBarcodeReader1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.nzBarcodeReader1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.nzBarcodeReader1.Font = new System.Drawing.Font("IRANSans(Small) Medium", 20F);
+			this.nzBarcodeReader1.Location = new System.Drawing.Point(5, 42);
+			this.nzBarcodeReader1.MS_BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.nzBarcodeReader1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.nzBarcodeReader1.MS_Change_Border_Color_On_Enter = true;
+			this.nzBarcodeReader1.MS_Change_Color_On_Enter = true;
+			this.nzBarcodeReader1.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.nzBarcodeReader1.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.nzBarcodeReader1.Name = "nzBarcodeReader1";
+			this.nzBarcodeReader1.Size = new System.Drawing.Size(531, 33);
+			this.nzBarcodeReader1.TabIndex = 778;
+			this.nzBarcodeReader1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.nzBarcodeReader1.Click += new System.EventHandler(this.nzBarcodeReader1_Enter);
+			this.nzBarcodeReader1.Enter += new System.EventHandler(this.nzBarcodeReader1_Enter);
+			// 
 			// nzObjectPopup1
 			// 
 			this.nzObjectPopup1.DropShadowEnabled = false;
@@ -1908,65 +1967,6 @@
 			this.nzObjectPopup1.Padding = new System.Windows.Forms.Padding(0);
 			this.nzObjectPopup1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.nzObjectPopup1.Size = new System.Drawing.Size(0, 0);
-			// 
-			// NsGridFavorites
-			// 
-			this.NsGridFavorites.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.False;
-			this.NsGridFavorites.AllowRemoveColumns = Janus.Windows.GridEX.InheritableBoolean.True;
-			this.NsGridFavorites.AlternatingColors = true;
-			this.NsGridFavorites.AlternatingRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.NsGridFavorites.BackColor = System.Drawing.Color.WhiteSmoke;
-			this.NsGridFavorites.BorderStyle = Janus.Windows.GridEX.BorderStyle.Flat;
-			this.NsGridFavorites.BuiltInTextsData = resources.GetString("NsGridFavorites.BuiltInTextsData");
-			this.NsGridFavorites.CardHeaders = false;
-			this.NsGridFavorites.CardInnerSpacing = 3;
-			this.NsGridFavorites.CardSpacing = 10;
-			this.NsGridFavorites.CardWidth = 170;
-			this.NsGridFavorites.ColumnAutoResize = true;
-			this.NsGridFavorites.ColumnHeaders = Janus.Windows.GridEX.InheritableBoolean.False;
-			this.NsGridFavorites.ColumnSetNavigation = Janus.Windows.GridEX.ColumnSetNavigation.ColumnSet;
-			this.NsGridFavorites.Cursor = System.Windows.Forms.Cursors.Arrow;
-			this.NsGridFavorites.DefaultFilterRowComparison = Janus.Windows.GridEX.FilterConditionOperator.Contains;
-			NsGridFavorites_DesignTimeLayout_Reference_0.Instance = ((object)(resources.GetObject("NsGridFavorites_DesignTimeLayout_Reference_0.Instance")));
-			NsGridFavorites_DesignTimeLayout.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
-            NsGridFavorites_DesignTimeLayout_Reference_0});
-			NsGridFavorites_DesignTimeLayout.LayoutString = resources.GetString("NsGridFavorites_DesignTimeLayout.LayoutString");
-			this.NsGridFavorites.DesignTimeLayout = NsGridFavorites_DesignTimeLayout;
-			this.NsGridFavorites.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.NsGridFavorites.DynamicFiltering = true;
-			this.NsGridFavorites.EnterKeyBehavior = Janus.Windows.GridEX.EnterKeyBehavior.None;
-			this.NsGridFavorites.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic;
-			this.NsGridFavorites.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
-			this.NsGridFavorites.FilterRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NsGridFavorites.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
-			this.NsGridFavorites.FocusCellDisplayMode = Janus.Windows.GridEX.FocusCellDisplayMode.UseSelectedFormatStyle;
-			this.NsGridFavorites.FocusStyle = Janus.Windows.GridEX.FocusStyle.None;
-			this.NsGridFavorites.Font = new System.Drawing.Font("IRANSans(Small)", 16F);
-			this.NsGridFavorites.GridLineColor = System.Drawing.Color.Black;
-			this.NsGridFavorites.GridLines = Janus.Windows.GridEX.GridLines.Vertical;
-			this.NsGridFavorites.GroupByBoxVisible = false;
-			this.NsGridFavorites.HeaderFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-			this.NsGridFavorites.HeaderFormatStyle.ForeColor = System.Drawing.Color.Black;
-			this.NsGridFavorites.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
-			this.NsGridFavorites.Location = new System.Drawing.Point(0, 0);
-			this.NsGridFavorites.Name = "NsGridFavorites";
-			this.NsGridFavorites.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom;
-			this.NsGridFavorites.Office2007CustomColor = System.Drawing.SystemColors.HotTrack;
-			this.NsGridFavorites.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.NsGridFavorites.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowIndex;
-			this.NsGridFavorites.SelectedFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-			this.NsGridFavorites.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
-			this.NsGridFavorites.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-			this.NsGridFavorites.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
-			this.NsGridFavorites.SelectOnExpand = false;
-			this.NsGridFavorites.Size = new System.Drawing.Size(568, 479);
-			this.NsGridFavorites.TabIndex = 783;
-			this.NsGridFavorites.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NsGridFavorites.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
-			this.NsGridFavorites.TreeLineColor = System.Drawing.Color.Black;
-			this.NsGridFavorites.View = Janus.Windows.GridEX.View.CardView;
-			this.NsGridFavorites.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
-			this.NsGridFavorites.ColumnButtonClick += new Janus.Windows.GridEX.ColumnActionEventHandler(this.NsGridFavorites_ColumnButtonClick);
 			// 
 			// Form_BarCode
 			// 
@@ -1981,11 +1981,8 @@
 			this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form_Purchase_KeyUp);
 			((System.ComponentModel.ISupportInitialize)(this.uiTab1)).EndInit();
 			this.uiTab1.ResumeLayout(false);
-			this.uiTabPage1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.uiTab2)).EndInit();
 			this.uiTab2.ResumeLayout(false);
-			this.uiTabPage5.ResumeLayout(false);
-			this.uiTabPage5.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox2)).EndInit();
 			this.uiGroupBox2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox3)).EndInit();
@@ -2003,18 +2000,21 @@
 			this.uiGroupBox6.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NzFactorKinds)).EndInit();
 			this.NzFactorKinds.ResumeLayout(false);
-			this.uiTabPage2.ResumeLayout(false);
-			this.NzTabPurchaseBack.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.NsGridFavorites)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.NzPrefactorGrid)).EndInit();
-			this.NsGroupKala.ResumeLayout(false);
-			this.NsGroupKala.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NzGroupKala)).EndInit();
-			this.NzTabPurchase.ResumeLayout(false);
-			this.NzTabPurchase.PerformLayout();
+			this.mS_Panel2.ResumeLayout(false);
+			this.uiTabPage1.ResumeLayout(false);
 			this.uiTabPage3.ResumeLayout(false);
 			this.uiTabPage3.PerformLayout();
-			this.mS_Panel2.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.NsGridFavorites)).EndInit();
+			this.uiTabPage5.ResumeLayout(false);
+			this.uiTabPage5.PerformLayout();
+			this.uiTabPage2.ResumeLayout(false);
+			this.NzTabPurchaseBack.ResumeLayout(false);
+			this.NsGroupKala.ResumeLayout(false);
+			this.NsGroupKala.PerformLayout();
+			this.NzTabPurchase.ResumeLayout(false);
+			this.NzTabPurchase.PerformLayout();
 			this.ResumeLayout(false);
 
         }

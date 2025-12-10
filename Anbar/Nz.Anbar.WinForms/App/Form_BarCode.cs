@@ -243,7 +243,49 @@ namespace Nz.Anbar.WinForms.App
         }
         private void Reset                          ()
         {
-            _DoRefresh                  = false; 
+	        if (_Factor!=null && !_Factor.FactorItems.Any() && _Factor.ID > 0 )
+	        {
+		        if (HasPayment())
+		        {
+			         var r = MS_Message.Show(@"فاکتور مورد هیچ گونه ردیفی ندارد و شما برای آن مبالغی را دریافت کرده اید
+ آیا مایلید به این فاکتور اقلامی را اضافه کنید؟
+","فاکتور خالی",MessageBoxButtons.YesNo);
+
+                     if(r == DialogResult.Yes)
+                         return;
+                     else
+                     {
+	                     r = MS_Message.Show(@"فاکتور خالی با وجوه دریافتی حذف شود؟","حذف فاکتور خالی",MessageBoxButtons.YesNo);
+
+	                     if (r == DialogResult.Yes)
+	                     {
+		                     IEnumerable<FactorPaymentResolve> List = null;
+		                     var Mgr = new FactorManager();
+		                     var mgr = new ReportManager();
+		                     List    = mgr.GetReport<FactorPaymentResolve>(new { ID = (long)_Factor.ID }, null);
+
+
+		                     if (List != null && List.Any())
+		                     {
+			                     var whereClause = string.Join(" OR ", List.Select(x => "ID =" + x.ID));
+			                     mgr.GetItem<FactorPaymentsDelete>(null, whereClause);
+		                     }
+
+		                     Mgr.Delete((long)_Factor.ID);
+
+		                     new Form_Notify
+			                     (
+				                     "تـوجـه",
+									 "حـذف فاکتور مـورد نـظر انـجـام شــد.",
+				                     Form_Notify.FarsiMessageBoxIcon.چـک_باکس
+			                     )
+			                     .Popup(Form_Notify.Direction_Show.Down_To_Up, 500);
+						 }
+					 }
+				}
+	        }
+
+			_DoRefresh                  = false; 
 
 
             GetMaxSerial                ();
@@ -625,17 +667,25 @@ namespace Nz.Anbar.WinForms.App
             }
 
         }
-		private void CheckForItemExist()
+		private void CheckForItemExist              ()
 		{
 			if (!_Factor.FactorItems.Any() && _Factor.ID>0)
 			{
+                if(HasPayment())
+                    return;
+
                 var customer = NzCustomer.MS_Get_Selected() as People;
 				_Manager.Delete(_Factor.ID);
                 Reset();
                 NzCustomer.MS_Set_Select(customer);
 			}
 		}
-
+		private bool HasPayment                     ()
+		{
+			var mgr = new ReportManager();
+			var payment = mgr.GetItem<FactorPayment>(new { _Factor.ID }, null);
+			return payment != null;
+		}
 		#endregion
 		#region Grid Events
 		private void ms_grid_EditModeChanged        (object sender, EventArgs e)
