@@ -50,6 +50,7 @@ namespace Nz.Anbar.WinForms.Settings
 			NsIsOffActive.Checked = settings.IsOffActive;
 			NsIsOffPercent.Checked = settings.IsOffPercent;
 			NsOffAmount.MS_Decimal = settings.OffAmount;
+			NsPrintCount.MS_Decimal = settings.PrintCountInBarcode;
 		}
 
 		public NsSettingTabPage TabSetting => NsStorageSetting;
@@ -65,7 +66,8 @@ namespace Nz.Anbar.WinForms.Settings
 				FishPrinter			= NsPrinters.Text,
 				IsOffActive			= NsIsOffActive.Checked,
 				IsOffPercent		= NsIsOffPercent.Checked,
-				OffAmount			= NsOffAmount.MS_Decimal
+				OffAmount			= NsOffAmount.MS_Decimal,
+				PrintCountInBarcode = (short)NsPrintCount.MS_Decimal,
 			};
 
         private void NsIsOffActive_CheckedChanged(object sender, EventArgs e)

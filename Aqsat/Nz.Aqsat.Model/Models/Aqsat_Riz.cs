@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ShareLib;
+using ShareLib; 
 
 namespace Nz.Aqsat.Model.Models
 {
@@ -21,10 +18,14 @@ namespace Nz.Aqsat.Model.Models
 		public DateTime		tarixPardaxt		{ get; set; }
 		public decimal		mablaqQest			{ get; set; }
 		public bool			isPardaxt			{ get; set; }
+		public string		Sharh				{ get; set; }
 
 		[NotMapped]
 		public Enums.NzItemState					State				{ get; set; }
-
+		[NotMapped]
+		public string								PersianTarixQest	{ get; set; }
+		
+		
 		public Aqsat_Main							AqsatMain			{ get; set; }
 		public virtual ICollection<Aqsat_SmsLog>	AqsatSmsLogs		{ get; set; }
 	}

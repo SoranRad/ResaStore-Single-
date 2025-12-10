@@ -32,13 +32,14 @@ namespace NZ.Anbar.Model
         public decimal?     nerkh_frosh3        { get; set; }
         public long?        FK_Image            { get; set; }
 
-        public string       WebSiteProductKind       { get; set; }
-        public long?        WebSiteProductId1        { get; set; }
-        public long?        WebSiteProductId2        { get; set; }
+        public string       WebSiteProductKind  { get; set; }
+        public long?        WebSiteProductId1   { get; set; }
+        public long?        WebSiteProductId2   { get; set; }
 
-        public bool         IsOffActive              { get; set; }
-        public bool         IsOffPercent             { get; set; }
-        public decimal      OffAmount                { get; set; }
+        public bool         IsOffActive         { get; set; }
+        public bool         IsOffPercent        { get; set; }
+        public decimal      OffAmount           { get; set; }
+        public bool         ShowInBarcodeForm   { get; set; }
 
         [Required]
         [StringLength(500)]
@@ -66,6 +67,7 @@ namespace NZ.Anbar.Model
 
         public decimal       Zarib               { get; set; }
         public short?        FK_Vahed_Fari       { get; set; }
+
 
         //==== ارتیاط با سایر مدلهای دیگر 
         public Unit                         tbl_Vahed               { get; set; }
@@ -165,7 +167,8 @@ SELECT tkx.ID ,
        tkx.WebSiteProductId2,
        tkx.IsOffActive,
        tkx.IsOffPercent,
-       tkx.OffAmount      
+       tkx.OffAmount ,
+        tkx.ShowInBarcodeForm
 
 FROM Base.tbl_Kala_Xadamat              AS tkx
 INNER JOIN Base.tbl_Vahed               AS tv       ON tv.ID        = tkx.FK_Vahed
@@ -220,7 +223,8 @@ SELECT tkx.ID ,
        tkx.WebSiteProductId2 ,
        tkx.IsOffActive,
        tkx.IsOffPercent,
-       tkx.OffAmount      
+       tkx.OffAmount,
+        tkx.ShowInBarcodeForm
 
 FROM Base.tbl_Kala_Xadamat              AS tkx
 INNER JOIN Base.tbl_Vahed               AS tv       ON tv.ID        = tkx.FK_Vahed

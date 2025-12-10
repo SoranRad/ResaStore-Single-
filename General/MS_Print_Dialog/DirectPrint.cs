@@ -18,7 +18,8 @@ namespace MS_Print_Dialog
                             Dictionary<string, object>  Variables,
                             bool                        Print       = false,
                             bool                        Progress    = false,
-                            string                      PrinterName = ""
+                            string                      PrinterName = "",
+                            short                       Copies      = 1
                             )
         {
             var report = new StiReport();
@@ -38,6 +39,7 @@ namespace MS_Print_Dialog
 	            {
                     PrinterSettings printerSettings = new PrinterSettings();
                     printerSettings.PrinterName = PrinterName;
+                    printerSettings.Copies = Copies;
                     report.Print(false,printerSettings);
 	            }
 	            else report.Print(false);

@@ -10,7 +10,7 @@
           <value>radif,System.Int32</value>
           <value>FK_Kala,System.String</value>
           <value>ObjectTitle,System.String</value>
-          <value>meqdar,System.Double</value>
+          <value>meqdar,System.Decimal</value>
           <value>UnitTitle,System.String</value>
           <value>nerkh,System.Decimal</value>
           <value>takhfif,System.Decimal</value>
@@ -539,12 +539,12 @@
         <FooterBand1 Ref="33" type="FooterBand" isKey="true">
           <Border>Top;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,5.8,7.5,8</ClientRectangle>
-          <Components isList="true" count="25">
+          <ClientRectangle>0,5.8,7.5,9.4</ClientRectangle>
+          <Components isList="true" count="29">
             <Text78 Ref="34" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>DimGray</Brush>
-              <ClientRectangle>1.03,2.01,0.4,0.6</ClientRectangle>
+              <ClientRectangle>1.03,3.41,0.4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),10,Bold</Font>
               <Guid>9a5b380b91c141509b0f512dffd3a59e</Guid>
@@ -569,7 +569,7 @@
             <Text20 Ref="36" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
-              <ClientRectangle>5.8,4.6,1.4,0.5</ClientRectangle>
+              <ClientRectangle>5.8,6.2,1.4,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),10,Bold</Font>
               <Guid>9d1c06c1d6154737adca8dde5ad84290</Guid>
@@ -588,7 +588,7 @@
             <Text31 Ref="37" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
-              <ClientRectangle>5.8,5.6,1.4,0.5</ClientRectangle>
+              <ClientRectangle>5.8,7.2,1.4,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),10,Bold</Font>
               <Guid>3fadb731c4dc4dfc92032ef1a014a77f</Guid>
@@ -607,7 +607,7 @@
             <Text32 Ref="38" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
-              <ClientRectangle>0,4.6,5.8,0.5</ClientRectangle>
+              <ClientRectangle>0,6.2,5.8,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),10</Font>
               <Guid>c3d28591d60c4267b0106760c2ed64f6</Guid>
@@ -629,7 +629,7 @@
             <Text34 Ref="40" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
-              <ClientRectangle>0,5.6,5.8,0.5</ClientRectangle>
+              <ClientRectangle>0,7.2,5.8,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),10</Font>
               <Guid>7ba828dfbaab4a26a4a2579c77ad3779</Guid>
@@ -651,7 +651,7 @@
             <Text19 Ref="42" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>DimGray</Brush>
-              <ClientRectangle>0,4.2,7.2,0.4</ClientRectangle>
+              <ClientRectangle>0,5.8,7.2,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),8,Bold</Font>
               <Guid>f7067a86d2024439b6c35dc18d1f0f2e</Guid>
@@ -670,7 +670,7 @@
             <Text33 Ref="43" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
-              <ClientRectangle>0,5.1,5.8,0.5</ClientRectangle>
+              <ClientRectangle>0,6.7,5.8,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),10</Font>
               <Guid>0c98778fa5bd4789bab6a21e93af0e4c</Guid>
@@ -692,7 +692,7 @@
             <Text30 Ref="45" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
-              <ClientRectangle>5.8,5.1,1.4,0.5</ClientRectangle>
+              <ClientRectangle>5.8,6.7,1.4,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),9,Bold</Font>
               <Guid>290e44698cdf449890839c300b8efa14</Guid>
@@ -720,7 +720,7 @@
               <Name>Text64</Name>
               <Page isRef="3" />
               <Parent isRef="33" />
-              <Text>{Sum(List.mablaq)}</Text>
+              <Text>{Sum(List.meqdar*List.nerkh)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="47" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -736,7 +736,7 @@
             <Text65 Ref="48" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;1;Black</Border>
               <Brush>DimGray</Brush>
-              <ClientRectangle>0,3.21,7.2,0.6</ClientRectangle>
+              <ClientRectangle>0,4.61,7.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(Small),10,Bold</Font>
               <Guid>966bb0f216ec4b71a15970824a77dbb6</Guid>
@@ -754,15 +754,17 @@
             <Text73 Ref="49" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>DimGray</Brush>
-              <ClientRectangle>5.6,0.81,1.6,0.6</ClientRectangle>
+              <ClientRectangle>5.6,2.01,1.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>IRANSans(FaNum),10,Bold</Font>
+              <Font>IRANSans(FaNum),8,Bold</Font>
               <Guid>f7828daec3a9425bb56007887ebc4ccc</Guid>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text73</Name>
               <Page isRef="3" />
               <Parent isRef="33" />
-              <Text>تخفیفـات</Text>
+              <Text>سایر
+تخفیفـات</Text>
               <TextBrush>White</TextBrush>
               <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
               <TextQuality>Typographic</TextQuality>
@@ -772,10 +774,11 @@
             <Text74 Ref="50" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>DimGray</Brush>
-              <ClientRectangle>5.6,2.01,1.6,0.6</ClientRectangle>
+              <ClientRectangle>5.6,3.41,1.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),9,Bold</Font>
               <Guid>6628d1edf3584c9d84a7b35e4d22d109</Guid>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text74</Name>
               <Page isRef="3" />
@@ -790,10 +793,11 @@
             <Text75 Ref="51" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
-              <ClientRectangle>5.6,2.61,1.6,0.6</ClientRectangle>
+              <ClientRectangle>5.6,4.01,1.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>IRANSans(FaNum),8</Font>
+              <Font>IRANSans(FaNum),10</Font>
               <Guid>d5ce3ac61d3943eaa60c7119c142d97f</Guid>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text75</Name>
               <Page isRef="3" />
@@ -808,7 +812,7 @@
             <Text76 Ref="52" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>DimGray</Brush>
-              <ClientRectangle>1.41,0.81,4.19,0.6</ClientRectangle>
+              <ClientRectangle>1.41,2.01,4.19,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),10,Bold</Font>
               <Guid>bdb3dd5bbf4c451eb4f17bedae9a9cde</Guid>
@@ -833,7 +837,7 @@
             <Text63 Ref="54" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>DimGray</Brush>
-              <ClientRectangle>1.44,2.01,4.16,0.6</ClientRectangle>
+              <ClientRectangle>1.44,3.41,4.16,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),10,Bold</Font>
               <Guid>1532e59628044d10891b84980172f13a</Guid>
@@ -858,7 +862,7 @@
             <Text77 Ref="56" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>DimGray</Brush>
-              <ClientRectangle>1.01,0.81,0.4,0.6</ClientRectangle>
+              <ClientRectangle>1.01,2.01,0.4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),10,Bold</Font>
               <Guid>c3e74db3b45d4b8cb886af242b92cde0</Guid>
@@ -883,7 +887,7 @@
             <Text604 Ref="58" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
-              <ClientRectangle>0,2.61,5.6,0.6</ClientRectangle>
+              <ClientRectangle>0,4.01,5.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),10</Font>
               <Guid>d6ee828206e44168ba5c61d3f75919a9</Guid>
@@ -908,7 +912,7 @@
             <Text703 Ref="60" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>DimGray</Brush>
-              <ClientRectangle>0,0.81,1,0.6</ClientRectangle>
+              <ClientRectangle>0,2.01,1,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),10,Bold</Font>
               <Guid>8718446212984980b061aa9570f64e90</Guid>
@@ -933,7 +937,7 @@
             <Text704 Ref="62" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>DimGray</Brush>
-              <ClientRectangle>0.01,2.01,1.02,0.6</ClientRectangle>
+              <ClientRectangle>0.01,3.41,1.02,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),10,Bold</Font>
               <Guid>d42df5506d42493d930d4691a421e391</Guid>
@@ -958,10 +962,11 @@
             <Text79 Ref="64" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
-              <ClientRectangle>5.6,1.41,1.6,0.6</ClientRectangle>
+              <ClientRectangle>5.6,2.81,1.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>IRANSans(FaNum),8</Font>
+              <Font>IRANSans(FaNum),10</Font>
               <Guid>fce21dccd8214e2dacaa60fbeddb5aaf</Guid>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text79</Name>
               <Page isRef="3" />
@@ -976,7 +981,7 @@
             <Text80 Ref="65" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
-              <ClientRectangle>0,1.41,5.6,0.6</ClientRectangle>
+              <ClientRectangle>0,2.81,5.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),10</Font>
               <Guid>6890fb61830f4ddca4c0e09780bc35c4</Guid>
@@ -1003,8 +1008,9 @@
               <Brush>EmptyBrush</Brush>
               <ClientRectangle>5.6,0.2,1.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>IRANSans(FaNum),8</Font>
+              <Font>IRANSans(FaNum),10</Font>
               <Guid>5a93b948e3574b8a95ec90fc7d3def66</Guid>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text603</Name>
               <Page isRef="3" />
@@ -1019,7 +1025,7 @@
             <Text29 Ref="68" type="Text" isKey="true">
               <Border>Bottom;Black;1;Dash;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
-              <ClientRectangle>0.2,7.4,7.1,0.3</ClientRectangle>
+              <ClientRectangle>0.2,9,7.1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),6,Bold</Font>
               <Guid>dd722569db42430696a0b4b071036eda</Guid>
@@ -1038,7 +1044,7 @@
             <Text22 Ref="69" type="Text" isKey="true">
               <Border>Top, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
-              <ClientRectangle>0.2,6.8,7.1,0.5</ClientRectangle>
+              <ClientRectangle>0.2,8.4,7.1,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(Small),11,Bold</Font>
               <Guid>5c8962c4f453415ab24ef9f4cd3c9730</Guid>
@@ -1056,7 +1062,7 @@
             </Text22>
             <Text21 Ref="70" type="Text" isKey="true">
               <Brush>EmptyBrush</Brush>
-              <ClientRectangle>0,6.2,7.1,0.6</ClientRectangle>
+              <ClientRectangle>0,7.8,7.1,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(Small),14,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -1070,6 +1076,94 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text21>
+            <Text9 Ref="71" type="Text" isKey="true">
+              <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
+              <Brush>DimGray</Brush>
+              <ClientRectangle>5.6,0.8,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum),10,Bold</Font>
+              <Guid>f07c7078ecd84b02bbd971129fb1a0ec</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="3" />
+              <Parent isRef="33" />
+              <Text>سود شما</Text>
+              <TextBrush>White</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+            <Text10 Ref="72" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>DimGray</Brush>
+              <ClientRectangle>0,0.8,5.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum),10,Bold</Font>
+              <Guid>fdb246e538bc4737bfa621ea9edbaf6d</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="3" />
+              <Parent isRef="33" />
+              <Text>{Sum(DataBand2,List.takhfif)}</Text>
+              <TextBrush>White</TextBrush>
+              <TextFormat Ref="73" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>/</DecimalSeparator>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>2</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+            <Text11 Ref="74" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>EmptyBrush</Brush>
+              <ClientRectangle>0,1.4,5.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum),10</Font>
+              <Guid>f58bdb1788744532ac35b92e500052ea</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="3" />
+              <Parent isRef="33" />
+              <Text>{Sum(List.mablaq)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="75" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>/</DecimalSeparator>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>2</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+            <Text12 Ref="76" type="Text" isKey="true">
+              <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
+              <Brush>EmptyBrush</Brush>
+              <ClientRectangle>5.6,1.4,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans(FaNum),9</Font>
+              <Guid>ca77d204a51a4d47a79007e7934bf731</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="3" />
+              <Parent isRef="33" />
+              <Text>مبلغ پرداخت</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextQuality>Typographic</TextQuality>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text12>
           </Components>
           <Conditions isList="true" count="0" />
           <Name>FooterBand1</Name>
@@ -1083,19 +1177,20 @@
       <LargeHeightFactor>1</LargeHeightFactor>
       <Margins>0,0,0.1,0.5</Margins>
       <Name>Page1</Name>
-      <PageHeight>14</PageHeight>
+      <PageHeight>16</PageHeight>
       <PageWidth>7.5</PageWidth>
       <Report isRef="0" />
       <RightToLeft>True</RightToLeft>
+      <UnlimitedBreakable>False</UnlimitedBreakable>
       <UnlimitedHeight>True</UnlimitedHeight>
-      <Watermark Ref="71" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="77" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
         <RightToLeft>True</RightToLeft>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="72" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="78" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -1107,10 +1202,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>11/27/2025 11:16:01 AM</ReportChanged>
+  <ReportChanged>12/9/2025 12:06:31 PM</ReportChanged>
   <ReportCreated>8/21/2014 7:32:51 PM</ReportCreated>
   <ReportFile>E:\_Workspace_Project_\_ResaStore_Single_\Output\Print\Anbar\Pos_Print.mrt</ReportFile>
-  <ReportGuid>7ad968abf7984ef2af0a9cdb0f2b65cc</ReportGuid>
+  <ReportGuid>80f11ec301f94872b08e8976642ce241</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2015.2.0</ReportVersion>
@@ -1139,7 +1234,7 @@ namespace Reports
 </Script>
   <ScriptLanguage>CSharp</ScriptLanguage>
   <Styles isList="true" count="2">
-    <BlackBg Ref="73" type="Stimulsoft.Report.StiStyle" isKey="true">
+    <BlackBg Ref="79" type="Stimulsoft.Report.StiStyle" isKey="true">
       <Border>Left, Right;White;1;Dash;False;0;Black</Border>
       <Brush>DimGray</Brush>
       <Conditions isList="true" count="0" />
@@ -1147,7 +1242,7 @@ namespace Reports
       <Name>BlackBg</Name>
       <TextBrush>White</TextBrush>
     </BlackBg>
-    <whitebg Ref="74" type="Stimulsoft.Report.StiStyle" isKey="true">
+    <whitebg Ref="80" type="Stimulsoft.Report.StiStyle" isKey="true">
       <Border>Left, Right;Black;1;Dash;False;0;Transparent</Border>
       <Brush>EmptyBrush</Brush>
       <Conditions isList="true" count="0" />

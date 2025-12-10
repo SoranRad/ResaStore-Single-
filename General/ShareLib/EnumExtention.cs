@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ namespace ShareLib
 {
     public static class EnumExtention
     {
-        public static string NzToString (this Enums.NzStorageKind           Kind)
+        public static string NzToString(this Enums.NzStorageKind Kind)
         {
             switch (Kind)
             {
@@ -22,7 +23,7 @@ namespace ShareLib
                     return Kind.ToString();
             }
         }
-        public static string NzTostring (this Enums.NzObjectKind            Kind)
+        public static string NzTostring(this Enums.NzObjectKind Kind)
         {
             switch (Kind)
             {
@@ -34,21 +35,21 @@ namespace ShareLib
                     return Kind.ToString();
             }
         }
-        public static string NzTostring (this Enums.NzObjectWebSiteKind            Kind)
+        public static string NzTostring(this Enums.NzObjectWebSiteKind Kind)
         {
-	        switch (Kind)
-	        {
-		        case Enums.NzObjectWebSiteKind.Simple:
-			        return "ساده";
-		        case Enums.NzObjectWebSiteKind.Grouped:
-			        return "دسته بندی شده";
-		        case Enums.NzObjectWebSiteKind.Afilit:
-			        return "خارجی";
-		        case Enums.NzObjectWebSiteKind.Variant:
-			        return "متغیر";
-		        default:
-			        return null;
-	        }
+            switch (Kind)
+            {
+                case Enums.NzObjectWebSiteKind.Simple:
+                    return "ساده";
+                case Enums.NzObjectWebSiteKind.Grouped:
+                    return "دسته بندی شده";
+                case Enums.NzObjectWebSiteKind.Afilit:
+                    return "خارجی";
+                case Enums.NzObjectWebSiteKind.Variant:
+                    return "متغیر";
+                default:
+                    return null;
+            }
         }
         public static string NzTostring(this Enums.NzObjectSeason Kind)
         {
@@ -68,7 +69,7 @@ namespace ShareLib
                     return "";
             }
         }
-        public static string NzTostring (this Enums.NzSalingKind            Kind)
+        public static string NzTostring(this Enums.NzSalingKind Kind)
         {
             switch (Kind)
             {
@@ -84,7 +85,7 @@ namespace ShareLib
                     return Kind.ToString();
             }
         }
-        public static string NzTostring (this Enums.NzUserKind              Kind)
+        public static string NzTostring(this Enums.NzUserKind Kind)
         {
             switch (Kind)
             {
@@ -98,7 +99,7 @@ namespace ShareLib
                     return Kind.ToString();
             }
         }
-        public static string NzTostring (this Enums.NzSex                   Kind)
+        public static string NzTostring(this Enums.NzSex Kind)
         {
             switch (Kind)
             {
@@ -112,7 +113,7 @@ namespace ShareLib
                     return Kind.ToString();
             }
         }
-        public static string NzToString (this Enums.NzFactorKind            Kind)
+        public static string NzToString(this Enums.NzFactorKind Kind)
         {
             switch (Kind)
             {
@@ -142,42 +143,42 @@ namespace ShareLib
                     return @"حواله ضایعات";
                 case Enums.NzFactorKind.HavaleMasrafi:
                     return @"حواله مصرف";
-				case Enums.NzFactorKind.EnteqalBeynAnbar:
-					return @"انتقال بین انبار ";
-				case Enums.NzFactorKind.ResidVorud:
-					return @"رسید ورود کالا";
-				case Enums.NzFactorKind.HavaleXoruj:
-					return @"حواله خروج کالا";
-				default:
+                case Enums.NzFactorKind.EnteqalBeynAnbar:
+                    return @"انتقال بین انبار ";
+                case Enums.NzFactorKind.ResidVorud:
+                    return @"رسید ورود کالا";
+                case Enums.NzFactorKind.HavaleXoruj:
+                    return @"حواله خروج کالا";
+                default:
                     return @"";
             }
         }
-        public static string NzToString (this Enums.NzPaymentOperatingKind  Kind)
+        public static string NzToString(this Enums.NzPaymentOperatingKind Kind)
         {
             switch (Kind)
             {
                 case Enums.NzPaymentOperatingKind.Daryaft:
-                     return @"دریافت وجوه از اشخاص";
+                    return @"دریافت وجوه از اشخاص";
                 case Enums.NzPaymentOperatingKind.Pardaxt:
-                     return @"پرداخت وجوه به اشخاص";
+                    return @"پرداخت وجوه به اشخاص";
                 case Enums.NzPaymentOperatingKind.Daramad:
-                     return @"درآمد";
+                    return @"درآمد";
                 case Enums.NzPaymentOperatingKind.Hazine:
-                     return @"هـزینه";
+                    return @"هـزینه";
                 case Enums.NzPaymentOperatingKind.Naql_Enteqal:
-                     return @"نقل و انتقال";
+                    return @"نقل و انتقال";
                 case Enums.NzPaymentOperatingKind.Kosurat:
-                     return @"کسورات";
+                    return @"کسورات";
                 case Enums.NzPaymentOperatingKind.Addition:
-                     return @"اضافات";
+                    return @"اضافات";
                 case Enums.NzPaymentOperatingKind.Enteqal_Shaxs:
-                     return @"انتقال حساب بین اشخاص";
+                    return @"انتقال حساب بین اشخاص";
                 case Enums.NzPaymentOperatingKind.Naqd:
-                     return @"نقدی";
+                    return @"نقدی";
                 case Enums.NzPaymentOperatingKind.Bank_POS:
-                     return @"بانکی/کارتخوان";
+                    return @"بانکی/کارتخوان";
                 case Enums.NzPaymentOperatingKind.RemaindDebit:
-                        return @"مانده قبلی ";
+                    return @"مانده قبلی ";
                 case Enums.NzPaymentOperatingKind.RemaindCredit:
                     return @"مانده قبلی ";
                 case Enums.NzPaymentOperatingKind.Cheque:
@@ -192,7 +193,7 @@ namespace ShareLib
                     return @"";
             }
         }
-        public static string NzToString (this Enums.NzChequeStateFlag       Kind)
+        public static string NzToString(this Enums.NzChequeStateFlag Kind)
         {
             switch (Kind)
             {
@@ -209,7 +210,7 @@ namespace ShareLib
 
             }
         }
-        public static string NzToString (this Enums.NzAccountKind           Kind)
+        public static string NzToString(this Enums.NzAccountKind Kind)
         {
             switch (Kind)
             {
@@ -234,108 +235,158 @@ namespace ShareLib
 
         public static string NzWebsiteStateOrderToPersian(this string Kind)
         {
-             
-	        switch (Kind)
-	        {
+
+            switch (Kind)
+            {
                 case "pending":
-	                return "در انتظار پرداخت";
+                    return "در انتظار پرداخت";
                 case "processing":
-	                return "در حال انجام";
+                    return "در حال انجام";
                 case "on-hold":
-	                return "در انتظار بررسی";
+                    return "در انتظار بررسی";
                 case "completed":
-	                return "تکمیل شده";
+                    return "تکمیل شده";
                 case "cancelled":
-	                return "لغو شده";
+                    return "لغو شده";
                 case "refunded":
-	                return "مسترد شده";
+                    return "مسترد شده";
                 case "failed":
-	                return "ناموفق";
+                    return "ناموفق";
                 case "trash":
-	                return "حذف شده";
+                    return "حذف شده";
                 default:
-	                return "";
-	        }
+                    return "";
+            }
         }
 
         public static string NzWebsiteStockStatusToPersian(this string Kind)
         {
-             
-	        switch (Kind)
-	        {
-		        case "instock":
-			        return "موجود";
-		        case "outofstock":
-			        return "ناموجود";
-		        case "onbackorder":
-			        return "در پیش‌خرید";
-		        default:
-			        return "";
-	        }
+
+            switch (Kind)
+            {
+                case "instock":
+                    return "موجود";
+                case "outofstock":
+                    return "ناموجود";
+                case "onbackorder":
+                    return "در پیش‌خرید";
+                default:
+                    return "";
+            }
         }
 
         public static string NzWebsiteProductTypeToPersian(this string Kind)
         {
-             
-	        switch (Kind)
-	        {
-		        case "simple":
-			        return "ساده";
-		        case "grouped":
-			        return "دسته بندی";
-		        case "external":
-			        return "خارجی";
-		        case "variable":
-			        return "متغیر";
-		        default:
-			        return "";
-	        }
+
+            switch (Kind)
+            {
+                case "simple":
+                    return "ساده";
+                case "grouped":
+                    return "دسته بندی";
+                case "external":
+                    return "خارجی";
+                case "variable":
+                    return "متغیر";
+                default:
+                    return "";
+            }
         }
         public static string NzWebsiteStateToPersian(this string Kind)
         {
-	        if (string.IsNullOrWhiteSpace(Kind))
-		        return "";
+            if (string.IsNullOrWhiteSpace(Kind))
+                return "";
 
-	        switch (Kind)
-	        {
-                case "KHZ":return "خوزستان";
-                case "THR":return "تهران";
-                case "ILM":return "ایلام";
-                case "BHR":return "بوشهر";
-                case "ADL":return "اردبیل";
-                case "ESF":return "اصفهان";
-                case "YZD":return "یزد";
-                case "KRH":return "کرمانشاه";
-                case "KRN":return "کرمان";
-                case "HDN":return "همدان";
-                case "GZN":return "قزوین";
-                case "ZJN":return "زنجان";
-                case "LRS":return "لرستان";
-                case "ABZ":return "البرز";
-                case "EAZ":return "آذربایجان شرقی";
-                case "WAZ":return "آذربایجان غربی";
-                case "CHB":return "چهارمحال و بختیاری";
-                case "SKH":return "خراسان جنوبی";
-                case "RKH":return "خراسان رضوی";
-                case "NKH":return "خراسان شمالی";
-                case "SMN":return "سمنان";
-                case "FRS":return "فارس";
-                case "QHM":return "قم";
-                case "KRD":return "کردستان";
-                case "KBD":return "کهگیلویه و بویراحمد";
-                case "GLS":return "گلستان";
-                case "GIL":return "گیلان";
-                case "MZN":return "مازندران";
-                case "MKZ":return "مرکزی";
-                case "HRZ":return "هرمزگان";
-                case "SBN":return "سیستان و بلوچستان";		         
+            switch (Kind)
+            {
+                case "KHZ": return "خوزستان";
+                case "THR": return "تهران";
+                case "ILM": return "ایلام";
+                case "BHR": return "بوشهر";
+                case "ADL": return "اردبیل";
+                case "ESF": return "اصفهان";
+                case "YZD": return "یزد";
+                case "KRH": return "کرمانشاه";
+                case "KRN": return "کرمان";
+                case "HDN": return "همدان";
+                case "GZN": return "قزوین";
+                case "ZJN": return "زنجان";
+                case "LRS": return "لرستان";
+                case "ABZ": return "البرز";
+                case "EAZ": return "آذربایجان شرقی";
+                case "WAZ": return "آذربایجان غربی";
+                case "CHB": return "چهارمحال و بختیاری";
+                case "SKH": return "خراسان جنوبی";
+                case "RKH": return "خراسان رضوی";
+                case "NKH": return "خراسان شمالی";
+                case "SMN": return "سمنان";
+                case "FRS": return "فارس";
+                case "QHM": return "قم";
+                case "KRD": return "کردستان";
+                case "KBD": return "کهگیلویه و بویراحمد";
+                case "GLS": return "گلستان";
+                case "GIL": return "گیلان";
+                case "MZN": return "مازندران";
+                case "MKZ": return "مرکزی";
+                case "HRZ": return "هرمزگان";
+                case "SBN": return "سیستان و بلوچستان";
 
-		        default:
-			        return "";
-	        }
+                default:
+                    return "";
+            }
         }
 
+		public static bool IsPersianDate(this string PersianStr)
+		{
+			try
+			{
+				var StrNumbers = PersianStr
+					.Split(new string[] { "/", "\\", "|", ",", ".", "-", " " },
+						StringSplitOptions.RemoveEmptyEntries);
 
+				if (StrNumbers == null || !StrNumbers.Any() || StrNumbers.Length < 3)
+					return false;
 
-    }
+				var Numbers = StrNumbers.Select(x => Convert.ToInt32(x)).ToList();
+
+				if (Numbers == null || !Numbers.Any() || Numbers.Count < 3)
+					return false;
+
+				if (Numbers[1] < 1 || Numbers[1] > 12)
+					return false;
+
+				if (Numbers[2] < 1 || Numbers[2] > 31)
+					return false;
+
+				var p = new PersianCalendar();
+				var r = p.ToDateTime(Numbers[0], Numbers[1], Numbers[2], 0, 0, 0, 0);
+
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
+		}
+
+		public static DateTime ToPersianDate(this string PersianStr)
+		{
+			var StrNumbers = PersianStr
+				.Split(new string[] { "/", "\\", ",", "|", "." },
+					StringSplitOptions.RemoveEmptyEntries);
+
+			var IntNumbers = StrNumbers
+				.Where(x => int.TryParse(x, out int tmp))
+				.Select(x => int.Parse(x))
+				.ToArray();
+
+			var p = new PersianCalendar();
+
+			return p.ToDateTime(IntNumbers[0], IntNumbers[1], IntNumbers[2], 0, 0, 0, 0);
+		}
+
+		
+
+	}
+
 }

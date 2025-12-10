@@ -69,12 +69,12 @@ namespace NZ.Resaa.Store
 	        _config = Config.FromXML();
 	        ConnectionManager.ConStr = _config.ConStr;
 
-            var loadingMadul = LoadGeneral(_config);
-            loadingMadul = LoadStorage(_config);
-            loadingMadul = LoadBar(_config); 
-            loadingMadul = LoadXazane(_config); 
-            loadingMadul = LoadAqsat(_config); 
-            loadingMadul = LoadWebSite(_config);
+            var loadingMadul = LoadGeneral  (_config);
+            loadingMadul = LoadStorage      (_config);
+            loadingMadul = LoadBar          (_config); 
+            loadingMadul = LoadXazane       (_config); 
+            loadingMadul = LoadAqsat        (_config); 
+            loadingMadul = LoadWebSite      (_config);
             return true;
         }
         private bool    LoadGeneral                 (Config config)

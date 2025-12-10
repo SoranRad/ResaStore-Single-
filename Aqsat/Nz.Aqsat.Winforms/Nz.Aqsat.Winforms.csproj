@@ -207,6 +207,12 @@
     <Compile Include="App\Form_Aqsat_Jadid.Designer.cs">
       <DependentUpon>Form_Aqsat_Jadid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Component\NsKindAqsatCombo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Component\NsKindAqsatCombo.Designer.cs">
+      <DependentUpon>NsKindAqsatCombo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings\SettingItems.cs" />
     <Compile Include="Settings\TabSettingContainer.cs">
       <SubType>UserControl</SubType>
@@ -312,7 +318,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Component\" />
     <Folder Include="Report\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

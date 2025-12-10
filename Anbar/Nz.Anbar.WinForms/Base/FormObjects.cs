@@ -93,6 +93,7 @@ namespace Nz.Anbar.WinForms.Base
                 NsIsOffActive.Checked = _Item.IsOffActive;
                 NsIsOffPercent.Checked = _Item.IsOffPercent;
                 NsOffAmount.MS_Decimal = _Item.IsOffActive ? _Item.OffAmount : 0;
+                NsShowInBarcode.Checked = _Item.ShowInBarcodeForm;
 
             }
             catch (Exception ex)
@@ -124,8 +125,9 @@ namespace Nz.Anbar.WinForms.Base
             _Item.Width             = NzWidth.MS_Decimal ;
             _Item.Height            = NzHeight.MS_Decimal ;
             _Item.Gender            = NzGender.Text;
+            _Item.ShowInBarcodeForm = NsShowInBarcode.Checked;
 
-            if(NzSeason.SelectedIndex >= 0)
+            if (NzSeason.SelectedIndex >= 0)
                 _Item.Season        = Convert.ToByte(NzSeason.SelectedIndex);
 
             _Item.Color             = string.IsNullOrWhiteSpace(NzColor.Text)?null: (int?)Convert.ToInt32(NzColor.Text);

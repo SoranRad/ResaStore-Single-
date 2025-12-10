@@ -96,7 +96,7 @@ namespace Nz.Anbar.WinForms.App
             LoadObjects();
             SubGroupsPanel.RefreshGroup();
             SubGroupsPanel.OnSubGroupChanged+=SubGroupsPanelOnOnSubGroupChanged;
-
+            NsGridFavorites.DataSource = _ListObjects.Where(x => x.ShowInBarcodeForm).ToList();
 
             if(_ID==0)
                 Reset();
@@ -544,6 +544,7 @@ namespace Nz.Anbar.WinForms.App
             var Co                  = SystemConstant.ActiveCompany;
             var Cu                  = NzCustomer.MS_Get_Selected() as People;
             var printerName         = "";
+            short Copies            = 1;
             var Factors             = _Manager.GetPrintFactor(_Factor.ID);
             var factor              = Factors.FirstOrDefault();
 
@@ -552,7 +553,10 @@ namespace Nz.Anbar.WinForms.App
 	            return;
 
             if (Form_Factory._Form_Factory_Anbar.GetSettings() is SettingItems Setting)
+            {
 	            printerName = Setting.FishPrinter;
+	            Copies = Setting.PrintCountInBarcode <= 0 ? (short)1 : Setting.PrintCountInBarcode;
+            }
 
 
             var dic = new Dictionary<string, object>()
@@ -594,13 +598,14 @@ namespace Nz.Anbar.WinForms.App
             };
             var prnFile = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             prnFile += "\\Print\\Anbar\\Pos_Print.mrt";
-            var p = new DirectPrint(prnFile, new Dictionary<string, object>() {{"List", _Factor.FactorItems}}, dic,true,true,printerName);
+            var p = new DirectPrint(prnFile, new Dictionary<string, object>() {{"List", _Factor.FactorItems}}, dic,true,true,printerName,Copies);
 
         }
         private void RefreshPrefactor               ()
         {
             var mgr = new PrefactorManager();
             NzPrefactorGrid.DataSource = mgr.GetList(null).ToList();
+
         }
         private void AddPrefactor                   (int IdPrefactor)
         {
@@ -1556,7 +1561,25 @@ namespace Nz.Anbar.WinForms.App
             }
 
         }
-        private void NzPayment_Click                    (object sender, EventArgs e)
+        private void NsGridFavorites_ColumnButtonClick(object sender, ColumnActionEventArgs e)
+        {
+	        try
+	        {
+		        var current = NsGridFavorites.CurrentRow;
+		        if (current == null || current.RowType != RowType.Record)
+			        return;
+
+		        if (current.DataRow is NzObject item)
+			        AddObject(item);
+
+			}
+			catch (Exception ex)
+	        {
+				log.Error(ex);
+			}
+		}
+
+		private void NzPayment_Click                    (object sender, EventArgs e)
         {
             if (_Factor.ID > 0)
             {
@@ -1636,7 +1659,13 @@ namespace Nz.Anbar.WinForms.App
 						? nameof(NzObject.nerkh_frosh)
                         : nameof(NzObject.nerkh_frosh) + NzKind.SelectedIndex;
             NzGroupKala.Refetch();
-			 
+
+            NsGridFavorites.RootTable.Columns[nameof(NzObject.nerkh_frosh)].DataMember =
+	            NzKind.SelectedIndex == 0
+		            ? nameof(NzObject.nerkh_frosh)
+		            : nameof(NzObject.nerkh_frosh) + NzKind.SelectedIndex;
+            NsGridFavorites.Refetch();
+
 		}
 		private void NsCopyBarcode_Click                (object sender, EventArgs e)
 		{
@@ -1653,5 +1682,7 @@ namespace Nz.Anbar.WinForms.App
 			if(item!=null)
 				AddObject(item);
 		}
-	}
+
+       
+    }
 }

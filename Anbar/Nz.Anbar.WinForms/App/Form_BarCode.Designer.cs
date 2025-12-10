@@ -43,6 +43,8 @@
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzPrefactorGrid_DesignTimeLayout_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.ButtonImage");
 			Janus.Windows.GridEX.GridEXLayout NzGroupKala_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGroupKala_DesignTimeLayout_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.ButtonImage");
+			Janus.Windows.GridEX.GridEXLayout NsGridFavorites_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
+			Janus.Windows.Common.Layouts.JanusLayoutReference NsGridFavorites_DesignTimeLayout_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.ButtonImage");
 			this.uiTab1 = new Janus.Windows.UI.Tab.UITab();
 			this.uiTabPage1 = new Janus.Windows.UI.Tab.UITabPage();
 			this.Splitter1 = new DevComponents.DotNetBar.ExpandableSplitter();
@@ -74,6 +76,7 @@
 			this.NzGrid = new MS_Control.Controls.MS_GridX();
 			this.uiGroupBox6 = new Janus.Windows.EditControls.UIGroupBox();
 			this.NzFactorKinds = new Janus.Windows.UI.Tab.UITab();
+			this.uiTabPage2 = new Janus.Windows.UI.Tab.UITabPage();
 			this.NzTabPurchaseBack = new Janus.Windows.UI.Tab.UITabPage();
 			this.NzPrefactorGrid = new MS_Control.Controls.MS_GridX();
 			this.NsGroupKala = new Janus.Windows.UI.Tab.UITabPage();
@@ -132,6 +135,7 @@
 			this.NzPayment = new MS_Control.Controls.MS_Button_GridX();
 			this.NzSave = new MS_Control.Controls.MS_Button_GridX();
 			this.nzObjectPopup1 = new Nz.Anbar.WinForms.Component.NzObjectPopup();
+			this.NsGridFavorites = new MS_Control.Controls.MS_GridX();
 			((System.ComponentModel.ISupportInitialize)(this.uiTab1)).BeginInit();
 			this.uiTab1.SuspendLayout();
 			this.uiTabPage1.SuspendLayout();
@@ -151,6 +155,7 @@
 			this.uiGroupBox6.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NzFactorKinds)).BeginInit();
 			this.NzFactorKinds.SuspendLayout();
+			this.uiTabPage2.SuspendLayout();
 			this.NzTabPurchaseBack.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NzPrefactorGrid)).BeginInit();
 			this.NsGroupKala.SuspendLayout();
@@ -158,6 +163,7 @@
 			this.NzTabPurchase.SuspendLayout();
 			this.uiTabPage3.SuspendLayout();
 			this.mS_Panel2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.NsGridFavorites)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// uiTab1
@@ -840,6 +846,7 @@
 			this.NzFactorKinds.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
 			this.NzFactorKinds.TabIndex = 783;
 			this.NzFactorKinds.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
+            this.uiTabPage2,
             this.NzTabPurchaseBack,
             this.NsGroupKala,
             this.NzTabPurchase});
@@ -849,6 +856,15 @@
 			this.NzFactorKinds.TextOrientation = Janus.Windows.UI.Tab.TextOrientation.Horizontal;
 			this.NzFactorKinds.UseCompatibleTextRendering = false;
 			this.NzFactorKinds.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2007;
+			// 
+			// uiTabPage2
+			// 
+			this.uiTabPage2.Controls.Add(this.NsGridFavorites);
+			this.uiTabPage2.Location = new System.Drawing.Point(0, 0);
+			this.uiTabPage2.Name = "uiTabPage2";
+			this.uiTabPage2.Size = new System.Drawing.Size(568, 479);
+			this.uiTabPage2.TabStop = true;
+			this.uiTabPage2.Text = "کالاها";
 			// 
 			// NzTabPurchaseBack
 			// 
@@ -1893,6 +1909,65 @@
 			this.nzObjectPopup1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.nzObjectPopup1.Size = new System.Drawing.Size(0, 0);
 			// 
+			// NsGridFavorites
+			// 
+			this.NsGridFavorites.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.False;
+			this.NsGridFavorites.AllowRemoveColumns = Janus.Windows.GridEX.InheritableBoolean.True;
+			this.NsGridFavorites.AlternatingColors = true;
+			this.NsGridFavorites.AlternatingRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.NsGridFavorites.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.NsGridFavorites.BorderStyle = Janus.Windows.GridEX.BorderStyle.Flat;
+			this.NsGridFavorites.BuiltInTextsData = resources.GetString("NsGridFavorites.BuiltInTextsData");
+			this.NsGridFavorites.CardHeaders = false;
+			this.NsGridFavorites.CardInnerSpacing = 3;
+			this.NsGridFavorites.CardSpacing = 10;
+			this.NsGridFavorites.CardWidth = 170;
+			this.NsGridFavorites.ColumnAutoResize = true;
+			this.NsGridFavorites.ColumnHeaders = Janus.Windows.GridEX.InheritableBoolean.False;
+			this.NsGridFavorites.ColumnSetNavigation = Janus.Windows.GridEX.ColumnSetNavigation.ColumnSet;
+			this.NsGridFavorites.Cursor = System.Windows.Forms.Cursors.Arrow;
+			this.NsGridFavorites.DefaultFilterRowComparison = Janus.Windows.GridEX.FilterConditionOperator.Contains;
+			NsGridFavorites_DesignTimeLayout_Reference_0.Instance = ((object)(resources.GetObject("NsGridFavorites_DesignTimeLayout_Reference_0.Instance")));
+			NsGridFavorites_DesignTimeLayout.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
+            NsGridFavorites_DesignTimeLayout_Reference_0});
+			NsGridFavorites_DesignTimeLayout.LayoutString = resources.GetString("NsGridFavorites_DesignTimeLayout.LayoutString");
+			this.NsGridFavorites.DesignTimeLayout = NsGridFavorites_DesignTimeLayout;
+			this.NsGridFavorites.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.NsGridFavorites.DynamicFiltering = true;
+			this.NsGridFavorites.EnterKeyBehavior = Janus.Windows.GridEX.EnterKeyBehavior.None;
+			this.NsGridFavorites.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic;
+			this.NsGridFavorites.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
+			this.NsGridFavorites.FilterRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsGridFavorites.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
+			this.NsGridFavorites.FocusCellDisplayMode = Janus.Windows.GridEX.FocusCellDisplayMode.UseSelectedFormatStyle;
+			this.NsGridFavorites.FocusStyle = Janus.Windows.GridEX.FocusStyle.None;
+			this.NsGridFavorites.Font = new System.Drawing.Font("IRANSans(Small)", 16F);
+			this.NsGridFavorites.GridLineColor = System.Drawing.Color.Black;
+			this.NsGridFavorites.GridLines = Janus.Windows.GridEX.GridLines.Vertical;
+			this.NsGridFavorites.GroupByBoxVisible = false;
+			this.NsGridFavorites.HeaderFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+			this.NsGridFavorites.HeaderFormatStyle.ForeColor = System.Drawing.Color.Black;
+			this.NsGridFavorites.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
+			this.NsGridFavorites.Location = new System.Drawing.Point(0, 0);
+			this.NsGridFavorites.Name = "NsGridFavorites";
+			this.NsGridFavorites.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom;
+			this.NsGridFavorites.Office2007CustomColor = System.Drawing.SystemColors.HotTrack;
+			this.NsGridFavorites.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NsGridFavorites.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowIndex;
+			this.NsGridFavorites.SelectedFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+			this.NsGridFavorites.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
+			this.NsGridFavorites.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+			this.NsGridFavorites.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
+			this.NsGridFavorites.SelectOnExpand = false;
+			this.NsGridFavorites.Size = new System.Drawing.Size(568, 479);
+			this.NsGridFavorites.TabIndex = 783;
+			this.NsGridFavorites.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsGridFavorites.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
+			this.NsGridFavorites.TreeLineColor = System.Drawing.Color.Black;
+			this.NsGridFavorites.View = Janus.Windows.GridEX.View.CardView;
+			this.NsGridFavorites.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			this.NsGridFavorites.ColumnButtonClick += new Janus.Windows.GridEX.ColumnActionEventHandler(this.NsGridFavorites_ColumnButtonClick);
+			// 
 			// Form_BarCode
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1928,6 +2003,7 @@
 			this.uiGroupBox6.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NzFactorKinds)).EndInit();
 			this.NzFactorKinds.ResumeLayout(false);
+			this.uiTabPage2.ResumeLayout(false);
 			this.NzTabPurchaseBack.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.NzPrefactorGrid)).EndInit();
 			this.NsGroupKala.ResumeLayout(false);
@@ -1938,6 +2014,7 @@
 			this.uiTabPage3.ResumeLayout(false);
 			this.uiTabPage3.PerformLayout();
 			this.mS_Panel2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.NsGridFavorites)).EndInit();
 			this.ResumeLayout(false);
 
         }
@@ -2033,5 +2110,7 @@
 		private MS_Control.Controls.MS_Button_GridX NzPosPrint;
 		private MS_Control.Controls.MS_Button_GridX NzPrintA4;
 		private MS_Control.Controls.MS_Button_GridX NzPrintNormalA5;
-	}
+        private Janus.Windows.UI.Tab.UITabPage uiTabPage2;
+        private MS_Control.Controls.MS_GridX NsGridFavorites;
+    }
 }

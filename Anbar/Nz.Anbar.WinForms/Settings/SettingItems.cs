@@ -25,7 +25,8 @@ namespace Nz.Anbar.WinForms.Settings
 				 LocationID = 0,
 				 IsOffActive = false,
 				 IsOffPercent = true,
-				 OffAmount = 0
+				 OffAmount = 0,
+				 PrintCountInBarcode = 1,
 			};
 		}
 
@@ -44,6 +45,6 @@ namespace Nz.Anbar.WinForms.Settings
 		public bool		IsOffPercent			{ get; set; }
 		public decimal	OffAmount				{ get; set; }
 		public Enums.NzKindPrint KindPrint		{ get; set; }
-
+		public short	PrintCountInBarcode		{ get; set; }
 	}
 }

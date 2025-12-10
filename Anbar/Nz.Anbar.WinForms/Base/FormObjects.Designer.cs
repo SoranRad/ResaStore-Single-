@@ -123,6 +123,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
 			this.mS_Notify1 = new MS_Control.Controls.MS_Notify();
 			this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+			this.NsShowInBarcode = new MS_Control.Controls.MS_CheckBox();
 			this.Panel_Foother.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
@@ -276,6 +277,7 @@ namespace Nz.Anbar.WinForms.Base
 			// 
 			// uiTabPage1
 			// 
+			this.uiTabPage1.Controls.Add(this.NsShowInBarcode);
 			this.uiTabPage1.Controls.Add(this.NsIsOffActive);
 			this.uiTabPage1.Controls.Add(this.NsOffAmount);
 			this.uiTabPage1.Controls.Add(this.NsIsOffAmount);
@@ -339,7 +341,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NsIsOffActive.Name = "NsIsOffActive";
 			this.NsIsOffActive.ShowFocusRectangle = false;
 			this.NsIsOffActive.Size = new System.Drawing.Size(117, 26);
-			this.NsIsOffActive.TabIndex = 854;
+			this.NsIsOffActive.TabIndex = 7;
 			this.NsIsOffActive.Text = "  تخـفیـف فروش : ";
 			this.NsIsOffActive.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
 			this.NsIsOffActive.CheckedChanged += new System.EventHandler(this.NsIsOffActive_CheckedChanged);
@@ -368,7 +370,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NsOffAmount.MS_Next_Control = null;
 			this.NsOffAmount.Name = "NsOffAmount";
 			this.NsOffAmount.Size = new System.Drawing.Size(100, 30);
-			this.NsOffAmount.TabIndex = 853;
+			this.NsOffAmount.TabIndex = 10;
 			this.NsOffAmount.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far;
 			this.NsOffAmount.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
 			// 
@@ -396,7 +398,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NsIsOffAmount.Name = "NsIsOffAmount";
 			this.NsIsOffAmount.ShowFocusRectangle = false;
 			this.NsIsOffAmount.Size = new System.Drawing.Size(55, 23);
-			this.NsIsOffAmount.TabIndex = 848;
+			this.NsIsOffAmount.TabIndex = 9;
 			this.NsIsOffAmount.Text = "مبلغ";
 			// 
 			// mS_Text_Simple1
@@ -493,7 +495,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NsIsOffPercent.Name = "NsIsOffPercent";
 			this.NsIsOffPercent.ShowFocusRectangle = false;
 			this.NsIsOffPercent.Size = new System.Drawing.Size(55, 23);
-			this.NsIsOffPercent.TabIndex = 847;
+			this.NsIsOffPercent.TabIndex = 8;
 			this.NsIsOffPercent.TabStop = true;
 			this.NsIsOffPercent.Text = "درصد";
 			// 
@@ -541,7 +543,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NzOrderPoint.MS_Next_Control = null;
 			this.NzOrderPoint.Name = "NzOrderPoint";
 			this.NzOrderPoint.Size = new System.Drawing.Size(71, 27);
-			this.NzOrderPoint.TabIndex = 6;
+			this.NzOrderPoint.TabIndex = 11;
 			this.NzOrderPoint.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center;
 			this.NzOrderPoint.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
 			// 
@@ -593,7 +595,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NzPrice.MS_Next_Control = null;
 			this.NzPrice.Name = "NzPrice";
 			this.NzPrice.Size = new System.Drawing.Size(135, 30);
-			this.NzPrice.TabIndex = 5;
+			this.NzPrice.TabIndex = 6;
 			this.NzPrice.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far;
 			this.NzPrice.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
 			// 
@@ -627,7 +629,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NzState.MS_Next_Control = null;
 			this.NzState.Name = "NzState";
 			this.NzState.Size = new System.Drawing.Size(115, 27);
-			this.NzState.TabIndex = 8;
+			this.NzState.TabIndex = 13;
 			this.NzState.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
 			// 
 			// NzSubGroups
@@ -691,7 +693,7 @@ namespace Nz.Anbar.WinForms.Base
 			this.NzKind.MS_Next_Control = null;
 			this.NzKind.Name = "NzKind";
 			this.NzKind.Size = new System.Drawing.Size(101, 27);
-			this.NzKind.TabIndex = 7;
+			this.NzKind.TabIndex = 12;
 			this.NzKind.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
 			// 
 			// NzUnits
@@ -1773,6 +1775,34 @@ namespace Nz.Anbar.WinForms.Base
 			this.uiTabPage14.TabStop = true;
 			this.uiTabPage14.Text = "پرسش و پاسخ";
 			// 
+			// NsShowInBarcode
+			// 
+			this.NsShowInBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsShowInBarcode.BackColor = System.Drawing.Color.Transparent;
+			this.NsShowInBarcode.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsShowInBarcode.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
+			this.NsShowInBarcode.Location = new System.Drawing.Point(348, 310);
+			this.NsShowInBarcode.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NsShowInBarcode.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.None;
+			this.NsShowInBarcode.MS_Change_Border_Color_On_Enter = true;
+			this.NsShowInBarcode.MS_Change_Color_On_Checked = true;
+			this.NsShowInBarcode.MS_Change_Color_On_Enter = true;
+			this.NsShowInBarcode.MS_Checked_Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.NsShowInBarcode.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsShowInBarcode.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsShowInBarcode.MS_Exit_By_Down = true;
+			this.NsShowInBarcode.MS_Exit_By_Enter = true;
+			this.NsShowInBarcode.MS_Exit_By_Up = true;
+			this.NsShowInBarcode.MS_Last_Control = null;
+			this.NsShowInBarcode.MS_Next_Control = null;
+			this.NsShowInBarcode.MS_UnChecked_Color = System.Drawing.Color.Transparent;
+			this.NsShowInBarcode.Name = "NsShowInBarcode";
+			this.NsShowInBarcode.ShowFocusRectangle = false;
+			this.NsShowInBarcode.Size = new System.Drawing.Size(260, 26);
+			this.NsShowInBarcode.TabIndex = 5;
+			this.NsShowInBarcode.Text = " در فاکتور فروش بارکد خوان نمایش داده شود";
+			this.NsShowInBarcode.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
+			// 
 			// FormObjects
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
@@ -1886,5 +1916,6 @@ namespace Nz.Anbar.WinForms.Base
         private MS_Control.Controls.MS_Text_Simple mS_Text_Simple4;
         private MS_Control.Controls.MS_NumericTextBox NsOffAmount;
         private MS_Control.Controls.MS_CheckBox NsIsOffActive;
+        private MS_Control.Controls.MS_CheckBox NsShowInBarcode;
     }
 }
