@@ -24,8 +24,11 @@ namespace Nz.Aqsat.Model.Models
 		public Enums.NzItemState					State				{ get; set; }
 		[NotMapped]
 		public string								PersianTarixQest	{ get; set; }
-		
-		
+
+
+		[NotMapped]
+		public bool CanModifyOrDelete => (ID == 0 || (ID>0 && !isPardaxt));
+
 		public Aqsat_Main							AqsatMain			{ get; set; }
 		public virtual ICollection<Aqsat_SmsLog>	AqsatSmsLogs		{ get; set; }
 	}

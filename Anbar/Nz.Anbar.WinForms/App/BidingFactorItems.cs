@@ -142,7 +142,6 @@ namespace Nz.Anbar.WinForms.App
         public void         CopyTo          (Array array, int index)
         {
             array = _Factor.FactorItems.ToArray();
-
         }
 
         public int          Find            (PropertyDescriptor property, object key)
@@ -185,11 +184,11 @@ namespace Nz.Anbar.WinForms.App
         }
         public void         RemoveIndex     (PropertyDescriptor property)
         {
-            throw new NotImplementedException();
+             
         }
         public void         RemoveSort      ()
         {
-            throw new NotImplementedException();
+             
         }
 
         public void         AddOrUpdate     (NzObject Object, Enums.NzSalingKind Kind,decimal meqdar = 1,bool IsOffPercent= true, decimal OffAmount =0)
@@ -316,7 +315,7 @@ namespace Nz.Anbar.WinForms.App
 		        }
 	        }
         }
-        public int         GetNewRowNumber         ()
+        public int          GetNewRowNumber         ()
         {
             if (!_Factor.FactorItems.Any())
                 return 0;
@@ -325,7 +324,7 @@ namespace Nz.Anbar.WinForms.App
                     .Where(x => x.State != Enums.NzItemState.Deleted)
                     .Max(x=>x.radif);
         }
-        public int          CopyRow             (object value)
+        public int          CopyRow                 (object value)
         {
 	        if (value == null)
 		        return -1;

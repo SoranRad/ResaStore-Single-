@@ -4,9 +4,12 @@ using MS_Control.Controls;
 using MS_Control.MainForms;
 using MS_Control.Tarikh;
 using Nz.Aqsat.Model.Models;
+using NZ.Aqsat.Business;
 using NZ.General.WinForms.Component;
 using ShareLib;
+using ShareLib.Models;
 using ShareLib.Utils;
+using Stimulsoft.Base.Excel;
 using Stimulsoft.Database;
 using System;
 using System.Collections.Generic;
@@ -18,13 +21,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ShareLib.Models;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace Nz.Aqsat.Winforms.App
 {
     public partial class Form_Aqsat_Jadid : Form_Mother_IRANSans
 	{
+		private readonly long _id;
+
 		#region Logging
 		private static readonly log4net.ILog log =
 			log4net
@@ -34,20 +38,23 @@ namespace Nz.Aqsat.Winforms.App
 
 		#endregion
 		#region Fields
-		private bool _DoRefresh = true;
-        private string _SimpleText = "";
-        private string _Dot = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
-        private int _Pos = 0;
-        private int _Len = 0;
-        private int _Serial;
-
+		private bool	_DoRefresh = true;
+        private string	_SimpleText = "";
+        private string	_Dot = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
+        private int		_Pos = 0;
+        private int		_Len = 0;
+        private int		_Serial;
+        private bool	_IsEdit;
 		private Aqsat_Main _Aqsat;
+		private AqsatManager _Manager;
+		private AqsatMainBinding _Bind;
 		#endregion
 		#region Constructor
 
-		public Form_Aqsat_Jadid()
+		public Form_Aqsat_Jadid(long Id = 0)
         {
-            InitializeComponent();
+	        _id = Id;
+	        InitializeComponent();
             _Aqsat = new Aqsat_Main();
 		}
 
@@ -58,7 +65,7 @@ namespace Nz.Aqsat.Winforms.App
             NsKind.RefreshKinds();
 			NzCustomer.Refresh_Grid((byte)3, null);
 			NsZamen.Refresh_Grid((byte)3, null);
-			NsGridRiz.FilterMode = FilterMode.None;
+			NsGridRizAdd.FilterMode = FilterMode.None;
 		}
         private bool IsOK									()
         {
@@ -111,9 +118,17 @@ namespace Nz.Aqsat.Winforms.App
 					mS_Notify1.Show(NzCustomer);
 					return false;
 				}
+
+				if (NsKind.SelectedIndex < 0)
+				{
+					NsKind.Focus();
+					mS_Notify1.Show(NsKind);
+					return false;
+				}
+
 				if (!_Aqsat.AqsatRizs.Any())
 				{
-					MS_Message.Show("یک یا چند قلم کالا را وارد کنید.");
+					MS_Message.Show("یک یا چند قسط را وارد کنید.");
 					NsTedadAqsat.Focus();
 					mS_Notify1.Show(NsTedadAqsat);
 					return false;
@@ -122,26 +137,51 @@ namespace Nz.Aqsat.Winforms.App
 				if ((_Aqsat.ID == 0 &&  _Serial != NzSerial.MS_Decimal)
 				    || (_Aqsat.ID > 0 && _Aqsat.Serial != NzSerial.MS_Decimal))
 				{
-					//var r = _Manager.IsCodeUnique(new
-					//{
-					//	Year = SystemConstant.ActiveYear.Salmali,
-					//	Kind = (byte)_Kind,
-					//	Serial = NzSerial.MS_Decimal,
-					//});
+					var r = _Manager.IsCodeUnique(new
+					{
+						Serial = NzSerial.MS_Decimal,
+					});
 
-					//if (!r)
-					//{
-					//	MS_Message.Show("شماره سریال تکراری است");
-					//	NzSerial.Focus();
-					//	mS_Notify1.Show(NzSerial);
-					//	return false;
-					//}
+					if (!r)
+					{
+						MS_Message.Show("شماره سریال تکراری است");
+						NzSerial.Focus();
+						mS_Notify1.Show(NzSerial);
+						return false;
+					}
 				}
 
+				if (NsMablaqAqsat.MS_Decimal <= 0)
+				{
+					NsMablaqAqsat.Focus();
+					mS_Notify1.Show(NsMablaqAqsat);
+					return false;
+				}
+
+				if (NsDoreQest.MS_Decimal <= 0)
+				{
+					NsDoreQest.Focus();
+					mS_Notify1.Show(NsDoreQest);
+					return false;
+				}
+
+				if (!NsStartDate.MS_Tarikh.HasValue)
+				{
+					NsStartDate.Focus();
+					mS_Notify1.Show(NsStartDate);
+					return false;
+				}
+				if (NsTedadAqsat.MS_Decimal <= 0)
+				{
+					NsTedadAqsat.Focus();
+					mS_Notify1.Show(NsTedadAqsat);
+					return false;
+				}
 			}
 			catch (Exception ex )
 			{
-
+				log.Error(ex);
+				MS_Message.Show("خطا در برنامه", "", ex.Message, MessageBoxButtons.OK);
 				return false;
 			}
 
@@ -149,7 +189,95 @@ namespace Nz.Aqsat.Winforms.App
 		}
         private void Save									()
         {
-        }
+			try
+			{
+				RemoveUnSavedRow();
+				if (!IsOK())
+					return;
+
+				if (_Aqsat.ID == 0)
+					_Aqsat.FK_Salmali = SystemConstant.ActiveYear.Salmali;
+
+				_Aqsat.Serial					= Convert.ToInt32(NzSerial.MS_Decimal);
+				_Aqsat.FK_Shaxs					= (NzCustomer.MS_Get_Selected() as People).ID;
+				_Aqsat.Tarikh					= NzTarikh.MS_Tarikh.Value.ToDatetime().Date;
+				_Aqsat.FK_Noh					= (NsKind.SelectedValue as Aqsat_Kind).ID;
+
+				_Aqsat.MablaqAqsat				= NsMablaqAqsat.MS_Decimal;
+				_Aqsat.MablaqPishpardaxt		= NsMablaqPishpardaxt.MS_Decimal;
+				_Aqsat.MablaqMandeAqsat			= NsMablaqMandeAqsat.MS_Decimal;
+				_Aqsat.DarsadSoud				= NsDarsadSud.MS_Decimal;
+				_Aqsat.MablaqSoud				= NsMablaqSoud.MS_Decimal;
+				_Aqsat.MablaqFinalAqsat			= NsMablaqFinalAqsat.MS_Decimal;
+
+
+				var zamen						= NsZamen.MS_Get_Selected() as People;
+				_Aqsat.FK_Zamen					= zamen?.ID;
+				_Aqsat.Sharh					= NsSharh.Text;
+
+				if (!_IsEdit)
+				{
+					_Aqsat.DoreQest				= Convert.ToByte( NsDoreQest.MS_Decimal);
+					_Aqsat.StartDate			= NsStartDate.MS_Tarikh.Value.ToDatetime().Date;
+					_Aqsat.TedadAqsat			= (byte)NsTedadAqsat.MS_Decimal;
+					_Aqsat.RoundMablaq			= (byte)NsRoundMablaq.MS_Decimal;
+				}
+				else
+				{
+					//_Aqsat.TedadAqsat = 
+				
+				}
+
+				_Manager.Save(_Aqsat,!_IsEdit);
+				new Form_Notify("ذخـیـره سـازی", "اطـلاعـات بـا مـوفـقـیـت ثـبـت شـــد.",
+						Form_Notify.FarsiMessageBoxIcon.اضافه)
+					.Popup(Form_Notify.Direction_Show.Right_To_Left, 1000);
+
+				if (_IsEdit)
+				{
+					SetItemsNoChanges();
+				}
+				else
+				{
+
+					var result = new FormAqsatSaveResult().ShowDialog(this);
+					if (result == DialogResult.Retry)
+					{
+
+					} else if (result == DialogResult.Yes)
+					{
+
+					}
+					else if(result == DialogResult.No)
+					{
+						
+					}
+					else if (result == DialogResult.Cancel)
+					{
+
+					}
+					else
+					{
+
+					}
+				}
+
+
+				//if (ShowPopup)
+				//	new Form_Notify("ذخـیـره سـازی", "اطـلاعـات بـا مـوفـقـیـت ثـبـت شـــد.",
+				//			Form_Notify.FarsiMessageBoxIcon.اضافه)
+				//		.Popup(Form_Notify.Direction_Show.Right_To_Left, 1000);
+
+				//NzSerial.MS_Decimal = _Aqsat.Serial;
+				//SetItemsNoChanges();
+
+			}
+			catch (Exception ex)
+			{
+				log.Error(ex);
+				MS_Message.Show("خطا در برنامه", "", ex.Message, MessageBoxButtons.OK);
+			}
+		}
         private void RefreshAmounts							()
         {
 	        NsMablaqMandeAqsat.MS_Decimal = NsMablaqAqsat.MS_Decimal - NsMablaqPishpardaxt.MS_Decimal;
@@ -200,19 +328,50 @@ namespace Nz.Aqsat.Winforms.App
 				        riz.mablaqQest += mande;
 		        }
 
-				NsGridRiz.DataSource = _Aqsat.AqsatRizs.ToList();
+				NsGridRizAdd.DataSource = _Aqsat.AqsatRizs.ToList();
 	        }
         }
         private void ClearItems								()
         {
             _Aqsat.AqsatRizs.Clear();
         }
-
-        private void RefreshMablaqFinal()
+        private void SetItemsNoChanges						()
+        {
+	        try
+	        {
+		        _Aqsat.AqsatRizs.MSZ_ForEach(x =>
+		        {
+			        x.State = Enums.NzItemState.NotChanged;
+		        });
+	        }
+	        catch (Exception ex)
+	        {
+		        log.Error(ex);
+	        }
+        }
+		private void RefreshMablaqFinal						()
         {
 	        NsMablaqFinalAqsat.MS_Decimal = _Aqsat.AqsatRizs.Sum(x => x.mablaqQest);
         }
-        #endregion
+        private void RemoveUnSavedRow						()
+        {
+	        try
+	        {
+		        _Aqsat
+			        .AqsatRizs
+			        .Where(x => x.tarixQest == DateTime.MinValue || x.mablaqQest== 0 || x.Radif == 0 )
+			        .ToList()
+			        .MSZ_ForEach(x =>
+			        {
+				        _Bind.Remove(x);
+			        });
+	        }
+	        catch (Exception ex)
+	        {
+		        log.Error(ex);
+	        }
+        }
+		#endregion
 		private void Form_Aqsat_Jadid_Load					(object sender, EventArgs e)
 		{
 			Init();
@@ -312,7 +471,7 @@ namespace Nz.Aqsat.Winforms.App
         {
 	        try
 	        {
-		        var Grid = NsGridRiz;
+		        var Grid = NsGridRizAdd;
 
 		        var current = Grid.CurrentRow;
 		        if (current == null)
@@ -496,7 +655,7 @@ namespace Nz.Aqsat.Winforms.App
 		private void EditTextBoxOnKeyPress					(object sender, KeyPressEventArgs e)
 		{
 			char key = e.KeyChar;
-			var Grid = NsGridRiz;
+			var Grid = NsGridRizAdd;
 
 			if (!(char.IsDigit(key) || key == '\b' || key == '.' || key == '+' || key == '-'))
 				e.Handled = true;
@@ -519,7 +678,7 @@ namespace Nz.Aqsat.Winforms.App
 				return;
 			_DoRefresh = false;
 
-			var Grid  = NsGridRiz;
+			var Grid  = NsGridRizAdd;
 
 
 			if (Grid.EditTextBox == null)
@@ -542,7 +701,7 @@ namespace Nz.Aqsat.Winforms.App
 		}
 		private void Set_Cursor_Location					()
 		{
-			var Grid = NsGridRiz;
+			var Grid = NsGridRizAdd;
 
 			int tm = Grid.EditTextBox.Text.Length - _Len;
 
