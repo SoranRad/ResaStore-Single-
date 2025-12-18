@@ -59,7 +59,7 @@ namespace Nz.Aqsat.Winforms.Component
 			}
         }
 
-        private void SetValue(Aqsat_Kind Kind)
+        public void SetValue(Aqsat_Kind Kind)
         {
 	        var item = this.Items.OfType<UIComboBoxItem>()
 		        .SingleOrDefault(x => (x.DataRow as Aqsat_Kind).ID == Kind.ID);
@@ -67,12 +67,20 @@ namespace Nz.Aqsat.Winforms.Component
 	        this.SelectedItem = item;
         }
 
-		private void SetValue(short Kind)
+		public void SetValue(short Kind)
 		{
 			var item = this.Items.OfType<UIComboBoxItem>()
 				.SingleOrDefault(x => (x.DataRow as Aqsat_Kind).ID == Kind);
 
 			this.SelectedItem = item;
+		}
+
+		public Aqsat_Kind GetValue()
+		{
+			var item = this.SelectedItem as UIComboBoxItem;
+			if (item != null)
+				return item.DataRow as Aqsat_Kind;
+			return null;
 		}
 
 		#endregion

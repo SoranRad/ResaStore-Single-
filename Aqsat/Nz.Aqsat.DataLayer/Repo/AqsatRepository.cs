@@ -143,7 +143,7 @@ namespace NZ.Aqsat.DataLayer.Repo
                 }
                 catch (Exception ex)
                 {
-                    log.Info("\n=======ذهیره برای اقساط " + repeate + "\n=====");
+                    log.Info("\n=======ذخیره برای اقساط " + repeate + "\n=====");
                     log.Error(ex);
                     log.Info("\n==============================================\n");
 

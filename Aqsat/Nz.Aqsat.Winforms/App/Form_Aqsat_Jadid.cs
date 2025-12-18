@@ -54,8 +54,8 @@ namespace Nz.Aqsat.Winforms.App
 		public Form_Aqsat_Jadid(long Id = 0)
         {
 	        _id = Id;
+	        _IsEdit = Id > 0;
 	        InitializeComponent();
-            _Aqsat = new Aqsat_Main();
 		}
 
         #endregion
@@ -66,10 +66,103 @@ namespace Nz.Aqsat.Winforms.App
 			NzCustomer.Refresh_Grid((byte)3, null);
 			NsZamen.Refresh_Grid((byte)3, null);
 			NsGridRizAdd.FilterMode = FilterMode.None;
-		}
-        private bool IsOK									()
-        {
 
+			if(_IsEdit)
+				LoadAqsat();
+			else
+				Reset();
+		}
+        private void Reset									()
+        {
+	        _DoRefresh = false;
+	        _IsEdit = false;
+
+			_Aqsat = new Aqsat_Main();
+			_Manager = new AqsatManager();
+	        GetMaxSerial();
+	        NsGridRizAdd.DataSource		= null;
+	        NzTarikh.MS_Tarikh			= new MS_Structure_Shamsi(DateTime.Now);
+	        NsStartDate.MS_Tarikh		= new MS_Structure_Shamsi(DateTime.Now);
+			NzCustomer.MS_Set_Select	(null);
+
+			NsMablaqAqsat.Text			= 
+			NsMablaqPishpardaxt.Text	= 
+			NsMablaqMandeAqsat.Text		= 
+			NsDarsadSud.Text			= 
+			NsMablaqSoud.Text			= 
+			NsMablaqFinalAqsat.Text		= 
+			 "";
+
+			NsZamen.MS_Set_Select		(null);
+			NsSharh.Text				= "";
+
+			NsGridRizAdd.DataSource = null;
+
+			NsGridEdit.Hide();
+			NsGridRizAdd.Show();
+			panel1.Show();
+
+			NzSerial.Focus();
+	        _DoRefresh = true;
+        }
+		private void LoadAqsat								()
+		{
+			try
+			{
+
+				_Aqsat = _Manager.GetItem(_id);
+				if (_Aqsat == null)
+				{
+					MS_Message.Show("برنامه قادر به خواندن اطلاعات اقساط نیست", "خطا",  MessageBoxButtons.OK);
+					Reset();
+					return;
+				}
+
+				_DoRefresh = false;
+
+				NzSerial.MS_Decimal				= _Aqsat.Serial;
+				NsStartDate.MS_Tarikh			= new MS_Structure_Shamsi(_Aqsat.Tarikh);
+				NsKind.SetValue					(_Aqsat.FK_Noh);
+				NzCustomer.MS_Set_Select		(_Aqsat.FK_Shaxs);
+
+				NsMablaqAqsat.MS_Decimal		= _Aqsat.MablaqAqsat;
+				NsMablaqPishpardaxt.MS_Decimal	= _Aqsat.MablaqPishpardaxt;
+				NsMablaqMandeAqsat.MS_Decimal	= _Aqsat.MablaqMandeAqsat;
+				NsDarsadSud.MS_Decimal			= _Aqsat.DarsadSoud;
+				NsMablaqSoud.MS_Decimal			= _Aqsat.MablaqSoud;
+				NsMablaqFinalAqsat.MS_Decimal	= _Aqsat.MablaqFinalAqsat;
+
+
+				NsDoreQest.MS_Decimal			= _Aqsat.DoreQest;
+				NsStartDate.MS_Tarikh			= new MS_Structure_Shamsi(_Aqsat.StartDate);
+				NsTedadAqsat.MS_Decimal			= _Aqsat.TedadAqsat;
+				NsRoundMablaq.MS_Decimal		= _Aqsat.RoundMablaq;
+
+
+				NsZamen.MS_Set_Select			(_Aqsat.FK_Zamen);
+				NsSharh.Text					= _Aqsat.Sharh?.Trim();
+				_Bind = new AqsatMainBinding(_Aqsat);
+				NsGridEdit.DataSource = _Bind;
+
+
+
+				NsGridEdit.Show();
+				NsGridRizAdd.Hide();
+				panel1.Hide();
+
+
+				NzSerial.Focus();
+				_DoRefresh = true;
+			}
+			catch (Exception ex)
+			{
+				log.Error(ex);
+				MS_Message.Show("خطا در خواندن اطلاعات", "خطا", ex.Message, MessageBoxButtons.OK);
+				Reset();
+			}
+		}
+		private bool IsOK									()
+        {
 			try
 			{
 				if (SystemConstant.ActiveYear.is_close)
@@ -119,7 +212,7 @@ namespace Nz.Aqsat.Winforms.App
 					return false;
 				}
 
-				if (NsKind.SelectedIndex < 0)
+				if (NsKind.GetValue() == null)
 				{
 					NsKind.Focus();
 					mS_Notify1.Show(NsKind);
@@ -192,8 +285,11 @@ namespace Nz.Aqsat.Winforms.App
 			try
 			{
 				RemoveUnSavedRow();
+
 				if (!IsOK())
 					return;
+
+
 
 				if (_Aqsat.ID == 0)
 					_Aqsat.FK_Salmali = SystemConstant.ActiveYear.Salmali;
@@ -371,6 +467,12 @@ namespace Nz.Aqsat.Winforms.App
 		        log.Error(ex);
 	        }
         }
+        private void GetMaxSerial							()
+        {
+	        _Serial = _Manager.GetMaxSerial(null) + 1;
+
+	        NzSerial.MS_Decimal = _Serial;
+        }
 		#endregion
 		private void Form_Aqsat_Jadid_Load					(object sender, EventArgs e)
 		{
@@ -418,13 +520,11 @@ namespace Nz.Aqsat.Winforms.App
 
         private void NzSave_Click							(object sender, EventArgs e)
         {
-	        if (!IsOK())
-		        return;
 	        Save();
         }
         private void NzNew_Click							(object sender, EventArgs e)
         {
-
+			Reset();
         }
         private void NsPrint_Click							(object sender, EventArgs e)
         {

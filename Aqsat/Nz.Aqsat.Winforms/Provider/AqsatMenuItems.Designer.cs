@@ -112,6 +112,7 @@ namespace Nz.Bar.Winforms.Provider
 			this.لیستاقساطToolStripMenuItem.Name = "لیستاقساطToolStripMenuItem";
 			this.لیستاقساطToolStripMenuItem.Size = new System.Drawing.Size(185, 30);
 			this.لیستاقساطToolStripMenuItem.Text = "لیست اقساط";
+			this.لیستاقساطToolStripMenuItem.Click += new System.EventHandler(this.لیستاقساطToolStripMenuItem_Click);
 			// 
 			// NzReport
 			// 

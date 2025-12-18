@@ -202,6 +202,12 @@
     <Compile Include="App\FormAqsatKind.Designer.cs">
       <DependentUpon>FormAqsatKind.cs</DependentUpon>
     </Compile>
+    <Compile Include="App\FormAqsatList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\FormAqsatList.Designer.cs">
+      <DependentUpon>FormAqsatList.cs</DependentUpon>
+    </Compile>
     <Compile Include="App\FormAqsatSaveResult.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,9 @@
     </Compile>
     <EmbeddedResource Include="App\FormAqsatKind.resx">
       <DependentUpon>FormAqsatKind.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\FormAqsatList.resx">
+      <DependentUpon>FormAqsatList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="App\FormAqsatSaveResult.resx">
       <DependentUpon>FormAqsatSaveResult.cs</DependentUpon>

@@ -15,7 +15,7 @@ namespace Nz.Aqsat.Model.Models
 		public long			FK_Main				{ get; set; }
 		public byte			Radif				{ get; set; }
 		public DateTime		tarixQest			{ get; set; }
-		public DateTime		tarixPardaxt		{ get; set; }
+		public DateTime?	tarixPardaxt		{ get; set; }
 		public decimal		mablaqQest			{ get; set; }
 		public bool			isPardaxt			{ get; set; }
 		public string		Sharh				{ get; set; }

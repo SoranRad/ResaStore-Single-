@@ -82,6 +82,7 @@
     <Compile Include="DapperConfig\Bill\RemaindConfig.cs" />
     <Compile Include="DapperConfig\Bill\RemaindPeopleConfig.cs" />
     <Compile Include="DapperConfig\Model\Aqsat_Main_DapperConfiguration.cs" />
+    <Compile Include="DapperConfig\Report\AqsatList_DapperConfig.cs" />
     <Compile Include="Migrations\202508180723424_InitialCreate.cs" />
     <Compile Include="Migrations\202508180723424_InitialCreate.Designer.cs">
       <DependentUpon>202508180723424_InitialCreate.cs</DependentUpon>
@@ -93,6 +94,10 @@
     <Compile Include="Migrations\202511291339181_add-sharh-to-aqsat0item.cs" />
     <Compile Include="Migrations\202511291339181_add-sharh-to-aqsat0item.Designer.cs">
       <DependentUpon>202511291339181_add-sharh-to-aqsat0item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202512170843456_make_date_payment_nullable.cs" />
+    <Compile Include="Migrations\202512170843456_make_date_payment_nullable.Designer.cs">
+      <DependentUpon>202512170843456_make_date_payment_nullable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,9 +118,7 @@
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DapperConfig\Report\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202508180723424_InitialCreate.resx">
       <DependentUpon>202508180723424_InitialCreate.cs</DependentUpon>
@@ -125,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202511291339181_add-sharh-to-aqsat0item.resx">
       <DependentUpon>202511291339181_add-sharh-to-aqsat0item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202512170843456_make_date_payment_nullable.resx">
+      <DependentUpon>202512170843456_make_date_payment_nullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
