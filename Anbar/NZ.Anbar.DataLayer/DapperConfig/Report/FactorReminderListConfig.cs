@@ -1,49 +1,41 @@
-﻿using System;
+﻿using Nz.Anbar.Model.Report;
+using ShareLib.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Nz.Anbar.Model.ViewModel;
-using ShareLib.Interfaces;
 
-namespace NZ.Anbar.DataLayer.DapperConfig.ViewModel
+namespace NZ.Anbar.DataLayer.DapperConfig.Report
 {
-    public class GeneralFactorConfiguration : DapperEntityConfiguration<GeneralFactor>
-    {
-        public GeneralFactorConfiguration()
-        {
-
-            this.SetList(@"
-
+    public class FactorReminderListConfig : DapperEntityConfiguration<FactorReminderList>
+	{
+		public FactorReminderListConfig()
+		{
+			SetList(@"
 SELECT tat.ID,
        tat.Serial,
+	   tat.kind,
        tat.mablaq,
-       LTRIM(RTRIM(tat.sharh)) AS sharh,
        dd.PersianStr,
-       dd.PersianMonthNo,
-       dd.PersianDayInMonth,
-       tatd.mablaq_takhfif,
-       tatd.Darsad_Takhfif,
-       tatd.mablaq_Maliat,
-       tatd.Darsad_Maliat,
-       tatd.Ezafat,
        LTRIM(RTRIM(ta.title)) AS Customer,
 	   tat.FK_AshXas_ID,
        Payment.Cache,
        Payment.Pos,
        ChequePayment.Cheque,
        Takhfif.OffAmount AS Takhfif,
-       RTRIM(LTRIM(tbl.Title)) AS Location
+	   ddMohlat.PersianStr AS MohlatPersianStr
 
 FROM Anbar.tbl_Amaliat_Title AS tat
+	
     INNER JOIN General.DimDate AS dd
         ON dd.GregorianDate = tat.tarikh
-    LEFT OUTER JOIN Base.tbl_Base_Location AS tbl 
-		ON tbl.ID = tat.FK_Location
     LEFT OUTER JOIN Base.tbl_Ashxas AS ta
         ON ta.ID = tat.FK_AshXas_ID
     LEFT OUTER JOIN Anbar.tbl_Amaliat_Title_Detail AS tatd
         ON tatd.ID = tat.ID
+	LEFT OUTER JOIN  General.DimDate AS ddMohlat 
+		ON ddMohlat.GregorianDate = tatd.tarikh_etebar
     LEFT OUTER JOIN 
 	(
 		SELECT 
@@ -69,8 +61,6 @@ FROM Anbar.tbl_Amaliat_Title AS tat
 
 	)  AS Payment ON Payment.FK_Faktor = tat.ID
 
-
-
 	LEFT OUTER JOIN
 	(
 		SELECT 
@@ -85,7 +75,7 @@ FROM Anbar.tbl_Amaliat_Title AS tat
 
 	) AS ChequePayment ON ChequePayment.FK_Faktor = tat.ID
 
-LEFT OUTER JOIN
+	LEFT OUTER JOIN
     ( 
         SELECT 
             
@@ -95,13 +85,15 @@ LEFT OUTER JOIN
         FROM  Xazane.tbl_Amaliat_DP AS tad
         Group BY tad.FK_Faktor
         
-    )AS Takhfif on Takhfif.FK_Faktor = tat.ID
+    )AS Takhfif on Takhfif.FK_Faktor =tat.ID
 
-WHERE tat.kind = @Kind AND tat.FK_Salmali =@Year AND (dd.PersianMonthNo=@Month OR @Month=13)
+WHERE tatd.tarikh_etebar IS NOT NULL AND tat.FK_Salmali = @Year 
+AND tatd.tarikh_etebar <= @Tarikh
+AND(tat.mablaq>(ISNULL( Payment.Cache,0)+ISNULL(Payment.Pos,0)+ ISNULL( ChequePayment.Cheque,0)))
+
+
+
 ");
-
-
-
-        }
+		}
     }
 }

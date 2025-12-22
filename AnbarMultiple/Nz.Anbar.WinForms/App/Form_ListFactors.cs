@@ -86,7 +86,7 @@ namespace Nz.Anbar.WinForms.App
                                     ||  _Kind == Enums.NzFactorKind.HavaleMasrafi;
 
             NzPrint.Visible         = !NzPrintTransfer.Visible;
-            NzChangeToSale.Visible  = _Kind == Enums.NzFactorKind.PishFaktor;
+            NzChangeToSale.Visible  = _Kind == Enums.NzFactorKind.PishFaktor || _Kind == Enums.NzFactorKind.Frosh;
         }
         private void SetCurrentMonth                    ()
         {
@@ -178,7 +178,7 @@ namespace Nz.Anbar.WinForms.App
             if (_Kind == Enums.NzFactorKind.Frosh)
             {
 	            var dataRow = NzGridHeads.CurrentRow.DataRow as GeneralFactor;
-	            if (dataRow.NoRemainEffect)
+	            if (dataRow?.NoRemainEffect == true)
 	            {
 		            NzGridItems.CurrentLayout = NzGridItems.Layouts["PishFrosh"];
 
@@ -534,16 +534,24 @@ namespace Nz.Anbar.WinForms.App
         {
             if(NzGridHeads.CurrentRow?.RowType!=RowType.Record)
                 return;
-            var item = NzGridHeads.CurrentRow.DataRow as PreSaleFactor;
 
-            var r = new ConvertToFactor().Convert(item.ID, Enums.NzFactorKind.Frosh);
+			//var item = NzGridHeads.CurrentRow.DataRow as PreSaleFactor;
+
+			long Id = Convert.ToInt64(NzGridHeads.CurrentRow.Cells["ID"].Value);
+
+			var kind = _Kind == Enums.NzFactorKind.PishFaktor
+	            ? Enums.NzFactorKind.Frosh
+	            : Enums.NzFactorKind.PishFaktor;
+
+
+			var r = new ConvertToFactor().Convert(Id, kind);
 
             if(r)
                 new Form_Notify2("فاکتور با موفقیت ذخیره شد")
                     .Popup(Form_Notify2.Direction_Show.Right_To_Left,1500);
-        }
+		}
 
-        private void ms_Save_Click                      (object sender, EventArgs e)
+		private void ms_Save_Click                      (object sender, EventArgs e)
         {
             var mgr = new FactorManager();
             
@@ -554,17 +562,17 @@ namespace Nz.Anbar.WinForms.App
         {
             
         }
+        
         private void Form_ListFactors_KeyUp             (object sender, KeyEventArgs e)
         {
             if(e.Alt && e.Control && e.Shift && e.KeyCode==Keys.F12)
                 ms_Save.Show();
         }
-
         private void Form_ListFactors_Shown             (object sender, EventArgs e)
         {
         }
 
-		private void NsCopy_Click(object sender, EventArgs e)
+		private void NsCopy_Click                       (object sender, EventArgs e)
 		{
 			if(NzGridHeads.CurrentRow?.RowType!=RowType.Record)
 				return;
@@ -575,6 +583,8 @@ namespace Nz.Anbar.WinForms.App
 
 			frm.IdFactor = Id;
 			frm.ShowDialog(StorageProvider.MainForm);
+
+			
 		}
 	}
 }

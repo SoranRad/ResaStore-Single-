@@ -195,7 +195,11 @@ namespace Nz.Anbar.WinForms.App
                 NzTaxPrice.Text             = (_Factor?.FactorDetail?.mablaq_Maliat ?? 0).ToString(_FormatString);
                 NzNoRemainEffect.Checked    = _Factor.NoRemainEffect;
 
-                if(_Kind == Enums.NzFactorKind.Frosh)
+                if (_Factor?.FactorDetail?.tarikh_etebar.HasValue == true)
+	                NsMohlatTasvieh.MS_Tarikh = new MS_Structure_Shamsi(_Factor?.FactorDetail?.tarikh_etebar);
+
+
+				if (_Kind == Enums.NzFactorKind.Frosh)
                     NzLocation.MS_Set_Select    (_Factor.FK_Location);
 
                 RefreshFactorSum            ();
@@ -285,7 +289,7 @@ namespace Nz.Anbar.WinForms.App
 
                      if (NsMohlatTasvieh.MS_Tarikh.HasValue)
                         _Factor.FactorDetail.tarikh_etebar = NsMohlatTasvieh.MS_Tarikh.Value.ToDatetime().Date;
-                    else
+                     else
                         _Factor.FactorDetail.tarikh_etebar = null;
 
 	                if (_Factor.ID > 0)

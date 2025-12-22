@@ -254,12 +254,12 @@ namespace NZ.Xazane.WinForms
         {
             return _chequeAlarm.AnyAlarm();
         }
-        public UITabPage                    GeTabPage           ()
+        public UITabPage[]                  GetAlarmsTabPage    ()
         {
-            return _chequeAlarm.GetTabPage();
+            return new UITabPage[]{ _chequeAlarm.GetTabPage()};
         }
 
-        public async Task<MS_Chart[]>         GetChartSummarry    ()
+        public async Task<MS_Chart[]>       GetChartSummarry    ()
         {
             return new MS_Chart[]
             {
@@ -296,8 +296,7 @@ namespace NZ.Xazane.WinForms
 
             }
         }
-
-        public NsSettingTabPage GetSettingTabPage()
+        public NsSettingTabPage                 GetSettingTabPage()
         {
 	        _settingContainer = new TabSettingContainer();
 	        _settingContainer.LoadSetting((SettingItems)_settings );
@@ -305,7 +304,7 @@ namespace NZ.Xazane.WinForms
 	        return _settingContainer.TabSetting;
         }
 
-        public void SetSettings(IEnumerable<dynamic> settings)
+        public void                             SetSettings             (IEnumerable<dynamic> settings)
         {
 	        var setting = settings.SingleOrDefault(x => x.Name == SettingItems.KeyName);
 	        if (setting == null)
@@ -313,19 +312,17 @@ namespace NZ.Xazane.WinForms
 	        else
 		        _settings = Converter.Convert<SettingItems>(setting);
         }
-
-        public ISettingItems GetSettings()
+        public ISettingItems                    GetSettings             ()
         {
 	        return _settings;
 
         }
 
-        public bool HasSrtartupForm()
+        public bool                             HasSrtartupForm         ()
         {
 	        return false;
         }
-
-        public Form GetStartupPage()
+        public Form                             GetStartupPage          ()
         {
 	        return null;
         }

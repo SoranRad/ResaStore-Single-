@@ -38,8 +38,11 @@ namespace Nz.Anbar.WinForms.App
                     item.State  = Enums.NzItemState.AddedNew;
                 }
 
-                if(Source.FactorDetail!=null)
-                    Source.FactorDetail.State = Enums.NzItemState.AddedNew;
+                if (Source.FactorDetail != null)
+                {
+	                Source.FactorDetail.State = Enums.NzItemState.AddedNew;
+	                Source.FactorDetail.ID = 0;
+                }
 
                 _Manager.Save(Source);
                 return true;

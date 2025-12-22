@@ -218,8 +218,8 @@ namespace Nz.Bar.Winforms.Provider
             return false;
         }
 
-        public UITabPage                        GeTabPage               ()
-        {
+		public UITabPage[]                      GetAlarmsTabPage        ()
+		{
             return null;
         }
 

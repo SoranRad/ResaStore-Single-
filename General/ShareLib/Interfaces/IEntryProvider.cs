@@ -35,7 +35,7 @@ namespace ShareLib.Interfaces
 
         void                                RefreshAlaram           ();
         bool                                AnyAlaram               ();
-        UITabPage                           GeTabPage               ();
+        UITabPage[]                         GetAlarmsTabPage        ();
         Task<MS_Chart[]>                    GetChartSummarry        ();
 
         Task<IEnumerable<DailyCircular>>    GetDailyCircular        (short Year,short Month);

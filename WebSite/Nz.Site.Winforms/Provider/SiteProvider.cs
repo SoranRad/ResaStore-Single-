@@ -216,6 +216,7 @@ namespace Nz.Site.Winforms.Provider
         {
             return true;
         }
+        
         public void                             RefreshAlaram           ()
         {
             //throw new NotImplementedException();
@@ -224,18 +225,16 @@ namespace Nz.Site.Winforms.Provider
         {
             return false;
         }
-
-        public UITabPage                        GeTabPage               ()
+        public UITabPage[]                      GetAlarmsTabPage        ()
         {
             return null;
         }
 
-        public async Task<MS_Chart[]> GetChartSummarry()
+        public async Task<MS_Chart[]>           GetChartSummarry        ()
         {
             return null;
         }
-
-        public Task<IEnumerable<DailyCircular>> GetDailyCircular(short Year, short Month)
+        public Task<IEnumerable<DailyCircular>> GetDailyCircular        (short Year, short Month)
         {
 	        return null;
 
@@ -250,8 +249,7 @@ namespace Nz.Site.Winforms.Provider
 
             }
         }
-
-		public NsSettingTabPage GetSettingTabPage()
+		public NsSettingTabPage                 GetSettingTabPage       ()
 		{
 			_settingContainer = new TabSettingContainer();
 			_settingContainer.LoadSetting((SettingItems)_settings );
@@ -259,23 +257,21 @@ namespace Nz.Site.Winforms.Provider
 			return _settingContainer.TabSetting;
 		}
 
-		public void SetSettings(IEnumerable<dynamic> settings)
+		public void                             SetSettings             (IEnumerable<dynamic> settings)
 		{
 			var setting = settings.SingleOrDefault(x => x.Name == SettingItems.KeyName);
 			_settings = setting == null ? SettingItems.GetDefault() : (ISettingItems)Converter.Convert<SettingItems>(setting);
 		}
-
-		public ISettingItems GetSettings()
+		public ISettingItems                    GetSettings             ()
 		{
 			return _settings;
 		}
 
-		public bool HasSrtartupForm()
+		public bool                             HasSrtartupForm         ()
 		{
 			return false;
 		}
-
-		public Form GetStartupPage()
+		public Form                             GetStartupPage          ()
 		{
 			return null;
 		}

@@ -138,9 +138,9 @@ namespace NZ.General.WinForms
         {
             return _dailyAlarm.AnyAlarm();
         }
-        public UITabPage                        GeTabPage           ()
-        {
-            return _dailyAlarm.GetTabPage();
+        public UITabPage[] GetAlarmsTabPage()
+		{
+            return new UITabPage[]{ _dailyAlarm.GetTabPage() } ;
         }
 
         public async Task<MS_Chart[]>           GetChartSummarry    ()

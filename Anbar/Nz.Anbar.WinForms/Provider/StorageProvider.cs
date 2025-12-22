@@ -48,9 +48,9 @@ namespace Nz.Anbar.WinForms.Provider
         }
         #endregion
         #region Mthods
-        public string                       GetName             => "خرید و فروش";
-        public ToolStripItem                MainMenuSysytem     => null;
-        public IEnumerable<BillRowItem>     GetBillDetail       (long People, short? Year, DateTime? DateFrom, DateTime? DateTo, byte Group)
+        public string                               GetName                 => "خرید و فروش";
+        public ToolStripItem                        MainMenuSysytem         => null;
+        public IEnumerable<BillRowItem>             GetBillDetail           (long People, short? Year, DateTime? DateFrom, DateTime? DateTo, byte Group)
         {
             try
             {
@@ -72,7 +72,7 @@ namespace Nz.Anbar.WinForms.Provider
             }
 
         }
-        public IEnumerable<CircularRowItem> GetBillItems        (long People, short? Year, DateTime? DateFrom, DateTime? DateTo, byte Group)
+        public IEnumerable<CircularRowItem>         GetBillItems            (long People, short? Year, DateTime? DateFrom, DateTime? DateTo, byte Group)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace Nz.Anbar.WinForms.Provider
 
         }
 
-        public IEnumerable<object>          GetBillRows         (long People, short? Year, DateTime? DateFrom, DateTime? DateTo)
+        public IEnumerable<object>                  GetBillRows             (long People, short? Year, DateTime? DateFrom, DateTime? DateTo)
         {
 	        try
 	        {
@@ -111,7 +111,7 @@ namespace Nz.Anbar.WinForms.Provider
 	        }
         }
 
-        public IForm_Editor                 GetFormForEdit      (Enums.FormOperation FormKind,params object[] otherParam)
+        public IForm_Editor                         GetFormForEdit          (Enums.FormOperation FormKind,params object[] otherParam)
         {
             switch (FormKind)
             {
@@ -125,7 +125,7 @@ namespace Nz.Anbar.WinForms.Provider
                     return null;
             }
         }
-        public ToolStripItemCollection      GetMenu             (Enums.MenuKind MenuType)
+        public ToolStripItemCollection              GetMenu                 (Enums.MenuKind MenuType)
         {
             Menues.SetMenu();
             switch (MenuType)
@@ -145,32 +145,32 @@ namespace Nz.Anbar.WinForms.Provider
             }
             return null;
         }
-        public object                       GetProperty         (string Name)
+        public object                               GetProperty             (string Name)
         {
             throw new NotImplementedException();
         }
-        public decimal                      GetRemainAll        (long IDCustomer)
+        public decimal                              GetRemainAll            (long IDCustomer)
         {
             throw new NotImplementedException();
         }
-        public Form                         GetSimpleForm       (Enums.FormOperation FormKind)
+        public Form                                 GetSimpleForm           (Enums.FormOperation FormKind)
         {
             throw new NotImplementedException();
         }
-        public Enums.MS_System              GetSystemKind       ()
+        public Enums.MS_System                      GetSystemKind           ()
         {
             return Enums.MS_System.Anbar;
         }
-        public void                         SetMainForm         (Form mainForm)
+        public void                                 SetMainForm             (Form mainForm)
         {
             MainForm = mainForm;
         }
-        public void                         SetProperty         (string Name, object Value)
+        public void                                 SetProperty             (string Name, object Value)
         {
             throw new NotImplementedException();
         }
 
-        public decimal                      GetRemaind          (long ID)
+        public decimal                              GetRemaind              (long ID)
         {
             try
             {
@@ -190,7 +190,7 @@ namespace Nz.Anbar.WinForms.Provider
 
             return 0;
         }
-        public IEnumerable<RemaindPeople>   GetListRemaind      (DateTime? AzTarikh, DateTime? TaTarikh)
+        public IEnumerable<RemaindPeople>           GetListRemaind          (DateTime? AzTarikh, DateTime? TaTarikh)
         {
             try
             {
@@ -211,26 +211,28 @@ namespace Nz.Anbar.WinForms.Provider
                 return null;
             }
         }
-        public bool                         GetFeature          (short FeatureItem)
+        public bool                                 GetFeature              (short FeatureItem)
         {
             return true;
         }
 
-        public void                         RefreshAlaram       ()
+        public void                                 RefreshAlaram           ()
         {
             _storageAlarm = new StorageAlarm();
             _storageAlarm.RefreshList();
         }
-        public bool                         AnyAlaram           ()
+        public bool                                 AnyAlaram               ()
         {
             return _storageAlarm.AnyAlarm();
         }
-        public UITabPage                    GeTabPage           ()
+        public UITabPage[]                          GetAlarmsTabPage        ()
         {
-            return _storageAlarm.GetTabPage();
-        }
+	        var tabs = _storageAlarm.GetTabPage();
 
-        public async Task<MS_Chart[]>           GetChartSummarry    ()
+			return tabs!=null && tabs.Any() ? tabs.ToArray(): null;
+		}
+
+        public async Task<MS_Chart[]>               GetChartSummarry        ()
         {
             return new MS_Chart[]
             {
@@ -239,7 +241,7 @@ namespace Nz.Anbar.WinForms.Provider
 
             };
         }
-        public Task<IEnumerable<DailyCircular>> GetDailyCircular    (short Year, short Month)
+        public Task<IEnumerable<DailyCircular>>     GetDailyCircular        (short Year, short Month)
         {
             try
             {
@@ -266,14 +268,14 @@ namespace Nz.Anbar.WinForms.Provider
             }
         }
 
-		public NsSettingTabPage                 GetSettingTabPage   ()
+		public NsSettingTabPage                     GetSettingTabPage       ()
 		{
 			_settingContainer = new TabSettingContainer();
             _settingContainer.LoadSetting((SettingItems)_settings );
 
 			return _settingContainer.TabSetting;
 		}
-		public void                             SetSettings         (IEnumerable<dynamic> settings)
+		public void                                 SetSettings             (IEnumerable<dynamic> settings)
 		{
 			var setting = settings.SingleOrDefault(x => x.Name == SettingItems.KeyName);
 			if (setting == null)
@@ -281,16 +283,16 @@ namespace Nz.Anbar.WinForms.Provider
 			else
 				_settings = Converter.Convert<SettingItems>(setting);
 		}
-		public ISettingItems                    GetSettings         ()
+		public ISettingItems                        GetSettings             ()
 		{
 			return _settings;
 		}
 
-		public bool                             HasSrtartupForm     ()
+		public bool                                 HasSrtartupForm         ()
 		{
 			return false;
 		}
-		public Form                             GetStartupPage      ()
+		public Form                                 GetStartupPage          ()
 		{
 			return null;
 		}

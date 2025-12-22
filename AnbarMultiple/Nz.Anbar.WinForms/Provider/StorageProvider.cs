@@ -223,9 +223,9 @@ namespace Nz.Anbar.WinForms.Provider
         {
             return _storageAlarm.AnyAlarm();
         }
-        public UITabPage                    GeTabPage           ()
+        public UITabPage[]                    GetAlarmsTabPage           ()
         {
-            return _storageAlarm.GetTabPage();
+            return new UITabPage[]{_storageAlarm.GetTabPage()};
         }
 
         public async Task<MS_Chart[]>       GetChartSummarry    ()

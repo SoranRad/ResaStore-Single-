@@ -123,6 +123,8 @@
     <Compile Include="DapperConfig\Report\CircularObjectConfig.cs" />
     <Compile Include="DapperConfig\Report\CircularOfLocationConfig.cs" />
     <Compile Include="DapperConfig\Report\DailyCircularConfig.cs" />
+    <Compile Include="DapperConfig\Report\FactorReminderConfig.cs" />
+    <Compile Include="DapperConfig\Report\FactorReminderListConfig.cs" />
     <Compile Include="DapperConfig\Report\ObjectRemaindOnDateConfig.cs" />
     <Compile Include="DapperConfig\Report\ObjectsOfActiveGroupConfig.cs" />
     <Compile Include="DapperConfig\Report\PriceChartMonthlyConfig.cs" />

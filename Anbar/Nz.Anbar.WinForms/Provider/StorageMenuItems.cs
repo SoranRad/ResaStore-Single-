@@ -337,5 +337,12 @@ namespace Nz.Anbar.WinForms.Provider
         {
             new FormListPreFactor().Show(StorageProvider.MainForm);
         }
+
+        private void NsFactorReminders_Click(object sender, EventArgs e)
+        {
+	        var frm = new FormFactorReminderList();
+	        frm.MdiParent = StorageProvider.MainForm;
+	        frm.Show();
+		}
     }
 }

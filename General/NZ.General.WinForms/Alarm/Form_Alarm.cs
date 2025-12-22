@@ -22,7 +22,7 @@ namespace NZ.General.WinForms.Alarm
 		private void Form_Alarm_Shown(object sender, EventArgs e)
 		{
 			foreach (var system in Form_Factory.SystemList.Where(system => system.AnyAlaram()))
-				NzTab.TabPages.Add(system.GeTabPage());
+				NzTab.TabPages.AddRange(system.GetAlarmsTabPage());
 		}
 	}
 }

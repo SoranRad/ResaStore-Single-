@@ -411,6 +411,12 @@
     <Compile Include="Report\FormCircularObject.Designer.cs">
       <DependentUpon>FormCircularObject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\FormFactorReminderList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormFactorReminderList.Designer.cs">
+      <DependentUpon>FormFactorReminderList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\FormPriceChart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -771,6 +777,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report\FormCircularObject.resx">
       <DependentUpon>FormCircularObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormFactorReminderList.resx">
+      <DependentUpon>FormFactorReminderList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\FormPriceChart.resx">
       <DependentUpon>FormPriceChart.cs</DependentUpon>

@@ -538,7 +538,7 @@
 			this.NsCopy.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
 			this.NsCopy.Name = "NsCopy";
 			this.NsCopy.Size = new System.Drawing.Size(28, 31);
-			this.NsCopy.Text = "تبدیل به فاکتور فروش";
+			this.NsCopy.Text = "کپی کردن فاکتور";
 			this.NsCopy.ToolTipText = "کپی کردن فاکتور";
 			this.NsCopy.Click += new System.EventHandler(this.NsCopy_Click);
 			// 
@@ -940,7 +940,7 @@
 			this.Name = "Form_ListFactors";
 			this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.ShowInTaskbar = false;
-			this.Text = "لیست فاکتور و حواله";
+			this.Text = "لیست فاکتورها";
 			this.Shown += new System.EventHandler(this.Form_ListFactors_Shown);
 			this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form_ListFactors_KeyUp);
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).EndInit();
