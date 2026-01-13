@@ -20,14 +20,14 @@
         
         public override void Down()
         {
-            AddColumn("Anbar.tbl_Amaliat_Title_Detail", "Address", c => c.String());
-            DropColumn("Anbar.tbl_Amaliat_Title_Detail", "Sent");
-            DropColumn("Anbar.tbl_Amaliat_Title_Detail", "AddressGirande");
-            DropColumn("Anbar.tbl_Amaliat_Title_Detail", "MobileGirande");
-            DropColumn("Anbar.tbl_Amaliat_Title_Detail", "TitleGirande");
-            DropColumn("Base.tbl_Kala_Xadamat", "OffAmount");
-            DropColumn("Base.tbl_Kala_Xadamat", "IsOffPercent");
-            DropColumn("Base.tbl_Kala_Xadamat", "IsOffActive");
+            //AddColumn("Anbar.tbl_Amaliat_Title_Detail", "Address", c => c.String());
+            //DropColumn("Anbar.tbl_Amaliat_Title_Detail", "Sent");
+            //DropColumn("Anbar.tbl_Amaliat_Title_Detail", "AddressGirande");
+            //DropColumn("Anbar.tbl_Amaliat_Title_Detail", "MobileGirande");
+            //DropColumn("Anbar.tbl_Amaliat_Title_Detail", "TitleGirande");
+            //DropColumn("Base.tbl_Kala_Xadamat", "OffAmount");
+            //DropColumn("Base.tbl_Kala_Xadamat", "IsOffPercent");
+            //DropColumn("Base.tbl_Kala_Xadamat", "IsOffActive");
         }
     }
 }

@@ -52,7 +52,17 @@ namespace NZ.Aqsat.DataLayer.Repo
 
 	        using (var context= new AqsatContext(ConnectionManager.Create(), false))
 	        {
-		        return context.AqsatMains.Find(ID);
+		        var item = context.AqsatMains.Find(ID);
+
+                foreach (var riz in item.AqsatRizs)
+                {
+	                if (riz.isPardaxt)
+		                riz.PersianTarixPardaxt = riz.tarixPardaxt?.ToPersianDate();
+                    
+	                riz.PersianTarixQest = riz.tarixQest.ToPersianDate();
+                }
+
+                return item;
 	        }
         }
         public IEnumerable<Aqsat_Main>  GetList         (object Param)
@@ -109,7 +119,10 @@ namespace NZ.Aqsat.DataLayer.Repo
 
                         if (Aqsat.ID == 0)
                         {
-                            db.AqsatMains.Add(Aqsat);
+							//foreach (Aqsat_Riz item in Aqsat.AqsatRizs.Where(x => x.ID == 0))
+							//	db.Entry(item).State = System.Data.Entity.EntityState.Added;
+
+							db.AqsatMains.Add(Aqsat);
                         }
                         else
                         {

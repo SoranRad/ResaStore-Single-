@@ -18,7 +18,7 @@ namespace ShareLib.Utils
 {
     public static class Extentions
     {
-        public static void      ToXml<T>            (this T Item, string FileName)
+        public static void      ToXml<T>                (this T Item, string FileName)
         {
             XmlSerializer xmlWrite = new XmlSerializer(typeof(T));
             var xmlWriteFile = File.Exists(FileName)
@@ -28,7 +28,7 @@ namespace ShareLib.Utils
             xmlWrite.Serialize(xmlWriteFile, Item);
             xmlWriteFile.Close();
         }
-        public static string    ToXmlString         (this object obj)
+        public static string    ToXmlString             (this object obj)
         {
             XmlSerializer xmlSerializer = new XmlSerializer(obj.GetType());
 
@@ -39,18 +39,18 @@ namespace ShareLib.Utils
             }
         }
 
-        public static void      ToJson<T>            (this T Item, string FileName)
+        public static void      ToJson<T>               (this T Item, string FileName)
         {
 	        var JsonStr = ToJsonString(Item); 
             File.WriteAllText(FileName,JsonStr); 
         }
-        public static string    ToJsonString         (this object Item)
+        public static string    ToJsonString            (this object Item)
         {
 	        var writer = new JsonWriter();
 	        return writer.Write(Item); 
         }
 
-        public static       T FromXmlString<T>      (string XmlText)
+        public static           T FromXmlString<T>      (string XmlText)
         {
             XmlSerializer ser = new XmlSerializer(typeof(T));
             using (StringReader sr = new StringReader(XmlText))
@@ -58,7 +58,7 @@ namespace ShareLib.Utils
                 return (T)ser.Deserialize(sr);
             }
         }
-        public static T     FromXml<T>              (string FileName)
+        public static T         FromXml<T>              (string FileName)
         {
             XmlSerializer   xmlRead     = new XmlSerializer(typeof(T));
             FileStream      xmlReadFile = new FileStream(FileName, FileMode.Open);
@@ -68,24 +68,57 @@ namespace ShareLib.Utils
             return (T)xmlObject;
         }
         
-        public static       T FromJsonString<T>      (string XmlText)
+        public static           T FromJsonString<T>     (string XmlText)
         {
 
 	        var reader = new JsonReader();
 	        return reader.Read<T>(XmlText);
         }
-        public static T     FromJson<T>              (string FileName)
+        public static T         FromJson<T>             (string FileName)
         {
 	        return FromJsonString<T>(File.ReadAllText(FileName));
         }
 
-        public static string ToPersianDate(this DateTime date)
+        public static string    ToPersianDate           (this DateTime date)
         {
 	        var pd = new PersianCalendar();
 	        return pd.GetYear(date) + "/" + pd.GetMonth(date) + "/" + pd.GetDayOfMonth(date);
         }
-        
-        public static void  FillParametter          (this MS_GridX_Setting GridSetting ,string Title="")
+
+        public static bool IsPersianDate(this string PersianStr)
+        {
+	        try
+	        {
+		        var StrNumbers = PersianStr
+			        .Split(new string[] { "/", "\\", "|", ",", ".", "-", " " },
+				        StringSplitOptions.RemoveEmptyEntries);
+
+		        if (StrNumbers == null || !StrNumbers.Any() || StrNumbers.Length < 3)
+			        return false;
+
+		        var Numbers = StrNumbers.Select(x => Convert.ToInt32(x)).ToList();
+
+		        if (Numbers == null || !Numbers.Any() || Numbers.Count < 3)
+			        return false;
+
+		        if (Numbers[1] < 1 || Numbers[1] > 12)
+			        return false;
+
+		        if (Numbers[2] < 1 || Numbers[2] > 31)
+			        return false;
+
+		        var p = new PersianCalendar();
+		        var r = p.ToDateTime(Numbers[0], Numbers[1], Numbers[2], 0, 0, 0, 0);
+
+		        return true;
+	        }
+	        catch
+	        {
+		        return false;
+	        }
+        }
+
+		public static void      FillParametter          (this MS_GridX_Setting GridSetting ,string Title="")
         {
             GridSetting.MS_Company_Name = SystemConstant.ActiveCompany.title;
             GridSetting.MS_Molahezat    = SystemConstant.ActiveCompany.molahezat;
@@ -94,8 +127,7 @@ namespace ShareLib.Utils
             GridSetting.MS_User_Name    = SystemConstant.ActiveUser.title;
 
         }
-
-        public static void SafeSetProperty          (this Control Control, string PropertyName, object value)
+        public static void      SafeSetProperty         (this Control Control, string PropertyName, object value)
         {
             
            
@@ -109,5 +141,125 @@ namespace ShareLib.Utils
                 }));
 
         }
-    }
+
+
+		public static string NzWebsiteStateOrderToPersian(this string Kind)
+		{
+
+			switch (Kind)
+			{
+				case "pending":
+					return "در انتظار پرداخت";
+				case "processing":
+					return "در حال انجام";
+				case "on-hold":
+					return "در انتظار بررسی";
+				case "completed":
+					return "تکمیل شده";
+				case "cancelled":
+					return "لغو شده";
+				case "refunded":
+					return "مسترد شده";
+				case "failed":
+					return "ناموفق";
+				case "trash":
+					return "حذف شده";
+				default:
+					return "";
+			}
+		}
+		public static string NzWebsiteStockStatusToPersian(this string Kind)
+		{
+
+			switch (Kind)
+			{
+				case "instock":
+					return "موجود";
+				case "outofstock":
+					return "ناموجود";
+				case "onbackorder":
+					return "در پیش‌خرید";
+				default:
+					return "";
+			}
+		}
+
+		public static string NzWebsiteProductTypeToPersian(this string Kind)
+		{
+
+			switch (Kind)
+			{
+				case "simple":
+					return "ساده";
+				case "grouped":
+					return "دسته بندی";
+				case "external":
+					return "خارجی";
+				case "variable":
+					return "متغیر";
+				default:
+					return "";
+			}
+		}
+		public static string NzWebsiteStateToPersian(this string Kind)
+		{
+			if (string.IsNullOrWhiteSpace(Kind))
+				return "";
+
+			switch (Kind)
+			{
+				case "KHZ": return "خوزستان";
+				case "THR": return "تهران";
+				case "ILM": return "ایلام";
+				case "BHR": return "بوشهر";
+				case "ADL": return "اردبیل";
+				case "ESF": return "اصفهان";
+				case "YZD": return "یزد";
+				case "KRH": return "کرمانشاه";
+				case "KRN": return "کرمان";
+				case "HDN": return "همدان";
+				case "GZN": return "قزوین";
+				case "ZJN": return "زنجان";
+				case "LRS": return "لرستان";
+				case "ABZ": return "البرز";
+				case "EAZ": return "آذربایجان شرقی";
+				case "WAZ": return "آذربایجان غربی";
+				case "CHB": return "چهارمحال و بختیاری";
+				case "SKH": return "خراسان جنوبی";
+				case "RKH": return "خراسان رضوی";
+				case "NKH": return "خراسان شمالی";
+				case "SMN": return "سمنان";
+				case "FRS": return "فارس";
+				case "QHM": return "قم";
+				case "KRD": return "کردستان";
+				case "KBD": return "کهگیلویه و بویراحمد";
+				case "GLS": return "گلستان";
+				case "GIL": return "گیلان";
+				case "MZN": return "مازندران";
+				case "MKZ": return "مرکزی";
+				case "HRZ": return "هرمزگان";
+				case "SBN": return "سیستان و بلوچستان";
+
+				default:
+					return "";
+			}
+		}
+
+		public static DateTime ToPersianDate(this string PersianStr)
+		{
+			var StrNumbers = PersianStr
+				.Split(new string[] { "/", "\\", ",", "|", "." },
+					StringSplitOptions.RemoveEmptyEntries);
+
+			var IntNumbers = StrNumbers
+				.Where(x => int.TryParse(x, out int tmp))
+				.Select(x => int.Parse(x))
+				.ToArray();
+
+			var p = new PersianCalendar();
+
+			return p.ToDateTime(IntNumbers[0], IntNumbers[1], IntNumbers[2], 0, 0, 0, 0);
+		}
+
+	}
 }

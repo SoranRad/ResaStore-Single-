@@ -34,7 +34,7 @@ namespace Nz.Aqsat.Model.Models
 		public string				Sharh						{ get; set; }
 		public bool					IsTasvie					{ get; set; }
 
-		public Aqsat_Kind				AqsatKind				{ get; set; }
+		public virtual Aqsat_Kind AqsatKind				{ get; set; }
 		public virtual ICollection<Aqsat_Riz>	AqsatRizs		{ get; set; }
 
 	}

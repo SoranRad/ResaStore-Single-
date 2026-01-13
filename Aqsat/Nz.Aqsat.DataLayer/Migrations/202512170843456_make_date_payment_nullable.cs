@@ -12,7 +12,7 @@
         
         public override void Down()
         {
-            AlterColumn("Aqsat.tbl_Aqsat_Riz", "tarixPardaxt", c => c.DateTime(nullable: false));
+            //AlterColumn("Aqsat.tbl_Aqsat_Riz", "tarixPardaxt", c => c.DateTime(nullable: false));
         }
     }
 }

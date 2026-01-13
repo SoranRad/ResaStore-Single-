@@ -68,10 +68,10 @@ GO
         
         public override void Down()
         {
-            DropForeignKey("Bar.tbl_ErsalKarkhane", "FK_Car", "Bar.tbl_Car");
-            DropIndex("Bar.tbl_ErsalKarkhane", new[] { "FK_Car" });
-            DropIndex("Bar.tbl_ErsalKarkhane", "IX_ErsalKarkhane_FK_Salmali");
-            DropTable("Bar.tbl_ErsalKarkhane");
+            //DropForeignKey("Bar.tbl_ErsalKarkhane", "FK_Car", "Bar.tbl_Car");
+            //DropIndex("Bar.tbl_ErsalKarkhane", new[] { "FK_Car" });
+            //DropIndex("Bar.tbl_ErsalKarkhane", "IX_ErsalKarkhane_FK_Salmali");
+            //DropTable("Bar.tbl_ErsalKarkhane");
         }
     }
 }

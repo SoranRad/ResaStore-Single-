@@ -12,7 +12,7 @@
         
         public override void Down()
         {
-            AlterColumn("Base.tbl_Kala_Xadamat", "WebSiteProductKind", c => c.Byte());
+            //AlterColumn("Base.tbl_Kala_Xadamat", "WebSiteProductKind", c => c.Byte());
         }
     }
 }

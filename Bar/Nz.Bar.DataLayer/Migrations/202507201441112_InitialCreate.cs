@@ -150,10 +150,10 @@ GO
         
         public override void Down()
         {
-            DropForeignKey("Bar.tbl_BarFactor", "FK_Car", "Bar.tbl_Car");
-            //DropIndex("Bar.tbl_BarFactor", new[] { "FK_Car" });
-            DropTable("Bar.tbl_Car");
-            DropTable("Bar.tbl_BarFactor");
+            //DropForeignKey("Bar.tbl_BarFactor", "FK_Car", "Bar.tbl_Car");
+            ////DropIndex("Bar.tbl_BarFactor", new[] { "FK_Car" });
+            //DropTable("Bar.tbl_Car");
+            //DropTable("Bar.tbl_BarFactor");
         }
     }
 }

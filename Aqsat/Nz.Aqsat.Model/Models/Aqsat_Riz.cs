@@ -21,13 +21,17 @@ namespace Nz.Aqsat.Model.Models
 		public string		Sharh				{ get; set; }
 
 		[NotMapped]
-		public Enums.NzItemState					State				{ get; set; }
+		public Enums.NzItemState				State					{ get; set; }
 		[NotMapped]
-		public string								PersianTarixQest	{ get; set; }
+		public string							PersianTarixQest		{ get; set; }
+		[NotMapped]
+		public string							PersianTarixPardaxt		{ get; set; }
+		[NotMapped]
+		public bool								CanModifyOrDelete		=> (ID == 0 || (ID>0 && !isPardaxt));
+		[NotMapped]								
+		public string							isPardaxtTitle			=> this.isPardaxt?"تسوسه شده":"مانده";
 
 
-		[NotMapped]
-		public bool CanModifyOrDelete => (ID == 0 || (ID>0 && !isPardaxt));
 
 		public Aqsat_Main							AqsatMain			{ get; set; }
 		public virtual ICollection<Aqsat_SmsLog>	AqsatSmsLogs		{ get; set; }

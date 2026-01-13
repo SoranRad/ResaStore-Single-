@@ -205,7 +205,22 @@ namespace Nz.Aqsat.Winforms.App
 				.Where(x => x.State != Enums.NzItemState.Deleted)
 				.Max(x => x.Radif);
 		}
-
+		public void		RemoveTempRow		()
+		{
+			foreach (var key in _Aqsat.AqsatRizs.Where(x => x.State != Enums.NzItemState.Deleted))
+			{
+				if (
+					key.ID == 0 &&
+					(
+						key?.mablaqQest == 0 || key?.PersianTarixQest.IsPersianDate() == false 
+					)
+				)
+				{
+					_Aqsat.AqsatRizs.Remove(key);
+					ReOrderRowNumber(key.Radif);
+				}
+			}
+		}
 		#endregion
 		public IEnumerator GetEnumerator()
 		{

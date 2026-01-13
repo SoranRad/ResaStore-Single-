@@ -693,7 +693,7 @@ namespace Nz.Anbar.WinForms.App
         {
             try
             {
-                    if (!(NzGrid.CurrentRow?.DataRow is FactorItem key))
+                if (!(NzGrid.CurrentRow?.DataRow is FactorItem key))
                     return;
 
                 if (key?.meqdar == 0 || key?.FK_Kala == 0 || key?.nerkh==0)
@@ -930,6 +930,7 @@ namespace Nz.Anbar.WinForms.App
         {
 	        try
 	        {
+                
 		        _Bind.RemoveTempRow();
 	        }
 	        catch (Exception exception)

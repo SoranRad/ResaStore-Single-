@@ -12,7 +12,7 @@
         
         public override void Down()
         {
-            DropColumn("Base.tbl_Kala_Xadamat", "ShowInBarcodeForm");
+            //DropColumn("Base.tbl_Kala_Xadamat", "ShowInBarcodeForm");
         }
     }
 }

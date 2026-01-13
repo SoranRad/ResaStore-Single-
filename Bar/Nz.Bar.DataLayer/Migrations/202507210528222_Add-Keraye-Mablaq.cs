@@ -12,7 +12,7 @@
         
         public override void Down()
         {
-            DropColumn("Bar.tbl_BarFactor", "MablaqKeraye");
+            //DropColumn("Bar.tbl_BarFactor", "MablaqKeraye");
         }
     }
 }

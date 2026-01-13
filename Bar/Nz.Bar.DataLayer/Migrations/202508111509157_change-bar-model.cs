@@ -13,8 +13,8 @@
         
         public override void Down()
         {
-            DropColumn("Bar.tbl_BarFactor", "DarsadOft");
-            DropColumn("Bar.tbl_BarFactor", "SumKhaliBox");
+            //DropColumn("Bar.tbl_BarFactor", "DarsadOft");
+            //DropColumn("Bar.tbl_BarFactor", "SumKhaliBox");
         }
     }
 }

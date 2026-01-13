@@ -11,8 +11,8 @@ namespace NZ.Anbar.DataLayer.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationDataLossAllowed = false;
             //SetHistoryContextFactory();
             ContextKey = nameof(StorageContext);
         }

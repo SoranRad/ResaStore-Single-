@@ -12,7 +12,7 @@
         
         public override void Down()
         {
-            AddColumn("Aqsat.tbl_Aqsat_Kind", "Code", c => c.Short(nullable: false));
+            //AddColumn("Aqsat.tbl_Aqsat_Kind", "Code", c => c.Short(nullable: false));
         }
     }
 }

@@ -12,7 +12,7 @@
         
         public override void Down()
         {
-            AlterColumn("Bar.tbl_BarFactor", "VaznKhaliBox", c => c.Decimal(nullable: false, precision: 18, scale: 0));
+            //AlterColumn("Bar.tbl_BarFactor", "VaznKhaliBox", c => c.Decimal(nullable: false, precision: 18, scale: 0));
         }
     }
 }

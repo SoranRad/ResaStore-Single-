@@ -12,7 +12,7 @@
         
         public override void Down()
         {
-            DropColumn("Base.tbl_GroupKala_2th", "ShowInBarcode");
+            //DropColumn("Base.tbl_GroupKala_2th", "ShowInBarcode");
         }
     }
 }

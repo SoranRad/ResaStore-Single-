@@ -12,7 +12,7 @@
         
         public override void Down()
         {
-            DropColumn("Xazane.tbl_Amaliat_Check", "Shenase_Sayadi");
+            //DropColumn("Xazane.tbl_Amaliat_Check", "Shenase_Sayadi");
         }
     }
 }

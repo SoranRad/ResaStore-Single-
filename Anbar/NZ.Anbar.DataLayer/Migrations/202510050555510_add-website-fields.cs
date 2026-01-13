@@ -16,11 +16,11 @@
         
         public override void Down()
         {
-            DropColumn("Anbar.tbl_Amaliat_Title_Detail", "Address");
-            DropColumn("Anbar.tbl_Amaliat_Title_Detail", "WebSiteId");
-            DropColumn("Base.tbl_Kala_Xadamat", "WebSiteProductId2");
-            DropColumn("Base.tbl_Kala_Xadamat", "WebSiteProductId1");
-            DropColumn("Base.tbl_Kala_Xadamat", "WebSiteProductKind");
+            //DropColumn("Anbar.tbl_Amaliat_Title_Detail", "Address");
+            //DropColumn("Anbar.tbl_Amaliat_Title_Detail", "WebSiteId");
+            //DropColumn("Base.tbl_Kala_Xadamat", "WebSiteProductId2");
+            //DropColumn("Base.tbl_Kala_Xadamat", "WebSiteProductId1");
+            //DropColumn("Base.tbl_Kala_Xadamat", "WebSiteProductKind");
         }
     }
 }

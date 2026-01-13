@@ -177,16 +177,16 @@ GO
         
         public override void Down()
         {
-            DropForeignKey("Aqsat.tbl_Aqsat_Riz", "FK_Main", "Aqsat.tbl_Aqsat_Main");
-            DropForeignKey("Aqsat.tbl_Aqsat_SmsLog", "FK_Riz", "Aqsat.tbl_Aqsat_Riz");
-            DropForeignKey("Aqsat.tbl_Aqsat_Main", "FK_Noh", "Aqsat.tbl_Aqsat_Kind");
-            DropIndex("Aqsat.tbl_Aqsat_SmsLog", new[] { "FK_Riz" });
-            DropIndex("Aqsat.tbl_Aqsat_Riz", new[] { "FK_Main" });
-            DropIndex("Aqsat.tbl_Aqsat_Main", new[] { "FK_Noh" });
-            DropTable("Aqsat.tbl_Aqsat_SmsLog");
-            DropTable("Aqsat.tbl_Aqsat_Riz");
-            DropTable("Aqsat.tbl_Aqsat_Main");
-            DropTable("Aqsat.tbl_Aqsat_Kind");
+            //DropForeignKey("Aqsat.tbl_Aqsat_Riz", "FK_Main", "Aqsat.tbl_Aqsat_Main");
+            //DropForeignKey("Aqsat.tbl_Aqsat_SmsLog", "FK_Riz", "Aqsat.tbl_Aqsat_Riz");
+            //DropForeignKey("Aqsat.tbl_Aqsat_Main", "FK_Noh", "Aqsat.tbl_Aqsat_Kind");
+            //DropIndex("Aqsat.tbl_Aqsat_SmsLog", new[] { "FK_Riz" });
+            //DropIndex("Aqsat.tbl_Aqsat_Riz", new[] { "FK_Main" });
+            //DropIndex("Aqsat.tbl_Aqsat_Main", new[] { "FK_Noh" });
+            //DropTable("Aqsat.tbl_Aqsat_SmsLog");
+            //DropTable("Aqsat.tbl_Aqsat_Riz");
+            //DropTable("Aqsat.tbl_Aqsat_Main");
+            //DropTable("Aqsat.tbl_Aqsat_Kind");
         }
     }
 }

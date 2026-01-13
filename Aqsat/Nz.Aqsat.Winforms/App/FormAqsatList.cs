@@ -77,13 +77,13 @@ namespace Nz.Aqsat.Winforms.App
 
 			
 		}
-		private void EditFactor()
+		private void EditItem()
 		{
 			if (NzGridHeads.CurrentRow.RowType != RowType.Record)
 				return;
-			var ID = Convert.ToInt64(NzGridHeads.CurrentRow.Cells["ID"].Value);
-
-			new Form_Aqsat_Jadid(ID).ShowDialog(this);
+			var row = NzGridHeads.CurrentRow.DataRow as AqsatList;
+			 
+			new Form_Aqsat_Jadid(row.ID).ShowDialog(this);
 				
 			var Spos = NzGridHeads.VerticalScrollPosition;
 			var Rpos = NzGridHeads.CurrentRow.Position;
@@ -127,11 +127,11 @@ namespace Nz.Aqsat.Winforms.App
 			RefreshGrid();
 		}
 
-		private void NsPrint_Click(object sender, EventArgs e)
+		private void NsPrint_Click					(object sender, EventArgs e)
         {
 
         }
-        private void NzItems_Click(object sender, EventArgs e)
+        private void NzItems_Click					(object sender, EventArgs e)
         {
 	        Splitter1.Visible = NzItems.Checked;
 	        mS_Panel2.Visible = NzItems.Checked;
@@ -141,27 +141,27 @@ namespace Nz.Aqsat.Winforms.App
 
 
         }
-        private void NzRefreshList_Click(object sender, EventArgs e)
+        private void NzRefreshList_Click			(object sender, EventArgs e)
         {
 	        RefreshGrid();
         }
-        private void NzAdd_Click(object sender, EventArgs e)
+        private void NzAdd_Click					(object sender, EventArgs e)
         {
 	        new Form_Aqsat_Jadid().ShowDialog(this);
 	        RefreshGrid();
         }
 
-		private void NzGridHeads_SelectionChanged(object sender, EventArgs e)
+		private void NzGridHeads_SelectionChanged	(object sender, EventArgs e)
 		{
 			if (NzItems.Checked)
 				RefreshItem();
 		}
-		private void NzGridHeads_ColumnButtonClick(object sender, ColumnActionEventArgs e)
+		private void NzGridHeads_ColumnButtonClick	(object sender, ColumnActionEventArgs e)
 		{
 			switch (e.Column.Key)
 			{
 				case "E":
-					EditFactor();
+					EditItem();
 					break;
 				case "D":
 					try
@@ -209,9 +209,9 @@ namespace Nz.Aqsat.Winforms.App
 					break;
 			}
 		}
-		private void NzGridHeads_RowDoubleClick(object sender, RowActionEventArgs e)
+		private void NzGridHeads_RowDoubleClick		(object sender, RowActionEventArgs e)
 		{
-			EditFactor();
+			EditItem();
 		}
 
 	}

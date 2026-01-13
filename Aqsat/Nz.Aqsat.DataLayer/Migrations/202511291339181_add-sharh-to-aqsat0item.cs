@@ -12,7 +12,7 @@
         
         public override void Down()
         {
-            DropColumn("Aqsat.tbl_Aqsat_Riz", "Sharh");
+            //DropColumn("Aqsat.tbl_Aqsat_Riz", "Sharh");
         }
     }
 }

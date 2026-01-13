@@ -67,7 +67,9 @@ namespace Nz.Aqsat.Winforms.App
 			NsZamen.Refresh_Grid((byte)3, null);
 			NsGridRizAdd.FilterMode = FilterMode.None;
 
-			if(_IsEdit)
+			_Manager = new AqsatManager();
+
+			if (_IsEdit)
 				LoadAqsat();
 			else
 				Reset();
@@ -78,7 +80,6 @@ namespace Nz.Aqsat.Winforms.App
 	        _IsEdit = false;
 
 			_Aqsat = new Aqsat_Main();
-			_Manager = new AqsatManager();
 	        GetMaxSerial();
 	        NsGridRizAdd.DataSource		= null;
 	        NzTarikh.MS_Tarikh			= new MS_Structure_Shamsi(DateTime.Now);
@@ -121,7 +122,8 @@ namespace Nz.Aqsat.Winforms.App
 				_DoRefresh = false;
 
 				NzSerial.MS_Decimal				= _Aqsat.Serial;
-				NsStartDate.MS_Tarikh			= new MS_Structure_Shamsi(_Aqsat.Tarikh);
+				NsStartDate.MS_Tarikh			= new MS_Structure_Shamsi(_Aqsat.StartDate);
+				NzTarikh.MS_Tarikh				= new MS_Structure_Shamsi(_Aqsat.Tarikh);
 				NsKind.SetValue					(_Aqsat.FK_Noh);
 				NzCustomer.MS_Set_Select		(_Aqsat.FK_Shaxs);
 
@@ -148,7 +150,13 @@ namespace Nz.Aqsat.Winforms.App
 
 				NsGridEdit.Show();
 				NsGridRizAdd.Hide();
-				panel1.Hide();
+				//panel1.Hide();
+
+				var AnyConfirmed = _Aqsat.AqsatRizs.Any(x => x.isPardaxt);
+				NsDoreQest.Enabled = !AnyConfirmed;
+				NsStartDate.Enabled = !AnyConfirmed;
+				NsTedadAqsat.Enabled = false;
+				//NsRoundMablaq.Enabled = !AnyConfirmed;
 
 
 				NzSerial.Focus();
@@ -306,6 +314,7 @@ namespace Nz.Aqsat.Winforms.App
 				_Aqsat.MablaqSoud				= NsMablaqSoud.MS_Decimal;
 				_Aqsat.MablaqFinalAqsat			= NsMablaqFinalAqsat.MS_Decimal;
 
+				_Aqsat.TedadAqsat = (byte)NsTedadAqsat.MS_Decimal;
 
 				var zamen						= NsZamen.MS_Get_Selected() as People;
 				_Aqsat.FK_Zamen					= zamen?.ID;
@@ -315,20 +324,15 @@ namespace Nz.Aqsat.Winforms.App
 				{
 					_Aqsat.DoreQest				= Convert.ToByte( NsDoreQest.MS_Decimal);
 					_Aqsat.StartDate			= NsStartDate.MS_Tarikh.Value.ToDatetime().Date;
-					_Aqsat.TedadAqsat			= (byte)NsTedadAqsat.MS_Decimal;
 					_Aqsat.RoundMablaq			= (byte)NsRoundMablaq.MS_Decimal;
 				}
-				else
-				{
-					//_Aqsat.TedadAqsat = 
 				
-				}
-
+				RemoveUnSavedRow();
 				_Manager.Save(_Aqsat,!_IsEdit);
 				new Form_Notify("ذخـیـره سـازی", "اطـلاعـات بـا مـوفـقـیـت ثـبـت شـــد.",
 						Form_Notify.FarsiMessageBoxIcon.اضافه)
 					.Popup(Form_Notify.Direction_Show.Right_To_Left, 1000);
-
+				SetItemsNoChanges();
 				if (_IsEdit)
 				{
 					SetItemsNoChanges();
@@ -357,16 +361,6 @@ namespace Nz.Aqsat.Winforms.App
 
 					}
 				}
-
-
-				//if (ShowPopup)
-				//	new Form_Notify("ذخـیـره سـازی", "اطـلاعـات بـا مـوفـقـیـت ثـبـت شـــد.",
-				//			Form_Notify.FarsiMessageBoxIcon.اضافه)
-				//		.Popup(Form_Notify.Direction_Show.Right_To_Left, 1000);
-
-				//NzSerial.MS_Decimal = _Aqsat.Serial;
-				//SetItemsNoChanges();
-
 			}
 			catch (Exception ex)
 			{
@@ -374,7 +368,7 @@ namespace Nz.Aqsat.Winforms.App
 				MS_Message.Show("خطا در برنامه", "", ex.Message, MessageBoxButtons.OK);
 			}
 		}
-        private void RefreshAmounts							()
+		private void RefreshAmounts							()
         {
 	        NsMablaqMandeAqsat.MS_Decimal = NsMablaqAqsat.MS_Decimal - NsMablaqPishpardaxt.MS_Decimal;
 	        if (NsDarsadSud.MS_Decimal > 0)
@@ -385,29 +379,47 @@ namespace Nz.Aqsat.Winforms.App
         }
         private void RefreshItems							()
         {
+	        try
+	        {
+				if(_IsEdit)
+					RefreshItemsEdit();
+				else
+					RefreshItemsAdd();
+	        }
+	        catch (Exception ex)
+	        {
+				MS_Message.Show("خطا در برنامه", "", ex.Message, MessageBoxButtons.OK);
+				log.Error(ex);
+	        }
+
+	        
+        }
+        private void RefreshItemsAdd						()
+        {
 	        ClearItems();
 
 	        if (NsTedadAqsat.MS_Decimal > 0 && NsStartDate.MS_Tarikh.HasValue)
 	        {
-		        var startDate   = NsStartDate.MS_Tarikh.Value.ToDatetime().Date;
-                var mablaqQest  = decimal.Round(NsMablaqFinalAqsat.MS_Decimal/NsTedadAqsat.MS_Decimal);
+		        var startDate	= NsStartDate.MS_Tarikh.Value.ToDatetime().Date;
+		        var mablaqQest	= decimal.Round(NsMablaqFinalAqsat.MS_Decimal / NsTedadAqsat.MS_Decimal);
 
-                if (NsRoundMablaq.MS_Decimal > 0)
-                {
-	                mablaqQest -= (mablaqQest % ((decimal)Math.Pow(10, (double)NsRoundMablaq.MS_Decimal)));
-                }
+		        if (NsRoundMablaq.MS_Decimal > 0)
+		        {
+			        mablaqQest -= (mablaqQest % ((decimal)Math.Pow(10, (double)NsRoundMablaq.MS_Decimal)));
+		        }
 
 		        for (int i = 0; i < NsTedadAqsat.MS_Decimal; i++)
 		        {
-			        var tarix = startDate.AddDays((i+1)*(double)NsDoreQest.MS_Decimal);
-			        var persianTarix = tarix.ToPersianDate();
-					_Aqsat.AqsatRizs.Add(new Aqsat_Riz()
-                    {
-	                    Radif = (byte)(i + 1), 
-	                    tarixQest = tarix,
-						PersianTarixQest = persianTarix,
-						mablaqQest = mablaqQest
-                    });
+			        var tarix			= startDate.AddDays((i + 1) * (double)NsDoreQest.MS_Decimal);
+			        var persianTarix	= tarix.ToPersianDate();
+			        _Aqsat.AqsatRizs.Add(new Aqsat_Riz()
+			        {
+				        Radif = (byte)(i + 1),
+				        tarixQest = tarix,
+				        PersianTarixQest = persianTarix,
+				        mablaqQest = mablaqQest,
+						AqsatMain = _Aqsat
+			        });
 		        }
 
 		        var sum = _Aqsat.AqsatRizs.Sum(x => x.mablaqQest);
@@ -419,15 +431,67 @@ namespace Nz.Aqsat.Winforms.App
 			        var riz = NsRoundFirst.Checked
 				        ? _Aqsat.AqsatRizs.FirstOrDefault()
 				        : _Aqsat.AqsatRizs.LastOrDefault();
-			        
-			        if (riz != null) 
+
+			        if (riz != null)
 				        riz.mablaqQest += mande;
 		        }
 
-				NsGridRizAdd.DataSource = _Aqsat.AqsatRizs.ToList();
+		        NsGridRizAdd.DataSource = _Aqsat.AqsatRizs.ToList();
 	        }
-        }
-        private void ClearItems								()
+		}
+        private void RefreshItemsEdit						()
+        {
+	        var startDate = NsStartDate.MS_Tarikh.Value.ToDatetime().Date;
+			var tedadAqsat = _Aqsat.AqsatRizs.Count(x=>!x.isPardaxt && x.State != Enums.NzItemState.Deleted);
+	        var mablaqQest = decimal.Round(NsMablaqFinalAqsat.MS_Decimal / tedadAqsat);
+	        var IsConfirmed = _Aqsat.AqsatRizs.Any(x => x.isPardaxt);
+
+	        if (NsRoundMablaq.MS_Decimal > 0)
+		        mablaqQest -= (mablaqQest % ((decimal)Math.Pow(10, (double)NsRoundMablaq.MS_Decimal)));
+
+
+	        int i=0;
+	        foreach (var riz in _Aqsat.AqsatRizs.Where(x => !x.isPardaxt && x.State != Enums.NzItemState.Deleted))
+	        {
+		        if (riz.mablaqQest != mablaqQest)
+		        {
+			        riz.mablaqQest = mablaqQest;
+			        riz.State = Enums.NzItemState.Modified;
+				}
+
+		        if (!IsConfirmed)
+		        {
+			        var tarix = startDate.AddDays((i + 1) * (double)NsDoreQest.MS_Decimal);
+			        var persianTarix = tarix.ToPersianDate();
+			        riz.tarixQest = tarix;
+			        riz.PersianTarixQest = persianTarix;
+			        riz.State = Enums.NzItemState.Modified;
+
+				}
+
+				i++;
+	        }
+
+			var sum = _Aqsat.AqsatRizs.Where(x => x.State != Enums.NzItemState.Deleted).Sum(x => x.mablaqQest);
+
+			if (sum != NsMablaqFinalAqsat.MS_Decimal)
+			{
+				var mande = NsMablaqFinalAqsat.MS_Decimal - sum;
+
+				var riz = NsRoundFirst.Checked
+					? _Aqsat.AqsatRizs.FirstOrDefault(x=>!x.isPardaxt && x.State != Enums.NzItemState.Deleted)
+					: _Aqsat.AqsatRizs.LastOrDefault(x => !x.isPardaxt && x.State != Enums.NzItemState.Deleted);
+
+				if (riz != null)
+				{
+					riz.mablaqQest += mande;
+					riz.State = Enums.NzItemState.Modified;
+				}
+			}
+
+			NsGridEdit.Refetch();
+		}
+		private void ClearItems								()
         {
             _Aqsat.AqsatRizs.Clear();
         }
@@ -447,7 +511,7 @@ namespace Nz.Aqsat.Winforms.App
         }
 		private void RefreshMablaqFinal						()
         {
-	        NsMablaqFinalAqsat.MS_Decimal = _Aqsat.AqsatRizs.Sum(x => x.mablaqQest);
+	        NsMablaqFinalAqsat.MS_Decimal = _Aqsat.AqsatRizs.Where(x=>x.State!=Enums.NzItemState.Deleted).Sum(x => x.mablaqQest);
         }
         private void RemoveUnSavedRow						()
         {
@@ -473,8 +537,14 @@ namespace Nz.Aqsat.Winforms.App
 
 	        NzSerial.MS_Decimal = _Serial;
         }
-		#endregion
-		private void Form_Aqsat_Jadid_Load					(object sender, EventArgs e)
+        private void RefreshTedadAqsat						()
+        {
+	        _DoRefresh = false;
+	        NsTedadAqsat.MS_Decimal = _Bind.Count;
+	        _DoRefresh = true;
+        }
+        #endregion
+		private void Form_Aqsat_Jadid_Load					(object sender, EventArgs e) 
 		{
 			Init();
 		}
@@ -511,11 +581,17 @@ namespace Nz.Aqsat.Winforms.App
         }
         private void NsRoundMablaq_TextChanged				(object sender, EventArgs e)
         {
+			if(!_DoRefresh) 
+				return;
+
             RefreshItems();
         }
         private void NsIsOffPercent_CheckedChanged			(object sender, EventArgs e)
         {
-	        RefreshItems();
+	        if (!_DoRefresh) 
+		        return;
+
+			RefreshItems();
 		}
 
         private void NzSave_Click							(object sender, EventArgs e)
@@ -571,7 +647,7 @@ namespace Nz.Aqsat.Winforms.App
         {
 	        try
 	        {
-		        var Grid = NsGridRizAdd;
+		        var Grid = _IsEdit ?NsGridEdit : NsGridRizAdd;
 
 		        var current = Grid.CurrentRow;
 		        if (current == null)
@@ -603,7 +679,7 @@ namespace Nz.Aqsat.Winforms.App
 	        }
 		}
 
-		#region Grid
+		#region Grid New
 
 		private void NsGridRiz_EditModeChanged				(object sender, EventArgs e)
 		{
@@ -618,15 +694,13 @@ namespace Nz.Aqsat.Winforms.App
 
 				if (   Grid.EditMode	== EditMode.EditOn
 				    && Grid.EditTextBox != null
-				    && Row.RowType		== RowType.Record
+				    && (Row.RowType		== RowType.Record || Row.RowType == RowType.NewRecord)
 				    && Col				!= null
 				    && Col.Key			== nameof(Aqsat_Riz.mablaqQest)
 				   )
 				{
 					Grid.EditTextBox.KeyPress += EditTextBoxOnKeyPress;
-
-					if (Col.Key == nameof(Aqsat_Riz.mablaqQest))
-						Grid.EditTextBox.TextChanged += EditTextBoxOnTextChanged;
+					Grid.EditTextBox.TextChanged += EditTextBoxOnTextChanged;
 				}
 			}
 			catch (Exception ex)
@@ -698,9 +772,8 @@ namespace Nz.Aqsat.Winforms.App
 		{
 			try
 			{
-				var Grid = sender as MS_GridX;
-
-				var row = Grid?.CurrentRow?.DataRow as Aqsat_Riz;
+				var Grid	= sender as MS_GridX;
+				var row		= Grid?.CurrentRow?.DataRow as Aqsat_Riz;
 
 				if (row == null)
 					return;
@@ -743,6 +816,14 @@ namespace Nz.Aqsat.Winforms.App
 					return;
 				
 				Grid.CurrentRow?.CancelEdit();
+
+				var Cur = e.Row;
+				if (Cur != null && Cur.RowType == RowType.NewRecord)
+				{
+					var row = Cur.DataRow as Aqsat_Riz;
+					if (row != null)
+						_Bind.Remove(row);
+				}
 			}
 			catch (Exception ex)
 			{
@@ -751,24 +832,284 @@ namespace Nz.Aqsat.Winforms.App
 		}
 
 		#endregion
+
+		#region Edit
+
+        private void NsGridEdit_ColumnButtonClick			(object sender, ColumnActionEventArgs e)
+        {
+	        var row		= NsGridEdit.CurrentRow;
+	        var data	= row.DataRow as Aqsat_Riz;
+
+			if(data == null)
+				return;
+
+			if (data.isPardaxt)
+			{
+				MS_Message.Show("کاربر گرامی؛ قسط مورد نظر شما پرداخت شده است. لذا نمی توانید آن را ویرایش یا خذف کنید.");
+				return;
+			}
+
+
+			if (e.Column.Key == "E")
+	        {
+		        NsGridEdit.AllowEdit = InheritableBoolean.True;
+		        NsGridEdit.RootTable.AllowEdit = InheritableBoolean.True;
+		        NsGridEdit.CurrentColumn = NsGridEdit.RootTable.Columns[nameof(Aqsat_Riz.PersianTarixQest)];
+				NsGridEdit.CurrentRow.BeginEdit();
+
+			} else if (e.Column.Key == "D")
+	        {
+
+		        if (NsGridEdit.CurrentRow.RowType == RowType.NewRecord)
+		        {
+			        NsGridEdit.CancelCurrentEdit();
+					NsGridEdit.CurrentRow.CancelEdit();
+			        
+					_DoRefresh = false;
+			        RefreshMablaqFinal();
+			        RefreshTedadAqsat();
+					_DoRefresh = true;
+			        return;
+		        }
+		         
+		        if (data.ID > 0)
+		        {
+			        var result = MS_Message
+				        .Show("آیا برای حذف ردیف مورد نظر مطمئنید؟",
+					        "حذف ردیف",
+					        MessageBoxButtons.YesNo);
+			        if (result != DialogResult.Yes)
+				        return;
+		        }
+		        NsGridEdit.CurrentRow?.Delete();
+
+		        _DoRefresh = false;
+				RefreshMablaqFinal();
+				RefreshTedadAqsat();
+				_DoRefresh = true;
+
+			} else if (e.Column.Key == nameof(Aqsat_Riz.PersianTarixQest))
+	        {
+		        var rec =
+			        NsGridEdit.CurrentRow == null ?
+				        NsGridEdit.Bounds
+				        : NsGridEdit
+							.GetCellBounds(NsGridEdit.CurrentRow.Position, NsGridEdit.RootTable.Columns[nameof(Aqsat_Riz.PersianTarixQest)]);
+
+		        if (NsGridEdit.CurrentRow?.DataRow is Aqsat_Riz riz)
+			        NzDatePopup.NzSelected = riz.tarixQest;
+
+		        NzDatePopup.Show(NsGridEdit,
+			        new Point(rec.X + rec.Width, rec.Y + rec.Height),
+			        ToolStripDropDownDirection.BelowLeft);
+
+		        SendKeys.Send("{TAB}");
+			}
+        }
+		private void NsGridEdit_UpdatingCell				(object sender, UpdatingCellEventArgs e)
+        {
+	        try
+	        {
+		        var grid = e.Column.GridEX;
+		        if (!(grid.CurrentRow?.DataRow is Aqsat_Riz key))
+			        return;
+
+		        if (e.Column.Key == nameof(Aqsat_Riz.PersianTarixQest))
+		        {
+			        var persianDate = e.Value?.ToString();
+			        if (!persianDate.IsPersianDate())
+			        {
+				        e.Cancel = true;
+				        e.Value = e.InitialValue;
+					}
+		        }
+				else if (e.Column.Key == nameof(Aqsat_Riz.mablaqQest))
+				{
+					var mablaq = Convert.ToDecimal(e.Value ?? 0);
+					if (mablaq <= 0)
+					{
+						MS_Message.Show(
+							"مبلغ قسط نباید صفر یا کمتر باشد",
+							"هشدار",
+							MessageBoxButtons.OK,
+							MSMessage.FarsiMessageBoxIcon.اخطار
+						);
+
+						e.Cancel = true;
+						e.Value = e.InitialValue;
+							 
+					}
+				}
+		        //if (key?.PersianTarixPardaxt?.IsPersianDate() == false || key?.mablaqQest == 0)
+		        //{
+			       // grid.CancelCurrentEdit();
+			       // grid.CurrentRow.CancelEdit();
+			       // e.Cancel = true;
+			       // _Bind.Remove(key);
+
+			       // _DoRefresh = false;
+			       // RefreshMablaqFinal();
+			       // _DoRefresh = true;
+		        //}
+
+	        }
+	        catch (Exception ex)
+	        {
+		        log.Error(ex);
+	        }
+		}
+		private void NsGridEdit_UpdatingRecord				(object sender, CancelEventArgs e)
+		{
+			try
+			{
+				var grid = sender as MS_GridX;
+				if (!(grid.CurrentRow?.DataRow is Aqsat_Riz key))
+					return;
+
+				if (key?.PersianTarixPardaxt?.IsPersianDate() == false || key?.mablaqQest == 0)
+				{
+					grid.CancelCurrentEdit();
+					grid.CurrentRow.CancelEdit();
+					e.Cancel = true;
+					_Bind.Remove(key);
+
+					_DoRefresh = false;
+					RefreshMablaqFinal();
+					RefreshTedadAqsat();
+					_DoRefresh = true;
+				}
+
+			}
+			catch (Exception ex)
+			{
+				log.Error(ex);
+			}
+		}
+		private void NsGridEdit_AddingRecord				(object sender, CancelEventArgs e)
+        {
+	        try
+	        {
+		        if (!(NsGridEdit.CurrentRow?.DataRow is Aqsat_Riz key))
+			        return;
+
+				if (key?.PersianTarixPardaxt?.IsPersianDate() == false || key?.mablaqQest == 0)
+				{
+					NsGridEdit.CancelCurrentEdit();
+					NsGridEdit.CurrentRow.CancelEdit();
+					e.Cancel = true;
+					_Bind.Remove(key);
+				}
+
+	        }
+	        catch (Exception ex)
+	        {
+		        log.Error(ex);
+	        }
+		}
+		private void NsGridEdit_RecordAdded					(object sender, EventArgs e)
+        {
+	        _DoRefresh = false;
+	        RefreshMablaqFinal	();
+			RefreshTedadAqsat	();
+	        _DoRefresh = true;
+		}
+		private void NsGridEdit_CellEdited					(object sender, ColumnActionEventArgs e)
+        {
+	        try
+	        {
+		        var grid = e.Column.GridEX;
+		        if (grid.CurrentRow == null || e.Column.DataMember != nameof(Aqsat_Riz.mablaqQest))
+			        return;
+
+		        var data = grid.CurrentRow.DataRow as Aqsat_Riz;
+
+		        if (data?.mablaqQest <= 0)
+		        {
+			        grid.Refresh();
+					grid.CurrentColumn = e.Column;
+			        MS_Message.Show("مبلغ قسط را وارد کنید. مقدار نباید صفر [ 0 ] باشد");
+		        }
+	        }
+	        catch (Exception ex)
+	        {
+		        log.Error(ex);
+	        }
+		}
+		private void NsGridEdit_GetNewRow					(object sender, GetNewRowEventArgs e)
+        {
+	        try
+	        {
+		        _Bind.RemoveTempRow();
+	        }
+	        catch (Exception exception)
+	        {
+
+
+	        }
+		}
+		private void NsGridEdit_RecordUpdated				(object sender, EventArgs e)
+		{
+			try
+			{
+				NsGridEdit.AllowEdit = InheritableBoolean.False;
+				NsGridEdit.RootTable.AllowEdit = InheritableBoolean.False;
+			}
+			catch (Exception ex)
+			{
+				log.Error(ex);
+
+			}
+		}
+		private void NsGridEdit_RowEditCanceled				(object sender, RowActionEventArgs e)
+		{
+			try
+			{
+				NsGridEdit.AllowEdit = InheritableBoolean.False;
+				NsGridEdit.RootTable.AllowEdit = InheritableBoolean.False;
+			}
+			catch (Exception ex)
+			{
+				log.Error(ex);
+
+			}
+		}
+		private void NsGridEdit_SelectionChanged			(object sender, EventArgs e)
+		{
+			try
+			{
+				NsGridEdit.AllowEdit = InheritableBoolean.False;
+				NsGridEdit.RootTable.AllowEdit = InheritableBoolean.False;
+			}
+			catch (Exception ex)
+			{
+				log.Error(ex);
+
+			}
+		}
+		#endregion
+
 		#region TetxBox Events
+
 		private void EditTextBoxOnKeyPress					(object sender, KeyPressEventArgs e)
 		{
 			char key = e.KeyChar;
-			var Grid = NsGridRizAdd;
+			var textBox = sender as TextBox;
+
+			if (textBox == null)
+				return;
 
 			if (!(char.IsDigit(key) || key == '\b' || key == '.' || key == '+' || key == '-'))
 				e.Handled = true;
-			if (key == '.' && Grid.EditTextBox.Text.Contains("."))
+			if (key == '.' && textBox.Text.Contains("."))
 				e.Handled = true;
 			if (key == '+')
 			{
-				Grid.EditTextBox.Text += @"000";
+				textBox.Text += @"000";
 				e.Handled = true;
 			}
 			else if (key == '-')
 			{
-				Grid.EditTextBox.Text += @"00";
+				textBox.Text += @"00";
 				e.Handled = true;
 			}
 		}
@@ -778,14 +1119,13 @@ namespace Nz.Aqsat.Winforms.App
 				return;
 			_DoRefresh = false;
 
-			var Grid  = NsGridRizAdd;
+			var textBox = sender as TextBox;
 
-
-			if (Grid.EditTextBox == null)
+			if (textBox == null)
 				return;
 
-			var TextBox = Grid.EditTextBox;
-			_SimpleText = TextBox.Text.Replace(",", string.Empty);
+
+			_SimpleText = textBox.Text.Replace(",", string.Empty);
 
 			var start = _SimpleText.Contains(_Dot)
 								? _SimpleText.IndexOf(_Dot) - 3
@@ -794,43 +1134,35 @@ namespace Nz.Aqsat.Winforms.App
 			for (int i = start; i > 0; i -= 3)
 				_SimpleText = _SimpleText.Insert(i, ",");
 
-			TextBox.Text = _SimpleText;
-			Set_Cursor_Location();
+			textBox.Text = _SimpleText;
+			Set_Cursor_Location(textBox);
 
 			_DoRefresh = true;
 		}
-		private void Set_Cursor_Location					()
+		private void Set_Cursor_Location					(TextBox textBox)
 		{
-			var Grid = NsGridRizAdd;
-
-			int tm = Grid.EditTextBox.Text.Length - _Len;
+			int tm = textBox.Text.Length - _Len;
 
 			int x = _Pos + tm;
 			x = x < 0 ? 0 : x;
 			if (tm > 0)// طول زیاد شده باشد
 			{
-				Grid.EditTextBox.Select(_Pos + tm, 0);
+				textBox.Select(_Pos + tm, 0);
 			}
 			else if (tm < 0) //  اگر طول کم شده باشد
 			{
 				var i = Math.Max(0, _Pos + tm);
-				Grid.EditTextBox.Select(i, 0);
+				textBox.Select(i, 0);
 			}
 			else // طول 
 			{
-				Grid.EditTextBox.Select(_Pos, 0);
+				textBox.Select(_Pos, 0);
 			}
-			//_Len = ms_grid.EditTextBox.Text.Length;
-			//if (tm < 0 && TextLength == 1)
-			//    base.Select(TextLength, 0);
-			//else if(TextLength>0 && tm==0)
-			//    base.Select(TextLength, 0);
-			//else
-			//    base.Select(x, 0);
-			//_Len = TextLength;
+			
 		}
+
         #endregion
 
-        
+      
     }
 }
