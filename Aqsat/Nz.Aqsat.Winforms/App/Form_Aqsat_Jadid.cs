@@ -5,23 +5,15 @@ using MS_Control.MainForms;
 using MS_Control.Tarikh;
 using Nz.Aqsat.Model.Models;
 using NZ.Aqsat.Business;
-using NZ.General.WinForms.Component;
 using ShareLib;
 using ShareLib.Models;
 using ShareLib.Utils;
-using Stimulsoft.Base.Excel;
-using Stimulsoft.Database;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace Nz.Aqsat.Winforms.App
 {

@@ -135,7 +135,7 @@ namespace NZ.Aqsat.DataLayer.Repo
                             
                             db.Entry(Aqsat).State = System.Data.Entity.EntityState.Modified;
 
-                            foreach (Aqsat_Riz item in Aqsat.AqsatRizs.Where(x => x.ID > 0 && x.CanModifyOrDelete).ToList()) 
+                            foreach (Aqsat_Riz item in Aqsat.AqsatRizs.Where(x => x.ID > 0).ToList()) 
                             {
                                 if (item.State == Enums.NzItemState.Deleted)
                                     db.Entry(item).State = System.Data.Entity.EntityState.Deleted;

@@ -220,6 +220,12 @@
     <Compile Include="App\Form_Aqsat_Jadid.Designer.cs">
       <DependentUpon>Form_Aqsat_Jadid.cs</DependentUpon>
     </Compile>
+    <Compile Include="App\Form_TasviehAqsat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\Form_TasviehAqsat.Designer.cs">
+      <DependentUpon>Form_TasviehAqsat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Component\NsKindAqsatCombo.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -244,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="App\Form_Aqsat_Jadid.resx">
       <DependentUpon>Form_Aqsat_Jadid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\Form_TasviehAqsat.resx">
+      <DependentUpon>Form_TasviehAqsat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\TabSettingContainer.resx">
       <DependentUpon>TabSettingContainer.cs</DependentUpon>

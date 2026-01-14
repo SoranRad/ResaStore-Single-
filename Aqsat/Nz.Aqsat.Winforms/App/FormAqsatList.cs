@@ -15,6 +15,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NZ.Aqsat.Business;
+using Nz.Aqsat.Model.Models;
 using static ShareLib.Enums;
 
 namespace Nz.Aqsat.Winforms.App
@@ -22,7 +24,7 @@ namespace Nz.Aqsat.Winforms.App
     public partial class FormAqsatList : Form
     {
 	    private ReportManager _Manager;
-
+	    private bool _DoRefresh = true;
 
 		public FormAqsatList()
         {
@@ -52,8 +54,10 @@ namespace Nz.Aqsat.Winforms.App
 
 					}, null);
 
-				NzGridHeads.DataSource = list?.ToList();
-			
+				_DoRefresh = false;
+				NzGridHeads.DataSource = list?.OrderByDescending(x=>x.Serial)?.ToList();
+				_DoRefresh = true;
+
 			if (NzItems.Checked)
 				RefreshItem();
 
@@ -61,21 +65,19 @@ namespace Nz.Aqsat.Winforms.App
 		}
 		private void RefreshItem()
 		{
-			//if (NzGridHeads.CurrentRow == null || NzGridHeads.CurrentRow.RowType != RowType.Record)
-			//	return;
+			if(!_DoRefresh)
+				return;
 
-			//var ID = NzGridHeads.CurrentRow.Cells["ID"].Value;
-			//var list =
-			//	_Manager.GetReport<FactorItem>(new
-			//	{
-			//		ID
-			//	}, null);
+			if (NzGridHeads.CurrentRow == null || NzGridHeads.CurrentRow.RowType != RowType.Record)
+				return;
 
-			//NzGridItems.DataSource = list?.ToList();
+			var dataRow = NzGridHeads.CurrentRow.DataRow as AqsatList;
 
-			
+			var mgr = new AqsatManager();
+			var aqsat = mgr.GetItem(dataRow.ID);
 
-			
+		 
+			NzGridItems.DataSource = aqsat.AqsatRizs?.OrderBy(x=>x.Radif)?.ToList();
 		}
 		private void EditItem()
 		{
@@ -214,5 +216,16 @@ namespace Nz.Aqsat.Winforms.App
 			EditItem();
 		}
 
-	}
+
+
+        private void NzGridItems_ColumnButtonClick(object sender, ColumnActionEventArgs e)
+        {
+	        var dataRow = NzGridItems.CurrentRow.DataRow as Aqsat_Riz;
+
+	        new Form_TasviehAqsat(dataRow.FK_Main,dataRow.ID).ShowDialog(this);
+
+	        RefreshGrid();
+
+        }
+    }
 }
