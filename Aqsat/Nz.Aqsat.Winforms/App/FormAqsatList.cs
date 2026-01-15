@@ -2,22 +2,14 @@
 using MS_Control;
 using MS_Control.Tarikh;
 using Nz.Aqsat.Business;
-using Nz.Aqsat.Model.Report;
-using ShareLib;
-using ShareLib.Utils;
-using ShareLib.ViewModel;
+using Nz.Aqsat.Model.Report; 
+using ShareLib.Utils; 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic; 
+using System.Linq; 
 using System.Windows.Forms;
 using NZ.Aqsat.Business;
-using Nz.Aqsat.Model.Models;
-using static ShareLib.Enums;
+using Nz.Aqsat.Model.Models; 
 
 namespace Nz.Aqsat.Winforms.App
 {
@@ -37,12 +29,12 @@ namespace Nz.Aqsat.Winforms.App
 		}
 		#region Methods
 		
-		private void SetCurrentMonth()
+		private void SetCurrentMonth				()
 		{
 			var mah = new MS_Structure_Shamsi(DateTime.Now)._Mah;
 			ms_mah.SelectedIndex = 13 - mah;
 		}
-		private void RefreshGrid()
+		private void RefreshGrid					()
 		{
 			var Month = 13 - ms_mah.SelectedIndex;
 			
@@ -63,7 +55,7 @@ namespace Nz.Aqsat.Winforms.App
 
 			NzGridHeads.MoveFirst();
 		}
-		private void RefreshItem()
+		private void RefreshItem					()
 		{
 			if(!_DoRefresh)
 				return;
@@ -79,7 +71,7 @@ namespace Nz.Aqsat.Winforms.App
 		 
 			NzGridItems.DataSource = aqsat.AqsatRizs?.OrderBy(x=>x.Radif)?.ToList();
 		}
-		private void EditItem()
+		private void EditItem						()
 		{
 			if (NzGridHeads.CurrentRow.RowType != RowType.Record)
 				return;
@@ -97,31 +89,6 @@ namespace Nz.Aqsat.Winforms.App
 			NzGridHeads.VerticalScrollPosition = Spos;
 
 		}
-		private void PrintAqsat()
-		{
-			//List<long> ListIDs;
-
-			//if (NzGridHeads.GetCheckedRows().Any())
-			//{
-			//	ListIDs = NzGridHeads
-			//		.GetCheckedRows()
-			//		.Select(x =>
-			//			Convert.ToInt64(x.Cells["ID"].Value)
-			//		)
-			//		.ToList();
-			//}
-			//else
-			//{
-			//	if (NzGridHeads.CurrentRow.RowType != RowType.Record)
-			//		return;
-			//	var ID = Convert.ToInt64(NzGridHeads.CurrentRow.Cells["ID"].Value);
-
-			//	ListIDs = new List<long>() { ID };
-			//}
-
-			//new Print.Print(null, ListIDs, PrintKind).Show(this);
-		}
-
 
 		#endregion
 		private void NzFactorKinds_SelectedTabChanged(object sender, Janus.Windows.UI.Tab.TabEventArgs e)
@@ -131,8 +98,26 @@ namespace Nz.Aqsat.Winforms.App
 
 		private void NsPrint_Click					(object sender, EventArgs e)
         {
+	        List<long> ListIDs;
 
-        }
+	        if (NzGridHeads.GetCheckedRows().Any())
+	        {
+		        ListIDs = NzGridHeads
+			        .GetCheckedRows()
+			        .Select(x => (x.DataRow as AqsatList).ID)
+			        .ToList();
+	        }
+	        else
+	        {
+		        if (NzGridHeads.CurrentRow.RowType != RowType.Record)
+			        return;
+		        var dataRow = NzGridHeads.CurrentRow.DataRow as AqsatList;
+
+		        ListIDs = new List<long>() { dataRow.ID };
+	        }
+
+	        new Print.Print(ListIDs).Show(this);
+		}
         private void NzItems_Click					(object sender, EventArgs e)
         {
 	        Splitter1.Visible = NzItems.Checked;
@@ -216,9 +201,7 @@ namespace Nz.Aqsat.Winforms.App
 			EditItem();
 		}
 
-
-
-        private void NzGridItems_ColumnButtonClick(object sender, ColumnActionEventArgs e)
+        private void NzGridItems_ColumnButtonClick	(object sender, ColumnActionEventArgs e)
         {
 	        var dataRow = NzGridItems.CurrentRow.DataRow as Aqsat_Riz;
 

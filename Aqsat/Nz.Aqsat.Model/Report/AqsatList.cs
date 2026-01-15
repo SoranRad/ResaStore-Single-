@@ -17,11 +17,16 @@ namespace Nz.Aqsat.Model.Report
 		public string		codeMeli				{ get; set; }
 		public string		KindTitle				{ get; set; }
 		public string		StartPersianDate		{ get; set; }
-		public decimal		MablaqFinalAqsat		{ get; set; }
 		public string		ZamenTitle				{ get; set; }
 		public string		ZamenMobile				{ get; set; }
 		public string		Sharh					{ get; set; }
+
 		public byte			TedadAqsat				{ get; set; }
-		public int			TedadPardaxti			{ get; set; }
-	}
+		public byte			TedadPardaxti			{ get; set; }
+		public int			TedadMande				=> TedadAqsat - TedadPardaxti;
+
+		public decimal		MablaqFinalAqsat		{ get; set; }
+		public decimal		MablaqPardaxti			{ get; set; }
+		public decimal		MablaqMande				=> MablaqFinalAqsat - MablaqPardaxti ;
+    }
 }

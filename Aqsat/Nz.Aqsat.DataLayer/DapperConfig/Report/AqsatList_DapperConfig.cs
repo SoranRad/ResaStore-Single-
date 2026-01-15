@@ -30,7 +30,8 @@ LTRIM(RTRIM(ta_zamen.title)) AS ZamenTitle,
 LTRIM(RTRIM(ta_zamen.mobile)) AS ZamenMobile,
 LTRIM(RTRIM(tam.Sharh)) AS Sharh,
 tam.TedadAqsat,
-Riz.Pardaxti AS TedadPardaxti
+Riz.Pardaxti AS TedadPardaxti,
+Riz.MablaqPardaxti AS MablaqPardaxti
 
 FROM                Aqsat.tbl_Aqsat_Main    AS tam 
 INNER JOIN          Base.tbl_Ashxas         AS ta_shaxs     ON  ta_shaxs.ID     = tam.FK_Shaxs
@@ -42,7 +43,8 @@ INNER JOIN (
 
 			SELECT
 			tar.FK_Main,
-			SUM( CASE WHEN tar.isPardaxt = 1 THEN 1 ELSE 0 END) AS Pardaxti
+			SUM( CASE WHEN tar.isPardaxt = 1 THEN 1 ELSE 0 END) AS Pardaxti,			
+			SUM( CASE WHEN tar.isPardaxt = 1 THEN mablaqQest ELSE 0 END) AS MablaqPardaxti
 			FROM Aqsat.tbl_Aqsat_Riz AS tar 
 			GROUP BY tar.FK_Main
 

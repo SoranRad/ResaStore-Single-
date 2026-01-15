@@ -11,6 +11,7 @@ namespace Nz.Aqsat.Model.Models
 		{
 			AqsatSmsLogs = new HashSet<Aqsat_SmsLog>();
 		}
+
 		public long			ID					{ get; set; }
 		public long			FK_Main				{ get; set; }
 		public byte			Radif				{ get; set; }
