@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Nz.Aqsat.Business;
 using Nz.Aqsat.Model.Report;
+using Nz.Aqsat.Winforms.Alarm;
 using Nz.Aqsat.WinForms.Settings;
 using Nz.Asat.Winforms.Settings;
 using static ShareLib.Enums;
@@ -35,9 +36,10 @@ namespace Nz.Bar.Winforms.Provider
         private AqsatMenuItems                    Menues;
         private TabSettingContainer             _settingContainer;
         private ISettingItems                   _settings;
-        #endregion
-        #region Constructor
-        public ToolStripItem    MainMenuSysytem     => null;
+        private AqsatAlarm _aqsatAlarm;
+		#endregion
+		#region Constructor
+		public ToolStripItem    MainMenuSysytem     => null;
         public string           GetName             => "اقسـاط";
 
         public AqsatProvider()
@@ -52,18 +54,9 @@ namespace Nz.Bar.Winforms.Provider
         {
 	        try
 	        {
-		        var Mgr     = new ReportManager();
-		        var list    = Mgr.GetReport<BillRowItem>(new {People,Year, DateFrom, DateTo, Group}, string.Empty);
+		        
 
-		        list.MSZ_ForEach(x =>
-		        {
-                    if(((Enums.MS_System) x.Subsystem)==MS_System.Bar)
-			            x.KindTitle = "خرید محصول";
-                    else if (((Enums.MS_System) x.Subsystem)==MS_System.ErsalKarkhane)
-	                    x.KindTitle = "ارسال محموله";
-		        });
-
-		        return list;
+		        return null;
 	        }
 	        catch (Exception ex)
 	        {
@@ -74,12 +67,9 @@ namespace Nz.Bar.Winforms.Provider
         public IEnumerable<CircularRowItem>     GetBillItems            (long People, short? Year, DateTime? DateFrom, DateTime? DateTo, byte Group)
         {
 	        try
-	        {
-		        var Mgr  = new ReportManager();
-		        var list = Mgr.GetReport<CircularRowItem>(new {People, Year, DateFrom, DateTo, TopCount= Group }, string.Empty);
-
-		        return list;
-	        }
+			{
+				return null;
+			}
 	        catch (Exception ex)
 	        {
 		        log.Error(ex);
@@ -90,12 +80,8 @@ namespace Nz.Bar.Winforms.Provider
         {
 	        try
 	        {
-		        var Mgr     = new ReportManager();
-		        var list = Mgr.GetReport<BillRow>(new {People, Year, DateFrom, DateTo}, string.Empty);
-
-		         
-
-		        return list;
+		        
+		        return null;
 	        }
 	        catch (Exception ex)
 	        {
@@ -108,13 +94,8 @@ namespace Nz.Bar.Winforms.Provider
         {
 	        try
 	        {
-		        var Mgr     = new ReportManager();
-		        var item    = Mgr.GetItem<RemaindBalance>(new
-		        {
-			        People = ID , 
-			        Year = SystemConstant.ActiveYear.Salmali
-		        },null);
-		        return item?.Balance ?? 0;
+		         
+		        return   0;
 
 	        }
 	        catch (Exception ex)
@@ -128,16 +109,8 @@ namespace Nz.Bar.Winforms.Provider
         {
 	        try
 	        {
-		        var Mgr     = new ReportManager();
-		        var list    = Mgr.GetReport<RemaindPeople>
-		        (new
-			        {
-				        Year = SystemConstant.ActiveYear.Salmali,
-				        AzTarikh,
-				        TaTarikh
-			        }, string.Empty
-		        );
-		        return list;
+		         
+		        return null;
 	        }
 	        catch (Exception ex)
 	        {
@@ -147,7 +120,7 @@ namespace Nz.Bar.Winforms.Provider
         }
         public decimal                          GetRemainAll            (long IDCustomer)
         {
-            throw new NotImplementedException();
+	        return 0;
         }
 
         public ToolStripItemCollection          GetMenu                 (Enums.MenuKind MenuType)
@@ -172,20 +145,12 @@ namespace Nz.Bar.Winforms.Provider
        
         public Enums.MS_System                  GetSystemKind           ()
         {
-            return Enums.MS_System.Bar;
+            return Enums.MS_System.Aqsat;
         }
         public IForm_Editor                     GetFormForEdit          (Enums.FormOperation FormKind, params object[] otherParam)
         {
-            switch (FormKind)
-            {
-                case Enums.FormOperation.Bar:
-                    return null;
-                case Enums.FormOperation.Karkhane:
-	                return null;
-                default:
-                    return null;
-            }
-        }
+			return null;
+		}
         public Form                             GetSimpleForm           (Enums.FormOperation FormKind)
         {
             throw new NotImplementedException();
@@ -210,16 +175,17 @@ namespace Nz.Bar.Winforms.Provider
         }
         public void                             RefreshAlaram           ()
         {
-            //throw new NotImplementedException();
-        }
+			_aqsatAlarm = new AqsatAlarm();
+			_aqsatAlarm.RefreshList();
+		}
         public bool                             AnyAlaram               ()
         {
-            return false;
+            return _aqsatAlarm.AnyAlarm();
         }
 
         public UITabPage[] GetAlarmsTabPage()               
         {
-            return null;
+            return _aqsatAlarm.GetTabPage().ToArray();
         }
 
         public async Task<MS_Chart[]> GetChartSummarry()

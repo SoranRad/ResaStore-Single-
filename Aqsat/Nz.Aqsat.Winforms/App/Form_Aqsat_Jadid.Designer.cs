@@ -385,7 +385,7 @@
 			this.NsStartDate.Size = new System.Drawing.Size(109, 29);
 			this.NsStartDate.TabIndex = 779;
 			this.NsStartDate.Text = "//";
-			this.NsStartDate.TextChanged += new System.EventHandler(this.NsRoundMablaq_TextChanged);
+			this.NsStartDate.TextChanged += new System.EventHandler(this.NsStartDate_TextChanged);
 			// 
 			// label18
 			// 
@@ -779,9 +779,9 @@
 			this.label3.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
 			this.label3.Location = new System.Drawing.Point(589, 88);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(76, 23);
+			this.label3.Size = new System.Drawing.Size(99, 23);
 			this.label3.TabIndex = 777;
-			this.label3.Text = "مبلغ اقساط :";
+			this.label3.Text = "مبلغ کلی اقساط :";
 			// 
 			// NzCustomerRemain
 			// 

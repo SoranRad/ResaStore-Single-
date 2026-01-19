@@ -178,7 +178,7 @@
 			NzGridHeads_Layout_0.LayoutString = resources.GetString("NzGridHeads_Layout_0.LayoutString");
 			this.NzGridHeads.Layouts.AddRange(new Janus.Windows.GridEX.GridEXLayout[] {
             NzGridHeads_Layout_0});
-			this.NzGridHeads.Location = new System.Drawing.Point(0, 57);
+			this.NzGridHeads.Location = new System.Drawing.Point(0, 47);
 			this.NzGridHeads.Name = "NzGridHeads";
 			this.NzGridHeads.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom;
 			this.NzGridHeads.Office2007CustomColor = System.Drawing.SystemColors.HotTrack;
@@ -189,7 +189,7 @@
 			this.NzGridHeads.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
 			this.NzGridHeads.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
 			this.NzGridHeads.SelectOnExpand = false;
-			this.NzGridHeads.Size = new System.Drawing.Size(1361, 289);
+			this.NzGridHeads.Size = new System.Drawing.Size(1361, 276);
 			this.NzGridHeads.TabIndex = 719;
 			this.NzGridHeads.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
 			this.NzGridHeads.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -206,7 +206,7 @@
 			this.mS_GridX_Setting2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.mS_GridX_Setting2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator3});
-			this.mS_GridX_Setting2.Location = new System.Drawing.Point(0, 346);
+			this.mS_GridX_Setting2.Location = new System.Drawing.Point(0, 323);
 			this.mS_GridX_Setting2.MS_BorderColor = System.Drawing.Color.DodgerBlue;
 			this.mS_GridX_Setting2.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_GridX_Setting2.MS_Color_End = System.Drawing.Color.PowderBlue;
@@ -251,7 +251,7 @@
 			this.Splitter1.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(236)))), ((int)(((byte)(255)))));
 			this.Splitter1.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-			this.Splitter1.Location = new System.Drawing.Point(0, 371);
+			this.Splitter1.Location = new System.Drawing.Point(0, 348);
 			this.Splitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Splitter1.Name = "Splitter1";
 			this.Splitter1.Size = new System.Drawing.Size(1361, 8);
@@ -271,7 +271,7 @@
 			this.mS_Panel1.MS_Color_End = System.Drawing.Color.SkyBlue;
 			this.mS_Panel1.MS_Color_Start = System.Drawing.Color.AliceBlue;
 			this.mS_Panel1.Name = "mS_Panel1";
-			this.mS_Panel1.Size = new System.Drawing.Size(1361, 57);
+			this.mS_Panel1.Size = new System.Drawing.Size(1361, 47);
 			this.mS_Panel1.TabIndex = 720;
 			// 
 			// mS_Tool_Strip1
@@ -355,7 +355,7 @@
 			this.ms_mah.BackColor = System.Drawing.Color.Transparent;
 			this.ms_mah.FirstTabOffset = 10;
 			this.ms_mah.Font = new System.Drawing.Font("IRANSans(Small)", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.ms_mah.Location = new System.Drawing.Point(234, 28);
+			this.ms_mah.Location = new System.Drawing.Point(234, 18);
 			this.ms_mah.Name = "ms_mah";
 			this.ms_mah.Office2007ColorScheme = Janus.Windows.UI.Office2007ColorScheme.Custom;
 			this.ms_mah.Office2007CustomColor = System.Drawing.Color.AntiqueWhite;
@@ -494,13 +494,13 @@
 			// 
 			this.mS_Panel2.Controls.Add(this.NzGridItems);
 			this.mS_Panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.mS_Panel2.Location = new System.Drawing.Point(0, 379);
+			this.mS_Panel2.Location = new System.Drawing.Point(0, 356);
 			this.mS_Panel2.MS_BorderColor = System.Drawing.Color.Aqua;
 			this.mS_Panel2.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_Panel2.MS_Color_End = System.Drawing.Color.SkyBlue;
 			this.mS_Panel2.MS_Color_Start = System.Drawing.Color.AliceBlue;
 			this.mS_Panel2.Name = "mS_Panel2";
-			this.mS_Panel2.Size = new System.Drawing.Size(1361, 197);
+			this.mS_Panel2.Size = new System.Drawing.Size(1361, 220);
 			this.mS_Panel2.TabIndex = 749;
 			this.mS_Panel2.Visible = false;
 			// 
@@ -557,7 +557,7 @@
 			this.NzGridItems.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
 			this.NzGridItems.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.AntiqueWhite;
 			this.NzGridItems.SelectOnExpand = false;
-			this.NzGridItems.Size = new System.Drawing.Size(1361, 197);
+			this.NzGridItems.Size = new System.Drawing.Size(1361, 220);
 			this.NzGridItems.TabIndex = 750;
 			this.NzGridItems.TabKeyBehavior = Janus.Windows.GridEX.TabKeyBehavior.ControlNavigation;
 			this.NzGridItems.TabStop = false;

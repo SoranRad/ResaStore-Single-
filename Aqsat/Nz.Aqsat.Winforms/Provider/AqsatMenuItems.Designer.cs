@@ -38,9 +38,12 @@ namespace Nz.Bar.Winforms.Provider
 			this.NsCreateAqsat = new System.Windows.Forms.ToolStripMenuItem();
 			this.لیستاقساطToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.NzReport = new System.Windows.Forms.ToolStripMenuItem();
-			this.داشبوردماهانهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.گزارشکلیهاقساطموعدگذشتهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+			this.گزارشسررسیداقساطToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.گزارشسررسیداقساطهفتهجاریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.گزارشسررسیداقساطماهجاریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.mS_Menu1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -117,9 +120,12 @@ namespace Nz.Bar.Winforms.Provider
 			// NzReport
 			// 
 			this.NzReport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.داشبوردماهانهToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem});
+            this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem,
+            this.گزارشکلیهاقساطموعدگذشتهToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.گزارشسررسیداقساطToolStripMenuItem,
+            this.گزارشسررسیداقساطهفتهجاریToolStripMenuItem,
+            this.گزارشسررسیداقساطماهجاریToolStripMenuItem});
 			this.NzReport.Font = new System.Drawing.Font("IRANSans(Small) Medium", 15F);
 			this.NzReport.Image = ((System.Drawing.Image)(resources.GetObject("NzReport.Image")));
 			this.NzReport.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -127,22 +133,40 @@ namespace Nz.Bar.Winforms.Provider
 			this.NzReport.Size = new System.Drawing.Size(96, 28);
 			this.NzReport.Text = "گـزارشـات";
 			// 
-			// داشبوردماهانهToolStripMenuItem
-			// 
-			this.داشبوردماهانهToolStripMenuItem.Name = "داشبوردماهانهToolStripMenuItem";
-			this.داشبوردماهانهToolStripMenuItem.Size = new System.Drawing.Size(266, 30);
-			this.داشبوردماهانهToolStripMenuItem.Text = "داشبورد ماهانه";
-			// 
-			// toolStripSeparator1
-			// 
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(263, 6);
-			// 
 			// گزارشاقساطبهتفکیکوضعیتToolStripMenuItem
 			// 
 			this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem.Name = "گزارشاقساطبهتفکیکوضعیتToolStripMenuItem";
-			this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem.Size = new System.Drawing.Size(266, 30);
-			this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem.Text = "گزارش اقساط به تفکیک وضعیت";
+			this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem.Size = new System.Drawing.Size(281, 30);
+			this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem.Text = "گزارش اقساط موعد گذشته اشخاص";
+			// 
+			// گزارشکلیهاقساطموعدگذشتهToolStripMenuItem
+			// 
+			this.گزارشکلیهاقساطموعدگذشتهToolStripMenuItem.Name = "گزارشکلیهاقساطموعدگذشتهToolStripMenuItem";
+			this.گزارشکلیهاقساطموعدگذشتهToolStripMenuItem.Size = new System.Drawing.Size(281, 30);
+			this.گزارشکلیهاقساطموعدگذشتهToolStripMenuItem.Text = "گزارش کلیه اقساط موعد گذشته";
+			// 
+			// toolStripSeparator3
+			// 
+			this.toolStripSeparator3.Name = "toolStripSeparator3";
+			this.toolStripSeparator3.Size = new System.Drawing.Size(278, 6);
+			// 
+			// گزارشسررسیداقساطToolStripMenuItem
+			// 
+			this.گزارشسررسیداقساطToolStripMenuItem.Name = "گزارشسررسیداقساطToolStripMenuItem";
+			this.گزارشسررسیداقساطToolStripMenuItem.Size = new System.Drawing.Size(281, 30);
+			this.گزارشسررسیداقساطToolStripMenuItem.Text = "گزارش سر رسید اقساط امروز";
+			// 
+			// گزارشسررسیداقساطهفتهجاریToolStripMenuItem
+			// 
+			this.گزارشسررسیداقساطهفتهجاریToolStripMenuItem.Name = "گزارشسررسیداقساطهفتهجاریToolStripMenuItem";
+			this.گزارشسررسیداقساطهفتهجاریToolStripMenuItem.Size = new System.Drawing.Size(281, 30);
+			this.گزارشسررسیداقساطهفتهجاریToolStripMenuItem.Text = "گزارش سر رسید اقساط هفته جاری";
+			// 
+			// گزارشسررسیداقساطماهجاریToolStripMenuItem
+			// 
+			this.گزارشسررسیداقساطماهجاریToolStripMenuItem.Name = "گزارشسررسیداقساطماهجاریToolStripMenuItem";
+			this.گزارشسررسیداقساطماهجاریToolStripMenuItem.Size = new System.Drawing.Size(281, 30);
+			this.گزارشسررسیداقساطماهجاریToolStripMenuItem.Text = "گزارش سر رسید اقساط ماه جاری";
 			// 
 			// AqsatMenuItems
 			// 
@@ -165,10 +189,13 @@ namespace Nz.Bar.Winforms.Provider
         public System.Windows.Forms.ToolStripMenuItem NzReport;
 		private System.Windows.Forms.ToolStripMenuItem NsCreateAqsat;
 		private System.Windows.Forms.ToolStripMenuItem لیستاقساطToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem داشبوردماهانهToolStripMenuItem;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripMenuItem گزارشاقساطبهتفکیکوضعیتToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem تعریفانواعقسطToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem گزارشکلیهاقساطموعدگذشتهToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem گزارشسررسیداقساطToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem گزارشسررسیداقساطهفتهجاریToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem گزارشسررسیداقساطماهجاریToolStripMenuItem;
     }
 }

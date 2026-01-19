@@ -194,6 +194,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alarm\AqsatAlarm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Alarm\AqsatAlarm.Designer.cs">
+      <DependentUpon>AqsatAlarm.cs</DependentUpon>
+    </Compile>
     <Compile Include="App\AqsatKindBinding.cs" />
     <Compile Include="App\AqsatMainBinding.cs" />
     <Compile Include="App\FormAqsatKind.cs">
@@ -239,6 +245,9 @@
     <Compile Include="Settings\TabSettingContainer.Designer.cs">
       <DependentUpon>TabSettingContainer.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Alarm\AqsatAlarm.resx">
+      <DependentUpon>AqsatAlarm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="App\FormAqsatKind.resx">
       <DependentUpon>FormAqsatKind.cs</DependentUpon>
     </EmbeddedResource>

@@ -9,6 +9,7 @@ using ShareLib;
 using ShareLib.Models;
 using ShareLib.Utils;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
@@ -335,22 +336,23 @@ namespace Nz.Aqsat.Winforms.App
 					var result = new FormAqsatSaveResult().ShowDialog(this);
 					if (result == DialogResult.Retry)
 					{
-
+						NsPrint.PerformClick();
+						NzNew.PerformClick();
 					} else if (result == DialogResult.Yes)
 					{
-
+						NzNew.PerformClick();
 					}
 					else if(result == DialogResult.No)
 					{
-						
+						NsPrint.PerformClick();
 					}
 					else if (result == DialogResult.Cancel)
 					{
-
+						this.Close();
 					}
 					else
 					{
-
+						this.Close();
 					}
 				}
 			}
@@ -402,7 +404,19 @@ namespace Nz.Aqsat.Winforms.App
 
 		        for (int i = 0; i < NsTedadAqsat.MS_Decimal; i++)
 		        {
-			        var tarix			= startDate.AddDays((i + 1) * (double)NsDoreQest.MS_Decimal);
+			        DateTime tarix;
+			        if (NsDoreQest.MS_Decimal == 30)
+			        {
+				        var start	= new MS_Structure_Shamsi( startDate.AddMonths(i + 1));
+				        tarix		= new MS_Structure_Shamsi(start._Sal, start._Mah , NsStartDate.MS_Tarikh.Value._Roz).ToDatetime().Date;
+
+			        }
+			        else
+			        {
+				        tarix = startDate.AddDays((i + 1) * (double)NsDoreQest.MS_Decimal);
+					}
+
+						
 			        var persianTarix	= tarix.ToPersianDate();
 			        _Aqsat.AqsatRizs.Add(new Aqsat_Riz()
 			        {
@@ -453,8 +467,19 @@ namespace Nz.Aqsat.Winforms.App
 
 		        if (!IsConfirmed)
 		        {
-			        var tarix = startDate.AddDays((i + 1) * (double)NsDoreQest.MS_Decimal);
-			        var persianTarix = tarix.ToPersianDate();
+					DateTime tarix;
+					if (NsDoreQest.MS_Decimal == 30)
+					{
+						var start = new MS_Structure_Shamsi(startDate.AddMonths(i + 1));
+						tarix = new MS_Structure_Shamsi(start._Sal, start._Mah, NsStartDate.MS_Tarikh.Value._Roz).ToDatetime().Date;
+
+					}
+					else
+					{
+						tarix = startDate.AddDays((i + 1) * (double)NsDoreQest.MS_Decimal);
+					}
+
+					var persianTarix = tarix.ToPersianDate();
 			        riz.tarixQest = tarix;
 			        riz.PersianTarixQest = persianTarix;
 			        riz.State = Enums.NzItemState.Modified;
@@ -585,8 +610,16 @@ namespace Nz.Aqsat.Winforms.App
 
 			RefreshItems();
 		}
+        private void NsStartDate_TextChanged(object sender, EventArgs e)
+        {
+	        if (!_DoRefresh)
+		        return;
 
-        private void NzSave_Click							(object sender, EventArgs e)
+			if(NsStartDate.MS_Tarikh.HasValue)
+				RefreshItems();
+		}
+
+		private void NzSave_Click							(object sender, EventArgs e)
         {
 	        Save();
         }
@@ -596,7 +629,13 @@ namespace Nz.Aqsat.Winforms.App
         }
         private void NsPrint_Click							(object sender, EventArgs e)
         {
+	        if (_Aqsat.ID <= 0)
+	        {
+		        MS_Message.Show("");
+		        return;
+	        }
 
+	        new Print.Print(new List<long>() { _Aqsat.ID }).Show(this);
         }
 
 		private void NzDatePopup_NzCancelClicked			(object sender, EventArgs e)
@@ -1153,8 +1192,9 @@ namespace Nz.Aqsat.Winforms.App
 			
 		}
 
+
         #endregion
 
-      
+       
     }
 }

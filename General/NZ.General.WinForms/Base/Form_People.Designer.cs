@@ -30,13 +30,13 @@ namespace NZ.General.WinForms.Base
         /// </summary>
         private void InitializeComponent()
         {
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem5 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem6 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem3 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem4 = new Janus.Windows.EditControls.UIComboBoxItem();
 			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem1 = new Janus.Windows.EditControls.UIComboBoxItem();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_People));
 			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem2 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem3 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem4 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem5 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem6 = new Janus.Windows.EditControls.UIComboBoxItem();
 			this.Panel_Foother = new MS_Control.Controls.MS_Panel();
 			this.ms_Save = new MS_Control.Controls.MS_Button_GridX();
 			this.ms_Exit = new MS_Control.Controls.MS_Button_GridX();
@@ -57,8 +57,6 @@ namespace NZ.General.WinForms.Base
 			this.NzXaridar = new MS_Control.Controls.MS_CheckBox();
 			this.label12 = new System.Windows.Forms.Label();
 			this.NzMobile = new MS_Control.Controls.MS_NumericTextBox();
-			this.label11 = new System.Windows.Forms.Label();
-			this.NzTel = new MS_Control.Controls.MS_NumericTextBox();
 			this.label13 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
@@ -86,8 +84,6 @@ namespace NZ.General.WinForms.Base
 			this.NzWorkAddress = new MS_Control.Controls.MS_TextBox();
 			this.NzEconomyNo = new MS_Control.Controls.MS_NumericTextBox();
 			this.NzPostalCode = new MS_Control.Controls.MS_NumericTextBox();
-			this.label35 = new System.Windows.Forms.Label();
-			this.NzNationalCode = new MS_Control.Controls.MS_NumericTextBox();
 			this.NzFather = new MS_Control.Controls.MS_TextBox();
 			this.NzNo_Shenasname = new MS_Control.Controls.MS_TextBox();
 			this.label15 = new System.Windows.Forms.Label();
@@ -130,6 +126,10 @@ namespace NZ.General.WinForms.Base
 			this.label41 = new System.Windows.Forms.Label();
 			this.uiTabPage13 = new Janus.Windows.UI.Tab.UITabPage();
 			this.mS_Notify1 = new MS_Control.Controls.MS_Notify();
+			this.label11 = new System.Windows.Forms.Label();
+			this.NzTel = new MS_Control.Controls.MS_NumericTextBox();
+			this.label35 = new System.Windows.Forms.Label();
+			this.NzNationalCode = new MS_Control.Controls.MS_NumericTextBox();
 			this.Panel_Foother.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
@@ -376,6 +376,8 @@ namespace NZ.General.WinForms.Base
 			// 
 			// NzTab1
 			// 
+			this.NzTab1.Controls.Add(this.label35);
+			this.NzTab1.Controls.Add(this.NzNationalCode);
 			this.NzTab1.Controls.Add(this.NzPlak);
 			this.NzTab1.Controls.Add(this.label31);
 			this.NzTab1.Controls.Add(this.NzState);
@@ -386,8 +388,6 @@ namespace NZ.General.WinForms.Base
 			this.NzTab1.Controls.Add(this.NzXaridar);
 			this.NzTab1.Controls.Add(this.label12);
 			this.NzTab1.Controls.Add(this.NzMobile);
-			this.NzTab1.Controls.Add(this.label11);
-			this.NzTab1.Controls.Add(this.NzTel);
 			this.NzTab1.Controls.Add(this.label13);
 			this.NzTab1.Controls.Add(this.label3);
 			this.NzTab1.Controls.Add(this.label4);
@@ -442,17 +442,17 @@ namespace NZ.General.WinForms.Base
 			this.NzState.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzState.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
 			this.NzState.Cursor = System.Windows.Forms.Cursors.Hand;
-			uiComboBoxItem1.FormatStyle.Alpha = 0;
-			uiComboBoxItem1.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem1.Image")));
-			uiComboBoxItem1.IsSeparator = false;
-			uiComboBoxItem1.Text = "فعال";
-			uiComboBoxItem2.FormatStyle.Alpha = 0;
-			uiComboBoxItem2.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem2.Image")));
-			uiComboBoxItem2.IsSeparator = false;
-			uiComboBoxItem2.Text = "غیر فعال";
+			uiComboBoxItem5.FormatStyle.Alpha = 0;
+			uiComboBoxItem5.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem5.Image")));
+			uiComboBoxItem5.IsSeparator = false;
+			uiComboBoxItem5.Text = "فعال";
+			uiComboBoxItem6.FormatStyle.Alpha = 0;
+			uiComboBoxItem6.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem6.Image")));
+			uiComboBoxItem6.IsSeparator = false;
+			uiComboBoxItem6.Text = "غیر فعال";
 			this.NzState.Items.AddRange(new Janus.Windows.EditControls.UIComboBoxItem[] {
-            uiComboBoxItem1,
-            uiComboBoxItem2});
+            uiComboBoxItem5,
+            uiComboBoxItem6});
 			this.NzState.Location = new System.Drawing.Point(288, 271);
 			this.NzState.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzState.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -600,43 +600,6 @@ namespace NZ.General.WinForms.Base
 			this.NzMobile.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far;
 			this.NzMobile.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
 			// 
-			// label11
-			// 
-			this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.label11.AutoSize = true;
-			this.label11.BackColor = System.Drawing.Color.Transparent;
-			this.label11.Location = new System.Drawing.Point(418, 137);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(42, 23);
-			this.label11.TabIndex = 764;
-			this.label11.Text = "تلفن :";
-			// 
-			// NzTel
-			// 
-			this.NzTel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.NzTel.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzTel.DigitGroup = false;
-			this.NzTel.Location = new System.Drawing.Point(288, 134);
-			this.NzTel.MaxLength = 11;
-			this.NzTel.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
-			this.NzTel.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.NzTel.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NzTel.MS_Change_Border_Color_On_Enter = true;
-			this.NzTel.MS_Change_Color_On_Enter = true;
-			this.NzTel.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-			this.NzTel.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NzTel.MS_Exit_By_Down = true;
-			this.NzTel.MS_Exit_By_Enter = true;
-			this.NzTel.MS_Exit_By_Up = true;
-			this.NzTel.MS_Is_Negative = false;
-			this.NzTel.MS_Last_Control = null;
-			this.NzTel.MS_Next_Control = this.NzMobile;
-			this.NzTel.Name = "NzTel";
-			this.NzTel.Size = new System.Drawing.Size(128, 29);
-			this.NzTel.TabIndex = 3;
-			this.NzTel.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far;
-			this.NzTel.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
-			// 
 			// label13
 			// 
 			this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -718,7 +681,6 @@ namespace NZ.General.WinForms.Base
 			this.NzTitle.MS_Exit_By_Enter = true;
 			this.NzTitle.MS_Exit_By_Up = true;
 			this.NzTitle.MS_Last_Control = null;
-			this.NzTitle.MS_Next_Control = this.NzTel;
 			this.NzTitle.Name = "NzTitle";
 			this.NzTitle.Size = new System.Drawing.Size(264, 29);
 			this.NzTitle.TabIndex = 2;
@@ -901,6 +863,8 @@ namespace NZ.General.WinForms.Base
 			// NzTab3
 			// 
 			this.NzTab3.AutoScroll = true;
+			this.NzTab3.Controls.Add(this.label11);
+			this.NzTab3.Controls.Add(this.NzTel);
 			this.NzTab3.Controls.Add(this.NzSex);
 			this.NzTab3.Controls.Add(this.label27);
 			this.NzTab3.Controls.Add(this.NzFax);
@@ -913,8 +877,6 @@ namespace NZ.General.WinForms.Base
 			this.NzTab3.Controls.Add(this.NzWorkAddress);
 			this.NzTab3.Controls.Add(this.NzEconomyNo);
 			this.NzTab3.Controls.Add(this.NzPostalCode);
-			this.NzTab3.Controls.Add(this.label35);
-			this.NzTab3.Controls.Add(this.NzNationalCode);
 			this.NzTab3.Controls.Add(this.NzFather);
 			this.NzTab3.Controls.Add(this.NzNo_Shenasname);
 			this.NzTab3.Controls.Add(this.label15);
@@ -943,17 +905,17 @@ namespace NZ.General.WinForms.Base
 			this.NzSex.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzSex.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
 			this.NzSex.Cursor = System.Windows.Forms.Cursors.Hand;
-			uiComboBoxItem5.FormatStyle.Alpha = 0;
-			uiComboBoxItem5.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem5.Image")));
-			uiComboBoxItem5.IsSeparator = false;
-			uiComboBoxItem5.Text = "مــرد";
-			uiComboBoxItem6.FormatStyle.Alpha = 0;
-			uiComboBoxItem6.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem6.Image")));
-			uiComboBoxItem6.IsSeparator = false;
-			uiComboBoxItem6.Text = "زن";
+			uiComboBoxItem1.FormatStyle.Alpha = 0;
+			uiComboBoxItem1.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem1.Image")));
+			uiComboBoxItem1.IsSeparator = false;
+			uiComboBoxItem1.Text = "مــرد";
+			uiComboBoxItem2.FormatStyle.Alpha = 0;
+			uiComboBoxItem2.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem2.Image")));
+			uiComboBoxItem2.IsSeparator = false;
+			uiComboBoxItem2.Text = "زن";
 			this.NzSex.Items.AddRange(new Janus.Windows.EditControls.UIComboBoxItem[] {
-            uiComboBoxItem5,
-            uiComboBoxItem6});
+            uiComboBoxItem1,
+            uiComboBoxItem2});
 			this.NzSex.Location = new System.Drawing.Point(408, 172);
 			this.NzSex.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzSex.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -1189,43 +1151,6 @@ namespace NZ.General.WinForms.Base
 			this.NzPostalCode.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far;
 			this.NzPostalCode.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
 			// 
-			// label35
-			// 
-			this.label35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.label35.AutoSize = true;
-			this.label35.BackColor = System.Drawing.Color.Transparent;
-			this.label35.Location = new System.Drawing.Point(517, 41);
-			this.label35.Name = "label35";
-			this.label35.Size = new System.Drawing.Size(54, 23);
-			this.label35.TabIndex = 792;
-			this.label35.Text = "کد ملی :";
-			// 
-			// NzNationalCode
-			// 
-			this.NzNationalCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.NzNationalCode.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzNationalCode.DigitGroup = false;
-			this.NzNationalCode.Location = new System.Drawing.Point(408, 38);
-			this.NzNationalCode.MaxLength = 10;
-			this.NzNationalCode.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
-			this.NzNationalCode.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.NzNationalCode.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NzNationalCode.MS_Change_Border_Color_On_Enter = true;
-			this.NzNationalCode.MS_Change_Color_On_Enter = true;
-			this.NzNationalCode.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-			this.NzNationalCode.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NzNationalCode.MS_Exit_By_Down = true;
-			this.NzNationalCode.MS_Exit_By_Enter = true;
-			this.NzNationalCode.MS_Exit_By_Up = true;
-			this.NzNationalCode.MS_Is_Negative = false;
-			this.NzNationalCode.MS_Last_Control = null;
-			this.NzNationalCode.MS_Next_Control = null;
-			this.NzNationalCode.Name = "NzNationalCode";
-			this.NzNationalCode.Size = new System.Drawing.Size(107, 29);
-			this.NzNationalCode.TabIndex = 0;
-			this.NzNationalCode.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far;
-			this.NzNationalCode.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
-			// 
 			// NzFather
 			// 
 			this.NzFather.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1424,7 +1349,7 @@ namespace NZ.General.WinForms.Base
 			this.label29.AutoSize = true;
 			this.label29.BackColor = System.Drawing.Color.Transparent;
 			this.label29.ForeColor = System.Drawing.Color.Maroon;
-			this.label29.Location = new System.Drawing.Point(234, 530);
+			this.label29.Location = new System.Drawing.Point(217, 530);
 			this.label29.Name = "label29";
 			this.label29.Size = new System.Drawing.Size(62, 23);
 			this.label29.TabIndex = 835;
@@ -1436,7 +1361,7 @@ namespace NZ.General.WinForms.Base
 			this.label10.AutoSize = true;
 			this.label10.BackColor = System.Drawing.Color.Transparent;
 			this.label10.ForeColor = System.Drawing.Color.Maroon;
-			this.label10.Location = new System.Drawing.Point(229, 254);
+			this.label10.Location = new System.Drawing.Point(212, 254);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(65, 23);
 			this.label10.TabIndex = 835;
@@ -1448,7 +1373,7 @@ namespace NZ.General.WinForms.Base
 			this.label19.AutoSize = true;
 			this.label19.BackColor = System.Drawing.Color.Transparent;
 			this.label19.ForeColor = System.Drawing.Color.Maroon;
-			this.label19.Location = new System.Drawing.Point(290, 530);
+			this.label19.Location = new System.Drawing.Point(273, 530);
 			this.label19.Name = "label19";
 			this.label19.Size = new System.Drawing.Size(84, 23);
 			this.label19.TabIndex = 835;
@@ -1460,7 +1385,7 @@ namespace NZ.General.WinForms.Base
 			this.label9.AutoSize = true;
 			this.label9.BackColor = System.Drawing.Color.Transparent;
 			this.label9.ForeColor = System.Drawing.Color.Maroon;
-			this.label9.Location = new System.Drawing.Point(48, 253);
+			this.label9.Location = new System.Drawing.Point(31, 253);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(84, 23);
 			this.label9.TabIndex = 835;
@@ -1472,7 +1397,7 @@ namespace NZ.General.WinForms.Base
 			this.label7.AutoSize = true;
 			this.label7.BackColor = System.Drawing.Color.Transparent;
 			this.label7.ForeColor = System.Drawing.Color.Maroon;
-			this.label7.Location = new System.Drawing.Point(-14, 254);
+			this.label7.Location = new System.Drawing.Point(-31, 254);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(65, 23);
 			this.label7.TabIndex = 835;
@@ -1484,7 +1409,7 @@ namespace NZ.General.WinForms.Base
 			this.label2.AutoSize = true;
 			this.label2.BackColor = System.Drawing.Color.Transparent;
 			this.label2.ForeColor = System.Drawing.Color.Maroon;
-			this.label2.Location = new System.Drawing.Point(290, 254);
+			this.label2.Location = new System.Drawing.Point(273, 254);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(84, 23);
 			this.label2.TabIndex = 835;
@@ -1496,7 +1421,7 @@ namespace NZ.General.WinForms.Base
 			this.label42.AutoSize = true;
 			this.label42.BackColor = System.Drawing.Color.Transparent;
 			this.label42.ForeColor = System.Drawing.Color.Maroon;
-			this.label42.Location = new System.Drawing.Point(348, 308);
+			this.label42.Location = new System.Drawing.Point(331, 308);
 			this.label42.Name = "label42";
 			this.label42.Size = new System.Drawing.Size(85, 23);
 			this.label42.TabIndex = 834;
@@ -1508,7 +1433,7 @@ namespace NZ.General.WinForms.Base
 			this.label43.AutoSize = true;
 			this.label43.BackColor = System.Drawing.Color.Transparent;
 			this.label43.ForeColor = System.Drawing.Color.Maroon;
-			this.label43.Location = new System.Drawing.Point(105, 19);
+			this.label43.Location = new System.Drawing.Point(88, 19);
 			this.label43.Name = "label43";
 			this.label43.Size = new System.Drawing.Size(82, 23);
 			this.label43.TabIndex = 833;
@@ -1520,7 +1445,7 @@ namespace NZ.General.WinForms.Base
 			this.label44.AutoSize = true;
 			this.label44.BackColor = System.Drawing.Color.Transparent;
 			this.label44.ForeColor = System.Drawing.Color.Maroon;
-			this.label44.Location = new System.Drawing.Point(353, 19);
+			this.label44.Location = new System.Drawing.Point(336, 19);
 			this.label44.Name = "label44";
 			this.label44.Size = new System.Drawing.Size(80, 23);
 			this.label44.TabIndex = 832;
@@ -1533,7 +1458,7 @@ namespace NZ.General.WinForms.Base
 			this.NzDeleteWarranty.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.NzDeleteWarranty.Image = global::MS_Resource.GlobalResources.Negin__1_;
 			this.NzDeleteWarranty.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Center;
-			this.NzDeleteWarranty.Location = new System.Drawing.Point(380, 529);
+			this.NzDeleteWarranty.Location = new System.Drawing.Point(363, 529);
 			this.NzDeleteWarranty.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzDeleteWarranty.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzDeleteWarranty.MS_Change_Border_Color_On_Enter = false;
@@ -1560,7 +1485,7 @@ namespace NZ.General.WinForms.Base
 			this.NzOpenWarranty.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.NzOpenWarranty.Image = global::MS_Resource.GlobalResources.OpenFolder;
 			this.NzOpenWarranty.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Center;
-			this.NzOpenWarranty.Location = new System.Drawing.Point(406, 529);
+			this.NzOpenWarranty.Location = new System.Drawing.Point(389, 529);
 			this.NzOpenWarranty.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzOpenWarranty.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzOpenWarranty.MS_Change_Border_Color_On_Enter = false;
@@ -1587,7 +1512,7 @@ namespace NZ.General.WinForms.Base
 			this.NzDeleteSign.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.NzDeleteSign.Image = global::MS_Resource.GlobalResources.Negin__1_;
 			this.NzDeleteSign.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Center;
-			this.NzDeleteSign.Location = new System.Drawing.Point(138, 252);
+			this.NzDeleteSign.Location = new System.Drawing.Point(121, 252);
 			this.NzDeleteSign.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzDeleteSign.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzDeleteSign.MS_Change_Border_Color_On_Enter = false;
@@ -1614,7 +1539,7 @@ namespace NZ.General.WinForms.Base
 			this.NzOpenSign.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.NzOpenSign.Image = global::MS_Resource.GlobalResources.OpenFolder;
 			this.NzOpenSign.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Center;
-			this.NzOpenSign.Location = new System.Drawing.Point(163, 252);
+			this.NzOpenSign.Location = new System.Drawing.Point(146, 252);
 			this.NzOpenSign.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzOpenSign.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzOpenSign.MS_Change_Border_Color_On_Enter = false;
@@ -1641,7 +1566,7 @@ namespace NZ.General.WinForms.Base
 			this.NzDeletePic.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.NzDeletePic.Image = global::MS_Resource.GlobalResources.Negin__1_;
 			this.NzDeletePic.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Center;
-			this.NzDeletePic.Location = new System.Drawing.Point(380, 252);
+			this.NzDeletePic.Location = new System.Drawing.Point(363, 252);
 			this.NzDeletePic.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzDeletePic.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzDeletePic.MS_Change_Border_Color_On_Enter = false;
@@ -1668,7 +1593,7 @@ namespace NZ.General.WinForms.Base
 			this.NzOpenPic.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.NzOpenPic.Image = global::MS_Resource.GlobalResources.OpenFolder;
 			this.NzOpenPic.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Center;
-			this.NzOpenPic.Location = new System.Drawing.Point(406, 252);
+			this.NzOpenPic.Location = new System.Drawing.Point(389, 252);
 			this.NzOpenPic.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzOpenPic.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzOpenPic.MS_Change_Border_Color_On_Enter = false;
@@ -1694,7 +1619,7 @@ namespace NZ.General.WinForms.Base
 			this.NzSign.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.NzSign.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.NzSign.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzSign.Location = new System.Drawing.Point(-14, 46);
+			this.NzSign.Location = new System.Drawing.Point(-31, 46);
 			this.NzSign.Margin = new System.Windows.Forms.Padding(4);
 			this.NzSign.Name = "NzSign";
 			this.NzSign.Size = new System.Drawing.Size(200, 200);
@@ -1708,7 +1633,7 @@ namespace NZ.General.WinForms.Base
 			this.NzPic.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.NzPic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.NzPic.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzPic.Location = new System.Drawing.Point(229, 46);
+			this.NzPic.Location = new System.Drawing.Point(212, 46);
 			this.NzPic.Margin = new System.Windows.Forms.Padding(4);
 			this.NzPic.Name = "NzPic";
 			this.NzPic.Size = new System.Drawing.Size(200, 200);
@@ -1722,7 +1647,7 @@ namespace NZ.General.WinForms.Base
 			this.NzWarranty.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.NzWarranty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.NzWarranty.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzWarranty.Location = new System.Drawing.Point(234, 333);
+			this.NzWarranty.Location = new System.Drawing.Point(217, 333);
 			this.NzWarranty.Margin = new System.Windows.Forms.Padding(4);
 			this.NzWarranty.Name = "NzWarranty";
 			this.NzWarranty.Size = new System.Drawing.Size(195, 187);
@@ -1952,6 +1877,80 @@ namespace NZ.General.WinForms.Base
 			this.uiTabPage13.TabStop = true;
 			this.uiTabPage13.Text = "مستندات";
 			// 
+			// label11
+			// 
+			this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label11.AutoSize = true;
+			this.label11.BackColor = System.Drawing.Color.Transparent;
+			this.label11.Location = new System.Drawing.Point(517, 41);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(42, 23);
+			this.label11.TabIndex = 810;
+			this.label11.Text = "تلفن :";
+			// 
+			// NzTel
+			// 
+			this.NzTel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NzTel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NzTel.DigitGroup = false;
+			this.NzTel.Location = new System.Drawing.Point(387, 38);
+			this.NzTel.MaxLength = 11;
+			this.NzTel.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
+			this.NzTel.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NzTel.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NzTel.MS_Change_Border_Color_On_Enter = true;
+			this.NzTel.MS_Change_Color_On_Enter = true;
+			this.NzTel.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NzTel.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NzTel.MS_Exit_By_Down = true;
+			this.NzTel.MS_Exit_By_Enter = true;
+			this.NzTel.MS_Exit_By_Up = true;
+			this.NzTel.MS_Is_Negative = false;
+			this.NzTel.MS_Last_Control = null;
+			this.NzTel.MS_Next_Control = this.NzMobile;
+			this.NzTel.Name = "NzTel";
+			this.NzTel.Size = new System.Drawing.Size(128, 29);
+			this.NzTel.TabIndex = 0;
+			this.NzTel.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far;
+			this.NzTel.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			// 
+			// label35
+			// 
+			this.label35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label35.AutoSize = true;
+			this.label35.BackColor = System.Drawing.Color.Transparent;
+			this.label35.Location = new System.Drawing.Point(418, 137);
+			this.label35.Name = "label35";
+			this.label35.Size = new System.Drawing.Size(54, 23);
+			this.label35.TabIndex = 794;
+			this.label35.Text = "کد ملی :";
+			// 
+			// NzNationalCode
+			// 
+			this.NzNationalCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NzNationalCode.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NzNationalCode.DigitGroup = false;
+			this.NzNationalCode.Location = new System.Drawing.Point(288, 134);
+			this.NzNationalCode.MaxLength = 10;
+			this.NzNationalCode.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
+			this.NzNationalCode.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NzNationalCode.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NzNationalCode.MS_Change_Border_Color_On_Enter = true;
+			this.NzNationalCode.MS_Change_Color_On_Enter = true;
+			this.NzNationalCode.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NzNationalCode.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NzNationalCode.MS_Exit_By_Down = true;
+			this.NzNationalCode.MS_Exit_By_Enter = true;
+			this.NzNationalCode.MS_Exit_By_Up = true;
+			this.NzNationalCode.MS_Is_Negative = false;
+			this.NzNationalCode.MS_Last_Control = null;
+			this.NzNationalCode.MS_Next_Control = null;
+			this.NzNationalCode.Name = "NzNationalCode";
+			this.NzNationalCode.Size = new System.Drawing.Size(128, 29);
+			this.NzNationalCode.TabIndex = 3;
+			this.NzNationalCode.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far;
+			this.NzNationalCode.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			// 
 			// Form_People
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
@@ -2004,8 +2003,6 @@ namespace NZ.General.WinForms.Base
         private MS_Control.Controls.MS_CheckBox NzXaridar;
         private System.Windows.Forms.Label label12;
         private MS_Control.Controls.MS_NumericTextBox NzMobile;
-        private System.Windows.Forms.Label label11;
-        private MS_Control.Controls.MS_NumericTextBox NzTel;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -2036,8 +2033,6 @@ namespace NZ.General.WinForms.Base
         private MS_Control.Controls.MS_NumericTextBox NzEconomyNo;
         private System.Windows.Forms.Label label21;
         private MS_Control.Controls.MS_NumericTextBox NzPostalCode;
-        private System.Windows.Forms.Label label35;
-        private MS_Control.Controls.MS_NumericTextBox NzNationalCode;
         private MS_Control.Controls.MS_TextBox NzFather;
         private System.Windows.Forms.Label label22;
         private MS_Control.Controls.MS_TextBox NzNo_Shenasname;
@@ -2084,5 +2079,9 @@ namespace NZ.General.WinForms.Base
         private System.Windows.Forms.Label label2;
         private MS_Control.Controls.MS_TextBox NzPlak;
         private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label35;
+        private MS_Control.Controls.MS_NumericTextBox NzNationalCode;
+        private System.Windows.Forms.Label label11;
+        private MS_Control.Controls.MS_NumericTextBox NzTel;
     }
 }

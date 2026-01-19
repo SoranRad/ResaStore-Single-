@@ -84,6 +84,8 @@
     <Compile Include="DapperConfig\Model\Aqsat_Main_DapperConfiguration.cs" />
     <Compile Include="DapperConfig\Report\AqsatList_DapperConfig.cs" />
     <Compile Include="DapperConfig\Report\PrintAqsatNoteDapperConfig.cs" />
+    <Compile Include="DapperConfig\Report\AqsatMoedGozashte_DapperConfig.cs" />
+    <Compile Include="DapperConfig\Report\SarResidAqsat_DapperConfig.cs" />
     <Compile Include="Migrations\202508180723424_InitialCreate.cs" />
     <Compile Include="Migrations\202508180723424_InitialCreate.Designer.cs">
       <DependentUpon>202508180723424_InitialCreate.cs</DependentUpon>
