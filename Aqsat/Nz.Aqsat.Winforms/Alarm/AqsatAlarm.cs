@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Janus.Windows.UI.Tab;
 using Nz.Aqsat.Business;
+using Nz.Aqsat.Model.Models;
 using Nz.Aqsat.Model.Report;
+using Nz.Aqsat.Winforms.App;
 
 namespace Nz.Aqsat.Winforms.Alarm
 {
@@ -54,11 +56,26 @@ namespace Nz.Aqsat.Winforms.Alarm
 		}
 
 		private void NzRefresh_Click(object sender, EventArgs e)
+		{
+			RefreshList();
+		}
+
+        private void NzGridFuture_ColumnButtonClick(object sender, Janus.Windows.GridEX.ColumnActionEventArgs e)
         {
-	        var mgr = new ReportManager();
-	        _List = mgr.GetReport<SarResidAqsat>(new { ruz = Convert.ToInt16(NzFutureDays.TextBox.Text ?? "0") }, null);
-	        NzGridFuture.DataSource = _List?.ToList();
+	        var dataRow = NzGridFuture.CurrentRow.DataRow as SarResidAqsat;
+
+	        new Form_TasviehAqsat(dataRow.FK_Main, dataRow.ID).ShowDialog(this);
+
+	        RefreshList();
         }
 
-	}
+        private void mS_GridX1_ColumnButtonClick(object sender, Janus.Windows.GridEX.ColumnActionEventArgs e)
+        {
+	        var dataRow = mS_GridX1.CurrentRow.DataRow as AqsatMoedGozashte;
+
+	        new Form_TasviehAqsat(dataRow.FK_Main, dataRow.ID).ShowDialog(this);
+
+	        RefreshList();
+		}
+    }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Nz.Aqsat.Winforms.App;
+using Nz.Aqsat.Winforms.Report;
 
 namespace Nz.Bar.Winforms.Provider
 {
@@ -40,6 +41,20 @@ namespace Nz.Bar.Winforms.Provider
         private void لیستاقساطToolStripMenuItem_Click(object sender, EventArgs e)
         {
 	        var frm = new FormAqsatList();
+	        frm.MdiParent = AqsatProvider.MainForm;
+	        frm.Show();
+		}
+
+        private void NsMoedGozashteh_Click(object sender, EventArgs e)
+        {
+	        var frm = new FormAqsatMoedGozashte();
+	        frm.MdiParent = AqsatProvider.MainForm;
+	        frm.Show();
+		}
+
+        private void NsSarResidAqsat_Click(object sender, EventArgs e)
+        {
+	        var frm = new FormSarResidAqsat();
 	        frm.MdiParent = AqsatProvider.MainForm;
 	        frm.Show();
 		}

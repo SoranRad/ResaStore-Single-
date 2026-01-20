@@ -39,9 +39,9 @@ namespace Nz.Bar.Winforms.Provider
 			this.لیستاقساطToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.NzReport = new System.Windows.Forms.ToolStripMenuItem();
 			this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.گزارشکلیهاقساطموعدگذشتهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsMoedGozashteh = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-			this.گزارشسررسیداقساطToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsSarResidAqsat = new System.Windows.Forms.ToolStripMenuItem();
 			this.گزارشسررسیداقساطهفتهجاریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.گزارشسررسیداقساطماهجاریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.mS_Menu1.SuspendLayout();
@@ -121,9 +121,9 @@ namespace Nz.Bar.Winforms.Provider
 			// 
 			this.NzReport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem,
-            this.گزارشکلیهاقساطموعدگذشتهToolStripMenuItem,
+            this.NsMoedGozashteh,
             this.toolStripSeparator3,
-            this.گزارشسررسیداقساطToolStripMenuItem,
+            this.NsSarResidAqsat,
             this.گزارشسررسیداقساطهفتهجاریToolStripMenuItem,
             this.گزارشسررسیداقساطماهجاریToolStripMenuItem});
 			this.NzReport.Font = new System.Drawing.Font("IRANSans(Small) Medium", 15F);
@@ -139,22 +139,24 @@ namespace Nz.Bar.Winforms.Provider
 			this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem.Size = new System.Drawing.Size(281, 30);
 			this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem.Text = "گزارش اقساط موعد گذشته اشخاص";
 			// 
-			// گزارشکلیهاقساطموعدگذشتهToolStripMenuItem
+			// NsMoedGozashteh
 			// 
-			this.گزارشکلیهاقساطموعدگذشتهToolStripMenuItem.Name = "گزارشکلیهاقساطموعدگذشتهToolStripMenuItem";
-			this.گزارشکلیهاقساطموعدگذشتهToolStripMenuItem.Size = new System.Drawing.Size(281, 30);
-			this.گزارشکلیهاقساطموعدگذشتهToolStripMenuItem.Text = "گزارش کلیه اقساط موعد گذشته";
+			this.NsMoedGozashteh.Name = "NsMoedGozashteh";
+			this.NsMoedGozashteh.Size = new System.Drawing.Size(281, 30);
+			this.NsMoedGozashteh.Text = "گزارش کلیه اقساط موعد گذشته";
+			this.NsMoedGozashteh.Click += new System.EventHandler(this.NsMoedGozashteh_Click);
 			// 
 			// toolStripSeparator3
 			// 
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
 			this.toolStripSeparator3.Size = new System.Drawing.Size(278, 6);
 			// 
-			// گزارشسررسیداقساطToolStripMenuItem
+			// NsSarResidAqsat
 			// 
-			this.گزارشسررسیداقساطToolStripMenuItem.Name = "گزارشسررسیداقساطToolStripMenuItem";
-			this.گزارشسررسیداقساطToolStripMenuItem.Size = new System.Drawing.Size(281, 30);
-			this.گزارشسررسیداقساطToolStripMenuItem.Text = "گزارش سر رسید اقساط امروز";
+			this.NsSarResidAqsat.Name = "NsSarResidAqsat";
+			this.NsSarResidAqsat.Size = new System.Drawing.Size(281, 30);
+			this.NsSarResidAqsat.Text = "گزارش سر رسید اقساط امروز";
+			this.NsSarResidAqsat.Click += new System.EventHandler(this.NsSarResidAqsat_Click);
 			// 
 			// گزارشسررسیداقساطهفتهجاریToolStripMenuItem
 			// 
@@ -192,9 +194,9 @@ namespace Nz.Bar.Winforms.Provider
 		private System.Windows.Forms.ToolStripMenuItem گزارشاقساطبهتفکیکوضعیتToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem تعریفانواعقسطToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem گزارشکلیهاقساطموعدگذشتهToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem NsMoedGozashteh;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem گزارشسررسیداقساطToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem NsSarResidAqsat;
         private System.Windows.Forms.ToolStripMenuItem گزارشسررسیداقساطهفتهجاریToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem گزارشسررسیداقساطماهجاریToolStripMenuItem;
     }

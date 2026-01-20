@@ -238,6 +238,18 @@
     <Compile Include="Component\NsKindAqsatCombo.Designer.cs">
       <DependentUpon>NsKindAqsatCombo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\FormAqsatMoedGozashte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormAqsatMoedGozashte.Designer.cs">
+      <DependentUpon>FormAqsatMoedGozashte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FormSarResidAqsat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormSarResidAqsat.Designer.cs">
+      <DependentUpon>FormSarResidAqsat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings\SettingItems.cs" />
     <Compile Include="Settings\TabSettingContainer.cs">
       <SubType>UserControl</SubType>
@@ -262,6 +274,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="App\Form_TasviehAqsat.resx">
       <DependentUpon>Form_TasviehAqsat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormAqsatMoedGozashte.resx">
+      <DependentUpon>FormAqsatMoedGozashte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormSarResidAqsat.resx">
+      <DependentUpon>FormSarResidAqsat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\TabSettingContainer.resx">
       <DependentUpon>TabSettingContainer.cs</DependentUpon>
@@ -354,8 +372,6 @@
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Report\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
