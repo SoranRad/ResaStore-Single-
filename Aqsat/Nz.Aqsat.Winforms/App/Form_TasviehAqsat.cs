@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using MS_Control;
 using MS_Control.Tarikh;
 using ShareLib;
+using ShareLib.Utils;
 
 namespace Nz.Aqsat.Winforms.App
 {
@@ -32,7 +33,8 @@ namespace Nz.Aqsat.Winforms.App
 		private readonly long	_idRadif;
 		private Aqsat_Main		_Aqsat;
 		private AqsatManager	_Manager;
-
+		private Aqsat_Riz		riz;
+		private bool _DoRefresh = true;
 		#endregion
 
 		#region Constructor
@@ -58,7 +60,7 @@ namespace Nz.Aqsat.Winforms.App
 				return;
 			}
 
-			var riz = _Aqsat.AqsatRizs.SingleOrDefault(x => x.ID == _idRadif);
+			riz = _Aqsat.AqsatRizs.SingleOrDefault(x => x.ID == _idRadif);
 
 			if (riz == null)
 			{
@@ -67,15 +69,14 @@ namespace Nz.Aqsat.Winforms.App
 				return;
 			}
 
-			if (!riz.isPardaxt)
-			{
-				NsDeleteTasvieh.Visible = riz.isPardaxt;
-				return;
-			}
+			
+			NsDeleteTasvieh.Visible = riz.isPardaxt;
 
-			NzTarikh.MS_Tarikh	= new MS_Structure_Shamsi(riz.tarixPardaxt);
+			if(riz.tarixPardaxt.HasValue)
+				NzTarikh.MS_Tarikh	= new MS_Structure_Shamsi(riz.tarixPardaxt);
 			NsSharh.Text		= riz.Sharh;
-
+			NsMablaqAqsat.MS_Decimal = riz.mablaqQest;
+			NsSarResid.Text		= new MS_Structure_Shamsi(riz.tarixQest).ToShamsi();
 		}
 
 		private bool IsOk()
@@ -85,6 +86,14 @@ namespace Nz.Aqsat.Winforms.App
 				MS_Message.Show("تاریخ را وارد کنید");
 				mS_Notify1.Show(NzTarikh);
 				NzTarikh.Focus();
+				return false;
+			}
+
+			if (NsMablaqDaryafti.MS_Decimal <= 0)
+			{
+				MS_Message.Show("مبلغ را وارد کنید");
+				mS_Notify1.Show(NsMablaqDaryafti);
+				NsMablaqDaryafti.Focus();
 				return false;
 			}
 
@@ -102,6 +111,7 @@ namespace Nz.Aqsat.Winforms.App
 			riz.isPardaxt		= true;
 			riz.tarixPardaxt	= NzTarikh.MS_Tarikh.Value.ToDatetime().Date;
 			riz.Sharh			= NsSharh.Text;
+			riz.mablaqQest		= NsMablaqDaryafti.MS_Decimal;
 			riz.State			= Enums.NzItemState.Modified;
 			//===================================
 
@@ -110,6 +120,28 @@ namespace Nz.Aqsat.Winforms.App
 			_Manager.Save(_Aqsat);
 			NsDeleteTasvieh.Visible = riz.isPardaxt;
 
+		}
+
+		private void CalculateMablaqDirKard()
+		{
+			
+
+			if (NsDirKard.Checked)
+			{
+				if (NsMablaqAqsat.MS_Decimal == 0)
+					NsAmountOfPast.MS_Decimal = 0;
+				else
+				{
+					NsAmountOfPast.MS_Decimal = NsMablaqAqsat.MS_Decimal + NsDaysPast.MS_Decimal * ( NsFixAmount.Checked 
+						?  NsAmount.MS_Decimal
+						: NsPercentAmount.MS_Decimal/100* NsMablaqAqsat.MS_Decimal
+						 );
+				}
+			}
+			else
+			{
+				NsAmountOfPast.MS_Decimal = 0;
+			}
 		}
 		#endregion
 
@@ -136,7 +168,6 @@ namespace Nz.Aqsat.Winforms.App
 			}
 
 		}
-
 		private void NsDeleteTasvieh_Click(object sender, EventArgs e)
 		{
 			try
@@ -165,10 +196,40 @@ namespace Nz.Aqsat.Winforms.App
 				log.Error(ex);
 			}
 		}
+		
 		private void Form_TasviehAqsat_KeyUp(object sender, KeyEventArgs e)
 		{
 			if(e.KeyCode == Keys.F2)
 				NsSave.PerformClick();
+		}
+		
+		private void NzTarikh_TextChanged(object sender, EventArgs e)
+		{
+			if (NsDirKard.Checked && NzTarikh.Text.IsPersianDate())
+			{
+				_DoRefresh = false;
+
+				NsDaysPast.MS_Decimal = Convert.ToInt32(NzTarikh.MS_Tarikh.Value.ToDatetime().Subtract(riz.tarixQest).TotalDays);
+				CalculateMablaqDirKard();
+				
+				_DoRefresh = true;
+			}
+
+		}
+		private void NsMablaqAqsat_TextChanged(object sender, EventArgs e)
+		{
+			NsGroupDirkard.Enabled = NsDirKard.Checked;
+
+			if(!_DoRefresh)
+				return;
+			_DoRefresh = false;
+
+			if(string.IsNullOrEmpty(NsDaysPast.Text) && NzTarikh.MS_Tarikh.HasValue)
+				NsDaysPast.MS_Decimal = Convert.ToInt32(NzTarikh.MS_Tarikh.Value.ToDatetime().Subtract(riz.tarixQest).TotalDays);
+
+			CalculateMablaqDirKard();
+			
+			_DoRefresh = true;
 		}
 		#endregion
 

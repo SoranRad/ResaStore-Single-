@@ -779,9 +779,9 @@
 			this.label3.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
 			this.label3.Location = new System.Drawing.Point(589, 88);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(99, 23);
+			this.label3.Size = new System.Drawing.Size(63, 23);
 			this.label3.TabIndex = 777;
-			this.label3.Text = "مبلغ کلی اقساط :";
+			this.label3.Text = "مبلغ کلی :";
 			// 
 			// NzCustomerRemain
 			// 
