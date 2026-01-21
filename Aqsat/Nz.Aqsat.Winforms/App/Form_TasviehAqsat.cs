@@ -69,9 +69,8 @@ namespace Nz.Aqsat.Winforms.App
 				return;
 			}
 
-			
-			NsDeleteTasvieh.Visible = riz.isPardaxt;
 
+			NsDeleteTasvieh.Visible = riz.isPardaxt;
 			if(riz.tarixPardaxt.HasValue)
 				NzTarikh.MS_Tarikh	= new MS_Structure_Shamsi(riz.tarixPardaxt);
 			NsSharh.Text		= riz.Sharh;

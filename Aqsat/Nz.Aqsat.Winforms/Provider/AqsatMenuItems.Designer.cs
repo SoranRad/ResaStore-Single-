@@ -42,7 +42,7 @@ namespace Nz.Bar.Winforms.Provider
 			this.NsMoedGozashteh = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.NsSarResidAqsat = new System.Windows.Forms.ToolStripMenuItem();
-			this.گزارشسررسیداقساطهفتهجاریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsSarResidHafte = new System.Windows.Forms.ToolStripMenuItem();
 			this.گزارشسررسیداقساطماهجاریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.mS_Menu1.SuspendLayout();
 			this.SuspendLayout();
@@ -124,7 +124,7 @@ namespace Nz.Bar.Winforms.Provider
             this.NsMoedGozashteh,
             this.toolStripSeparator3,
             this.NsSarResidAqsat,
-            this.گزارشسررسیداقساطهفتهجاریToolStripMenuItem,
+            this.NsSarResidHafte,
             this.گزارشسررسیداقساطماهجاریToolStripMenuItem});
 			this.NzReport.Font = new System.Drawing.Font("IRANSans(Small) Medium", 15F);
 			this.NzReport.Image = ((System.Drawing.Image)(resources.GetObject("NzReport.Image")));
@@ -159,11 +159,12 @@ namespace Nz.Bar.Winforms.Provider
 			this.NsSarResidAqsat.Text = "گزارش سر رسید اقساط امروز";
 			this.NsSarResidAqsat.Click += new System.EventHandler(this.NsSarResidAqsat_Click);
 			// 
-			// گزارشسررسیداقساطهفتهجاریToolStripMenuItem
+			// NsSarResidHafte
 			// 
-			this.گزارشسررسیداقساطهفتهجاریToolStripMenuItem.Name = "گزارشسررسیداقساطهفتهجاریToolStripMenuItem";
-			this.گزارشسررسیداقساطهفتهجاریToolStripMenuItem.Size = new System.Drawing.Size(281, 30);
-			this.گزارشسررسیداقساطهفتهجاریToolStripMenuItem.Text = "گزارش سر رسید اقساط هفته جاری";
+			this.NsSarResidHafte.Name = "NsSarResidHafte";
+			this.NsSarResidHafte.Size = new System.Drawing.Size(281, 30);
+			this.NsSarResidHafte.Text = "گزارش سر رسید اقساط هفته جاری";
+			this.NsSarResidHafte.Click += new System.EventHandler(this.NsSarResidHafte_Click);
 			// 
 			// گزارشسررسیداقساطماهجاریToolStripMenuItem
 			// 
@@ -198,7 +199,7 @@ namespace Nz.Bar.Winforms.Provider
         private System.Windows.Forms.ToolStripMenuItem NsMoedGozashteh;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem NsSarResidAqsat;
-        private System.Windows.Forms.ToolStripMenuItem گزارشسررسیداقساطهفتهجاریToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem NsSarResidHafte;
         private System.Windows.Forms.ToolStripMenuItem گزارشسررسیداقساطماهجاریToolStripMenuItem;
     }
 }

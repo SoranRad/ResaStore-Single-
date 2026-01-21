@@ -30,10 +30,10 @@
         {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_TasviehAqsat));
 			this.uiGroupBox2 = new Janus.Windows.EditControls.UIGroupBox();
+			this.NsMablaqDaryafti = new MS_Control.Controls.MS_NumericTextBox();
 			this.label12 = new System.Windows.Forms.Label();
 			this.NsSarResid = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
-			this.NsMablaqAqsat = new MS_Control.Controls.MS_NumericTextBox();
 			this.label9 = new System.Windows.Forms.Label();
 			this.NsDirKard = new MS_Control.Controls.MS_CheckBox();
 			this.NsGroupDirkard = new Janus.Windows.EditControls.UIGroupBox();
@@ -41,6 +41,7 @@
 			this.label8 = new System.Windows.Forms.Label();
 			this.NsDaysPast = new MS_Control.Controls.MS_NumericTextBox();
 			this.label6 = new System.Windows.Forms.Label();
+			this.NsMablaqAqsat = new MS_Control.Controls.MS_NumericTextBox();
 			this.NsAmount = new MS_Control.Controls.MS_NumericTextBox();
 			this.NsPercentAmount = new MS_Control.Controls.MS_NumericTextBox();
 			this.NsPercent = new MS_Control.Controls.MS_RadioBox();
@@ -61,7 +62,6 @@
 			this.NsDeleteTasvieh = new MS_Control.Controls.MS_Button_GridX();
 			this.NsSave = new MS_Control.Controls.MS_Button_GridX();
 			this.mS_Notify1 = new MS_Control.Controls.MS_Notify();
-			this.NsMablaqDaryafti = new MS_Control.Controls.MS_NumericTextBox();
 			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox2)).BeginInit();
 			this.uiGroupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NsGroupDirkard)).BeginInit();
@@ -93,6 +93,30 @@
 			this.uiGroupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.uiGroupBox2.Size = new System.Drawing.Size(817, 374);
 			this.uiGroupBox2.TabIndex = 0;
+			// 
+			// NsMablaqDaryafti
+			// 
+			this.NsMablaqDaryafti.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsMablaqDaryafti.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsMablaqDaryafti.Font = new System.Drawing.Font("IRANSans(Small) Medium", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.NsMablaqDaryafti.Location = new System.Drawing.Point(602, 250);
+			this.NsMablaqDaryafti.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NsMablaqDaryafti.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsMablaqDaryafti.MS_Change_Border_Color_On_Enter = true;
+			this.NsMablaqDaryafti.MS_Change_Color_On_Enter = true;
+			this.NsMablaqDaryafti.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+			this.NsMablaqDaryafti.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsMablaqDaryafti.MS_Exit_By_Down = true;
+			this.NsMablaqDaryafti.MS_Exit_By_Enter = true;
+			this.NsMablaqDaryafti.MS_Exit_By_Up = true;
+			this.NsMablaqDaryafti.MS_Is_Negative = false;
+			this.NsMablaqDaryafti.MS_Last_Control = null;
+			this.NsMablaqDaryafti.MS_Next_Control = null;
+			this.NsMablaqDaryafti.Name = "NsMablaqDaryafti";
+			this.NsMablaqDaryafti.Size = new System.Drawing.Size(117, 30);
+			this.NsMablaqDaryafti.TabIndex = 847;
+			this.NsMablaqDaryafti.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far;
+			this.NsMablaqDaryafti.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
 			// 
 			// label12
 			// 
@@ -134,31 +158,6 @@
 			this.label10.Size = new System.Drawing.Size(92, 23);
 			this.label10.TabIndex = 849;
 			this.label10.Text = "تاریخ سر رسید :";
-			// 
-			// NsMablaqAqsat
-			// 
-			this.NsMablaqAqsat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.NsMablaqAqsat.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsMablaqAqsat.Font = new System.Drawing.Font("IRANSans(Small) Medium", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NsMablaqAqsat.Location = new System.Drawing.Point(585, 47);
-			this.NsMablaqAqsat.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.NsMablaqAqsat.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NsMablaqAqsat.MS_Change_Border_Color_On_Enter = true;
-			this.NsMablaqAqsat.MS_Change_Color_On_Enter = true;
-			this.NsMablaqAqsat.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-			this.NsMablaqAqsat.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NsMablaqAqsat.MS_Exit_By_Down = true;
-			this.NsMablaqAqsat.MS_Exit_By_Enter = true;
-			this.NsMablaqAqsat.MS_Exit_By_Up = true;
-			this.NsMablaqAqsat.MS_Is_Negative = false;
-			this.NsMablaqAqsat.MS_Last_Control = null;
-			this.NsMablaqAqsat.MS_Next_Control = null;
-			this.NsMablaqAqsat.Name = "NsMablaqAqsat";
-			this.NsMablaqAqsat.Size = new System.Drawing.Size(117, 30);
-			this.NsMablaqAqsat.TabIndex = 0;
-			this.NsMablaqAqsat.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far;
-			this.NsMablaqAqsat.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
-			this.NsMablaqAqsat.TextChanged += new System.EventHandler(this.NsMablaqAqsat_TextChanged);
 			// 
 			// label9
 			// 
@@ -304,6 +303,31 @@
 			this.label6.TabIndex = 843;
 			this.label6.Text = "تعداد روز دیر کرد";
 			// 
+			// NsMablaqAqsat
+			// 
+			this.NsMablaqAqsat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsMablaqAqsat.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsMablaqAqsat.Font = new System.Drawing.Font("IRANSans(Small) Medium", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.NsMablaqAqsat.Location = new System.Drawing.Point(590, 48);
+			this.NsMablaqAqsat.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NsMablaqAqsat.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsMablaqAqsat.MS_Change_Border_Color_On_Enter = true;
+			this.NsMablaqAqsat.MS_Change_Color_On_Enter = true;
+			this.NsMablaqAqsat.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+			this.NsMablaqAqsat.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsMablaqAqsat.MS_Exit_By_Down = true;
+			this.NsMablaqAqsat.MS_Exit_By_Enter = true;
+			this.NsMablaqAqsat.MS_Exit_By_Up = true;
+			this.NsMablaqAqsat.MS_Is_Negative = false;
+			this.NsMablaqAqsat.MS_Last_Control = null;
+			this.NsMablaqAqsat.MS_Next_Control = null;
+			this.NsMablaqAqsat.Name = "NsMablaqAqsat";
+			this.NsMablaqAqsat.Size = new System.Drawing.Size(123, 30);
+			this.NsMablaqAqsat.TabIndex = 0;
+			this.NsMablaqAqsat.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far;
+			this.NsMablaqAqsat.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			this.NsMablaqAqsat.TextChanged += new System.EventHandler(this.NsMablaqAqsat_TextChanged);
+			// 
 			// NsAmount
 			// 
 			this.NsAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -412,7 +436,7 @@
 			this.mS_Text_Simple3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.mS_Text_Simple3.BackColor = System.Drawing.Color.LimeGreen;
 			this.mS_Text_Simple3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.mS_Text_Simple3.Location = new System.Drawing.Point(566, 60);
+			this.mS_Text_Simple3.Location = new System.Drawing.Point(566, 62);
 			this.mS_Text_Simple3.MS_BorderColor = System.Drawing.Color.Empty;
 			this.mS_Text_Simple3.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.None;
 			this.mS_Text_Simple3.MS_Change_Border_Color_On_Enter = false;
@@ -503,6 +527,7 @@
 			// 
 			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label3.AutoSize = true;
+			this.label3.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.label3.Location = new System.Drawing.Point(392, 80);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(20, 23);
@@ -535,7 +560,7 @@
 			// 
 			this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(704, 50);
+			this.label4.Location = new System.Drawing.Point(719, 52);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(73, 23);
 			this.label4.TabIndex = 836;
@@ -694,30 +719,6 @@
 			this.NsSave.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
 			this.NsSave.WordWrap = false;
 			this.NsSave.Click += new System.EventHandler(this.NsSave_Click);
-			// 
-			// NsMablaqDaryafti
-			// 
-			this.NsMablaqDaryafti.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.NsMablaqDaryafti.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsMablaqDaryafti.Font = new System.Drawing.Font("IRANSans(Small) Medium", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NsMablaqDaryafti.Location = new System.Drawing.Point(602, 250);
-			this.NsMablaqDaryafti.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.NsMablaqDaryafti.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NsMablaqDaryafti.MS_Change_Border_Color_On_Enter = true;
-			this.NsMablaqDaryafti.MS_Change_Color_On_Enter = true;
-			this.NsMablaqDaryafti.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-			this.NsMablaqDaryafti.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NsMablaqDaryafti.MS_Exit_By_Down = true;
-			this.NsMablaqDaryafti.MS_Exit_By_Enter = true;
-			this.NsMablaqDaryafti.MS_Exit_By_Up = true;
-			this.NsMablaqDaryafti.MS_Is_Negative = false;
-			this.NsMablaqDaryafti.MS_Last_Control = null;
-			this.NsMablaqDaryafti.MS_Next_Control = null;
-			this.NsMablaqDaryafti.Name = "NsMablaqDaryafti";
-			this.NsMablaqDaryafti.Size = new System.Drawing.Size(117, 30);
-			this.NsMablaqDaryafti.TabIndex = 847;
-			this.NsMablaqDaryafti.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far;
-			this.NsMablaqDaryafti.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
 			// 
 			// Form_TasviehAqsat
 			// 

@@ -65,5 +65,12 @@ namespace Nz.Bar.Winforms.Provider
 	        frm.MdiParent = AqsatProvider.MainForm;
 	        frm.Show();
 		}
+
+        private void NsSarResidHafte_Click(object sender, EventArgs e)
+        {
+	        var frm = new FormSarResidAqsatHafte();
+	        frm.MdiParent = AqsatProvider.MainForm;
+	        frm.Show();
+		}
     }
 }
