@@ -40,9 +40,7 @@ LEFT OUTER JOIN     Base.tbl_Ashxas         AS ta_zamen     ON  ta_zamen.ID     
 WHERE   
 
             tar.isPardaxt = 0 
-        AND cast (GETDATE()  as date) > tar.tarixQest
-
-");
+        AND cast (GETDATE()  as date) > tar.tarixQest");
 	    }
     }
 }

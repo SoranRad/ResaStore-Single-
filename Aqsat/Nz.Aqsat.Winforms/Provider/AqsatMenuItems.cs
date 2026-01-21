@@ -58,5 +58,12 @@ namespace Nz.Bar.Winforms.Provider
 	        frm.MdiParent = AqsatProvider.MainForm;
 	        frm.Show();
 		}
+
+        private void NsAqsatMoedGozashteAshxas_Click(object sender, EventArgs e)
+        {
+	        var frm = new FormAqsatMoedGozashteAshxas();
+	        frm.MdiParent = AqsatProvider.MainForm;
+	        frm.Show();
+		}
     }
 }

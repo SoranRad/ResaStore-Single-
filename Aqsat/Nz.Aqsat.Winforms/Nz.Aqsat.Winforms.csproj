@@ -244,6 +244,12 @@
     <Compile Include="Report\FormAqsatMoedGozashte.Designer.cs">
       <DependentUpon>FormAqsatMoedGozashte.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\FormAqsatMoedGozashteAshxas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormAqsatMoedGozashteAshxas.Designer.cs">
+      <DependentUpon>FormAqsatMoedGozashteAshxas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\FormSarResidAqsat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report\FormAqsatMoedGozashte.resx">
       <DependentUpon>FormAqsatMoedGozashte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormAqsatMoedGozashteAshxas.resx">
+      <DependentUpon>FormAqsatMoedGozashteAshxas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\FormSarResidAqsat.resx">
       <DependentUpon>FormSarResidAqsat.cs</DependentUpon>

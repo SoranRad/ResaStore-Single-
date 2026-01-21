@@ -83,6 +83,7 @@
     <Compile Include="DapperConfig\Bill\RemaindPeopleConfig.cs" />
     <Compile Include="DapperConfig\Model\Aqsat_Main_DapperConfiguration.cs" />
     <Compile Include="DapperConfig\Report\AqsatList_DapperConfig.cs" />
+    <Compile Include="DapperConfig\Report\AqsatMoedGozashteAshxas_DapperConfig.cs" />
     <Compile Include="DapperConfig\Report\PrintAqsatNoteDapperConfig.cs" />
     <Compile Include="DapperConfig\Report\AqsatMoedGozashte_DapperConfig.cs" />
     <Compile Include="DapperConfig\Report\SarResidAqsat_DapperConfig.cs" />

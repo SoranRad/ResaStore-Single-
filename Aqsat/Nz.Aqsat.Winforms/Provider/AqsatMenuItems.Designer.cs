@@ -38,7 +38,7 @@ namespace Nz.Bar.Winforms.Provider
 			this.NsCreateAqsat = new System.Windows.Forms.ToolStripMenuItem();
 			this.لیستاقساطToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.NzReport = new System.Windows.Forms.ToolStripMenuItem();
-			this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsAqsatMoedGozashteAshxas = new System.Windows.Forms.ToolStripMenuItem();
 			this.NsMoedGozashteh = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.NsSarResidAqsat = new System.Windows.Forms.ToolStripMenuItem();
@@ -120,7 +120,7 @@ namespace Nz.Bar.Winforms.Provider
 			// NzReport
 			// 
 			this.NzReport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem,
+            this.NsAqsatMoedGozashteAshxas,
             this.NsMoedGozashteh,
             this.toolStripSeparator3,
             this.NsSarResidAqsat,
@@ -133,11 +133,12 @@ namespace Nz.Bar.Winforms.Provider
 			this.NzReport.Size = new System.Drawing.Size(96, 28);
 			this.NzReport.Text = "گـزارشـات";
 			// 
-			// گزارشاقساطبهتفکیکوضعیتToolStripMenuItem
+			// NsAqsatMoedGozashteAshxas
 			// 
-			this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem.Name = "گزارشاقساطبهتفکیکوضعیتToolStripMenuItem";
-			this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem.Size = new System.Drawing.Size(281, 30);
-			this.گزارشاقساطبهتفکیکوضعیتToolStripMenuItem.Text = "گزارش اقساط موعد گذشته اشخاص";
+			this.NsAqsatMoedGozashteAshxas.Name = "NsAqsatMoedGozashteAshxas";
+			this.NsAqsatMoedGozashteAshxas.Size = new System.Drawing.Size(281, 30);
+			this.NsAqsatMoedGozashteAshxas.Text = "گزارش اقساط موعد گذشته اشخاص";
+			this.NsAqsatMoedGozashteAshxas.Click += new System.EventHandler(this.NsAqsatMoedGozashteAshxas_Click);
 			// 
 			// NsMoedGozashteh
 			// 
@@ -191,7 +192,7 @@ namespace Nz.Bar.Winforms.Provider
         public System.Windows.Forms.ToolStripMenuItem NzReport;
 		private System.Windows.Forms.ToolStripMenuItem NsCreateAqsat;
 		private System.Windows.Forms.ToolStripMenuItem لیستاقساطToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem گزارشاقساطبهتفکیکوضعیتToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem NsAqsatMoedGozashteAshxas;
         private System.Windows.Forms.ToolStripMenuItem تعریفانواعقسطToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem NsMoedGozashteh;
