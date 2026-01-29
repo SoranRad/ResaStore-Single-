@@ -39,7 +39,7 @@ namespace ShareLib.Interfaces
         Task<MS_Chart[]>                    GetChartSummarry        ();
 
         Task<IEnumerable<DailyCircular>>    GetDailyCircular        (short Year,short Month);
-        NsSettingTabPage                    GetSettingTabPage       ();
+        NsSettingTabPage[]                  GetSettingTabPage       ();
         void                                SetSettings             (IEnumerable<dynamic> settings);
         ISettingItems                       GetSettings             ();
 

@@ -1,7 +1,9 @@
-﻿using MS_Control.MainForms;
+﻿using MS_Control;
+using MS_Control.MainForms;
 using ShareLib.Component;
 using ShareLib.Interfaces;
 using ShareLib.Utils;
+using ShareLib.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,8 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MS_Control;
-using ShareLib.ViewModel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace NZ.General.WinForms.Setting
 {
@@ -37,11 +38,14 @@ namespace NZ.General.WinForms.Setting
 		{
 			foreach (var system in Form_Factory.SystemList)
 			{
-				var tab = system.GetSettingTabPage();
-				if (tab != null)
+				var tabs = system.GetSettingTabPage();
+				if (tabs != null)
 				{
-					tab.OnSavedItems+=OnSavedItems;
-					NzTab.TabPages.Add(tab);
+					foreach (var tabPage in tabs)
+					{
+						tabPage.OnSavedItems += OnSavedItems;
+						NzTab.TabPages.Add(tabPage);
+					}
 				}
 			}
 		}

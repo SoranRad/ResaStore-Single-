@@ -121,6 +121,13 @@
     <Compile Include="Models\Report\NoteOfDate.cs" />
     <Compile Include="Models\Report\SummaryNote.cs" />
     <Compile Include="Models\YearNoteList.cs" />
+    <Compile Include="RestApi\BaseApi.cs" />
+    <Compile Include="RestApi\HttpClientFactory.cs" />
+    <Compile Include="RestApi\RestApiOptions.cs" />
+    <Compile Include="RestApi\TokenDto.cs" />
+    <Compile Include="Sms\FastSendSmsDto.cs" />
+    <Compile Include="Sms\FastSmsApi.cs" />
+    <Compile Include="Sms\TemplateParamDto.cs" />
     <Compile Include="Utils\Converter.cs" />
     <Compile Include="Utils\CryptographyHelper.cs" />
     <Compile Include="Utils\Extentions.cs" />
@@ -207,5 +214,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <PackageReference Include="RestSharp">
+      <Version>113.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="TwentyDevs.ResultCore">
+      <Version>1.0.21</Version>
+    </PackageReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -628,8 +628,13 @@
     <Compile Include="Setting\TabSettingContainer.Designer.cs">
       <DependentUpon>TabSettingContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sms\SendSms.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <PackageReference Include="TwentyDevs.ResultCore">
+      <Version>1.0.21</Version>
+    </PackageReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="log4net.config" />
     <ProjectReference Include="..\MS_Print_Dialog\MS_Print_Dialog.csproj">
@@ -647,11 +652,6 @@
       <Name>NZ.General.Business</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\ShareLib\ShareLib.csproj">
-      <Project>{ee295af7-3238-4f98-b5fc-9f16c02391e8}</Project>
-      <Name>ShareLib</Name>
-      <Private>False</Private>
-    </ProjectReference>
     <None Include="..\MS_Resource\GlobalResources.Designer.cs">
       <Link>GlobalResources.Designer.cs</Link>
       <AutoGen>True</AutoGen>
@@ -664,6 +664,11 @@
       <LastGenOutput>GlobalResources.Designer.cs</LastGenOutput>
       <CustomToolNamespace>MS_Resource</CustomToolNamespace>
     </None>
+    <ProjectReference Include="..\ShareLib\ShareLib.csproj">
+      <Project>{ee295af7-3238-4f98-b5fc-9f16c02391e8}</Project>
+      <Name>ShareLib</Name>
+      <Private>False</Private>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Alarm\Form_Alarm.resx">

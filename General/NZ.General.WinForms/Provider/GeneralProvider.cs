@@ -164,7 +164,7 @@ namespace NZ.General.WinForms
                 return null;
             }
         }
-		public NsSettingTabPage                 GetSettingTabPage   ()
+		public NsSettingTabPage[]                 GetSettingTabPage   ()
 		{
 			_settingContainer = new TabSettingContainer();
             _settingContainer.LoadSetting((SettingItems)_settings);

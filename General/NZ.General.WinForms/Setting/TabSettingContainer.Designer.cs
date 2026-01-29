@@ -28,6 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TabSettingContainer));
+			this.mS_Notify1 = new MS_Control.Controls.MS_Notify();
 			this.NzTabs = new Janus.Windows.UI.Tab.UITab();
 			this.NsGeneralSetting = new ShareLib.Component.NsSettingTabPage();
 			this.label2 = new System.Windows.Forms.Label();
@@ -41,9 +43,28 @@
 			this.NsSms = new MS_Control.Controls.MS_CheckBox();
 			this.NsPayments = new MS_Control.Controls.MS_CheckBox();
 			this.NsStorage = new MS_Control.Controls.MS_CheckBox();
+			this.NsSmsTabPage = new ShareLib.Component.NsSettingTabPage();
+			this.NsSmsActivation = new MS_Control.Controls.MS_CheckBox();
+			this.uiGroupBox1 = new Janus.Windows.EditControls.UIGroupBox();
+			this.mS_Button_GridX1 = new MS_Control.Controls.MS_Button_GridX();
+			this.label6 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
+			this.NsGroupBoxSmsInfo = new Janus.Windows.EditControls.UIGroupBox();
+			this.NsLoading = new System.Windows.Forms.PictureBox();
+			this.NsOK = new MS_Control.Controls.MS_Button_GridX();
+			this.NsPassword = new MS_Control.Controls.MS_TextBox();
+			this.label5 = new System.Windows.Forms.Label();
+			this.NsUsername = new MS_Control.Controls.MS_TextBox();
+			this.label3 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.NzTabs)).BeginInit();
 			this.NzTabs.SuspendLayout();
 			this.NsGeneralSetting.SuspendLayout();
+			this.NsSmsTabPage.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox1)).BeginInit();
+			this.uiGroupBox1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.NsGroupBoxSmsInfo)).BeginInit();
+			this.NsGroupBoxSmsInfo.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.NsLoading)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// NzTabs
@@ -62,7 +83,8 @@
 			this.NzTabs.Size = new System.Drawing.Size(764, 418);
 			this.NzTabs.TabIndex = 711;
 			this.NzTabs.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
-            this.NsGeneralSetting});
+            this.NsGeneralSetting,
+            this.NsSmsTabPage});
 			this.NzTabs.TabsStateStyles.DisabledFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.NzTabs.TabsStateStyles.DisabledFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.NzTabs.TabsStateStyles.FormatStyle.BackColor = System.Drawing.Color.LightBlue;
@@ -86,16 +108,16 @@
 			this.NsGeneralSetting.Controls.Add(this.NsPayments);
 			this.NsGeneralSetting.Controls.Add(this.NsStorage);
 			this.NsGeneralSetting.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NsGeneralSetting.Location = new System.Drawing.Point(0, 23);
+			this.NsGeneralSetting.Location = new System.Drawing.Point(0, 27);
 			this.NsGeneralSetting.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.NsGeneralSetting.Name = "NsGeneralSetting";
 			this.NsGeneralSetting.PanelFormatStyle.Alpha = 70;
 			this.NsGeneralSetting.PanelFormatStyle.BackColor = System.Drawing.Color.SkyBlue;
 			this.NsGeneralSetting.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.NsGeneralSetting.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.NsGeneralSetting.Size = new System.Drawing.Size(764, 395);
+			this.NsGeneralSetting.Size = new System.Drawing.Size(764, 391);
 			this.NsGeneralSetting.TabStop = true;
-			this.NsGeneralSetting.Text = "عمومی";
+			this.NsGeneralSetting.Text = "  عمومی   ";
 			// 
 			// label2
 			// 
@@ -364,6 +386,255 @@
 			this.NsStorage.Text = "  خرید و فروش";
 			this.NsStorage.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
 			// 
+			// NsSmsTabPage
+			// 
+			this.NsSmsTabPage.AutoScroll = true;
+			this.NsSmsTabPage.Controls.Add(this.NsSmsActivation);
+			this.NsSmsTabPage.Controls.Add(this.uiGroupBox1);
+			this.NsSmsTabPage.Controls.Add(this.NsGroupBoxSmsInfo);
+			this.NsSmsTabPage.Location = new System.Drawing.Point(0, 27);
+			this.NsSmsTabPage.Name = "NsSmsTabPage";
+			this.NsSmsTabPage.PanelFormatStyle.Alpha = 70;
+			this.NsSmsTabPage.PanelFormatStyle.BackColor = System.Drawing.Color.SkyBlue;
+			this.NsSmsTabPage.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
+			this.NsSmsTabPage.Size = new System.Drawing.Size(764, 391);
+			this.NsSmsTabPage.TabStop = true;
+			this.NsSmsTabPage.Text = " پنل پیامکی";
+			// 
+			// NsSmsActivation
+			// 
+			this.NsSmsActivation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsSmsActivation.BackColor = System.Drawing.Color.Transparent;
+			this.NsSmsActivation.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsSmsActivation.Font = new System.Drawing.Font("IRANSans(Small)", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.NsSmsActivation.Location = new System.Drawing.Point(512, 13);
+			this.NsSmsActivation.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
+			this.NsSmsActivation.MS_BorderColor = System.Drawing.Color.LightSkyBlue;
+			this.NsSmsActivation.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsSmsActivation.MS_Change_Border_Color_On_Enter = true;
+			this.NsSmsActivation.MS_Change_Color_On_Checked = true;
+			this.NsSmsActivation.MS_Change_Color_On_Enter = true;
+			this.NsSmsActivation.MS_Checked_Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.NsSmsActivation.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsSmsActivation.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsSmsActivation.MS_Exit_By_Down = true;
+			this.NsSmsActivation.MS_Exit_By_Enter = true;
+			this.NsSmsActivation.MS_Exit_By_Up = true;
+			this.NsSmsActivation.MS_Last_Control = null;
+			this.NsSmsActivation.MS_Next_Control = null;
+			this.NsSmsActivation.MS_UnChecked_Color = System.Drawing.Color.Transparent;
+			this.NsSmsActivation.Name = "NsSmsActivation";
+			this.NsSmsActivation.Padding = new System.Windows.Forms.Padding(5);
+			this.NsSmsActivation.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NsSmsActivation.ShowFocusRectangle = false;
+			this.NsSmsActivation.Size = new System.Drawing.Size(227, 21);
+			this.NsSmsActivation.TabIndex = 828;
+			this.NsSmsActivation.Text = "  پنل پیامکی برای کاربر فعال است.";
+			this.NsSmsActivation.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
+			this.NsSmsActivation.CheckedChanged += new System.EventHandler(this.NsSmsActivation_CheckedChanged);
+			// 
+			// uiGroupBox1
+			// 
+			this.uiGroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.uiGroupBox1.BackColor = System.Drawing.Color.Transparent;
+			this.uiGroupBox1.BorderColor = System.Drawing.Color.LightBlue;
+			this.uiGroupBox1.Controls.Add(this.mS_Button_GridX1);
+			this.uiGroupBox1.Controls.Add(this.label6);
+			this.uiGroupBox1.Controls.Add(this.label7);
+			this.uiGroupBox1.Enabled = false;
+			this.uiGroupBox1.Location = new System.Drawing.Point(11, 162);
+			this.uiGroupBox1.Margin = new System.Windows.Forms.Padding(2);
+			this.uiGroupBox1.Name = "uiGroupBox1";
+			this.uiGroupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.uiGroupBox1.Size = new System.Drawing.Size(738, 137);
+			this.uiGroupBox1.TabIndex = 4;
+			// 
+			// mS_Button_GridX1
+			// 
+			this.mS_Button_GridX1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.mS_Button_GridX1.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.mS_Button_GridX1.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.mS_Button_GridX1.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.mS_Button_GridX1.Image = global::MS_Resource.GlobalResources.Rep__5_;
+			this.mS_Button_GridX1.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
+			this.mS_Button_GridX1.Location = new System.Drawing.Point(329, 78);
+			this.mS_Button_GridX1.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.mS_Button_GridX1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.mS_Button_GridX1.MS_Change_Border_Color_On_Enter = false;
+			this.mS_Button_GridX1.MS_Change_Color_On_Enter = false;
+			this.mS_Button_GridX1.MS_Enter_Border_Color = System.Drawing.Color.Empty;
+			this.mS_Button_GridX1.MS_Enter_Color = System.Drawing.Color.Empty;
+			this.mS_Button_GridX1.Name = "mS_Button_GridX1";
+			this.mS_Button_GridX1.Office2007ColorScheme = Janus.Windows.UI.Office2007ColorScheme.Custom;
+			this.mS_Button_GridX1.Office2007CustomColor = System.Drawing.Color.DodgerBlue;
+			this.mS_Button_GridX1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.mS_Button_GridX1.ShowFocusRectangle = false;
+			this.mS_Button_GridX1.Size = new System.Drawing.Size(153, 30);
+			this.mS_Button_GridX1.TabIndex = 167;
+			this.mS_Button_GridX1.Text = "دریافت مانده پنل";
+			this.mS_Button_GridX1.TextHorizontalAlignment = Janus.Windows.EditControls.TextAlignment.Near;
+			this.mS_Button_GridX1.UseThemes = false;
+			this.mS_Button_GridX1.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
+			this.mS_Button_GridX1.WordWrap = false;
+			// 
+			// label6
+			// 
+			this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label6.AutoSize = true;
+			this.label6.BackColor = System.Drawing.Color.Transparent;
+			this.label6.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.label6.Location = new System.Drawing.Point(647, 85);
+			this.label6.Name = "label6";
+			this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.label6.Size = new System.Drawing.Size(76, 23);
+			this.label6.TabIndex = 166;
+			this.label6.Text = "مانده نقدی :";
+			// 
+			// label7
+			// 
+			this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label7.AutoSize = true;
+			this.label7.BackColor = System.Drawing.Color.Transparent;
+			this.label7.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.label7.Location = new System.Drawing.Point(647, 27);
+			this.label7.Name = "label7";
+			this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.label7.Size = new System.Drawing.Size(82, 23);
+			this.label7.TabIndex = 164;
+			this.label7.Text = "تعداد پیامک :";
+			// 
+			// NsGroupBoxSmsInfo
+			// 
+			this.NsGroupBoxSmsInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsGroupBoxSmsInfo.BackColor = System.Drawing.Color.Transparent;
+			this.NsGroupBoxSmsInfo.BorderColor = System.Drawing.Color.LightBlue;
+			this.NsGroupBoxSmsInfo.Controls.Add(this.NsLoading);
+			this.NsGroupBoxSmsInfo.Controls.Add(this.NsOK);
+			this.NsGroupBoxSmsInfo.Controls.Add(this.NsPassword);
+			this.NsGroupBoxSmsInfo.Controls.Add(this.label5);
+			this.NsGroupBoxSmsInfo.Controls.Add(this.NsUsername);
+			this.NsGroupBoxSmsInfo.Controls.Add(this.label3);
+			this.NsGroupBoxSmsInfo.Enabled = false;
+			this.NsGroupBoxSmsInfo.Location = new System.Drawing.Point(11, 17);
+			this.NsGroupBoxSmsInfo.Margin = new System.Windows.Forms.Padding(2);
+			this.NsGroupBoxSmsInfo.Name = "NsGroupBoxSmsInfo";
+			this.NsGroupBoxSmsInfo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NsGroupBoxSmsInfo.Size = new System.Drawing.Size(738, 141);
+			this.NsGroupBoxSmsInfo.TabIndex = 3;
+			// 
+			// NsLoading
+			// 
+			this.NsLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsLoading.Image = ((System.Drawing.Image)(resources.GetObject("NsLoading.Image")));
+			this.NsLoading.Location = new System.Drawing.Point(292, 97);
+			this.NsLoading.Name = "NsLoading";
+			this.NsLoading.Size = new System.Drawing.Size(31, 30);
+			this.NsLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.NsLoading.TabIndex = 168;
+			this.NsLoading.TabStop = false;
+			this.NsLoading.Visible = false;
+			// 
+			// NsOK
+			// 
+			this.NsOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsOK.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsOK.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.NsOK.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.NsOK.Image = ((System.Drawing.Image)(resources.GetObject("NsOK.Image")));
+			this.NsOK.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
+			this.NsOK.Location = new System.Drawing.Point(329, 97);
+			this.NsOK.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NsOK.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsOK.MS_Change_Border_Color_On_Enter = false;
+			this.NsOK.MS_Change_Color_On_Enter = false;
+			this.NsOK.MS_Enter_Border_Color = System.Drawing.Color.Empty;
+			this.NsOK.MS_Enter_Color = System.Drawing.Color.Empty;
+			this.NsOK.Name = "NsOK";
+			this.NsOK.Office2007ColorScheme = Janus.Windows.UI.Office2007ColorScheme.Custom;
+			this.NsOK.Office2007CustomColor = System.Drawing.Color.DodgerBlue;
+			this.NsOK.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NsOK.ShowFocusRectangle = false;
+			this.NsOK.Size = new System.Drawing.Size(153, 30);
+			this.NsOK.TabIndex = 167;
+			this.NsOK.Text = "بررسی صحت اطلاعات";
+			this.NsOK.TextHorizontalAlignment = Janus.Windows.EditControls.TextAlignment.Near;
+			this.NsOK.UseThemes = false;
+			this.NsOK.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
+			this.NsOK.WordWrap = false;
+			this.NsOK.Click += new System.EventHandler(this.NsOK_Click);
+			// 
+			// NsPassword
+			// 
+			this.NsPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsPassword.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsPassword.Location = new System.Drawing.Point(501, 100);
+			this.NsPassword.MaxLength = 200;
+			this.NsPassword.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NsPassword.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsPassword.MS_Change_Border_Color_On_Enter = true;
+			this.NsPassword.MS_Change_Color_On_Enter = true;
+			this.NsPassword.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsPassword.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsPassword.MS_Exit_By_Down = true;
+			this.NsPassword.MS_Exit_By_Enter = true;
+			this.NsPassword.MS_Exit_By_Up = true;
+			this.NsPassword.MS_Last_Control = null;
+			this.NsPassword.MS_Next_Control = null;
+			this.NsPassword.Name = "NsPassword";
+			this.NsPassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.NsPassword.Size = new System.Drawing.Size(152, 27);
+			this.NsPassword.TabIndex = 165;
+			// 
+			// label5
+			// 
+			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label5.AutoSize = true;
+			this.label5.BackColor = System.Drawing.Color.Transparent;
+			this.label5.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.label5.Location = new System.Drawing.Point(659, 102);
+			this.label5.Name = "label5";
+			this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.label5.Size = new System.Drawing.Size(64, 23);
+			this.label5.TabIndex = 166;
+			this.label5.Text = "کلمه عبور :";
+			// 
+			// NsUsername
+			// 
+			this.NsUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsUsername.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsUsername.Location = new System.Drawing.Point(501, 56);
+			this.NsUsername.MaxLength = 200;
+			this.NsUsername.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NsUsername.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsUsername.MS_Change_Border_Color_On_Enter = true;
+			this.NsUsername.MS_Change_Color_On_Enter = true;
+			this.NsUsername.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsUsername.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsUsername.MS_Exit_By_Down = true;
+			this.NsUsername.MS_Exit_By_Enter = true;
+			this.NsUsername.MS_Exit_By_Up = true;
+			this.NsUsername.MS_Last_Control = null;
+			this.NsUsername.MS_Next_Control = null;
+			this.NsUsername.Name = "NsUsername";
+			this.NsUsername.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.NsUsername.Size = new System.Drawing.Size(152, 27);
+			this.NsUsername.TabIndex = 163;
+			// 
+			// label3
+			// 
+			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label3.AutoSize = true;
+			this.label3.BackColor = System.Drawing.Color.Transparent;
+			this.label3.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.label3.Location = new System.Drawing.Point(659, 58);
+			this.label3.Name = "label3";
+			this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.label3.Size = new System.Drawing.Size(70, 23);
+			this.label3.TabIndex = 164;
+			this.label3.Text = "نام کاربری :";
+			// 
 			// TabSettingContainer
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -374,6 +645,14 @@
 			this.NzTabs.ResumeLayout(false);
 			this.NsGeneralSetting.ResumeLayout(false);
 			this.NsGeneralSetting.PerformLayout();
+			this.NsSmsTabPage.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox1)).EndInit();
+			this.uiGroupBox1.ResumeLayout(false);
+			this.uiGroupBox1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.NsGroupBoxSmsInfo)).EndInit();
+			this.NsGroupBoxSmsInfo.ResumeLayout(false);
+			this.NsGroupBoxSmsInfo.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.NsLoading)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -382,6 +661,8 @@
 
 		private Janus.Windows.UI.Tab.UITab NzTabs;
 		private ShareLib.Component.NsSettingTabPage NsGeneralSetting;
+		private ShareLib.Component.NsSettingTabPage NsSmsTabPage;
+
 		private MS_Control.Controls.MS_CheckBox NsSms;
 		private MS_Control.Controls.MS_CheckBox NsPayments;
 		private MS_Control.Controls.MS_CheckBox NsStorage;
@@ -393,5 +674,18 @@
 		private MS_Control.Controls.MS_CheckBox NsAlarm;
 		private MS_Control.Controls.MS_CheckBox NsBackup;
 		private System.Windows.Forms.Label label2;
-	}
+        private Janus.Windows.EditControls.UIGroupBox NsGroupBoxSmsInfo;
+        private MS_Control.Controls.MS_TextBox NsPassword;
+        private System.Windows.Forms.Label label5;
+        private MS_Control.Controls.MS_TextBox NsUsername;
+        private System.Windows.Forms.Label label3;
+        private Janus.Windows.EditControls.UIGroupBox uiGroupBox1;
+        private MS_Control.Controls.MS_Button_GridX mS_Button_GridX1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private MS_Control.Controls.MS_Button_GridX NsOK;
+        private System.Windows.Forms.PictureBox NsLoading;
+        private MS_Control.Controls.MS_Notify mS_Notify1;
+        private MS_Control.Controls.MS_CheckBox NsSmsActivation;
+    }
 }

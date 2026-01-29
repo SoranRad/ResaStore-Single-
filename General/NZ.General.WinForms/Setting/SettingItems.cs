@@ -20,6 +20,7 @@ namespace NZ.General.WinForms.Setting
 				LownActive				= false,
 				ShowAlarm				= true,
 				ShowBackupOnExit		= true,
+				SmsActivation			= false,
 			};
 		}
 
@@ -36,5 +37,8 @@ namespace NZ.General.WinForms.Setting
 		public bool     AllowMultipleDatabase   { get; set; }
 		public bool		ShowAlarm				{ get; set; }
 		public bool		ShowBackupOnExit		{ get; set; }
+		public bool		SmsActivation			{ get; set; }
+		public string	Username				{ get; set; }
+		public string	Password				{ get; set; }
 	}
 }

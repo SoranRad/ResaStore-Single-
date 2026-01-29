@@ -249,12 +249,12 @@ namespace Nz.Site.Winforms.Provider
 
             }
         }
-		public NsSettingTabPage                 GetSettingTabPage       ()
+		public NsSettingTabPage[]                 GetSettingTabPage       ()
 		{
 			_settingContainer = new TabSettingContainer();
 			_settingContainer.LoadSetting((SettingItems)_settings );
 
-			return _settingContainer.TabSetting;
+			return new NsSettingTabPage[] { _settingContainer.TabSetting };
 		}
 
 		public void                             SetSettings             (IEnumerable<dynamic> settings)
