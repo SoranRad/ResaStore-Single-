@@ -28,20 +28,8 @@ namespace NZ.General.WinForms.Sms
 	    {
 		    _setting = Form_Factory._Form_Factory_General.GetSettings() as SettingItems;
 	    } 
-		/// <summary>
-		///  #CUSTOMER# موعد پرداخت #COUNT# قسط عقب افتاده #AGHSATTITLE# شما تاریخ #DATE# به مبلغ #AMOUNT# می باشد.
-		/// #COMPANY#
-		///
-		/// 780599 کد قالب
-		/// </summary>
-		/// <param name="PhoneNumber"></param>
-		/// <param name="Customer"></param>
-		/// <param name="Count"></param>
-		/// <param name="AGHSATTITLE"></param>
-		/// <param name="Date"></param>
-		/// <param name="Amount"></param>
-		/// <returns></returns>
-		public async Task<bool> SendPayamakYekQest(long PhoneNumber, string Customer, string Count, string AGHSATTITLE, string Date ,string Amount)
+		
+		public async Task<bool>		SendSarResidQest		(long PhoneNumber, string Customer, string Count, string AGHSATTITLE, string Date ,string Amount)
 	    {
 		    try
 		    {
@@ -52,20 +40,21 @@ namespace NZ.General.WinForms.Sms
 				var SmsApi = new FastSmsApi(HttpClientFactory.Generate(new TokenDto(){Token = TOKEN}));
 				var result = await SmsApi.SendSms(new FastSendSmsDto()
 				{
-					Mobile		= PhoneNumber,
-					Password	= _setting.Password,
-					UserName	= _setting.Username,
-					TemplateID = 780599,
-					TemplateParams = new TemplateParamDto[]
+					Mobile			= PhoneNumber,
+					Password		= _setting.Password,
+					UserName		= _setting.Username,
+					TemplateID		= 919155,
+					TemplateParams	= new TemplateParamDto[]
 					{
-						new TemplateParamDto(){Name = "CUSTOMER",		Value = Customer},
-						new TemplateParamDto(){Name = "COUNT",			Value = Count},
-						new TemplateParamDto(){Name = "AGHSATTITLE",	Value = AGHSATTITLE},
-						new TemplateParamDto(){Name = "DATE",			Value = Date},
-						new TemplateParamDto(){Name = "AMOUNT",			Value = Amount},
-						new TemplateParamDto(){Name = "COMPANY",		Value = " بیمه ایران نمایندگی محسن قوندر"},
+						new TemplateParamDto(){Name = "CUSTOMER",		Value = Customer.En2Fa()},
+						new TemplateParamDto(){Name = "COUNT",			Value = Count.En2Fa()},
+						new TemplateParamDto(){Name = "AGHSATTITLE",	Value = AGHSATTITLE.En2Fa()},
+						new TemplateParamDto(){Name = "DATE",			Value = Date.En2Fa()},
+						new TemplateParamDto(){Name = "AMOUNT",			Value = Amount.En2Fa()},
+						new TemplateParamDto(){Name = "COMPANY",		Value = SystemConstant.ActiveCompany.title.En2Fa()},
 					}
-				}, TOKEN);
+				}, 
+					TOKEN);
 
 				if (!result.IsSuccess)
 				{
@@ -86,8 +75,60 @@ namespace NZ.General.WinForms.Sms
 			    return false;
 		    }
 	    }
+	    public async Task<bool>		SendAqsatMande			(long PhoneNumber, string Customer, string Count, string AGHSATTITLE, string Date, string Amount)
+	    {
+		    try
+		    {
+			    if (await GetToken() == false)
+				    return false;
 
-	    private async Task<bool> GetToken()
+
+			    var SmsApi = new FastSmsApi(HttpClientFactory.Generate(new TokenDto() { Token = TOKEN }));
+			    var result = await SmsApi.SendSms(new FastSendSmsDto()
+			    {
+				    Mobile = PhoneNumber,
+				    Password = _setting.Password,
+				    UserName = _setting.Username,
+				    TemplateID = 780599,
+				    TemplateParams = new TemplateParamDto[]
+				    {
+					    new TemplateParamDto(){Name = "CUSTOMER",       Value = Customer.En2Fa()},
+					    new TemplateParamDto(){Name = "COUNT",          Value = Count.En2Fa()},
+					    new TemplateParamDto(){Name = "AGHSATTITLE",    Value = AGHSATTITLE.En2Fa()},
+					    new TemplateParamDto(){Name = "DATE",           Value = Date.En2Fa()},
+					    new TemplateParamDto(){Name = "AMOUNT",         Value = Amount.En2Fa()},
+					    new TemplateParamDto(){Name = "COMPANY",        Value = SystemConstant.ActiveCompany.title.En2Fa()},
+				    }
+			    }, 
+				    TOKEN);
+
+			    if (!result.IsSuccess)
+			    {
+				    if (result.Errors != null && result.Errors.Any())
+				    {
+					    var error = string.Join("\r\n", result.Errors.SelectMany(x => x.Value));
+					    log.Error(result.Message, new Exception(error));
+				    }
+
+				    return false;
+			    }
+
+			    return true;
+		    }
+		    catch (Exception ex)
+		    {
+			    log.Error(ex.Message, ex);
+			    return false;
+		    }
+	    }
+	    public async Task<SmsCustomerInfo>	GetAccountInfo	(string username )
+	    {
+		    var SmsApi = new FastSmsApi(HttpClientFactory.Generate());
+		    var result = await SmsApi.GetAccountInfo(username);
+
+		    return result.Result ? result.Data : null;
+	    }
+	    private async Task<bool>			GetToken		()
 	    {
 			if(!string.IsNullOrEmpty(TOKEN))
 				return true;
@@ -98,8 +139,8 @@ namespace NZ.General.WinForms.Sms
 			
 			if (Token == null)
 				return false;
-			
-			Token = Token.Trim();
+
+			TOKEN = Token.Trim();
 			return true;
 	    }
 

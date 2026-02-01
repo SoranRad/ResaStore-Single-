@@ -51,10 +51,11 @@ namespace NZ.Resaa.Store
 			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
 			this.NzVersion = new System.Windows.Forms.ToolStripLabel();
 			this.NsElapsedLock = new System.Windows.Forms.ToolStripLabel();
+			this.NsLockAccount = new System.Windows.Forms.ToolStripButton();
 			this.Pic_Back_Main = new System.Windows.Forms.PictureBox();
 			this.NzSidebar = new MS_Control.Controls.MS_Menu();
 			this.applicationIdle1 = new NZ.Resaa.Store.Components.ApplicationIdle();
-			this.NsLockAccount = new System.Windows.Forms.ToolStripButton();
+			this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
 			this.mS_Menu1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ms_MdiTab)).BeginInit();
 			this.mS_Tool_Strip1.SuspendLayout();
@@ -176,7 +177,8 @@ namespace NZ.Resaa.Store
             this.toolStripSeparator4,
             this.NzVersion,
             this.NsElapsedLock,
-            this.NsLockAccount});
+            this.NsLockAccount,
+            this.toolStripProgressBar1});
 			this.mS_Tool_Strip1.Location = new System.Drawing.Point(0, 470);
 			this.mS_Tool_Strip1.MS_BorderColor = System.Drawing.Color.CornflowerBlue;
 			this.mS_Tool_Strip1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -293,6 +295,18 @@ namespace NZ.Resaa.Store
 			this.NsElapsedLock.Size = new System.Drawing.Size(0, 27);
 			this.NsElapsedLock.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			// 
+			// NsLockAccount
+			// 
+			this.NsLockAccount.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.NsLockAccount.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.NsLockAccount.Image = global::MS_Resource.GlobalResources.Negin__38_;
+			this.NsLockAccount.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.NsLockAccount.Margin = new System.Windows.Forms.Padding(5, 1, 5, 2);
+			this.NsLockAccount.Name = "NsLockAccount";
+			this.NsLockAccount.Size = new System.Drawing.Size(23, 27);
+			this.NsLockAccount.Text = "قفل حساب کاربری";
+			this.NsLockAccount.Click += new System.EventHandler(this.NsLockAccount_Click);
+			// 
 			// Pic_Back_Main
 			// 
 			this.Pic_Back_Main.BackColor = System.Drawing.Color.Transparent;
@@ -328,17 +342,15 @@ namespace NZ.Resaa.Store
 			// 
 			this.applicationIdle1.WarnTime = System.TimeSpan.Parse("00:00:30");
 			// 
-			// NsLockAccount
+			// toolStripProgressBar1
 			// 
-			this.NsLockAccount.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-			this.NsLockAccount.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.NsLockAccount.Image = global::MS_Resource.GlobalResources.Negin__38_;
-			this.NsLockAccount.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.NsLockAccount.Margin = new System.Windows.Forms.Padding(5, 1, 5, 2);
-			this.NsLockAccount.Name = "NsLockAccount";
-			this.NsLockAccount.Size = new System.Drawing.Size(23, 27);
-			this.NsLockAccount.Text = "قفل حساب کاربری";
-			this.NsLockAccount.Click += new System.EventHandler(this.NsLockAccount_Click);
+			this.toolStripProgressBar1.AutoSize = false;
+			this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+			this.toolStripProgressBar1.Size = new System.Drawing.Size(150, 15);
+			this.toolStripProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+			this.toolStripProgressBar1.ToolTipText = "پردازش در پس زمینه";
+			this.toolStripProgressBar1.Value = 35;
+			this.toolStripProgressBar1.Visible = false;
 			// 
 			// Form_Resaa_Store
 			// 
@@ -396,6 +408,7 @@ namespace NZ.Resaa.Store
 		private Components.ApplicationIdle applicationIdle1;
 		private System.Windows.Forms.ToolStripLabel NsElapsedLock;
         private System.Windows.Forms.ToolStripButton NsLockAccount;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
     }
 }
 

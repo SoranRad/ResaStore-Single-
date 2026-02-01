@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
 			Janus.Windows.GridEX.GridEXLayout NzGridHeads_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAqsatMoedGozashteAshxas));
 			Janus.Windows.GridEX.GridEXLayout mS_GridX1_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference mS_GridX1_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference mS_GridX1_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.HeaderImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference mS_GridX1_Layout_0_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column12.ButtonImage");
 			this.Tab_Control_Main = new Janus.Windows.UI.Tab.UITab();
 			this.uiTabPage12 = new Janus.Windows.UI.Tab.UITabPage();
 			this.NzGridHeads = new MS_Control.Controls.MS_GridX();
@@ -70,7 +72,7 @@
 			this.Tab_Control_Main.Name = "Tab_Control_Main";
 			this.Tab_Control_Main.Office2007CustomColor = System.Drawing.Color.Transparent;
 			this.Tab_Control_Main.ShowFocusRectangle = false;
-			this.Tab_Control_Main.Size = new System.Drawing.Size(1137, 558);
+			this.Tab_Control_Main.Size = new System.Drawing.Size(1316, 558);
 			this.Tab_Control_Main.TabIndex = 727;
 			this.Tab_Control_Main.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
             this.uiTabPage12,
@@ -100,7 +102,7 @@
 			this.uiTabPage12.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.uiTabPage12.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.uiTabPage12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage12.Size = new System.Drawing.Size(1103, 556);
+			this.uiTabPage12.Size = new System.Drawing.Size(1282, 556);
 			this.uiTabPage12.TabStop = true;
 			this.uiTabPage12.Text = "اطلاعات";
 			// 
@@ -137,6 +139,9 @@
 			this.NzGridHeads.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
 			NzGridHeads_Layout_0.IsCurrentLayout = true;
 			NzGridHeads_Layout_0.Key = "General";
+			NzGridHeads_Layout_0_Reference_0.Instance = ((object)(resources.GetObject("NzGridHeads_Layout_0_Reference_0.Instance")));
+			NzGridHeads_Layout_0.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
+            NzGridHeads_Layout_0_Reference_0});
 			NzGridHeads_Layout_0.LayoutString = resources.GetString("NzGridHeads_Layout_0.LayoutString");
 			this.NzGridHeads.Layouts.AddRange(new Janus.Windows.GridEX.GridEXLayout[] {
             NzGridHeads_Layout_0});
@@ -151,13 +156,14 @@
 			this.NzGridHeads.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
 			this.NzGridHeads.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
 			this.NzGridHeads.SelectOnExpand = false;
-			this.NzGridHeads.Size = new System.Drawing.Size(1103, 233);
+			this.NzGridHeads.Size = new System.Drawing.Size(1282, 233);
 			this.NzGridHeads.TabIndex = 719;
 			this.NzGridHeads.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
 			this.NzGridHeads.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 			this.NzGridHeads.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
 			this.NzGridHeads.TreeLineColor = System.Drawing.Color.Black;
 			this.NzGridHeads.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			this.NzGridHeads.ColumnButtonClick += new Janus.Windows.GridEX.ColumnActionEventHandler(this.NzGridHeads_ColumnButtonClick);
 			this.NzGridHeads.SelectionChanged += new System.EventHandler(this.NzGridHeads_SelectionChanged);
 			// 
 			// mS_GridX_Setting2
@@ -174,7 +180,7 @@
 			this.mS_GridX_Setting2.MS_GridX = this.NzGridHeads;
 			this.mS_GridX_Setting2.Name = "mS_GridX_Setting2";
 			this.mS_GridX_Setting2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_GridX_Setting2.Size = new System.Drawing.Size(1103, 25);
+			this.mS_GridX_Setting2.Size = new System.Drawing.Size(1282, 25);
 			this.mS_GridX_Setting2.TabIndex = 725;
 			this.mS_GridX_Setting2.Text = "mS_GridX_Setting2";
 			// 
@@ -214,7 +220,7 @@
 			this.Splitter1.Location = new System.Drawing.Point(0, 287);
 			this.Splitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Splitter1.Name = "Splitter1";
-			this.Splitter1.Size = new System.Drawing.Size(1103, 8);
+			this.Splitter1.Size = new System.Drawing.Size(1282, 8);
 			this.Splitter1.Style = DevComponents.DotNetBar.eSplitterStyle.Office2007;
 			this.Splitter1.TabIndex = 748;
 			this.Splitter1.TabStop = false;
@@ -230,7 +236,7 @@
 			this.mS_Panel1.MS_Color_End = System.Drawing.Color.SkyBlue;
 			this.mS_Panel1.MS_Color_Start = System.Drawing.Color.AliceBlue;
 			this.mS_Panel1.Name = "mS_Panel1";
-			this.mS_Panel1.Size = new System.Drawing.Size(1103, 29);
+			this.mS_Panel1.Size = new System.Drawing.Size(1282, 29);
 			this.mS_Panel1.TabIndex = 720;
 			// 
 			// mS_Tool_Strip1
@@ -242,7 +248,7 @@
 			this.mS_Tool_Strip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.NzItems,
             this.NzRefreshList});
-			this.mS_Tool_Strip1.Location = new System.Drawing.Point(1024, 0);
+			this.mS_Tool_Strip1.Location = new System.Drawing.Point(1203, 0);
 			this.mS_Tool_Strip1.MS_BorderColor = System.Drawing.Color.SkyBlue;
 			this.mS_Tool_Strip1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_Tool_Strip1.MS_Color_End = System.Drawing.Color.LightBlue;
@@ -287,7 +293,7 @@
 			this.mS_Panel2.MS_Color_End = System.Drawing.Color.SkyBlue;
 			this.mS_Panel2.MS_Color_Start = System.Drawing.Color.AliceBlue;
 			this.mS_Panel2.Name = "mS_Panel2";
-			this.mS_Panel2.Size = new System.Drawing.Size(1103, 261);
+			this.mS_Panel2.Size = new System.Drawing.Size(1282, 261);
 			this.mS_Panel2.TabIndex = 749;
 			this.mS_Panel2.Visible = false;
 			// 
@@ -323,9 +329,11 @@
 			mS_GridX1_Layout_0.Key = "Transfer";
 			mS_GridX1_Layout_0_Reference_0.Instance = ((object)(resources.GetObject("mS_GridX1_Layout_0_Reference_0.Instance")));
 			mS_GridX1_Layout_0_Reference_1.Instance = ((object)(resources.GetObject("mS_GridX1_Layout_0_Reference_1.Instance")));
+			mS_GridX1_Layout_0_Reference_2.Instance = ((object)(resources.GetObject("mS_GridX1_Layout_0_Reference_2.Instance")));
 			mS_GridX1_Layout_0.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
             mS_GridX1_Layout_0_Reference_0,
-            mS_GridX1_Layout_0_Reference_1});
+            mS_GridX1_Layout_0_Reference_1,
+            mS_GridX1_Layout_0_Reference_2});
 			mS_GridX1_Layout_0.LayoutString = resources.GetString("mS_GridX1_Layout_0.LayoutString");
 			this.mS_GridX1.Layouts.AddRange(new Janus.Windows.GridEX.GridEXLayout[] {
             mS_GridX1_Layout_0});
@@ -340,7 +348,7 @@
 			this.mS_GridX1.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
 			this.mS_GridX1.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
 			this.mS_GridX1.SelectOnExpand = false;
-			this.mS_GridX1.Size = new System.Drawing.Size(1103, 236);
+			this.mS_GridX1.Size = new System.Drawing.Size(1282, 236);
 			this.mS_GridX1.TabIndex = 752;
 			this.mS_GridX1.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
 			this.mS_GridX1.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -363,7 +371,7 @@
 			this.mS_GridX_Setting1.MS_GridX = this.NzGridHeads;
 			this.mS_GridX_Setting1.Name = "mS_GridX_Setting1";
 			this.mS_GridX_Setting1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_GridX_Setting1.Size = new System.Drawing.Size(1103, 25);
+			this.mS_GridX_Setting1.Size = new System.Drawing.Size(1282, 25);
 			this.mS_GridX_Setting1.TabIndex = 751;
 			this.mS_GridX_Setting1.Text = "mS_GridX_Setting1";
 			// 
@@ -390,7 +398,7 @@
 			// FormAqsatMoedGozashteAshxas
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-			this.ClientSize = new System.Drawing.Size(1137, 558);
+			this.ClientSize = new System.Drawing.Size(1316, 558);
 			this.Controls.Add(this.Tab_Control_Main);
 			this.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
 			this.Name = "FormAqsatMoedGozashteAshxas";

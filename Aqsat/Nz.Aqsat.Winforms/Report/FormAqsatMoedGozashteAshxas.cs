@@ -9,10 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Janus.Windows.GridEX;
+using MS_Control;
 using NZ.Aqsat.Business;
 using Nz.Aqsat.Model.Models;
 using Nz.Aqsat.Model.Report;
 using Nz.Aqsat.Winforms.App;
+using NZ.General.WinForms.Sms;
 
 namespace Nz.Aqsat.Winforms.Report
 {
@@ -54,7 +56,7 @@ namespace Nz.Aqsat.Winforms.Report
 	        var dataRow = NzGridHeads.CurrentRow.DataRow as AqsatMoedGozashteAshxas;
 
 	        var mgr = new ReportManager();
-	        var list = mgr.GetReport<AqsatMoedGozashte>(null, " AND tam.FK_Shaxs ="+ dataRow.FK_Shaxs);
+	        var list = mgr.GetReport<AqsatMoedGozashte>(null, " AND tam.FK_Shaxs ="+ dataRow.FK_Shaxs + " AND tam.FK_Noh ="+dataRow.FK_Noh);
 
 			mS_GridX1.DataSource = list?.ToList();
 		}
@@ -84,14 +86,64 @@ namespace Nz.Aqsat.Winforms.Report
 				RefreshItem();
 		}
 
-        private void mS_GridX1_ColumnButtonClick(object sender, ColumnActionEventArgs e)
+        private async void mS_GridX1_ColumnButtonClick(object sender, ColumnActionEventArgs e)
         {
 	        var dataRow = mS_GridX1.CurrentRow.DataRow as AqsatMoedGozashte;
 
-	        new Form_TasviehAqsat(dataRow.FK_Main, dataRow.ID).ShowDialog(this);
+			if (e.Column.Key == "C")
+	        {
+		        new Form_TasviehAqsat(dataRow.FK_Main, dataRow.ID).ShowDialog(this);
 
-	        RefreshGrid();
+		        RefreshGrid();
+			}
+	        else
+	        {
+		         
+		        var sendSms = new SendSms();
+		        var r = await sendSms.SendSarResidQest
+		        (
+			        Convert.ToInt64(dataRow.Mobile),
+			        dataRow.Shaxs + " عزیز",
+			        dataRow.Radif.ToString(),
+			        dataRow.KindTitle,
+			        dataRow.TarixSarResid,
+			        dataRow.mablaqQest.ToString("N")
+		        );
+
+		        new Form_Notify("تـوجـه",
+				        r
+					        ? "پیامک با موفقیت ارسال شد."
+					        : "پیامک ارسال نشد",
+				        Form_Notify.FarsiMessageBoxIcon.چـک_باکس)
+			        .Popup(Form_Notify.Direction_Show.Down_To_Up, 1500);
+			}
+
+	       
 
 		}
-	}
+
+        private async void NzGridHeads_ColumnButtonClick(object sender, ColumnActionEventArgs e)
+        {
+	        var qest	= NzGridHeads.CurrentRow.DataRow as AqsatMoedGozashteAshxas;
+	        var sendSms = new SendSms();
+	        var r		= await sendSms.SendAqsatMande(
+
+		        Convert.ToInt64(qest.Mobile),
+		        qest.Shaxs + " عزیز",
+		        qest.AqsatCount.ToString(),
+		        qest.KindTitle,
+		        qest.PersianMaxTarixQest,
+		        qest.SumMablaqQest.ToString("N")
+	        
+		    );
+
+
+	        new Form_Notify("تـوجـه",
+			        r
+				        ? "پیامک با موفقیت ارسال شد."
+				        : "پیامک ارسال نشد",
+			        Form_Notify.FarsiMessageBoxIcon.چـک_باکس)
+		        .Popup(Form_Notify.Direction_Show.Down_To_Up, 1500);
+		}
+    }
 }

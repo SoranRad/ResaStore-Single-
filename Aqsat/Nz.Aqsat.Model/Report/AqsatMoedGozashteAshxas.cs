@@ -19,6 +19,7 @@ namespace Nz.Aqsat.Model.Report
 	    public DateTime			MinTarixQest				{ get; set; }
 	    public string			PersianMaxTarixQest			=> this.MaxTarixQest.ToPersianDate();
 	    public string			PersianMinTarixQest			=> this.MinTarixQest.ToPersianDate();
-
+	    public short			FK_Noh						{ get; set; }
+	    public string			KindTitle					{ get; set; }
     }
 }

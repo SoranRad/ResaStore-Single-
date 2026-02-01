@@ -34,5 +34,15 @@ namespace ShareLib.Sms
 			return result.Data;
 		}
 
+
+		public async Task<MessageContract<SmsCustomerInfo>> GetAccountInfo(string username)
+		{
+			RestClient = HttpClientFactory.Create(base.RestClient.Options.BaseUrl);
+			var url = "api/SmsService/GetCustomer?userName="+username;
+			var result = await GetAsync<MessageContract<SmsCustomerInfo>>(url);
+
+			return result.Data;
+		}
+
 	}
 }

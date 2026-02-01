@@ -46,7 +46,12 @@
 			this.NsSmsTabPage = new ShareLib.Component.NsSettingTabPage();
 			this.NsSmsActivation = new MS_Control.Controls.MS_CheckBox();
 			this.uiGroupBox1 = new Janus.Windows.EditControls.UIGroupBox();
-			this.mS_Button_GridX1 = new MS_Control.Controls.MS_Button_GridX();
+			this.NsExpiration = new MS_Control.Controls.MS_TextBox();
+			this.NsSmsAmount = new MS_Control.Controls.MS_Decimal_Label();
+			this.NsSmsCount = new MS_Control.Controls.MS_Decimal_Label();
+			this.nsLoading2 = new System.Windows.Forms.PictureBox();
+			this.NzGetInfo = new MS_Control.Controls.MS_Button_GridX();
+			this.label8 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
 			this.NsGroupBoxSmsInfo = new Janus.Windows.EditControls.UIGroupBox();
@@ -62,6 +67,7 @@
 			this.NsSmsTabPage.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox1)).BeginInit();
 			this.uiGroupBox1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nsLoading2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.NsGroupBoxSmsInfo)).BeginInit();
 			this.NsGroupBoxSmsInfo.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NsLoading)).BeginInit();
@@ -439,44 +445,142 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.uiGroupBox1.BackColor = System.Drawing.Color.Transparent;
 			this.uiGroupBox1.BorderColor = System.Drawing.Color.LightBlue;
-			this.uiGroupBox1.Controls.Add(this.mS_Button_GridX1);
+			this.uiGroupBox1.Controls.Add(this.NsExpiration);
+			this.uiGroupBox1.Controls.Add(this.NsSmsAmount);
+			this.uiGroupBox1.Controls.Add(this.NsSmsCount);
+			this.uiGroupBox1.Controls.Add(this.nsLoading2);
+			this.uiGroupBox1.Controls.Add(this.NzGetInfo);
+			this.uiGroupBox1.Controls.Add(this.label8);
 			this.uiGroupBox1.Controls.Add(this.label6);
 			this.uiGroupBox1.Controls.Add(this.label7);
-			this.uiGroupBox1.Enabled = false;
 			this.uiGroupBox1.Location = new System.Drawing.Point(11, 162);
 			this.uiGroupBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.uiGroupBox1.Name = "uiGroupBox1";
 			this.uiGroupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiGroupBox1.Size = new System.Drawing.Size(738, 137);
+			this.uiGroupBox1.Size = new System.Drawing.Size(738, 207);
 			this.uiGroupBox1.TabIndex = 4;
 			// 
-			// mS_Button_GridX1
+			// NsExpiration
 			// 
-			this.mS_Button_GridX1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.mS_Button_GridX1.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.mS_Button_GridX1.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-			this.mS_Button_GridX1.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.mS_Button_GridX1.Image = global::MS_Resource.GlobalResources.Rep__5_;
-			this.mS_Button_GridX1.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
-			this.mS_Button_GridX1.Location = new System.Drawing.Point(329, 78);
-			this.mS_Button_GridX1.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.mS_Button_GridX1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.mS_Button_GridX1.MS_Change_Border_Color_On_Enter = false;
-			this.mS_Button_GridX1.MS_Change_Color_On_Enter = false;
-			this.mS_Button_GridX1.MS_Enter_Border_Color = System.Drawing.Color.Empty;
-			this.mS_Button_GridX1.MS_Enter_Color = System.Drawing.Color.Empty;
-			this.mS_Button_GridX1.Name = "mS_Button_GridX1";
-			this.mS_Button_GridX1.Office2007ColorScheme = Janus.Windows.UI.Office2007ColorScheme.Custom;
-			this.mS_Button_GridX1.Office2007CustomColor = System.Drawing.Color.DodgerBlue;
-			this.mS_Button_GridX1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_Button_GridX1.ShowFocusRectangle = false;
-			this.mS_Button_GridX1.Size = new System.Drawing.Size(153, 30);
-			this.mS_Button_GridX1.TabIndex = 167;
-			this.mS_Button_GridX1.Text = "دریافت مانده پنل";
-			this.mS_Button_GridX1.TextHorizontalAlignment = Janus.Windows.EditControls.TextAlignment.Near;
-			this.mS_Button_GridX1.UseThemes = false;
-			this.mS_Button_GridX1.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
-			this.mS_Button_GridX1.WordWrap = false;
+			this.NsExpiration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsExpiration.BackColor = System.Drawing.Color.Lavender;
+			this.NsExpiration.Cursor = System.Windows.Forms.Cursors.Default;
+			this.NsExpiration.Enabled = false;
+			this.NsExpiration.Location = new System.Drawing.Point(501, 112);
+			this.NsExpiration.MaxLength = 500;
+			this.NsExpiration.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NsExpiration.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsExpiration.MS_Change_Border_Color_On_Enter = true;
+			this.NsExpiration.MS_Change_Color_On_Enter = true;
+			this.NsExpiration.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsExpiration.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsExpiration.MS_Exit_By_Down = true;
+			this.NsExpiration.MS_Exit_By_Enter = true;
+			this.NsExpiration.MS_Exit_By_Up = true;
+			this.NsExpiration.MS_Last_Control = null;
+			this.NsExpiration.MS_Next_Control = null;
+			this.NsExpiration.Name = "NsExpiration";
+			this.NsExpiration.ReadOnly = true;
+			this.NsExpiration.Size = new System.Drawing.Size(140, 27);
+			this.NsExpiration.TabIndex = 770;
+			this.NsExpiration.TabStop = false;
+			this.NsExpiration.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center;
+			this.NsExpiration.VisualStyle = Janus.Windows.GridEX.VisualStyle.VS2005;
+			// 
+			// NsSmsAmount
+			// 
+			this.NsSmsAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsSmsAmount.BackColor = System.Drawing.Color.Lavender;
+			this.NsSmsAmount.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
+			this.NsSmsAmount.Location = new System.Drawing.Point(501, 67);
+			this.NsSmsAmount.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NsSmsAmount.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsSmsAmount.MS_Decimal = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this.NsSmsAmount.MS_Format_String = "0,0.##;(0,0.##); ";
+			this.NsSmsAmount.Name = "NsSmsAmount";
+			this.NsSmsAmount.Size = new System.Drawing.Size(140, 29);
+			this.NsSmsAmount.TabIndex = 769;
+			this.NsSmsAmount.Text = " ";
+			this.NsSmsAmount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// NsSmsCount
+			// 
+			this.NsSmsCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsSmsCount.BackColor = System.Drawing.Color.Lavender;
+			this.NsSmsCount.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
+			this.NsSmsCount.Location = new System.Drawing.Point(501, 23);
+			this.NsSmsCount.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NsSmsCount.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsSmsCount.MS_Decimal = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this.NsSmsCount.MS_Format_String = "0,0.##;(0,0.##); ";
+			this.NsSmsCount.Name = "NsSmsCount";
+			this.NsSmsCount.Size = new System.Drawing.Size(140, 29);
+			this.NsSmsCount.TabIndex = 769;
+			this.NsSmsCount.Text = " ";
+			this.NsSmsCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// nsLoading2
+			// 
+			this.nsLoading2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.nsLoading2.Image = ((System.Drawing.Image)(resources.GetObject("nsLoading2.Image")));
+			this.nsLoading2.Location = new System.Drawing.Point(292, 157);
+			this.nsLoading2.Name = "nsLoading2";
+			this.nsLoading2.Size = new System.Drawing.Size(31, 30);
+			this.nsLoading2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.nsLoading2.TabIndex = 169;
+			this.nsLoading2.TabStop = false;
+			this.nsLoading2.Visible = false;
+			// 
+			// NzGetInfo
+			// 
+			this.NzGetInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NzGetInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NzGetInfo.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.NzGetInfo.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.NzGetInfo.Image = global::MS_Resource.GlobalResources.Rep__5_;
+			this.NzGetInfo.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
+			this.NzGetInfo.Location = new System.Drawing.Point(329, 157);
+			this.NzGetInfo.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NzGetInfo.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NzGetInfo.MS_Change_Border_Color_On_Enter = false;
+			this.NzGetInfo.MS_Change_Color_On_Enter = false;
+			this.NzGetInfo.MS_Enter_Border_Color = System.Drawing.Color.Empty;
+			this.NzGetInfo.MS_Enter_Color = System.Drawing.Color.Empty;
+			this.NzGetInfo.Name = "NzGetInfo";
+			this.NzGetInfo.Office2007ColorScheme = Janus.Windows.UI.Office2007ColorScheme.Custom;
+			this.NzGetInfo.Office2007CustomColor = System.Drawing.Color.DodgerBlue;
+			this.NzGetInfo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NzGetInfo.ShowFocusRectangle = false;
+			this.NzGetInfo.Size = new System.Drawing.Size(153, 30);
+			this.NzGetInfo.TabIndex = 167;
+			this.NzGetInfo.Text = "دریافت مانده پنل";
+			this.NzGetInfo.TextHorizontalAlignment = Janus.Windows.EditControls.TextAlignment.Near;
+			this.NzGetInfo.UseThemes = false;
+			this.NzGetInfo.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
+			this.NzGetInfo.WordWrap = false;
+			this.NzGetInfo.Click += new System.EventHandler(this.NzGetInfo_Click);
+			// 
+			// label8
+			// 
+			this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label8.AutoSize = true;
+			this.label8.BackColor = System.Drawing.Color.Transparent;
+			this.label8.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.label8.Location = new System.Drawing.Point(647, 107);
+			this.label8.Name = "label8";
+			this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.label8.Size = new System.Drawing.Size(79, 46);
+			this.label8.TabIndex = 166;
+			this.label8.Text = "تاریخ انتضای\r\n سرویس :";
+			this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// label6
 			// 
@@ -484,7 +588,7 @@
 			this.label6.AutoSize = true;
 			this.label6.BackColor = System.Drawing.Color.Transparent;
 			this.label6.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label6.Location = new System.Drawing.Point(647, 85);
+			this.label6.Location = new System.Drawing.Point(647, 67);
 			this.label6.Name = "label6";
 			this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.label6.Size = new System.Drawing.Size(76, 23);
@@ -649,6 +753,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox1)).EndInit();
 			this.uiGroupBox1.ResumeLayout(false);
 			this.uiGroupBox1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nsLoading2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.NsGroupBoxSmsInfo)).EndInit();
 			this.NsGroupBoxSmsInfo.ResumeLayout(false);
 			this.NsGroupBoxSmsInfo.PerformLayout();
@@ -680,12 +785,17 @@
         private MS_Control.Controls.MS_TextBox NsUsername;
         private System.Windows.Forms.Label label3;
         private Janus.Windows.EditControls.UIGroupBox uiGroupBox1;
-        private MS_Control.Controls.MS_Button_GridX mS_Button_GridX1;
+        private MS_Control.Controls.MS_Button_GridX NzGetInfo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private MS_Control.Controls.MS_Button_GridX NsOK;
         private System.Windows.Forms.PictureBox NsLoading;
         private MS_Control.Controls.MS_Notify mS_Notify1;
         private MS_Control.Controls.MS_CheckBox NsSmsActivation;
+        private System.Windows.Forms.PictureBox nsLoading2;
+        private System.Windows.Forms.Label label8;
+        private MS_Control.Controls.MS_Decimal_Label NsSmsAmount;
+        private MS_Control.Controls.MS_Decimal_Label NsSmsCount;
+        private MS_Control.Controls.MS_TextBox NsExpiration;
     }
 }

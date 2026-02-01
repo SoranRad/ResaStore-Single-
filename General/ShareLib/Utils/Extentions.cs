@@ -85,7 +85,7 @@ namespace ShareLib.Utils
 	        return pd.GetYear(date) + "/" + pd.GetMonth(date) + "/" + pd.GetDayOfMonth(date);
         }
 
-        public static bool IsPersianDate(this string PersianStr)
+        public static bool		IsPersianDate			(this string PersianStr)
         {
 	        try
 	        {
@@ -143,7 +143,7 @@ namespace ShareLib.Utils
         }
 
 
-		public static string NzWebsiteStateOrderToPersian(this string Kind)
+		public static string	NzWebsiteStateOrderToPersian		(this string Kind)
 		{
 
 			switch (Kind)
@@ -168,7 +168,7 @@ namespace ShareLib.Utils
 					return "";
 			}
 		}
-		public static string NzWebsiteStockStatusToPersian(this string Kind)
+		public static string	NzWebsiteStockStatusToPersian		(this string Kind)
 		{
 
 			switch (Kind)
@@ -184,7 +184,7 @@ namespace ShareLib.Utils
 			}
 		}
 
-		public static string NzWebsiteProductTypeToPersian(this string Kind)
+		public static string	NzWebsiteProductTypeToPersian		(this string Kind)
 		{
 
 			switch (Kind)
@@ -201,7 +201,7 @@ namespace ShareLib.Utils
 					return "";
 			}
 		}
-		public static string NzWebsiteStateToPersian(this string Kind)
+		public static string	NzWebsiteStateToPersian				(this string Kind)
 		{
 			if (string.IsNullOrWhiteSpace(Kind))
 				return "";
@@ -245,7 +245,7 @@ namespace ShareLib.Utils
 			}
 		}
 
-		public static DateTime ToPersianDate(this string PersianStr)
+		public static DateTime	ToPersianDate			(this string PersianStr)
 		{
 			var StrNumbers = PersianStr
 				.Split(new string[] { "/", "\\", ",", "|", "." },
@@ -261,5 +261,55 @@ namespace ShareLib.Utils
 			return p.ToDateTime(IntNumbers[0], IntNumbers[1], IntNumbers[2], 0, 0, 0, 0);
 		}
 
+
+		public static string En2Fa(this string str)
+		{
+			if (string.IsNullOrWhiteSpace(str))
+				return string.Empty;
+
+			var sb = new StringBuilder();
+
+			for (var i = 0; i < str.Length; i++)
+			{
+				switch (str[i])
+				{
+					case '0':
+						sb.Append('۰')  ;
+						break;
+					case '1':
+						sb.Append('۱');
+						break;
+					case '2':
+						sb.Append( '۲');
+						break;
+					case '3':
+						sb.Append( '۳');
+						break;
+					case '4':
+						sb.Append( '۴');
+						break;
+					case '5':
+						sb.Append( '۵');
+						break;
+					case '6':
+						sb.Append( '۶');
+						break;
+					case '7':
+						sb.Append( '۷');
+						break;
+					case '8':
+						sb.Append( '۸');
+						break;
+					case '9':
+						sb.Append( '۹');
+						break;
+					default:
+						sb.Append(str[i]);
+						break;
+				}
+			}
+
+			return sb.ToString();
+		}
 	}
 }

@@ -23,11 +23,14 @@ LTRIM(RTRIM(ta_shaxs.code))     AS Code,
 COUNT( DISTINCT tar.ID)         AS AqsatCount,
 SUM(tar.mablaqQest)             AS SumMablaqQest,
 Max(tar.tarixQest)              AS MaxTarixQest,
-MIN(tar.tarixQest)              AS MinTarixQest
+MIN(tar.tarixQest)              AS MinTarixQest,
+tam.FK_Noh,
+LTRIM(RTRIM(tak.Title))			AS KindTitle
 
 FROM                Aqsat.tbl_Aqsat_Riz     AS tar
 INNER JOIN          Aqsat.tbl_Aqsat_Main    AS tam          ON  tar.FK_Main     = tam.ID
 INNER JOIN          Base.tbl_Ashxas         AS ta_shaxs     ON  ta_shaxs.ID     = tam.FK_Shaxs
+INNER JOIN Aqsat.tbl_Aqsat_Kind             AS tak          ON  tak.ID          = tam.FK_Noh
 
 WHERE   
 
@@ -35,11 +38,12 @@ WHERE
         AND cast (GETDATE()  as date)>= tar.tarixQest 
         
 GROUP BY
+tam.FK_Noh,
+LTRIM(RTRIM(tak.Title)),
 tam.FK_Shaxs,
 ta_shaxs.title,
 ta_shaxs.mobile,
 ta_shaxs.code
-
 
 ");
 		}

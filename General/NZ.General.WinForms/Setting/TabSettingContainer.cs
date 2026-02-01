@@ -119,5 +119,32 @@ namespace NZ.General.WinForms.Setting
         {
 			NsGroupBoxSmsInfo.Enabled = NsSmsActivation.Checked;
 		}
+
+        private async void NzGetInfo_Click(object sender, EventArgs e)
+        {
+	        if (!IsOK())
+		        return;
+
+	        NzGetInfo.SafeSetProperty(nameof(NzGetInfo.Enabled), false);
+	        nsLoading2.SafeSetProperty(nameof(nsLoading2.Visible), true);
+
+	        var SmsApi = new FastSmsApi(HttpClientFactory.Generate());
+
+	        var info = await SmsApi.GetAccountInfo(NsUsername.Text.Trim());
+
+			if(info == null)
+				MS_Message.Show("نام کاربری یا کلمه عبور اشتباه است");
+			else
+			{
+
+				NsSmsCount.SafeSetProperty(nameof(NsSmsCount.MS_Decimal),info.Data.SmsCount); 
+				NsSmsAmount.SafeSetProperty(nameof(NsSmsAmount.MS_Decimal),info.Data.ChargeAmount);
+				NsExpiration.SafeSetProperty(nameof(NsExpiration.Text),info.Data.ExpiredDate.ToPersianDate()); 
+			}
+
+			nsLoading2.SafeSetProperty(nameof(nsLoading2.Visible), false);
+	        NzGetInfo.SafeSetProperty(nameof(NzGetInfo.Enabled), true);
+
+		}
     }
 }

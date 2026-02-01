@@ -123,10 +123,12 @@
     <Compile Include="Models\YearNoteList.cs" />
     <Compile Include="RestApi\BaseApi.cs" />
     <Compile Include="RestApi\HttpClientFactory.cs" />
+    <Compile Include="RestApi\MessageContract.cs" />
     <Compile Include="RestApi\RestApiOptions.cs" />
     <Compile Include="RestApi\TokenDto.cs" />
     <Compile Include="Sms\FastSendSmsDto.cs" />
     <Compile Include="Sms\FastSmsApi.cs" />
+    <Compile Include="Sms\SmsCustomerInfo.cs" />
     <Compile Include="Sms\TemplateParamDto.cs" />
     <Compile Include="Utils\Converter.cs" />
     <Compile Include="Utils\CryptographyHelper.cs" />
