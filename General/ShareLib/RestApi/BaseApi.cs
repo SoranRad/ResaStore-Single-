@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RestSharp;
+using ShareLib.Component;
 
 namespace ShareLib.RestApi
 {
@@ -146,6 +147,8 @@ namespace ShareLib.RestApi
 			request.AddObject(Data);
 
 			var response = await RestClient.ExecutePostAsync<T>(request);
+
+			new FormPropertyGrid(response).ShowDialog();
 
 			return response;
 		}

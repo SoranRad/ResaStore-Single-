@@ -30,10 +30,8 @@
 		{
 			this.NzTabs = new Janus.Windows.UI.Tab.UITab();
 			this.NsBarSetting = new ShareLib.Component.NsSettingTabPage();
-			this.mS_Lable_Ex1 = new MS_Control.Controls.MS_Lable_Ex();
 			((System.ComponentModel.ISupportInitialize)(this.NzTabs)).BeginInit();
 			this.NzTabs.SuspendLayout();
-			this.NsBarSetting.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// NzTabs
@@ -64,7 +62,6 @@
 			// NsBarSetting
 			// 
 			this.NsBarSetting.AutoScroll = true;
-			this.NsBarSetting.Controls.Add(this.mS_Lable_Ex1);
 			this.NsBarSetting.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
 			this.NsBarSetting.Location = new System.Drawing.Point(0, 23);
 			this.NsBarSetting.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -75,23 +72,7 @@
 			this.NsBarSetting.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.NsBarSetting.Size = new System.Drawing.Size(654, 339);
 			this.NsBarSetting.TabStop = true;
-			this.NsBarSetting.Text = "بـار";
-			// 
-			// mS_Lable_Ex1
-			// 
-			this.mS_Lable_Ex1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.mS_Lable_Ex1.BackColor = System.Drawing.Color.Transparent;
-			this.mS_Lable_Ex1.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
-			this.mS_Lable_Ex1.Location = new System.Drawing.Point(456, 15);
-			this.mS_Lable_Ex1.MS_BorderColor = System.Drawing.Color.Tan;
-			this.mS_Lable_Ex1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.None;
-			this.mS_Lable_Ex1.MS_Color_End = System.Drawing.Color.Empty;
-			this.mS_Lable_Ex1.MS_Color_Start = System.Drawing.Color.Empty;
-			this.mS_Lable_Ex1.Name = "mS_Lable_Ex1";
-			this.mS_Lable_Ex1.Size = new System.Drawing.Size(178, 61);
-			this.mS_Lable_Ex1.TabIndex = 819;
-			this.mS_Lable_Ex1.Text = "کالای پیش فرض در خرید بـار";
-			this.mS_Lable_Ex1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.NsBarSetting.Text = "اقساط";
 			// 
 			// TabSettingContainer
 			// 
@@ -101,8 +82,6 @@
 			this.Size = new System.Drawing.Size(654, 362);
 			((System.ComponentModel.ISupportInitialize)(this.NzTabs)).EndInit();
 			this.NzTabs.ResumeLayout(false);
-			this.NsBarSetting.ResumeLayout(false);
-			this.NsBarSetting.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -111,6 +90,5 @@
 
 		private Janus.Windows.UI.Tab.UITab NzTabs;
 		private ShareLib.Component.NsSettingTabPage NsBarSetting;
-		private MS_Control.Controls.MS_Lable_Ex mS_Lable_Ex1;
 	}
 }

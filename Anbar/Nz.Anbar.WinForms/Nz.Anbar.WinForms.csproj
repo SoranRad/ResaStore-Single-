@@ -256,6 +256,12 @@
     <Compile Include="Base\FormBrand.Designer.cs">
       <DependentUpon>FormBrand.cs</DependentUpon>
     </Compile>
+    <Compile Include="Base\FormCodingKala.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\FormCodingKala.Designer.cs">
+      <DependentUpon>FormCodingKala.cs</DependentUpon>
+    </Compile>
     <Compile Include="Base\FormGallery.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -714,6 +720,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Base\FormBrand.resx">
       <DependentUpon>FormBrand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\FormCodingKala.resx">
+      <DependentUpon>FormCodingKala.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Base\FormGallery.resx">
       <DependentUpon>FormGallery.cs</DependentUpon>

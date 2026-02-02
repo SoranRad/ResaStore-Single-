@@ -13,11 +13,9 @@ namespace ShareLib.RestApi
 {
     public class HttpClientFactory
     {
-#if DEBUG
+
 		private static Uri address = new Uri("https://smsservice.usra.ir");
-#else
-        private static Uri address = new Uri("https://smsservice.usra.ir");
-#endif
+ 
 
 		public static RestClient Create()
 		{

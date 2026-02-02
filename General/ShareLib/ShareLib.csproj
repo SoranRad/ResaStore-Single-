@@ -98,6 +98,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Component\FormPropertyGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\FormPropertyGrid.Designer.cs">
+      <DependentUpon>FormPropertyGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Component\NsSettingTabPage.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -208,6 +214,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Component\FormPropertyGrid.resx">
+      <DependentUpon>FormPropertyGrid.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Component\HelpItems.resx">
       <DependentUpon>HelpItems.cs</DependentUpon>
     </EmbeddedResource>
