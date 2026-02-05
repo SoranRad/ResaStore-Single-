@@ -32,6 +32,7 @@
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridFuture_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSarResidAqsat));
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridFuture_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.HeaderImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridFuture_Layout_0_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column12.ButtonImage");
 			this.Tab_Control_Main = new Janus.Windows.UI.Tab.UITab();
 			this.uiTabPage12 = new Janus.Windows.UI.Tab.UITabPage();
 			this.NzGridFuture = new MS_Control.Controls.MS_GridX();
@@ -118,9 +119,11 @@
 			NzGridFuture_Layout_0.Key = "Transfer";
 			NzGridFuture_Layout_0_Reference_0.Instance = ((object)(resources.GetObject("NzGridFuture_Layout_0_Reference_0.Instance")));
 			NzGridFuture_Layout_0_Reference_1.Instance = ((object)(resources.GetObject("NzGridFuture_Layout_0_Reference_1.Instance")));
+			NzGridFuture_Layout_0_Reference_2.Instance = ((object)(resources.GetObject("NzGridFuture_Layout_0_Reference_2.Instance")));
 			NzGridFuture_Layout_0.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
             NzGridFuture_Layout_0_Reference_0,
-            NzGridFuture_Layout_0_Reference_1});
+            NzGridFuture_Layout_0_Reference_1,
+            NzGridFuture_Layout_0_Reference_2});
 			NzGridFuture_Layout_0.LayoutString = resources.GetString("NzGridFuture_Layout_0.LayoutString");
 			this.NzGridFuture.Layouts.AddRange(new Janus.Windows.GridEX.GridEXLayout[] {
             NzGridFuture_Layout_0});

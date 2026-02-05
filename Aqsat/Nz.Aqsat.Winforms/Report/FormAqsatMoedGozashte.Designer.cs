@@ -32,6 +32,7 @@
 			Janus.Windows.Common.Layouts.JanusLayoutReference mS_GridX1_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAqsatMoedGozashte));
 			Janus.Windows.Common.Layouts.JanusLayoutReference mS_GridX1_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.HeaderImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference mS_GridX1_Layout_0_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column12.ButtonImage");
 			Janus.Windows.GridEX.GridEXLayout mS_GridX2_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference mS_GridX2_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference mS_GridX2_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.HeaderImage");
@@ -39,17 +40,17 @@
 			this.uiTabPage12 = new Janus.Windows.UI.Tab.UITabPage();
 			this.mS_GridX1 = new MS_Control.Controls.MS_GridX();
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
+			this.mS_GridX2 = new MS_Control.Controls.MS_GridX();
 			this.mS_GridX_Setting1 = new MS_Control.Controls.MS_GridX_Setting();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.NsRefresh = new System.Windows.Forms.ToolStripButton();
-			this.mS_GridX2 = new MS_Control.Controls.MS_GridX();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
 			this.uiTabPage12.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.mS_GridX1)).BeginInit();
 			this.uiTabPage14.SuspendLayout();
-			this.mS_GridX_Setting1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.mS_GridX2)).BeginInit();
+			this.mS_GridX_Setting1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// Tab_Control_Main
@@ -124,9 +125,11 @@
 			mS_GridX1_Layout_0.Key = "Transfer";
 			mS_GridX1_Layout_0_Reference_0.Instance = ((object)(resources.GetObject("mS_GridX1_Layout_0_Reference_0.Instance")));
 			mS_GridX1_Layout_0_Reference_1.Instance = ((object)(resources.GetObject("mS_GridX1_Layout_0_Reference_1.Instance")));
+			mS_GridX1_Layout_0_Reference_2.Instance = ((object)(resources.GetObject("mS_GridX1_Layout_0_Reference_2.Instance")));
 			mS_GridX1_Layout_0.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
             mS_GridX1_Layout_0_Reference_0,
-            mS_GridX1_Layout_0_Reference_1});
+            mS_GridX1_Layout_0_Reference_1,
+            mS_GridX1_Layout_0_Reference_2});
 			mS_GridX1_Layout_0.LayoutString = resources.GetString("mS_GridX1_Layout_0.LayoutString");
 			this.mS_GridX1.Layouts.AddRange(new Janus.Windows.GridEX.GridEXLayout[] {
             mS_GridX1_Layout_0});
@@ -164,41 +167,6 @@
 			this.uiTabPage14.Size = new System.Drawing.Size(1080, 431);
 			this.uiTabPage14.TabStop = true;
 			this.uiTabPage14.Text = "پرسش و پاسخ";
-			// 
-			// mS_GridX_Setting1
-			// 
-			this.mS_GridX_Setting1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.mS_GridX_Setting1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-			this.mS_GridX_Setting1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator1,
-            this.NsRefresh});
-			this.mS_GridX_Setting1.Location = new System.Drawing.Point(0, 433);
-			this.mS_GridX_Setting1.MS_BorderColor = System.Drawing.Color.DodgerBlue;
-			this.mS_GridX_Setting1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.mS_GridX_Setting1.MS_Color_End = System.Drawing.Color.PowderBlue;
-			this.mS_GridX_Setting1.MS_Color_Start = System.Drawing.Color.AliceBlue;
-			this.mS_GridX_Setting1.MS_GridX = null;
-			this.mS_GridX_Setting1.Name = "mS_GridX_Setting1";
-			this.mS_GridX_Setting1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_GridX_Setting1.Size = new System.Drawing.Size(1114, 25);
-			this.mS_GridX_Setting1.TabIndex = 5;
-			this.mS_GridX_Setting1.Text = "mS_GridX_Setting1";
-			// 
-			// toolStripSeparator1
-			// 
-			this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-			// 
-			// NsRefresh
-			// 
-			this.NsRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.NsRefresh.Image = global::MS_Resource.GlobalResources.refresh;
-			this.NsRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.NsRefresh.Name = "NsRefresh";
-			this.NsRefresh.Size = new System.Drawing.Size(23, 22);
-			this.NsRefresh.Text = "بروزرسانی لیست";
-			this.NsRefresh.Click += new System.EventHandler(this.NsRefresh_Click);
 			// 
 			// mS_GridX2
 			// 
@@ -258,6 +226,41 @@
 			this.mS_GridX2.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
 			this.mS_GridX2.ColumnButtonClick += new Janus.Windows.GridEX.ColumnActionEventHandler(this.mS_GridX1_ColumnButtonClick);
 			// 
+			// mS_GridX_Setting1
+			// 
+			this.mS_GridX_Setting1.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.mS_GridX_Setting1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+			this.mS_GridX_Setting1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator1,
+            this.NsRefresh});
+			this.mS_GridX_Setting1.Location = new System.Drawing.Point(0, 433);
+			this.mS_GridX_Setting1.MS_BorderColor = System.Drawing.Color.DodgerBlue;
+			this.mS_GridX_Setting1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.mS_GridX_Setting1.MS_Color_End = System.Drawing.Color.PowderBlue;
+			this.mS_GridX_Setting1.MS_Color_Start = System.Drawing.Color.AliceBlue;
+			this.mS_GridX_Setting1.MS_GridX = null;
+			this.mS_GridX_Setting1.Name = "mS_GridX_Setting1";
+			this.mS_GridX_Setting1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.mS_GridX_Setting1.Size = new System.Drawing.Size(1114, 25);
+			this.mS_GridX_Setting1.TabIndex = 5;
+			this.mS_GridX_Setting1.Text = "mS_GridX_Setting1";
+			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+			// 
+			// NsRefresh
+			// 
+			this.NsRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.NsRefresh.Image = global::MS_Resource.GlobalResources.refresh;
+			this.NsRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.NsRefresh.Name = "NsRefresh";
+			this.NsRefresh.Size = new System.Drawing.Size(23, 22);
+			this.NsRefresh.Text = "بروزرسانی لیست";
+			this.NsRefresh.Click += new System.EventHandler(this.NsRefresh_Click);
+			// 
 			// FormAqsatMoedGozashte
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -273,9 +276,9 @@
 			this.uiTabPage12.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.mS_GridX1)).EndInit();
 			this.uiTabPage14.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.mS_GridX2)).EndInit();
 			this.mS_GridX_Setting1.ResumeLayout(false);
 			this.mS_GridX_Setting1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.mS_GridX2)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

@@ -148,7 +148,7 @@ namespace ShareLib.RestApi
 
 			var response = await RestClient.ExecutePostAsync<T>(request);
 
-			new FormPropertyGrid(response).ShowDialog();
+
 
 			return response;
 		}

@@ -29,11 +29,11 @@ namespace NZ.General.WinForms.Sms
 		    _setting = Form_Factory._Form_Factory_General.GetSettings() as SettingItems;
 	    } 
 		
-		public async Task<bool>		SendSarResidQest		(long PhoneNumber, string Customer, string Count, string AGHSATTITLE, string Date ,string Amount)
+		public async Task<bool>		SendSarResidQest		(long PhoneNumber, string Customer, string Count, string AGHSATTITLE, string Date ,string Amount, string CardNumber, string phoneBill)
 	    {
 		    try
 		    {
-				if(await GetToken()== false)
+				if(await GetToken() == false)
 					return false;
 
 
@@ -51,6 +51,8 @@ namespace NZ.General.WinForms.Sms
 						new TemplateParamDto(){Name = "AGHSATTITLE",	Value = AGHSATTITLE.En2Fa()},
 						new TemplateParamDto(){Name = "DATE",			Value = Date.En2Fa()},
 						new TemplateParamDto(){Name = "AMOUNT",			Value = Amount.En2Fa()},
+						new TemplateParamDto(){Name = "CARDNUMBER",		Value = CardNumber},
+						new TemplateParamDto(){Name = "MOBILENUMBER",	Value = phoneBill},
 						new TemplateParamDto(){Name = "COMPANY",		Value = SystemConstant.ActiveCompany.title.En2Fa()},
 					}
 				}, 
@@ -75,7 +77,7 @@ namespace NZ.General.WinForms.Sms
 			    return false;
 		    }
 	    }
-	    public async Task<bool>		SendAqsatMande			(long PhoneNumber, string Customer, string Count, string AGHSATTITLE, string Date, string Amount)
+	    public async Task<bool>		SendAqsatMande			(long PhoneNumber, string Customer, string Count, string AGHSATTITLE, string Date, string Amount, string CardNumber, string phoneBill)
 	    {
 		    try
 		    {
@@ -97,7 +99,9 @@ namespace NZ.General.WinForms.Sms
 					    new TemplateParamDto(){Name = "AGHSATTITLE",    Value = AGHSATTITLE.En2Fa()},
 					    new TemplateParamDto(){Name = "DATE",           Value = Date.En2Fa()},
 					    new TemplateParamDto(){Name = "AMOUNT",         Value = Amount.En2Fa()},
-					    new TemplateParamDto(){Name = "COMPANY",        Value = SystemConstant.ActiveCompany.title.En2Fa()},
+					    new TemplateParamDto(){Name = "CARDNUMBER",     Value = CardNumber},
+					    new TemplateParamDto(){Name = "MOBILENUMBER",   Value = phoneBill},
+						new TemplateParamDto(){Name = "COMPANY",        Value = SystemConstant.ActiveCompany.title.En2Fa()},
 				    }
 			    }, 
 				    TOKEN);

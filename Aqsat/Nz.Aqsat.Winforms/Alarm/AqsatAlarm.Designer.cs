@@ -32,26 +32,28 @@
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridFuture_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AqsatAlarm));
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridFuture_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.HeaderImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridFuture_Layout_0_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column12.ButtonImage");
 			Janus.Windows.GridEX.GridEXLayout mS_GridX1_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference mS_GridX1_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference mS_GridX1_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.HeaderImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference mS_GridX1_Layout_0_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column12.ButtonImage");
 			this.NzTabs = new Janus.Windows.UI.Tab.UITab();
+			this.NzTabAlarm = new Janus.Windows.UI.Tab.UITabPage();
 			this.NzGridFuture = new MS_Control.Controls.MS_GridX();
 			this.mS_Tool_Strip2 = new MS_Control.Controls.MS_Tool_Strip();
 			this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
 			this.NzFutureDays = new System.Windows.Forms.ToolStripTextBox();
 			this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-			this.mS_GridX1 = new MS_Control.Controls.MS_GridX();
-			this.NzTabAlarm = new Janus.Windows.UI.Tab.UITabPage();
-			this.NsMoedTab = new Janus.Windows.UI.Tab.UITabPage();
 			this.NzRefresh = new System.Windows.Forms.ToolStripButton();
+			this.NsMoedTab = new Janus.Windows.UI.Tab.UITabPage();
+			this.mS_GridX1 = new MS_Control.Controls.MS_GridX();
 			((System.ComponentModel.ISupportInitialize)(this.NzTabs)).BeginInit();
 			this.NzTabs.SuspendLayout();
+			this.NzTabAlarm.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NzGridFuture)).BeginInit();
 			this.mS_Tool_Strip2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.mS_GridX1)).BeginInit();
-			this.NzTabAlarm.SuspendLayout();
 			this.NsMoedTab.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.mS_GridX1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// NzTabs
@@ -79,6 +81,16 @@
 			this.NzTabs.TabsStateStyles.SelectedFormatStyle.Font = new System.Drawing.Font("Tahoma", 9.5F, System.Drawing.FontStyle.Bold);
 			this.NzTabs.UseThemes = false;
 			this.NzTabs.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2003;
+			// 
+			// NzTabAlarm
+			// 
+			this.NzTabAlarm.Controls.Add(this.NzGridFuture);
+			this.NzTabAlarm.Controls.Add(this.mS_Tool_Strip2);
+			this.NzTabAlarm.Location = new System.Drawing.Point(0, 27);
+			this.NzTabAlarm.Name = "NzTabAlarm";
+			this.NzTabAlarm.Size = new System.Drawing.Size(889, 377);
+			this.NzTabAlarm.TabStop = true;
+			this.NzTabAlarm.Text = "سر رسید اقساط";
 			// 
 			// NzGridFuture
 			// 
@@ -112,9 +124,11 @@
 			NzGridFuture_Layout_0.Key = "Transfer";
 			NzGridFuture_Layout_0_Reference_0.Instance = ((object)(resources.GetObject("NzGridFuture_Layout_0_Reference_0.Instance")));
 			NzGridFuture_Layout_0_Reference_1.Instance = ((object)(resources.GetObject("NzGridFuture_Layout_0_Reference_1.Instance")));
+			NzGridFuture_Layout_0_Reference_2.Instance = ((object)(resources.GetObject("NzGridFuture_Layout_0_Reference_2.Instance")));
 			NzGridFuture_Layout_0.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
             NzGridFuture_Layout_0_Reference_0,
-            NzGridFuture_Layout_0_Reference_1});
+            NzGridFuture_Layout_0_Reference_1,
+            NzGridFuture_Layout_0_Reference_2});
 			NzGridFuture_Layout_0.LayoutString = resources.GetString("NzGridFuture_Layout_0.LayoutString");
 			this.NzGridFuture.Layouts.AddRange(new Janus.Windows.GridEX.GridEXLayout[] {
             NzGridFuture_Layout_0});
@@ -186,6 +200,27 @@
 			this.toolStripLabel2.Size = new System.Drawing.Size(63, 27);
 			this.toolStripLabel2.Text = "روز آینده";
 			// 
+			// NzRefresh
+			// 
+			this.NzRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.NzRefresh.Image = ((System.Drawing.Image)(resources.GetObject("NzRefresh.Image")));
+			this.NzRefresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+			this.NzRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.NzRefresh.Name = "NzRefresh";
+			this.NzRefresh.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+			this.NzRefresh.Size = new System.Drawing.Size(40, 27);
+			this.NzRefresh.Text = "مشـاهده لیست";
+			this.NzRefresh.Click += new System.EventHandler(this.NzRefresh_Click);
+			// 
+			// NsMoedTab
+			// 
+			this.NsMoedTab.Controls.Add(this.mS_GridX1);
+			this.NsMoedTab.Location = new System.Drawing.Point(0, 27);
+			this.NsMoedTab.Name = "NsMoedTab";
+			this.NsMoedTab.Size = new System.Drawing.Size(889, 377);
+			this.NsMoedTab.TabStop = true;
+			this.NsMoedTab.Text = "اقساط موعد گذشته";
+			// 
 			// mS_GridX1
 			// 
 			this.mS_GridX1.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.False;
@@ -218,9 +253,11 @@
 			mS_GridX1_Layout_0.Key = "Transfer";
 			mS_GridX1_Layout_0_Reference_0.Instance = ((object)(resources.GetObject("mS_GridX1_Layout_0_Reference_0.Instance")));
 			mS_GridX1_Layout_0_Reference_1.Instance = ((object)(resources.GetObject("mS_GridX1_Layout_0_Reference_1.Instance")));
+			mS_GridX1_Layout_0_Reference_2.Instance = ((object)(resources.GetObject("mS_GridX1_Layout_0_Reference_2.Instance")));
 			mS_GridX1_Layout_0.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
             mS_GridX1_Layout_0_Reference_0,
-            mS_GridX1_Layout_0_Reference_1});
+            mS_GridX1_Layout_0_Reference_1,
+            mS_GridX1_Layout_0_Reference_2});
 			mS_GridX1_Layout_0.LayoutString = resources.GetString("mS_GridX1_Layout_0.LayoutString");
 			this.mS_GridX1.Layouts.AddRange(new Janus.Windows.GridEX.GridEXLayout[] {
             mS_GridX1_Layout_0});
@@ -244,37 +281,6 @@
 			this.mS_GridX1.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
 			this.mS_GridX1.ColumnButtonClick += new Janus.Windows.GridEX.ColumnActionEventHandler(this.mS_GridX1_ColumnButtonClick);
 			// 
-			// NzTabAlarm
-			// 
-			this.NzTabAlarm.Controls.Add(this.NzGridFuture);
-			this.NzTabAlarm.Controls.Add(this.mS_Tool_Strip2);
-			this.NzTabAlarm.Location = new System.Drawing.Point(0, 27);
-			this.NzTabAlarm.Name = "NzTabAlarm";
-			this.NzTabAlarm.Size = new System.Drawing.Size(889, 377);
-			this.NzTabAlarm.TabStop = true;
-			this.NzTabAlarm.Text = "سر رسید اقساط";
-			// 
-			// NsMoedTab
-			// 
-			this.NsMoedTab.Controls.Add(this.mS_GridX1);
-			this.NsMoedTab.Location = new System.Drawing.Point(0, 27);
-			this.NsMoedTab.Name = "NsMoedTab";
-			this.NsMoedTab.Size = new System.Drawing.Size(889, 377);
-			this.NsMoedTab.TabStop = true;
-			this.NsMoedTab.Text = "اقساط موعد گذشته";
-			// 
-			// NzRefresh
-			// 
-			this.NzRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.NzRefresh.Image = ((System.Drawing.Image)(resources.GetObject("NzRefresh.Image")));
-			this.NzRefresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			this.NzRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.NzRefresh.Name = "NzRefresh";
-			this.NzRefresh.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-			this.NzRefresh.Size = new System.Drawing.Size(40, 27);
-			this.NzRefresh.Text = "مشـاهده لیست";
-			this.NzRefresh.Click += new System.EventHandler(this.NzRefresh_Click);
-			// 
 			// AqsatAlarm
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -284,13 +290,13 @@
 			this.Size = new System.Drawing.Size(889, 404);
 			((System.ComponentModel.ISupportInitialize)(this.NzTabs)).EndInit();
 			this.NzTabs.ResumeLayout(false);
+			this.NzTabAlarm.ResumeLayout(false);
+			this.NzTabAlarm.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NzGridFuture)).EndInit();
 			this.mS_Tool_Strip2.ResumeLayout(false);
 			this.mS_Tool_Strip2.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.mS_GridX1)).EndInit();
-			this.NzTabAlarm.ResumeLayout(false);
-			this.NzTabAlarm.PerformLayout();
 			this.NsMoedTab.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.mS_GridX1)).EndInit();
 			this.ResumeLayout(false);
 
         }

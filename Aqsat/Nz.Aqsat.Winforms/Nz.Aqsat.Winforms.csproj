@@ -269,6 +269,7 @@
     <Compile Include="Settings\TabSettingContainer.Designer.cs">
       <DependentUpon>TabSettingContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="sms\Messaging.cs" />
     <EmbeddedResource Include="Alarm\AqsatAlarm.resx">
       <DependentUpon>AqsatAlarm.cs</DependentUpon>
     </EmbeddedResource>

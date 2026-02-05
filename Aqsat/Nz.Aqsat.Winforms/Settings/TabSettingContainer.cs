@@ -14,7 +14,8 @@ namespace Nz.Asat.Winforms.Settings
 
 		public void LoadSetting(SettingItems settings)
 		{
-			 
+			 NsPhoneNumber.Text = settings.PhoneNumber;
+			 NsCardNumber.Text = settings.CardNumber;
 		}
 
 		public NsSettingTabPage TabSetting => NsBarSetting;
@@ -22,7 +23,8 @@ namespace Nz.Asat.Winforms.Settings
 		public SettingItems		Settings =>
 			new SettingItems()
 			{
-				 
+				 CardNumber		= NsCardNumber.Text,
+				 PhoneNumber	= NsPhoneNumber.Text
 			};
 	}
 }

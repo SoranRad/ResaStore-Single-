@@ -62,6 +62,7 @@
 			this.NsDeleteTasvieh = new MS_Control.Controls.MS_Button_GridX();
 			this.NsSave = new MS_Control.Controls.MS_Button_GridX();
 			this.mS_Notify1 = new MS_Control.Controls.MS_Notify();
+			this.NsSubmit = new MS_Control.Controls.MS_Button_GridX();
 			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox2)).BeginInit();
 			this.uiGroupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NsGroupDirkard)).BeginInit();
@@ -651,6 +652,7 @@
 			// 
 			// Panel_Foother
 			// 
+			this.Panel_Foother.Controls.Add(this.NsSubmit);
 			this.Panel_Foother.Controls.Add(this.NsDeleteTasvieh);
 			this.Panel_Foother.Controls.Add(this.NsSave);
 			this.Panel_Foother.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -720,6 +722,34 @@
 			this.NsSave.WordWrap = false;
 			this.NsSave.Click += new System.EventHandler(this.NsSave_Click);
 			// 
+			// NsSubmit
+			// 
+			this.NsSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsSubmit.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.NsSubmit.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.NsSubmit.Image = ((System.Drawing.Image)(resources.GetObject("NsSubmit.Image")));
+			this.NsSubmit.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
+			this.NsSubmit.Location = new System.Drawing.Point(264, 7);
+			this.NsSubmit.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NsSubmit.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsSubmit.MS_Change_Border_Color_On_Enter = false;
+			this.NsSubmit.MS_Change_Color_On_Enter = false;
+			this.NsSubmit.MS_Enter_Border_Color = System.Drawing.Color.Empty;
+			this.NsSubmit.MS_Enter_Color = System.Drawing.Color.Empty;
+			this.NsSubmit.Name = "NsSubmit";
+			this.NsSubmit.Office2007ColorScheme = Janus.Windows.UI.Office2007ColorScheme.Custom;
+			this.NsSubmit.Office2007CustomColor = System.Drawing.Color.Green;
+			this.NsSubmit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NsSubmit.ShowFocusRectangle = false;
+			this.NsSubmit.Size = new System.Drawing.Size(218, 30);
+			this.NsSubmit.TabIndex = 2;
+			this.NsSubmit.Text = "ثبت مبلغ قسط در تاریخ سر رسید";
+			this.NsSubmit.TextHorizontalAlignment = Janus.Windows.EditControls.TextAlignment.Near;
+			this.NsSubmit.UseThemes = false;
+			this.NsSubmit.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
+			this.NsSubmit.WordWrap = false;
+			this.NsSubmit.Click += new System.EventHandler(this.NsSubmit_Click);
+			// 
 			// Form_TasviehAqsat
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
@@ -780,5 +810,6 @@
         private System.Windows.Forms.Label NsSarResid;
         private System.Windows.Forms.Label label12;
         private MS_Control.Controls.MS_NumericTextBox NsMablaqDaryafti;
+        private MS_Control.Controls.MS_Button_GridX NsSubmit;
     }
 }

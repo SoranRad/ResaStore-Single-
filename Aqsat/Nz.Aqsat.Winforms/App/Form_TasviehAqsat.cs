@@ -69,6 +69,7 @@ namespace Nz.Aqsat.Winforms.App
 				return;
 			}
 
+			NsSubmit.Visible = !riz.tarixPardaxt.HasValue;
 
 			NsDeleteTasvieh.Visible = riz.isPardaxt;
 			if(riz.tarixPardaxt.HasValue)
@@ -230,8 +231,14 @@ namespace Nz.Aqsat.Winforms.App
 			
 			_DoRefresh = true;
 		}
-		#endregion
 
+        #endregion
 
-	}
+        private void NsSubmit_Click(object sender, EventArgs e)
+        {
+	        NzTarikh.MS_Tarikh			= new MS_Structure_Shamsi(riz.tarixQest);
+	        NsMablaqDaryafti.MS_Decimal = riz.mablaqQest;
+			NsSave.PerformClick();
+        }
+    }
 }

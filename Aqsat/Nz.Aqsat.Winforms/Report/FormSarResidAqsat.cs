@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Nz.Aqsat.Business;
 using Nz.Aqsat.Model.Report;
 using Nz.Aqsat.Winforms.App;
+using Nz.Aqsat.Winforms.sms;
 
 namespace Nz.Aqsat.Winforms.Report
 {
@@ -37,13 +38,32 @@ namespace Nz.Aqsat.Winforms.Report
 	        RefreshList();
         }
 
-        private void mS_GridX1_ColumnButtonClick(object sender, Janus.Windows.GridEX.ColumnActionEventArgs e)
+        private async void mS_GridX1_ColumnButtonClick(object sender, Janus.Windows.GridEX.ColumnActionEventArgs e)
         {
 	        var dataRow = NzGridFuture.CurrentRow.DataRow as SarResidAqsat;
 
-	        new Form_TasviehAqsat(dataRow.FK_Main, dataRow.ID).ShowDialog(this);
+	        if (e.Column.Key == "C")
+	        {
+		        new Form_TasviehAqsat(dataRow.FK_Main, dataRow.ID).ShowDialog(this);
+		        RefreshList();
+			}
+	        else
+	        {
+		        var cell = NzGridFuture.CurrentRow.Cells["S"]; 
 
-	        RefreshList();
+		        var msg = new Messaging();
+
+		        await msg.SendSarResidQest(
+			        cell,
+			        Convert.ToInt64(dataRow.Mobile),
+			        dataRow.Shaxs,
+			        dataRow.Radif.ToString(),
+			        dataRow.KindTitle,
+			        dataRow.TarixSarResid,
+			        dataRow.mablaqQest.ToString("N")
+		        );
+			}
+	        
         }
 	}
 }

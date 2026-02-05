@@ -10,6 +10,7 @@ using System.Linq;
 using System.Windows.Forms;
 using NZ.Aqsat.Business;
 using Nz.Aqsat.Model.Models;
+using Nz.Aqsat.Winforms.sms;
 using NZ.General.WinForms.Sms;
 
 namespace Nz.Aqsat.Winforms.App
@@ -216,26 +217,22 @@ namespace Nz.Aqsat.Winforms.App
 			{
 				if(dataRow.isPardaxt)
 					return;
-				var qest = NzGridHeads.CurrentRow.DataRow as AqsatList;
-				var sendSms = new SendSms();
-				var r = await sendSms.SendSarResidQest(Convert.ToInt64(qest.Mobile),
 
-					qest.Shaxs + " عزیز",
+				var cell = NzGridItems.CurrentRow.Cells["S"];
+				var qest = NzGridHeads.CurrentRow.DataRow as AqsatList;
+
+				var msg = new Messaging();
+
+				await msg.SendSarResidQest(
+					cell,
+					Convert.ToInt64(qest.Mobile),
+					qest.Shaxs ,
 					dataRow.Radif.ToString(),
 					qest.KindTitle,
 					dataRow.PersianTarixQest,
 					dataRow.mablaqQest.ToString("N")
 				);
-
-				new Form_Notify("تـوجـه",
-						r
-							? "پیامک با موفقیت ارسال شد."
-							:"پیامک ارسال نشد",
-						Form_Notify.FarsiMessageBoxIcon.چـک_باکس)
-					.Popup(Form_Notify.Direction_Show.Down_To_Up, 1000);
 			}
-				
-
-        }
+		}
     }
 }

@@ -17,7 +17,7 @@ namespace Nz.Aqsat.WinForms.Settings
 		{
 			return new SettingItems()
 			{
-				 DefaultKala = 0
+				  
 			};
 		}
 
@@ -26,6 +26,8 @@ namespace Nz.Aqsat.WinForms.Settings
 			Name = KeyName;
 		}
 
-		public int DefaultKala { get; set; }
+		public string		CardNumber		{ get; set; }
+		public string		PhoneNumber		{ get; set; }
+
 	}
 }
