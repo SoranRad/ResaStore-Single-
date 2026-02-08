@@ -29,7 +29,7 @@ LTRIM(RTRIM(ta_zamen.mobile))   AS ZamenMobile,
 ddSarResid.PersianStr           AS TarixSarResid,
 tar.mablaqQest,
 tar.Radif,
-DATEDIFF(DAY,tar.tarixQest,GETDATE()) AS DayRemaind
+DATEDIFF(DAY,GETDATE() ,tar.tarixQest) AS DayRemaind
 
 FROM                Aqsat.tbl_Aqsat_Riz     AS tar
 INNER JOIN          Aqsat.tbl_Aqsat_Main    AS tam          ON  tar.FK_Main     = tam.ID
@@ -43,7 +43,6 @@ LEFT OUTER JOIN     General.DimDate         AS ddWeek       ON  ddWeek.Gregorian
 WHERE   
 
             tar.isPardaxt = 0 
-        AND cast (GETDATE()  as date) > tar.tarixQest
         AND ddWeek.PersianWeekOfYearNo = ddSarResid.PersianWeekOfYearNo
  
 

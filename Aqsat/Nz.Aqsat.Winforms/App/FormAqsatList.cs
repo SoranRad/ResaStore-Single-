@@ -38,9 +38,10 @@ namespace Nz.Aqsat.Winforms.App
 		}
 		private void RefreshGrid					()
 		{
-			var Month = 13 - ms_mah.SelectedIndex;
-			
-				var list =
+			var Month = 13 - ms_mah.SelectedIndex; 
+
+
+			var list =
 					_Manager.GetReport<AqsatList>(new
 					{
 						Year = SystemConstant.ActiveYear.Salmali,
@@ -55,7 +56,8 @@ namespace Nz.Aqsat.Winforms.App
 			if (NzItems.Checked)
 				RefreshItem();
 
-			NzGridHeads.MoveFirst();
+		
+			//NzGridHeads.MoveFirst();
 		}
 		private void RefreshItem					()
 		{
@@ -81,14 +83,14 @@ namespace Nz.Aqsat.Winforms.App
 			 
 			new Form_Aqsat_Jadid(row.ID).ShowDialog(this);
 				
-			var Spos = NzGridHeads.VerticalScrollPosition;
+			//var Spos = NzGridHeads.VerticalScrollPosition;
 			var Rpos = NzGridHeads.CurrentRow.Position;
 
 			RefreshGrid();
 
 			NzGridHeads.MoveTo(Rpos);
 			NzGridHeads.EnsureVisible(Rpos);
-			NzGridHeads.VerticalScrollPosition = Spos;
+			//NzGridHeads.VerticalScrollPosition = Spos;
 
 		}
 
@@ -211,7 +213,12 @@ namespace Nz.Aqsat.Winforms.App
 	        {
 		        new Form_TasviehAqsat(dataRow.FK_Main, dataRow.ID).ShowDialog(this);
 
-		        RefreshGrid();
+		        var Rpos = NzGridHeads.CurrentRow.Position;
+
+				RefreshGrid();
+
+				NzGridHeads.MoveTo(Rpos);
+				NzGridHeads.EnsureVisible(Rpos);
 			}
 			else if (e.Column.Key == "S")
 			{

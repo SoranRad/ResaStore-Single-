@@ -407,7 +407,7 @@ namespace Nz.Aqsat.Winforms.App
 			        DateTime tarix;
 			        if (NsDoreQest.MS_Decimal == 30)
 			        {
-				        var start	= new MS_Structure_Shamsi( startDate.AddMonths(i + 1));
+				        var start	= new MS_Structure_Shamsi( startDate.AddMonths(i));
 				        tarix		= new MS_Structure_Shamsi(start._Sal, start._Mah , NsStartDate.MS_Tarikh.Value._Roz).ToDatetime().Date;
 
 			        }
@@ -470,7 +470,7 @@ namespace Nz.Aqsat.Winforms.App
 					DateTime tarix;
 					if (NsDoreQest.MS_Decimal == 30)
 					{
-						var start = new MS_Structure_Shamsi(startDate.AddMonths(i + 1));
+						var start = new MS_Structure_Shamsi(startDate.AddMonths(i ));
 						tarix = new MS_Structure_Shamsi(start._Sal, start._Mah, NsStartDate.MS_Tarikh.Value._Roz).ToDatetime().Date;
 
 					}
