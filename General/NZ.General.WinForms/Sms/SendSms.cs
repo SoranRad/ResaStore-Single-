@@ -50,7 +50,7 @@ namespace NZ.General.WinForms.Sms
 						new TemplateParamDto(){Name = "COUNT",			Value = Count.En2Fa()},
 						new TemplateParamDto(){Name = "AGHSATTITLE",	Value = AGHSATTITLE.En2Fa()},
 						new TemplateParamDto(){Name = "DATE",			Value = Date.En2Fa()},
-						new TemplateParamDto(){Name = "AMOUNT",			Value = Amount.En2Fa()},
+						new TemplateParamDto(){Name = "AMOUNT",			Value = Amount.En2Fa() + " " + SystemConstant.ActiveYear.Money},
 						new TemplateParamDto(){Name = "CARDNUMBER",		Value = CardNumber},
 						new TemplateParamDto(){Name = "MOBILENUMBER",	Value = phoneBill},
 						new TemplateParamDto(){Name = "COMPANY",		Value = SystemConstant.ActiveCompany.title.En2Fa()},

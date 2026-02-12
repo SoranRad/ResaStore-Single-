@@ -115,15 +115,24 @@ namespace Nz.Anbar.WinForms.App
 
             NzGrid.FilterMode               = FilterMode.None;
 
-            if (_Kind == Enums.NzFactorKind.Frosh)
-                NzLocation.Refresh_Grid();
+            if (_Kind == Enums.NzFactorKind.Frosh )
+            {
+	            NzLocation.Refresh_Grid();
+            }
 
-            var FactorMabna     = SystemConstant.OurAccount && _Kind == Enums.NzFactorKind.Frosh;
-            NzFactors.Visible   = FactorMabna;
-            label15.Visible     = FactorMabna;
+            var FactorMabna     = _Kind == Enums.NzFactorKind.Frosh || _Kind == Enums.NzFactorKind.BargashXarid;
 
-            if (FactorMabna)
-                NzFactors.Refresh_Grid();
+            if (_Kind == Enums.NzFactorKind.Frosh || _Kind == Enums.NzFactorKind.BargashXarid)
+            {
+	            NzFactors.Show();
+	            label15.Show();
+	            NzFactors.Refresh_Grid();
+			}
+            else
+            {
+	            NzFactors.Hide();
+	            label15.Hide();
+			}
 
             if (_ID == 0)
                 Reset();
@@ -137,7 +146,6 @@ namespace Nz.Anbar.WinForms.App
             if (_Kind == Enums.NzFactorKind.Frosh)
             {
                 NzLocation.Refresh_Grid();
-
             }
 
             ChangeUIForm();
@@ -150,8 +158,6 @@ namespace Nz.Anbar.WinForms.App
 		        NzKindSaleLbl.Visible       = (_Kind == Enums.NzFactorKind.Frosh || _Kind == Enums.NzFactorKind.PishFaktor);
 	            NzKindSale.SelectedIndexChanged     += NzKind_SelectedIndexChanged;
             }
-           
-
             ValidationDemo();
         }
         private void ChangeUIForm                   ()
@@ -213,8 +219,8 @@ namespace Nz.Anbar.WinForms.App
                 if(_Kind == Enums.NzFactorKind.Frosh)
                     NzLocation.MS_Set_Select    (_Factor.FK_Location);
 
-                if (NzFactors.Visible)
-                    NzFactors.MS_Set_Select(_Factor.FK_Mabna);
+                if ( _Kind == Enums.NzFactorKind.Frosh || _Kind == Enums.NzFactorKind.BargashXarid)
+					NzFactors.MS_Set_Select(_Factor.FK_Mabna);
 
                 RefreshFactorSum            ();
                 ChangeUIForm                ();
@@ -322,15 +328,18 @@ namespace Nz.Anbar.WinForms.App
 
                 if (_Factor.FK_Mabna != fk_Manbna)
                 {
-                    _Factor
+	                _Factor.FK_Mabna = fk_Manbna;
+
+					_Factor
                         .FactorItems
                         .Where(x => x.ID > 0 && x.State != Enums.NzItemState.Deleted)
                         .MSZ_ForEach(item => item.State = Enums.NzItemState.Modified);
                 }
 
-                _Factor.FK_Mabna        = fk_Manbna;
+                _Factor.FK_Mabna = fk_Manbna;
 
-                var autoSerial = _ID == 0 && _Serial == NzSerial.MS_Decimal;
+
+				var autoSerial = _ID == 0 && _Serial == NzSerial.MS_Decimal;
 
                 _Manager.Save(_Factor,autoSerial);
 
@@ -1570,7 +1579,7 @@ namespace Nz.Anbar.WinForms.App
             Init();
         }
 
-        private void NzKind_SelectedIndexChanged(object sender, EventArgs e)
+        private void NzKind_SelectedIndexChanged        (object sender, EventArgs e)
         {
 	        if (NzGrid.GetDataRows().Any())
 	        {

@@ -166,7 +166,23 @@ namespace Nz.Aqsat.Winforms.App
 						if (ResultDel != DialogResult.Yes)
 							return;
 
-						
+						var row = NzGridHeads.CurrentRow.DataRow as AqsatList;
+
+						var mgr = new AqsatManager();
+						var aqsat = mgr.GetItem(row.ID);
+
+						if (aqsat.AqsatRizs.Any(x => x.isPardaxt))
+						{
+							ResultDel = MS_Message.Show("قسط مورد نظر دارای تعدادی پرداختی می باشد، مایل به حذف هستید؟"
+								, "تـوجـه"
+								, ""
+								, MessageBoxButtons.YesNo
+								, MSMessage.FarsiMessageBoxIcon.سوال);
+
+							if (ResultDel != DialogResult.Yes)
+								return;
+						}
+						mgr.Delete(row.ID);
 						
 						new Form_Notify
 							(

@@ -29,21 +29,21 @@ namespace Nz.Anbar.WinForms.Component
         /// </summary>
         private void InitializeComponent()
         {
-            this.NzList = new Nz.Anbar.WinForms.Component.NzFactorsList();
-            this.SuspendLayout();
-            // 
-            // NzList
-            // 
-            this.NzList.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-            this.NzList.Location = new System.Drawing.Point(0, 0);
-            this.NzList.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.NzList.Name = "NzList";
-            this.NzList.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.NzList.Size = new System.Drawing.Size(411, 196);
-            this.NzList.TabIndex = 0;
-            this.NzList.MS_On_Row_Selected += new MS_Control.TSDD.Row_Seleced(this.NzList_Selected);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			this.NzList = new Nz.Anbar.WinForms.Component.NzFactorsList();
+			this.SuspendLayout();
+			// 
+			// NzList
+			// 
+			this.NzList.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NzList.Location = new System.Drawing.Point(0, 0);
+			this.NzList.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+			this.NzList.Name = "NzList";
+			this.NzList.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NzList.Size = new System.Drawing.Size(550, 196);
+			this.NzList.TabIndex = 0;
+			this.NzList.MS_On_Row_Selected += new MS_Control.TSDD.Row_Seleced(this.NzList_Selected);
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 

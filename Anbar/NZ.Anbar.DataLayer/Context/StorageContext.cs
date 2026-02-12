@@ -13,9 +13,7 @@ namespace NZ.Anbar.DataLayer.Context
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<StorageContext, Migrations.Configuration>(true));
             this.Database.Initialize(false);
             this.Configuration.LazyLoadingEnabled = false;
-            
-            Configuration.AutoDetectChangesEnabled = false;
-            Configuration.ValidateOnSaveEnabled = false;
+             
         }
 
         public virtual DbSet<Kardex>            Kadexes             { get; set; }
