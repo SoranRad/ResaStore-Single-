@@ -169,36 +169,57 @@ namespace NZ.Anbar.DataLayer.Repo
                                      );
                     if (rowIn != null)
                     {
-                        var rowOut = OutputList[IndexOfOut];
+                        var rowOut  = OutputList[IndexOfOut];
+                        var kind    = rowIn.FactorHead.kind;
 
-                        rowIn.Remain    -= rowOut.meqdar;
-                        rowIn.Remain    = rowIn.Remain < 0 ? 0 : rowIn.Remain;
+						if (rowOut.meqdar <= rowIn.meqdar)
+                        {
+	                        rowIn.Remain -= rowOut.meqdar;
+	                        var nerx = (kind == (byte)Enums.NzFactorKind.BargshtFrosh
+		                        ? rowIn.nerkh_2
+		                        : rowIn.nerkh) * rowOut.meqdar;
+	                        //====
+
+	                        if (rowOut.nerkh_2 != nerx)
+		                        rowOut.nerkh_2 = nerx;
+                            
+	                        IndexOfOut++;
+	                        if (IndexOfOut >= OutputList.Count)
+		                        break;
+	                        ValueOfOut = OutputList[IndexOfOut].meqdar;
+	                        continue;
+                        }
+						else
+                        {
+	                        var tmp         = rowIn.Remain ;
+	                        rowIn.Remain    = 0;
+	                        var nerx        = (kind == (byte)Enums.NzFactorKind.BargshtFrosh
+		                                    ? rowIn.nerkh_2
+		                                    : rowIn.nerkh) * tmp;
+
+	                        rowOut.nerkh_2  = nerx;
+	                        Continue        = true;
+							ValueOfOut      -= tmp;
+						}
+
+                        //rowIn.Remain    -= rowOut.meqdar;
+                        //rowIn.Remain    = rowIn.Remain < 0 ? 0 : rowIn.Remain;
                         
-                        var kind        = rowIn.FactorHead.kind;
-                        var nerx        = ( kind == (byte)Enums.NzFactorKind.BargshtFrosh
-                                           ? rowIn.nerkh_2
-                                           : rowIn.nerkh ) * rowOut.meqdar;
+                        //var kind        = rowIn.FactorHead.kind;
+                        //var nerx        = ( kind == (byte)Enums.NzFactorKind.BargshtFrosh
+                        //                   ? rowIn.nerkh_2
+                        //                   : rowIn.nerkh ) * rowOut.meqdar;
+                        ////====
 
-                        //var CostDescriptor = "";
-                        //if (kind == (byte)Enums.NzFactorKind.BargshtFrosh)
-                        //    CostDescriptor = $"{rowIn.FactorHead.Serial}.ب\n";
-                        //else if (kind == (byte)Enums.NzFactorKind.AvalDore)
-                        //    CostDescriptor = $"{rowIn.CostDescriptor}.س.ق\n";
-                        //else
-                        //    CostDescriptor = $"{rowIn.FactorHead.Serial}\n";
+                        //if(rowOut.nerkh_2 != nerx)
+                        //    rowOut.nerkh_2 = nerx;
+                        ////====
 
-                        //====
-
-                        if(rowOut.nerkh_2 != nerx)
-                            rowOut.nerkh_2 = nerx;
-
-                        //if(rowOut.CostDescriptor != CostDescriptor)
-                        //    rowOut.CostDescriptor = CostDescriptor;
-
-                        //====
-
-                        IndexOfOut ++;
-                        ValueOfOut = OutputList[IndexOfOut].meqdar;
+                        //IndexOfOut ++;
+                        
+                        //if(IndexOfOut >= OutputList.Count)
+                        //    break;
+                        //ValueOfOut = OutputList[IndexOfOut].meqdar;
                     }
                 }
 
@@ -214,15 +235,6 @@ namespace NZ.Anbar.DataLayer.Repo
                             ? InputList[IndexOfIn].nerkh_2
                             : InputList[IndexOfIn].nerkh;
 
-                    //var kind            = InputList[IndexOfIn].FactorHead.kind ;
-                    //var CostDescriptor  = "";
-                    //if (kind == (byte) Enums.NzFactorKind.BargshtFrosh)
-                    //    CostDescriptor = $"{InputList[IndexOfIn].FactorHead.Serial}.ب\n";
-                    //else if (kind == (byte)Enums.NzFactorKind.AvalDore)
-                    //    CostDescriptor = $"{InputList[IndexOfIn].CostDescriptor}.س.ق\n";
-                    //else 
-                    //    CostDescriptor = $"{InputList[IndexOfIn].FactorHead.Serial}\n";
-                    
                     var row         = OutputList[IndexOfOut];
                     var tmp         = (Continue ? row.nerkh_2 : 0) + ValueOfOut * nerx;
 
@@ -251,26 +263,11 @@ namespace NZ.Anbar.DataLayer.Repo
                             ? InputList[IndexOfIn].nerkh_2
                             : InputList[IndexOfIn].nerkh;
 
-                    //var kind = InputList[IndexOfIn].FactorHead.kind;
-                    //var CostDescriptor = "";
-
-                    //if (kind == (byte)Enums.NzFactorKind.BargshtFrosh)
-                    //    CostDescriptor = $"{InputList[IndexOfIn].FactorHead.Serial}.ب\n";
-
-                    //else if (kind == (byte)Enums.NzFactorKind.AvalDore)
-                    //    CostDescriptor = $"{InputList[IndexOfIn].CostDescriptor}.س.ق\n";
-                    //else
-                    //    CostDescriptor = $"{InputList[IndexOfIn].FactorHead.Serial}\n";
-
-                    
                     var row     = OutputList[IndexOfOut];
                     var tmp     = (Continue ? row.nerkh_2 : 0) + ValueOfOut * nerx;
 
                     if (tmp != row.nerkh_2 || Continue)
                         row.nerkh_2 = tmp;
-
-                    //row.CostDescriptor = (Continue ? row.CostDescriptor + " , " : string.Empty) + CostDescriptor;
-
 
                     IndexOfOut++;
                     if (IndexOfOut >= OutputList.Count)
@@ -302,20 +299,8 @@ namespace NZ.Anbar.DataLayer.Repo
                     var row = OutputList[IndexOfOut];
                     var tmp = (Continue ? row.nerkh_2 : 0) + ValueOfIn * nerx;
 
-                    //var kind = InputList[IndexOfIn].FactorHead.kind;
-                    //var CostDescriptor = "";
-
-                    //if (kind == (byte)Enums.NzFactorKind.BargshtFrosh)
-                    //    CostDescriptor = $"{InputList[IndexOfIn].FactorHead.Serial}.ب\n";
-                    //else if (kind == (byte)Enums.NzFactorKind.AvalDore)
-                    //    CostDescriptor = $"{InputList[IndexOfIn].CostDescriptor}.س.ق\n";
-                    //else
-                    //    CostDescriptor = $"{InputList[IndexOfIn].FactorHead.Serial}\n";
-
                     if (tmp != row.nerkh_2 || Continue)
                         row.nerkh_2 = tmp;
-
-                    //row.CostDescriptor = (Continue ? row.CostDescriptor + " , " : string.Empty) + CostDescriptor;
 
                     ValueOfOut -= ValueOfIn;
                     IndexOfIn ++;
@@ -327,15 +312,7 @@ namespace NZ.Anbar.DataLayer.Repo
                                 ? InputList[IndexOfIn].nerkh_2
                                 : InputList[IndexOfIn].nerkh;
 
-                        //if (kind == (byte)Enums.NzFactorKind.BargshtFrosh)
-                        //    CostDescriptor = $"{InputList[IndexOfIn].FactorHead.Serial}.ب\n";
-                        //else if (kind == (byte)Enums.NzFactorKind.AvalDore)
-                        //    CostDescriptor = $"{InputList[IndexOfIn].CostDescriptor}.س.ق\n";
-                        //else
-                        //    CostDescriptor = $"{InputList[IndexOfIn].FactorHead.Serial}\n";
-                        
                         row.nerkh_2         = (Continue ? row.nerkh_2 : 0) + ValueOfOut * nerx;
-                        //row.CostDescriptor  = (Continue ? row.CostDescriptor + " , " : string.Empty) + CostDescriptor;
 
                         MakeRemainLastPrice(db, OutputList, IndexOfOut, nerx);
                         return;

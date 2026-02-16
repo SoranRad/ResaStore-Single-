@@ -18,8 +18,16 @@ namespace Nz.Aqsat.Winforms.Alarm
 {
     public partial class AqsatAlarm : UserControl
     {
-	    private IEnumerable<SarResidAqsat> _List;
-	    private IEnumerable<AqsatMoedGozashte> _List2;
+	    #region Logging
+	    private static readonly log4net.ILog log =
+		    log4net
+			    .LogManager
+			    .GetLogger
+				    (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+	    #endregion
+		private IEnumerable<SarResidAqsat> _List =new List<SarResidAqsat>();
+	    private IEnumerable<AqsatMoedGozashte> _List2 =new List<AqsatMoedGozashte>();
 
 	    public AqsatAlarm()
         {
@@ -27,15 +35,23 @@ namespace Nz.Aqsat.Winforms.Alarm
         }
         public void RefreshList()
         {
-	        var mgr = new ReportManager();
-            _List = mgr.GetReport<SarResidAqsat>(new { ruz = Convert.ToInt16(NzFutureDays.TextBox.Text ?? "0") },null);
-            _List2 = mgr.GetReport<AqsatMoedGozashte>(null,null);
+			try
+			{
 
-            if (_List != null && _List.Any())
-				NzTabAlarm.Text += @" [ " + _List.Count() + @" ]";
+				var mgr = new ReportManager();
+				_List = mgr.GetReport<SarResidAqsat>(new { ruz = Convert.ToInt16(NzFutureDays.TextBox.Text ?? "0") }, null);
+				_List2 = mgr.GetReport<AqsatMoedGozashte>(null, null);
 
-            if (_List2 != null && _List2.Any())
-	            NsMoedTab.Text += @" [ " + _List2.Count() + @" ]";
+				if (_List != null && _List.Any())
+					NzTabAlarm.Text += @" [ " + _List.Count() + @" ]";
+
+				if (_List2 != null && _List2.Any())
+					NsMoedTab.Text += @" [ " + _List2.Count() + @" ]";
+			}
+			catch (Exception ex)
+			{
+				log.Error(ex);
+			}
 		}
 
         public bool AnyAlarm()

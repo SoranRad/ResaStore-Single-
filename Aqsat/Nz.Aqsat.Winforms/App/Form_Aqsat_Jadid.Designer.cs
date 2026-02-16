@@ -111,7 +111,7 @@
 			this.Tab_Control_Main.Name = "Tab_Control_Main";
 			this.Tab_Control_Main.Office2007CustomColor = System.Drawing.Color.Transparent;
 			this.Tab_Control_Main.ShowFocusRectangle = false;
-			this.Tab_Control_Main.Size = new System.Drawing.Size(746, 588);
+			this.Tab_Control_Main.Size = new System.Drawing.Size(759, 588);
 			this.Tab_Control_Main.TabIndex = 1;
 			this.Tab_Control_Main.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
             this.uiTabPage12,
@@ -138,7 +138,7 @@
 			this.uiTabPage12.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.uiTabPage12.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.uiTabPage12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage12.Size = new System.Drawing.Size(714, 586);
+			this.uiTabPage12.Size = new System.Drawing.Size(727, 586);
 			this.uiTabPage12.TabStop = true;
 			this.uiTabPage12.Text = "اطلاعات";
 			// 
@@ -180,7 +180,7 @@
 			this.uiGroupBox1.Location = new System.Drawing.Point(7, 7);
 			this.uiGroupBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.uiGroupBox1.Name = "uiGroupBox1";
-			this.uiGroupBox1.Size = new System.Drawing.Size(699, 341);
+			this.uiGroupBox1.Size = new System.Drawing.Size(712, 341);
 			this.uiGroupBox1.TabIndex = 0;
 			// 
 			// panel1
@@ -465,7 +465,7 @@
 			this.NsKind.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
 			this.NsKind.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NsKind.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.NsKind.Location = new System.Drawing.Point(330, 31);
+			this.NsKind.Location = new System.Drawing.Point(339, 31);
 			this.NsKind.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.NsKind.MaxDropDownItems = 15;
 			this.NsKind.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -489,7 +489,7 @@
 			// 
 			this.nzRemainZamen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.nzRemainZamen.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.nzRemainZamen.Location = new System.Drawing.Point(260, 272);
+			this.nzRemainZamen.Location = new System.Drawing.Point(273, 272);
 			this.nzRemainZamen.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.nzRemainZamen.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.nzRemainZamen.MS_Color_End = System.Drawing.Color.Empty;
@@ -506,7 +506,7 @@
 			this.NsZamen.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.DownArrow;
 			this.NsZamen.DropSize = new System.Drawing.Size(197, 29);
 			this.NsZamen.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NsZamen.Location = new System.Drawing.Point(389, 272);
+			this.NsZamen.Location = new System.Drawing.Point(402, 272);
 			this.NsZamen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.NsZamen.MS_Auto_Popup = false;
 			this.NsZamen.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -537,7 +537,7 @@
 			this.label9.AutoSize = true;
 			this.label9.BackColor = System.Drawing.Color.Transparent;
 			this.label9.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label9.Location = new System.Drawing.Point(589, 275);
+			this.label9.Location = new System.Drawing.Point(602, 275);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(54, 23);
 			this.label9.TabIndex = 851;
@@ -562,7 +562,7 @@
 			this.NsSharh.MS_Last_Control = null;
 			this.NsSharh.MS_Next_Control = null;
 			this.NsSharh.Name = "NsSharh";
-			this.NsSharh.Size = new System.Drawing.Size(580, 27);
+			this.NsSharh.Size = new System.Drawing.Size(593, 27);
 			this.NsSharh.TabIndex = 17;
 			// 
 			// NsMablaqFinalAqsat
@@ -570,7 +570,7 @@
 			this.NsMablaqFinalAqsat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsMablaqFinalAqsat.BackColor = System.Drawing.Color.Lavender;
 			this.NsMablaqFinalAqsat.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NsMablaqFinalAqsat.Location = new System.Drawing.Point(461, 224);
+			this.NsMablaqFinalAqsat.Location = new System.Drawing.Point(474, 224);
 			this.NsMablaqFinalAqsat.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NsMablaqFinalAqsat.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsMablaqFinalAqsat.MS_Change_Border_Color_On_Enter = true;
@@ -595,7 +595,7 @@
 			this.NsMablaqSoud.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsMablaqSoud.BackColor = System.Drawing.Color.White;
 			this.NsMablaqSoud.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NsMablaqSoud.Location = new System.Drawing.Point(461, 189);
+			this.NsMablaqSoud.Location = new System.Drawing.Point(474, 189);
 			this.NsMablaqSoud.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NsMablaqSoud.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsMablaqSoud.MS_Change_Border_Color_On_Enter = true;
@@ -620,7 +620,7 @@
 			this.NsDarsadSud.ButtonFont = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Bold);
 			this.NsDarsadSud.DigitGroup = false;
 			this.NsDarsadSud.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NsDarsadSud.Location = new System.Drawing.Point(412, 189);
+			this.NsDarsadSud.Location = new System.Drawing.Point(425, 189);
 			this.NsDarsadSud.MaxLength = 3;
 			this.NsDarsadSud.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NsDarsadSud.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -645,7 +645,7 @@
 			this.NsMablaqMandeAqsat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsMablaqMandeAqsat.BackColor = System.Drawing.Color.Lavender;
 			this.NsMablaqMandeAqsat.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NsMablaqMandeAqsat.Location = new System.Drawing.Point(461, 154);
+			this.NsMablaqMandeAqsat.Location = new System.Drawing.Point(474, 154);
 			this.NsMablaqMandeAqsat.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NsMablaqMandeAqsat.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsMablaqMandeAqsat.MS_Change_Border_Color_On_Enter = true;
@@ -669,7 +669,7 @@
 			// 
 			this.NsMablaqPishpardaxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsMablaqPishpardaxt.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NsMablaqPishpardaxt.Location = new System.Drawing.Point(461, 119);
+			this.NsMablaqPishpardaxt.Location = new System.Drawing.Point(474, 119);
 			this.NsMablaqPishpardaxt.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NsMablaqPishpardaxt.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsMablaqPishpardaxt.MS_Change_Border_Color_On_Enter = true;
@@ -692,7 +692,7 @@
 			// 
 			this.NsMablaqAqsat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsMablaqAqsat.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NsMablaqAqsat.Location = new System.Drawing.Point(461, 85);
+			this.NsMablaqAqsat.Location = new System.Drawing.Point(474, 85);
 			this.NsMablaqAqsat.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NsMablaqAqsat.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsMablaqAqsat.MS_Change_Border_Color_On_Enter = true;
@@ -717,7 +717,7 @@
 			this.label19.AutoSize = true;
 			this.label19.BackColor = System.Drawing.Color.Transparent;
 			this.label19.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label19.Location = new System.Drawing.Point(589, 308);
+			this.label19.Location = new System.Drawing.Point(602, 308);
 			this.label19.Name = "label19";
 			this.label19.Size = new System.Drawing.Size(68, 23);
 			this.label19.TabIndex = 777;
@@ -729,7 +729,7 @@
 			this.label10.AutoSize = true;
 			this.label10.BackColor = System.Drawing.Color.Transparent;
 			this.label10.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label10.Location = new System.Drawing.Point(589, 227);
+			this.label10.Location = new System.Drawing.Point(602, 227);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(108, 23);
 			this.label10.TabIndex = 777;
@@ -741,7 +741,7 @@
 			this.label7.AutoSize = true;
 			this.label7.BackColor = System.Drawing.Color.Transparent;
 			this.label7.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label7.Location = new System.Drawing.Point(589, 192);
+			this.label7.Location = new System.Drawing.Point(602, 192);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(107, 23);
 			this.label7.TabIndex = 777;
@@ -753,7 +753,7 @@
 			this.label6.AutoSize = true;
 			this.label6.BackColor = System.Drawing.Color.Transparent;
 			this.label6.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label6.Location = new System.Drawing.Point(589, 157);
+			this.label6.Location = new System.Drawing.Point(602, 157);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(104, 23);
 			this.label6.TabIndex = 777;
@@ -765,7 +765,7 @@
 			this.label5.AutoSize = true;
 			this.label5.BackColor = System.Drawing.Color.Transparent;
 			this.label5.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label5.Location = new System.Drawing.Point(589, 122);
+			this.label5.Location = new System.Drawing.Point(602, 122);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(92, 23);
 			this.label5.TabIndex = 777;
@@ -777,7 +777,7 @@
 			this.label3.AutoSize = true;
 			this.label3.BackColor = System.Drawing.Color.Transparent;
 			this.label3.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label3.Location = new System.Drawing.Point(589, 88);
+			this.label3.Location = new System.Drawing.Point(602, 88);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(63, 23);
 			this.label3.TabIndex = 777;
@@ -787,7 +787,7 @@
 			// 
 			this.NzCustomerRemain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzCustomerRemain.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.NzCustomerRemain.Location = new System.Drawing.Point(6, 31);
+			this.NzCustomerRemain.Location = new System.Drawing.Point(15, 31);
 			this.NzCustomerRemain.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzCustomerRemain.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzCustomerRemain.MS_Color_End = System.Drawing.Color.Empty;
@@ -804,7 +804,7 @@
 			this.label4.AutoSize = true;
 			this.label4.BackColor = System.Drawing.Color.Transparent;
 			this.label4.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label4.Location = new System.Drawing.Point(17, 7);
+			this.label4.Location = new System.Drawing.Point(26, 7);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(98, 23);
 			this.label4.TabIndex = 773;
@@ -822,7 +822,7 @@
 			this.NzTarikh.Cursor = System.Windows.Forms.Cursors.IBeam;
 			this.NzTarikh.DropSize = new System.Drawing.Size(0, 0);
 			this.NzTarikh.Font = new System.Drawing.Font("IRANSans(Small)", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NzTarikh.Location = new System.Drawing.Point(492, 31);
+			this.NzTarikh.Location = new System.Drawing.Point(501, 31);
 			this.NzTarikh.MinimumSize = new System.Drawing.Size(107, 29);
 			this.NzTarikh.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzTarikh.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -850,7 +850,7 @@
 			this.label8.AutoSize = true;
 			this.label8.BackColor = System.Drawing.Color.Transparent;
 			this.label8.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label8.Location = new System.Drawing.Point(512, 7);
+			this.label8.Location = new System.Drawing.Point(521, 7);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(70, 23);
 			this.label8.TabIndex = 772;
@@ -863,7 +863,7 @@
 			this.NzSerial.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzSerial.DigitGroup = false;
 			this.NzSerial.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NzSerial.Location = new System.Drawing.Point(602, 31);
+			this.NzSerial.Location = new System.Drawing.Point(611, 31);
 			this.NzSerial.MaxLength = 4;
 			this.NzSerial.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
 			this.NzSerial.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -891,7 +891,7 @@
 			this.label1.AutoSize = true;
 			this.label1.BackColor = System.Drawing.Color.Transparent;
 			this.label1.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label1.Location = new System.Drawing.Point(633, 7);
+			this.label1.Location = new System.Drawing.Point(642, 7);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(41, 23);
 			this.label1.TabIndex = 770;
@@ -903,7 +903,7 @@
 			this.NzCustomer.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.DownArrow;
 			this.NzCustomer.DropSize = new System.Drawing.Size(197, 29);
 			this.NzCustomer.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NzCustomer.Location = new System.Drawing.Point(130, 31);
+			this.NzCustomer.Location = new System.Drawing.Point(139, 31);
 			this.NzCustomer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.NzCustomer.MS_Auto_Popup = false;
 			this.NzCustomer.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -934,7 +934,7 @@
 			this.NzCustomerLable.AutoSize = true;
 			this.NzCustomerLable.BackColor = System.Drawing.Color.Transparent;
 			this.NzCustomerLable.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NzCustomerLable.Location = new System.Drawing.Point(202, 7);
+			this.NzCustomerLable.Location = new System.Drawing.Point(211, 7);
 			this.NzCustomerLable.Name = "NzCustomerLable";
 			this.NzCustomerLable.Size = new System.Drawing.Size(49, 23);
 			this.NzCustomerLable.TabIndex = 771;
@@ -946,7 +946,7 @@
 			this.label2.AutoSize = true;
 			this.label2.BackColor = System.Drawing.Color.Transparent;
 			this.label2.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label2.Location = new System.Drawing.Point(384, 7);
+			this.label2.Location = new System.Drawing.Point(393, 7);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(59, 23);
 			this.label2.TabIndex = 776;
@@ -959,7 +959,7 @@
 			this.label16.AutoSize = true;
 			this.label16.BackColor = System.Drawing.Color.Transparent;
 			this.label16.Font = new System.Drawing.Font("IRANSans(Small)", 16F);
-			this.label16.Location = new System.Drawing.Point(441, 191);
+			this.label16.Location = new System.Drawing.Point(454, 191);
 			this.label16.Name = "label16";
 			this.label16.Size = new System.Drawing.Size(24, 28);
 			this.label16.TabIndex = 782;
@@ -1024,7 +1024,7 @@
 			this.NsGridEdit.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
 			this.NsGridEdit.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.White;
 			this.NsGridEdit.SelectOnExpand = false;
-			this.NsGridEdit.Size = new System.Drawing.Size(714, 233);
+			this.NsGridEdit.Size = new System.Drawing.Size(727, 233);
 			this.NsGridEdit.TabIndex = 2;
 			this.NsGridEdit.TabKeyBehavior = Janus.Windows.GridEX.TabKeyBehavior.ControlNavigation;
 			this.NsGridEdit.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
@@ -1097,7 +1097,7 @@
 			this.NsGridRizAdd.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
 			this.NsGridRizAdd.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.White;
 			this.NsGridRizAdd.SelectOnExpand = false;
-			this.NsGridRizAdd.Size = new System.Drawing.Size(714, 233);
+			this.NsGridRizAdd.Size = new System.Drawing.Size(727, 233);
 			this.NsGridRizAdd.TabIndex = 1;
 			this.NsGridRizAdd.TabKeyBehavior = Janus.Windows.GridEX.TabKeyBehavior.ControlNavigation;
 			this.NsGridRizAdd.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
@@ -1142,7 +1142,7 @@
 			this.mS_Tool_Strip1.MS_Color_Start = System.Drawing.Color.AliceBlue;
 			this.mS_Tool_Strip1.Name = "mS_Tool_Strip1";
 			this.mS_Tool_Strip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_Tool_Strip1.Size = new System.Drawing.Size(746, 25);
+			this.mS_Tool_Strip1.Size = new System.Drawing.Size(759, 25);
 			this.mS_Tool_Strip1.TabIndex = 861;
 			this.mS_Tool_Strip1.Text = "mS_Tool_Strip1";
 			// 
@@ -1203,7 +1203,7 @@
 			// Form_Aqsat_Jadid
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-			this.ClientSize = new System.Drawing.Size(746, 613);
+			this.ClientSize = new System.Drawing.Size(759, 613);
 			this.Controls.Add(this.Tab_Control_Main);
 			this.Controls.Add(this.mS_Tool_Strip1);
 			this.Font = new System.Drawing.Font("IRANSans(Small) Medium", 12F);

@@ -72,5 +72,13 @@ namespace Nz.Anbar.WinForms.Report
         {
             RefreshGrid();
         }
-    }
+
+		private void ms_Grid_ColumnButtonClick(object sender, Janus.Windows.GridEX.ColumnActionEventArgs e)
+		{
+            var row = ms_Grid.CurrentRow.DataRow as PurchaceAnalyze;
+            var frm = new FormCircularObject(row.FK_Kala);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+		}
+	}
 }

@@ -39,10 +39,9 @@ namespace NZ.Anbar.DataLayer.Repo
         {
             using (var context= new StorageContext(ConnectionManager.Create(), false))
             {
-                var Item = context.FactorHeads.Find(ID);
+	            var Item = GetItem(ID); //context.FactorHeads.Find(ID);
                 if (Item != null)
                 {
-                    context.Entry(Item).State = EntityState.Deleted;
                     var listDelete =
                         Item
                             .FactorItems
@@ -53,6 +52,8 @@ namespace NZ.Anbar.DataLayer.Repo
                     foreach (var riz in Item.FactorItems)
                         KardexProcess.Delete(context, Item, riz, listDelete);
 
+                    context.FactorHeads.Attach(Item) ;
+                    context.FactorHeads.Remove(Item);
                     context.SaveChanges();
                 }
             }

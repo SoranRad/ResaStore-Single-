@@ -12,18 +12,19 @@ namespace Nz.Aqsat.DataLayer.Migrations
     {
         public Configuration()
         {
+           
+            ContextKey = nameof(AqsatContext);
             AutomaticMigrationsEnabled = false;
             AutomaticMigrationDataLossAllowed = false;
-            //SetHistoryContextFactory();
-            ContextKey = nameof(AqsatContext);
-        }
+		}
 
         protected override void Seed(AqsatContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            
+			//  This method will be called after migrating to the latest version.
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
-            //  to avoid creating duplicate seed data.
-        }
+			//  You can use the DbSet<T>.AddOrUpdate() helper extension method
+			//  to avoid creating duplicate seed data.
+		}
     }
 }

@@ -321,7 +321,15 @@ namespace Nz.Aqsat.Winforms.App
 				}
 				
 				RemoveUnSavedRow();
-				_Manager.Save(_Aqsat,!_IsEdit);
+
+				bool autoSerial = false;
+
+				if (_IsEdit)
+					autoSerial = false;
+				else
+					autoSerial = _Serial == NzSerial.MS_Decimal;
+
+				_Manager.Save(_Aqsat, autoSerial);
 				new Form_Notify("ذخـیـره سـازی", "اطـلاعـات بـا مـوفـقـیـت ثـبـت شـــد.",
 						Form_Notify.FarsiMessageBoxIcon.اضافه)
 					.Popup(Form_Notify.Direction_Show.Right_To_Left, 1000);
@@ -565,7 +573,6 @@ namespace Nz.Aqsat.Winforms.App
 		{
 			Init();
 		}
-
 		private void NsMablaqAqsat_TextChanged				(object sender, EventArgs e)
         {
             if(!_DoRefresh)

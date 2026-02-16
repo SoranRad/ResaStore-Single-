@@ -15,15 +15,18 @@ namespace  Nz.Aqsat.DataLayer.Context
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<AqsatContext,   Migrations.Configuration>(true));
             this.Database.Initialize(false);
             this.Configuration.LazyLoadingEnabled = true;
+            
         }
 
         public virtual DbSet<Aqsat_Kind>    AqsatKinds      { get; set; }
         public virtual DbSet<Aqsat_Main>    AqsatMains      { get; set; }
         public virtual DbSet<Aqsat_Riz>     AqsatRizes      { get; set; }
-        public virtual DbSet<Aqsat_SmsLog>  Aqsat_SmsLogs  { get; set; }
+        public virtual DbSet<Aqsat_SmsLog>  Aqsat_SmsLogs   { get; set; }
+
 
         protected override void         OnModelCreating     (DbModelBuilder modelBuilder)
         {
+            
             modelBuilder.Ignore<Year>();
             modelBuilder.Ignore<ImageDocument>();
             modelBuilder.Ignore<PeopleGroup>();
