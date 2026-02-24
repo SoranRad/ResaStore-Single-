@@ -101,6 +101,8 @@
 			// 
 			// NzMB
 			// 
+			this.NzMB.ButtonImage = ((System.Drawing.Image)(resources.GetObject("NzMB.ButtonImage")));
+			this.NzMB.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.Image;
 			this.NzMB.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzMB.Location = new System.Drawing.Point(66, 56);
 			this.NzMB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -119,6 +121,8 @@
 			this.NzMB.Name = "NzMB";
 			this.NzMB.Size = new System.Drawing.Size(373, 29);
 			this.NzMB.TabIndex = 1;
+			this.NzMB.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			this.NzMB.ButtonClick += new System.EventHandler(this.NzMB_ButtonClick);
 			// 
 			// label2
 			// 
@@ -134,6 +138,8 @@
 			// 
 			// NzCPU
 			// 
+			this.NzCPU.ButtonImage = ((System.Drawing.Image)(resources.GetObject("NzCPU.ButtonImage")));
+			this.NzCPU.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.Image;
 			this.NzCPU.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzCPU.Location = new System.Drawing.Point(66, 96);
 			this.NzCPU.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -152,6 +158,8 @@
 			this.NzCPU.Name = "NzCPU";
 			this.NzCPU.Size = new System.Drawing.Size(373, 29);
 			this.NzCPU.TabIndex = 2;
+			this.NzCPU.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			this.NzCPU.ButtonClick += new System.EventHandler(this.NzCPU_ButtonClick);
 			// 
 			// label4
 			// 

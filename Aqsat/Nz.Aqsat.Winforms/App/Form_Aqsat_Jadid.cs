@@ -402,10 +402,11 @@ namespace Nz.Aqsat.Winforms.App
 
 	        if (NsTedadAqsat.MS_Decimal > 0 && NsStartDate.MS_Tarikh.HasValue)
 	        {
-		        var startDate	= NsStartDate.MS_Tarikh.Value.ToDatetime().Date;
-		        var mablaqQest	= decimal.Round(NsMablaqFinalAqsat.MS_Decimal / NsTedadAqsat.MS_Decimal);
-
-		        if (NsRoundMablaq.MS_Decimal > 0)
+		        var startDate		= NsStartDate.MS_Tarikh.Value.ToDatetime().Date;
+		        var mablaqQest		= decimal.Round(NsMablaqFinalAqsat.MS_Decimal / NsTedadAqsat.MS_Decimal);
+		        var pCalendar		= new PersianCalendar();
+		        var roz				= NsStartDate.MS_Tarikh.Value._Roz;
+				if (NsRoundMablaq.MS_Decimal > 0)
 		        {
 			        mablaqQest -= (mablaqQest % ((decimal)Math.Pow(10, (double)NsRoundMablaq.MS_Decimal)));
 		        }
@@ -416,10 +417,16 @@ namespace Nz.Aqsat.Winforms.App
 			        if (NsDoreQest.MS_Decimal == 30)
 			        {
 				        var start	= new MS_Structure_Shamsi( startDate.AddMonths(i));
-				        tarix		= new MS_Structure_Shamsi(start._Sal, start._Mah , NsStartDate.MS_Tarikh.Value._Roz).ToDatetime().Date;
-
-			        }
-			        else
+				        if (roz == 30 && start._Mah == 12)
+				        {
+					        tarix = pCalendar.IsLeapYear(start._Sal) 
+						        ? new MS_Structure_Shamsi(start._Sal, start._Mah, roz).ToDatetime().Date 
+						        : new MS_Structure_Shamsi(start._Sal, start._Mah, 29).ToDatetime().Date;
+				        }
+						else
+							tarix = new MS_Structure_Shamsi(start._Sal, start._Mah , roz).ToDatetime().Date;
+					}
+					else
 			        {
 				        tarix = startDate.AddDays((i + 1) * (double)NsDoreQest.MS_Decimal);
 					}
@@ -617,7 +624,7 @@ namespace Nz.Aqsat.Winforms.App
 
 			RefreshItems();
 		}
-        private void NsStartDate_TextChanged(object sender, EventArgs e)
+        private void NsStartDate_TextChanged				(object sender, EventArgs e)
         {
 	        if (!_DoRefresh)
 		        return;

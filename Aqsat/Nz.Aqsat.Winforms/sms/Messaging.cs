@@ -25,8 +25,9 @@ namespace Nz.Aqsat.Winforms.sms
 	    {
 		    var tmp		= Cell.Image;
 			Cell.Image	= MS_Resource.GlobalResources.refresh;
+			Count		= Converter.ConvertToPersian(Convert.ToInt32(Count));
 
-		    var sendSms = new SendSms();
+			var sendSms = new SendSms();
 			var r = await sendSms.SendSarResidQest(
 
 				PhoneNumber,
@@ -38,6 +39,7 @@ namespace Nz.Aqsat.Winforms.sms
 				_setting.CardNumber,
 				_setting.PhoneNumber
 			);
+
 
 		    Cell.Image = r? MS_Resource.GlobalResources._ms_Save : MS_Resource.GlobalResources._ms_Laqv_Save;
 

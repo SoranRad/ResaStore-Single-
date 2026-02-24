@@ -39,7 +39,61 @@ namespace ShareLib.Utils
 
 	public static class Converter
     {
-        public static object ConvertAll(object[] fromObjects, System.Type
+	    private static readonly string[] OrdinalNumbers = new string[]
+	    {
+		    "",           // 0 - خالی
+		    "اول",        // 1
+		    "دوم",        // 2
+		    "سوم",        // 3
+		    "چهارم",      // 4
+		    "پنجم",       // 5
+		    "ششم",       // 6
+		    "هفتم",       // 7
+		    "هشتم",       // 8
+		    "نهم",        // 9
+		    "دهم",        // 10
+		    "یازدهم",     // 11
+		    "دوازدهم",    // 12
+		    "سیزدهم",     // 13
+		    "چهاردهم",    // 14
+		    "پانزدهم",    // 15
+		    "شانزدهم",    // 16
+		    "هفده‌م",     // 17
+		    "هجده‌م",     // 18
+		    "نوزدهم",     // 19
+		    "بیستم",      // 20
+		    "بیست‌و‌یکم",   // 21
+		    "بیست‌و‌دوم",   // 22
+		    "بیست‌و‌سوم",   // 23
+		    "بیست‌و‌چهارم", // 24
+		    "بیست‌و‌پنجم",  // 25
+		    "بیست‌و‌ششم",  // 26
+		    "بیست‌و‌هفتم",  // 27
+		    "بیست‌و‌هشتم",  // 28
+		    "بیست‌و‌نهم",   // 29
+		    "سی‌ام",       // 30
+		    "سی‌و‌یکم",     // 31
+		    "سی‌و‌دوم",     // 32
+		    "سی‌و‌سوم",     // 33
+		    "سی‌و‌چهارم",   // 34
+		    "سی‌و‌پنجم",    // 35
+		    "سی‌و‌ششم",    // 36
+		    "سی‌و‌هفتم",    // 37
+		    "سی‌و‌هشتم",    // 38
+		    "سی‌و‌نهم",     // 39
+		    "چهلم",        // 40
+		    "چهل‌و‌یکم",    // 41
+		    "چهل‌و‌دوم",    // 42
+		    "چهل‌و‌سوم",    // 43
+		    "چهل‌و‌چهارم",  // 44
+		    "چهل‌و‌پنجم",   // 45
+		    "چهل‌و‌ششم",   // 46
+		    "چهل‌و‌هفتم",   // 47
+		    "چهل‌و‌هشتم",   // 48
+		    "چهل‌و‌نهم",    // 49
+		    "پنجاهم"       // 50
+	    };
+		public static object ConvertAll(object[] fromObjects, System.Type
           toType)
         {
             if (fromObjects != null)
@@ -96,7 +150,15 @@ namespace ShareLib.Utils
 	        var StrJson = Item.ToJsonString();
             return Extentions.FromJsonString<T>(StrJson);
         }
-    }
+
+        public static string ConvertToPersian(int number)
+        {
+	        if (number < 1 || number > 50)
+		        throw new ArgumentOutOfRangeException(nameof(number), "عدد باید بین 1 تا 50 باشد");
+
+	        return OrdinalNumbers[number];
+        }
+	}
 
 
 

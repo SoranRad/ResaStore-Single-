@@ -37,5 +37,15 @@ namespace Nz.Activator
 					Form_Notify.FarsiMessageBoxIcon.چـک_باکس)
 				.Popup(Form_Notify.Direction_Show.Right_To_Left, 1500);
 		}
-    }
+
+		private void NzMB_ButtonClick(object sender, EventArgs e)
+		{
+			NzMB.Text = MS_Control.Hardware.Hardware.mb_serial_number().Trim();
+		}
+
+		private void NzCPU_ButtonClick(object sender, EventArgs e)
+		{
+			NzCPU.Text = MS_Control.Hardware.Hardware.cpu_id().Trim();
+		}
+	}
 }
