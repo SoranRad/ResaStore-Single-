@@ -43,6 +43,7 @@ namespace NZ.Xazane.WinForms.App
         private DpManager                       _Manager;
         private long                            _ID             = 0;
         private long?                           _FactorID       = null;
+
         private bool                            _CacheLoaded    = false;
         private bool                            _PosLoaded      = false;
         private bool                            _DoRefresh      = true;
@@ -191,9 +192,10 @@ namespace NZ.Xazane.WinForms.App
             NzBankAmount.MS_Decimal     = 0;
             NzBankDecription.Text       = "";
             NzIdentifier.Text           = "";
-            #endregion
+            NzOff.Enabled               = _FactorPaymnet == null;
+			#endregion
 
-            GetMaxSerial        ();
+			GetMaxSerial        ();
             RefreshSum          ();
 
             NzCustomer.Focus    ();
@@ -208,7 +210,10 @@ namespace NZ.Xazane.WinForms.App
                 _DP.tarikh_add      = DateTime.Now;
 
                 if (_FactorPaymnet != null)
-                    _DP.FK_Faktor   = _FactorPaymnet.IDFactor;
+                {
+	                _DP.FK_Faktor           = _FactorPaymnet.IDFactor;
+                    _DP.Fk_Factor_radif_Id  = _FactorPaymnet.IDFactorRiz;
+                }
             }
             else if (_Is_Edit)
             {
@@ -577,7 +582,6 @@ namespace NZ.Xazane.WinForms.App
 
             return null;
         }
-
         private void    Print                   (Enums.NzKindPrint KindPrint)
         {
             if (_DP.ID == 0)

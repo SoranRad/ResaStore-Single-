@@ -26,5 +26,12 @@ namespace Nz.Anbar.Model.Report
         public decimal      PercentRemain        => 100 * Remain / meqdar;
         public decimal      PercentSale          => 100 - PercentRemain;
 
-    }
+        public decimal? Cheque { get; set; }
+        public decimal? Cache { get; set; }
+        public decimal? Pos { get; set; }
+
+        public decimal MandeRadif   => mablaq - (Cheque ?? 0) - (Cache ?? 0) - (Pos ?? 0);
+        public decimal MandeTasvieh => MablaqRemain - (Cheque ?? 0) - (Cache ?? 0) - (Pos ?? 0);
+
+	}
 }

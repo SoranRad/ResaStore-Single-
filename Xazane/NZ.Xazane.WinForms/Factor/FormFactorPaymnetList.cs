@@ -45,7 +45,8 @@ namespace NZ.Xazane.WinForms.Factor
             _message    = Message;
             _Manager    = new DpManager();
             _Kind       = _message.Kind;
-        }
+            NsRadifShowOnly.Visible = _message.IDFactorRiz.HasValue;
+		}
         #endregion
         #region Methods
 
@@ -57,9 +58,9 @@ namespace NZ.Xazane.WinForms.Factor
                 var list =
                     _Manager.GetView<FactorPaymentList>(new
                     {
-                        IdFactor = _message.IDFactor
-
-                    });
+                        IdFactor        = _message.IDFactor,
+						IdFactorRiz     = NsRadifShowOnly.Checked ? _message.IDFactorRiz : (long?)null
+					});
                 NzGridHeads.DataSource = list?.ToList();
 
                 if (NzGridHeads.RowCount > 0)
@@ -340,5 +341,10 @@ namespace NZ.Xazane.WinForms.Factor
         {
             mS_GridX_Setting2.FillParametter(this.Text);
         }
-    }
+
+		private void NsRadifShowOnly_CheckedChanged(object sender, EventArgs e)
+		{
+			RefreshGrid();
+		}
+	}
 }

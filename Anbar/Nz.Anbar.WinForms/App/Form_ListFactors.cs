@@ -18,8 +18,15 @@ namespace Nz.Anbar.WinForms.App
 {
     public partial class Form_ListFactors : Form
     {
-        #region Fields
-        private ReportManager       _Manager;
+	    #region Logging
+	    private static readonly log4net.ILog log =
+		    log4net
+			    .LogManager
+			    .GetLogger
+				    (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+	    #endregion
+		#region Fields
+		private ReportManager       _Manager;
         private Enums.NzFactorKind  _Kind;
         #endregion
         #region Constructor
