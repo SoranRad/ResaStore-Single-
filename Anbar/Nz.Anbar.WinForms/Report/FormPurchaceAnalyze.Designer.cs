@@ -48,8 +48,8 @@ namespace Nz.Anbar.WinForms.Report
 			Janus.Windows.GridEX.GridEXLayout NzGridItems_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridItems_DesignTimeLayout_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridItems_DesignTimeLayout_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.HeaderImage");
-			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridItems_DesignTimeLayout_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column17.ButtonImage");
-			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridItems_DesignTimeLayout_Reference_3 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column17.HeaderImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridItems_DesignTimeLayout_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column18.ButtonImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridItems_DesignTimeLayout_Reference_3 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column18.HeaderImage");
 			this.Tab_Control_Main = new Janus.Windows.UI.Tab.UITab();
 			this.uiTabPage12 = new Janus.Windows.UI.Tab.UITabPage();
 			this.NzGridHeads = new MS_Control.Controls.MS_GridX();
