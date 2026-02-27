@@ -23,6 +23,7 @@ namespace NZ.Xazane.Model.Models
         public short        FK_User_Add         { get; set; }
         public short?       FK_User_Edit        { get; set; }
         public long?        FK_Faktor           { get; set; }
+        public long?        Fk_Factor_radif_Id  { get; set; }
         public long?        FK_ShaXs            { get; set; }
         public long?        FK_ShaXs_Enteqal    { get; set; }
         public long?        FK_Qest_Main        { get; set; }

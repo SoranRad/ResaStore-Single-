@@ -9,6 +9,7 @@ namespace ShareLib.ViewModel
     public class FactorPaymentMessage
     {
         public long                 IDFactor        { get; set; }
+        public long?                IDFactorRiz     { get; set; }
         public long                 IDPeople        { get; set; }
         public string               Description     { get; set; }
         public Enums.NzPaymentOperatingKind Kind    { get; set; }

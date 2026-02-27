@@ -66,6 +66,8 @@ namespace NZ.Xazane.WinForms.Factor
 			this.NzItems = new System.Windows.Forms.ToolStripButton();
 			this.NzRefreshList = new System.Windows.Forms.ToolStripButton();
 			this.NzNewPayment = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.NsRadifShowOnly = new System.Windows.Forms.ToolStripButton();
 			((System.ComponentModel.ISupportInitialize)(this.NzGridHeads)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.NzTabInfo)).BeginInit();
 			this.NzTabInfo.SuspendLayout();
@@ -532,12 +534,15 @@ namespace NZ.Xazane.WinForms.Factor
 			// 
 			// mS_Tool_Strip1
 			// 
+			this.mS_Tool_Strip1.Font = new System.Drawing.Font("IRANSans(Small)", 12F);
 			this.mS_Tool_Strip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.mS_Tool_Strip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.NzPrint,
             this.NzItems,
             this.NzRefreshList,
-            this.NzNewPayment});
+            this.NzNewPayment,
+            this.toolStripSeparator1,
+            this.NsRadifShowOnly});
 			this.mS_Tool_Strip1.Location = new System.Drawing.Point(0, 0);
 			this.mS_Tool_Strip1.MS_BorderColor = System.Drawing.Color.SkyBlue;
 			this.mS_Tool_Strip1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -567,14 +572,14 @@ namespace NZ.Xazane.WinForms.Factor
 			// NzPrintA4
 			// 
 			this.NzPrintA4.Name = "NzPrintA4";
-			this.NzPrintA4.Size = new System.Drawing.Size(116, 22);
+			this.NzPrintA4.Size = new System.Drawing.Size(120, 24);
 			this.NzPrintA4.Text = "چاپ  A4";
 			this.NzPrintA4.Click += new System.EventHandler(this.NzPrintA4_Click);
 			// 
 			// NzPrintA5
 			// 
 			this.NzPrintA5.Name = "NzPrintA5";
-			this.NzPrintA5.Size = new System.Drawing.Size(116, 22);
+			this.NzPrintA5.Size = new System.Drawing.Size(120, 24);
 			this.NzPrintA5.Text = "چاپ  A5";
 			this.NzPrintA5.Click += new System.EventHandler(this.NzPrintA5_Click);
 			// 
@@ -612,6 +617,24 @@ namespace NZ.Xazane.WinForms.Factor
 			this.NzNewPayment.Text = "ثـبت بـرگه جـدید";
 			this.NzNewPayment.ToolTipText = "ثـبت بـرگه جـدید";
 			this.NzNewPayment.Click += new System.EventHandler(this.NzAdd_Click);
+			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 30);
+			// 
+			// NsRadifShowOnly
+			// 
+			this.NsRadifShowOnly.CheckOnClick = true;
+			this.NsRadifShowOnly.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NsRadifShowOnly.Image = ((System.Drawing.Image)(resources.GetObject("NsRadifShowOnly.Image")));
+			this.NsRadifShowOnly.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.NsRadifShowOnly.Name = "NsRadifShowOnly";
+			this.NsRadifShowOnly.Size = new System.Drawing.Size(236, 27);
+			this.NsRadifShowOnly.Text = " تنها مبالغ مربوط به ردیف را نمایش بده";
+			this.NsRadifShowOnly.ToolTipText = "نمایش مبالغ مربوط به ردیف انتخابی";
+			this.NsRadifShowOnly.Visible = false;
+			this.NsRadifShowOnly.CheckedChanged += new System.EventHandler(this.NsRadifShowOnly_CheckedChanged);
 			// 
 			// FormFactorPaymentList
 			// 
@@ -678,5 +701,7 @@ namespace NZ.Xazane.WinForms.Factor
         private System.Windows.Forms.ToolStripButton NzItems;
         private System.Windows.Forms.ToolStripButton NzRefreshList;
         private System.Windows.Forms.ToolStripButton NzNewPayment;
-    }
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+		private System.Windows.Forms.ToolStripButton NsRadifShowOnly;
+	}
 }

@@ -31,30 +31,31 @@ FROM			Xazane.tbl_Amaliat_DP		AS tad
 INNER JOIN		General.DimDate				AS dd  ON dd.GregorianDate = tad.tarikh
 INNER JOIN		Base.tbl_Ashxas				AS ta  ON tad.FK_ShaXs = ta.ID
 LEFT OUTER JOIN (
-SELECT 
-tax.FK_DP, 
-SUM(CASE WHEN tax.kind = 9 THEN tax.mablaq ELSE 0 END)  AS Cache,
-SUM(CASE WHEN tax.kind = 10 THEN tax.mablaq ELSE 0 END) AS Pos
-FROM Xazane.tbl_Amaliat_Xazaneh	AS tax 
-GROUP BY tax.FK_DP
+                SELECT 
+                    tax.FK_DP, 
+                    SUM(CASE WHEN tax.kind = 9 THEN tax.mablaq ELSE 0 END)  AS Cache,
+                    SUM(CASE WHEN tax.kind = 10 THEN tax.mablaq ELSE 0 END) AS Pos
 
-) AS PosCache ON PosCache.FK_DP = tad.ID
+                    FROM Xazane.tbl_Amaliat_Xazaneh	AS tax 
+                    GROUP BY tax.FK_DP
+
+                ) AS PosCache ON PosCache.FK_DP = tad.ID
 
 LEFT OUTER JOIN
-(
-SELECT 
-tac.FK_DP,
-SUM(tac.mablaq) AS  Cheque,
-COUNT(tac.ID)	AS CountCheque
+                (
+                SELECT 
+                    tac.FK_DP,
+                    SUM(tac.mablaq) AS  Cheque,
+                    COUNT(tac.ID)	AS CountCheque
 
-FROM  Xazane.tbl_Amaliat_Check	AS tac 
+                    FROM  Xazane.tbl_Amaliat_Check	AS tac 
 
-GROUP BY tac.FK_DP
- ) AS Cheque ON Cheque.FK_DP = tad.ID
+                    GROUP BY tac.FK_DP
+                 ) AS Cheque ON Cheque.FK_DP = tad.ID
 
 
 
-WHERE tad.FK_Faktor = @IdFactor
+WHERE tad.FK_Faktor = @IdFactor AND ( tad.Fk_Factor_radif_Id = @IdFactorRiz OR @IdFactorRiz  IS NULL)
 
 
 ");
