@@ -182,10 +182,30 @@ namespace NZ.Anbar.DataLayer.Repo
 
 	                        if (rowOut.nerkh_2 != nerx)
 		                        rowOut.nerkh_2 = nerx;
-                            
+
+                             
+
+	                        if (InputList.IndexOf(rowIn) == IndexOfIn)
+	                        {
+		                        if (rowIn.Remain <= 0)
+		                        {
+			                        IndexOfIn++;
+			                        if (IndexOfIn >= InputList.Count)
+				                        break;
+
+			                        ValueOfIn = InputList[IndexOfIn].Remain;
+		                        }
+		                        else
+		                        {
+			                        ValueOfIn = rowIn.Remain;
+								}
+
+							}
+
 	                        IndexOfOut++;
 	                        if (IndexOfOut >= OutputList.Count)
 		                        break;
+	                        
 	                        ValueOfOut = OutputList[IndexOfOut].meqdar;
 	                        continue;
                         }
@@ -197,30 +217,17 @@ namespace NZ.Anbar.DataLayer.Repo
 		                                    ? rowIn.nerkh_2
 		                                    : rowIn.nerkh) * tmp;
 
-	                        rowOut.nerkh_2  = nerx;
-	                        Continue        = true;
-							ValueOfOut      -= tmp;
+	                        rowOut.nerkh_2 = nerx;
+	                        Continue = true;
+	                        ValueOfOut -= tmp;
+
+							IndexOfIn++;
+	                        if (IndexOfIn >= InputList.Count)
+		                        break;
+
+	                        ValueOfIn = InputList[IndexOfIn].Remain;
 						}
-
-                        //rowIn.Remain    -= rowOut.meqdar;
-                        //rowIn.Remain    = rowIn.Remain < 0 ? 0 : rowIn.Remain;
-                        
-                        //var kind        = rowIn.FactorHead.kind;
-                        //var nerx        = ( kind == (byte)Enums.NzFactorKind.BargshtFrosh
-                        //                   ? rowIn.nerkh_2
-                        //                   : rowIn.nerkh ) * rowOut.meqdar;
-                        ////====
-
-                        //if(rowOut.nerkh_2 != nerx)
-                        //    rowOut.nerkh_2 = nerx;
-                        ////====
-
-                        //IndexOfOut ++;
-                        
-                        //if(IndexOfOut >= OutputList.Count)
-                        //    break;
-                        //ValueOfOut = OutputList[IndexOfOut].meqdar;
-                    }
+					}
                 }
 
 
@@ -284,7 +291,7 @@ namespace NZ.Anbar.DataLayer.Repo
                     }
 
                     ValueOfOut  = OutputList[IndexOfOut].meqdar;
-                    ValueOfIn   = InputList[IndexOfIn].meqdar;
+                    ValueOfIn   = InputList[IndexOfIn].Remain;
                     Continue    = false;
                 }
                 //مقداری خروج بیشتر از مقدار ورود
@@ -318,7 +325,7 @@ namespace NZ.Anbar.DataLayer.Repo
                         return;
                     }
 
-                    ValueOfIn   = InputList[IndexOfIn].meqdar;
+                    ValueOfIn   = InputList[IndexOfIn].Remain;
                     Continue    = true;
                 }
             }

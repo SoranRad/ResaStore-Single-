@@ -156,6 +156,7 @@
     <Compile Include="DapperConfig\ViewModel\FactorPaymentsList.cs" />
     <Compile Include="DapperConfig\ViewModel\GeneralFactorConfiguration.cs" />
     <Compile Include="DapperConfig\ViewModel\AvailObjectConfig.cs" />
+    <Compile Include="DapperConfig\ViewModel\KharidAmaniFactorsConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\PreFactorConfiguration.cs" />
     <Compile Include="DapperConfig\ViewModel\PriceChangeConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\PriceListConfig.cs" />
@@ -206,24 +207,31 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202203170630513_InitialCreate.resx">
       <DependentUpon>202203170630513_InitialCreate.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202502081523449_modify-sales-kind.resx">
       <DependentUpon>202502081523449_modify-sales-kind.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202509270817377_change-sub-group.resx">
       <DependentUpon>202509270817377_change-sub-group.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202510050555510_add-website-fields.resx">
       <DependentUpon>202510050555510_add-website-fields.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202510091348300_change-website-kind.resx">
       <DependentUpon>202510091348300_change-website-kind.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202511220729523_modify-factor-object.resx">
       <DependentUpon>202511220729523_modify-factor-object.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202512091425034_add-showinbarcode-to-objects.resx">
       <DependentUpon>202512091425034_add-showinbarcode-to-objects.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

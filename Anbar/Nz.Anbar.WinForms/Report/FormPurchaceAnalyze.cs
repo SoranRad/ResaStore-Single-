@@ -58,7 +58,7 @@ namespace Nz.Anbar.WinForms.Report
 			var Month = 13 - ms_mah.SelectedIndex;
 		 
 			var list =
-				_Manager.GetReport<GeneralFactor>(new
+				_Manager.GetReport<KharidAmaniFactors>(new
 				{
 					Year = SystemConstant.ActiveYear.Salmali,
 					Kind = (byte)_Kind,
@@ -79,7 +79,7 @@ namespace Nz.Anbar.WinForms.Report
 				if(NzGridHeads.CurrentRow==null)
 					return;
 
-				var factor = NzGridHeads.CurrentRow.DataRow as GeneralFactor;
+				var factor = NzGridHeads.CurrentRow.DataRow as KharidAmaniFactors;
 				if (factor == null)
 					return;
 
@@ -102,7 +102,7 @@ namespace Nz.Anbar.WinForms.Report
 		}
 		private void LoadPaymentListHead	()
 		{
-			var row = NzGridHeads.CurrentRow.DataRow as GeneralFactor;
+			var row = NzGridHeads.CurrentRow.DataRow as KharidAmaniFactors;
 
 			var kind = Enums.FormOperation.FactorPaymentList;
 			var Msg = new FactorPaymentMessage()
@@ -134,18 +134,18 @@ namespace Nz.Anbar.WinForms.Report
 		}
 		private void LoadPaymentListRiz		()
 		{
-			var row = NzGridHeads.CurrentRow.DataRow as GeneralFactor;
+			var row = NzGridHeads.CurrentRow.DataRow as KharidAmaniFactors;
 			var riz = NzGridItems.CurrentRow.DataRow as PurchaceAnalyze;
 
 			var kind = Enums.FormOperation.FactorPaymentList;
 			var Msg = new FactorPaymentMessage()
 			{
 				Kind			=  Enums.NzPaymentOperatingKind.Pardaxt ,
-				Description		= "بابت تسویه فاکتور " + row.Serial + " ردیف " + riz.radif +" "+ riz.ObjectTitle,
-				IDFactorRiz		= riz.ID,
+				Description		= "بابت تسویه فاکتور " + row.Serial + " کد " + riz.FK_Kala +" "+ riz.ObjectTitle,
+				IDFactorRiz		= riz.FK_Kala,
 				IDFactor		= row.ID,
 				IDPeople		= row.FK_AshXas_ID ?? 0,
-				Amount			= row.mablaq,
+				Amount			= riz.MandeTasvieh,
 			};
 
 			var frm = Form_Factory._Form_Factory_Xazaneh.GetFormForEdit(kind, Msg);

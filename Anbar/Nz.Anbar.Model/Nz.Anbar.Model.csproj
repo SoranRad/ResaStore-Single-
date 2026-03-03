@@ -102,6 +102,7 @@
     <Compile Include="Report\FactorDetails.cs" />
     <Compile Include="Report\FactorReminder.cs" />
     <Compile Include="Report\FactorReminderList.cs" />
+    <Compile Include="Report\KharidAmaniFactors.cs" />
     <Compile Include="Report\ObjectRemaindOnDate.cs" />
     <Compile Include="Report\ObjectsOfActiveGroup.cs" />
     <Compile Include="Report\PriceChartMonthly.cs" />
