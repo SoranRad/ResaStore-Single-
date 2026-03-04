@@ -39,7 +39,7 @@ namespace Nz.Anbar.WinForms.Component
 			this.NzList.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
 			this.NzList.Name = "NzList";
 			this.NzList.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.NzList.Size = new System.Drawing.Size(550, 196);
+			this.NzList.Size = new System.Drawing.Size(785, 350);
 			this.NzList.TabIndex = 0;
 			this.NzList.MS_On_Row_Selected += new MS_Control.TSDD.Row_Seleced(this.NzList_Selected);
 			this.ResumeLayout(false);
