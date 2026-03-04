@@ -34,6 +34,10 @@
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridFuture_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.HeaderImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridFuture_Layout_0_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column13.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridFuture_Layout_0_Reference_3 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column13.HeaderImage");
+			Janus.Windows.GridEX.GridEXLayout NzGridItems_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridItems_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridItems_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.HeaderImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridItems_Layout_0_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column7.ButtonImage");
 			this.Tab_Control_Main = new Janus.Windows.UI.Tab.UITab();
 			this.uiTabPage12 = new Janus.Windows.UI.Tab.UITabPage();
 			this.NzGridFuture = new MS_Control.Controls.MS_GridX();
@@ -45,6 +49,9 @@
 			this.mS_GridX_Setting1 = new MS_Control.Controls.MS_GridX_Setting();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.NsRefresh = new System.Windows.Forms.ToolStripButton();
+			this.Splitter1 = new DevComponents.DotNetBar.ExpandableSplitter();
+			this.NzGridItems = new MS_Control.Controls.MS_GridX();
+			this.NsDetail = new System.Windows.Forms.ToolStripButton();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
 			this.uiTabPage12.SuspendLayout();
@@ -52,6 +59,7 @@
 			this.mS_Panel1.SuspendLayout();
 			this.mS_Tool_Strip1.SuspendLayout();
 			this.mS_GridX_Setting1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.NzGridItems)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// Tab_Control_Main
@@ -83,6 +91,8 @@
 			// uiTabPage12
 			// 
 			this.uiTabPage12.Controls.Add(this.NzGridFuture);
+			this.uiTabPage12.Controls.Add(this.Splitter1);
+			this.uiTabPage12.Controls.Add(this.NzGridItems);
 			this.uiTabPage12.Controls.Add(this.mS_Panel1);
 			this.uiTabPage12.Location = new System.Drawing.Point(1, 1);
 			this.uiTabPage12.Name = "uiTabPage12";
@@ -148,7 +158,7 @@
 			this.NzGridFuture.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
 			this.NzGridFuture.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
 			this.NzGridFuture.SelectOnExpand = false;
-			this.NzGridFuture.Size = new System.Drawing.Size(1083, 482);
+			this.NzGridFuture.Size = new System.Drawing.Size(1083, 254);
 			this.NzGridFuture.TabIndex = 8;
 			this.NzGridFuture.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
 			this.NzGridFuture.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -156,6 +166,7 @@
 			this.NzGridFuture.TreeLineColor = System.Drawing.Color.Black;
 			this.NzGridFuture.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
 			this.NzGridFuture.ColumnButtonClick += new Janus.Windows.GridEX.ColumnActionEventHandler(this.mS_GridX1_ColumnButtonClick);
+			this.NzGridFuture.SelectionChanged += new System.EventHandler(this.NzGridFuture_SelectionChanged);
 			// 
 			// mS_Panel1
 			// 
@@ -232,7 +243,8 @@
 			this.mS_GridX_Setting1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.mS_GridX_Setting1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator1,
-            this.NsRefresh});
+            this.NsRefresh,
+            this.NsDetail});
 			this.mS_GridX_Setting1.Location = new System.Drawing.Point(0, 513);
 			this.mS_GridX_Setting1.MS_BorderColor = System.Drawing.Color.DodgerBlue;
 			this.mS_GridX_Setting1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -261,6 +273,121 @@
 			this.NsRefresh.Text = "بروزرسانی لیست";
 			this.NsRefresh.Click += new System.EventHandler(this.NsRefresh_Click);
 			// 
+			// Splitter1
+			// 
+			this.Splitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+			this.Splitter1.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+			this.Splitter1.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+			this.Splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.Splitter1.ExpandActionClick = false;
+			this.Splitter1.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+			this.Splitter1.ExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+			this.Splitter1.ExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.Splitter1.ExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+			this.Splitter1.GripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.Splitter1.GripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+			this.Splitter1.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+			this.Splitter1.GripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+			this.Splitter1.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(151)))), ((int)(((byte)(61)))));
+			this.Splitter1.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(184)))), ((int)(((byte)(94)))));
+			this.Splitter1.HotBackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground2;
+			this.Splitter1.HotBackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground;
+			this.Splitter1.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+			this.Splitter1.HotExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+			this.Splitter1.HotExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.Splitter1.HotExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+			this.Splitter1.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+			this.Splitter1.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+			this.Splitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+			this.Splitter1.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+			this.Splitter1.Location = new System.Drawing.Point(0, 283);
+			this.Splitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.Splitter1.Name = "Splitter1";
+			this.Splitter1.Size = new System.Drawing.Size(1083, 8);
+			this.Splitter1.Style = DevComponents.DotNetBar.eSplitterStyle.Office2007;
+			this.Splitter1.TabIndex = 753;
+			this.Splitter1.TabStop = false;
+			this.Splitter1.Visible = false;
+			// 
+			// NzGridItems
+			// 
+			this.NzGridItems.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.False;
+			this.NzGridItems.AlternatingColors = true;
+			this.NzGridItems.AlternatingRowFormatStyle.BackColor = System.Drawing.Color.PowderBlue;
+			this.NzGridItems.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.NzGridItems.BorderStyle = Janus.Windows.GridEX.BorderStyle.RaisedLight3D;
+			this.NzGridItems.CellSelectionMode = Janus.Windows.GridEX.CellSelectionMode.SingleCell;
+			this.NzGridItems.CellToolTip = Janus.Windows.GridEX.CellToolTip.NoToolTip;
+			this.NzGridItems.ColumnHeaders = Janus.Windows.GridEX.InheritableBoolean.False;
+			this.NzGridItems.Cursor = System.Windows.Forms.Cursors.Arrow;
+			this.NzGridItems.DefaultFilterRowComparison = Janus.Windows.GridEX.FilterConditionOperator.Contains;
+			this.NzGridItems.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.NzGridItems.DynamicFiltering = true;
+			this.NzGridItems.EnterKeyBehavior = Janus.Windows.GridEX.EnterKeyBehavior.NextCell;
+			this.NzGridItems.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
+			this.NzGridItems.FilterRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NzGridItems.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
+			this.NzGridItems.FocusCellDisplayMode = Janus.Windows.GridEX.FocusCellDisplayMode.UseSelectedFormatStyle;
+			this.NzGridItems.FocusCellFormatStyle.Appearance = Janus.Windows.GridEX.Appearance.Flat;
+			this.NzGridItems.FocusCellFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NzGridItems.FocusCellFormatStyle.FontSize = 15F;
+			this.NzGridItems.FocusStyle = Janus.Windows.GridEX.FocusStyle.Solid;
+			this.NzGridItems.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NzGridItems.GridLineColor = System.Drawing.Color.Black;
+			this.NzGridItems.GridLines = Janus.Windows.GridEX.GridLines.Vertical;
+			this.NzGridItems.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid;
+			this.NzGridItems.GroupByBoxVisible = false;
+			this.NzGridItems.HeaderFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+			this.NzGridItems.HeaderFormatStyle.ForeColor = System.Drawing.Color.Black;
+			this.NzGridItems.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
+			NzGridItems_Layout_0.IsCurrentLayout = true;
+			NzGridItems_Layout_0.Key = "Items";
+			NzGridItems_Layout_0_Reference_0.Instance = ((object)(resources.GetObject("NzGridItems_Layout_0_Reference_0.Instance")));
+			NzGridItems_Layout_0_Reference_1.Instance = ((object)(resources.GetObject("NzGridItems_Layout_0_Reference_1.Instance")));
+			NzGridItems_Layout_0_Reference_2.Instance = ((object)(resources.GetObject("NzGridItems_Layout_0_Reference_2.Instance")));
+			NzGridItems_Layout_0.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
+            NzGridItems_Layout_0_Reference_0,
+            NzGridItems_Layout_0_Reference_1,
+            NzGridItems_Layout_0_Reference_2});
+			NzGridItems_Layout_0.LayoutString = resources.GetString("NzGridItems_Layout_0.LayoutString");
+			this.NzGridItems.Layouts.AddRange(new Janus.Windows.GridEX.GridEXLayout[] {
+            NzGridItems_Layout_0});
+			this.NzGridItems.Location = new System.Drawing.Point(0, 291);
+			this.NzGridItems.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.NzGridItems.Name = "NzGridItems";
+			this.NzGridItems.NewRowPosition = Janus.Windows.GridEX.NewRowPosition.BottomRow;
+			this.NzGridItems.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom;
+			this.NzGridItems.Office2007CustomColor = System.Drawing.SystemColors.HotTrack;
+			this.NzGridItems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NzGridItems.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowIndex;
+			this.NzGridItems.SelectedFormatStyle.BackColor = System.Drawing.Color.AntiqueWhite;
+			this.NzGridItems.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
+			this.NzGridItems.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.AntiqueWhite;
+			this.NzGridItems.SelectOnExpand = false;
+			this.NzGridItems.Size = new System.Drawing.Size(1083, 220);
+			this.NzGridItems.TabIndex = 754;
+			this.NzGridItems.TabKeyBehavior = Janus.Windows.GridEX.TabKeyBehavior.ControlNavigation;
+			this.NzGridItems.TabStop = false;
+			this.NzGridItems.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NzGridItems.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
+			this.NzGridItems.TreeLineColor = System.Drawing.Color.Black;
+			this.NzGridItems.UpdateMode = Janus.Windows.GridEX.UpdateMode.CellUpdate;
+			this.NzGridItems.Visible = false;
+			this.NzGridItems.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			this.NzGridItems.ColumnButtonClick += new Janus.Windows.GridEX.ColumnActionEventHandler(this.NzGridItems_ColumnButtonClick);
+			// 
+			// NsDetail
+			// 
+			this.NsDetail.CheckOnClick = true;
+			this.NsDetail.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.NsDetail.Image = global::MS_Resource.GlobalResources.application_view_detail;
+			this.NsDetail.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.NsDetail.Margin = new System.Windows.Forms.Padding(0, 1, 10, 2);
+			this.NsDetail.Name = "NsDetail";
+			this.NsDetail.Size = new System.Drawing.Size(23, 22);
+			this.NsDetail.Text = "نمایش جزئیات";
+			this.NsDetail.CheckedChanged += new System.EventHandler(this.NsDetail_CheckedChanged);
+			// 
 			// FormSarResidAqsatHafte
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -281,6 +408,7 @@
 			this.mS_Tool_Strip1.PerformLayout();
 			this.mS_GridX_Setting1.ResumeLayout(false);
 			this.mS_GridX_Setting1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.NzGridItems)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -299,5 +427,8 @@
         private MS_Control.Controls.MS_Tool_Strip mS_Tool_Strip1;
         private System.Windows.Forms.ToolStripButton NsPriorWeek;
         private System.Windows.Forms.ToolStripButton NsNextWeek;
-    }
+		private DevComponents.DotNetBar.ExpandableSplitter Splitter1;
+		private MS_Control.Controls.MS_GridX NzGridItems;
+		private System.Windows.Forms.ToolStripButton NsDetail;
+	}
 }

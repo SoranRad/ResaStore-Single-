@@ -15,8 +15,8 @@ namespace Nz.Aqsat.DataLayer.DapperConfig.Report
 		    SetList(@"
 SELECT 
 
-ddWeek.PersianDayOfWeekName,
-ddWeek.PersianDayOfWeekInt,
+ddSarResid.PersianDayOfWeekName,
+ddSarResid.PersianDayOfWeekInt,
 tar.FK_Main,
 tar.ID,
 tam.Serial,
@@ -41,10 +41,9 @@ LEFT OUTER JOIN     Base.tbl_Ashxas         AS ta_zamen     ON  ta_zamen.ID     
 LEFT OUTER JOIN     General.DimDate         AS ddWeek       ON  ddWeek.GregorianDate = @tarix
 
 WHERE   
-
             tar.isPardaxt = 0 
         AND ddWeek.PersianWeekOfYearNo = ddSarResid.PersianWeekOfYearNo
- 
+        AND ddWeek.PersianYearInt = ddSarResid.PersianYearInt
 
 
 ");
