@@ -35,7 +35,7 @@ namespace Nz.Bar.Winforms.Provider
         private void NsCreateAqsat_Click(object sender, EventArgs e)
         {
 	        var frm = new Form_Aqsat_Jadid();
-	        frm.Show();
+	        frm.Show(AqsatProvider.MainForm);
 		}
 
         private void لیستاقساطToolStripMenuItem_Click(object sender, EventArgs e)

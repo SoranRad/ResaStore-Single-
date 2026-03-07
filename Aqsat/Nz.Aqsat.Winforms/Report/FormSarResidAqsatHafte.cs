@@ -23,6 +23,8 @@ namespace Nz.Aqsat.Winforms.Report
     {
 	    private short WeekCount = 0;
 	    private bool _DoRefresh = true;
+	    private bool _CancelJob = false;
+
 
 		public FormSarResidAqsatHafte()
         {
@@ -152,5 +154,55 @@ namespace Nz.Aqsat.Winforms.Report
 		        );
 	        }
         }
+
+        private async void NsMessage_Click(object sender, EventArgs e)
+        {
+	        if (!NzGridFuture.GetCheckedRows().Any())
+	        {
+		        MS_Message.Show("یک یا چند ردیف را انتخاب کنید");
+		        return;
+	        }
+
+	        _CancelJob = false;
+	        NsDetail.Checked = NzGridFuture.Enabled = NsMessage.Visible = false;
+	        NsProgress.Visible = NsProgressText.Visible = NsCancel.Visible = true;
+	        NsProgress.Maximum = NzGridFuture.GetCheckedRows().Count();
+	        NsProgress.Minimum = 0;
+	        NsProgress.Value = 0;
+	        NsProgressText.Text = @"0 \ " + NsProgress.Maximum;
+
+	        foreach (var row in NzGridFuture.GetCheckedRows())
+	        {
+		        var dataRow = row.DataRow as SarResidAqsatHafte;
+		        var cell = row.Cells["S"];
+		        var msg = new Messaging();
+
+		        await msg.SendSarResidQest(
+			        cell,
+			        Convert.ToInt64(dataRow.Mobile),
+			        dataRow.Shaxs,
+			        dataRow.Radif.ToString(),
+			        dataRow.KindTitle,
+			        dataRow.TarixSarResid,
+			        dataRow.mablaqQest.ToString("N")
+		        );
+
+		        NsProgress.Value++;
+		        NsProgressText.Text = NsProgress.Value + @" \ " + NsProgress.Maximum;
+		        if (_CancelJob)
+			        break;
+	        }
+        }
+
+        private void NsCancel_Click(object sender, EventArgs e)
+        {
+	        _CancelJob = true;
+
+	        NzGridFuture.Enabled = true;
+	        NsProgress.Visible = NsProgressText.Visible = NsCancel.Visible = false;
+	        NsMessage.Visible = true;
+
+        }
+
 	}
 }

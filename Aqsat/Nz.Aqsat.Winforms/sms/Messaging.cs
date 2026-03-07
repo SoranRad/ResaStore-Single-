@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Janus.Windows.GridEX;
 using MS_Control;
@@ -27,6 +28,9 @@ namespace Nz.Aqsat.Winforms.sms
 			Cell.Image	= MS_Resource.GlobalResources.refresh;
 			Count		= Converter.ConvertToPersian(Convert.ToInt32(Count));
 
+			//bool r= new Random().Next(10)/2 == 0;
+			//await Task.Delay(1500);
+
 			var sendSms = new SendSms();
 			var r = await sendSms.SendSarResidQest(
 
@@ -41,7 +45,7 @@ namespace Nz.Aqsat.Winforms.sms
 			);
 
 
-		    Cell.Image = r? MS_Resource.GlobalResources._ms_Save : MS_Resource.GlobalResources._ms_Laqv_Save;
+			Cell.Image = r? MS_Resource.GlobalResources._ms_Save : MS_Resource.GlobalResources._ms_Laqv_Save;
 
 		    new Form_Notify("تـوجـه",
 				    r
@@ -57,23 +61,26 @@ namespace Nz.Aqsat.Winforms.sms
 	    public async Task SendAqsatMande(GridEXCell Cell, long PhoneNumber, string Customer, string Count, string AGHSATTITLE, string Date, string Amount)
 
 	    {
-		    var tmp = Cell.Image;
+		    //var tmp = Cell.Image;
 		    Cell.Image = MS_Resource.GlobalResources.refresh;
 
-		    var sendSms = new SendSms();
-		    var r = await sendSms.SendAqsatMande(
+			//bool r = new Random().Next(10) / 2 == 0;
+			//await Task.Delay(1500);
 
-			    PhoneNumber,
-			    Customer,
-			    Count,
-			    AGHSATTITLE,
-			    Date,
-			    Amount,
-			    _setting.CardNumber,
-			    _setting.PhoneNumber
-		    );
+			var sendSms = new SendSms();
+			var r = await sendSms.SendAqsatMande(
 
-		    Cell.Image = r ? MS_Resource.GlobalResources._ms_Save : MS_Resource.GlobalResources._ms_Laqv_Save;
+			 PhoneNumber,
+			 Customer,
+			 Count,
+			 AGHSATTITLE,
+			 Date,
+			 Amount,
+			 _setting.CardNumber,
+			 _setting.PhoneNumber
+			);
+
+			Cell.Image = r ? MS_Resource.GlobalResources._ms_Save : MS_Resource.GlobalResources._ms_Laqv_Save;
 
 		    new Form_Notify("تـوجـه",
 				    r
