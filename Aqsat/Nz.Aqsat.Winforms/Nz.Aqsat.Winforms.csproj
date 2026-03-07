@@ -220,6 +220,12 @@
     <Compile Include="App\FormAqsatSaveResult.Designer.cs">
       <DependentUpon>FormAqsatSaveResult.cs</DependentUpon>
     </Compile>
+    <Compile Include="App\FormRememberAnnual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\FormRememberAnnual.Designer.cs">
+      <DependentUpon>FormRememberAnnual.cs</DependentUpon>
+    </Compile>
     <Compile Include="App\Form_Aqsat_Jadid.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="App\FormAqsatSaveResult.resx">
       <DependentUpon>FormAqsatSaveResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\FormRememberAnnual.resx">
+      <DependentUpon>FormRememberAnnual.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="App\Form_Aqsat_Jadid.resx">
       <DependentUpon>Form_Aqsat_Jadid.cs</DependentUpon>

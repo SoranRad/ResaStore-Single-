@@ -422,6 +422,7 @@
     <Compile Include="Setting\CommandChangePass.cs" />
     <Compile Include="Setting\CommandChangeUser.cs" />
     <Compile Include="Setting\CommandChangeYear.cs" />
+    <Compile Include="Setting\DailyNoteService.cs" />
     <Compile Include="Setting\FormDailyNoteEditor.cs">
       <SubType>Form</SubType>
     </Compile>

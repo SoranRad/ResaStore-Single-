@@ -44,6 +44,8 @@ namespace Nz.Bar.Winforms.Provider
 			this.NsSarResidAqsat = new System.Windows.Forms.ToolStripMenuItem();
 			this.NsSarResidHafte = new System.Windows.Forms.ToolStripMenuItem();
 			this.گزارشسررسیداقساطماهجاریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.NsAnnualAqsat = new System.Windows.Forms.ToolStripMenuItem();
 			this.mS_Menu1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -83,7 +85,9 @@ namespace Nz.Bar.Winforms.Provider
             this.تعریفانواعقسطToolStripMenuItem,
             this.toolStripSeparator2,
             this.NsCreateAqsat,
-            this.لیستاقساطToolStripMenuItem});
+            this.لیستاقساطToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.NsAnnualAqsat});
 			this.StorageMenu.Font = new System.Drawing.Font("IRANSans(Small) Medium", 15F);
 			this.StorageMenu.Image = ((System.Drawing.Image)(resources.GetObject("StorageMenu.Image")));
 			this.StorageMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -94,26 +98,26 @@ namespace Nz.Bar.Winforms.Provider
 			// تعریفانواعقسطToolStripMenuItem
 			// 
 			this.تعریفانواعقسطToolStripMenuItem.Name = "تعریفانواعقسطToolStripMenuItem";
-			this.تعریفانواعقسطToolStripMenuItem.Size = new System.Drawing.Size(185, 30);
+			this.تعریفانواعقسطToolStripMenuItem.Size = new System.Drawing.Size(199, 30);
 			this.تعریفانواعقسطToolStripMenuItem.Text = "تعریف انواع قسط";
 			this.تعریفانواعقسطToolStripMenuItem.Click += new System.EventHandler(this.تعریفانواعقسطToolStripMenuItem_Click_1);
 			// 
 			// toolStripSeparator2
 			// 
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(182, 6);
+			this.toolStripSeparator2.Size = new System.Drawing.Size(196, 6);
 			// 
 			// NsCreateAqsat
 			// 
 			this.NsCreateAqsat.Name = "NsCreateAqsat";
-			this.NsCreateAqsat.Size = new System.Drawing.Size(185, 30);
+			this.NsCreateAqsat.Size = new System.Drawing.Size(199, 30);
 			this.NsCreateAqsat.Text = "ایجاد قسط جدید";
 			this.NsCreateAqsat.Click += new System.EventHandler(this.NsCreateAqsat_Click);
 			// 
 			// لیستاقساطToolStripMenuItem
 			// 
 			this.لیستاقساطToolStripMenuItem.Name = "لیستاقساطToolStripMenuItem";
-			this.لیستاقساطToolStripMenuItem.Size = new System.Drawing.Size(185, 30);
+			this.لیستاقساطToolStripMenuItem.Size = new System.Drawing.Size(199, 30);
 			this.لیستاقساطToolStripMenuItem.Text = "لیست اقساط";
 			this.لیستاقساطToolStripMenuItem.Click += new System.EventHandler(this.لیستاقساطToolStripMenuItem_Click);
 			// 
@@ -172,6 +176,18 @@ namespace Nz.Bar.Winforms.Provider
 			this.گزارشسررسیداقساطماهجاریToolStripMenuItem.Size = new System.Drawing.Size(281, 30);
 			this.گزارشسررسیداقساطماهجاریToolStripMenuItem.Text = "گزارش سر رسید اقساط ماه جاری";
 			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(196, 6);
+			// 
+			// NsAnnualAqsat
+			// 
+			this.NsAnnualAqsat.Name = "NsAnnualAqsat";
+			this.NsAnnualAqsat.Size = new System.Drawing.Size(199, 30);
+			this.NsAnnualAqsat.Text = "ثبت یادآوری اقساط ";
+			this.NsAnnualAqsat.Click += new System.EventHandler(this.NsAnnualAqsat_Click);
+			// 
 			// AqsatMenuItems
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -201,5 +217,7 @@ namespace Nz.Bar.Winforms.Provider
         private System.Windows.Forms.ToolStripMenuItem NsSarResidAqsat;
         private System.Windows.Forms.ToolStripMenuItem NsSarResidHafte;
         private System.Windows.Forms.ToolStripMenuItem گزارشسررسیداقساطماهجاریToolStripMenuItem;
-    }
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+		private System.Windows.Forms.ToolStripMenuItem NsAnnualAqsat;
+	}
 }

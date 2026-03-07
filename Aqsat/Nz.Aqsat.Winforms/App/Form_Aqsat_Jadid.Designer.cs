@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+			Janus.Windows.GridEX.GridEXLayout NsGridRizAdd_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
+			Janus.Windows.Common.Layouts.JanusLayoutReference NsGridRizAdd_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.ButtonImage");
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Aqsat_Jadid));
 			Janus.Windows.GridEX.GridEXLayout NsGridEdit_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference NsGridEdit_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NsGridEdit_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.HeaderImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NsGridEdit_Layout_0_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NsGridEdit_Layout_0_Reference_3 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.HeaderImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NsGridEdit_Layout_0_Reference_4 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column3.ButtonImage");
-			Janus.Windows.GridEX.GridEXLayout NsGridRizAdd_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
-			Janus.Windows.Common.Layouts.JanusLayoutReference NsGridRizAdd_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.ButtonImage");
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Aqsat_Jadid));
 			this.Tab_Control_Main = new Janus.Windows.UI.Tab.UITab();
 			this.uiTabPage12 = new Janus.Windows.UI.Tab.UITabPage();
 			this.uiGroupBox1 = new Janus.Windows.EditControls.UIGroupBox();
@@ -80,8 +80,8 @@
 			this.NzCustomerLable = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label16 = new System.Windows.Forms.Label();
-			this.NsGridEdit = new MS_Control.Controls.MS_GridX();
 			this.NsGridRizAdd = new MS_Control.Controls.MS_GridX();
+			this.NsGridEdit = new MS_Control.Controls.MS_GridX();
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
 			this.mS_Tool_Strip1 = new MS_Control.Controls.MS_Tool_Strip();
 			this.NsPrint = new System.Windows.Forms.ToolStripButton();
@@ -96,8 +96,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox1)).BeginInit();
 			this.uiGroupBox1.SuspendLayout();
 			this.panel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.NsGridEdit)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.NsGridRizAdd)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.NsGridEdit)).BeginInit();
 			this.mS_Tool_Strip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -864,7 +864,7 @@
 			this.NzSerial.DigitGroup = false;
 			this.NzSerial.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.NzSerial.Location = new System.Drawing.Point(611, 31);
-			this.NzSerial.MaxLength = 4;
+			this.NzSerial.MaxLength = 0;
 			this.NzSerial.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
 			this.NzSerial.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzSerial.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -965,6 +965,71 @@
 			this.label16.TabIndex = 782;
 			this.label16.Text = "%";
 			// 
+			// NsGridRizAdd
+			// 
+			this.NsGridRizAdd.AlternatingColors = true;
+			this.NsGridRizAdd.AlternatingRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.NsGridRizAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsGridRizAdd.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.NsGridRizAdd.BorderStyle = Janus.Windows.GridEX.BorderStyle.RaisedLight3D;
+			this.NsGridRizAdd.CellSelectionMode = Janus.Windows.GridEX.CellSelectionMode.SingleCell;
+			this.NsGridRizAdd.CellToolTip = Janus.Windows.GridEX.CellToolTip.NoToolTip;
+			this.NsGridRizAdd.ColumnSetNavigation = Janus.Windows.GridEX.ColumnSetNavigation.ColumnSet;
+			this.NsGridRizAdd.Cursor = System.Windows.Forms.Cursors.Arrow;
+			this.NsGridRizAdd.DefaultFilterRowComparison = Janus.Windows.GridEX.FilterConditionOperator.Contains;
+			this.NsGridRizAdd.DynamicFiltering = true;
+			this.NsGridRizAdd.EnterKeyBehavior = Janus.Windows.GridEX.EnterKeyBehavior.NextCell;
+			this.NsGridRizAdd.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
+			this.NsGridRizAdd.FilterRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsGridRizAdd.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
+			this.NsGridRizAdd.FocusCellDisplayMode = Janus.Windows.GridEX.FocusCellDisplayMode.UseSelectedFormatStyle;
+			this.NsGridRizAdd.FocusStyle = Janus.Windows.GridEX.FocusStyle.Solid;
+			this.NsGridRizAdd.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
+			this.NsGridRizAdd.FrozenColumns = 2;
+			this.NsGridRizAdd.GridLineColor = System.Drawing.Color.Black;
+			this.NsGridRizAdd.GridLines = Janus.Windows.GridEX.GridLines.Vertical;
+			this.NsGridRizAdd.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid;
+			this.NsGridRizAdd.GroupByBoxVisible = false;
+			this.NsGridRizAdd.HeaderFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+			this.NsGridRizAdd.HeaderFormatStyle.ForeColor = System.Drawing.Color.Black;
+			this.NsGridRizAdd.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
+			NsGridRizAdd_Layout_0.IsCurrentLayout = true;
+			NsGridRizAdd_Layout_0.Key = "Cheque_Receive";
+			NsGridRizAdd_Layout_0_Reference_0.Instance = ((object)(resources.GetObject("NsGridRizAdd_Layout_0_Reference_0.Instance")));
+			NsGridRizAdd_Layout_0.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
+            NsGridRizAdd_Layout_0_Reference_0});
+			NsGridRizAdd_Layout_0.LayoutString = resources.GetString("NsGridRizAdd_Layout_0.LayoutString");
+			this.NsGridRizAdd.Layouts.AddRange(new Janus.Windows.GridEX.GridEXLayout[] {
+            NsGridRizAdd_Layout_0});
+			this.NsGridRizAdd.Location = new System.Drawing.Point(0, 353);
+			this.NsGridRizAdd.Name = "NsGridRizAdd";
+			this.NsGridRizAdd.NewRowPosition = Janus.Windows.GridEX.NewRowPosition.BottomRow;
+			this.NsGridRizAdd.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom;
+			this.NsGridRizAdd.Office2007CustomColor = System.Drawing.SystemColors.HotTrack;
+			this.NsGridRizAdd.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NsGridRizAdd.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowIndex;
+			this.NsGridRizAdd.SelectedFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+			this.NsGridRizAdd.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
+			this.NsGridRizAdd.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.White;
+			this.NsGridRizAdd.SelectOnExpand = false;
+			this.NsGridRizAdd.Size = new System.Drawing.Size(727, 233);
+			this.NsGridRizAdd.TabIndex = 1;
+			this.NsGridRizAdd.TabKeyBehavior = Janus.Windows.GridEX.TabKeyBehavior.ControlNavigation;
+			this.NsGridRizAdd.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
+			this.NsGridRizAdd.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsGridRizAdd.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
+			this.NsGridRizAdd.TreeLineColor = System.Drawing.Color.Black;
+			this.NsGridRizAdd.UpdateMode = Janus.Windows.GridEX.UpdateMode.CellUpdate;
+			this.NsGridRizAdd.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			this.NsGridRizAdd.EditModeChanged += new System.EventHandler(this.NsGridRiz_EditModeChanged);
+			this.NsGridRizAdd.CancelingRowEdit += new Janus.Windows.GridEX.RowActionCancelEventHandler(this.NsGridRiz_CancelingRowEdit);
+			this.NsGridRizAdd.CellEdited += new Janus.Windows.GridEX.ColumnActionEventHandler(this.NsGridEdit_CellEdited);
+			this.NsGridRizAdd.CellUpdated += new Janus.Windows.GridEX.ColumnActionEventHandler(this.NsGridRiz_CellUpdated);
+			this.NsGridRizAdd.ColumnButtonClick += new Janus.Windows.GridEX.ColumnActionEventHandler(this.NsGridRiz_ColumnButtonClick);
+			this.NsGridRizAdd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NsGridRiz_KeyPress);
+			// 
 			// NsGridEdit
 			// 
 			this.NsGridEdit.AllowAddNew = Janus.Windows.GridEX.InheritableBoolean.True;
@@ -1047,71 +1112,6 @@
 			this.NsGridEdit.ColumnButtonClick += new Janus.Windows.GridEX.ColumnActionEventHandler(this.NsGridEdit_ColumnButtonClick);
 			this.NsGridEdit.SelectionChanged += new System.EventHandler(this.NsGridEdit_SelectionChanged);
 			this.NsGridEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NsGridRiz_KeyPress);
-			// 
-			// NsGridRizAdd
-			// 
-			this.NsGridRizAdd.AlternatingColors = true;
-			this.NsGridRizAdd.AlternatingRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.NsGridRizAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.NsGridRizAdd.BackColor = System.Drawing.Color.WhiteSmoke;
-			this.NsGridRizAdd.BorderStyle = Janus.Windows.GridEX.BorderStyle.RaisedLight3D;
-			this.NsGridRizAdd.CellSelectionMode = Janus.Windows.GridEX.CellSelectionMode.SingleCell;
-			this.NsGridRizAdd.CellToolTip = Janus.Windows.GridEX.CellToolTip.NoToolTip;
-			this.NsGridRizAdd.ColumnSetNavigation = Janus.Windows.GridEX.ColumnSetNavigation.ColumnSet;
-			this.NsGridRizAdd.Cursor = System.Windows.Forms.Cursors.Arrow;
-			this.NsGridRizAdd.DefaultFilterRowComparison = Janus.Windows.GridEX.FilterConditionOperator.Contains;
-			this.NsGridRizAdd.DynamicFiltering = true;
-			this.NsGridRizAdd.EnterKeyBehavior = Janus.Windows.GridEX.EnterKeyBehavior.NextCell;
-			this.NsGridRizAdd.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
-			this.NsGridRizAdd.FilterRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NsGridRizAdd.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
-			this.NsGridRizAdd.FocusCellDisplayMode = Janus.Windows.GridEX.FocusCellDisplayMode.UseSelectedFormatStyle;
-			this.NsGridRizAdd.FocusStyle = Janus.Windows.GridEX.FocusStyle.Solid;
-			this.NsGridRizAdd.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
-			this.NsGridRizAdd.FrozenColumns = 2;
-			this.NsGridRizAdd.GridLineColor = System.Drawing.Color.Black;
-			this.NsGridRizAdd.GridLines = Janus.Windows.GridEX.GridLines.Vertical;
-			this.NsGridRizAdd.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid;
-			this.NsGridRizAdd.GroupByBoxVisible = false;
-			this.NsGridRizAdd.HeaderFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-			this.NsGridRizAdd.HeaderFormatStyle.ForeColor = System.Drawing.Color.Black;
-			this.NsGridRizAdd.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
-			NsGridRizAdd_Layout_0.IsCurrentLayout = true;
-			NsGridRizAdd_Layout_0.Key = "Cheque_Receive";
-			NsGridRizAdd_Layout_0_Reference_0.Instance = ((object)(resources.GetObject("NsGridRizAdd_Layout_0_Reference_0.Instance")));
-			NsGridRizAdd_Layout_0.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
-            NsGridRizAdd_Layout_0_Reference_0});
-			NsGridRizAdd_Layout_0.LayoutString = resources.GetString("NsGridRizAdd_Layout_0.LayoutString");
-			this.NsGridRizAdd.Layouts.AddRange(new Janus.Windows.GridEX.GridEXLayout[] {
-            NsGridRizAdd_Layout_0});
-			this.NsGridRizAdd.Location = new System.Drawing.Point(0, 353);
-			this.NsGridRizAdd.Name = "NsGridRizAdd";
-			this.NsGridRizAdd.NewRowPosition = Janus.Windows.GridEX.NewRowPosition.BottomRow;
-			this.NsGridRizAdd.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom;
-			this.NsGridRizAdd.Office2007CustomColor = System.Drawing.SystemColors.HotTrack;
-			this.NsGridRizAdd.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.NsGridRizAdd.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowIndex;
-			this.NsGridRizAdd.SelectedFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-			this.NsGridRizAdd.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
-			this.NsGridRizAdd.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.White;
-			this.NsGridRizAdd.SelectOnExpand = false;
-			this.NsGridRizAdd.Size = new System.Drawing.Size(727, 233);
-			this.NsGridRizAdd.TabIndex = 1;
-			this.NsGridRizAdd.TabKeyBehavior = Janus.Windows.GridEX.TabKeyBehavior.ControlNavigation;
-			this.NsGridRizAdd.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
-			this.NsGridRizAdd.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NsGridRizAdd.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
-			this.NsGridRizAdd.TreeLineColor = System.Drawing.Color.Black;
-			this.NsGridRizAdd.UpdateMode = Janus.Windows.GridEX.UpdateMode.CellUpdate;
-			this.NsGridRizAdd.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
-			this.NsGridRizAdd.EditModeChanged += new System.EventHandler(this.NsGridRiz_EditModeChanged);
-			this.NsGridRizAdd.CancelingRowEdit += new Janus.Windows.GridEX.RowActionCancelEventHandler(this.NsGridRiz_CancelingRowEdit);
-			this.NsGridRizAdd.CellEdited += new Janus.Windows.GridEX.ColumnActionEventHandler(this.NsGridEdit_CellEdited);
-			this.NsGridRizAdd.CellUpdated += new Janus.Windows.GridEX.ColumnActionEventHandler(this.NsGridRiz_CellUpdated);
-			this.NsGridRizAdd.ColumnButtonClick += new Janus.Windows.GridEX.ColumnActionEventHandler(this.NsGridRiz_ColumnButtonClick);
-			this.NsGridRizAdd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NsGridRiz_KeyPress);
 			// 
 			// uiTabPage14
 			// 
@@ -1210,7 +1210,9 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "Form_Aqsat_Jadid";
+			this.ShowInTaskbar = false;
 			this.Text = "ایجـاد قسـط";
+			this.TopMost = true;
 			this.Load += new System.EventHandler(this.Form_Aqsat_Jadid_Load);
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).EndInit();
 			this.Tab_Control_Main.ResumeLayout(false);
@@ -1220,8 +1222,8 @@
 			this.uiGroupBox1.PerformLayout();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.NsGridEdit)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.NsGridRizAdd)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.NsGridEdit)).EndInit();
 			this.mS_Tool_Strip1.ResumeLayout(false);
 			this.mS_Tool_Strip1.PerformLayout();
 			this.ResumeLayout(false);

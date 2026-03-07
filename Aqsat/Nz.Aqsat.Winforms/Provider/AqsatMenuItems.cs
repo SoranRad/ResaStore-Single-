@@ -72,5 +72,11 @@ namespace Nz.Bar.Winforms.Provider
 	        frm.MdiParent = AqsatProvider.MainForm;
 	        frm.Show();
 		}
-    }
+
+		private void NsAnnualAqsat_Click(object sender, EventArgs e)
+		{
+			var frm = new FormRememberAnnual();
+			frm.Show(AqsatProvider.MainForm);
+		}
+	}
 }
