@@ -36,8 +36,8 @@ namespace Nz.Aqsat.Winforms.App
 
 		private void GenerateText()
 		{
-			var customer = NzCustomer.MS_Get_Selected() ==null ?"": (NzCustomer.MS_Get_Selected() as People).title;
-			NsSampleText.Text = @"تمدید اقساط " + NsKind.Text + " " + customer+ " " + NsVasileh.Text + @" به شماره "+ NzSerial.Text+ " " + NsSharh.Text;
+			var customer = NzCustomer.MS_Get_Selected() as People;
+			NsSampleText.Text = @"تمدید اقساط " + NsKind.Text + " " + customer?.title+ @" با موبایل " + customer?.mobile + " " + NsVasileh.Text + @" به شماره "+ NzSerial.Text+ " " + NsSharh.Text;
 		}
 
 		private bool IsOK()
