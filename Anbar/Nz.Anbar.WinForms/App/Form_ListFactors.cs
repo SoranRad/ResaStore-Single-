@@ -339,8 +339,13 @@ namespace Nz.Anbar.WinForms.App
             PrintFactor(Enums.NzKindPrint.PosPrint);
 
         }
+        private void NsPosPrint2_Click                  (object sender, EventArgs e)
+        {
+	        PrintFactor(Enums.NzKindPrint.Posprint1);
 
-        private void NzGridHeads_SelectionChanged       (object sender, EventArgs e)
+		}
+
+		private void NzGridHeads_SelectionChanged       (object sender, EventArgs e)
         {
             if(NzItems.Checked)
                 RefreshItem();
@@ -537,5 +542,7 @@ namespace Nz.Anbar.WinForms.App
 			frm.IdFactor = ID;
 			frm.ShowDialog(StorageProvider.MainForm);
 		}
+
+		
 	}
 }

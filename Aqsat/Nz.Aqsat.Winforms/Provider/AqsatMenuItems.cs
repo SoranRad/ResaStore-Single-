@@ -7,8 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MS_Control;
+using Nz.Aqsat.Business;
+using Nz.Aqsat.Model.Report;
 using Nz.Aqsat.Winforms.App;
 using Nz.Aqsat.Winforms.Report;
+using ShareLib.Utils;
 
 namespace Nz.Bar.Winforms.Provider
 {
@@ -24,23 +28,48 @@ namespace Nz.Bar.Winforms.Provider
             //ms_Storage.Visible     = false;
         }
 
-
-        private void تعریفانواعقسطToolStripMenuItem_Click_1(object sender, EventArgs e)
+        public bool ValidationDemoVersion()
         {
-	        var frm = new FormAqsatKind();
+	        if (!SystemConstant.IsDemo)
+		        return true;
+
+	        var Mgr = new ReportManager();
+	        var count = Mgr.GetItem<AqsatHeadCount>(new { }, null);
+
+	        if (count.ItemsCount >= SystemConstant.DemoCount)
+	        {
+		        MS_Message.Show("نسخه برنامه شما آزمایشی می باشد لطفا آن را ارتقا دهید", "خطا", MessageBoxButtons.OK);
+		        return false;
+	        }
+
+	        return true;
+        }
+
+		private void تعریفانواعقسطToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+	        if (!ValidationDemoVersion())
+		        return;
+
+			var frm = new FormAqsatKind();
 			frm.MdiParent = AqsatProvider.MainForm;
 			frm.Show();
 		}
 
         private void NsCreateAqsat_Click(object sender, EventArgs e)
         {
-	        var frm = new Form_Aqsat_Jadid();
+	        if (!ValidationDemoVersion())
+		        return;
+
+			var frm = new Form_Aqsat_Jadid();
 	        frm.Show(AqsatProvider.MainForm);
 		}
 
         private void لیستاقساطToolStripMenuItem_Click(object sender, EventArgs e)
         {
-	        var frm = new FormAqsatList();
+	        if (!ValidationDemoVersion())
+		        return;
+
+			var frm = new FormAqsatList();
 	        frm.MdiParent = AqsatProvider.MainForm;
 	        frm.Show();
 		}

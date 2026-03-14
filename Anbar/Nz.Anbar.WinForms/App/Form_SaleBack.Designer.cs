@@ -30,14 +30,14 @@ namespace Nz.Anbar.WinForms.App
         /// </summary>
         private void InitializeComponent()
         {
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem3 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem4 = new Janus.Windows.EditControls.UIComboBoxItem();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_SaleBack));
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem1 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem2 = new Janus.Windows.EditControls.UIComboBoxItem();
 			Janus.Windows.GridEX.GridEXLayout NzGrid_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.HeaderImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_0_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_0_Reference_3 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.HeaderImage");
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_SaleBack));
 			this.Tab_Control_Main = new Janus.Windows.UI.Tab.UITab();
 			this.uiTabPage12 = new Janus.Windows.UI.Tab.UITabPage();
 			this.panel1 = new System.Windows.Forms.Panel();
@@ -79,6 +79,7 @@ namespace Nz.Anbar.WinForms.App
 			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
 			this.NzPayment = new System.Windows.Forms.ToolStripButton();
 			this.uiGroupBox2 = new Janus.Windows.EditControls.UIGroupBox();
+			this.NsChooseFactor = new MS_Control.Controls.MS_Button_GridX();
 			this.NzKindSale = new MS_Control.Controls.MS_ComboBox_Janus();
 			this.NzCustomerRemain = new NZ.General.WinForms.Component.NzRemainCustomer();
 			this.NzKindSaleLbl = new System.Windows.Forms.Label();
@@ -97,7 +98,7 @@ namespace Nz.Anbar.WinForms.App
 			this.uiTabPage1 = new Janus.Windows.UI.Tab.UITabPage();
 			this.mS_Notify1 = new MS_Control.Controls.MS_Notify();
 			this.nzObjectPopup1 = new Nz.Anbar.WinForms.Component.NzObjectPopup();
-			this.NsChooseFactor = new MS_Control.Controls.MS_Button_GridX();
+			this.NsPosPrint1 = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
 			this.uiTabPage12.SuspendLayout();
@@ -649,7 +650,8 @@ namespace Nz.Anbar.WinForms.App
             this.NzPrintA4,
             this.NzPrintA5,
             this.toolStripSeparator1,
-            this.NzPosPrint});
+            this.NzPosPrint,
+            this.NsPosPrint1});
 			this.NzPrint.Image = ((System.Drawing.Image)(resources.GetObject("NzPrint.Image")));
 			this.NzPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.NzPrint.Margin = new System.Windows.Forms.Padding(10, 1, 2, 2);
@@ -661,27 +663,27 @@ namespace Nz.Anbar.WinForms.App
 			// NzPrintA4
 			// 
 			this.NzPrintA4.Name = "NzPrintA4";
-			this.NzPrintA4.Size = new System.Drawing.Size(130, 22);
+			this.NzPrintA4.Size = new System.Drawing.Size(180, 22);
 			this.NzPrintA4.Text = "چاپ  A4";
 			this.NzPrintA4.Click += new System.EventHandler(this.NzPrintNormalA4_Click);
 			// 
 			// NzPrintA5
 			// 
 			this.NzPrintA5.Name = "NzPrintA5";
-			this.NzPrintA5.Size = new System.Drawing.Size(130, 22);
+			this.NzPrintA5.Size = new System.Drawing.Size(180, 22);
 			this.NzPrintA5.Text = "چاپ  A5";
 			this.NzPrintA5.Click += new System.EventHandler(this.NzPrintNormalA5_Click);
 			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(127, 6);
+			this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
 			// 
 			// NzPosPrint
 			// 
 			this.NzPosPrint.Name = "NzPosPrint";
-			this.NzPosPrint.Size = new System.Drawing.Size(130, 22);
-			this.NzPosPrint.Text = "فیش پرینت";
+			this.NzPosPrint.Size = new System.Drawing.Size(180, 22);
+			this.NzPosPrint.Text = "فیش پرینت 1";
 			this.NzPosPrint.Click += new System.EventHandler(this.NzPosPrint_Click);
 			// 
 			// toolStripSeparator3
@@ -752,22 +754,50 @@ namespace Nz.Anbar.WinForms.App
 			this.uiGroupBox2.Size = new System.Drawing.Size(995, 58);
 			this.uiGroupBox2.TabIndex = 0;
 			// 
+			// NsChooseFactor
+			// 
+			this.NsChooseFactor.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsChooseFactor.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.NsChooseFactor.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.NsChooseFactor.Image = ((System.Drawing.Image)(resources.GetObject("NsChooseFactor.Image")));
+			this.NsChooseFactor.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
+			this.NsChooseFactor.Location = new System.Drawing.Point(37, 27);
+			this.NsChooseFactor.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NsChooseFactor.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsChooseFactor.MS_Change_Border_Color_On_Enter = false;
+			this.NsChooseFactor.MS_Change_Color_On_Enter = false;
+			this.NsChooseFactor.MS_Enter_Border_Color = System.Drawing.Color.Empty;
+			this.NsChooseFactor.MS_Enter_Color = System.Drawing.Color.Empty;
+			this.NsChooseFactor.Name = "NsChooseFactor";
+			this.NsChooseFactor.Office2007ColorScheme = Janus.Windows.UI.Office2007ColorScheme.Custom;
+			this.NsChooseFactor.Office2007CustomColor = System.Drawing.Color.DodgerBlue;
+			this.NsChooseFactor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NsChooseFactor.ShowFocusRectangle = false;
+			this.NsChooseFactor.Size = new System.Drawing.Size(157, 27);
+			this.NsChooseFactor.TabIndex = 775;
+			this.NsChooseFactor.Text = "انتـخاب فاکتور فـروش";
+			this.NsChooseFactor.TextHorizontalAlignment = Janus.Windows.EditControls.TextAlignment.Near;
+			this.NsChooseFactor.UseThemes = false;
+			this.NsChooseFactor.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
+			this.NsChooseFactor.WordWrap = false;
+			this.NsChooseFactor.Click += new System.EventHandler(this.NsChooseFactor_Click);
+			// 
 			// NzKindSale
 			// 
 			this.NzKindSale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzKindSale.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
 			this.NzKindSale.Cursor = System.Windows.Forms.Cursors.Hand;
-			uiComboBoxItem3.FormatStyle.Alpha = 0;
-			uiComboBoxItem3.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem3.Image")));
-			uiComboBoxItem3.IsSeparator = false;
-			uiComboBoxItem3.Text = "فروش خرده";
-			uiComboBoxItem4.FormatStyle.Alpha = 0;
-			uiComboBoxItem4.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem4.Image")));
-			uiComboBoxItem4.IsSeparator = false;
-			uiComboBoxItem4.Text = "فروش عمـده";
+			uiComboBoxItem1.FormatStyle.Alpha = 0;
+			uiComboBoxItem1.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem1.Image")));
+			uiComboBoxItem1.IsSeparator = false;
+			uiComboBoxItem1.Text = "فروش خرده";
+			uiComboBoxItem2.FormatStyle.Alpha = 0;
+			uiComboBoxItem2.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem2.Image")));
+			uiComboBoxItem2.IsSeparator = false;
+			uiComboBoxItem2.Text = "فروش عمـده";
 			this.NzKindSale.Items.AddRange(new Janus.Windows.EditControls.UIComboBoxItem[] {
-            uiComboBoxItem3,
-            uiComboBoxItem4});
+            uiComboBoxItem1,
+            uiComboBoxItem2});
 			this.NzKindSale.Location = new System.Drawing.Point(200, 27);
 			this.NzKindSale.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzKindSale.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -1120,33 +1150,12 @@ namespace Nz.Anbar.WinForms.App
 			this.nzObjectPopup1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.nzObjectPopup1.Size = new System.Drawing.Size(0, 0);
 			// 
-			// NsChooseFactor
+			// NsPosPrint1
 			// 
-			this.NsChooseFactor.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsChooseFactor.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-			this.NsChooseFactor.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NsChooseFactor.Image = ((System.Drawing.Image)(resources.GetObject("NsChooseFactor.Image")));
-			this.NsChooseFactor.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
-			this.NsChooseFactor.Location = new System.Drawing.Point(37, 27);
-			this.NsChooseFactor.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.NsChooseFactor.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NsChooseFactor.MS_Change_Border_Color_On_Enter = false;
-			this.NsChooseFactor.MS_Change_Color_On_Enter = false;
-			this.NsChooseFactor.MS_Enter_Border_Color = System.Drawing.Color.Empty;
-			this.NsChooseFactor.MS_Enter_Color = System.Drawing.Color.Empty;
-			this.NsChooseFactor.Name = "NsChooseFactor";
-			this.NsChooseFactor.Office2007ColorScheme = Janus.Windows.UI.Office2007ColorScheme.Custom;
-			this.NsChooseFactor.Office2007CustomColor = System.Drawing.Color.DodgerBlue;
-			this.NsChooseFactor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.NsChooseFactor.ShowFocusRectangle = false;
-			this.NsChooseFactor.Size = new System.Drawing.Size(157, 27);
-			this.NsChooseFactor.TabIndex = 775;
-			this.NsChooseFactor.Text = "انتـخاب فاکتور فـروش";
-			this.NsChooseFactor.TextHorizontalAlignment = Janus.Windows.EditControls.TextAlignment.Near;
-			this.NsChooseFactor.UseThemes = false;
-			this.NsChooseFactor.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
-			this.NsChooseFactor.WordWrap = false;
-			this.NsChooseFactor.Click += new System.EventHandler(this.NsChooseFactor_Click);
+			this.NsPosPrint1.Name = "NsPosPrint1";
+			this.NsPosPrint1.Size = new System.Drawing.Size(180, 22);
+			this.NsPosPrint1.Text = "فیش پرینت 2";
+			this.NsPosPrint1.Click += new System.EventHandler(this.NsPosPrint1_Click);
 			// 
 			// Form_SaleBack
 			// 
@@ -1239,5 +1248,6 @@ namespace Nz.Anbar.WinForms.App
         private MS_Control.Controls.MS_ComboBox_Janus NzKindSale;
         private System.Windows.Forms.Label NzKindSaleLbl;
 		private MS_Control.Controls.MS_Button_GridX NsChooseFactor;
+		private System.Windows.Forms.ToolStripMenuItem NsPosPrint1;
 	}
 }

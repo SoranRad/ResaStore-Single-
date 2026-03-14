@@ -28,6 +28,7 @@ namespace Nz.Anbar.Model.ViewModel
         public string       PersianTarix        { get; set; }
         public decimal      mablaq_KOl          { get; set; }
         public string       sharh               { get; set; }
+        public string       Saat                { get; set; }
 
         public int          radif               { get; set; }
         public int          FK_Kala             { get; set; }
@@ -56,6 +57,8 @@ namespace Nz.Anbar.Model.ViewModel
         public decimal?     mablaq_Maliat       { get; set; }
         public decimal?     Darsad_Maliat       { get; set; }
         public decimal?     Ezafat              { get; set; }
+
+
 
         public decimal Remaind => mablaq_KOl - (Cheque ?? 0) - (Cache ?? 0) - (Pos ?? 0)-(Takhfif_Tasvieh ?? 0);
 

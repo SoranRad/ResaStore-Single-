@@ -81,7 +81,7 @@ namespace NZ.Resaa.Store
         private static void     LoadGeneral                 ()
         {
             //SystemConstant.IsDemo = true;
-            //SystemConstant.DemoCount = 140;
+            //SystemConstant.DemoCount = 3;
             SystemConstant.OurAccount = true;
 
 

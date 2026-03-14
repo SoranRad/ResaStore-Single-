@@ -74,7 +74,10 @@ namespace Nz.Anbar.WinForms.Print
                 case Enums.NzKindPrint.PosPrint:
                     _ReportPath += "Pos_Print.mrt";
                     break;
-            }
+                case Enums.NzKindPrint.Posprint1:
+	                _ReportPath += "Pos_Print1.mrt";
+	                break;
+			}
         }
         private void        Load            ()
         {
@@ -115,7 +118,8 @@ namespace Nz.Anbar.WinForms.Print
                         x.mablaq_Maliat,
                         x.Darsad_Maliat,
                         x.Ezafat,
-                        x.Remaind
+                        x.Remaind,
+                        x.Saat
                     })
                     .Select(x => new MS_Report_Loading
                     {
@@ -145,6 +149,7 @@ namespace Nz.Anbar.WinForms.Print
                                        {"serial"           , x.Key.Serial.ToString()},
                                        {"tarikh"           , x.Key.PersianTarix},
                                        {"mablaq"           , x.Key.mablaq_KOl},
+                                       {"Saat"             , x.Key.Saat},
 
                                        {"name_1"           , x.Key.title},
                                        {"code_meli_1"      , (x.Key.codeEqtesadi?? "") + " " + (x.Key.codeMeli ?? "")},
@@ -187,8 +192,10 @@ namespace Nz.Anbar.WinForms.Print
                                     {"serial"           , x.Key.Serial.ToString()},
                                     {"tarikh"           , x.Key.PersianTarix},
                                     {"mablaq"           , x.Key.mablaq_KOl},
+                                    {"Saat"             , x.Key.Saat},
 
-                                    {"name_2"           , x.Key.title},
+
+									{"name_2"           , x.Key.title},
                                     {"code_meli_2"      , (x.Key.codeEqtesadi?? "") + " " + (x.Key.codeMeli ?? "")},
                                     {"tel_2"            , (x.Key.tel??"") + " " + (x.Key.telDowom??"")},
                                     {"fax_2"            , x.Key.fax??""},

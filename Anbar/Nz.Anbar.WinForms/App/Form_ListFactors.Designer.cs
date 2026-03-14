@@ -103,6 +103,7 @@
 			this.NzGridItems = new MS_Control.Controls.MS_GridX();
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
 			this.ms_Save = new MS_Control.Controls.MS_Button_GridX();
+			this.NsPosPrint2 = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
 			this.uiTabPage12.SuspendLayout();
@@ -286,30 +287,30 @@
 			// 
 			// Splitter1
 			// 
-			this.Splitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
+			this.Splitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
 			this.Splitter1.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
 			this.Splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.Splitter1.ExpandActionClick = false;
-			this.Splitter1.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
+			this.Splitter1.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
 			this.Splitter1.ExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.ExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.Splitter1.ExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
 			this.Splitter1.GripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.Splitter1.GripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-			this.Splitter1.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(236)))), ((int)(((byte)(255)))));
+			this.Splitter1.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
 			this.Splitter1.GripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-			this.Splitter1.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(140)))), ((int)(((byte)(96)))));
-			this.Splitter1.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(175)))), ((int)(((byte)(139)))));
+			this.Splitter1.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(151)))), ((int)(((byte)(61)))));
+			this.Splitter1.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(184)))), ((int)(((byte)(94)))));
 			this.Splitter1.HotBackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground2;
 			this.Splitter1.HotBackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground;
-			this.Splitter1.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
+			this.Splitter1.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
 			this.Splitter1.HotExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.HotExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.Splitter1.HotExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-			this.Splitter1.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
+			this.Splitter1.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
 			this.Splitter1.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-			this.Splitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(236)))), ((int)(((byte)(255)))));
+			this.Splitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
 			this.Splitter1.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
 			this.Splitter1.Location = new System.Drawing.Point(0, 347);
 			this.Splitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -440,14 +441,14 @@
             this.NzChangeToSale,
             this.toolStripSeparator1,
             this.NzAddItem});
-			this.mS_Tool_Strip1.Location = new System.Drawing.Point(955, 0);
+			this.mS_Tool_Strip1.Location = new System.Drawing.Point(832, 0);
 			this.mS_Tool_Strip1.MS_BorderColor = System.Drawing.Color.SkyBlue;
 			this.mS_Tool_Strip1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_Tool_Strip1.MS_Color_End = System.Drawing.Color.LightBlue;
 			this.mS_Tool_Strip1.MS_Color_Start = System.Drawing.Color.AliceBlue;
 			this.mS_Tool_Strip1.Name = "mS_Tool_Strip1";
 			this.mS_Tool_Strip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_Tool_Strip1.Size = new System.Drawing.Size(225, 28);
+			this.mS_Tool_Strip1.Size = new System.Drawing.Size(348, 28);
 			this.mS_Tool_Strip1.TabIndex = 709;
 			this.mS_Tool_Strip1.Text = "mS_Tool_Strip1";
 			// 
@@ -459,7 +460,8 @@
             this.NzPrintA4,
             this.NzPrintA5,
             this.toolStripSeparator2,
-            this.NzPosPrint});
+            this.NzPosPrint,
+            this.NsPosPrint2});
 			this.NzPrint.Image = ((System.Drawing.Image)(resources.GetObject("NzPrint.Image")));
 			this.NzPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.NzPrint.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
@@ -474,7 +476,7 @@
 			this.NzPrintA4.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
 			this.NzPrintA4.Name = "NzPrintA4";
 			this.NzPrintA4.Padding = new System.Windows.Forms.Padding(0, 6, 0, 3);
-			this.NzPrintA4.Size = new System.Drawing.Size(145, 37);
+			this.NzPrintA4.Size = new System.Drawing.Size(180, 37);
 			this.NzPrintA4.Text = "چاپ  A4";
 			this.NzPrintA4.Click += new System.EventHandler(this.NzPrintA4_Click);
 			// 
@@ -484,14 +486,14 @@
 			this.NzPrintA5.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
 			this.NzPrintA5.Name = "NzPrintA5";
 			this.NzPrintA5.Padding = new System.Windows.Forms.Padding(0, 6, 0, 3);
-			this.NzPrintA5.Size = new System.Drawing.Size(145, 37);
+			this.NzPrintA5.Size = new System.Drawing.Size(180, 37);
 			this.NzPrintA5.Text = "چاپ  A5";
 			this.NzPrintA5.Click += new System.EventHandler(this.NzPrintA5_Click);
 			// 
 			// toolStripSeparator2
 			// 
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(142, 6);
+			this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
 			// 
 			// NzPosPrint
 			// 
@@ -499,8 +501,8 @@
 			this.NzPosPrint.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
 			this.NzPosPrint.Name = "NzPosPrint";
 			this.NzPosPrint.Padding = new System.Windows.Forms.Padding(0, 6, 0, 3);
-			this.NzPosPrint.Size = new System.Drawing.Size(145, 37);
-			this.NzPosPrint.Text = "فیش پرینت";
+			this.NzPosPrint.Size = new System.Drawing.Size(180, 37);
+			this.NzPosPrint.Text = "فیش پرینت 1";
 			this.NzPosPrint.Click += new System.EventHandler(this.NzPosPrint_Click);
 			// 
 			// NzPrintTransfer
@@ -950,6 +952,16 @@
 			this.ms_Save.WordWrap = false;
 			this.ms_Save.Click += new System.EventHandler(this.ms_Save_Click);
 			// 
+			// NsPosPrint2
+			// 
+			this.NsPosPrint2.Font = new System.Drawing.Font("IRANSans(Small)", 15F);
+			this.NsPosPrint2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+			this.NsPosPrint2.Name = "NsPosPrint2";
+			this.NsPosPrint2.Padding = new System.Windows.Forms.Padding(0, 6, 0, 3);
+			this.NsPosPrint2.Size = new System.Drawing.Size(180, 37);
+			this.NsPosPrint2.Text = "فیش پرینت 2";
+			this.NsPosPrint2.Click += new System.EventHandler(this.NsPosPrint2_Click);
+			// 
 			// Form_ListFactors
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1044,5 +1056,6 @@
 		private System.Windows.Forms.Label NsUserCreate;
 		private System.Windows.Forms.Label label15;
 		private MS_Control.Controls.MS_GridX NzGridItems;
+		private System.Windows.Forms.ToolStripMenuItem NsPosPrint2;
 	}
 }

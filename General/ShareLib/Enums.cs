@@ -8,11 +8,12 @@ namespace ShareLib
 {
     public class Enums
     {
-        public enum NzKindPrint 
+        public enum NzKindPrint :byte
         {
-            PaperA4,
+            PaperA4 =0,
             PaperA5,
             PosPrint,
+            Posprint1
         }
         public enum MenuKind
         {

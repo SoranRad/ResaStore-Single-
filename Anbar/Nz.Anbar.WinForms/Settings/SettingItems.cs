@@ -27,6 +27,8 @@ namespace Nz.Anbar.WinForms.Settings
 				 IsOffPercent = true,
 				 OffAmount = 0,
 				 PrintCountInBarcode = 1,
+				 AutoSave = true,
+				 KindPrint = Enums.NzKindPrint.PosPrint
 			};
 		}
 
@@ -46,5 +48,6 @@ namespace Nz.Anbar.WinForms.Settings
 		public decimal	OffAmount				{ get; set; }
 		public Enums.NzKindPrint KindPrint		{ get; set; }
 		public short	PrintCountInBarcode		{ get; set; }
+		public bool		AutoSave				{ get; set; }
 	}
 }

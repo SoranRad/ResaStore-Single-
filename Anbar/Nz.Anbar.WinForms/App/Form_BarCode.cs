@@ -58,9 +58,11 @@ namespace Nz.Anbar.WinForms.App
         private Enums.NzFactorKind  _Kind           = Enums.NzFactorKind.Frosh;
 
         private List<NzObject>      _ListObjects    = new List<NzObject>();
-        private string              _FormatString = "0,0.##;(0,0.##); "; 
-        #endregion
-        public Form_BarCode(long ID = 0)
+        private string              _FormatString = "0,0.##;(0,0.##); ";
+        private SettingItems        _Setting;
+
+		#endregion
+		public Form_BarCode(long ID = 0)
         {
             InitializeComponent();
             _Manager    = new FactorManager();
@@ -526,9 +528,10 @@ namespace Nz.Anbar.WinForms.App
             Task.Run(() =>
             {
 	            if (Form_Factory._Form_Factory_Anbar.GetSettings() is SettingItems Setting)
-                {
-                    //==================================================
-                    if(NzCustomer.InvokeRequired)
+	            {
+		            _Setting = Setting ?? SettingItems.GetDefault();
+					//==================================================
+					if (NzCustomer.InvokeRequired)
                         NzCustomer.Invoke(new MethodInvoker(delegate
                         {
                             NzCustomer.MS_Set_Select(Setting.MiscID);
@@ -819,7 +822,9 @@ namespace Nz.Anbar.WinForms.App
                                 _DoRefresh = false;
                                 RefreshFactorSum();
                                 _DoRefresh = true;
-                                Save();
+                                
+                                if(_Setting.AutoSave)
+                                    Save();
                             }
                         }
                     }
@@ -864,8 +869,13 @@ namespace Nz.Anbar.WinForms.App
                     NzGrid.CurrentRow.Delete();
                     _DoRefresh = false;
                     RefreshFactorSum();
-                    Save();
-                    CheckForItemExist();
+
+                    if (_Setting.AutoSave)
+                    {
+	                    Save();
+	                    CheckForItemExist();
+					}
+                   
                     _DoRefresh = true;
                 }
                 else if (e.Column.Key == "E")
@@ -891,8 +901,10 @@ namespace Nz.Anbar.WinForms.App
                     row.State = Enums.NzItemState.Modified;
                 _DoRefresh = false;
                 RefreshFactorSum();
-                if (row?.ID > 0)
+
+                if (row?.ID > 0 && _Setting.AutoSave)
                     Save();
+
                 _DoRefresh = true;
             }
             catch (Exception ex)
@@ -906,8 +918,11 @@ namespace Nz.Anbar.WinForms.App
             {
                 _DoRefresh = false;
                 RefreshFactorSum();
-                Save();
-                _DoRefresh = true;
+
+				if (_Setting.AutoSave)
+					Save();
+
+				_DoRefresh = true;
             }
             catch (Exception ex)
             {
@@ -925,8 +940,9 @@ namespace Nz.Anbar.WinForms.App
                     if (row != null)
                     {
                         _Bind.Remove(row);
-                        Save();
-                    }
+						if (_Setting.AutoSave)
+							Save();
+					}
                 }
             }
             catch (Exception ex)
@@ -940,12 +956,11 @@ namespace Nz.Anbar.WinForms.App
 	        {
 		        _Bind.RemoveTempRow();
 	        }
-	        catch (Exception exception)
-	        {
-
-
-	        }
-        }
+			catch (Exception ex)
+			{
+				log.Error(ex);
+			}
+		}
         #endregion
         #region TextBox Events
         private void EditTextBoxOnKeyPress          (object sender, KeyPressEventArgs e)
@@ -1306,8 +1321,9 @@ namespace Nz.Anbar.WinForms.App
             NzFindObject.Text               = Item.title;
             _DoRefresh = false;
             RefreshFactorSum();
-            Save();
-            _DoRefresh = true;
+            if (_Setting.AutoSave)
+	            Save();
+			_DoRefresh = true;
         }
         private void ShowMenuObject                 (IEnumerable<NzObject> List)
         {
@@ -1480,23 +1496,34 @@ namespace Nz.Anbar.WinForms.App
 
         private void NzPrintNormalA4_Click              (object sender, EventArgs e)
         {
-            var prn = new Print.Print(_Manager, _Factor.ID, Enums.NzKindPrint.PaperA4);
+	        if (_Factor.ID <= 0)
+	        {
+		        MS_Message.Show("ابتدا فاکتور را ذخیره کنید");
+		        return;
+	        }
+			var prn = new Print.Print(_Manager, _Factor.ID, Enums.NzKindPrint.PaperA4);
             prn.Show(this);
         }
         private void NzPrintNormalA5_Click              (object sender, EventArgs e)
         {
-            var prn = new Print.Print(_Manager, _Factor.ID, Enums.NzKindPrint.PaperA5);
+	        if (_Factor.ID <= 0)
+	        {
+		        MS_Message.Show("ابتدا فاکتور را ذخیره کنید");
+		        return;
+	        }
+			var prn = new Print.Print(_Manager, _Factor.ID, Enums.NzKindPrint.PaperA5);
             prn.Show(this);
         }
         private void NzPosPrint_Click                   (object sender, EventArgs e)
         {
+	        if (_Factor.ID <= 0)
+	        {
+		        MS_Message.Show("ابتدا فاکتور را ذخیره کنید");
+		        return;
+	        }
 
-            var prn = new Print.Print(_Manager, _Factor.ID, Enums.NzKindPrint.PosPrint);
-            //prn.DirectPrint = true;
-
-            if (Form_Factory._Form_Factory_Anbar.GetSettings() is SettingItems Setting)
-	            prn.DefaultPrinter = Setting.FishPrinter;
-
+            var prn             = new Print.Print(_Manager, _Factor.ID, _Setting.KindPrint);
+	        prn.DefaultPrinter  = _Setting.FishPrinter;
             prn.Show(this);
         }
 
@@ -1699,8 +1726,9 @@ namespace Nz.Anbar.WinForms.App
 
                 _DoRefresh = false;
                 RefreshFactorSum();
-                Save();
-                _DoRefresh = true;
+                if (_Setting.AutoSave)
+	                Save();
+				_DoRefresh = true;
 			}
 
 			 

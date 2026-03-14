@@ -15,6 +15,8 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using Nz.Aqsat.Business;
+using Nz.Aqsat.Model.Report;
 
 namespace Nz.Aqsat.Winforms.App
 {
@@ -67,7 +69,23 @@ namespace Nz.Aqsat.Winforms.App
 			else
 				Reset();
 		}
-        private void Reset									()
+        public bool ValidationDemoVersion()
+        {
+	        if (!SystemConstant.IsDemo)
+		        return true;
+
+	        var Mgr = new ReportManager();
+	        var count = Mgr.GetItem<AqsatHeadCount>(new { }, null);
+
+	        if (count.ItemsCount >= SystemConstant.DemoCount)
+	        {
+		        MS_Message.Show("نسخه برنامه شما آزمایشی می باشد لطفا آن را ارتقا دهید", "خطا", MessageBoxButtons.OK);
+		        return false;
+	        }
+
+	        return true;
+        }
+		private void Reset									()
         {
 	        _DoRefresh = false;
 	        _IsEdit = false;
@@ -172,6 +190,9 @@ namespace Nz.Aqsat.Winforms.App
 									"\n  نمی توانید ادامه دهید ");
 					return false;
 				}
+
+				if (!ValidationDemoVersion())
+					return false;
 
 				if (NzSerial.MS_Decimal == 0)
 				{

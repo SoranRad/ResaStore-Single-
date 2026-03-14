@@ -55,6 +55,7 @@
     <Compile Include="Models\Aqsat_Riz.cs" />
     <Compile Include="Models\Aqsat_SmsLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\AqsatHeadCount.cs" />
     <Compile Include="Report\AqsatList.cs" />
     <Compile Include="Report\AqsatMoedGozashte.cs" />
     <Compile Include="Report\AqsatMoedGozashteAshxas.cs" />

@@ -1255,8 +1255,13 @@ namespace Nz.Anbar.WinForms.App
             var prn = new Print.Print(_Manager, _Factor.ID, Enums.NzKindPrint.PosPrint);
             prn.Show(this);
         }
+        private void NsPosPrint1_Click                  (object sender, EventArgs e)
+        {
+	        var prn = new Print.Print(_Manager, _Factor.ID, Enums.NzKindPrint.Posprint1);
+	        prn.Show(this);
+		}
 
-        private void NzSave_Click                       (object sender, EventArgs e)
+		private void NzSave_Click                       (object sender, EventArgs e)
         {
             RemoveUnSavedRow();
             _DoRefresh = false;
@@ -1359,5 +1364,7 @@ namespace Nz.Anbar.WinForms.App
 		        _DoRefresh = true;
 	        }
         }
+
+		
 	}
 }
