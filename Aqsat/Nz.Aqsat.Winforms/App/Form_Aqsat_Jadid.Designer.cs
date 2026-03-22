@@ -1210,9 +1210,7 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "Form_Aqsat_Jadid";
-			this.ShowInTaskbar = false;
 			this.Text = "ایجـاد قسـط";
-			this.TopMost = true;
 			this.Load += new System.EventHandler(this.Form_Aqsat_Jadid_Load);
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).EndInit();
 			this.Tab_Control_Main.ResumeLayout(false);

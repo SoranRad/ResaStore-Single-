@@ -61,7 +61,7 @@ namespace Nz.Bar.Winforms.Provider
 		        return;
 
 			var frm = new Form_Aqsat_Jadid();
-	        frm.Show(AqsatProvider.MainForm);
+	        frm.Show();
 		}
 
         private void لیستاقساطToolStripMenuItem_Click(object sender, EventArgs e)
@@ -105,7 +105,7 @@ namespace Nz.Bar.Winforms.Provider
 		private void NsAnnualAqsat_Click(object sender, EventArgs e)
 		{
 			var frm = new FormRememberAnnual();
-			frm.Show(AqsatProvider.MainForm);
+			frm.Show();
 		}
 	}
 }

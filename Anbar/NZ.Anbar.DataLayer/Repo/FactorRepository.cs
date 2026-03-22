@@ -130,52 +130,34 @@ namespace NZ.Anbar.DataLayer.Repo
         {
             try
             {
-                IList<FactorItem> Objects =new List<FactorItem>();
+                IList<FactorHead> factors =new List<FactorHead>();
                 using (var db = new StorageContext(ConnectionManager.Create(), false))
                 {
-                    Objects = 
-                            db
-                                .FactorItems
-                                .Include(x =>   x.FactorHead)
-                                .Where  (x => 
-                                                x.FK_Salmali == SystemConstant.ActiveYear.Salmali
-                                            &&  x.FactorHead.kind >= 11
-                                            &&  x.FactorHead.kind < 100
-                                        )
-                                .GroupBy(x =>   new { x.FK_Kala , x.FK_Anbar_Az})
-                                .Select
-                                (x =>
-                                    x.OrderBy   (y => y.FactorHead.tarikh)
-                                     .ThenBy    (y => y.FactorHead.kind)
-                                     .ThenBy    (y => y.FactorHead.Serial)
-                                     .FirstOrDefault()
-                                )
-                                .ToList();
+                    factors = db
+	                    .FactorHeads
+	                    .Where(x =>
+		                    x.FK_Salmali == SystemConstant.ActiveYear.Salmali
+		                    && x.kind >= 11
+		                    && x.kind < 100
+	                    )
+	                    .Include(factorHead => factorHead.FactorItems)
+	                    .ToList();
+
                 }
                 log.Info("\n======= شروع بروزرسانی کاردکس ===== \n");
                 log.Info("\n======================================== \n");
-                foreach (var item in Objects)
+
+                foreach (var factor in factors)
                 {
-                    var factor  = GetItem(item.FK_Title);
+	                foreach (var riz in factor.FactorItems)
+	                {
+		                riz.State = Enums.NzItemState.Modified;
+	                }
 
-                    //var row     = factor?.FactorItems.SingleOrDefault(x => x.ID == item.ID);
-
-                    //if (row != null)
-                    //    row.State = Enums.NzItemState.Modified;
-
-                    foreach (var riz in factor.FactorItems)
-                    {
-                        //riz.nerkh_2 = 0;
-                        //riz.CostDescriptor = "";
-
-                        if (riz.meqdar > 0 && riz.mablaq > 0 && riz.nerkh <= 0)
-                            riz.nerkh = riz.mablaq / riz.meqdar;
-
-                        riz.State = Enums.NzItemState.Modified;
-                    }
-
-                    Save(factor,false);
+	                Save(factor, false);
                 }
+
+               
                 log.Info("\n======= پایان بروزرسانی کاردکس ===== \n");
                 log.Info("\n======================================== \n");
 
