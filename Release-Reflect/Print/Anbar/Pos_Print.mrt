@@ -1073,10 +1073,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>3/12/2026 11:36:10 AM</ReportChanged>
+  <ReportChanged>3/28/2026 12:13:10 PM</ReportChanged>
   <ReportCreated>8/21/2014 7:32:51 PM</ReportCreated>
-  <ReportFile>E:\_Workspace_Project_\_ResaStore_Single_\Output\Print\Anbar\Pos_Print.mrt</ReportFile>
-  <ReportGuid>8f1379d51aa74dd39a410810f1004289</ReportGuid>
+  <ReportFile>E:\_Workspace_Project_\_ResaStore_Single_\Release-Reflect\Print\Anbar\Pos_Print.mrt</ReportFile>
+  <ReportGuid>254dba888c424a5bb4dd830ce3cb49e0</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2015.2.0</ReportVersion>

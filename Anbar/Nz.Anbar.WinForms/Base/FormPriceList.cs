@@ -9,6 +9,7 @@ using MS_Control.Controls;
 using Nz.Anbar.Model.ViewModel;
 using NZ.Anbar.Business;
 using NZ.Anbar.Model;
+using Nz.Anbar.WinForms.Report;
 using ShareLib;
 using ShareLib.Utils;
 
@@ -306,6 +307,14 @@ namespace Nz.Anbar.WinForms.Base
 		private void NsSearchBox_TextChanged(object sender, EventArgs e)
 		{
 			RefreshGrid();
+		}
+
+		private void ms_Grid_ColumnButtonClick(object sender, ColumnActionEventArgs e)
+		{
+			var kala = ms_Grid.CurrentRow.DataRow as PriceList;
+			var frm = new FormCircularObject(kala.Code);
+			frm.MdiParent = this.MdiParent;
+            frm.Show();
 		}
 
 		private void    ms_Grid_SelectionChanged           (object sender, EventArgs e)

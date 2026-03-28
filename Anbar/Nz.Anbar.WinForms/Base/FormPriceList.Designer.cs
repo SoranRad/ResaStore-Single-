@@ -30,14 +30,15 @@
         {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPriceList));
 			Janus.Windows.GridEX.GridEXLayout ms_Grid_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
+			Janus.Windows.Common.Layouts.JanusLayoutReference ms_Grid_DesignTimeLayout_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
 			this.Tab_Control_Main = new Janus.Windows.UI.Tab.UITab();
 			this.ms_Grid = new MS_Control.Controls.MS_GridX();
 			this.mS_GridX_Setting1 = new MS_Control.Controls.MS_GridX_Setting();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.NzChangePrice = new System.Windows.Forms.ToolStripButton();
-			this.NsSearchBox = new System.Windows.Forms.ToolStripTextBox();
-			this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+			this.NsSearchBox = new System.Windows.Forms.ToolStripTextBox();
 			this.uiTabPage12 = new Janus.Windows.UI.Tab.UITabPage();
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
 			this.helpItems1 = new ShareLib.Component.HelpItems();
@@ -89,6 +90,9 @@
 			this.ms_Grid.ColumnSetNavigation = Janus.Windows.GridEX.ColumnSetNavigation.ColumnSet;
 			this.ms_Grid.Cursor = System.Windows.Forms.Cursors.Arrow;
 			this.ms_Grid.DefaultFilterRowComparison = Janus.Windows.GridEX.FilterConditionOperator.Contains;
+			ms_Grid_DesignTimeLayout_Reference_0.Instance = ((object)(resources.GetObject("ms_Grid_DesignTimeLayout_Reference_0.Instance")));
+			ms_Grid_DesignTimeLayout.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
+            ms_Grid_DesignTimeLayout_Reference_0});
 			ms_Grid_DesignTimeLayout.LayoutString = resources.GetString("ms_Grid_DesignTimeLayout.LayoutString");
 			this.ms_Grid.DesignTimeLayout = ms_Grid_DesignTimeLayout;
 			this.ms_Grid.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -131,6 +135,7 @@
 			this.ms_Grid.EditModeChanged += new System.EventHandler(this.NzGridRecieve_EditModeChanged);
 			this.ms_Grid.CellUpdated += new Janus.Windows.GridEX.ColumnActionEventHandler(this.NzGridRecieve_CellUpdated);
 			this.ms_Grid.RecordUpdated += new System.EventHandler(this.ms_Grid_RecordUpdated);
+			this.ms_Grid.ColumnButtonClick += new Janus.Windows.GridEX.ColumnActionEventHandler(this.ms_Grid_ColumnButtonClick);
 			this.ms_Grid.CurrentCellChanged += new System.EventHandler(this.ms_Grid_CurrentCellChanged);
 			this.ms_Grid.SelectionChanged += new System.EventHandler(this.ms_Grid_SelectionChanged);
 			this.ms_Grid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NzGridRecieve_KeyPress);
@@ -173,6 +178,17 @@
 			this.NzChangePrice.Text = "تغـییر دسته ای قیمت اجناس";
 			this.NzChangePrice.Click += new System.EventHandler(this.NzChangePrice_Click);
 			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 29);
+			// 
+			// toolStripLabel2
+			// 
+			this.toolStripLabel2.Name = "toolStripLabel2";
+			this.toolStripLabel2.Size = new System.Drawing.Size(96, 26);
+			this.toolStripLabel2.Text = "جستجوی پیشرفته :";
+			// 
 			// NsSearchBox
 			// 
 			this.NsSearchBox.AutoSize = false;
@@ -181,17 +197,6 @@
 			this.NsSearchBox.Name = "NsSearchBox";
 			this.NsSearchBox.Size = new System.Drawing.Size(150, 27);
 			this.NsSearchBox.TextChanged += new System.EventHandler(this.NsSearchBox_TextChanged);
-			// 
-			// toolStripLabel2
-			// 
-			this.toolStripLabel2.Name = "toolStripLabel2";
-			this.toolStripLabel2.Size = new System.Drawing.Size(96, 26);
-			this.toolStripLabel2.Text = "جستجوی پیشرفته :";
-			// 
-			// toolStripSeparator2
-			// 
-			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 29);
 			// 
 			// uiTabPage12
 			// 

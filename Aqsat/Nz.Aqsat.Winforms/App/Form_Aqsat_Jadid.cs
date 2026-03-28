@@ -437,19 +437,32 @@ namespace Nz.Aqsat.Winforms.App
 			        DateTime tarix;
 			        if (NsDoreQest.MS_Decimal == 30)
 			        {
-				        var start	= new MS_Structure_Shamsi( startDate.AddMonths(i));
-				        if (roz == 30 && start._Mah == 12)
+				        var start	= new MS_Structure_Shamsi( startDate).AddMonths(i);
+
+				        if (NsLastDay.Visible && NsLastDay.Checked)
 				        {
-					        tarix = pCalendar.IsLeapYear(start._Sal) 
-						        ? new MS_Structure_Shamsi(start._Sal, start._Mah, roz).ToDatetime().Date 
-						        : new MS_Structure_Shamsi(start._Sal, start._Mah, 29).ToDatetime().Date;
+					        if (pCalendar.IsLeapYear(start._Sal))
+						        tarix = new MS_Structure_Shamsi(start._Sal, start._Mah, 30).ToDatetime().Date;
+					        else
+					        {
+						        tarix = start._Mah == 12
+							        ? new MS_Structure_Shamsi(start._Sal, start._Mah, 29).ToDatetime().Date
+							        : new MS_Structure_Shamsi(start._Sal, start._Mah, 30).ToDatetime().Date;
+							}
+				        }
+						else if (roz == 30 && start._Mah == 12)
+				        {
+					       
+						    tarix = pCalendar.IsLeapYear(start._Sal)
+							    ? new MS_Structure_Shamsi(start._Sal, start._Mah, roz).ToDatetime().Date
+							    : new MS_Structure_Shamsi(start._Sal, start._Mah, 29).ToDatetime().Date;
 				        }
 						else
 							tarix = new MS_Structure_Shamsi(start._Sal, start._Mah , roz).ToDatetime().Date;
 					}
 					else
 			        {
-				        tarix = startDate.AddDays((i + 1) * (double)NsDoreQest.MS_Decimal);
+				        tarix = startDate.AddDays(i  * (double)NsDoreQest.MS_Decimal);
 					}
 
 						
@@ -478,8 +491,8 @@ namespace Nz.Aqsat.Winforms.App
 				        riz.mablaqQest += mande;
 		        }
 
-		        NsGridRizAdd.DataSource = _Aqsat.AqsatRizs.ToList();
-	        }
+		        NsGridRizAdd.DataSource = new AqsatMainBinding(_Aqsat); //_Aqsat.AqsatRizs.ToList();
+			}
 		}
         private void RefreshItemsEdit						()
         {
@@ -650,8 +663,19 @@ namespace Nz.Aqsat.Winforms.App
 	        if (!_DoRefresh)
 		        return;
 
-			if(NsStartDate.MS_Tarikh.HasValue)
-				RefreshItems();
+	        if (NsStartDate.MS_Tarikh.HasValue)
+	        {
+		        RefreshItems();
+		        var jm = new PersianCalendar();
+
+		        if (
+			        !jm.IsLeapYear(NsStartDate.MS_Tarikh.Value._Sal) 
+			        && NsStartDate.MS_Tarikh.Value._Mah == 12
+				)
+			        NsLastDay.Visible = true;
+		        else
+			        NsLastDay.Visible = false;
+	        }
 		}
 
 		private void NzSave_Click							(object sender, EventArgs e)
@@ -809,21 +833,15 @@ namespace Nz.Aqsat.Winforms.App
 					if (Current == null)
 						return;
 
-					if (Current?.DataRow == null)
+					if (Current?.DataRow != null)
 						Current.BeginEdit();
 
-					var rec =
-						Grid.CurrentRow == null ?
-							Grid.Bounds
-							: Grid
-								.GetCellBounds(Grid.CurrentRow.Position, Grid.RootTable.Columns[nameof(Aqsat_Riz.PersianTarixQest)]);
+					var rec = Grid.GetCellBounds(Grid.CurrentRow.Position, Grid.RootTable.Columns[nameof(Aqsat_Riz.PersianTarixQest)]);
 
 					if (Current?.DataRow is Aqsat_Riz riz)
 						NzDatePopup.NzSelected = riz.tarixQest;
 
-					NzDatePopup.Show(Grid,
-						new Point(rec.X + rec.Width, rec.Y + rec.Height),
-						ToolStripDropDownDirection.BelowLeft);
+					NzDatePopup.Show(Grid, new Point(rec.X + rec.Width, rec.Y + rec.Height), ToolStripDropDownDirection.BelowLeft);
 
 					SendKeys.Send("{TAB}");
 				}
@@ -840,15 +858,17 @@ namespace Nz.Aqsat.Winforms.App
 			{
 				var Grid	= sender as MS_GridX;
 				var row		= Grid?.CurrentRow?.DataRow as Aqsat_Riz;
-
+				
 				if (row == null)
 					return;
 
 				if (string.IsNullOrEmpty(row.PersianTarixQest))
 					row.tarixQest = DateTime.Now.Date;
 
-				if (e.Column.Key == nameof(Aqsat_Riz.PersianTarixQest) 
-				    && !string.IsNullOrEmpty(row.PersianTarixQest))
+				if (
+					e.Column.Key == nameof(Aqsat_Riz.PersianTarixQest) 
+				    && !string.IsNullOrEmpty(row.PersianTarixQest)
+					)
 				{
 					if (MS_Structure_Shamsi.Is_Tarikh_True(row.PersianTarixQest))
 					{
@@ -862,6 +882,8 @@ namespace Nz.Aqsat.Winforms.App
 					RefreshMablaqFinal();
 					_DoRefresh = true;
 				}
+
+
 				if (row?.ID > 0)
 					row.State = Enums.NzItemState.Modified;
 

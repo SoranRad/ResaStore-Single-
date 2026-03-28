@@ -100,17 +100,19 @@ namespace Nz.Anbar.WinForms.App
             SubGroupsPanel.OnSubGroupChanged+=SubGroupsPanelOnOnSubGroupChanged;
             NsGridFavorites.DataSource = _ListObjects.Where(x => x.ShowInBarcodeForm).ToList();
 
-            if(_ID==0)
-                Reset();
-            else 
+
+            if (_ID == 0)
+            {
+	            Reset();
+	            LoadSettings();
+			}
+			else 
                 LoadItem();
 
             _Bind                           = new BidingFactorItems(_Factor);
             NzGrid.DataSource               = _Bind;
 
-            LoadSettings();
             RefreshPrefactor                ();
-            //AddPayment                      ();
             ValidationDemo                  ();
             NzKind.SelectedIndexChanged     += NzKind_SelectedIndexChanged;
         }
@@ -291,7 +293,6 @@ namespace Nz.Anbar.WinForms.App
 
 
             GetMaxSerial                ();
-            //LoadSettings();
 
             _ID                         = 0;
             _Factor                     = new FactorHead();
@@ -300,9 +301,24 @@ namespace Nz.Anbar.WinForms.App
             NzDate.MS_Tarikh            = new MS_Structure_Shamsi(DateTime.Now);
 
 
-            NzOffPrice.MS_Decimal       = 0;
-            NzOffPercent.MS_Decimal     = 0;
-            NzSumFactor.MS_Decimal      = 0;
+			
+			if (Form_Factory._Form_Factory_Anbar.GetSettings() is SettingItems Setting)
+			{
+				if (Setting.IsOffActive && Setting.OffAmount > 0)
+				{
+					if (Setting.IsOffPercent)
+						NzOffPercent.MS_Decimal = Setting.OffAmount;
+					else
+						NzOffPrice.MS_Decimal = Setting.OffAmount;
+				}
+			}
+			else
+			{
+                NzOffPrice.MS_Decimal = 0;
+                NzOffPercent.MS_Decimal = 0;
+            }
+
+			NzSumFactor.MS_Decimal      = 0;
             NzKind.SelectedIndex        = 0;
 
             nzBarcodeReader1.Focus();
