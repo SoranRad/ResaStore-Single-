@@ -105,6 +105,12 @@ namespace Nz.Anbar.WinForms.App
             NzCustomer.Refresh_Grid         (_Manager.Connection,KindCustomer);
             NzAnbar.Refresh_Anbar           ();
             NzAnbar.MS_On_Row_Selected +=NzAnbar_On_Selected;
+            if (NzAnbar.MS_Get_Selected() != null)
+            {
+	            var anbar = NzAnbar.MS_Get_Selected() as Storage;
+                NzFactors.SetAnabr(anbar.ID);
+                NzFactors.Refresh_Grid();
+            }
 
             nzObjectPopup1.RefreshControl   (new Size(550, 220));
             nzObjectPopup1.NzSelectObject   += NzObjectPopup1OnNzSelectObject;
@@ -178,7 +184,11 @@ namespace Nz.Anbar.WinForms.App
                 _DoRefresh = false;
                 NzAnbar.MS_Set_Select       (_Factor.FK_Anbar_Az);
                 NzAnbar.Enabled             = false;
-                NzSerial.MS_Decimal         = _Factor.Serial;
+
+                NzFactors.SetAnabr(_Factor.FK_Anbar_Az??0);
+                NzFactors.Refresh_Grid();
+
+				NzSerial.MS_Decimal         = _Factor.Serial;
                 NzDate.MS_Tarikh            = new MS_Structure_Shamsi(_Factor.tarikh);
                 NzDescription.Text          = _Factor.sharh;
                 NzCustomer.MS_Set_Select    (_Factor.FK_AshXas_ID);
@@ -198,6 +208,12 @@ namespace Nz.Anbar.WinForms.App
                 if (_Factor?.FactorDetail?.tarikh_etebar.HasValue == true)
 	                NsMohlatTasvieh.MS_Tarikh = new MS_Structure_Shamsi(_Factor?.FactorDetail?.tarikh_etebar);
 
+                if (_Factor.FK_Mabna != null)
+                {
+                    NzFactors.SetAnabr(_Factor.FK_Anbar_Az.Value);
+                    NzFactors.Refresh_Grid();
+                    NzFactors.MS_Set_Select(_Factor.FK_Mabna);
+                }
 
 				if (_Kind == Enums.NzFactorKind.Frosh)
                     NzLocation.MS_Set_Select    (_Factor.FK_Location);
@@ -303,10 +319,22 @@ namespace Nz.Anbar.WinForms.App
                 _Factor.FK_Location     = (NzLocation.MS_Get_Selected() as Location)?.ID;
                 _Factor.NoRemainEffect  = NzNoRemainEffect.Checked ;
 
+                var fk_Manbna = (NzFactors.MS_Get_Selected() as FactorHeads)?.ID;
 
-                var autoSerial = _ID == 0 && _Serial == NzSerial.MS_Decimal;
+                if (_Factor.FK_Mabna != fk_Manbna)
+                {
+                    _Factor.FK_Mabna = fk_Manbna;
 
-                
+                    _Factor
+                        .FactorItems
+                        .Where(x => x.ID > 0 && x.State != Enums.NzItemState.Deleted)
+                        .MSZ_ForEach(item => item.State = Enums.NzItemState.Modified);
+                }
+
+                _Factor.FK_Mabna = fk_Manbna;
+
+
+				var autoSerial = _ID == 0 && _Serial == NzSerial.MS_Decimal;
 
                 _Manager.Save(_Factor,autoSerial);
 
@@ -1361,6 +1389,10 @@ namespace Nz.Anbar.WinForms.App
 	        GetMaxSerial();
 	        var anbar = (NzAnbar.MS_Get_Selected() as Storage).ID;
             nzObjectPopup1.SetAnbarFilter(anbar);
+            NzFactors.SetAnabr(anbar);
+			NzFactors.Refresh_Grid();
+			NzFactors.MS_Set_Select(null);
+
         }
         private void NzCustomer_Selected                (object sender, On_Selected e)
         {
@@ -1476,10 +1508,10 @@ namespace Nz.Anbar.WinForms.App
                     _Kind   = (Enums.NzFactorKind) ItemKind;
             }
 
-            Init();
+            //Init();
         }
 
-		private void NsKardex_Click(object sender, EventArgs e)
+		private void NsKardex_Click                     (object sender, EventArgs e)
 		{
 			if (NzGrid.CurrentRow.RowType == RowType.Record || NzGrid.CurrentRow.RowType == RowType.NewRecord)
 			{

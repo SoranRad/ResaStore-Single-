@@ -17,5 +17,6 @@ namespace Nz.Anbar.Model.ViewModel
         public string       sharh               { get; set; }
         public byte         Kind                { get; set; }
         public string       KindTitle           => ((Enums.NzFactorKind) this.Kind).NzToString();
+        public string FactorItems { get; set; }
     }
 }

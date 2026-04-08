@@ -152,7 +152,7 @@ namespace Nz.Bar.Winforms.Provider
             }
         }
 
-        public NsSettingTabPage GetSettingTabPage()
+        public NsSettingTabPage[] GetSettingTabPage()
         {
 	        return null;
         }

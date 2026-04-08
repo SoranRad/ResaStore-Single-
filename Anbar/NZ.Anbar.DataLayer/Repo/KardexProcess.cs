@@ -15,7 +15,7 @@ namespace NZ.Anbar.DataLayer.Repo
     public static class KardexProcess
     {
         private static string   FormatString = "0,0.##;(0,0.##); ";
-        private static void     MakeRemainLastPrice     (StorageContext db, IList<FactorItem> Items,int StartIndex, decimal Price)
+        private static void     MakeRemainLastPrice     (IList<FactorItem> Items,int StartIndex, decimal Price)
         {
             for (int i = StartIndex; i < Items.Count; i++)
             {
@@ -183,8 +183,6 @@ namespace NZ.Anbar.DataLayer.Repo
 	                        if (rowOut.nerkh_2 != nerx)
 		                        rowOut.nerkh_2 = nerx;
 
-                             
-
 	                        if (InputList.IndexOf(rowIn) == IndexOfIn)
 	                        {
 		                        if (rowIn.Remain <= 0)
@@ -217,13 +215,16 @@ namespace NZ.Anbar.DataLayer.Repo
 		                                    ? rowIn.nerkh_2
 		                                    : rowIn.nerkh) * tmp;
 
-	                        rowOut.nerkh_2 = nerx;
-	                        Continue = true;
-	                        ValueOfOut -= tmp;
+	                        rowOut.nerkh_2  = nerx;
+	                        Continue        = true;
+	                        ValueOfOut      -= tmp;
 
-							IndexOfIn++;
-	                        if (IndexOfIn >= InputList.Count)
-		                        break;
+							if (InputList.IndexOf(rowIn) == IndexOfIn)
+                            {
+                                IndexOfIn++;
+                                if (IndexOfIn >= InputList.Count)
+                                    break;                                 
+                            }
 
 	                        ValueOfIn = InputList[IndexOfIn].Remain;
 						}
@@ -248,13 +249,9 @@ namespace NZ.Anbar.DataLayer.Repo
                     if (tmp != row.nerkh_2 || Continue)
                         row.nerkh_2 = tmp;
 
-                    //row.CostDescriptor = (Continue ? row.CostDescriptor + " , " : string.Empty) + CostDescriptor;
-
                     IndexOfOut++;
                     if (IndexOfOut >= OutputList.Count)
-                    {
                         return;
-                    }
 
                     ValueOfOut  = OutputList[IndexOfOut].meqdar;
                     Continue    = false ;
@@ -278,15 +275,13 @@ namespace NZ.Anbar.DataLayer.Repo
 
                     IndexOfOut++;
                     if (IndexOfOut >= OutputList.Count)
-                    {
                         return;
-                    }
 
                     IndexOfIn++;
                     if (IndexOfIn >= InputList.Count)
                     {
                         IndexOfIn--;
-                        MakeRemainLastPrice(db, OutputList, IndexOfOut, InputList[IndexOfIn].nerkh);
+                        MakeRemainLastPrice( OutputList, IndexOfOut, InputList[IndexOfIn].nerkh);
                         return;
                     }
 
@@ -321,7 +316,7 @@ namespace NZ.Anbar.DataLayer.Repo
 
                         row.nerkh_2         = (Continue ? row.nerkh_2 : 0) + ValueOfOut * nerx;
 
-                        MakeRemainLastPrice(db, OutputList, IndexOfOut, nerx);
+                        MakeRemainLastPrice( OutputList, IndexOfOut, nerx);
                         return;
                     }
 

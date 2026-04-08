@@ -21,6 +21,9 @@ namespace ShareLib.Models
 
         [Required]
         public string                   tarikh          { get; set; }
+
+        public string                   Expired          { get; set; }
+        
         [StringLength(100)]
         public string                   modir           { get; set; }
         [StringLength(500)]
@@ -56,7 +59,8 @@ namespace ShareLib.Models
         public string OriginalTitle => CryptographyHelper.Decrypt(this.title);
         [NotMapped]
         public string OriginalTarix => CryptographyHelper.Decrypt(this.tarikh);
+        [NotMapped]
+        public string OriginalExpired => CryptographyHelper.Decrypt(this.Expired);
 
-
-    }
+	}
 }

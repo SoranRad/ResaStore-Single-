@@ -107,6 +107,10 @@
     <Compile Include="Migrations\202511200647043_InitialCreation.Designer.cs">
       <DependentUpon>202511200647043_InitialCreation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202604080821092_add-expire-date.cs" />
+    <Compile Include="Migrations\202604080821092_add-expire-date.Designer.cs">
+      <DependentUpon>202604080821092_add-expire-date.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repo\ReportRepository.cs" />
@@ -125,6 +129,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202511200647043_InitialCreation.resx">
       <DependentUpon>202511200647043_InitialCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202604080821092_add-expire-date.resx">
+      <DependentUpon>202604080821092_add-expire-date.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

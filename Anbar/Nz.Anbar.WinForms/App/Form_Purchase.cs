@@ -1581,7 +1581,7 @@ namespace Nz.Anbar.WinForms.App
                     _Kind   = (Enums.NzFactorKind) ItemKind;
             }
 
-            Init();
+            //Init();
         }
 
         private void NzKind_SelectedIndexChanged        (object sender, EventArgs e)

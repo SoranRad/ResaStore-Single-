@@ -570,6 +570,12 @@ namespace NZ.Resaa.Store
                 log.Error(ex);
             }
         }
+
+        private void    CheckExpiredDate            ()
+        {
+	        //var expired = SystemConstant.ActiveCompany.OriginalExpired;
+
+        }
         #endregion
 
         private void    ms_MdiTab_MdiTabAdded               (object sender, MdiTabStripTabEventArgs e)

@@ -31,6 +31,8 @@ SELECT
        ltrim(Rtrim(ti.mobile2 ))        AS mobile2,
        ltrim(Rtrim(ti.email ))          AS email,
        ltrim(Rtrim(ti.website ))        AS website,
+       ltrim(Rtrim(ti.Expired ))        AS Expired,
+
        ti.logo ,
        ti.mohr 
 	   

@@ -1,4 +1,14 @@
-﻿using System;
+﻿using Janus.Windows.GridEX;
+using MS_Control;
+using MS_Control.Tarikh;
+using Nz.Anbar.Model.Report;
+using Nz.Anbar.Model.Report.PishFrosh;
+using Nz.Anbar.Model.ViewModel;
+using NZ.Anbar.Business;
+using NZ.Anbar.Model;
+using ShareLib;
+using ShareLib.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,12 +17,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MS_Control;
-using NZ.Anbar.Business;
-using Nz.Anbar.Model.Report;
-using Nz.Anbar.Model.ViewModel;
-using ShareLib;
-using ShareLib.Utils;
+using Nz.Anbar.WinForms.App;
+using static ShareLib.Enums;
 
 namespace Nz.Anbar.WinForms.Report
 {
@@ -24,53 +30,123 @@ namespace Nz.Anbar.WinForms.Report
                 .LogManager
                 .GetLogger
                     (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-        #endregion
-        public FormPurchaceAnalyze()
+		#endregion
+		#region Fields
+		private ReportManager _Manager;
+		private Enums.NzFactorKind _Kind;
+		private bool _Do_Refresh = true;
+		#endregion
+		public FormPurchaceAnalyze()
         {
             InitializeComponent();
             this.Icon = global::MS_Resource.GlobalResources.Logo_Resaa;
-            NzFactors.Refresh_Grid();
+			_Manager = new ReportManager();
+            Refresh_Anabrs();
+            SetCurrentMonth();
+			RefreshGrid();
+
         }
 
-        private void RefreshGrid()
-        {
-            try
-            {
-                var factor = NzFactors.MS_Get_Selected() as FactorHeads;
-                if(factor ==  null)
-                    return;
+		#region Methods
 
-                var Mgr = new ReportManager();
-                var List = Mgr
-                    .GetReport<PurchaceAnalyze>
-                    (new
-                    {
-                        factor.ID,
+		private void Refresh_Anabrs()
+		{
+			var manager = new Manager();
+			var _List = manager.GetList<Storage>();
 
-                    }, null);
+			NzAnbars.Items.AddRange(_List.ToArray());
+			NzAnbars.SelectedIndex = 0;
+		}
+		private void SetCurrentMonth()
+		{
+			var mah = new MS_Structure_Shamsi(DateTime.Now)._Mah;
+			ms_mah.SelectedIndex = 13 - mah;
+			_Kind = NzFactorKind.Xarid;
+		}
+		private void RefreshGrid()
+		{
+			if(NzAnbars.SelectedItem == null)
+				return;
+			 
+			var Month = 13 - ms_mah.SelectedIndex;
+			var Anbar = (NzAnbars.SelectedItem as Storage).ID;
 
-                ms_Grid.DataSource = List?.ToList();
-            }
-            catch (Exception ex)
-            {
-                log.Error(ex);
-                MS_Message.Show("خطا در خواندن اطلاعات ", "خطا", ex.Message, MessageBoxButtons.OK);
-            }
-        }
+			 
+			var list =
+				_Manager.GetReport<GeneralFactor>(new
+				{
+					Year = SystemConstant.ActiveYear.Salmali,
+					Kind = (byte)_Kind,
+					Anbar,
+					Month
 
-        private void NzReport_Click(object sender, EventArgs e)
-        {
-            RefreshGrid();
-        }
+				}, null);
 
-        private void NzFactors_MS_On_Row_Selected(object sender, MS_Control.TSDD.On_Selected e)
-        {
-            RefreshGrid();
-        }
+			NzGridHeads.DataSource = list?.ToList();
+			
+			RefreshItem();
 
-        private void NzRefresh_Click(object sender, EventArgs e)
-        {
-            RefreshGrid();
-        }
-    }
+			NzGridHeads.MoveFirst();
+		}
+		private void RefreshItem()
+		{
+			if (!_Do_Refresh)
+				return;
+
+			if (NzGridHeads.CurrentRow == null || NzGridHeads.CurrentRow.RowType != RowType.Record)
+				return;
+
+			var data = NzGridHeads.CurrentRow.DataRow as GeneralFactor;
+
+			var list =
+				_Manager.GetReport<PurchaceAnalyze>(new
+				{
+					data.ID
+				}, null);
+
+			NzGridItems.DataSource = list?.OrderBy(x => x.radif)?.ToList();
+
+
+			NzGridItems.FilterMode = NzGridItems.RowCount > 20
+				? FilterMode.Automatic
+				: FilterMode.None;
+			 
+		}
+		private void EditFactor()
+		{
+			if (NzGridHeads.CurrentRow.RowType != RowType.Record)
+				return;
+
+			var ID = Convert.ToInt64(NzGridHeads.CurrentRow.Cells["ID"].Value);
+			new Form_Purchase(Convert.ToInt64(ID), _Kind).ShowDialog(this);
+
+		}
+		#endregion
+
+		#region Events
+
+		private void NzAnbarsChanged					(object sender, EventArgs e)
+		{
+			RefreshGrid();
+		}
+
+		private void NzFactorKinds_SelectedTabChanged	(object sender, Janus.Windows.UI.Tab.TabEventArgs e)
+		{
+			_Do_Refresh = false;
+			RefreshGrid();
+			_Do_Refresh = true;
+			RefreshItem();
+		}
+		private void NzGridHeads_SelectionChanged		(object sender, EventArgs e)
+		{
+			RefreshItem();
+		}
+		private void NzGridHeads_ColumnButtonClick		(object sender, ColumnActionEventArgs e)
+		{
+			 
+			EditFactor();
+					 
+		}
+		#endregion
+	}
 }

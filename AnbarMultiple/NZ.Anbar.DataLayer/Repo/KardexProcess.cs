@@ -56,8 +56,15 @@ namespace NZ.Anbar.DataLayer.Repo
                     
                     .Where  (x =>
                                 (
-	                                (x.FactorHead.kind >= 11 &&  x.FactorHead.kind < 100 && x.FactorHead.FK_Anbar_Az == Factor.FK_Anbar_Az)
-                                  ||(x.FactorHead.kind == (byte)Enums.NzFactorKind.EnteqalBeynAnbar && x.FactorHead.FK_Anbar_Be == Factor.FK_Anbar_Az )
+	                                (
+		                                    x.FactorHead.kind           >= 11 
+		                                &&  x.FactorHead.kind           < 100 
+		                                &&  x.FactorHead.FK_Anbar_Az    == Factor.FK_Anbar_Az
+		                            )
+                                  ||(
+	                                     x.FactorHead.kind          == (byte)Enums.NzFactorKind.EnteqalBeynAnbar 
+	                                  && x.FactorHead.FK_Anbar_Be   == Factor.FK_Anbar_Az 
+	                                )
                                 )
                                 &&  x.FK_Kala       == Item.FK_Kala
                                 &&  x.FK_Salmali    == Item.FK_Salmali
@@ -83,8 +90,16 @@ namespace NZ.Anbar.DataLayer.Repo
                     .Include    (x=>x.FactorHead)
                     .Where      (x =>   
 	                                (
-		                                (x.FactorHead.kind >= 11 &&  x.FactorHead.kind < 100 && x.FactorHead.FK_Anbar_Az == Factor.FK_Anbar_Az)
-		                                ||(x.FactorHead.kind == (byte)Enums.NzFactorKind.EnteqalBeynAnbar && x.FactorHead.FK_Anbar_Be == Factor.FK_Anbar_Az )
+		                                (
+			                                    x.FactorHead.kind >= 11 
+			                                &&  x.FactorHead.kind < 100 
+			                                &&  x.FactorHead.FK_Anbar_Az == Factor.FK_Anbar_Az
+			                            )
+		                                ||
+		                                (
+			                                    x.FactorHead.kind == (byte)Enums.NzFactorKind.EnteqalBeynAnbar 
+			                                &&  x.FactorHead.FK_Anbar_Be == Factor.FK_Anbar_Az 
+			                            )
 	                                ) 
 	                                &&  x.FK_Kala       == Item.FK_Kala
 	                                &&  x.FK_Salmali    == Item.FK_Salmali
@@ -107,8 +122,16 @@ namespace NZ.Anbar.DataLayer.Repo
                     .Include    (x => x.FactorHead)
                     .Where      (x => 
 	                                (
-		                                (x.FactorHead.kind >= 11 &&  x.FactorHead.kind < 100 && x.FactorHead.FK_Anbar_Az == Factor.FK_Anbar_Az)
-		                                ||(x.FactorHead.kind == (byte)Enums.NzFactorKind.EnteqalBeynAnbar && x.FactorHead.FK_Anbar_Be == Factor.FK_Anbar_Az )
+		                                (
+			                                    x.FactorHead.kind >= 11 
+			                                &&  x.FactorHead.kind < 100 
+			                                &&  x.FactorHead.FK_Anbar_Az == Factor.FK_Anbar_Az
+			                            )
+		                                ||
+		                                (
+			                                    x.FactorHead.kind           == (byte)Enums.NzFactorKind.EnteqalBeynAnbar 
+			                                &&  x.FactorHead.FK_Anbar_Be    == Factor.FK_Anbar_Az 
+			                            )
 	                                ) 
 	                                &&  x.FK_Kala       == Item.FK_Kala
 	                                &&  x.ID            != Item.ID
@@ -150,13 +173,10 @@ namespace NZ.Anbar.DataLayer.Repo
                 SetRemainOfInput(InputList, 0);
 
             //==اگر ورود یا خروج نداشتیم خارج می شویم
-
             if (!InputList.Any() || !OutputList.Any())
                 return;
 
             //===  صفر کردن مانده های ورودی برای پردازش از ابتدا
-            //for (int i = 0; i < InputList.Count; i++)
-            //    InputList[i].Remain = InputList[i].meqdar;
             SetRemainOfInput(InputList, 0);
 
 
@@ -187,39 +207,69 @@ namespace NZ.Anbar.DataLayer.Repo
 		            if (rowIn != null)
 		            {
 			            var rowOut = OutputList[IndexOfOut];
+			            var kind = rowIn.FactorHead.kind;
 
-			            rowIn.Remain    -= rowOut.meqdar;
-			            rowIn.Remain    = rowIn.Remain < 0 ? 0 : rowIn.Remain;
-                        
-			            var kind        = rowIn.FactorHead.kind;
-			            var nerx        = ( kind == (byte)Enums.NzFactorKind.BargshtFrosh
-				            ? rowIn.nerkh_2
-				            : rowIn.nerkh ) * rowOut.meqdar;
+						if (rowOut.meqdar <= rowIn.meqdar)
+						{
+							rowIn.Remain -= rowOut.meqdar;
+							var nerx = (kind == (byte)Enums.NzFactorKind.BargshtFrosh
+								? rowIn.nerkh_2
+								: rowIn.nerkh) * rowOut.meqdar;
+							//====
 
-			            //var CostDescriptor = "";
-			            //if (kind == (byte)Enums.NzFactorKind.BargshtFrosh)
-			            //    CostDescriptor = $"{rowIn.FactorHead.Serial}.ب\n";
-			            //else if (kind == (byte)Enums.NzFactorKind.AvalDore)
-			            //    CostDescriptor = $"{rowIn.CostDescriptor}.س.ق\n";
-			            //else
-			            //    CostDescriptor = $"{rowIn.FactorHead.Serial}\n";
+							if (rowOut.nerkh_2 != nerx)
+								rowOut.nerkh_2 = nerx;
 
-			            //====
 
-			            if(rowOut.nerkh_2 != nerx)
-				            rowOut.nerkh_2 = nerx;
 
-			            //if(rowOut.CostDescriptor != CostDescriptor)
-			            //    rowOut.CostDescriptor = CostDescriptor;
+							if (InputList.IndexOf(rowIn) == IndexOfIn)
+							{
+								if (rowIn.Remain <= 0)
+								{
+									IndexOfIn++;
+									if (IndexOfIn >= InputList.Count)
+										break;
 
-			            //====
+									ValueOfIn = InputList[IndexOfIn].Remain;
+								}
+								else
+								{
+									ValueOfIn = rowIn.Remain;
+								}
 
-			            IndexOfOut ++;
-			            ValueOfOut = OutputList[IndexOfOut].meqdar;
-		            }
+							}
+
+							IndexOfOut++;
+							if (IndexOfOut >= OutputList.Count)
+								break;
+
+							ValueOfOut = OutputList[IndexOfOut].meqdar;
+							continue;
+						}
+						else
+						{
+							var tmp         = rowIn.Remain;
+							rowIn.Remain    = 0;
+							var nerx        = (kind == (byte)Enums.NzFactorKind.BargshtFrosh
+								                    ? rowIn.nerkh_2
+								                    : rowIn.nerkh) * tmp;
+
+
+							rowOut.nerkh_2  = nerx;
+							Continue        = true;
+							ValueOfOut      -= tmp;
+
+							if (InputList.IndexOf(rowIn) == IndexOfIn)
+							{
+								IndexOfIn++;
+								if (IndexOfIn >= InputList.Count)
+									break;
+							}
+
+							ValueOfIn = InputList[IndexOfIn].Remain;
+						}
+					}
 	            }
-
-
 
                 //مقداری خروج کمتر از مقدار ورود
                 if (ValueOfOut < ValueOfIn)
@@ -232,28 +282,15 @@ namespace NZ.Anbar.DataLayer.Repo
                             ? InputList[IndexOfIn].nerkh_2
                             : InputList[IndexOfIn].nerkh;
 
-                    //var kind            = InputList[IndexOfIn].FactorHead.kind ;
-                    //var CostDescriptor  = "";
-                    //if (kind == (byte) Enums.NzFactorKind.BargshtFrosh)
-                    //    CostDescriptor = $"{InputList[IndexOfIn].FactorHead.Serial}.ب\n";
-                    //else if (kind == (byte)Enums.NzFactorKind.AvalDore)
-                    //    CostDescriptor = $"{InputList[IndexOfIn].CostDescriptor}.س.ق\n";
-                    //else 
-                    //    CostDescriptor = $"{InputList[IndexOfIn].FactorHead.Serial}\n";
-                    
                     var row         = OutputList[IndexOfOut];
                     var tmp         = (Continue ? row.nerkh_2 : 0) + ValueOfOut * nerx;
 
                     if (tmp != row.nerkh_2 || Continue)
                         row.nerkh_2 = tmp;
 
-                    //row.CostDescriptor = (Continue ? row.CostDescriptor + " , " : string.Empty) + CostDescriptor;
-
                     IndexOfOut++;
                     if (IndexOfOut >= OutputList.Count)
-                    {
                         return;
-                    }
 
                     ValueOfOut  = OutputList[IndexOfOut].meqdar;
                     Continue    = false ;
@@ -269,32 +306,16 @@ namespace NZ.Anbar.DataLayer.Repo
                             ? InputList[IndexOfIn].nerkh_2
                             : InputList[IndexOfIn].nerkh;
 
-                    //var kind = InputList[IndexOfIn].FactorHead.kind;
-                    //var CostDescriptor = "";
-
-                    //if (kind == (byte)Enums.NzFactorKind.BargshtFrosh)
-                    //    CostDescriptor = $"{InputList[IndexOfIn].FactorHead.Serial}.ب\n";
-
-                    //else if (kind == (byte)Enums.NzFactorKind.AvalDore)
-                    //    CostDescriptor = $"{InputList[IndexOfIn].CostDescriptor}.س.ق\n";
-                    //else
-                    //    CostDescriptor = $"{InputList[IndexOfIn].FactorHead.Serial}\n";
-
-                    
                     var row     = OutputList[IndexOfOut];
                     var tmp     = (Continue ? row.nerkh_2 : 0) + ValueOfOut * nerx;
 
                     if (tmp != row.nerkh_2 || Continue)
                         row.nerkh_2 = tmp;
 
-                    //row.CostDescriptor = (Continue ? row.CostDescriptor + " , " : string.Empty) + CostDescriptor;
-
 
                     IndexOfOut++;
                     if (IndexOfOut >= OutputList.Count)
-                    {
                         return;
-                    }
 
                     IndexOfIn++;
                     if (IndexOfIn >= InputList.Count)
@@ -305,7 +326,7 @@ namespace NZ.Anbar.DataLayer.Repo
                     }
 
                     ValueOfOut  = OutputList[IndexOfOut].meqdar;
-                    ValueOfIn   = InputList[IndexOfIn].meqdar;
+                    ValueOfIn   = InputList[IndexOfIn].Remain;
                     Continue    = false;
                 }
                 //مقداری خروج بیشتر از مقدار ورود
@@ -320,20 +341,9 @@ namespace NZ.Anbar.DataLayer.Repo
                     var row = OutputList[IndexOfOut];
                     var tmp = (Continue ? row.nerkh_2 : 0) + ValueOfIn * nerx;
 
-                    //var kind = InputList[IndexOfIn].FactorHead.kind;
-                    //var CostDescriptor = "";
-
-                    //if (kind == (byte)Enums.NzFactorKind.BargshtFrosh)
-                    //    CostDescriptor = $"{InputList[IndexOfIn].FactorHead.Serial}.ب\n";
-                    //else if (kind == (byte)Enums.NzFactorKind.AvalDore)
-                    //    CostDescriptor = $"{InputList[IndexOfIn].CostDescriptor}.س.ق\n";
-                    //else
-                    //    CostDescriptor = $"{InputList[IndexOfIn].FactorHead.Serial}\n";
 
                     if (tmp != row.nerkh_2 || Continue)
                         row.nerkh_2 = tmp;
-
-                    //row.CostDescriptor = (Continue ? row.CostDescriptor + " , " : string.Empty) + CostDescriptor;
 
                     ValueOfOut -= ValueOfIn;
                     IndexOfIn ++;
@@ -345,21 +355,13 @@ namespace NZ.Anbar.DataLayer.Repo
                                 ? InputList[IndexOfIn].nerkh_2
                                 : InputList[IndexOfIn].nerkh;
 
-                        //if (kind == (byte)Enums.NzFactorKind.BargshtFrosh)
-                        //    CostDescriptor = $"{InputList[IndexOfIn].FactorHead.Serial}.ب\n";
-                        //else if (kind == (byte)Enums.NzFactorKind.AvalDore)
-                        //    CostDescriptor = $"{InputList[IndexOfIn].CostDescriptor}.س.ق\n";
-                        //else
-                        //    CostDescriptor = $"{InputList[IndexOfIn].FactorHead.Serial}\n";
-                        
                         row.nerkh_2         = (Continue ? row.nerkh_2 : 0) + ValueOfOut * nerx;
-                        //row.CostDescriptor  = (Continue ? row.CostDescriptor + " , " : string.Empty) + CostDescriptor;
 
                         MakeRemainLastPrice( OutputList, IndexOfOut, nerx);
                         return;
                     }
 
-                    ValueOfIn   = InputList[IndexOfIn].meqdar;
+                    ValueOfIn   = InputList[IndexOfIn].Remain;
                     Continue    = true;
                 }
             }
@@ -378,8 +380,15 @@ namespace NZ.Anbar.DataLayer.Repo
                     
                     .Where  (x =>
 	                            (
-		                              (x.FactorHead.kind >= 11 &&  x.FactorHead.kind < 100 && x.FactorHead.FK_Anbar_Az == Factor.FK_Anbar_Be)
-		                            ||(x.FactorHead.kind == (byte)Enums.NzFactorKind.EnteqalBeynAnbar && x.FactorHead.FK_Anbar_Be == Factor.FK_Anbar_Be )
+		                              (
+			                              x.FactorHead.kind >= 11 
+			                              &&  x.FactorHead.kind < 100 
+			                              && x.FactorHead.FK_Anbar_Az == Factor.FK_Anbar_Be
+			                          )
+		                            ||(
+			                            x.FactorHead.kind == (byte)Enums.NzFactorKind.EnteqalBeynAnbar 
+			                            && x.FactorHead.FK_Anbar_Be == Factor.FK_Anbar_Be 
+			                        )
 	                            ) 
                                 &&  x.FK_Kala       == Item.FK_Kala
                                 &&  x.FK_Salmali    == Item.FK_Salmali
@@ -409,8 +418,15 @@ namespace NZ.Anbar.DataLayer.Repo
                     .Include    (x=>x.FactorHead)
                     .Where      (x =>   
 	                    (
-		                    (x.FactorHead.kind >= 11 &&  x.FactorHead.kind < 100 && x.FactorHead.FK_Anbar_Az == Factor.FK_Anbar_Be)
-		                    ||(x.FactorHead.kind == (byte)Enums.NzFactorKind.EnteqalBeynAnbar && x.FactorHead.FK_Anbar_Be == Factor.FK_Anbar_Be )
+		                    (
+			                    x.FactorHead.kind >= 11 
+			                    &&  x.FactorHead.kind < 100 
+			                    && x.FactorHead.FK_Anbar_Az == Factor.FK_Anbar_Be
+			                )
+		                    ||(
+			                    x.FactorHead.kind == (byte)Enums.NzFactorKind.EnteqalBeynAnbar 
+			                    && x.FactorHead.FK_Anbar_Be == Factor.FK_Anbar_Be 
+			                )
 	                    ) 
                         &&  x.FK_Kala       == Item.FK_Kala
                         &&  x.FK_Salmali    == Item.FK_Salmali)
@@ -436,8 +452,15 @@ namespace NZ.Anbar.DataLayer.Repo
                     .Include    (x => x.FactorHead)
                     .Where      (x => 
 	                    (
-		                    (x.FactorHead.kind >= 11 &&  x.FactorHead.kind < 100 && x.FactorHead.FK_Anbar_Az == Factor.FK_Anbar_Be)
-		                    ||(x.FactorHead.kind == (byte)Enums.NzFactorKind.EnteqalBeynAnbar && x.FactorHead.FK_Anbar_Be == Factor.FK_Anbar_Be )
+		                    (
+			                    x.FactorHead.kind >= 11 
+			                    &&  x.FactorHead.kind < 100 
+			                    && x.FactorHead.FK_Anbar_Az == Factor.FK_Anbar_Be
+			                )
+		                    ||(
+			                    x.FactorHead.kind == (byte)Enums.NzFactorKind.EnteqalBeynAnbar 
+			                    && x.FactorHead.FK_Anbar_Be == Factor.FK_Anbar_Be 
+			                )
 	                    ) 
                         &&  x.FK_Kala       == Item.FK_Kala
                         &&  x.ID            != Item.ID

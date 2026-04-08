@@ -33,8 +33,8 @@ Gardesh.Mojudi,
 Gardesh.MojudiKol
 
 FROM        Anbar.tbl_Amaliat_Riz       AS tar
-INNER JOIN  base.tbl_Kala_Xadamat       AS tkx  on tar.FK_Kala = tkx.Code
-INNER JOIN Base.tbl_Vahed AS tv ON tv.ID = tkx.FK_Vahed
+INNER JOIN  Base.tbl_Kala_Xadamat       AS tkx  ON tar.FK_Kala  = tkx.Code
+INNER JOIN  Base.tbl_Vahed              AS tv   ON tv.ID        = tkx.FK_Vahed
 
 
 LEFT OUTER JOIN (

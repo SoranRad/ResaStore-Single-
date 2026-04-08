@@ -139,68 +139,51 @@ namespace NZ.Anbar.DataLayer.Repo
 
         public void                     FixFifoKardex   ()
         {
-            try
-            {
-                IList<FactorItem> Objects =new List<FactorItem>();
-                using (var db = new StorageContext(ConnectionManager.Create(), false))
-                {
-                    Objects = 
-                            db
-                                .FactorItems
-                                .Include(x =>   x.FactorHead)
-                                .Where  (x => 
-                                                x.FK_Salmali == SystemConstant.ActiveYear.Salmali
-                                            &&  x.FactorHead.kind >= 11
-                                            &&  x.FactorHead.kind < 100
-                                        )
-                                .GroupBy(x =>   new { x.FK_Kala , x.FactorHead.FK_Anbar_Az})
-                                .Select
-                                (x =>
-                                    x.OrderBy   (y => y.FactorHead.tarikh)
-                                     .ThenBy    (y => y.FactorHead.kind)
-                                     .ThenBy    (y => y.FactorHead.Serial)
-                                     .FirstOrDefault()
-                                )
-                                .ToList();
-                }
-                log.Info("\n======= شروع بروزرسانی کاردکس ===== \n");
-                log.Info("\n======================================== \n");
-                foreach (var item in Objects)
-                {
-                    var factor  = GetItem(item.FK_Title);
+			try
+			{
+				IList<FactorHead> factors = new List<FactorHead>();
+				using (var db = new StorageContext(ConnectionManager.Create(), false))
+				{
+					factors = db
+						.FactorHeads
+						.Where(x =>
+							x.FK_Salmali == SystemConstant.ActiveYear.Salmali
+							&& x.kind >= 11
+							&& x.kind < 100
+						)
+						.Include(factorHead => factorHead.FactorItems)
+						.ToList();
 
-                    //var row     = factor?.FactorItems.SingleOrDefault(x => x.ID == item.ID);
+				}
+				log.Info("\n======= شروع بروزرسانی کاردکس ===== \n");
+				log.Info("\n======================================== \n");
 
-                    //if (row != null)
-                    //    row.State = Enums.NzItemState.Modified;
+				foreach (var factor in factors)
+				{
+					foreach (var riz in factor.FactorItems)
+					{
+						riz.State = Enums.NzItemState.Modified;
+					}
 
-                    foreach (var riz in factor.FactorItems)
-                    {
-                        //riz.nerkh_2 = 0;
-                        //riz.CostDescriptor = "";
+					Save(factor, false);
+				}
 
-                        if (riz.meqdar > 0 && riz.mablaq > 0 && riz.nerkh <= 0)
-                            riz.nerkh = riz.mablaq / riz.meqdar;
 
-                        riz.State = Enums.NzItemState.Modified;
-                    }
+				log.Info("\n======= پایان بروزرسانی کاردکس ===== \n");
+				log.Info("\n======================================== \n");
 
-                    Save(factor,false);
-                }
-                log.Info("\n======= پایان بروزرسانی کاردکس ===== \n");
-                log.Info("\n======================================== \n");
+			}
+			catch (Exception ex)
+			{
 
-            }
-            catch (Exception ex)
-            {
-                
-                log.Info("\n======= خطا در بروزرسانی کاردکس ===== \n");
-                log.Error(ex);
-                log.Info("\n======================================== \n");
+				log.Info("\n======= خطا در بروزرسانی کاردکس ===== \n");
+				log.Error(ex);
+				log.Info("\n======================================== \n");
 
-            }
-        }
-        public void                     FixRemain       ()
+			}
+
+		}
+		public void                     FixRemain       ()
         {
             try
             {

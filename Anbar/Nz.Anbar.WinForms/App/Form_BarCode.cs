@@ -311,6 +311,11 @@ namespace Nz.Anbar.WinForms.App
 					else
 						NzOffPrice.MS_Decimal = Setting.OffAmount;
 				}
+				else
+				{
+					NzOffPrice.MS_Decimal = 0;
+					NzOffPercent.MS_Decimal = 0;
+				}
 			}
 			else
 			{

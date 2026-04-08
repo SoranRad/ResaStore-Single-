@@ -21,6 +21,7 @@ namespace NZ.Anbar.DataLayer.DapperConfig.ViewModel
        LTRIM(RTRIM(tat.sharh)) AS sharh,
        dd.PersianStr,
        LTRIM(RTRIM(ta.title)) AS Customer,
+       Anbar.GetFactorDetail(tat.ID,15) AS FactorItems,
        tat.kind
 
     FROM Anbar.tbl_Amaliat_Title AS tat
@@ -29,7 +30,7 @@ namespace NZ.Anbar.DataLayer.DapperConfig.ViewModel
     LEFT OUTER JOIN Base.tbl_Ashxas AS ta
         ON ta.ID = tat.FK_AshXas_ID
 
-WHERE tat.kind >= 11 AND tat.kind < 50 AND tat.FK_Salmali = @Year AND tat.{nameof(FactorHead.FK_Anbar_Az)} = @Anbar
+WHERE tat.kind = 12 AND tat.FK_Salmali = @Year AND tat.{nameof(FactorHead.FK_Anbar_Az)} = @Anbar
 
 ");
         }
