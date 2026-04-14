@@ -1,7 +1,7 @@
 
 @echo off
 set loc=%cd%\Register.sql
-sqlcmd -S".\sqlnegin" -i"%loc%"
+sqlcmd -S".\sqlresa" -i"%loc%"
 
 pause
 

@@ -573,8 +573,36 @@ namespace NZ.Resaa.Store
 
         private void    CheckExpiredDate            ()
         {
-	        //var expired = SystemConstant.ActiveCompany.OriginalExpired;
+	        var expired = SystemConstant.ActiveCompany.OriginalExpired;
+	        var now     = DateTime.Now;
 
+			if (string.IsNullOrWhiteSpace(expired))
+	        {
+		        var startDate = SystemConstant.ActiveCompany.OriginalTarix;
+		        if (DateTime.TryParse(startDate, out var start))
+		        {
+			        if (now >= start.AddYears(1))
+			        {
+				        if (now.Month < start.Month)
+				        {
+                            var war         = new ToolStripLabel("زمان پشتیـبانی سیسـتم به پایان رسده است.",MS_Resource.GlobalResources._ms_Delete);
+                            war.ForeColor   = Color.Maroon;
+                            war.Alignment   = ToolStripItemAlignment.Right;
+                            NsBottomBar.Items.Add(war);
+				        }
+			        }
+		        }
+	        }
+	        else if (DateTime.TryParse(expired, out var expire))
+	        {
+		        if (now >= expire)
+		        {
+			        var war = new ToolStripLabel("زمان پشتیـبانی سیسـتم به پایان رسده است.", MS_Resource.GlobalResources._ms_Delete);
+			        war.ForeColor = Color.Maroon;
+			        war.Alignment = ToolStripItemAlignment.Right;
+			        NsBottomBar.Items.Add(war);
+				}
+	        }
         }
         #endregion
 
@@ -610,6 +638,7 @@ namespace NZ.Resaa.Store
             LoadFooterStrip     ();
             GenerateMenuIndex   ();
             ApplyAccessRole     ();
+            CheckExpiredDate    ();
         }
         private void    Form_Resaa_Store_FormClosing        (object sender, FormClosingEventArgs e)
         {

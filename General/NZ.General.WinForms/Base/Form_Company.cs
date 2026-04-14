@@ -66,6 +66,7 @@ namespace NZ.General.WinForms.Base
             ms_Code_Posti.Text      = (_Company.code_posti ?? "").Trim();
             ms_Code_Meli.Text       = (_Company.code_melli ?? "").Trim();
             ms_Code_Eqtesadi.Text   = (_Company.code_eqtesadi ?? "").Trim();
+            NsEnd.Text              = _Company.OriginalExpired;
 
             if (_Company.logo != null)
             {

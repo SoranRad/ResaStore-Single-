@@ -36,7 +36,7 @@ namespace NZ.Resaa.Store
 			this.ms_settings = new System.Windows.Forms.ToolStripMenuItem();
 			this.NzAbout = new System.Windows.Forms.ToolStripMenuItem();
 			this.ms_MdiTab = new MdiTabStrip.MdiTabStrip();
-			this.mS_Tool_Strip1 = new MS_Control.Controls.MS_Tool_Strip();
+			this.NsBottomBar = new MS_Control.Controls.MS_Tool_Strip();
 			this.NzCompanyTitle = new System.Windows.Forms.ToolStripLabel();
 			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -55,10 +55,9 @@ namespace NZ.Resaa.Store
 			this.Pic_Back_Main = new System.Windows.Forms.PictureBox();
 			this.NzSidebar = new MS_Control.Controls.MS_Menu();
 			this.applicationIdle1 = new NZ.Resaa.Store.Components.ApplicationIdle();
-			this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
 			this.mS_Menu1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ms_MdiTab)).BeginInit();
-			this.mS_Tool_Strip1.SuspendLayout();
+			this.NsBottomBar.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.Pic_Back_Main)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -157,12 +156,12 @@ namespace NZ.Resaa.Store
 			this.ms_MdiTab.MdiTabRemoved += new MdiTabStrip.MdiTabStrip.MdiTabRemovedEventHandler(this.ms_MdiTab_MdiTabRemoved);
 			this.ms_MdiTab.VisibleChanged += new System.EventHandler(this.ms_MdiTab_VisibleChanged);
 			// 
-			// mS_Tool_Strip1
+			// NsBottomBar
 			// 
-			this.mS_Tool_Strip1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.mS_Tool_Strip1.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.mS_Tool_Strip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-			this.mS_Tool_Strip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.NsBottomBar.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.NsBottomBar.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NsBottomBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+			this.NsBottomBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.NzCompanyTitle,
             this.toolStripSeparator5,
             this.toolStripLabel1,
@@ -177,18 +176,17 @@ namespace NZ.Resaa.Store
             this.toolStripSeparator4,
             this.NzVersion,
             this.NsElapsedLock,
-            this.NsLockAccount,
-            this.toolStripProgressBar1});
-			this.mS_Tool_Strip1.Location = new System.Drawing.Point(0, 470);
-			this.mS_Tool_Strip1.MS_BorderColor = System.Drawing.Color.CornflowerBlue;
-			this.mS_Tool_Strip1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.mS_Tool_Strip1.MS_Color_End = System.Drawing.Color.LightSteelBlue;
-			this.mS_Tool_Strip1.MS_Color_Start = System.Drawing.Color.AliceBlue;
-			this.mS_Tool_Strip1.Name = "mS_Tool_Strip1";
-			this.mS_Tool_Strip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_Tool_Strip1.Size = new System.Drawing.Size(1229, 30);
-			this.mS_Tool_Strip1.TabIndex = 7;
-			this.mS_Tool_Strip1.Text = "mS_Tool_Strip1";
+            this.NsLockAccount});
+			this.NsBottomBar.Location = new System.Drawing.Point(0, 470);
+			this.NsBottomBar.MS_BorderColor = System.Drawing.Color.CornflowerBlue;
+			this.NsBottomBar.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsBottomBar.MS_Color_End = System.Drawing.Color.LightSteelBlue;
+			this.NsBottomBar.MS_Color_Start = System.Drawing.Color.AliceBlue;
+			this.NsBottomBar.Name = "NsBottomBar";
+			this.NsBottomBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NsBottomBar.Size = new System.Drawing.Size(1229, 30);
+			this.NsBottomBar.TabIndex = 7;
+			this.NsBottomBar.Text = "mS_Tool_Strip1";
 			// 
 			// NzCompanyTitle
 			// 
@@ -244,6 +242,7 @@ namespace NZ.Resaa.Store
 			// 
 			// toolStripLabel2
 			// 
+			this.toolStripLabel2.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.toolStripLabel2.Name = "toolStripLabel2";
 			this.toolStripLabel2.Size = new System.Drawing.Size(69, 27);
 			this.toolStripLabel2.Text = "سال مالی : ";
@@ -342,16 +341,6 @@ namespace NZ.Resaa.Store
 			// 
 			this.applicationIdle1.WarnTime = System.TimeSpan.Parse("00:00:30");
 			// 
-			// toolStripProgressBar1
-			// 
-			this.toolStripProgressBar1.AutoSize = false;
-			this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-			this.toolStripProgressBar1.Size = new System.Drawing.Size(150, 15);
-			this.toolStripProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-			this.toolStripProgressBar1.ToolTipText = "پردازش در پس زمینه";
-			this.toolStripProgressBar1.Value = 35;
-			this.toolStripProgressBar1.Visible = false;
-			// 
 			// Form_Resaa_Store
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -360,7 +349,7 @@ namespace NZ.Resaa.Store
 			this.Controls.Add(this.ms_MdiTab);
 			this.Controls.Add(this.NzSidebar);
 			this.Controls.Add(this.mS_Menu1);
-			this.Controls.Add(this.mS_Tool_Strip1);
+			this.Controls.Add(this.NsBottomBar);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.IsMdiContainer = true;
 			this.MainMenuStrip = this.mS_Menu1;
@@ -373,8 +362,8 @@ namespace NZ.Resaa.Store
 			this.mS_Menu1.ResumeLayout(false);
 			this.mS_Menu1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ms_MdiTab)).EndInit();
-			this.mS_Tool_Strip1.ResumeLayout(false);
-			this.mS_Tool_Strip1.PerformLayout();
+			this.NsBottomBar.ResumeLayout(false);
+			this.NsBottomBar.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.Pic_Back_Main)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -386,7 +375,7 @@ namespace NZ.Resaa.Store
         private System.Windows.Forms.ToolStripMenuItem ms_baseinfo;
         private System.Windows.Forms.ToolStripMenuItem ms_settings;
         private MdiTabStrip.MdiTabStrip ms_MdiTab;
-        private MS_Control.Controls.MS_Tool_Strip mS_Tool_Strip1;
+        private MS_Control.Controls.MS_Tool_Strip NsBottomBar;
         private System.Windows.Forms.PictureBox Pic_Back_Main;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripLabel NzDate;
@@ -408,7 +397,6 @@ namespace NZ.Resaa.Store
 		private Components.ApplicationIdle applicationIdle1;
 		private System.Windows.Forms.ToolStripLabel NsElapsedLock;
         private System.Windows.Forms.ToolStripButton NsLockAccount;
-        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
     }
 }
 

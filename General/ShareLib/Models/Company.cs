@@ -60,7 +60,7 @@ namespace ShareLib.Models
         [NotMapped]
         public string OriginalTarix => CryptographyHelper.Decrypt(this.tarikh);
         [NotMapped]
-        public string OriginalExpired => CryptographyHelper.Decrypt(this.Expired);
+        public string OriginalExpired => string.IsNullOrWhiteSpace(this.Expired)?null: CryptographyHelper.Decrypt(this.Expired);
 
 	}
 }
