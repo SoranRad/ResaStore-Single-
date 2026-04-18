@@ -39,13 +39,13 @@ namespace Nz.Anbar.WinForms.Component
             _ListAccounts       = _Manager
                                     .GetList<SubGroup>(new
                                         {
-                                            Year = SystemConstant.ActiveYear.Salmali
+	                                        FkGroup1 = (short?)null
                                         });
             ms_grid.DataSource  = _ListAccounts?.ToList();
         }
         public  override void   Refresh_Grid    (object Option)
         {
-                if (Option is Manager)
+            if (Option is Manager)
                     _Manager = Option as Manager;
             try
             {

@@ -218,13 +218,13 @@ SELECT tkx.ID ,
        Rtrim(Ltrim(tkx.Gender)) AS Gender,
 	   LTRIM(RTRIM(tb.Title))  AS BrandTitle,
 	   LTRIM(RTRIM(tbb.Title)) AS BastebandiTitle,
-        tkx.WebSiteProductKind,
+       tkx.WebSiteProductKind,
        tkx.WebSiteProductId1, 
        tkx.WebSiteProductId2 ,
        tkx.IsOffActive,
        tkx.IsOffPercent,
        tkx.OffAmount,
-        tkx.ShowInBarcodeForm
+       tkx.ShowInBarcodeForm
 
 FROM Base.tbl_Kala_Xadamat              AS tkx
 INNER JOIN Base.tbl_Vahed               AS tv       ON tv.ID        = tkx.FK_Vahed
@@ -232,6 +232,8 @@ INNER JOIN Base.tbl_GroupKala_2th       AS tgk      ON tgk.Code     = tkx.FK_Gro
 LEFT OUTER JOIN Base.tbl_GroupKala_1th  AS tgk2     ON tgk2.Code    = tgk.FK_GroupKala_1th
 LEFT OUTER JOIN Base.tbl_Brand		    AS tb	    ON tb.ID	    = tkx.FK_Brand
 LEFT OUTER JOIN Base.tbl_BasteBandi	    AS tbb	    ON tbb.ID	    = tkx.FK_BasteBandi
+
+WHERE  tkx.FK_GroupKala_2th = @FkGroup2 OR @FkGroup2 IS NULL
 ";
         }
         public string       UniqueCode          ()

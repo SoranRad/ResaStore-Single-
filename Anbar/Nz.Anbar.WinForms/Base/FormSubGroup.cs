@@ -22,16 +22,18 @@ namespace Nz.Anbar.WinForms.Base
         #region Fields
         private Manager             _Manager;
         private SubGroup            _Item;
+        private readonly short?     _defaultMainGroup;
         private bool                _Is_Edit = false;
         public event EventHandler   MS_Do_Save;
         #endregion
         #region Constructor
-        public FormSubGroup        (Manager Manager, SubGroup Row = null)
+        public FormSubGroup        (Manager Manager, SubGroup Row = null, short? DefaultMainGroup = null)
         {
             InitializeComponent();
 
             _Manager    = Manager;
             _Item       = Row;
+            _defaultMainGroup = DefaultMainGroup;
         }
         #endregion
         #region Methods
@@ -140,8 +142,11 @@ namespace Nz.Anbar.WinForms.Base
         {
             NzMainGroup.Refresh_Grid( (object)_Manager);
             NzCode.MaxLength = CODELENGTH;
+            if(_defaultMainGroup.HasValue)
+	            NzMainGroup.MS_Set_Select(_defaultMainGroup.Value);
 
-            if (_Item != null && _Item.ID > 0)
+
+			if (_Item != null && _Item.ID > 0)
                 LoadItem();
             else
                 Reset();

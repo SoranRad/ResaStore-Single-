@@ -26,16 +26,18 @@ namespace Nz.Anbar.WinForms.Base
         #region Fields
         private Manager             _Manager;
         private NzObject            _Item;
+        private readonly            short? _subGroup;
         private bool                _Is_Edit = false;
         public event EventHandler   MS_Do_Save;
         private bool _IsFirstLoad   = false;
         #endregion
-        public          FormObjects         (Manager Manager, NzObject Row = null)
+        public          FormObjects         (Manager Manager, NzObject Row = null,short? SubGroup = null)
         {
             InitializeComponent();
             
             _Manager    = Manager??new Manager();
             _Item       = Row;
+            _subGroup = SubGroup;
         }
         #region Methods
         private void    LoadItem   ()
@@ -339,7 +341,10 @@ namespace Nz.Anbar.WinForms.Base
             NzBrand         .Refresh_Grid();
             NzBasteBandi    .Refresh_Grid();
 
-            NzState.SelectedIndex   = 0;
+			if (_subGroup.HasValue)
+				NzSubGroups.MS_Set_Select(_subGroup.Value);
+
+			NzState.SelectedIndex   = 0;
             NzKind.SelectedIndex    = 0;
 
             NzCode.MaxLength        = SystemConstant
@@ -349,11 +354,9 @@ namespace Nz.Anbar.WinForms.Base
             if (_Item != null && _Item.ID > 0)
                 LoadItem();
             else
-                Reset();
+	            Reset();
 
             NzSubGroups.Focus();
-
-            //nzUnit_2.Visible = Nz_Zarib.Visible = SystemConstant.HasVahedFari;
         }
         private void    MaxCode    ()
         {

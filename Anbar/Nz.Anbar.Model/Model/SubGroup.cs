@@ -66,6 +66,9 @@ SELECT tgk.ID ,
 FROM Base.tbl_GroupKala_2th AS tgk
 LEFT OUTER JOIN Base.tbl_GroupKala_1th	AS tgk2 ON tgk2.Code = tgk.FK_GroupKala_1th
 LEFT OUTER JOIN Base.tbl_Kala_Xadamat	AS tkx	ON tkx.FK_GroupKala_2th = tgk.Code	
+
+WHERE tgk.FK_GroupKala_1th = @FkGroup1 OR @FkGroup1 IS NULL
+
 GROUP BY tgk.ID ,
        tgk.FK_GroupKala_1th ,
        tgk.Code ,

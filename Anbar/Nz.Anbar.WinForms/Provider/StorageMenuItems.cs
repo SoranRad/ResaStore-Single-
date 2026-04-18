@@ -344,5 +344,12 @@ namespace Nz.Anbar.WinForms.Provider
 	        frm.MdiParent = StorageProvider.MainForm;
 	        frm.Show();
 		}
-    }
+
+		private void NsCodingKala_Click(object sender, EventArgs e)
+		{
+			var frm = new FormCodingKala();
+			frm.MdiParent = StorageProvider.MainForm;
+			frm.Show();
+		}
+	}
 }

@@ -42,7 +42,7 @@ namespace Nz.Anbar.WinForms.Component
             _ListAccounts       = _Manager
                                     .GetList<NzObject>(new
                                         {
-                                            Year = SystemConstant.ActiveYear.Salmali
+										    FkGroup2 = (short?)null
                                         });
             ms_grid.DataSource  = _ListAccounts?.ToList();
         }
