@@ -34,9 +34,7 @@
 			this.NzLocation = new System.Windows.Forms.ToolStripMenuItem();
 			this.ms_Storage = new System.Windows.Forms.ToolStripMenuItem();
 			this.ms_Unit = new System.Windows.Forms.ToolStripMenuItem();
-			this.ms_GroupMain = new System.Windows.Forms.ToolStripMenuItem();
-			this.ms_GroupSub = new System.Windows.Forms.ToolStripMenuItem();
-			this.ms_Object = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsCodingKala = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
 			this.NzReadyItems = new System.Windows.Forms.ToolStripMenuItem();
 			this.NzBasteBandi = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,7 +82,6 @@
 			this.NzObjectMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.NzSalemenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-			this.NsCodingKala = new System.Windows.Forms.ToolStripMenuItem();
 			this.mS_Menu1.SuspendLayout();
 			this.NzSideBarMenu.SuspendLayout();
 			this.SuspendLayout();
@@ -115,10 +112,7 @@
             this.NzLocation,
             this.ms_Storage,
             this.ms_Unit,
-            this.ms_GroupMain,
-            this.ms_GroupSub,
             this.NsCodingKala,
-            this.ms_Object,
             this.toolStripSeparator9,
             this.NzReadyItems,
             this.NzBasteBandi,
@@ -159,35 +153,15 @@
 			this.ms_Unit.Text = "تعریف واحدهای شمارش";
 			this.ms_Unit.Click += new System.EventHandler(this.ms_Unit_Click);
 			// 
-			// ms_GroupMain
+			// NsCodingKala
 			// 
-			this.ms_GroupMain.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.ms_GroupMain.Image = ((System.Drawing.Image)(resources.GetObject("ms_GroupMain.Image")));
-			this.ms_GroupMain.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			this.ms_GroupMain.Name = "ms_GroupMain";
-			this.ms_GroupMain.Size = new System.Drawing.Size(242, 28);
-			this.ms_GroupMain.Text = "تعریف گروه اصلی کالا/خدمات";
-			this.ms_GroupMain.Click += new System.EventHandler(this.ms_GroupMain_Click);
-			// 
-			// ms_GroupSub
-			// 
-			this.ms_GroupSub.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.ms_GroupSub.Image = ((System.Drawing.Image)(resources.GetObject("ms_GroupSub.Image")));
-			this.ms_GroupSub.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			this.ms_GroupSub.Name = "ms_GroupSub";
-			this.ms_GroupSub.Size = new System.Drawing.Size(242, 28);
-			this.ms_GroupSub.Text = "تعریف گروه فرعی کالا/خدمات";
-			this.ms_GroupSub.Click += new System.EventHandler(this.ms_GroupSub_Click);
-			// 
-			// ms_Object
-			// 
-			this.ms_Object.Font = new System.Drawing.Font("IRANSans(Small) Medium", 14F);
-			this.ms_Object.Image = ((System.Drawing.Image)(resources.GetObject("ms_Object.Image")));
-			this.ms_Object.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			this.ms_Object.Name = "ms_Object";
-			this.ms_Object.Size = new System.Drawing.Size(242, 28);
-			this.ms_Object.Text = "تعریف کالا/خدمات";
-			this.ms_Object.Click += new System.EventHandler(this.ms_Object_Click);
+			this.NsCodingKala.Font = new System.Drawing.Font("IRANSans(Small) Medium", 14F);
+			this.NsCodingKala.Image = ((System.Drawing.Image)(resources.GetObject("NsCodingKala.Image")));
+			this.NsCodingKala.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+			this.NsCodingKala.Name = "NsCodingKala";
+			this.NsCodingKala.Size = new System.Drawing.Size(242, 28);
+			this.NsCodingKala.Text = "کدینگ کالا و خدمات";
+			this.NsCodingKala.Click += new System.EventHandler(this.NsCodingKala_Click);
 			// 
 			// toolStripSeparator9
 			// 
@@ -643,16 +617,6 @@
 			this.toolStripMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
 			// 
-			// NsCodingKala
-			// 
-			this.NsCodingKala.Font = new System.Drawing.Font("IRANSans(Small) Medium", 14F);
-			this.NsCodingKala.Image = ((System.Drawing.Image)(resources.GetObject("NsCodingKala.Image")));
-			this.NsCodingKala.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			this.NsCodingKala.Name = "NsCodingKala";
-			this.NsCodingKala.Size = new System.Drawing.Size(242, 28);
-			this.NsCodingKala.Text = "کدینگ کالا و خدمات";
-			this.NsCodingKala.Click += new System.EventHandler(this.NsCodingKala_Click);
-			// 
 			// StorageMenuItems
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -675,9 +639,6 @@
         public System.Windows.Forms.ToolStripMenuItem ms_baseinfo;
         private System.Windows.Forms.ToolStripMenuItem ms_Storage;
         private System.Windows.Forms.ToolStripMenuItem ms_Unit;
-        private System.Windows.Forms.ToolStripMenuItem ms_GroupMain;
-        private System.Windows.Forms.ToolStripMenuItem ms_GroupSub;
-        private System.Windows.Forms.ToolStripMenuItem ms_Object;
         private System.Windows.Forms.ToolStripMenuItem NzBrandMenu;
         private System.Windows.Forms.ToolStripMenuItem InitialStock;
         public System.Windows.Forms.ToolStripMenuItem StorageMenu;

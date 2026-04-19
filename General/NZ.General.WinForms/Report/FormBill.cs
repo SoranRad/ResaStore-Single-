@@ -50,13 +50,31 @@ namespace NZ.General.WinForms.Report
             NzGrid.FilterMode = FilterMode.None;
 
         }
-        private void PrintSummary   ()
+        private void Print   ()
         {
-            var path = Utility.GetPrintDirectory()+ "\\General\\SuratHesab"+(NzA5Radio.Checked?"A5":"")+".mrt";
-            var list = NzGrid
-                        .GetDataRows()
-                        .Select(x => x.DataRow as BillRowItem)
-                        .ToList();
+            var path = Utility.GetPrintDirectory()+ "\\General\\"
+                                                  + (NzTabInfo.SelectedIndex == 0? "SuratHesab" : "RizSuratHesab") 
+                                                  + (NzA5Radio.Checked?"A5":"A4")
+                                                  + (NsOfoghi.Checked ? "Ofoghi" : "Amoudi") 
+                                                  + ".mrt";
+
+            object list =
+	            NzTabInfo.SelectedIndex == 0
+		            ? (object)NzGrid
+			            .GetDataRows()
+			            .Select(x => x.DataRow as BillRowItem)
+			            .ToList()
+		            : (object)NzGridDetails
+			            .GetDataRows()
+			            .Select(x => x.DataRow as CircularRowItem)
+			            .ToList();
+
+			//if (NzTabInfo.SelectedIndex == 0)
+
+   //         var list = NzGrid
+   //                     .GetDataRows()
+   //                     .Select(x => x.DataRow as BillRowItem)
+   //                     .ToList();
             var PrnDiag = new Print_Dialog(path, "List", list);
             var people  = NzCustomer.MS_Get_Selected() as People;
 
@@ -136,10 +154,11 @@ namespace NZ.General.WinForms.Report
         #endregion
         private void NzPrint_Click                      (object sender, EventArgs e)
         {
-            if(NzTabInfo.SelectedIndex == 0)
-                PrintSummary();
-            else
-                PrintDatail();
+            Print();
+            //if(NzTabInfo.SelectedIndex == 0)
+            //    PrintSummary();
+            //else
+            //    PrintDatail();
         }
         private void NzReport_Click                     (object sender, EventArgs e)
         {

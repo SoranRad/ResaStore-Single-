@@ -43,6 +43,7 @@
 			this.uiTabPage1 = new Janus.Windows.UI.Tab.UITabPage();
 			this.stiViewerControl1 = new Stimulsoft.Report.Viewer.StiViewerControl();
 			this.uiGroupBox2 = new Janus.Windows.EditControls.UIGroupBox();
+			this.NzCustomerRemain = new NZ.General.WinForms.Component.NzRemainCustomer();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.NzA5Radio = new MS_Control.Controls.MS_RadioBox();
 			this.NzA4Radio = new MS_Control.Controls.MS_RadioBox();
@@ -60,7 +61,10 @@
 			this.NzDateTo = new MS_Control.Tarikh.MS_Tarikh_TextBox();
 			this.NzDateFrom = new MS_Control.Tarikh.MS_Tarikh_TextBox();
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
-			this.NzCustomerRemain = new NZ.General.WinForms.Component.NzRemainCustomer();
+			this.panel2 = new System.Windows.Forms.Panel();
+			this.panel3 = new System.Windows.Forms.Panel();
+			this.NsAmoudi = new MS_Control.Controls.MS_RadioBox();
+			this.NsOfoghi = new MS_Control.Controls.MS_RadioBox();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
 			this.uiTabPage12.SuspendLayout();
@@ -74,6 +78,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox2)).BeginInit();
 			this.uiGroupBox2.SuspendLayout();
 			this.panel1.SuspendLayout();
+			this.panel2.SuspendLayout();
+			this.panel3.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// Tab_Control_Main
@@ -351,8 +357,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.uiGroupBox2.BackColor = System.Drawing.Color.Transparent;
 			this.uiGroupBox2.BorderColor = System.Drawing.Color.LightBlue;
+			this.uiGroupBox2.Controls.Add(this.panel2);
 			this.uiGroupBox2.Controls.Add(this.NzCustomerRemain);
-			this.uiGroupBox2.Controls.Add(this.panel1);
 			this.uiGroupBox2.Controls.Add(this.NzAllYears);
 			this.uiGroupBox2.Controls.Add(this.NzTopCount);
 			this.uiGroupBox2.Controls.Add(this.NzReport);
@@ -372,11 +378,27 @@
 			this.uiGroupBox2.Size = new System.Drawing.Size(1069, 113);
 			this.uiGroupBox2.TabIndex = 0;
 			// 
+			// NzCustomerRemain
+			// 
+			this.NzCustomerRemain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NzCustomerRemain.BackColor = System.Drawing.Color.White;
+			this.NzCustomerRemain.Font = new System.Drawing.Font("IRANSans(Small)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.NzCustomerRemain.Location = new System.Drawing.Point(555, 9);
+			this.NzCustomerRemain.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NzCustomerRemain.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NzCustomerRemain.MS_Color_End = System.Drawing.Color.Empty;
+			this.NzCustomerRemain.MS_Color_Start = System.Drawing.Color.Empty;
+			this.NzCustomerRemain.Name = "NzCustomerRemain";
+			this.NzCustomerRemain.Size = new System.Drawing.Size(182, 28);
+			this.NzCustomerRemain.TabIndex = 769;
+			this.NzCustomerRemain.Text = "0";
+			this.NzCustomerRemain.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
 			// panel1
 			// 
 			this.panel1.Controls.Add(this.NzA5Radio);
 			this.panel1.Controls.Add(this.NzA4Radio);
-			this.panel1.Location = new System.Drawing.Point(4, 80);
+			this.panel1.Location = new System.Drawing.Point(6, 53);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(131, 33);
 			this.panel1.TabIndex = 765;
@@ -385,7 +407,7 @@
 			// 
 			this.NzA5Radio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzA5Radio.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzA5Radio.Location = new System.Drawing.Point(0, 5);
+			this.NzA5Radio.Location = new System.Drawing.Point(3, 5);
 			this.NzA5Radio.MS_BorderColor = System.Drawing.Color.Empty;
 			this.NzA5Radio.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzA5Radio.MS_Change_Border_Color_On_Enter = true;
@@ -402,7 +424,7 @@
 			this.NzA5Radio.MS_UnChecked_Color = System.Drawing.Color.Empty;
 			this.NzA5Radio.Name = "NzA5Radio";
 			this.NzA5Radio.ShowFocusRectangle = false;
-			this.NzA5Radio.Size = new System.Drawing.Size(55, 23);
+			this.NzA5Radio.Size = new System.Drawing.Size(52, 23);
 			this.NzA5Radio.TabIndex = 764;
 			this.NzA5Radio.TabStop = true;
 			this.NzA5Radio.Text = " A5";
@@ -430,7 +452,7 @@
 			this.NzA4Radio.MS_UnChecked_Color = System.Drawing.Color.Empty;
 			this.NzA4Radio.Name = "NzA4Radio";
 			this.NzA4Radio.ShowFocusRectangle = false;
-			this.NzA4Radio.Size = new System.Drawing.Size(68, 23);
+			this.NzA4Radio.Size = new System.Drawing.Size(65, 23);
 			this.NzA4Radio.TabIndex = 764;
 			this.NzA4Radio.TabStop = true;
 			this.NzA4Radio.Text = " A4";
@@ -486,7 +508,7 @@
 			this.NzReport.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.NzReport.Image = global::MS_Resource.GlobalResources.chart_bar;
 			this.NzReport.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
-			this.NzReport.Location = new System.Drawing.Point(6, 12);
+			this.NzReport.Location = new System.Drawing.Point(6, 22);
 			this.NzReport.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzReport.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzReport.MS_Change_Border_Color_On_Enter = false;
@@ -513,7 +535,7 @@
 			this.NzPrint.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.NzPrint.Image = global::MS_Resource.GlobalResources.Negin__67_;
 			this.NzPrint.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
-			this.NzPrint.Location = new System.Drawing.Point(6, 48);
+			this.NzPrint.Location = new System.Drawing.Point(6, 66);
 			this.NzPrint.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzPrint.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzPrint.MS_Change_Border_Color_On_Enter = false;
@@ -699,7 +721,6 @@
 			this.NzDateTo.Size = new System.Drawing.Size(107, 27);
 			this.NzDateTo.TabIndex = 2;
 			this.NzDateTo.Text = "//";
-			this.NzDateTo.Leave += new System.EventHandler(this.NzPrint_Click);
 			// 
 			// NzDateFrom
 			// 
@@ -732,7 +753,6 @@
 			this.NzDateFrom.Size = new System.Drawing.Size(107, 27);
 			this.NzDateFrom.TabIndex = 1;
 			this.NzDateFrom.Text = "//";
-			this.NzDateFrom.Leave += new System.EventHandler(this.NzPrint_Click);
 			// 
 			// uiTabPage14
 			// 
@@ -748,21 +768,77 @@
 			this.uiTabPage14.TabStop = true;
 			this.uiTabPage14.Text = "پرسش و پاسخ";
 			// 
-			// NzCustomerRemain
+			// panel2
 			// 
-			this.NzCustomerRemain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.NzCustomerRemain.BackColor = System.Drawing.Color.White;
-			this.NzCustomerRemain.Font = new System.Drawing.Font("IRANSans(Small)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.NzCustomerRemain.Location = new System.Drawing.Point(555, 9);
-			this.NzCustomerRemain.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.NzCustomerRemain.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NzCustomerRemain.MS_Color_End = System.Drawing.Color.Empty;
-			this.NzCustomerRemain.MS_Color_Start = System.Drawing.Color.Empty;
-			this.NzCustomerRemain.Name = "NzCustomerRemain";
-			this.NzCustomerRemain.Size = new System.Drawing.Size(182, 28);
-			this.NzCustomerRemain.TabIndex = 769;
-			this.NzCustomerRemain.Text = "0";
-			this.NzCustomerRemain.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.panel2.Controls.Add(this.panel3);
+			this.panel2.Controls.Add(this.panel1);
+			this.panel2.Location = new System.Drawing.Point(141, 10);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(143, 99);
+			this.panel2.TabIndex = 770;
+			// 
+			// panel3
+			// 
+			this.panel3.Controls.Add(this.NsAmoudi);
+			this.panel3.Controls.Add(this.NsOfoghi);
+			this.panel3.Location = new System.Drawing.Point(6, 9);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(131, 33);
+			this.panel3.TabIndex = 766;
+			// 
+			// NsAmoudi
+			// 
+			this.NsAmoudi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsAmoudi.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsAmoudi.Location = new System.Drawing.Point(3, 5);
+			this.NsAmoudi.MS_BorderColor = System.Drawing.Color.Empty;
+			this.NsAmoudi.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsAmoudi.MS_Change_Border_Color_On_Enter = true;
+			this.NsAmoudi.MS_Change_Color_On_Checked = true;
+			this.NsAmoudi.MS_Change_Color_On_Enter = true;
+			this.NsAmoudi.MS_Checked_Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsAmoudi.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsAmoudi.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsAmoudi.MS_Exit_By_Down = true;
+			this.NsAmoudi.MS_Exit_By_Enter = true;
+			this.NsAmoudi.MS_Exit_By_Up = true;
+			this.NsAmoudi.MS_Last_Control = null;
+			this.NsAmoudi.MS_Next_Control = null;
+			this.NsAmoudi.MS_UnChecked_Color = System.Drawing.Color.Empty;
+			this.NsAmoudi.Name = "NsAmoudi";
+			this.NsAmoudi.ShowFocusRectangle = false;
+			this.NsAmoudi.Size = new System.Drawing.Size(52, 23);
+			this.NsAmoudi.TabIndex = 764;
+			this.NsAmoudi.TabStop = true;
+			this.NsAmoudi.Text = "عمودی";
+			// 
+			// NsOfoghi
+			// 
+			this.NsOfoghi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsOfoghi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsOfoghi.Checked = true;
+			this.NsOfoghi.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsOfoghi.Location = new System.Drawing.Point(61, 5);
+			this.NsOfoghi.MS_BorderColor = System.Drawing.Color.Empty;
+			this.NsOfoghi.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsOfoghi.MS_Change_Border_Color_On_Enter = true;
+			this.NsOfoghi.MS_Change_Color_On_Checked = true;
+			this.NsOfoghi.MS_Change_Color_On_Enter = true;
+			this.NsOfoghi.MS_Checked_Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsOfoghi.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsOfoghi.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsOfoghi.MS_Exit_By_Down = true;
+			this.NsOfoghi.MS_Exit_By_Enter = true;
+			this.NsOfoghi.MS_Exit_By_Up = true;
+			this.NsOfoghi.MS_Last_Control = null;
+			this.NsOfoghi.MS_Next_Control = null;
+			this.NsOfoghi.MS_UnChecked_Color = System.Drawing.Color.Empty;
+			this.NsOfoghi.Name = "NsOfoghi";
+			this.NsOfoghi.ShowFocusRectangle = false;
+			this.NsOfoghi.Size = new System.Drawing.Size(68, 23);
+			this.NsOfoghi.TabIndex = 764;
+			this.NsOfoghi.TabStop = true;
+			this.NsOfoghi.Text = "افقی";
 			// 
 			// FormBill
 			// 
@@ -789,6 +865,8 @@
 			this.uiGroupBox2.ResumeLayout(false);
 			this.uiGroupBox2.PerformLayout();
 			this.panel1.ResumeLayout(false);
+			this.panel2.ResumeLayout(false);
+			this.panel3.ResumeLayout(false);
 			this.ResumeLayout(false);
 
         }
@@ -823,5 +901,9 @@
 		private Janus.Windows.UI.Tab.UITabPage uiTabPage1;
 		private Stimulsoft.Report.Viewer.StiViewerControl stiViewerControl1;
 		private Component.NzRemainCustomer NzCustomerRemain;
+		private System.Windows.Forms.Panel panel2;
+		private System.Windows.Forms.Panel panel3;
+		private MS_Control.Controls.MS_RadioBox NsAmoudi;
+		private MS_Control.Controls.MS_RadioBox NsOfoghi;
 	}
 }

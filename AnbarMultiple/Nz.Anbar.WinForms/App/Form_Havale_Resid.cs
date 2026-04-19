@@ -312,15 +312,35 @@ namespace Nz.Anbar.WinForms.App
             }
             var date = NzDate.MS_Tarikh.Value.ToDatetime().Date;
             var salmali = SystemConstant.ActiveYear;
-            if (date > salmali.EndDate || date < salmali.StartDate)
+            var mabna = Nzfactor.MS_Get_Selected() as FactorPishFrosh;
+
+			if ((date > salmali.EndDate || date < salmali.StartDate)  )
             {
-                MS_Message.Show("تاریخ حواله در محدوده سال مالی نیست" +
-                                "\n\n" +
-                                "از تاریخ " + new MS_Structure_Shamsi(salmali.StartDate).ToShamsi() +
-                                " تا تاریخ " + new MS_Structure_Shamsi(salmali.StartDate).ToShamsi());
-                NzDate.Focus();
-                mS_Notify1.Show(NzDate);
-                return false;
+	            if (mabna != null && mabna?.ID > 0)
+	            {
+		            var r = MS_Message.Show(
+			                        "تاریخ حواله در محدوده سال مالی نیست" +
+		                            "\n\n" +
+		                            "مایل به ذخیره حواله هستید؟", 
+			                        "هشدار"
+									, MessageBoxButtons.YesNo
+			                        );
+                    
+		            NzDate.Focus();
+		            mS_Notify1.Show(NzDate);
+		            return r == DialogResult.Yes;
+				}
+	            else
+	            {
+		            MS_Message.Show("تاریخ حواله در محدوده سال مالی نیست" +
+		                            "\n\n" +
+		                            "از تاریخ " + new MS_Structure_Shamsi(salmali.StartDate).ToShamsi() +
+		                            " تا تاریخ " + new MS_Structure_Shamsi(salmali.StartDate).ToShamsi());
+		            NzDate.Focus();
+		            mS_Notify1.Show(NzDate);
+		            return false;
+				}
+              
             }
             if (!_Factor.FactorItems.Any())
             {
