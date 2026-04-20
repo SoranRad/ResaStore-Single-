@@ -27,7 +27,7 @@ namespace Nz.Anbar.WinForms.Component
 		public void RefreshGroup()
 		{
 			var mgr			= new Manager();
-			var groups		= mgr.GetList<SubGroup>()?.ToList();
+			var groups		= mgr.GetList<SubGroup>(new { FkGroup1 = (short?)null})?.ToList();
 
 			var i = 0;
 			foreach (var group in groups.Where(x=>x.ShowInBarcode))

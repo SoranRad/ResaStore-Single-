@@ -106,8 +106,12 @@ namespace Nz.Anbar.WinForms.App
 	            Reset();
 	            LoadSettings();
 			}
-			else 
-                LoadItem();
+            else
+            {
+	            LoadItem();
+	            var Setting = Form_Factory._Form_Factory_Anbar.GetSettings() as SettingItems ;
+	            _Setting = Setting ?? SettingItems.GetDefault();
+			}
 
             _Bind                           = new BidingFactorItems(_Factor);
             NzGrid.DataSource               = _Bind;
@@ -240,8 +244,8 @@ namespace Nz.Anbar.WinForms.App
                 _ListObjects = mgr
                                 .GetList<NzObject>(
                                     new{
-                                        Year = SystemConstant.ActiveYear.Salmali
-                                       })
+										FkGroup2 = (int?)null
+                                    })
                                 .ToList();
 
         }
