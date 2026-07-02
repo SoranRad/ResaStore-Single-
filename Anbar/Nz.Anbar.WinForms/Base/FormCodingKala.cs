@@ -331,12 +331,12 @@ namespace Nz.Anbar.WinForms.Base
 			_DoRefresh = false;
 
 			var Spos = NsGridSubGroup.VerticalScrollPosition;
-			var Rpos = NsGridSubGroup.CurrentRow.Position;
+			var Rpos = NsGridSubGroup.CurrentRow?.Position??0;
 
 			RefreshGrid_SubGroup();
 
 			if (Rpos > 0 && Rpos >= NsGridSubGroup.RowCount)
-				Rpos--;
+				Rpos = NsGridSubGroup.RowCount -1;
 
 			NsGridSubGroup.EnsureVisible(Rpos);
 			NsGridSubGroup.VerticalScrollPosition = Spos;
@@ -503,12 +503,12 @@ namespace Nz.Anbar.WinForms.Base
 			_DoRefresh = false;
 
 			var Spos = NsGridKala.VerticalScrollPosition;
-			var Rpos = NsGridKala.CurrentRow.Position;
+			var Rpos = NsGridKala.CurrentRow?.Position??0;
 
 			RefreshGrid_Kala();
 
 			if (Rpos > 0 && Rpos >= NsGridKala.RowCount)
-				Rpos--;
+				Rpos = NsGridKala.RowCount - 1;
 
 			NsGridKala.EnsureVisible(Rpos);
 			NsGridKala.VerticalScrollPosition = Spos;

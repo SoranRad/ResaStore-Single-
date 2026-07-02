@@ -254,7 +254,8 @@ namespace Nz.Aqsat.Winforms.App
 				{
 					var r = _Manager.IsCodeUnique(new
 					{
-						Serial = NzSerial.MS_Decimal,
+						Serial	= NzSerial.MS_Decimal,
+						Year	= SystemConstant.ActiveYear.Salmali
 					});
 
 					if (!r)

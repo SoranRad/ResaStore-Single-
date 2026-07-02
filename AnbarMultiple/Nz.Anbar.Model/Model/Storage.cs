@@ -29,8 +29,8 @@ namespace NZ.Anbar.Model
         public string       CircularQuery   ()
         {
             return @"
-SELECT TOP(1) tar.ID  FROM Anbar.tbl_Amaliat_Riz AS tar
-WHERE (tar.FK_Anbar_Az=@Code OR tar.FK_Anbar_Be=@Code)
+SELECT TOP(1) tat.ID  FROM Anbar.tbl_Amaliat_Title AS tat
+WHERE (tat.FK_Anbar_Az=@Code OR tat.FK_Anbar_Be=@Code)
 ";
         }
         public string       GenerateCode    ()
@@ -40,7 +40,7 @@ WHERE (tar.FK_Anbar_Az=@Code OR tar.FK_Anbar_Be=@Code)
         }
         public string       GetItem         ()
         {
-            throw new NotImplementedException();
+	        return null;
         }
         public string       GetList         ()
         {
