@@ -28,7 +28,6 @@ namespace NZ.Anbar.DataLayer.Configure
             this
                 .Property   (e => e.Darsad_Porsant)
                 .HasPrecision(6, 2);
-
         }
     }
 }

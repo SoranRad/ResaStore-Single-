@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using ShareLib;
 
 namespace NZ.Anbar.Model
@@ -30,7 +31,8 @@ namespace NZ.Anbar.Model
         public string               MobileGirande       { get; set; }
         public string               AddressGirande      { get; set; }
         public bool?                Sent                { get; set; }
-
+        [DefaultValue(false)]
+		public bool                 IsAmani             { get; set; }
 
 		public FactorHead           FactorHead          { get; set; }
 

@@ -212,6 +212,8 @@ namespace Nz.Anbar.WinForms.App
                 NsMobileGirande.Text        = _Factor?.FactorDetail?.MobileGirande;
                 NsTitleGirande.Text         = _Factor?.FactorDetail?.TitleGirande;
                 NsSendToGirande.Checked     = _Factor?.FactorDetail?.Sent ?? false;
+                NsAmani.Checked             = _Factor?.FactorDetail?.IsAmani ?? false;
+
 
 				if (_Factor.FactorDetail?.tarikh_etebar != null)
 					NsMohlatTasvieh.MS_Tarikh = new MS_Structure_Shamsi(_Factor.FactorDetail?.tarikh_etebar.Value);
@@ -263,7 +265,7 @@ namespace Nz.Anbar.WinForms.App
                 _Factor.FK_Kind_Frosh = (short)NzKindSale.SelectedIndex;
 
                 if (
-	                NzTaxPercent.MS_Decimal > 0
+	                   NzTaxPercent.MS_Decimal > 0
 	                || NzOffPrice.MS_Decimal > 0
 	                || NzOffPercent.MS_Decimal > 0
 	                || NzExtend.MS_Decimal > 0
@@ -273,6 +275,7 @@ namespace Nz.Anbar.WinForms.App
 	                || NsSendToGirande.Checked
                     || NsMohlatTasvieh.MS_Tarikh.HasValue
 					|| _Factor.ID > 0
+                    || NsAmani.Checked 
                 )
                 {
 	                if (_Factor.FactorDetail == null)
@@ -296,6 +299,8 @@ namespace Nz.Anbar.WinForms.App
 		                NzOffPrice.MS_Decimal == 0 ? null : (decimal?)NzOffPrice.MS_Decimal;
 	                _Factor.FactorDetail.Ezafat =
 		                NzExtend.MS_Decimal == 0 ? null : (decimal?)NzExtend.MS_Decimal;
+
+	                _Factor.FactorDetail.IsAmani = NsAmani.Checked;
 
 	                if (!string.IsNullOrWhiteSpace(NsAddressGirande.Text))
 		                _Factor.FactorDetail.AddressGirande = NsAddressGirande.Text;
@@ -388,10 +393,12 @@ namespace Nz.Anbar.WinForms.App
             NzOffPercent.MS_Decimal     = 0;
 
             NzSumCash.MS_Decimal        = 0;
+            NzSumRows.MS_Decimal        = 0;
             NzSumPos.MS_Decimal         = 0;
             NzSumCheque.MS_Decimal      = 0;
             NzSumFactor.MS_Decimal      = 0;
             NzRemain.MS_Decimal         = 0;
+            NzSumMoney.MS_Decimal       = 0;
             NzSerial.Focus();
             NzKindSale.SelectedIndex    = 0;
 

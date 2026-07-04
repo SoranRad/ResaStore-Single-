@@ -76,7 +76,8 @@ SELECT tatd.ID ,
        RTRIM(LTRIM(tatd.TitleGirande  )) AS  TitleGirande,  
        RTRIM(LTRIM(tatd.MobileGirande )) AS  MobileGirande,
        RTRIM(LTRIM(tatd.AddressGirande)) AS  AddressGirande,
-       tatd.Sent          
+       tatd.Sent,
+       tatd.IsAmani
 	   
 FROM Anbar.tbl_Amaliat_Title_Detail AS tatd
 WHERE tatd.ID=@ID ;
@@ -89,7 +90,7 @@ WHERE tat.FK_Salmali=@Year AND tat.kind=@Kind
 
         private static string CodeUnique    = @"
 SELECT COUNT(tat.Serial) FROM Anbar.tbl_Amaliat_Title AS tat
-WHERE tat.FK_Salmali=@Year AND tat.kind=@Kind AND tat.Serial=@Serial
+WHERE tat.FK_Salmali = @Year AND tat.kind=@Kind AND tat.Serial = @Serial
 ";
 
         public FactorDapperConfig()

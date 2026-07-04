@@ -123,6 +123,9 @@
   <metadata name="mS_Tool_Strip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>123, 17</value>
   </metadata>
+  <metadata name="mS_Tool_Strip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>123, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="NzPrint.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -180,7 +183,7 @@
         IlkihchJY/U/F+bKCznjbo/NkBE6sIXpqfw3WS8hL/uNtRJSGPsB/uYnl108fZoAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="uiComboBoxItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="uiComboBoxItem5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAAR9JREFUOE+Nk0FrwkAQhfPHpdAeSkWLUGLFg9aDB6sFWwuSiyehlx6UIA2VQAgl
@@ -191,7 +194,7 @@
         D0ZtaFSFS50WAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="uiComboBoxItem2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="uiComboBoxItem6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAh9JREFUOE+1
         kF9IU2EYxp/lmAVbRNRFF7ZYWdFACpdaNll2IcVcUFmCrAZif5BISCqZHF2msXSNKLM1QREjKaz0xoQF
