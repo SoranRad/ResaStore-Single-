@@ -83,6 +83,9 @@ namespace NZ.General.WinForms.Base
                 _Item.BlockMablaq   = NzKindCredit.SelectedIndex == 0
                                         ? NzSaqf_Etebar.MS_Decimal
                                         : -NzSaqf_Etebar.MS_Decimal;
+
+            _Item.IsPartner = NsIsPartner.Checked;
+            _Item.PartnerPercent = NsPartnerPercent.MS_Decimal;
             #endregion
             #region سایر اطلاعات
 
@@ -194,6 +197,9 @@ namespace NZ.General.WinForms.Base
                 NzBlock.Checked             =_Item.isBlock??false;
                 nzAccountNumber.Text        = _Item.shomareHesab;
                 NzBank1.MS_Set_Select       ( _Item.FK_Bank);
+
+                NsIsPartner.Checked = _Item.IsPartner;
+                NsPartnerPercent.Text = _Item.PartnerPercent.ToString("0,0.##");
 
                 if (_Item.BlockMablaq == null || _Item.BlockMablaq == 0)
                 {

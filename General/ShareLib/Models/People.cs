@@ -1,4 +1,5 @@
-﻿using ShareLib.Interfaces;
+﻿using System.ComponentModel;
+using ShareLib.Interfaces;
 using ShareLib.Models;
 
 namespace ShareLib.Models
@@ -71,6 +72,11 @@ namespace ShareLib.Models
         public ImageDocument            ImagePicture             { get; set; }
         public ImageDocument            ImageWarranty            { get; set; }
 
+        [DefaultValue(false)]
+        public bool                     IsPartner               { get; set; }
+        [DefaultValue(0)]
+        public decimal PartnerPercent          { get; set; }
+
 
         public string                   StateTitle               =>  this.is_disable    ? "غیر فعال "   : "فعال";
         public string                   CustomerState            => (this.is_Froshande  ? "فروشنده"     : String.Empty) + 
@@ -84,7 +90,6 @@ namespace ShareLib.Models
         public string                   CityTitle                { get; set; }
         [NotMapped]
         public string                   BankTitle                { get; set; }
-
         [NotMapped]
         public string                   SaleTitle                
         {
@@ -147,6 +152,8 @@ SELECT ta.ID ,
        ta.Sarmaye_Kol ,
        ta.Sarmaye_Darsad ,
        ta.Sood_Darsad ,
+       ta.IsPartner,
+       ta.PartnerPercent,
 
 	   LTRIM(RTRIM(tga.Title))  AS GroupTitle,
 	   LTRIM(RTRIM(ts.title))   AS CityTitle,
@@ -202,6 +209,8 @@ SELECT ta.ID ,
        ta.Sarmaye_Kol ,
        ta.Sarmaye_Darsad ,
        ta.Sood_Darsad ,
+       ta.IsPartner,
+       ta.PartnerPercent,
 
 	   LTRIM(RTRIM(tga.Title))  AS GroupTitle,
 	   LTRIM(RTRIM(ts.title))   AS CityTitle,

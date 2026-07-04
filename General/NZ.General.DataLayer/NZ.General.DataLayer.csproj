@@ -111,6 +111,10 @@
     <Compile Include="Migrations\202604080821092_add-expire-date.Designer.cs">
       <DependentUpon>202604080821092_add-expire-date.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202607040621146_add-partner-to-people.cs" />
+    <Compile Include="Migrations\202607040621146_add-partner-to-people.Designer.cs">
+      <DependentUpon>202607040621146_add-partner-to-people.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repo\ReportRepository.cs" />
@@ -132,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202604080821092_add-expire-date.resx">
       <DependentUpon>202604080821092_add-expire-date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202607040621146_add-partner-to-people.resx">
+      <DependentUpon>202607040621146_add-partner-to-people.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -93,6 +93,10 @@ namespace NZ.General.DataLayer.Configure
                 .HasPrecision(4, 2);
 
             this
+	            .Property(e => e.PartnerPercent)
+	            .HasPrecision(4, 2);
+
+			this
                 .HasMany        (e => e.Dialogs)
                 .WithRequired   (e => e.Customer)
                 .HasForeignKey  (e => e.FK_Shaxs_ID)
