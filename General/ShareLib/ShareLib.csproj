@@ -125,6 +125,7 @@
     <Compile Include="Models\InitRegister.cs" />
     <Compile Include="Models\Report\InitialCorrection.cs" />
     <Compile Include="Models\Report\NoteOfDate.cs" />
+    <Compile Include="Models\Report\PartnerStatus.cs" />
     <Compile Include="Models\Report\SummaryNote.cs" />
     <Compile Include="Models\YearNoteList.cs" />
     <Compile Include="RestApi\BaseApi.cs" />

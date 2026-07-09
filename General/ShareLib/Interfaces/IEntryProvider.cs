@@ -46,6 +46,9 @@ namespace ShareLib.Interfaces
         bool                                HasSrtartupForm         ();
         Form                                GetStartupPage          ();
 
+        Task<IEnumerable<T>>                GetPartnerReportList<T> (DateTime? Start, DateTime? End,params long[] Ids) where T : class;
+        Task<T>                             GetPartnerReportItem<T> (DateTime? Start, DateTime? End, params long[] Ids) where T : class;
+
         
     }
 }

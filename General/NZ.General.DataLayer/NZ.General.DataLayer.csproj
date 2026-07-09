@@ -98,6 +98,7 @@
     <Compile Include="DapperConfig\ActiveConfig.cs" />
     <Compile Include="DapperConfig\CompanyConfig.cs" />
     <Compile Include="DapperConfig\DataBaseListConfig.cs" />
+    <Compile Include="DapperConfig\HazineDapperConfig.cs" />
     <Compile Include="DapperConfig\InitialCorrectionConfig.cs" />
     <Compile Include="DapperConfig\InitRegister.cs" />
     <Compile Include="DapperConfig\LoginConfig.cs" />
@@ -124,13 +125,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ShareLib\ShareLib.csproj">
-      <Project>{ee295af7-3238-4f98-b5fc-9f16c02391e8}</Project>
-      <Name>ShareLib</Name>
-      <Private>False</Private>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Migrations\202511200647043_InitialCreation.resx">
       <DependentUpon>202511200647043_InitialCreation.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +134,12 @@
     <EmbeddedResource Include="Migrations\202607040621146_add-partner-to-people.resx">
       <DependentUpon>202607040621146_add-partner-to-people.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ShareLib\ShareLib.csproj">
+      <Project>{ee295af7-3238-4f98-b5fc-9f16c02391e8}</Project>
+      <Name>ShareLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -25,10 +25,11 @@ using ShareLib.Interfaces;
 using ShareLib.Models;
 using ShareLib.Utils;
 using ShareLib.ViewModel;
+using ShareLib.Models.Report;
 
 namespace NZ.Xazane.WinForms
 {
-    public class XazaneProvider : IEntryProvider,IFactoryControl
+    public class XazaneProvider : IEntryProvider//,IFactoryControl
     {
         #region Logging
         private static readonly log4net.ILog log =
@@ -296,14 +297,13 @@ namespace NZ.Xazane.WinForms
 
             }
         }
-        public NsSettingTabPage[]                 GetSettingTabPage()
+        public NsSettingTabPage[]               GetSettingTabPage()
         {
 	        _settingContainer = new TabSettingContainer();
 	        _settingContainer.LoadSetting((SettingItems)_settings );
 
 	        return new NsSettingTabPage[]{_settingContainer.TabSetting};
         }
-
         public void                             SetSettings             (IEnumerable<dynamic> settings)
         {
 	        var setting = settings.SingleOrDefault(x => x.Name == SettingItems.KeyName);
@@ -327,15 +327,59 @@ namespace NZ.Xazane.WinForms
 	        return null;
         }
 
-        public Control                      CreateControl       (Enums.NzFactoryControlKind Kind)
-        {
-            switch (Kind)
-            {
-                case Enums.NzFactoryControlKind.CachePos:
-                    return null;
-                default:
-                    return null;
-            }
-        }
-    }
+		public async Task<IEnumerable<T>>       GetPartnerReportList<T> (DateTime? Start, DateTime? End, params long[] Ids) where T : class
+		{
+			try
+			{
+				string WhereClause  = null;
+				var mgr             = new ReportManager();
+				var tt              = typeof(T);
+				
+				if (tt == typeof(PartnerBardasht) && Ids.Length > 0)
+				{
+					var str = string.Join(" , ", Ids.Select(x => x.ToString()));
+					WhereClause = $@" AND(ta.ID IN ({str})) ";
+				}
+    //            else if (tt == typeof(HazineHa) && Ids.Length > 0)
+    //            {
+	   //             var str = string.Join(" , ", Ids.Select(x => x.ToString()));
+	   //             WhereClause = $@" AND(tax.FK_Xazaneh_Bad IN ({str}))";
+				//}
+
+				return mgr.GetReport<T>(new { Start, End, Year = SystemConstant.ActiveYear.Salmali }, WhereClause);
+			}
+			catch (Exception ex)
+			{
+				log.Error(ex);
+			}
+
+			return null;
+		}
+		public async Task<T>                    GetPartnerReportItem<T> (DateTime? Start, DateTime? End, params long[] Ids) where T : class
+		{
+			try
+			{
+				string WhereClause = null;
+				var mgr         = new ReportManager();
+				var tt          = typeof(T);
+
+				if (tt == typeof(HazineHa) && Ids.Length > 0)
+				{
+					var str = string.Join(" , ", Ids.Select(x => x.ToString()));
+					WhereClause = $@" AND (tax.FK_Xazaneh_Bad IN ( {str} ))";
+				}
+
+				return mgr.GetItem<T>(new { Start, End, Year = SystemConstant.ActiveYear.Salmali }, WhereClause);
+
+			}
+			catch (Exception ex)
+			{
+				log.Error(ex);
+			}
+
+			return null;
+		}
+
+
+	}
 }

@@ -204,6 +204,16 @@ namespace NZ.General.WinForms
 			return !_settings.ShowAlarm ? null : new Form_Alarm();
 		}
 
+		public async Task<IEnumerable<T>> GetPartnerReportList<T>(DateTime? Start, DateTime? End, params long[] Ids) where T : class
+		{
+			return null;
+		}
+
+		public async Task<T> GetPartnerReportItem<T>(DateTime? Start, DateTime? End, params long[] Ids) where T : class
+		{
+			return null;
+		}
+
 		#endregion
 	}
 }

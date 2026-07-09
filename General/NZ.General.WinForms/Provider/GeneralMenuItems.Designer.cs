@@ -38,6 +38,7 @@
 			this.ms_People = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.ms_settings = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsSettings = new System.Windows.Forms.ToolStripMenuItem();
 			this.ms_Users = new System.Windows.Forms.ToolStripMenuItem();
 			this.ms_UserAccess = new System.Windows.Forms.ToolStripMenuItem();
 			this.ms_ChangePassword = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,10 +64,10 @@
 			this.NzDailyCircular = new System.Windows.Forms.ToolStripMenuItem();
 			this.NzChartSummarry = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+			this.NsPartnerStatus = new System.Windows.Forms.ToolStripMenuItem();
 			this.Change_Pic = new System.Windows.Forms.OpenFileDialog();
 			this.NzSideBarMenu = new MS_Control.Controls.MS_Menu();
 			this.NzCustomer = new System.Windows.Forms.ToolStripMenuItem();
-			this.NsSettings = new System.Windows.Forms.ToolStripMenuItem();
 			this.mS_Menu1.SuspendLayout();
 			this.NzSideBarMenu.SuspendLayout();
 			this.SuspendLayout();
@@ -194,6 +195,17 @@
 			this.ms_settings.Size = new System.Drawing.Size(95, 28);
 			this.ms_settings.Tag = "180";
 			this.ms_settings.Text = "امـکانـات";
+			// 
+			// NsSettings
+			// 
+			this.NsSettings.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NsSettings.Image = global::MS_Resource.GlobalResources.Toolbar2;
+			this.NsSettings.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+			this.NsSettings.Name = "NsSettings";
+			this.NsSettings.Size = new System.Drawing.Size(248, 28);
+			this.NsSettings.Tag = "";
+			this.NsSettings.Text = "تنـظیمات ";
+			this.NsSettings.Click += new System.EventHandler(this.NsSettings_Click);
 			// 
 			// ms_Users
 			// 
@@ -367,6 +379,7 @@
             this.toolStripSeparator3,
             this.NzDailyCircular,
             this.NzChartSummarry,
+            this.NsPartnerStatus,
             this.toolStripSeparator4});
 			this.NzReports.Font = new System.Drawing.Font("IRANSans(Small) Medium", 16F);
 			this.NzReports.Name = "NzReports";
@@ -422,6 +435,15 @@
 			this.toolStripSeparator4.Name = "toolStripSeparator4";
 			this.toolStripSeparator4.Size = new System.Drawing.Size(243, 6);
 			// 
+			// NsPartnerStatus
+			// 
+			this.NsPartnerStatus.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NsPartnerStatus.Image = global::MS_Resource.GlobalResources.Negin__1_1;
+			this.NsPartnerStatus.Name = "NsPartnerStatus";
+			this.NsPartnerStatus.Size = new System.Drawing.Size(246, 28);
+			this.NsPartnerStatus.Text = "گزارش وضعیت شرکا";
+			this.NsPartnerStatus.Click += new System.EventHandler(this.NsPartnerStatus_Click);
+			// 
 			// Change_Pic
 			// 
 			this.Change_Pic.Filter = "jpeg Files|*.jpg|gif Image|*.gif|png Image|*.png|Bitmap Image|*.bmp|Icons|*.Ico|A" +
@@ -436,14 +458,14 @@
 			this.NzSideBarMenu.ImageScalingSize = new System.Drawing.Size(28, 28);
 			this.NzSideBarMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.NzCustomer});
-			this.NzSideBarMenu.Location = new System.Drawing.Point(528, 32);
+			this.NzSideBarMenu.Location = new System.Drawing.Point(488, 32);
 			this.NzSideBarMenu.MS_BorderColor = System.Drawing.Color.CornflowerBlue;
 			this.NzSideBarMenu.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzSideBarMenu.MS_Color_End = System.Drawing.Color.LightSteelBlue;
 			this.NzSideBarMenu.MS_Color_Start = System.Drawing.Color.AliceBlue;
 			this.NzSideBarMenu.Name = "NzSideBarMenu";
 			this.NzSideBarMenu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.NzSideBarMenu.Size = new System.Drawing.Size(86, 338);
+			this.NzSideBarMenu.Size = new System.Drawing.Size(126, 338);
 			this.NzSideBarMenu.TabIndex = 20;
 			this.NzSideBarMenu.Text = "mS_Menu2";
 			// 
@@ -454,22 +476,11 @@
 			this.NzCustomer.Margin = new System.Windows.Forms.Padding(3);
 			this.NzCustomer.Name = "NzCustomer";
 			this.NzCustomer.Padding = new System.Windows.Forms.Padding(5);
-			this.NzCustomer.Size = new System.Drawing.Size(73, 71);
+			this.NzCustomer.Size = new System.Drawing.Size(113, 71);
 			this.NzCustomer.Text = "اشـخاص";
 			this.NzCustomer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
 			this.NzCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.NzCustomer.Click += new System.EventHandler(this.NzCustomer_Click);
-			// 
-			// NsSettings
-			// 
-			this.NsSettings.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NsSettings.Image = global::MS_Resource.GlobalResources.Toolbar2;
-			this.NsSettings.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
-			this.NsSettings.Name = "NsSettings";
-			this.NsSettings.Size = new System.Drawing.Size(248, 28);
-			this.NsSettings.Tag = "";
-			this.NsSettings.Text = "تنـظیمات ";
-			this.NsSettings.Click += new System.EventHandler(this.NsSettings_Click);
 			// 
 			// GeneralMenuItems
 			// 
@@ -526,5 +537,6 @@
         private System.Windows.Forms.ToolStripMenuItem NzDailyCircular;
         private System.Windows.Forms.ToolStripMenuItem NzUpdateMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem NsSettings;
+		private System.Windows.Forms.ToolStripMenuItem NsPartnerStatus;
 	}
 }

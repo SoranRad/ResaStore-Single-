@@ -242,7 +242,7 @@ namespace Nz.Bar.Winforms.Provider
             }
         }
 
-		public NsSettingTabPage[]                 GetSettingTabPage       ()
+		public NsSettingTabPage[]               GetSettingTabPage       ()
 		{
 			_settingContainer = new TabSettingContainer();
 			_settingContainer.LoadSetting((SettingItems)_settings );
@@ -273,5 +273,17 @@ namespace Nz.Bar.Winforms.Provider
 		{
 			return null;
 		}
+
+		public async Task<IEnumerable<T>> GetPartnerReportList<T>(DateTime? Start, DateTime? End, params long[] Ids) where T : class
+		{
+			return null;
+		}
+
+		public async Task<T> GetPartnerReportItem<T>(DateTime? Start, DateTime? End, params long[] Ids) where T : class
+		{
+			return null;
+		}
+
+
 	}
 }

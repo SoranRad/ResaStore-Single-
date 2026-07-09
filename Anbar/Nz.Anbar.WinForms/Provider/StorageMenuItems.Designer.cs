@@ -130,7 +130,7 @@
 			this.NzLocation.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
 			this.NzLocation.Image = ((System.Drawing.Image)(resources.GetObject("NzLocation.Image")));
 			this.NzLocation.Name = "NzLocation";
-			this.NzLocation.Size = new System.Drawing.Size(242, 28);
+			this.NzLocation.Size = new System.Drawing.Size(238, 28);
 			this.NzLocation.Text = "موقعیت فروش و خدمات";
 			this.NzLocation.Click += new System.EventHandler(this.NzLocation_Click);
 			// 
@@ -139,7 +139,7 @@
 			this.ms_Storage.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
 			this.ms_Storage.Image = ((System.Drawing.Image)(resources.GetObject("ms_Storage.Image")));
 			this.ms_Storage.Name = "ms_Storage";
-			this.ms_Storage.Size = new System.Drawing.Size(242, 28);
+			this.ms_Storage.Size = new System.Drawing.Size(238, 28);
 			this.ms_Storage.Text = "تعریف انـبار";
 			this.ms_Storage.Click += new System.EventHandler(this.ms_Storage_Click);
 			// 
@@ -149,7 +149,7 @@
 			this.ms_Unit.Image = ((System.Drawing.Image)(resources.GetObject("ms_Unit.Image")));
 			this.ms_Unit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
 			this.ms_Unit.Name = "ms_Unit";
-			this.ms_Unit.Size = new System.Drawing.Size(242, 28);
+			this.ms_Unit.Size = new System.Drawing.Size(238, 28);
 			this.ms_Unit.Text = "تعریف واحدهای شمارش";
 			this.ms_Unit.Click += new System.EventHandler(this.ms_Unit_Click);
 			// 
@@ -159,20 +159,20 @@
 			this.NsCodingKala.Image = ((System.Drawing.Image)(resources.GetObject("NsCodingKala.Image")));
 			this.NsCodingKala.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
 			this.NsCodingKala.Name = "NsCodingKala";
-			this.NsCodingKala.Size = new System.Drawing.Size(242, 28);
+			this.NsCodingKala.Size = new System.Drawing.Size(238, 28);
 			this.NsCodingKala.Text = "کدینگ کالا و خدمات";
 			this.NsCodingKala.Click += new System.EventHandler(this.NsCodingKala_Click);
 			// 
 			// toolStripSeparator9
 			// 
 			this.toolStripSeparator9.Name = "toolStripSeparator9";
-			this.toolStripSeparator9.Size = new System.Drawing.Size(239, 6);
+			this.toolStripSeparator9.Size = new System.Drawing.Size(235, 6);
 			// 
 			// NzReadyItems
 			// 
 			this.NzReadyItems.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.NzReadyItems.Name = "NzReadyItems";
-			this.NzReadyItems.Size = new System.Drawing.Size(242, 28);
+			this.NzReadyItems.Size = new System.Drawing.Size(238, 28);
 			this.NzReadyItems.Text = "تعریف اقلام آمـاده برای فروش";
 			this.NzReadyItems.Click += new System.EventHandler(this.NzReadyItems_Click);
 			// 
@@ -180,7 +180,7 @@
 			// 
 			this.NzBasteBandi.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
 			this.NzBasteBandi.Name = "NzBasteBandi";
-			this.NzBasteBandi.Size = new System.Drawing.Size(242, 28);
+			this.NzBasteBandi.Size = new System.Drawing.Size(238, 28);
 			this.NzBasteBandi.Text = "تعریف بسته بندی کالا/خدمات";
 			this.NzBasteBandi.Click += new System.EventHandler(this.NzBasteBandi_Click);
 			// 
@@ -188,7 +188,7 @@
 			// 
 			this.NzBrandMenu.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
 			this.NzBrandMenu.Name = "NzBrandMenu";
-			this.NzBrandMenu.Size = new System.Drawing.Size(242, 28);
+			this.NzBrandMenu.Size = new System.Drawing.Size(238, 28);
 			this.NzBrandMenu.Text = "تعریف برند کالا/خدمات";
 			this.NzBrandMenu.Click += new System.EventHandler(this.NzBrandMenu_Click);
 			// 

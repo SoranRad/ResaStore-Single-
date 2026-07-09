@@ -115,6 +115,7 @@
     <Compile Include="DapperConfig\FacotrItemConfiguration.cs" />
     <Compile Include="DapperConfig\FactorDetailsConfig.cs" />
     <Compile Include="DapperConfig\FactorItemsCountConfig.cs" />
+    <Compile Include="DapperConfig\Partner\PartnerStatusDapperConfig.cs" />
     <Compile Include="DapperConfig\PreFactorDapperConfig.cs" />
     <Compile Include="DapperConfig\Report\AllCircularConfig.cs" />
     <Compile Include="DapperConfig\Report\AnalyzeStorageConfig.cs" />
@@ -257,6 +258,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

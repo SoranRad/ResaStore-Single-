@@ -412,6 +412,12 @@
     <Compile Include="Report\FormListDebit.Designer.cs">
       <DependentUpon>FormListDebit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\FormPartnerStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormPartnerStatus.Designer.cs">
+      <DependentUpon>FormPartnerStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\Form_ChartSummarry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -741,6 +747,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report\FormListDebit.resx">
       <DependentUpon>FormListDebit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormPartnerStatus.resx">
+      <DependentUpon>FormPartnerStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\Form_ChartSummarry.resx">
       <DependentUpon>Form_ChartSummarry.cs</DependentUpon>

@@ -216,6 +216,14 @@ namespace NZ.General.WinForms.Provider
 			var frm = new FormSetting();
 			frm.Show(GeneralProvider.MainForm);
 		}
+
+		private void NsPartnerStatus_Click(object sender, EventArgs e)
+		{
+			var frm = new FormPartnerStatus();
+			frm.MdiParent = GeneralProvider.MainForm;
+			frm.Show();
+		}
 	}
-}
+	}
+
 

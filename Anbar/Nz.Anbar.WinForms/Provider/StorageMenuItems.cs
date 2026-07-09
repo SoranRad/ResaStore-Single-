@@ -351,5 +351,7 @@ namespace Nz.Anbar.WinForms.Provider
 			frm.MdiParent = StorageProvider.MainForm;
 			frm.Show();
 		}
+
+		
 	}
 }

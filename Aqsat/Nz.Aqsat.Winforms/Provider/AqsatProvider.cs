@@ -183,17 +183,35 @@ namespace Nz.Bar.Winforms.Provider
             return _aqsatAlarm.AnyAlarm();
         }
 
-        public UITabPage[] GetAlarmsTabPage()               
+        public UITabPage[]                      GetAlarmsTabPage        ()               
         {
             return _aqsatAlarm.GetTabPage().ToArray();
         }
+        public NsSettingTabPage[]               GetSettingTabPage       ()
+        {
+	        _settingContainer = new TabSettingContainer();
+	        _settingContainer.LoadSetting((SettingItems)_settings);
 
-        public async Task<MS_Chart[]> GetChartSummarry()
+	        return new NsSettingTabPage[] { _settingContainer.TabSetting };
+        }
+        public void                             SetSettings             (IEnumerable<dynamic> settings)
+        {
+	        var setting = settings.SingleOrDefault(x => x.Name == SettingItems.KeyName);
+	        if (setting == null)
+		        _settings = SettingItems.GetDefault();
+	        else
+		        _settings = Converter.Convert<SettingItems>(setting);
+        }
+        public ISettingItems                    GetSettings             ()
+        {
+	        return _settings;
+        }
+		
+        public async Task<MS_Chart[]>           GetChartSummarry        ()
         {
             return null;
         }
-
-        public Task<IEnumerable<DailyCircular>> GetDailyCircular(short Year, short Month)
+        public Task<IEnumerable<DailyCircular>> GetDailyCircular        (short Year, short Month)
         {
             try
             {
@@ -206,37 +224,25 @@ namespace Nz.Bar.Winforms.Provider
 
             }
         }
-
-		public NsSettingTabPage[] GetSettingTabPage()
-		{
-			_settingContainer = new TabSettingContainer();
-			_settingContainer.LoadSetting((SettingItems)_settings );
-
-			return new NsSettingTabPage[] { _settingContainer.TabSetting };
-		}
-
-		public void SetSettings(IEnumerable<dynamic> settings)
-		{
-			var setting = settings.SingleOrDefault(x => x.Name == SettingItems.KeyName);
-			if (setting == null)
-				_settings = SettingItems.GetDefault();
-			else
-				_settings = Converter.Convert<SettingItems>(setting);
-		}
-
-		public ISettingItems GetSettings()
-		{
-			return _settings;
-		}
-
-		public bool HasSrtartupForm()
+		
+        public bool                             HasSrtartupForm         ()
 		{
 			return false;
 		}
-
-		public Form GetStartupPage()
+		public Form                             GetStartupPage          ()
 		{
 			return null;
 		}
+
+		public async Task<IEnumerable<T>> GetPartnerReportList<T>(DateTime? Start, DateTime? End, params long[] Ids) where T : class
+		{
+			return null;
+		}
+
+		public async Task<T> GetPartnerReportItem<T>(DateTime? Start, DateTime? End, params long[] Ids) where T : class
+		{
+			return null;
+		}
+
 	}
 }
