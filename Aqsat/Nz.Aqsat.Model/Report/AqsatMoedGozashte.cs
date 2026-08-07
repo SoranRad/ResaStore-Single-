@@ -10,6 +10,7 @@ namespace Nz.Aqsat.Model.Report
     {
 	    public long			FK_Main			{ get; set; }
 	    public long			ID				{ get; set; }
+	    public string		codeMeli		{ get; set; }
 	    public long			Serial			{ get; set; }
 	    public string		Shaxs			{ get; set; }
 	    public string		Mobile			{ get; set; }

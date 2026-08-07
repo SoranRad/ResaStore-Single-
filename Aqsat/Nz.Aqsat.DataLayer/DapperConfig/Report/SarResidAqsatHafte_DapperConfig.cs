@@ -16,7 +16,7 @@ namespace Nz.Aqsat.DataLayer.DapperConfig.Report
 SELECT 
 
 ddSarResid.PersianDayOfWeekName,
-ddSarResid.PersianDayOfWeekInt,
+ddSarResid.PersianDayOfWeekInt, 
 tar.FK_Main,
 tar.ID,
 tam.Serial,

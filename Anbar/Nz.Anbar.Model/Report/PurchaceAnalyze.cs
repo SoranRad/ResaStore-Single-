@@ -8,6 +8,7 @@ namespace Nz.Anbar.Model.Report
 {
     public class PurchaceAnalyze
     {
+	    public long         ID                   { get; set; }
         public long         FK_Title             { get; set; } 
         public int          FK_Kala              { get; set; }
         public decimal      meqdar               { get; set; }

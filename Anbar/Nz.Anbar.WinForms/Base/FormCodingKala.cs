@@ -107,7 +107,6 @@ namespace Nz.Anbar.WinForms.Base
 			return false;
 		}
 		#endregion
-
 		#region MainGroup Buttons
 		private void NsEditMainGroup_Click		(object sender, EventArgs e)
 		{
@@ -229,7 +228,7 @@ namespace Nz.Anbar.WinForms.Base
 		{
 			try
 			{
-				var main = NsMainGrid.CurrentRow.DataRow as MainGroup;
+				var main = NsMainGrid.CurrentRow?.DataRow as MainGroup;
 				NsGridSubGroup.DataSource = _Manager.GetList<SubGroup>(new { FkGroup1 = NsShowAllSubGroup.Checked ? null : main?.Code})?.ToList();
 			}
 			catch (Exception ex)
@@ -396,7 +395,7 @@ namespace Nz.Anbar.WinForms.Base
 		{
 			try
 			{
-				var sub = NsGridSubGroup.CurrentRow.DataRow as SubGroup;
+				var sub = NsGridSubGroup.CurrentRow?.DataRow as SubGroup;
 
 				NsGridKala.DataSource = _Manager.GetList<NzObject>(new { FkGroup2 = NsShowAllObjects.Checked ? null : sub?.Code })?.ToList();
 			}

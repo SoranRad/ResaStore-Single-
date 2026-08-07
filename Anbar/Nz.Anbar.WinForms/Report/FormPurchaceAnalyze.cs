@@ -16,6 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MS_Control.Controls;
 using static ShareLib.Enums;
 
 namespace Nz.Anbar.WinForms.Report
@@ -215,6 +216,28 @@ namespace Nz.Anbar.WinForms.Report
 					break;
 			}
 			
+		}
+
+		private void NsFixRemain_Click(object sender, EventArgs e)
+		{
+			if(NzGridItems.CurrentRow.RowType != RowType.Record)
+				return;
+
+			var r = MS_Message.Show("آیا برای تصحیح مقدار مطمئن هستید؟", "هشدار" , MessageBoxButtons.YesNo);
+			if(r != DialogResult.Yes)
+				return;
+
+			var rowFactor	= NzGridHeads.CurrentRow.DataRow as KharidAmaniFactors;
+			var rowRiz		= NzGridItems.CurrentRow.DataRow as PurchaceAnalyze;
+			var factorMgr	= new FactorManager();
+
+			factorMgr.FixKardexOfProducts(rowFactor.ID,rowRiz.ID);
+
+			new Form_Notify("تصحیح مانده", "اطـلاعـات بـا مـوفـقـیـت بروزرسانی شـــد.",
+					Form_Notify.FarsiMessageBoxIcon.اضافه)
+				.Popup(Form_Notify.Direction_Show.Right_To_Left, 1000);
+
+			RefreshGridItems();
 		}
 	}
 }

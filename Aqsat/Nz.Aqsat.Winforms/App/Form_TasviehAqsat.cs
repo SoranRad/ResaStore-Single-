@@ -240,5 +240,12 @@ namespace Nz.Aqsat.Winforms.App
 	        NsMablaqDaryafti.MS_Decimal = riz.mablaqQest;
 			NsSave.PerformClick();
         }
-    }
+
+		private void NsTodaySubmit_Click(object sender, EventArgs e)
+		{
+			NzTarikh.MS_Tarikh = new MS_Structure_Shamsi(DateTime.Now);
+			NsMablaqDaryafti.MS_Decimal = riz.mablaqQest;
+			NsSave.PerformClick();
+		}
+	}
 }

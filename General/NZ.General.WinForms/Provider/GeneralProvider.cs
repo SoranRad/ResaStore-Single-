@@ -71,11 +71,11 @@ namespace NZ.General.WinForms
 	        return null;
         }
 
-        public IForm_Editor             GetFormForEdit      (Enums.FormOperation FormKind,params object[] otherParam)
+        public IForm_Editor                 GetFormForEdit      (Enums.FormOperation FormKind,params object[] otherParam)
         {
             throw new NotImplementedException();
         }
-        public ToolStripItemCollection  GetMenu             (Enums.MenuKind MenuType)
+        public ToolStripItemCollection      GetMenu             (Enums.MenuKind MenuType)
         {
             Menues.SetMenu();
             switch (MenuType)
@@ -95,36 +95,36 @@ namespace NZ.General.WinForms
             }
             return null;
         }
-        public object                   GetProperty         (string Name)
+        public object                       GetProperty         (string Name)
         {
             throw new NotImplementedException();
         }
-        public decimal                  GetRemainAll        (long IDCustomer)
+        public decimal                      GetRemainAll        (long IDCustomer)
         {
             throw new NotImplementedException();
         }
-        public Form                     GetSimpleForm       (Enums.FormOperation FormKind)
+        public Form                         GetSimpleForm       (Enums.FormOperation FormKind)
         {
             throw new NotImplementedException();
         }
-        public void                     SetMainForm         (Form mainForm)
+        public void                         SetMainForm         (Form mainForm)
         {
             MainForm = mainForm;
         }
-        public void                     SetProperty         (string Name, object Value)
+        public void                         SetProperty         (string Name, object Value)
         {
             throw new NotImplementedException();
         }
 
-        public decimal                  GetRemaind          (long ID)
+        public decimal                      GetRemaind          (long ID)
         {
             return 0;
         }
-        public bool                     GetFeature          (short FeatureItem)
+        public bool                         GetFeature          (short FeatureItem)
         {
             return true;
         }
-        public IEnumerable<RemaindPeople> GetListRemaind(DateTime? AzTarikh, DateTime? TaTarikh)
+        public IEnumerable<RemaindPeople>   GetListRemaind      (DateTime? AzTarikh, DateTime? TaTarikh)
         {
             return null;
         }

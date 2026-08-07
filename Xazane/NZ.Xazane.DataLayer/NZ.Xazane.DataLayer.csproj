@@ -120,6 +120,7 @@
     <Compile Include="DapperConfig\DpOperationDapperConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\FactorPaymentIDConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\FactorPaymentListConfig.cs" />
+    <Compile Include="DapperConfig\ViewModel\FixRadifPaymentConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\PaymentChequeArriveBackConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\PaymentChequeArriveBackInDateConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\PaymentListDapperConfig.cs" />

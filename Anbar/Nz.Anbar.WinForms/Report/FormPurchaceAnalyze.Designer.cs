@@ -74,6 +74,7 @@ namespace Nz.Anbar.WinForms.Report
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.NzRefresh = new System.Windows.Forms.ToolStripButton();
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
+			this.NsFixRemain = new System.Windows.Forms.ToolStripButton();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
 			this.uiTabPage12.SuspendLayout();
@@ -475,7 +476,8 @@ namespace Nz.Anbar.WinForms.Report
 			this.mS_GridX_Setting1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.mS_GridX_Setting1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator1,
-            this.NzRefresh});
+            this.NzRefresh,
+            this.NsFixRemain});
 			this.mS_GridX_Setting1.Location = new System.Drawing.Point(0, 777);
 			this.mS_GridX_Setting1.MS_BorderColor = System.Drawing.Color.DodgerBlue;
 			this.mS_GridX_Setting1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -517,6 +519,17 @@ namespace Nz.Anbar.WinForms.Report
 			this.uiTabPage14.Size = new System.Drawing.Size(890, 490);
 			this.uiTabPage14.TabStop = true;
 			this.uiTabPage14.Text = "پرسش و پاسخ";
+			// 
+			// NsFixRemain
+			// 
+			this.NsFixRemain.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.NsFixRemain.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.NsFixRemain.Image = global::MS_Resource.GlobalResources.access;
+			this.NsFixRemain.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.NsFixRemain.Name = "NsFixRemain";
+			this.NsFixRemain.Size = new System.Drawing.Size(23, 22);
+			this.NsFixRemain.Text = "تصحیح مقادیر مانده ";
+			this.NsFixRemain.Click += new System.EventHandler(this.NsFixRemain_Click);
 			// 
 			// FormPurchaceAnalyze
 			// 
@@ -566,5 +579,6 @@ namespace Nz.Anbar.WinForms.Report
 		private Janus.Windows.UI.Tab.UITabPage uiTabPage18;
 		private DevComponents.DotNetBar.ExpandableSplitter Splitter1;
 		private MS_Control.Controls.MS_GridX NzGridHeads;
+		private System.Windows.Forms.ToolStripButton NsFixRemain;
 	}
 }

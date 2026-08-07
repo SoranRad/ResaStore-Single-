@@ -32,9 +32,7 @@ namespace NZ.Xazane.WinForms.Factor
 			Janus.Windows.GridEX.GridEXLayout NzGridHeads_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.ButtonImage");
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFactorPaymentList));
-			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.HeaderImage");
-			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.ButtonImage");
-			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_3 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.HeaderImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.ButtonImage");
 			Janus.Windows.GridEX.GridEXLayout NzGridItems_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
 			this.NzGridHeads = new MS_Control.Controls.MS_GridX();
 			this.Splitter1 = new DevComponents.DotNetBar.ExpandableSplitter();
@@ -59,6 +57,7 @@ namespace NZ.Xazane.WinForms.Factor
 			this.label12 = new System.Windows.Forms.Label();
 			this.mS_GridX_Setting2 = new MS_Control.Controls.MS_GridX_Setting();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+			this.NsFixRadifPayment = new System.Windows.Forms.ToolStripButton();
 			this.mS_Tool_Strip1 = new MS_Control.Controls.MS_Tool_Strip();
 			this.NzPrint = new System.Windows.Forms.ToolStripSplitButton();
 			this.NzPrintA4 = new System.Windows.Forms.ToolStripMenuItem();
@@ -112,13 +111,9 @@ namespace NZ.Xazane.WinForms.Factor
 			NzGridHeads_Layout_0.Key = "Transfer";
 			NzGridHeads_Layout_0_Reference_0.Instance = ((object)(resources.GetObject("NzGridHeads_Layout_0_Reference_0.Instance")));
 			NzGridHeads_Layout_0_Reference_1.Instance = ((object)(resources.GetObject("NzGridHeads_Layout_0_Reference_1.Instance")));
-			NzGridHeads_Layout_0_Reference_2.Instance = ((object)(resources.GetObject("NzGridHeads_Layout_0_Reference_2.Instance")));
-			NzGridHeads_Layout_0_Reference_3.Instance = ((object)(resources.GetObject("NzGridHeads_Layout_0_Reference_3.Instance")));
 			NzGridHeads_Layout_0.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
             NzGridHeads_Layout_0_Reference_0,
-            NzGridHeads_Layout_0_Reference_1,
-            NzGridHeads_Layout_0_Reference_2,
-            NzGridHeads_Layout_0_Reference_3});
+            NzGridHeads_Layout_0_Reference_1});
 			NzGridHeads_Layout_0.LayoutString = resources.GetString("NzGridHeads_Layout_0.LayoutString");
 			this.NzGridHeads.Layouts.AddRange(new Janus.Windows.GridEX.GridEXLayout[] {
             NzGridHeads_Layout_0});
@@ -512,7 +507,8 @@ namespace NZ.Xazane.WinForms.Factor
 			this.mS_GridX_Setting2.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.mS_GridX_Setting2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.mS_GridX_Setting2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator3});
+            this.toolStripSeparator3,
+            this.NsFixRadifPayment});
 			this.mS_GridX_Setting2.Location = new System.Drawing.Point(0, 333);
 			this.mS_GridX_Setting2.MS_BorderColor = System.Drawing.Color.DodgerBlue;
 			this.mS_GridX_Setting2.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -531,6 +527,18 @@ namespace NZ.Xazane.WinForms.Factor
 			this.toolStripSeparator3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
 			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+			// 
+			// NsFixRadifPayment
+			// 
+			this.NsFixRadifPayment.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.NsFixRadifPayment.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.NsFixRadifPayment.Image = global::MS_Resource.GlobalResources.access;
+			this.NsFixRadifPayment.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.NsFixRadifPayment.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+			this.NsFixRadifPayment.Name = "NsFixRadifPayment";
+			this.NsFixRadifPayment.Size = new System.Drawing.Size(23, 22);
+			this.NsFixRadifPayment.Text = "اختصاص به ردیف فاکتور";
+			this.NsFixRadifPayment.Click += new System.EventHandler(this.NsFixRadifPayment_Click);
 			// 
 			// mS_Tool_Strip1
 			// 
@@ -703,5 +711,6 @@ namespace NZ.Xazane.WinForms.Factor
         private System.Windows.Forms.ToolStripButton NzNewPayment;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripButton NsRadifShowOnly;
+		private System.Windows.Forms.ToolStripButton NsFixRadifPayment;
 	}
 }

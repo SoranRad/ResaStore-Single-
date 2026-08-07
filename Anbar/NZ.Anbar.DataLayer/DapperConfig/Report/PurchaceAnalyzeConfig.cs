@@ -19,11 +19,10 @@ namespace NZ.Anbar.DataLayer.DapperConfig.Report
         {
             SetList(@"
 
-
 WITH Riz AS (
 
 	SELECT 
-			
+			tar.ID,
 			tar.FK_Title,
 			tar.FK_Kala,
 			RTRIM(LTRIM(tkx.title)) AS ObjectTitle,
@@ -39,10 +38,11 @@ WITH Riz AS (
 
 	Where  tar.FK_Title =   @ID
 
-	GROUP BY tar.FK_Title,tar.FK_Kala,tkx.title,tv.title
+	GROUP BY tar.ID,tar.FK_Title,tar.FK_Kala,tkx.title,tv.title
 )
 SELECT 
 
+Riz.ID,
 Riz.FK_Title,
 Riz.FK_Kala,
 Riz.ObjectTitle,
@@ -124,6 +124,7 @@ LEFT OUTER JOIN
 	INNER JOIN Xazane.tbl_Amaliat_DP	AS tad2 ON tad2.ID = tac.FK_DP
 
 	WHERE tad2.Fk_Factor_radif_Id is NOT NULL AND (tac.Kind_Vaziat <> 3 OR tac.Kind_Vaziat IS NULL) AND tad2.FK_Faktor =@ID
+
 	GROUP BY tad2.FK_Faktor, tad2.Fk_Factor_radif_Id
 
 ) AS ChequePayment ON ChequePayment.FK_Faktor = Riz.FK_Title AND ChequePayment.Fk_Factor_radif_Id = Riz.FK_Kala

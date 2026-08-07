@@ -19,6 +19,8 @@ namespace Nz.Anbar.Model.Interface
         PrintFactor                 GetPrint        (long       ID);
         IEnumerable<PrintFactor>    GetAllPrint     (List<long> List);
         void                        FixFifoKardex   ();
-        void FixRemain();
+        void                        FixRemain       ();
+        void                        FixKardexOfProducts (long IDFactor, long IdRiz);
+
     }
 }

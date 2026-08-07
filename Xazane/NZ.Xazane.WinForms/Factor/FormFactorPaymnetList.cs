@@ -45,7 +45,7 @@ namespace NZ.Xazane.WinForms.Factor
             _message    = Message;
             _Manager    = new DpManager();
             _Kind       = _message.Kind;
-            NsRadifShowOnly.Visible = _message.IDFactorRiz.HasValue;
+            NsRadifShowOnly.Visible = NsRadifShowOnly.Checked = NsFixRadifPayment.Visible = _message.IDFactorRiz.HasValue;
 		}
         #endregion
         #region Methods
@@ -342,9 +342,32 @@ namespace NZ.Xazane.WinForms.Factor
             mS_GridX_Setting2.FillParametter(this.Text);
         }
 
-		private void NsRadifShowOnly_CheckedChanged(object sender, EventArgs e)
+		private void NsRadifShowOnly_CheckedChanged     (object sender, EventArgs e)
 		{
 			RefreshGrid();
+		}
+		private void NsFixRadifPayment_Click            (object sender, EventArgs e)
+		{
+			var r = MS_Message.Show(this, "آیا برای تخصیص مبالغ به ردیف مطمئنید؟", "هشدار",MessageBoxButtons.YesNo);
+
+            if(r!= DialogResult.Yes)
+                return;
+
+
+            if(!NzGridHeads.GetCheckedRows().Any())
+                return;
+
+            var Ids = NzGridHeads.GetCheckedRows().Select(x=>x.DataRow as FactorPaymentList).Select(x=> "ID =" + x.ID.ToString()).ToList();
+            var rpt = new ReportManager();
+
+            var whereClause = "AND ( " + string.Join(" OR ", Ids) + " )";
+
+
+            rpt.GetItem<FixRadifPayment>(new { IdFaktor  = _message.IDFactor , Fk_kala  = _message.IDFactorRiz}, whereClause);
+
+            NzRefreshList.PerformClick();
+
+
 		}
 	}
 }

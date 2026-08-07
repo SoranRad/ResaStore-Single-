@@ -1418,6 +1418,7 @@ namespace Nz.Anbar.WinForms.App
         }
 
         private void Form_Purchase_Shown                (object sender, EventArgs e)
+
         {
             Init();
         }

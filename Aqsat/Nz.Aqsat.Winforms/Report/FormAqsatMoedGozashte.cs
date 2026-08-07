@@ -72,14 +72,14 @@ namespace Nz.Aqsat.Winforms.Report
         private async void mS_GridX1_ColumnButtonClick(object sender, Janus.Windows.GridEX.ColumnActionEventArgs e)
         {
 	        var dataRow = NzGridFuture.CurrentRow.DataRow as AqsatMoedGozashte;
-	        if (e.Column.Key == "C")
-	        {
-		        new Form_TasviehAqsat(dataRow.FK_Main, dataRow.ID).ShowDialog(this);
+			if (e.Column.Key == "C")
+			{
+				new Form_TasviehAqsat(dataRow.FK_Main, dataRow.ID).ShowDialog(this);
 
-		        RefreshList();
-	        }
-	        else
-	        {
+				RefreshList();
+			}
+			else
+			{
 		        var cell = NzGridFuture.CurrentRow.Cells["S"];
 
 		        var msg = new Messaging();

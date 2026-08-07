@@ -248,6 +248,41 @@ namespace NZ.Anbar.DataLayer.Repo
             }
         }
 
+        public void FixKardexOfProducts(long IDFactor, long IdRiz)
+        {
+	        try
+	        {
+		        using (var db = new StorageContext(ConnectionManager.Create(), false))
+		        {
+			        var factor = GetItem(IDFactor);
+                    if(factor == null) 
+                        return;
+
+                    var riz     = factor.FactorItems.Single(x => x.ID == IdRiz);
+                    riz.State   = Enums.NzItemState.Modified;
+
+                    db.Entry(factor).State = EntityState.Modified;
+                    db.Entry(riz).State = EntityState.Modified;
+
+                    //foreach (FactorItem item in Factor.FactorItems.Where(x => x.ID != riz.ID).ToList())
+                    //{
+	                    //db.Entry(item).State = EntityState.Unchanged;
+                    //}
+
+					KardexProcess.Update(db, factor, riz, new List<long>(){});
+
+					db.SaveChanges();
+				}
+	        }
+	        catch (Exception ex)
+	        {
+				log.Info("\n================= خطا در تصحیح مانده ردیف================\n");
+				log.Error(ex);
+
+				throw ex;
+			}
+        }
+
         public bool                     IsCodeUnique    (object Param)
         {
             Assembly asm        = Assembly.Load(this.GetType().Assembly.GetName());

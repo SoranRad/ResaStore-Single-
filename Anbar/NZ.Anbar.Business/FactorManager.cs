@@ -84,6 +84,11 @@ namespace NZ.Anbar.Business
         {
             _Repo.FixRemain();
         }
-        #endregion
-    }
+
+        public void FixKardexOfProducts(long IDFactor, long IdRiz)
+        {
+	        _Repo.FixKardexOfProducts( IDFactor,  IdRiz);
+		}
+		#endregion
+	}
 }

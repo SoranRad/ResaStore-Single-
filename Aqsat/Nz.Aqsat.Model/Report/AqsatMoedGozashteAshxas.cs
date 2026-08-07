@@ -12,7 +12,9 @@ namespace Nz.Aqsat.Model.Report
 	    public long				FK_Shaxs					{ get; set; }
 	    public string			Shaxs						{ get; set; }
 	    public string			Mobile						{ get; set; }
+	    public int				Serial						{ get; set; }
 	    public int				Code						{ get; set; }
+	    public string			codeMeli					{ get; set; }	
 	    public int				AqsatCount					{ get; set; }
 	    public decimal			SumMablaqQest				{ get; set; }
 	    public DateTime			MaxTarixQest				{ get; set; }

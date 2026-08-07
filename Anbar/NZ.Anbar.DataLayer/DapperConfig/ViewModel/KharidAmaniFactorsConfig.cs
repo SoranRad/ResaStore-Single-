@@ -116,6 +116,7 @@ LEFT OUTER JOIN
 
 
 WHERE tat.kind = @Kind AND tat.FK_Salmali = @Year AND (dd.PersianMonthNo = @Month OR @Month = 13)
+AND tatd.IsAmani = 1
 
 ORDER BY tat.Serial
 

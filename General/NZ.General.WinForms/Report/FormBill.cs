@@ -325,7 +325,7 @@ namespace NZ.General.WinForms.Report
                             : Enums.FormOperation.Factors
                         );
 
-                    frm?.Set_Form_Param(row.ID,kind);
+                    frm?.Set_Form_Param(row.ID,(byte)kind);
 
                     (frm as Form)?.ShowDialog();
                 }

@@ -112,6 +112,7 @@
     <Compile Include="ViewModel\DeficitAdditionList.cs" />
     <Compile Include="ViewModel\FactorPaymentID.cs" />
     <Compile Include="ViewModel\FactorPaymentList.cs" />
+    <Compile Include="ViewModel\FixRadifPayment.cs" />
     <Compile Include="ViewModel\PaymentBarcodeSetting.cs" />
     <Compile Include="ViewModel\PaymentChequeArriveBack.cs" />
     <Compile Include="ViewModel\PaymentChequeArriveBackInDate.cs" />
