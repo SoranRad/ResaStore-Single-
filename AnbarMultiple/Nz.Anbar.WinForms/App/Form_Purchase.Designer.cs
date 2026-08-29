@@ -1048,7 +1048,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzSerial.DigitGroup = false;
 			this.NzSerial.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.NzSerial.Location = new System.Drawing.Point(699, 27);
-			this.NzSerial.MaxLength = 4;
+			this.NzSerial.MaxLength = 8;
 			this.NzSerial.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
 			this.NzSerial.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzSerial.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -1600,7 +1600,7 @@ namespace Nz.Anbar.WinForms.App
 			this.uiTabPage1.Controls.Add(this.label3);
 			this.uiTabPage1.Location = new System.Drawing.Point(1, 1);
 			this.uiTabPage1.Name = "uiTabPage1";
-			this.uiTabPage1.Size = new System.Drawing.Size(919, 547);
+			this.uiTabPage1.Size = new System.Drawing.Size(933, 572);
 			this.uiTabPage1.TabStop = true;
 			this.uiTabPage1.Text = "پرسش و پاسخ";
 			// 
@@ -1610,7 +1610,7 @@ namespace Nz.Anbar.WinForms.App
 			this.label10.AutoSize = true;
 			this.label10.BackColor = System.Drawing.Color.Transparent;
 			this.label10.Font = new System.Drawing.Font("IRANSans(Small)", 15F);
-			this.label10.Location = new System.Drawing.Point(709, 124);
+			this.label10.Location = new System.Drawing.Point(723, 124);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(81, 25);
 			this.label10.TabIndex = 164;
@@ -1622,7 +1622,7 @@ namespace Nz.Anbar.WinForms.App
 			this.label9.AutoSize = true;
 			this.label9.BackColor = System.Drawing.Color.Transparent;
 			this.label9.Font = new System.Drawing.Font("IRANSans(Small)", 15F);
-			this.label9.Location = new System.Drawing.Point(709, 90);
+			this.label9.Location = new System.Drawing.Point(723, 90);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(81, 25);
 			this.label9.TabIndex = 164;
@@ -1635,7 +1635,7 @@ namespace Nz.Anbar.WinForms.App
 			this.label13.BackColor = System.Drawing.Color.Transparent;
 			this.label13.Font = new System.Drawing.Font("IRANSans(Small)", 15F);
 			this.label13.ForeColor = System.Drawing.Color.Green;
-			this.label13.Location = new System.Drawing.Point(796, 124);
+			this.label13.Location = new System.Drawing.Point(810, 124);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(79, 25);
 			this.label13.TabIndex = 164;
@@ -1648,7 +1648,7 @@ namespace Nz.Anbar.WinForms.App
 			this.label12.BackColor = System.Drawing.Color.Transparent;
 			this.label12.Font = new System.Drawing.Font("IRANSans(Small)", 15F);
 			this.label12.ForeColor = System.Drawing.Color.Green;
-			this.label12.Location = new System.Drawing.Point(796, 90);
+			this.label12.Location = new System.Drawing.Point(810, 90);
 			this.label12.Name = "label12";
 			this.label12.Size = new System.Drawing.Size(67, 25);
 			this.label12.TabIndex = 164;
@@ -1661,7 +1661,7 @@ namespace Nz.Anbar.WinForms.App
 			this.label11.BackColor = System.Drawing.Color.Transparent;
 			this.label11.Font = new System.Drawing.Font("IRANSans(Small)", 15F);
 			this.label11.ForeColor = System.Drawing.Color.Green;
-			this.label11.Location = new System.Drawing.Point(796, 54);
+			this.label11.Location = new System.Drawing.Point(810, 54);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(45, 25);
 			this.label11.TabIndex = 164;
@@ -1673,7 +1673,7 @@ namespace Nz.Anbar.WinForms.App
 			this.label7.AutoSize = true;
 			this.label7.BackColor = System.Drawing.Color.Transparent;
 			this.label7.Font = new System.Drawing.Font("IRANSans(Small)", 15F);
-			this.label7.Location = new System.Drawing.Point(692, 54);
+			this.label7.Location = new System.Drawing.Point(706, 54);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(98, 25);
 			this.label7.TabIndex = 164;
@@ -1686,7 +1686,7 @@ namespace Nz.Anbar.WinForms.App
 			this.label3.BackColor = System.Drawing.Color.Transparent;
 			this.label3.Font = new System.Drawing.Font("IRANSans(Small)", 20F, System.Drawing.FontStyle.Bold);
 			this.label3.ForeColor = System.Drawing.Color.SteelBlue;
-			this.label3.Location = new System.Drawing.Point(698, 6);
+			this.label3.Location = new System.Drawing.Point(712, 6);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(197, 34);
 			this.label3.TabIndex = 164;

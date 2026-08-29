@@ -330,6 +330,7 @@ namespace Nz.Anbar.WinForms.App
                 IDFactor    = row.ID,
                 IDPeople    = row.FK_AshXas_ID??0,
                 Amount      = row.mablaq,
+                TarixFactor = new MS_Structure_Shamsi(row.PersianStr).ToDatetime()
             };
 
             var frm = Form_Factory._Form_Factory_Xazaneh.GetFormForEdit(kind,Msg);

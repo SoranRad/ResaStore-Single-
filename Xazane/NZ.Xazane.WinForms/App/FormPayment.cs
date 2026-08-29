@@ -79,6 +79,8 @@ namespace NZ.Xazane.WinForms.App
             NzFactorMablaq.Show();
             NzLableFactor.Show();
             NzFactorMablaq.MS_Decimal = PaymentMessage.Amount;
+            if (PaymentMessage.TarixFactor.HasValue)
+	            NzDate.MS_Tarikh = new MS_Structure_Shamsi(PaymentMessage.TarixFactor);
         }
         #endregion
         #region Methods
@@ -408,7 +410,8 @@ namespace NZ.Xazane.WinForms.App
             NzDatePopup.NzSelected      = DateTime.Now;
             NzGridPayment.FilterMode    = FilterMode.None;
             NzGridRecieve.FilterMode    = FilterMode.None;
-            NzDate.MS_Tarikh            = new MS_Structure_Shamsi(DateTime.Now);
+            if(!NzDate.MS_Tarikh.HasValue)
+                NzDate.MS_Tarikh = new MS_Structure_Shamsi(DateTime.Now);
 
             if (_ID > 0)
                 LoadItem();
@@ -1121,6 +1124,12 @@ namespace NZ.Xazane.WinForms.App
         {
             switch (e.KeyCode)
             {
+                case Keys.F5:
+                    if(NzTabInfo.SelectedIndex == NzTabInfo.TabPages.Count -1)
+	                    NzTabInfo.SelectedIndex = 0 ;
+					else if (NzTabInfo.SelectedIndex < NzTabInfo.TabPages.Count)
+	                    NzTabInfo.SelectedIndex++;
+                    break;
                 case Keys.F4:
                     NzSave.PerformClick();
                     break;

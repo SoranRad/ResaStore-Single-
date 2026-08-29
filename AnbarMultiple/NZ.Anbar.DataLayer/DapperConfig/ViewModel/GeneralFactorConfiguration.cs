@@ -34,17 +34,14 @@ SELECT tat.ID,
        Payment.Pos,
        ChequePayment.Cheque,
        RTRIM(LTRIM(tbl.Title)) AS Location,
-		tat.NoRemainEffect
+	   tat.NoRemainEffect,
+	   RTRIM(LTRIM(ta.mobile)) AS mobile
 
-FROM Anbar.tbl_Amaliat_Title AS tat
-    INNER JOIN General.DimDate AS dd
-        ON dd.GregorianDate = tat.tarikh
-    LEFT OUTER JOIN Base.tbl_Base_Location AS tbl 
-		ON tbl.ID = tat.FK_Location
-    LEFT OUTER JOIN Base.tbl_Ashxas AS ta
-        ON ta.ID = tat.FK_AshXas_ID
-    LEFT OUTER JOIN Anbar.tbl_Amaliat_Title_Detail AS tatd
-        ON tatd.ID = tat.ID
+FROM					Anbar.tbl_Amaliat_Title	AS tat
+INNER JOIN				General.DimDate			AS dd		ON dd.GregorianDate		= tat.tarikh
+LEFT OUTER JOIN			Base.tbl_Base_Location	AS tbl		ON tbl.ID				= tat.FK_Location
+LEFT OUTER JOIN			Base.tbl_Ashxas			AS ta		ON ta.ID				= tat.FK_AshXas_ID
+LEFT OUTER JOIN Anbar.tbl_Amaliat_Title_Detail AS tatd	    ON tatd.ID				= tat.ID
     LEFT OUTER JOIN 
 	(
 		SELECT 

@@ -78,6 +78,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzNew = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
 			this.NzPayment = new System.Windows.Forms.ToolStripButton();
+			this.NsKardex = new System.Windows.Forms.ToolStripButton();
 			this.uiGroupBox2 = new Janus.Windows.EditControls.UIGroupBox();
 			this.NsChooseFactor = new MS_Control.Controls.MS_Button_GridX();
 			this.NzAnbar = new Nz.Anbar.WinForms.Component.NzStorage();
@@ -100,7 +101,6 @@ namespace Nz.Anbar.WinForms.App
 			this.uiTabPage1 = new Janus.Windows.UI.Tab.UITabPage();
 			this.mS_Notify1 = new MS_Control.Controls.MS_Notify();
 			this.nzObjectPopup1 = new Nz.Anbar.WinForms.Component.NzObjectPopup();
-			this.NsKardex = new System.Windows.Forms.ToolStripButton();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
 			this.uiTabPage12.SuspendLayout();
@@ -745,6 +745,18 @@ namespace Nz.Anbar.WinForms.App
 			this.NzPayment.Text = "تسویه فاکتور (پرداخت وجوه)";
 			this.NzPayment.Click += new System.EventHandler(this.NzPayment_Click);
 			// 
+			// NsKardex
+			// 
+			this.NsKardex.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.NsKardex.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.NsKardex.Image = ((System.Drawing.Image)(resources.GetObject("NsKardex.Image")));
+			this.NsKardex.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.NsKardex.Margin = new System.Windows.Forms.Padding(15, 1, 0, 2);
+			this.NsKardex.Name = "NsKardex";
+			this.NsKardex.Size = new System.Drawing.Size(23, 22);
+			this.NsKardex.Text = "مـشاهده کاردکس کالا";
+			this.NsKardex.Click += new System.EventHandler(this.NsKardex_Click);
+			// 
 			// uiGroupBox2
 			// 
 			this.uiGroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -777,7 +789,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NsChooseFactor.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.NsChooseFactor.Image = ((System.Drawing.Image)(resources.GetObject("NsChooseFactor.Image")));
 			this.NsChooseFactor.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
-			this.NsChooseFactor.Location = new System.Drawing.Point(82, 28);
+			this.NsChooseFactor.Location = new System.Drawing.Point(61, 28);
 			this.NsChooseFactor.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NsChooseFactor.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsChooseFactor.MS_Change_Border_Color_On_Enter = false;
@@ -854,7 +866,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzKindSale.Items.AddRange(new Janus.Windows.EditControls.UIComboBoxItem[] {
             uiComboBoxItem1,
             uiComboBoxItem2});
-			this.NzKindSale.Location = new System.Drawing.Point(245, 28);
+			this.NzKindSale.Location = new System.Drawing.Point(224, 28);
 			this.NzKindSale.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzKindSale.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzKindSale.MS_Change_Border_Color_On_Enter = true;
@@ -874,7 +886,7 @@ namespace Nz.Anbar.WinForms.App
 			// NzCustomerRemain
 			// 
 			this.NzCustomerRemain.Font = new System.Drawing.Font("IRANSans(Small)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.NzCustomerRemain.Location = new System.Drawing.Point(344, 28);
+			this.NzCustomerRemain.Location = new System.Drawing.Point(323, 28);
 			this.NzCustomerRemain.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzCustomerRemain.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzCustomerRemain.MS_Color_End = System.Drawing.Color.Empty;
@@ -891,7 +903,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzKindSaleLbl.AutoSize = true;
 			this.NzKindSaleLbl.BackColor = System.Drawing.Color.Transparent;
 			this.NzKindSaleLbl.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NzKindSaleLbl.Location = new System.Drawing.Point(261, 6);
+			this.NzKindSaleLbl.Location = new System.Drawing.Point(240, 6);
 			this.NzKindSaleLbl.Name = "NzKindSaleLbl";
 			this.NzKindSaleLbl.Size = new System.Drawing.Size(64, 23);
 			this.NzKindSaleLbl.TabIndex = 765;
@@ -904,7 +916,7 @@ namespace Nz.Anbar.WinForms.App
 			this.label4.AutoSize = true;
 			this.label4.BackColor = System.Drawing.Color.Transparent;
 			this.label4.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label4.Location = new System.Drawing.Point(366, 6);
+			this.label4.Location = new System.Drawing.Point(345, 6);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(83, 23);
 			this.label4.TabIndex = 765;
@@ -922,7 +934,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzDate.Cursor = System.Windows.Forms.Cursors.IBeam;
 			this.NzDate.DropSize = new System.Drawing.Size(0, 0);
 			this.NzDate.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NzDate.Location = new System.Drawing.Point(660, 28);
+			this.NzDate.Location = new System.Drawing.Point(639, 28);
 			this.NzDate.MinimumSize = new System.Drawing.Size(99, 27);
 			this.NzDate.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzDate.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -950,7 +962,7 @@ namespace Nz.Anbar.WinForms.App
 			this.label8.AutoSize = true;
 			this.label8.BackColor = System.Drawing.Color.Transparent;
 			this.label8.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label8.Location = new System.Drawing.Point(693, 6);
+			this.label8.Location = new System.Drawing.Point(672, 6);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(42, 23);
 			this.label8.TabIndex = 756;
@@ -963,8 +975,8 @@ namespace Nz.Anbar.WinForms.App
 			this.NzSerial.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzSerial.DigitGroup = false;
 			this.NzSerial.Font = new System.Drawing.Font("IRANSans(Small)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NzSerial.Location = new System.Drawing.Point(772, 28);
-			this.NzSerial.MaxLength = 4;
+			this.NzSerial.Location = new System.Drawing.Point(750, 28);
+			this.NzSerial.MaxLength = 8;
 			this.NzSerial.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
 			this.NzSerial.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzSerial.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -979,7 +991,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzSerial.MS_Last_Control = null;
 			this.NzSerial.MS_Next_Control = null;
 			this.NzSerial.Name = "NzSerial";
-			this.NzSerial.Size = new System.Drawing.Size(52, 27);
+			this.NzSerial.Size = new System.Drawing.Size(76, 27);
 			this.NzSerial.TabIndex = 0;
 			this.NzSerial.TabStop = false;
 			this.NzSerial.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center;
@@ -1003,7 +1015,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzCustomer.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.DownArrow;
 			this.NzCustomer.DropSize = new System.Drawing.Size(184, 27);
 			this.NzCustomer.Font = new System.Drawing.Font("IRANSans(Small)", 12F);
-			this.NzCustomer.Location = new System.Drawing.Point(473, 28);
+			this.NzCustomer.Location = new System.Drawing.Point(452, 28);
 			this.NzCustomer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.NzCustomer.MS_Auto_Popup = false;
 			this.NzCustomer.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -1034,7 +1046,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzCustomerLable.AutoSize = true;
 			this.NzCustomerLable.BackColor = System.Drawing.Color.Transparent;
 			this.NzCustomerLable.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NzCustomerLable.Location = new System.Drawing.Point(539, 6);
+			this.NzCustomerLable.Location = new System.Drawing.Point(518, 6);
 			this.NzCustomerLable.Name = "NzCustomerLable";
 			this.NzCustomerLable.Size = new System.Drawing.Size(52, 23);
 			this.NzCustomerLable.TabIndex = 163;
@@ -1207,18 +1219,6 @@ namespace Nz.Anbar.WinForms.App
 			this.nzObjectPopup1.Padding = new System.Windows.Forms.Padding(0);
 			this.nzObjectPopup1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.nzObjectPopup1.Size = new System.Drawing.Size(0, 0);
-			// 
-			// NsKardex
-			// 
-			this.NsKardex.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-			this.NsKardex.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.NsKardex.Image = ((System.Drawing.Image)(resources.GetObject("NsKardex.Image")));
-			this.NsKardex.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.NsKardex.Margin = new System.Windows.Forms.Padding(15, 1, 0, 2);
-			this.NsKardex.Name = "NsKardex";
-			this.NsKardex.Size = new System.Drawing.Size(23, 22);
-			this.NsKardex.Text = "مـشاهده کاردکس کالا";
-			this.NsKardex.Click += new System.EventHandler(this.NsKardex_Click);
 			// 
 			// Form_SaleBack
 			// 

@@ -34,8 +34,8 @@
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.HeaderImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_3 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.HeaderImage");
-			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_4 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column19.ButtonImage");
-			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_5 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column19.HeaderImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_4 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column21.ButtonImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_5 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column21.HeaderImage");
 			Janus.Windows.GridEX.GridEXLayout NzGridHeads_Layout_1 = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_1_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_1_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.HeaderImage");
@@ -170,7 +170,6 @@
 			this.NzGridHeads.AlternatingRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.NzGridHeads.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.NzGridHeads.BorderStyle = Janus.Windows.GridEX.BorderStyle.RaisedLight3D;
-			this.NzGridHeads.ColumnAutoResize = true;
 			this.NzGridHeads.ColumnSetNavigation = Janus.Windows.GridEX.ColumnSetNavigation.ColumnSet;
 			this.NzGridHeads.Cursor = System.Windows.Forms.Cursors.Arrow;
 			this.NzGridHeads.DefaultFilterRowComparison = Janus.Windows.GridEX.FilterConditionOperator.Contains;
@@ -341,7 +340,7 @@
 			this.NzFactorKinds.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzFactorKinds.FirstTabOffset = 25;
 			this.NzFactorKinds.Font = new System.Drawing.Font("IRANSans(Small)", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NzFactorKinds.Location = new System.Drawing.Point(278, 0);
+			this.NzFactorKinds.Location = new System.Drawing.Point(278, -1);
 			this.NzFactorKinds.Name = "NzFactorKinds";
 			this.NzFactorKinds.PageBorder = Janus.Windows.UI.Tab.PageBorder.None;
 			this.NzFactorKinds.SettingsKey = "NzFactorKinds";

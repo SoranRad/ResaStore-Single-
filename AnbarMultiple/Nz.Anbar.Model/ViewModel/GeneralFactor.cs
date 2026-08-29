@@ -18,6 +18,7 @@ namespace Nz.Anbar.Model.ViewModel
         public string       Customer            { get; set; }
         public decimal      mablaq              { get; set; }
         public string       sharh               { get; set; }
+        public string       mobile              { get; set; }
 
         public decimal?     Cheque              { get; set; }
         public decimal?     Cache               { get; set; }
@@ -33,5 +34,6 @@ namespace Nz.Anbar.Model.ViewModel
 
         public string       Location            { get; set; }
         public decimal      Remaind             =>mablaq-(Cheque??0)-(Cache??0)-(Pos??0);
+
     }
 }

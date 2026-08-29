@@ -298,6 +298,17 @@ namespace Nz.Anbar.WinForms.Provider
 			return null;
 		}
 
+		public async Task<IEnumerable<T>> GetPartnerReportList<T>(DateTime? Start, DateTime? End, params long[] Ids) where T : class
+		{
+			return null;
+		}
+
+		public async Task<T> GetPartnerReportItem<T>(DateTime? Start, DateTime? End, params long[] Ids) where T : class
+		{
+			return null;
+
+		}
+
 		#endregion
 
 	}

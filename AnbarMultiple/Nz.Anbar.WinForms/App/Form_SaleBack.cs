@@ -1294,26 +1294,6 @@ namespace Nz.Anbar.WinForms.App
 
             if (_Factor.ID > 0)
             {
-                //var kind = (byte) _Kind < 50
-                //    ? Enums.FormOperation.Payment
-                //    : Enums.FormOperation.Recieve;
-                ////var formKind= (byte)_Kind < 50
-                ////    ? Enums.NzPaymentOperatingKind.Pardaxt
-                ////    : Enums.NzPaymentOperatingKind.Daryaft;
-                //var frm = Form_Factory._Form_Factory_Xazaneh.GetFormForEdit(kind);
-
-                //var Msg = new FactorPaymentMessage()
-                //{
-                //    Kind = (byte)_Kind < 50
-                //        ? Enums.NzPaymentOperatingKind.Pardaxt
-                //        : Enums.NzPaymentOperatingKind.Daryaft,
-                //    Description = "بابت تسویه فاکتور " + NzSerial.Text,
-                //    IDFactor = _Factor.ID,
-                //    IDPeople = _Factor.FK_AshXas_ID??0,
-                //};
-                //frm?.Set_Form_Param(Msg);
-                //(frm as Form)?.ShowDialog(this);
-
                 var kind        = Enums.FormOperation.FactorPaymentList;
                 var Msg         = new FactorPaymentMessage()
                 {
@@ -1324,7 +1304,9 @@ namespace Nz.Anbar.WinForms.App
                     IDFactor    = _Factor.ID,
                     IDPeople    = _Factor.FK_AshXas_ID??0,
                     Amount      = _Factor.mablaq,
-                };
+                    TarixFactor = _Factor.tarikh
+
+				};
 
                 var frm = Form_Factory._Form_Factory_Xazaneh.GetFormForEdit(kind,Msg);
 
