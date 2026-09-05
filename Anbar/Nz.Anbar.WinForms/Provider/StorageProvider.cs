@@ -1,25 +1,26 @@
-﻿using System;
+﻿using Janus.Windows.UI.Tab;
+using MS_Control;
+using MS_Control.Controls;
+using Nz.Anbar.Model.Report;
+using Nz.Anbar.WinForms.Alarm;
+using Nz.Anbar.WinForms.App;
+using Nz.Anbar.WinForms.Component;
+using Nz.Anbar.WinForms.EndYear;
+using Nz.Anbar.WinForms.Settings;
+using NZ.Anbar.Business;
+using ShareLib;
+using ShareLib.Component;
+using ShareLib.Interfaces;
+using ShareLib.Models;
+using ShareLib.Utils;
+using ShareLib.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Janus.Windows.UI.Tab;
-using MS_Control;
-using MS_Control.Controls;
-using Nz.Anbar.WinForms.App;
-using NZ.Anbar.Business;
-using Nz.Anbar.Model.Report;
-using Nz.Anbar.WinForms.Alarm;
-using Nz.Anbar.WinForms.Component;
-using Nz.Anbar.WinForms.EndYear;
-using Nz.Anbar.WinForms.Settings;
-using ShareLib;
-using ShareLib.Interfaces;
-using ShareLib.Models;
-using ShareLib.Utils;
-using ShareLib.ViewModel;
-using ShareLib.Component;
+using static Stimulsoft.Base.StiDbType;
 
 namespace Nz.Anbar.WinForms.Provider
 {
@@ -316,7 +317,73 @@ namespace Nz.Anbar.WinForms.Provider
 			try
 			{
 				var mgr = new ReportManager();
-				return mgr.GetItem<T>(new { Start, End, Year = SystemConstant.ActiveYear.Salmali }, null);
+
+                //== trade off
+				if (typeof(T).Name == "PartnerStatus")
+				{
+
+					var IdString = Ids==null|| !Ids.Any() 
+						? "" 
+						: (" AND tar.FK_Kala IN ("+ string.Join(",",Ids.Select(x=>x.ToString()))+")");
+
+					var SqlStr = $@"
+DECLARE 
+
+@SumFroshKalaAmani		DECIMAL,
+@SumFroshKalaAdi		DECIMAL,
+@MandeKalaAdi			DECIMAL,
+@MandeKalaAmani			DECIMAL,
+@SumSoodKala			DECIMAL
+
+SELECT 
+
+@SumFroshKalaAmani  = SUM( CASE WHEN tatd.IsAmani = 1 THEN  (tar.meqdar - tar.Remain) * tar.nerkh    ELSE 0 END ) ,
+@MandeKalaAmani     = SUM( CASE WHEN tatd.IsAmani = 1 THEN  (tar.Remain * tar.nerkh)                 ELSE 0 END ) ,
+																												     
+@SumFroshKalaAdi    = SUM( CASE WHEN tatd.IsAmani = 0 THEN  (tar.meqdar - tar.Remain) * tar.nerkh    ELSE 0 END ) ,
+@MandeKalaAdi       = SUM( CASE WHEN tatd.IsAmani = 0 THEN  (tar.Remain * tar.nerkh)                 ELSE 0 END ) 
+
+FROM        Anbar.tbl_Amaliat_Riz                AS tar 
+INNER JOIN  Anbar.tbl_Amaliat_Title              AS tat     ON tat.ID   =   tar.FK_Title
+INNER JOIN  Anbar.tbl_Amaliat_Title_Detail       AS tatd    ON tat.ID   =   tatd.ID 
+
+WHERE 
+    tat.FK_Salmali  = @Year 
+AND tat.kind        = 12
+AND (tat.tarikh >= @Start   OR @Start   IS NULL)
+AND (tat.tarikh <= @End     OR @End     IS NULL)
+{IdString}
+
+SELECT 
+
+@SumSoodKala    = SUM(tar.mablaq - tar.nerkh_2)  
+
+FROM        Anbar.tbl_Amaliat_Riz                AS tar 
+INNER JOIN  Anbar.tbl_Amaliat_Title              AS tat     ON tat.ID   =   tar.FK_Title
+--INNER JOIN  Anbar.tbl_Amaliat_Title_Detail     AS tatd    ON tat.ID   =   tatd.ID 
+
+WHERE 
+    tat.FK_Salmali  = @Year 
+AND tat.kind        = 50
+AND (tat.tarikh >= @Start   OR @Start   IS NULL)
+AND (tat.tarikh <= @End     OR @End     IS NULL)
+{IdString}
+
+SELECT	@SumFroshKalaAmani		AS SumFroshKalaAmani ,
+		@SumFroshKalaAdi		AS SumFroshKalaAdi ,
+		@MandeKalaAdi			AS MandeKalaAdi, 
+		@MandeKalaAmani			AS MandeKalaAmani, 
+		@SumSoodKala			AS SumSoodKala
+
+";
+					return mgr.GetItem<T>(new { Start, End, Year = SystemConstant.ActiveYear.Salmali }, SqlStr);
+				}
+				else
+				{
+					return mgr.GetItem<T>(new { Start, End, Year = SystemConstant.ActiveYear.Salmali }, null);
+				}
+
+
 			}
 			catch (Exception ex)
 			{

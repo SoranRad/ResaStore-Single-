@@ -17,7 +17,7 @@ namespace Nz.Aqsat.WinForms.Settings
 		{
 			return new SettingItems()
 			{
-				  
+				UniqueCodeByGroup = false
 			};
 		}
 
@@ -26,8 +26,8 @@ namespace Nz.Aqsat.WinForms.Settings
 			Name = KeyName;
 		}
 
-		public string		CardNumber		{ get; set; }
-		public string		PhoneNumber		{ get; set; }
-
+		public string		CardNumber			{ get; set; }
+		public string		PhoneNumber			{ get; set; }
+		public bool			UniqueCodeByGroup	{ get; set; }
 	}
 }

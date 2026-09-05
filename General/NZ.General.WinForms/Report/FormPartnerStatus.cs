@@ -16,6 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Stimulsoft.Report;
 
 namespace NZ.General.WinForms.Report
 {
@@ -36,9 +37,11 @@ namespace NZ.General.WinForms.Report
 
 			var people	= Mgr.GetList<People>()?.ToList();
 			var Listhazine	= RptMgr.GetReport<Hazine>(new {Kind = Enums.NzAccountKind.Cost},null)?.ToList();
+			var Kala = RptMgr.GetReport<KalaXadamat>(null, null)?.ToList();
 
 			NsHazine.DataSource		= Listhazine;
 			NsShoraka.DataSource	= people.Where(x=>x.IsPartner).ToList();
+			NsGridKala.DataSource	= Kala;
 		}
 
 		private async void NzReport_Click(object sender, EventArgs e)
@@ -52,11 +55,13 @@ namespace NZ.General.WinForms.Report
 			var IdsShoraka	= NsShoraka.GetCheckedRows().Any()
 				? NsShoraka.GetCheckedRows().Select(x => x.DataRow as People).Select(x => x.ID).ToArray()
 				: NsShoraka.GetDataRows().Select(x => x.DataRow as People).Select(x => x.ID).ToArray();
-
-			var anbar		= await Form_Factory._Form_Factory_Anbar.GetPartnerReportItem<PartnerStatus>(Az, Ta);
+			
+			var Kala = NsGridKala.GetCheckedRows().Any()
+				? NsGridKala.GetCheckedRows().Select(x => x.DataRow as KalaXadamat).Select(x => (long)x.Code).ToArray()
+				: new long[]{};
+			
+			var anbar		= await Form_Factory._Form_Factory_Anbar.GetPartnerReportItem<PartnerStatus>(Az, Ta,Kala);
 			var Hazine		= await Form_Factory._Form_Factory_Xazaneh.GetPartnerReportItem<HazineHa>(Az, Ta,IdsHazine);
-			//var Shoraka		= await Form_Factory._Form_Factory_Xazaneh.GetPartnerReportList<PartnerBardasht>(Az, Ta,IdsShoraka);
-
 
 			//==load 
 

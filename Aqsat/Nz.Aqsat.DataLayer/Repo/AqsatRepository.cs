@@ -99,10 +99,8 @@ namespace NZ.Aqsat.DataLayer.Repo
                     (SelectSingle, Param);
                 return max == 0;
             }
-
-            
         }
-        public void                     Save            (Aqsat_Main Aqsat,bool AutoSerial=true)
+        public void                     Save            (Aqsat_Main Aqsat,bool AutoSerial=true ,object Params=null)
         {
             byte repeate    = 0;
             bool saved      = false;
@@ -114,7 +112,7 @@ namespace NZ.Aqsat.DataLayer.Repo
                     {
                         if (Aqsat.ID == 0 && AutoSerial)
                         {
-                            Aqsat.Serial = GetMaxSerial(null) + 1;
+                            Aqsat.Serial = GetMaxSerial(Params) + 1;
                         }
 
                         if (Aqsat.ID == 0)

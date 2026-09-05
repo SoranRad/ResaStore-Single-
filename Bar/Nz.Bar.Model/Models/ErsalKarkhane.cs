@@ -76,9 +76,9 @@ WHERE tek.ID= @ID
 
 		public string UniqueCode()
 		{
-			return  @"SELECT COUNT(tek.ID)
+			return @"SELECT COUNT(tek.ID)
                     FROM Bar.tbl_ErsalKarkhane as tek
-                    WHERE tek.Serial = @Code";
+                    WHERE tek.Serial = @Code AND tek.FK_Salmali = @Year";
 		}
 	}
 }

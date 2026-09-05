@@ -692,6 +692,7 @@
       <DependentUpon>StorageMenuItems.cs</DependentUpon>
     </Compile>
     <Compile Include="Provider\StorageProvider.cs" />
+    <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Alarm\StorageAlarm.resx">

@@ -194,8 +194,9 @@ namespace Nz.Bar.Winforms.App
 				if (!_Manager.IsCodeUnique<ErsalKarkhane>
 				    (new
 				    { 
-					    Code
-				    })
+					    Code,
+					    Year = SystemConstant.ActiveYear.Salmali
+					})
 				   )
 				{
 					MS_Message.Show("سریال وارد شده تکراری است");

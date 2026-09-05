@@ -17,6 +17,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Nz.Aqsat.Business;
 using Nz.Aqsat.Model.Report;
+using Nz.Aqsat.WinForms.Settings;
 
 namespace Nz.Aqsat.Winforms.App
 {
@@ -43,6 +44,7 @@ namespace Nz.Aqsat.Winforms.App
 		private Aqsat_Main _Aqsat;
 		private AqsatManager _Manager;
 		private AqsatMainBinding _Bind;
+		private SettingItems _setting;
 		#endregion
 		#region Constructor
 
@@ -51,6 +53,7 @@ namespace Nz.Aqsat.Winforms.App
 	        _id = Id;
 	        _IsEdit = Id > 0;
 	        InitializeComponent();
+	        _setting = Form_Factory._Form_Factory_Aqsat.GetSettings() as SettingItems;
 		}
 
         #endregion
@@ -61,6 +64,12 @@ namespace Nz.Aqsat.Winforms.App
 			NzCustomer.Refresh_Grid((byte)3, null);
 			NsZamen.Refresh_Grid((byte)3, null);
 			NsGridRizAdd.FilterMode = FilterMode.None;
+
+			if (_setting.UniqueCodeByGroup)
+				NsKind.SelectedValueChanged += (sender, args) =>
+				{
+					GetMaxSerial();
+				};
 
 			_Manager = new AqsatManager();
 
@@ -184,6 +193,8 @@ namespace Nz.Aqsat.Winforms.App
         {
 			try
 			{
+
+
 				if (SystemConstant.ActiveYear.is_close)
 				{
 					MS_Message.Show("سال مالی بسته شده است " +
@@ -249,13 +260,18 @@ namespace Nz.Aqsat.Winforms.App
 					return false;
 				}
 
+				var Group = _setting.UniqueCodeByGroup
+					? (short?)((NsKind.SelectedValue as Aqsat_Kind).ID)
+					: null;
+
 				if ((_Aqsat.ID == 0 &&  _Serial != NzSerial.MS_Decimal)
 				    || (_Aqsat.ID > 0 && _Aqsat.Serial != NzSerial.MS_Decimal))
 				{
 					var r = _Manager.IsCodeUnique(new
 					{
 						Serial	= NzSerial.MS_Decimal,
-						Year	= SystemConstant.ActiveYear.Salmali
+						Year	= SystemConstant.ActiveYear.Salmali,
+						Group,
 					});
 
 					if (!r)
@@ -351,7 +367,16 @@ namespace Nz.Aqsat.Winforms.App
 				else
 					autoSerial = _Serial == NzSerial.MS_Decimal;
 
-				_Manager.Save(_Aqsat, autoSerial);
+
+				//======================================
+				var Group = _setting.UniqueCodeByGroup
+					? (short?)((NsKind.SelectedValue as Aqsat_Kind)?.ID)
+					: null;
+				var Year = SystemConstant.ActiveYear.Salmali;
+
+				_Manager.Save(_Aqsat, autoSerial,(object) new { Year , Group });
+
+				//=======================================
 				new Form_Notify("ذخـیـره سـازی", "اطـلاعـات بـا مـوفـقـیـت ثـبـت شـــد.",
 						Form_Notify.FarsiMessageBoxIcon.اضافه)
 					.Popup(Form_Notify.Direction_Show.Right_To_Left, 1000);
@@ -600,7 +625,12 @@ namespace Nz.Aqsat.Winforms.App
         }
         private void GetMaxSerial							()
         {
-	        _Serial = _Manager.GetMaxSerial(null) + 1;
+	        var Group = _setting.UniqueCodeByGroup
+		        ? (short?)((NsKind.SelectedValue as Aqsat_Kind)?.ID)
+		        : null;
+	        var Year = SystemConstant.ActiveYear.Salmali;
+
+			_Serial = _Manager.GetMaxSerial(new {Year , Group}) + 1;
 
 	        NzSerial.MS_Decimal = _Serial;
         }

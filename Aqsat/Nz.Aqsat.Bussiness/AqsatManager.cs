@@ -24,9 +24,9 @@ namespace NZ.Aqsat.Business
         #endregion
         #region Methods
 
-        public void Save(Aqsat_Main aqsat, bool AutoSerial = true)
+        public void Save(Aqsat_Main aqsat, bool AutoSerial = true, object Params = null)
         {
-            _Repo.Save(aqsat, AutoSerial);
+            _Repo.Save(aqsat, AutoSerial,Params);
         }
         public void                     Delete          (long ID)
         {

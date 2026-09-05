@@ -121,7 +121,6 @@
     <ProjectReference Include="..\Nz.Aqsat.Model\Nz.Aqsat.Model.csproj">
       <Project>{4ee4f2a0-7f13-4eb4-bd26-230b9b0135b7}</Project>
       <Name>Nz.Aqsat.Model</Name>
-      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

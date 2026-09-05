@@ -39,6 +39,7 @@
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridPayment_Layout_0_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.ButtonImage");
 			this.Tab_Control_Main = new Janus.Windows.UI.Tab.UITab();
 			this.uiTabPage12 = new Janus.Windows.UI.Tab.UITabPage();
+			this.mS_Lable_Ex4 = new MS_Control.Controls.MS_Lable_Ex();
 			this.NzFactorMablaq = new MS_Control.Controls.MS_Decimal_Label();
 			this.NzDescription = new MS_Control.Controls.MS_TextBox();
 			this.panel1 = new System.Windows.Forms.Panel();
@@ -98,7 +99,6 @@
 			this.NzBankMenu = new NZ.General.WinForms.Component.NzBankPopup();
 			this.NzDatePopup = new NZ.General.WinForms.Component.NzPopupDate();
 			this.NzAccountPopup = new NZ.Xazane.WinForms.Component.NzAccontPopup();
-			this.mS_Lable_Ex4 = new MS_Control.Controls.MS_Lable_Ex();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
 			this.uiTabPage12.SuspendLayout();
@@ -167,6 +167,21 @@
 			this.uiTabPage12.Size = new System.Drawing.Size(1006, 525);
 			this.uiTabPage12.TabStop = true;
 			this.uiTabPage12.Text = "اطلاعات";
+			// 
+			// mS_Lable_Ex4
+			// 
+			this.mS_Lable_Ex4.BackColor = System.Drawing.Color.Transparent;
+			this.mS_Lable_Ex4.ForeColor = System.Drawing.Color.Blue;
+			this.mS_Lable_Ex4.Location = new System.Drawing.Point(-1, 86);
+			this.mS_Lable_Ex4.MS_BorderColor = System.Drawing.Color.Empty;
+			this.mS_Lable_Ex4.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.mS_Lable_Ex4.MS_Color_End = System.Drawing.Color.Empty;
+			this.mS_Lable_Ex4.MS_Color_Start = System.Drawing.Color.Empty;
+			this.mS_Lable_Ex4.Name = "mS_Lable_Ex4";
+			this.mS_Lable_Ex4.Size = new System.Drawing.Size(34, 21);
+			this.mS_Lable_Ex4.TabIndex = 846;
+			this.mS_Lable_Ex4.Text = "[F5]";
+			this.mS_Lable_Ex4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// NzFactorMablaq
 			// 
@@ -1257,21 +1272,6 @@
 			this.NzAccountPopup.Size = new System.Drawing.Size(0, 0);
 			this.NzAccountPopup.NzSelectObject += new System.EventHandler(this.NzAccountPopup_NzSelectObject);
 			this.NzAccountPopup.NzEscapedPress += new System.EventHandler(this.NzAccountPopup_NzEscapedPress);
-			// 
-			// mS_Lable_Ex4
-			// 
-			this.mS_Lable_Ex4.BackColor = System.Drawing.Color.Transparent;
-			this.mS_Lable_Ex4.ForeColor = System.Drawing.Color.Blue;
-			this.mS_Lable_Ex4.Location = new System.Drawing.Point(-1, 86);
-			this.mS_Lable_Ex4.MS_BorderColor = System.Drawing.Color.Empty;
-			this.mS_Lable_Ex4.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.mS_Lable_Ex4.MS_Color_End = System.Drawing.Color.Empty;
-			this.mS_Lable_Ex4.MS_Color_Start = System.Drawing.Color.Empty;
-			this.mS_Lable_Ex4.Name = "mS_Lable_Ex4";
-			this.mS_Lable_Ex4.Size = new System.Drawing.Size(34, 21);
-			this.mS_Lable_Ex4.TabIndex = 846;
-			this.mS_Lable_Ex4.Text = "[F5]";
-			this.mS_Lable_Ex4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// FormPayment
 			// 

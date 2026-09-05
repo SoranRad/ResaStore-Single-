@@ -9,14 +9,12 @@ namespace Nz.Aqsat.Model.Interface
 {
     public interface IAqsatRepository
     {
-        void                        Save            (Aqsat_Main Factor,bool AutoSerial=true);
+        void                        Save            (Aqsat_Main Factor,bool AutoSerial=true, object Params = null);
         void                        Delete          (long       ID);
         IEnumerable<Aqsat_Main>     GetList         (object     Param);
         Aqsat_Main                  GetItem         (long       ID);
         int                         GetMaxSerial    (object     Param);
         bool                        IsCodeUnique    (object     Param);
-        //PrintFactor                 GetPrint        (long       ID);
-        //IEnumerable<PrintFactor>    GetAllPrint     (List<long> List);
-         
+       
     }
 }

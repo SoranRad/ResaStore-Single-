@@ -101,6 +101,7 @@
     <Compile Include="DapperConfig\HazineDapperConfig.cs" />
     <Compile Include="DapperConfig\InitialCorrectionConfig.cs" />
     <Compile Include="DapperConfig\InitRegister.cs" />
+    <Compile Include="DapperConfig\KalaXadamatConfig.cs" />
     <Compile Include="DapperConfig\LoginConfig.cs" />
     <Compile Include="DapperConfig\NoteOfDateConfig.cs" />
     <Compile Include="DapperConfig\SummaryNoteConfig.cs" />

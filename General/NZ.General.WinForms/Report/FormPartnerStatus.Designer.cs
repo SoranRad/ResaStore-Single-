@@ -32,6 +32,7 @@
 			Janus.Windows.GridEX.GridEXLayout NsSahmShoraka_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.GridEX.GridEXLayout NsShoraka_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.GridEX.GridEXLayout NsHazine_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
+			Janus.Windows.GridEX.GridEXLayout NsGridKala_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
 			this.Tab_Control_Main = new Janus.Windows.UI.Tab.UITab();
 			this.uiTabPage12 = new Janus.Windows.UI.Tab.UITabPage();
 			this.uiGroupBox1 = new Janus.Windows.EditControls.UIGroupBox();
@@ -62,8 +63,12 @@
 			this.label8 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
+			this.uiTabPage1 = new Janus.Windows.UI.Tab.UITabPage();
+			this.NsGridKala = new MS_Control.Controls.MS_GridX();
 			this.mS_GridX_Setting1 = new MS_Control.Controls.MS_GridX_Setting();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.mS_GridX_Setting2 = new MS_Control.Controls.MS_GridX_Setting();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
 			this.uiTabPage12.SuspendLayout();
@@ -74,7 +79,10 @@
 			this.uiGroupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NsShoraka)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.NsHazine)).BeginInit();
+			this.uiTabPage1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.NsGridKala)).BeginInit();
 			this.mS_GridX_Setting1.SuspendLayout();
+			this.mS_GridX_Setting2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// Tab_Control_Main
@@ -87,10 +95,11 @@
 			this.Tab_Control_Main.Name = "Tab_Control_Main";
 			this.Tab_Control_Main.Office2007CustomColor = System.Drawing.Color.Transparent;
 			this.Tab_Control_Main.ShowFocusRectangle = false;
-			this.Tab_Control_Main.Size = new System.Drawing.Size(1118, 535);
+			this.Tab_Control_Main.Size = new System.Drawing.Size(1175, 609);
 			this.Tab_Control_Main.TabIndex = 6;
 			this.Tab_Control_Main.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
             this.uiTabPage12,
+            this.uiTabPage1,
             this.uiTabPage14});
 			this.Tab_Control_Main.TabsStateStyles.DisabledFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.Tab_Control_Main.TabsStateStyles.DisabledFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -105,6 +114,7 @@
 			// 
 			// uiTabPage12
 			// 
+			this.uiTabPage12.Controls.Add(this.mS_GridX_Setting1);
 			this.uiTabPage12.Controls.Add(this.uiGroupBox1);
 			this.uiTabPage12.Controls.Add(this.NsSahmShoraka);
 			this.uiTabPage12.Controls.Add(this.uiGroupBox2);
@@ -115,7 +125,7 @@
 			this.uiTabPage12.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.uiTabPage12.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.uiTabPage12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage12.Size = new System.Drawing.Size(1084, 533);
+			this.uiTabPage12.Size = new System.Drawing.Size(1141, 607);
 			this.uiTabPage12.TabStop = true;
 			this.uiTabPage12.Text = "اطلاعات";
 			// 
@@ -142,7 +152,7 @@
 			this.uiGroupBox1.Location = new System.Drawing.Point(7, 157);
 			this.uiGroupBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.uiGroupBox1.Name = "uiGroupBox1";
-			this.uiGroupBox1.Size = new System.Drawing.Size(1069, 185);
+			this.uiGroupBox1.Size = new System.Drawing.Size(1126, 185);
 			this.uiGroupBox1.TabIndex = 762;
 			// 
 			// label10
@@ -151,7 +161,7 @@
 			this.label10.AutoSize = true;
 			this.label10.BackColor = System.Drawing.Color.Transparent;
 			this.label10.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label10.Location = new System.Drawing.Point(892, 107);
+			this.label10.Location = new System.Drawing.Point(949, 107);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(159, 23);
 			this.label10.TabIndex = 770;
@@ -163,7 +173,7 @@
 			this.label11.AutoSize = true;
 			this.label11.BackColor = System.Drawing.Color.Transparent;
 			this.label11.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label11.Location = new System.Drawing.Point(892, 149);
+			this.label11.Location = new System.Drawing.Point(949, 149);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(106, 23);
 			this.label11.TabIndex = 771;
@@ -174,7 +184,7 @@
 			this.NsMandeKalaAdi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsMandeKalaAdi.BackColor = System.Drawing.Color.Lavender;
 			this.NsMandeKalaAdi.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
-			this.NsMandeKalaAdi.Location = new System.Drawing.Point(704, 146);
+			this.NsMandeKalaAdi.Location = new System.Drawing.Point(761, 146);
 			this.NsMandeKalaAdi.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NsMandeKalaAdi.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsMandeKalaAdi.MS_Decimal = new decimal(new int[] {
@@ -194,7 +204,7 @@
 			this.NsSumFroshKalaAdi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsSumFroshKalaAdi.BackColor = System.Drawing.Color.Lavender;
 			this.NsSumFroshKalaAdi.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
-			this.NsSumFroshKalaAdi.Location = new System.Drawing.Point(704, 104);
+			this.NsSumFroshKalaAdi.Location = new System.Drawing.Point(761, 104);
 			this.NsSumFroshKalaAdi.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NsSumFroshKalaAdi.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsSumFroshKalaAdi.MS_Decimal = new decimal(new int[] {
@@ -214,7 +224,7 @@
 			this.NsQabelTaqsim.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsQabelTaqsim.BackColor = System.Drawing.Color.Lavender;
 			this.NsQabelTaqsim.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
-			this.NsQabelTaqsim.Location = new System.Drawing.Point(290, 104);
+			this.NsQabelTaqsim.Location = new System.Drawing.Point(347, 104);
 			this.NsQabelTaqsim.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NsQabelTaqsim.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsQabelTaqsim.MS_Decimal = new decimal(new int[] {
@@ -235,7 +245,7 @@
 			this.label4.AutoSize = true;
 			this.label4.BackColor = System.Drawing.Color.Transparent;
 			this.label4.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label4.Location = new System.Drawing.Point(892, 23);
+			this.label4.Location = new System.Drawing.Point(949, 23);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(160, 23);
 			this.label4.TabIndex = 757;
@@ -246,7 +256,7 @@
 			this.NsSumSoodKala.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsSumSoodKala.BackColor = System.Drawing.Color.Lavender;
 			this.NsSumSoodKala.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
-			this.NsSumSoodKala.Location = new System.Drawing.Point(290, 62);
+			this.NsSumSoodKala.Location = new System.Drawing.Point(347, 62);
 			this.NsSumSoodKala.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NsSumSoodKala.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsSumSoodKala.MS_Decimal = new decimal(new int[] {
@@ -267,7 +277,7 @@
 			this.label5.AutoSize = true;
 			this.label5.BackColor = System.Drawing.Color.Transparent;
 			this.label5.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label5.Location = new System.Drawing.Point(892, 65);
+			this.label5.Location = new System.Drawing.Point(949, 65);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(107, 23);
 			this.label5.TabIndex = 757;
@@ -278,7 +288,7 @@
 			this.NsMandeKalaAmani.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsMandeKalaAmani.BackColor = System.Drawing.Color.Lavender;
 			this.NsMandeKalaAmani.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
-			this.NsMandeKalaAmani.Location = new System.Drawing.Point(704, 62);
+			this.NsMandeKalaAmani.Location = new System.Drawing.Point(761, 62);
 			this.NsMandeKalaAmani.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NsMandeKalaAmani.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsMandeKalaAmani.MS_Decimal = new decimal(new int[] {
@@ -298,7 +308,7 @@
 			this.NsSumHazineHa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsSumHazineHa.BackColor = System.Drawing.Color.Lavender;
 			this.NsSumHazineHa.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
-			this.NsSumHazineHa.Location = new System.Drawing.Point(290, 20);
+			this.NsSumHazineHa.Location = new System.Drawing.Point(347, 20);
 			this.NsSumHazineHa.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NsSumHazineHa.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsSumHazineHa.MS_Decimal = new decimal(new int[] {
@@ -318,7 +328,7 @@
 			this.NsSumFroshKalaAmani.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NsSumFroshKalaAmani.BackColor = System.Drawing.Color.Lavender;
 			this.NsSumFroshKalaAmani.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
-			this.NsSumFroshKalaAmani.Location = new System.Drawing.Point(704, 20);
+			this.NsSumFroshKalaAmani.Location = new System.Drawing.Point(761, 20);
 			this.NsSumFroshKalaAmani.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NsSumFroshKalaAmani.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsSumFroshKalaAmani.MS_Decimal = new decimal(new int[] {
@@ -339,7 +349,7 @@
 			this.label9.AutoSize = true;
 			this.label9.BackColor = System.Drawing.Color.Transparent;
 			this.label9.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label9.Location = new System.Drawing.Point(476, 107);
+			this.label9.Location = new System.Drawing.Point(533, 107);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(151, 23);
 			this.label9.TabIndex = 759;
@@ -351,7 +361,7 @@
 			this.label6.AutoSize = true;
 			this.label6.BackColor = System.Drawing.Color.Transparent;
 			this.label6.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label6.Location = new System.Drawing.Point(476, 23);
+			this.label6.Location = new System.Drawing.Point(533, 23);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(124, 23);
 			this.label6.TabIndex = 758;
@@ -363,7 +373,7 @@
 			this.label7.AutoSize = true;
 			this.label7.BackColor = System.Drawing.Color.Transparent;
 			this.label7.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label7.Location = new System.Drawing.Point(476, 65);
+			this.label7.Location = new System.Drawing.Point(533, 65);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(136, 23);
 			this.label7.TabIndex = 758;
@@ -402,7 +412,7 @@
 			this.NsSahmShoraka.HeaderFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
 			this.NsSahmShoraka.HeaderFormatStyle.ForeColor = System.Drawing.Color.Black;
 			this.NsSahmShoraka.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
-			this.NsSahmShoraka.Location = new System.Drawing.Point(7, 348);
+			this.NsSahmShoraka.Location = new System.Drawing.Point(64, 348);
 			this.NsSahmShoraka.Name = "NsSahmShoraka";
 			this.NsSahmShoraka.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom;
 			this.NsSahmShoraka.Office2007CustomColor = System.Drawing.SystemColors.HotTrack;
@@ -414,7 +424,7 @@
 			this.NsSahmShoraka.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
 			this.NsSahmShoraka.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
 			this.NsSahmShoraka.SelectOnExpand = false;
-			this.NsSahmShoraka.Size = new System.Drawing.Size(1077, 186);
+			this.NsSahmShoraka.Size = new System.Drawing.Size(1077, 234);
 			this.NsSahmShoraka.TabIndex = 760;
 			this.NsSahmShoraka.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
 			this.NsSahmShoraka.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -441,7 +451,7 @@
 			this.uiGroupBox2.Location = new System.Drawing.Point(7, -2);
 			this.uiGroupBox2.Margin = new System.Windows.Forms.Padding(2);
 			this.uiGroupBox2.Name = "uiGroupBox2";
-			this.uiGroupBox2.Size = new System.Drawing.Size(1069, 153);
+			this.uiGroupBox2.Size = new System.Drawing.Size(1126, 153);
 			this.uiGroupBox2.TabIndex = 0;
 			// 
 			// NzPrint
@@ -451,7 +461,7 @@
 			this.NzPrint.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.NzPrint.Image = global::MS_Resource.GlobalResources.Negin__67_;
 			this.NzPrint.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
-			this.NzPrint.Location = new System.Drawing.Point(18, 69);
+			this.NzPrint.Location = new System.Drawing.Point(68, 69);
 			this.NzPrint.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzPrint.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzPrint.MS_Change_Border_Color_On_Enter = false;
@@ -504,7 +514,7 @@
 			this.NsShoraka.HeaderFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
 			this.NsShoraka.HeaderFormatStyle.ForeColor = System.Drawing.Color.Black;
 			this.NsShoraka.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
-			this.NsShoraka.Location = new System.Drawing.Point(160, 13);
+			this.NsShoraka.Location = new System.Drawing.Point(217, 13);
 			this.NsShoraka.Name = "NsShoraka";
 			this.NsShoraka.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom;
 			this.NsShoraka.Office2007CustomColor = System.Drawing.SystemColors.HotTrack;
@@ -529,7 +539,7 @@
 			this.label3.AutoSize = true;
 			this.label3.BackColor = System.Drawing.Color.Transparent;
 			this.label3.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label3.Location = new System.Drawing.Point(472, 13);
+			this.label3.Location = new System.Drawing.Point(529, 13);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(40, 23);
 			this.label3.TabIndex = 760;
@@ -568,7 +578,7 @@
 			this.NsHazine.HeaderFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
 			this.NsHazine.HeaderFormatStyle.ForeColor = System.Drawing.Color.Black;
 			this.NsHazine.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
-			this.NsHazine.Location = new System.Drawing.Point(524, 13);
+			this.NsHazine.Location = new System.Drawing.Point(581, 13);
 			this.NsHazine.Name = "NsHazine";
 			this.NsHazine.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom;
 			this.NsHazine.Office2007CustomColor = System.Drawing.SystemColors.HotTrack;
@@ -595,7 +605,7 @@
 			this.NzReport.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.NzReport.Image = ((System.Drawing.Image)(resources.GetObject("NzReport.Image")));
 			this.NzReport.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
-			this.NzReport.Location = new System.Drawing.Point(18, 15);
+			this.NzReport.Location = new System.Drawing.Point(68, 15);
 			this.NzReport.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzReport.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzReport.MS_Change_Border_Color_On_Enter = false;
@@ -627,7 +637,7 @@
 			this.NzDateTo.Cursor = System.Windows.Forms.Cursors.IBeam;
 			this.NzDateTo.DropSize = new System.Drawing.Size(0, 0);
 			this.NzDateTo.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NzDateTo.Location = new System.Drawing.Point(890, 54);
+			this.NzDateTo.Location = new System.Drawing.Point(947, 54);
 			this.NzDateTo.MinimumSize = new System.Drawing.Size(99, 27);
 			this.NzDateTo.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzDateTo.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -655,7 +665,7 @@
 			this.label1.AutoSize = true;
 			this.label1.BackColor = System.Drawing.Color.Transparent;
 			this.label1.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label1.Location = new System.Drawing.Point(999, 54);
+			this.label1.Location = new System.Drawing.Point(1056, 54);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(58, 23);
 			this.label1.TabIndex = 756;
@@ -672,7 +682,7 @@
 			this.NzDateFrom.Cursor = System.Windows.Forms.Cursors.IBeam;
 			this.NzDateFrom.DropSize = new System.Drawing.Size(0, 0);
 			this.NzDateFrom.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NzDateFrom.Location = new System.Drawing.Point(890, 13);
+			this.NzDateFrom.Location = new System.Drawing.Point(947, 13);
 			this.NzDateFrom.MinimumSize = new System.Drawing.Size(99, 27);
 			this.NzDateFrom.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzDateFrom.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -700,7 +710,7 @@
 			this.label8.AutoSize = true;
 			this.label8.BackColor = System.Drawing.Color.Transparent;
 			this.label8.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label8.Location = new System.Drawing.Point(999, 13);
+			this.label8.Location = new System.Drawing.Point(1056, 13);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(56, 23);
 			this.label8.TabIndex = 756;
@@ -712,7 +722,7 @@
 			this.label2.AutoSize = true;
 			this.label2.BackColor = System.Drawing.Color.Transparent;
 			this.label2.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label2.Location = new System.Drawing.Point(823, 15);
+			this.label2.Location = new System.Drawing.Point(880, 15);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(63, 23);
 			this.label2.TabIndex = 758;
@@ -728,9 +738,70 @@
 			this.uiTabPage14.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.uiTabPage14.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.uiTabPage14.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage14.Size = new System.Drawing.Size(882, 491);
+			this.uiTabPage14.Size = new System.Drawing.Size(1385, 582);
 			this.uiTabPage14.TabStop = true;
 			this.uiTabPage14.Text = "پرسش و پاسخ";
+			// 
+			// uiTabPage1
+			// 
+			this.uiTabPage1.Controls.Add(this.NsGridKala);
+			this.uiTabPage1.Controls.Add(this.mS_GridX_Setting2);
+			this.uiTabPage1.Location = new System.Drawing.Point(1, 1);
+			this.uiTabPage1.Name = "uiTabPage1";
+			this.uiTabPage1.Size = new System.Drawing.Size(1141, 607);
+			this.uiTabPage1.TabStop = true;
+			this.uiTabPage1.Text = "   کالا/خدمات   ";
+			// 
+			// NsGridKala
+			// 
+			this.NsGridKala.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.False;
+			this.NsGridKala.AllowRemoveColumns = Janus.Windows.GridEX.InheritableBoolean.True;
+			this.NsGridKala.AlternatingColors = true;
+			this.NsGridKala.AlternatingRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.NsGridKala.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.NsGridKala.BorderStyle = Janus.Windows.GridEX.BorderStyle.RaisedLight3D;
+			this.NsGridKala.BuiltInTextsData = resources.GetString("NsGridKala.BuiltInTextsData");
+			this.NsGridKala.ColumnSetNavigation = Janus.Windows.GridEX.ColumnSetNavigation.ColumnSet;
+			this.NsGridKala.Cursor = System.Windows.Forms.Cursors.Arrow;
+			this.NsGridKala.DefaultFilterRowComparison = Janus.Windows.GridEX.FilterConditionOperator.Contains;
+			NsGridKala_DesignTimeLayout.LayoutString = resources.GetString("NsGridKala_DesignTimeLayout.LayoutString");
+			this.NsGridKala.DesignTimeLayout = NsGridKala_DesignTimeLayout;
+			this.NsGridKala.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.NsGridKala.DynamicFiltering = true;
+			this.NsGridKala.EnterKeyBehavior = Janus.Windows.GridEX.EnterKeyBehavior.None;
+			this.NsGridKala.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic;
+			this.NsGridKala.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
+			this.NsGridKala.FilterRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsGridKala.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
+			this.NsGridKala.FocusCellDisplayMode = Janus.Windows.GridEX.FocusCellDisplayMode.UseSelectedFormatStyle;
+			this.NsGridKala.FocusStyle = Janus.Windows.GridEX.FocusStyle.Solid;
+			this.NsGridKala.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NsGridKala.FrozenColumns = 3;
+			this.NsGridKala.GridLineColor = System.Drawing.Color.Black;
+			this.NsGridKala.GridLines = Janus.Windows.GridEX.GridLines.Vertical;
+			this.NsGridKala.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid;
+			this.NsGridKala.GroupByBoxVisible = false;
+			this.NsGridKala.HeaderFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+			this.NsGridKala.HeaderFormatStyle.ForeColor = System.Drawing.Color.Black;
+			this.NsGridKala.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
+			this.NsGridKala.Location = new System.Drawing.Point(0, 0);
+			this.NsGridKala.Name = "NsGridKala";
+			this.NsGridKala.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom;
+			this.NsGridKala.Office2007CustomColor = System.Drawing.SystemColors.HotTrack;
+			this.NsGridKala.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NsGridKala.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowIndex;
+			this.NsGridKala.SelectedFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+			this.NsGridKala.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
+			this.NsGridKala.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+			this.NsGridKala.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
+			this.NsGridKala.SelectOnExpand = false;
+			this.NsGridKala.Size = new System.Drawing.Size(1141, 582);
+			this.NsGridKala.TabIndex = 763;
+			this.NsGridKala.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
+			this.NsGridKala.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsGridKala.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
+			this.NsGridKala.TreeLineColor = System.Drawing.Color.Black;
+			this.NsGridKala.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
 			// 
 			// mS_GridX_Setting1
 			// 
@@ -738,7 +809,7 @@
 			this.mS_GridX_Setting1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.mS_GridX_Setting1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator1});
-			this.mS_GridX_Setting1.Location = new System.Drawing.Point(0, 535);
+			this.mS_GridX_Setting1.Location = new System.Drawing.Point(0, 582);
 			this.mS_GridX_Setting1.MS_BorderColor = System.Drawing.Color.DodgerBlue;
 			this.mS_GridX_Setting1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_GridX_Setting1.MS_Color_End = System.Drawing.Color.PowderBlue;
@@ -746,8 +817,8 @@
 			this.mS_GridX_Setting1.MS_GridX = this.NsSahmShoraka;
 			this.mS_GridX_Setting1.Name = "mS_GridX_Setting1";
 			this.mS_GridX_Setting1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_GridX_Setting1.Size = new System.Drawing.Size(1118, 25);
-			this.mS_GridX_Setting1.TabIndex = 7;
+			this.mS_GridX_Setting1.Size = new System.Drawing.Size(1141, 25);
+			this.mS_GridX_Setting1.TabIndex = 763;
 			this.mS_GridX_Setting1.Text = "mS_GridX_Setting1";
 			// 
 			// toolStripSeparator1
@@ -756,18 +827,42 @@
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
 			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
 			// 
+			// mS_GridX_Setting2
+			// 
+			this.mS_GridX_Setting2.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.mS_GridX_Setting2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+			this.mS_GridX_Setting2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator2});
+			this.mS_GridX_Setting2.Location = new System.Drawing.Point(0, 582);
+			this.mS_GridX_Setting2.MS_BorderColor = System.Drawing.Color.DodgerBlue;
+			this.mS_GridX_Setting2.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.mS_GridX_Setting2.MS_Color_End = System.Drawing.Color.PowderBlue;
+			this.mS_GridX_Setting2.MS_Color_Start = System.Drawing.Color.AliceBlue;
+			this.mS_GridX_Setting2.MS_GridX = this.NsGridKala;
+			this.mS_GridX_Setting2.Name = "mS_GridX_Setting2";
+			this.mS_GridX_Setting2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.mS_GridX_Setting2.Size = new System.Drawing.Size(1141, 25);
+			this.mS_GridX_Setting2.TabIndex = 764;
+			this.mS_GridX_Setting2.Text = "mS_GridX_Setting2";
+			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+			// 
 			// FormPartnerStatus
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-			this.ClientSize = new System.Drawing.Size(1118, 560);
+			this.ClientSize = new System.Drawing.Size(1175, 609);
 			this.Controls.Add(this.Tab_Control_Main);
-			this.Controls.Add(this.mS_GridX_Setting1);
 			this.Name = "FormPartnerStatus";
 			this.Text = "گزارش وضعیت شرکا";
 			this.Load += new System.EventHandler(this.FormPartnerStatus_Load);
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).EndInit();
 			this.Tab_Control_Main.ResumeLayout(false);
 			this.uiTabPage12.ResumeLayout(false);
+			this.uiTabPage12.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox1)).EndInit();
 			this.uiGroupBox1.ResumeLayout(false);
 			this.uiGroupBox1.PerformLayout();
@@ -777,10 +872,14 @@
 			this.uiGroupBox2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NsShoraka)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.NsHazine)).EndInit();
+			this.uiTabPage1.ResumeLayout(false);
+			this.uiTabPage1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.NsGridKala)).EndInit();
 			this.mS_GridX_Setting1.ResumeLayout(false);
 			this.mS_GridX_Setting1.PerformLayout();
+			this.mS_GridX_Setting2.ResumeLayout(false);
+			this.mS_GridX_Setting2.PerformLayout();
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 
@@ -799,8 +898,6 @@
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Label label2;
 		private Janus.Windows.UI.Tab.UITabPage uiTabPage14;
-		private MS_Control.Controls.MS_GridX_Setting mS_GridX_Setting1;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private MS_Control.Controls.MS_Button_GridX NzPrint;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label label5;
@@ -818,5 +915,11 @@
 		private System.Windows.Forms.Label label11;
 		private MS_Control.Controls.MS_Decimal_Label NsMandeKalaAdi;
 		private MS_Control.Controls.MS_Decimal_Label NsSumFroshKalaAdi;
+		private Janus.Windows.UI.Tab.UITabPage uiTabPage1;
+		private MS_Control.Controls.MS_GridX NsGridKala;
+		private MS_Control.Controls.MS_GridX_Setting mS_GridX_Setting1;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+		private MS_Control.Controls.MS_GridX_Setting mS_GridX_Setting2;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 	}
 }

@@ -37,6 +37,8 @@ namespace Nz.Anbar.Model.Report
         public string       sharh                   { get; set; }
         public byte         KindObject              { get; set; }
         public string       People                  { get; set; }
+        public string       GroupTitle              { get; set; }
+
 
         public string       KindHeadTitle           => ((Enums.NzFactorKind) this.KindHead).NzToString();
     }

@@ -33,6 +33,7 @@
 			Janus.Windows.GridEX.GridEXLayout NsGridSubGroup_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.GridEX.GridEXLayout NsMainGrid_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
 			this.Tab_Control_Main = new Janus.Windows.UI.Tab.UITab();
+			this.uiTabPage12 = new Janus.Windows.UI.Tab.UITabPage();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.NsGridKala = new MS_Control.Controls.MS_GridX();
 			this.expandableSplitter1 = new DevComponents.DotNetBar.ExpandableSplitter();
@@ -44,6 +45,7 @@
 			this.NsDeleteKala = new System.Windows.Forms.ToolStripButton();
 			this.NsAddKala = new System.Windows.Forms.ToolStripButton();
 			this.NsRefreshObjects = new System.Windows.Forms.ToolStripButton();
+			this.NsShowAllObjects = new System.Windows.Forms.ToolStripButton();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.NsGridSubGroup = new MS_Control.Controls.MS_GridX();
 			this.Splitter1 = new DevComponents.DotNetBar.ExpandableSplitter();
@@ -60,12 +62,11 @@
 			this.NsDeleteMainGroup = new System.Windows.Forms.ToolStripButton();
 			this.NsAddMainGroup = new System.Windows.Forms.ToolStripButton();
 			this.NsRefreshGridMain = new System.Windows.Forms.ToolStripButton();
-			this.NsShowAllObjects = new System.Windows.Forms.ToolStripButton();
-			this.uiTabPage12 = new Janus.Windows.UI.Tab.UITabPage();
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
 			this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
+			this.uiTabPage12.SuspendLayout();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NsGridKala)).BeginInit();
 			this.mS_GridX_Setting1.SuspendLayout();
@@ -75,7 +76,6 @@
 			this.panel3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NsMainGrid)).BeginInit();
 			this.mS_Tool_Strip1.SuspendLayout();
-			this.uiTabPage12.SuspendLayout();
 			this.uiTabPage14.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
 			this.SuspendLayout();
@@ -105,6 +105,20 @@
 			this.Tab_Control_Main.TextOrientation = Janus.Windows.UI.Tab.TextOrientation.Vertical;
 			this.Tab_Control_Main.UseThemes = false;
 			this.Tab_Control_Main.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2003;
+			// 
+			// uiTabPage12
+			// 
+			this.uiTabPage12.Controls.Add(this.panel1);
+			this.uiTabPage12.Location = new System.Drawing.Point(1, 1);
+			this.uiTabPage12.Name = "uiTabPage12";
+			this.uiTabPage12.PanelFormatStyle.Alpha = 70;
+			this.uiTabPage12.PanelFormatStyle.BackColor = System.Drawing.Color.SkyBlue;
+			this.uiTabPage12.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
+			this.uiTabPage12.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
+			this.uiTabPage12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.uiTabPage12.Size = new System.Drawing.Size(1556, 705);
+			this.uiTabPage12.TabStop = true;
+			this.uiTabPage12.Text = "اطلاعات";
 			// 
 			// panel1
 			// 
@@ -171,30 +185,30 @@
 			// 
 			// expandableSplitter1
 			// 
-			this.expandableSplitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
+			this.expandableSplitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
 			this.expandableSplitter1.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.expandableSplitter1.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
 			this.expandableSplitter1.Dock = System.Windows.Forms.DockStyle.Right;
 			this.expandableSplitter1.ExpandActionClick = false;
-			this.expandableSplitter1.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
+			this.expandableSplitter1.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
 			this.expandableSplitter1.ExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.expandableSplitter1.ExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.expandableSplitter1.ExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
 			this.expandableSplitter1.GripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.expandableSplitter1.GripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-			this.expandableSplitter1.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(236)))), ((int)(((byte)(255)))));
+			this.expandableSplitter1.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
 			this.expandableSplitter1.GripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-			this.expandableSplitter1.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(140)))), ((int)(((byte)(96)))));
-			this.expandableSplitter1.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(175)))), ((int)(((byte)(139)))));
+			this.expandableSplitter1.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(151)))), ((int)(((byte)(61)))));
+			this.expandableSplitter1.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(184)))), ((int)(((byte)(94)))));
 			this.expandableSplitter1.HotBackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground2;
 			this.expandableSplitter1.HotBackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground;
-			this.expandableSplitter1.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
+			this.expandableSplitter1.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
 			this.expandableSplitter1.HotExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.expandableSplitter1.HotExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.expandableSplitter1.HotExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-			this.expandableSplitter1.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
+			this.expandableSplitter1.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
 			this.expandableSplitter1.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-			this.expandableSplitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(236)))), ((int)(((byte)(255)))));
+			this.expandableSplitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
 			this.expandableSplitter1.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
 			this.expandableSplitter1.Location = new System.Drawing.Point(1025, 0);
 			this.expandableSplitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -303,6 +317,20 @@
 			this.NsRefreshObjects.ToolTipText = "بروز رسانی";
 			this.NsRefreshObjects.Click += new System.EventHandler(this.NsRefreshObjects_Click);
 			// 
+			// NsShowAllObjects
+			// 
+			this.NsShowAllObjects.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.NsShowAllObjects.Checked = true;
+			this.NsShowAllObjects.CheckOnClick = true;
+			this.NsShowAllObjects.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.NsShowAllObjects.Image = ((System.Drawing.Image)(resources.GetObject("NsShowAllObjects.Image")));
+			this.NsShowAllObjects.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.NsShowAllObjects.Margin = new System.Windows.Forms.Padding(0, 1, 10, 2);
+			this.NsShowAllObjects.Name = "NsShowAllObjects";
+			this.NsShowAllObjects.Size = new System.Drawing.Size(112, 24);
+			this.NsShowAllObjects.Text = "نمایش کلیه کالاها";
+			this.NsShowAllObjects.CheckedChanged += new System.EventHandler(this.NsShowAllObjects_CheckedChanged);
+			// 
 			// panel2
 			// 
 			this.panel2.Controls.Add(this.NsGridSubGroup);
@@ -370,30 +398,30 @@
 			// 
 			// Splitter1
 			// 
-			this.Splitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
+			this.Splitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
 			this.Splitter1.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
 			this.Splitter1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.Splitter1.ExpandActionClick = false;
-			this.Splitter1.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
+			this.Splitter1.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
 			this.Splitter1.ExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.ExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.Splitter1.ExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
 			this.Splitter1.GripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.Splitter1.GripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-			this.Splitter1.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(236)))), ((int)(((byte)(255)))));
+			this.Splitter1.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
 			this.Splitter1.GripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-			this.Splitter1.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(140)))), ((int)(((byte)(96)))));
-			this.Splitter1.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(175)))), ((int)(((byte)(139)))));
+			this.Splitter1.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(151)))), ((int)(((byte)(61)))));
+			this.Splitter1.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(184)))), ((int)(((byte)(94)))));
 			this.Splitter1.HotBackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground2;
 			this.Splitter1.HotBackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground;
-			this.Splitter1.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
+			this.Splitter1.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
 			this.Splitter1.HotExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.HotExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.Splitter1.HotExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-			this.Splitter1.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
+			this.Splitter1.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
 			this.Splitter1.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-			this.Splitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(236)))), ((int)(((byte)(255)))));
+			this.Splitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
 			this.Splitter1.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
 			this.Splitter1.Location = new System.Drawing.Point(0, 277);
 			this.Splitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -615,34 +643,6 @@
 			this.NsRefreshGridMain.ToolTipText = "بروز رسانی";
 			this.NsRefreshGridMain.Click += new System.EventHandler(this.NsRefreshGridMain_Click);
 			// 
-			// NsShowAllObjects
-			// 
-			this.NsShowAllObjects.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-			this.NsShowAllObjects.Checked = true;
-			this.NsShowAllObjects.CheckOnClick = true;
-			this.NsShowAllObjects.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.NsShowAllObjects.Image = ((System.Drawing.Image)(resources.GetObject("NsShowAllObjects.Image")));
-			this.NsShowAllObjects.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.NsShowAllObjects.Margin = new System.Windows.Forms.Padding(0, 1, 10, 2);
-			this.NsShowAllObjects.Name = "NsShowAllObjects";
-			this.NsShowAllObjects.Size = new System.Drawing.Size(112, 24);
-			this.NsShowAllObjects.Text = "نمایش کلیه کالاها";
-			this.NsShowAllObjects.CheckedChanged += new System.EventHandler(this.NsShowAllObjects_CheckedChanged);
-			// 
-			// uiTabPage12
-			// 
-			this.uiTabPage12.Controls.Add(this.panel1);
-			this.uiTabPage12.Location = new System.Drawing.Point(1, 1);
-			this.uiTabPage12.Name = "uiTabPage12";
-			this.uiTabPage12.PanelFormatStyle.Alpha = 70;
-			this.uiTabPage12.PanelFormatStyle.BackColor = System.Drawing.Color.SkyBlue;
-			this.uiTabPage12.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
-			this.uiTabPage12.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
-			this.uiTabPage12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage12.Size = new System.Drawing.Size(1556, 705);
-			this.uiTabPage12.TabStop = true;
-			this.uiTabPage12.Text = "اطلاعات";
-			// 
 			// uiTabPage14
 			// 
 			this.uiTabPage14.AutoScroll = true;
@@ -680,6 +680,7 @@
 			this.Load += new System.EventHandler(this.FormCodingKala_Load);
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).EndInit();
 			this.Tab_Control_Main.ResumeLayout(false);
+			this.uiTabPage12.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NsGridKala)).EndInit();
@@ -693,7 +694,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.NsMainGrid)).EndInit();
 			this.mS_Tool_Strip1.ResumeLayout(false);
 			this.mS_Tool_Strip1.PerformLayout();
-			this.uiTabPage12.ResumeLayout(false);
 			this.uiTabPage14.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
 			this.ResumeLayout(false);

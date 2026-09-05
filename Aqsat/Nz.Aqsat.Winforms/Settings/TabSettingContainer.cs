@@ -14,8 +14,9 @@ namespace Nz.Asat.Winforms.Settings
 
 		public void LoadSetting(SettingItems settings)
 		{
-			 NsPhoneNumber.Text = settings.PhoneNumber;
-			 NsCardNumber.Text = settings.CardNumber;
+			 NsPhoneNumber.Text			= settings.PhoneNumber;
+			 NsCardNumber.Text			= settings.CardNumber;
+			 NsUniqueSerial.Checked		= settings.UniqueCodeByGroup;
 		}
 
 		public NsSettingTabPage TabSetting => NsBarSetting;
@@ -24,7 +25,8 @@ namespace Nz.Asat.Winforms.Settings
 			new SettingItems()
 			{
 				 CardNumber		= NsCardNumber.Text,
-				 PhoneNumber	= NsPhoneNumber.Text
+				 PhoneNumber	= NsPhoneNumber.Text,
+				 UniqueCodeByGroup = NsUniqueSerial.Checked
 			};
 	}
 }

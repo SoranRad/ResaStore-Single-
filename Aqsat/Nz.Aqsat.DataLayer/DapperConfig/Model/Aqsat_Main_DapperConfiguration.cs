@@ -13,11 +13,19 @@ namespace Nz.Aqsat.DataLayer.DapperConfig.Model
 		public Aqsat_Main_DapperConfiguration()
 		{
 			SetMaxSerial(@"
-SELECT MAX(Serial) from Aqsat.tbl_Aqsat_Main 
+SELECT MAX(Serial) from Aqsat.tbl_Aqsat_Main AS tam 
+WHERE 
+		tam.FK_Salmali =@Year 
+	AND (tam.FK_Noh = @Group OR @Group IS NULL)
 ");
 
 			SetCodeUnique(@"
-SELECT Count(ID) from Aqsat.tbl_Aqsat_Main AS tam WHERE tam.Serial = @Serial AND tam.FK_Salmali =@Year
+SELECT Count(ID) 
+from Aqsat.tbl_Aqsat_Main AS tam 
+WHERE 
+	tam.Serial = @Serial 
+AND tam.FK_Salmali =@Year 
+AND (tam.FK_Noh = @Group OR @Group IS NULL)
 ");
 		}
 	}
