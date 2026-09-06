@@ -1,4 +1,11 @@
-﻿using System;
+﻿using Janus.Windows.GridEX;
+using MS_Control;
+using NZ.General.Business;
+using NZ.General.WinForms.Sms;
+using ShareLib.Models;
+using ShareLib.Utils;
+using ShareLib.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,12 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Janus.Windows.GridEX;
-using MS_Control;
-using NZ.General.Business;
-using ShareLib.Models;
-using ShareLib.Utils;
-using ShareLib.ViewModel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace NZ.General.WinForms.Report
 {
@@ -24,12 +26,12 @@ namespace NZ.General.WinForms.Report
                 .LogManager
                 .GetLogger
                 (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-        #endregion
-        #region Fields
-
-        #endregion
-        #region Constructor
-        public FormListDebit()
+		#endregion
+		#region Fields
+		private bool _CancelJob = false;
+		#endregion
+		#region Constructor
+		public FormListDebit()
         {
             InitializeComponent();
             this.Icon = global::MS_Resource.GlobalResources.Logo_Resaa;
@@ -116,18 +118,78 @@ namespace NZ.General.WinForms.Report
         private void NzTabKind_SelectedTabChanged   (object sender, Janus.Windows.UI.Tab.TabEventArgs e)
         {
             RefreshGrid();
-        }
+            NzGrid.RootTable.Columns["sel"].Visible = NzGrid.RootTable.Columns["S"].Visible = NsMessage.Visible = NzTabKind.SelectedTab ==  NzTabDebit;
+		}
         private void NzGrid_RowDoubleClick          (object sender, RowActionEventArgs e)
         {
             ShowDetail();
         }
-        private void NzGrid_ColumnButtonClick       (object sender, ColumnActionEventArgs e)
+        private async void NzGrid_ColumnButtonClick       (object sender, ColumnActionEventArgs e)
         {
-            ShowDetail();
+            if(e.Column.Key =="E")
+                ShowDetail();
+            else
+            {
+	            var cell    = NzGrid.CurrentRow.Cells["S"];
+	            var dataRow = NzGrid.CurrentRow.DataRow as RemaindPeople;
+
+	            var msg = new Messaging();
+
+				await msg.SendSarResidQest(
+					cell,
+					Convert.ToInt64(dataRow.mobile),
+					dataRow.Title,
+					dataRow.Balance
+				);
+			}
         }
         private void ms_Save_Click                  (object sender, EventArgs e)
         {
             RefreshGrid();
         }
-    }
+
+		private  async void NsMessage_Click(object sender, EventArgs e)
+		{
+			if (!NzGrid.GetCheckedRows().Any())
+			{
+				MS_Message.Show("یک یا چند ردیف را انتخاب کنید");
+				return;
+			}
+
+			_CancelJob = false;
+			NsMessage.Visible = false;
+			NsProgress.Visible = NsProgressText.Visible = NsCancel.Visible = true;
+			NsProgress.Maximum = NzGrid.GetCheckedRows().Count();
+			NsProgress.Minimum = 0;
+			NsProgress.Value = 0;
+			NsProgressText.Text = @"0 \ " + NsProgress.Maximum;
+
+			foreach (var row in NzGrid.GetCheckedRows())
+			{
+				var dataRow = row.DataRow as RemaindPeople;
+				var cell = row.Cells["S"];
+				var msg = new Messaging();
+
+
+				await msg.SendSarResidQest(
+					cell,
+					Convert.ToInt64(dataRow.mobile),
+					dataRow.Title,
+                    dataRow.Balance
+				);
+				
+				NsProgress.Value++;
+				NsProgressText.Text = NsProgress.Value + @" \ " + NsProgress.Maximum;
+				if (_CancelJob)
+					break;
+			}
+		}
+
+		private void NsCancel_Click(object sender, EventArgs e)
+		{
+			_CancelJob = true;
+			NsProgress.Visible = NsProgressText.Visible = NsCancel.Visible = false;
+			NsMessage.Visible = true;
+		}
+	}
 }

@@ -29,7 +29,7 @@ namespace NZ.General.WinForms.Sms
 		    _setting = Form_Factory._Form_Factory_General.GetSettings() as SettingItems;
 	    } 
 		
-		public async Task<bool>		SendSarResidQest		(long PhoneNumber, string Customer, string Count, string AGHSATTITLE, string Date ,string Amount, string CardNumber, string phoneBill)
+		public async Task<bool>					SendSarResidQest		(long PhoneNumber, string Customer, string Count, string AGHSATTITLE, string Date ,string Amount, string CardNumber, string phoneBill)
 	    {
 		    try
 		    {
@@ -77,7 +77,7 @@ namespace NZ.General.WinForms.Sms
 			    return false;
 		    }
 	    }
-	    public async Task<bool>		SendAqsatMande			(long PhoneNumber, string Customer, string Count, string AGHSATTITLE, string Date, string Amount, string CardNumber, string phoneBill)
+	    public async Task<bool>					SendAqsatMande			(long PhoneNumber, string Customer, string Count, string AGHSATTITLE, string Date, string Amount, string CardNumber, string phoneBill)
 	    {
 		    try
 		    {
@@ -125,14 +125,14 @@ namespace NZ.General.WinForms.Sms
 			    return false;
 		    }
 	    }
-	    public async Task<SmsCustomerInfo>	GetAccountInfo	(string username )
+	    public async Task<SmsCustomerInfo>		GetAccountInfo			(string username )
 	    {
 		    var SmsApi = new FastSmsApi(HttpClientFactory.Generate());
 		    var result = await SmsApi.GetAccountInfo(username);
 
 		    return result.Result ? result.Data : null;
 	    }
-	    private async Task<bool>			GetToken		()
+	    private async Task<bool>				GetToken				()
 	    {
 			if(!string.IsNullOrEmpty(TOKEN))
 				return true;
@@ -147,6 +147,50 @@ namespace NZ.General.WinForms.Sms
 			TOKEN = Token.Trim();
 			return true;
 	    }
+	    public async Task<bool>					SendRemainAlarm			(long PhoneNumber, string NAME,decimal MONY )
+	    {
+		    try
+		    {
+			    if (await GetToken() == false)
+				    return false;
 
-	}
+
+			    var SmsApi = new FastSmsApi(HttpClientFactory.Generate(new TokenDto() { Token = TOKEN }));
+			    var result = await SmsApi.SendSms(new FastSendSmsDto()
+				    {
+					    Mobile = PhoneNumber,
+					    Password = _setting.Password,
+					    UserName = _setting.Username,
+					    TemplateID = 303150,
+					    TemplateParams = new TemplateParamDto[]
+					    {
+						    new TemplateParamDto(){Name = "NAME",     Value = NAME},
+						    new TemplateParamDto(){Name = "MONY",     Value = MONY.ToString("N").En2Fa()},
+						    new TemplateParamDto(){Name = "MOBILE",   Value = SystemConstant.ActiveCompany.mobile.En2Fa()},
+						    new TemplateParamDto(){Name = "PERSON",   Value = SystemConstant.ActiveCompany.modir},
+						    new TemplateParamDto(){Name = "COMPANY",  Value = SystemConstant.ActiveCompany.title.En2Fa()},
+					    }
+				    },
+				    TOKEN);
+
+			    if (!result.IsSuccess)
+			    {
+				    if (result.Errors != null && result.Errors.Any())
+				    {
+					    var error = string.Join("\r\n", result.Errors.SelectMany(x => x.Value));
+					    log.Error(result.Message, new Exception(error));
+				    }
+
+				    return false;
+			    }
+
+			    return true;
+		    }
+		    catch (Exception ex)
+		    {
+			    log.Error(ex.Message, ex);
+			    return false;
+		    }
+		}
+    }
 }

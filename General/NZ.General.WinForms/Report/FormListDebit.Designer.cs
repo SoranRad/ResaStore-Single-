@@ -40,8 +40,9 @@
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_1_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_1_Reference_3 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.HeaderImage");
 			Janus.Windows.GridEX.GridEXLayout NzGrid_Layout_2 = new Janus.Windows.GridEX.GridEXLayout();
-			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_2_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
-			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_2_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.HeaderImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_2_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.ButtonImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_2_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.HeaderImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_2_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column10.ButtonImage");
 			this.NzGrid = new MS_Control.Controls.MS_GridX();
 			this.mS_GridX_Setting2 = new MS_Control.Controls.MS_GridX_Setting();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -55,6 +56,10 @@
 			this.NzTabClear = new Janus.Windows.UI.Tab.UITabPage();
 			this.NzTabCredit = new Janus.Windows.UI.Tab.UITabPage();
 			this.NzTabDebit = new Janus.Windows.UI.Tab.UITabPage();
+			this.NsMessage = new System.Windows.Forms.ToolStripButton();
+			this.NsProgress = new System.Windows.Forms.ToolStripProgressBar();
+			this.NsProgressText = new System.Windows.Forms.ToolStripLabel();
+			this.NsCancel = new System.Windows.Forms.ToolStripButton();
 			((System.ComponentModel.ISupportInitialize)(this.NzGrid)).BeginInit();
 			this.mS_GridX_Setting2.SuspendLayout();
 			this.mS_Panel1.SuspendLayout();
@@ -118,9 +123,11 @@
 			NzGrid_Layout_2.Key = "Transfer";
 			NzGrid_Layout_2_Reference_0.Instance = ((object)(resources.GetObject("NzGrid_Layout_2_Reference_0.Instance")));
 			NzGrid_Layout_2_Reference_1.Instance = ((object)(resources.GetObject("NzGrid_Layout_2_Reference_1.Instance")));
+			NzGrid_Layout_2_Reference_2.Instance = ((object)(resources.GetObject("NzGrid_Layout_2_Reference_2.Instance")));
 			NzGrid_Layout_2.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
             NzGrid_Layout_2_Reference_0,
-            NzGrid_Layout_2_Reference_1});
+            NzGrid_Layout_2_Reference_1,
+            NzGrid_Layout_2_Reference_2});
 			NzGrid_Layout_2.LayoutString = resources.GetString("NzGrid_Layout_2.LayoutString");
 			this.NzGrid.Layouts.AddRange(new Janus.Windows.GridEX.GridEXLayout[] {
             NzGrid_Layout_0,
@@ -152,7 +159,11 @@
 			this.mS_GridX_Setting2.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.mS_GridX_Setting2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.mS_GridX_Setting2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator3});
+            this.toolStripSeparator3,
+            this.NsMessage,
+            this.NsProgress,
+            this.NsProgressText,
+            this.NsCancel});
 			this.mS_GridX_Setting2.Location = new System.Drawing.Point(0, 577);
 			this.mS_GridX_Setting2.MS_BorderColor = System.Drawing.Color.DodgerBlue;
 			this.mS_GridX_Setting2.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -342,7 +353,7 @@
 			this.NzTabCredit.Key = "NzTabCredit";
 			this.NzTabCredit.Location = new System.Drawing.Point(0, 32);
 			this.NzTabCredit.Name = "NzTabCredit";
-			this.NzTabCredit.Size = new System.Drawing.Size(437, 0);
+			this.NzTabCredit.Size = new System.Drawing.Size(379, 0);
 			this.NzTabCredit.TabStop = true;
 			this.NzTabCredit.Text = "لیست بستانکاران";
 			// 
@@ -354,6 +365,48 @@
 			this.NzTabDebit.Size = new System.Drawing.Size(379, 0);
 			this.NzTabDebit.TabStop = true;
 			this.NzTabDebit.Text = "لیست بدهـکاران";
+			// 
+			// NsMessage
+			// 
+			this.NsMessage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.NsMessage.Image = ((System.Drawing.Image)(resources.GetObject("NsMessage.Image")));
+			this.NsMessage.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.NsMessage.Name = "NsMessage";
+			this.NsMessage.Size = new System.Drawing.Size(23, 22);
+			this.NsMessage.Text = "ارسال پیامک";
+			this.NsMessage.Click += new System.EventHandler(this.NsMessage_Click);
+			// 
+			// NsProgress
+			// 
+			this.NsProgress.AutoSize = false;
+			this.NsProgress.BackColor = System.Drawing.Color.White;
+			this.NsProgress.Margin = new System.Windows.Forms.Padding(5, 2, 10, 1);
+			this.NsProgress.Name = "NsProgress";
+			this.NsProgress.RightToLeftLayout = true;
+			this.NsProgress.Size = new System.Drawing.Size(150, 16);
+			this.NsProgress.Value = 20;
+			this.NsProgress.Visible = false;
+			// 
+			// NsProgressText
+			// 
+			this.NsProgressText.Font = new System.Drawing.Font("IRANSans(Small)", 14F, System.Drawing.FontStyle.Bold);
+			this.NsProgressText.ForeColor = System.Drawing.Color.Green;
+			this.NsProgressText.Name = "NsProgressText";
+			this.NsProgressText.Size = new System.Drawing.Size(41, 23);
+			this.NsProgressText.Text = "1 / 23";
+			this.NsProgressText.Visible = false;
+			// 
+			// NsCancel
+			// 
+			this.NsCancel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.NsCancel.Image = global::MS_Resource.GlobalResources._ms_Delete;
+			this.NsCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.NsCancel.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
+			this.NsCancel.Name = "NsCancel";
+			this.NsCancel.Size = new System.Drawing.Size(23, 23);
+			this.NsCancel.Text = "انصراف";
+			this.NsCancel.Visible = false;
+			this.NsCancel.Click += new System.EventHandler(this.NsCancel_Click);
 			// 
 			// FormListDebit
 			// 
@@ -394,5 +447,9 @@
         private MS_Control.Tarikh.MS_Tarikh_TextBox NzDateTo;
         private MS_Control.Tarikh.MS_Tarikh_TextBox NzDateFrom;
         private MS_Control.Controls.MS_Button_GridX ms_Save;
-    }
+		private System.Windows.Forms.ToolStripButton NsMessage;
+		private System.Windows.Forms.ToolStripProgressBar NsProgress;
+		private System.Windows.Forms.ToolStripLabel NsProgressText;
+		private System.Windows.Forms.ToolStripButton NsCancel;
+	}
 }

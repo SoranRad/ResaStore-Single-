@@ -636,6 +636,7 @@
     <Compile Include="Setting\TabSettingContainer.Designer.cs">
       <DependentUpon>TabSettingContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sms\Messaging.cs" />
     <Compile Include="Sms\SendSms.cs" />
   </ItemGroup>
   <ItemGroup>
