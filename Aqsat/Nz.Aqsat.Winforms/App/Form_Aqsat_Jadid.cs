@@ -68,7 +68,8 @@ namespace Nz.Aqsat.Winforms.App
 			if (_setting.UniqueCodeByGroup)
 				NsKind.SelectedValueChanged += (sender, args) =>
 				{
-					GetMaxSerial();
+					if(!_IsEdit)
+						GetMaxSerial();
 				};
 
 			_Manager = new AqsatManager();
@@ -78,7 +79,7 @@ namespace Nz.Aqsat.Winforms.App
 			else
 				Reset();
 		}
-        public bool ValidationDemoVersion()
+        public bool	 ValidationDemoVersion					()
         {
 	        if (!SystemConstant.IsDemo)
 		        return true;

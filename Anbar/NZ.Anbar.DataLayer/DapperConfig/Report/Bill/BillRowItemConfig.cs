@@ -15,16 +15,16 @@ namespace NZ.Anbar.DataLayer.DapperConfig.ViewModel
             this.SetList(@"
 SELECT 
 
-(1)						AS Subsystem,
-tat.kind				AS Kind ,
-N'انبار(خریدو فروش)'	AS SubsystemTitle,
-(CASE WHEN @Group=1 THEN tgk.Code ELSE  tkx.Code END) AS Code,
-LTRIM(RTRIM((CASE WHEN @Group=1 THEN tgk.title ELSE  tkx.title END)))AS Title ,
---LTRIM(RTRIM(tkx.title)) AS Title,
-SUM(tar.meqdar)			AS Count,
+        (1)						AS Subsystem,
+        tat.kind				AS Kind ,
+        N'انبار(خریدو فروش)'	AS SubsystemTitle,
+        (CASE WHEN @Group=1 THEN tgk.Code ELSE  tkx.Code END) AS Code,
+        LTRIM(RTRIM((CASE WHEN @Group=1 THEN tgk.title ELSE  tkx.title END)))AS Title ,
+        --LTRIM(RTRIM(tkx.title)) AS Title,
+        SUM(tar.meqdar)			AS Count,
 
-SUM((CASE WHEN tat.kind >=12 AND tat.kind<50 THEN 0 ELSE tar.mablaq END)) AS Debit,
-SUM((CASE WHEN tat.kind >=12 AND tat.kind<50 THEN tar.mablaq ELSE 0 END)) AS Credit
+        SUM((CASE WHEN tat.kind >=12 AND tat.kind<50 THEN 0 ELSE tar.mablaq END)) AS Debit,
+        SUM((CASE WHEN tat.kind >=12 AND tat.kind<50 THEN tar.mablaq ELSE 0 END)) AS Credit
 
 FROM Anbar.tbl_Amaliat_Riz			AS tar
 INNER JOIN Anbar.tbl_Amaliat_Title	AS tat ON tat.ID   = tar.FK_Title
@@ -38,9 +38,10 @@ AND (tat.tarikh>=@DateFrom OR @DateFrom IS NULL)
 AND (tat.tarikh<=@DateTo   OR @DateTo   IS NULL)
 AND (tat.kind>=12 AND tat.kind<=100)
 
-GROUP BY (CASE WHEN @Group=1 THEN tgk.Code ELSE  tkx.Code END),
-(CASE WHEN @Group=1 THEN tgk.title ELSE  tkx.title END),
-tat.kind
+GROUP BY 
+    (CASE WHEN @Group=1 THEN tgk.Code ELSE  tkx.Code END),
+    (CASE WHEN @Group=1 THEN tgk.title ELSE  tkx.title END),
+    tat.kind
 
 UNION ALL
 
@@ -136,11 +137,41 @@ INNER JOIN Anbar.tbl_Amaliat_Title	AS tat ON tat.ID = tatd.ID
 
 WHERE 
     (tat.FK_Salmali = @Year OR @Year IS NULL)
-AND  tat.FK_AshXas_ID = @People 
+AND tat.FK_AshXas_ID = @People 
 AND (tat.tarikh>=@DateFrom OR @DateFrom IS NULL)
 AND (tat.tarikh<=@DateTo   OR @DateTo   IS NULL)
 AND (tat.kind>=12 AND tat.kind<=100)
 GROUP BY tat.kind
+
+UNION ALL
+
+SELECT 
+
+(1)			AS Subsystem,
+(3)	        AS Kind ,
+N'انبار(خریدو فروش)' AS SubsystemTitle,
+NULL AS Code ,
+N'پورسانت فروش' AS Title,
+COUNT(distinct tat.ID)  AS Count,
+
+(0) AS Debit,
+
+SUM(ISNULL(tatd.Darsad_Porsant,0)*tat.mablaq/100) AS Credit
+
+
+FROM Anbar.tbl_Amaliat_Title_Detail AS tatd
+INNER JOIN Anbar.tbl_Amaliat_Title	AS tat ON tat.ID = tatd.ID
+
+WHERE 
+    (tat.FK_Salmali = @Year OR @Year IS NULL)
+AND tatd.FK_Vaset = @People 
+AND (tat.tarikh >= @DateFrom OR @DateFrom IS NULL)
+AND (tat.tarikh <= @DateTo   OR @DateTo   IS NULL)
+AND tat.kind = 50
+
+GROUP BY tat.kind
+
+
 
 ");
 

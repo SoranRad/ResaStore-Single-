@@ -308,6 +308,8 @@ namespace NZ.General.WinForms.Report
                 {
                     var kind = (Enums.NzFactorKind) row.Kind;
 
+                    kind = kind == Enums.NzFactorKind.PorsantFrosh ? Enums.NzFactorKind.Frosh : kind;
+
                     var factor = Form_Factory
                         .SystemList
                         .FirstOrDefault

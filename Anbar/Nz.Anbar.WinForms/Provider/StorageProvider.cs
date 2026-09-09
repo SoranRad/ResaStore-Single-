@@ -95,7 +95,6 @@ namespace Nz.Anbar.WinForms.Provider
             }
 
         }
-
         public IEnumerable<object>                  GetBillRows             (long People, short? Year, DateTime? DateFrom, DateTime? DateTo)
         {
 	        try

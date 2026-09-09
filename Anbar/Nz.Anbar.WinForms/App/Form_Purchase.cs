@@ -106,10 +106,13 @@ namespace Nz.Anbar.WinForms.App
             NzPayment.Visible               = Form_Factory.IsSystemValid(Enums.MS_System.Xazane);
             NzCustomer.Refresh_Grid         (_Manager.Connection,KindCustomer);
 
-            
+            //=====  ویزیتور
+            if (_Kind == Enums.NzFactorKind.Frosh)
+	            NsVisitor.Refresh_Grid(_Manager.Connection, 3);
+            else
+	            NsVisitorGroup.Visible = false;
 
-            nzObjectPopup1.RefreshControl   (new Size(550, 220));
-            
+			nzObjectPopup1.RefreshControl   (new Size(550, 220));
             nzObjectPopup1.NzSelectObject   += NzObjectPopup1OnNzSelectObject;
             nzObjectPopup1.NzEscapedPress   += NzObjectPopup1OnNzEscapedPress;
 
@@ -214,6 +217,10 @@ namespace Nz.Anbar.WinForms.App
                 NsSendToGirande.Checked     = _Factor?.FactorDetail?.Sent ?? false;
                 NsAmani.Checked             = _Factor?.FactorDetail?.IsAmani ?? false;
 
+                //=========== ویزیتور 
+                NsVisitorPercent.Text       = (_Factor?.FactorDetail?.Darsad_Porsant ?? 0).ToString(_FormatString);
+                if(_Factor?.FactorDetail?.FK_Vaset != null)
+                    NsVisitor.MS_Set_Select(_Factor?.FactorDetail?.FK_Vaset??0);
 
 				if (_Factor.FactorDetail?.tarikh_etebar != null)
 					NsMohlatTasvieh.MS_Tarikh = new MS_Structure_Shamsi(_Factor.FactorDetail?.tarikh_etebar.Value);
@@ -276,6 +283,7 @@ namespace Nz.Anbar.WinForms.App
                     || NsMohlatTasvieh.MS_Tarikh.HasValue
 					|| _Factor.ID > 0
                     || NsAmani.Checked 
+                    || NsVisitor.MS_Get_Selected() != null
                 )
                 {
 	                if (_Factor.FactorDetail == null)
@@ -302,7 +310,11 @@ namespace Nz.Anbar.WinForms.App
 
 	                _Factor.FactorDetail.IsAmani = NsAmani.Checked;
 
-	                if (!string.IsNullOrWhiteSpace(NsAddressGirande.Text))
+	                _Factor.FactorDetail.FK_Vaset       = (NsVisitor.MS_Get_Selected() as People)?.ID;
+	                _Factor.FactorDetail.Darsad_Porsant = NsVisitorPercent.MS_Decimal ==0?null: (decimal?)NsVisitorPercent.MS_Decimal;
+
+
+					if (!string.IsNullOrWhiteSpace(NsAddressGirande.Text))
 		                _Factor.FactorDetail.AddressGirande = NsAddressGirande.Text;
 
 	                if (!string.IsNullOrWhiteSpace(NsTitleGirande.Text))
@@ -601,10 +613,10 @@ namespace Nz.Anbar.WinForms.App
                 NzTaxPrice.MS_Decimal = decimal.Round(tax);
                 //=====
 
-                NzSumFactor.MS_Decimal = decimal.Round(sum - off + tax + NzExtend.MS_Decimal);
-                NzRemain.MS_Decimal = NzSumFactor.MS_Decimal - NzSumMoney.MS_Decimal;
+                NzSumFactor.MS_Decimal      = decimal.Round(sum - off + tax + NzExtend.MS_Decimal);
+                NzRemain.MS_Decimal         = NzSumFactor.MS_Decimal - NzSumMoney.MS_Decimal;
+                NsVisitorMablaq.MS_Decimal  = NsVisitorPercent.MS_Decimal * NzSumFactor.MS_Decimal / 100;
 
-                
             }
             catch (Exception ex)
             {
@@ -1416,8 +1428,12 @@ namespace Nz.Anbar.WinForms.App
             RefreshFactorSum();
             _DoRefresh = true;
         }
+        private void NsVisitorPercent_TextChanged       (object sender, EventArgs e)
+        {
+			NsVisitorMablaq.MS_Decimal = NsVisitorPercent.MS_Decimal * NzSumFactor.MS_Decimal / 100;
+		}
 
-        private void Form_Purchase_Shown                (object sender, EventArgs e)
+		private void Form_Purchase_Shown                (object sender, EventArgs e)
 
         {
             Init();
@@ -1636,6 +1652,6 @@ namespace Nz.Anbar.WinForms.App
 	        }
         }
 
-		
+	
 	}
 }

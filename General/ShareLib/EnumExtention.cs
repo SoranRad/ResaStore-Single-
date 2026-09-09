@@ -149,6 +149,8 @@ namespace ShareLib
                     return @"رسید ورود کالا";
                 case Enums.NzFactorKind.HavaleXoruj:
                     return @"حواله خروج کالا";
+                case Enums.NzFactorKind.PorsantFrosh:
+	                return @"پورسانت فروش";
                 default:
                     return @"";
             }

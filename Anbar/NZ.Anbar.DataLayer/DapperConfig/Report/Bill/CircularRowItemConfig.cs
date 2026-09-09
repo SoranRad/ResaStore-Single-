@@ -39,6 +39,36 @@ AND (tat.tarikh>=@DateFrom OR @DateFrom IS NULL)
 AND (tat.tarikh<=@DateTo   OR @DateTo   IS NULL)
 AND (tat.kind>=11 AND tat.kind<=55)
 
+UNION ALL
+
+SELECT 
+
+(2) AS SubSystem ,
+tat.ID ,
+dd.PersianStr,
+tat.tarikh AS Date,
+(3) AS kind,
+LTRIM(RTRIM(tat.sharh)) AS Description,
+
+N' فاکتور '+ CAST( tat.Serial AS varchar )+ N' ' + LTRIM(RTRIM(ta.title)) AS Title,
+
+(0) AS Debit,
+(ISNULL(tatd.Darsad_Porsant,0)*tat.mablaq/100) AS Credit,
+(0) AS Remaind
+
+FROM                Anbar.tbl_Amaliat_Title_Detail  AS tatd
+INNER JOIN          Anbar.tbl_Amaliat_Title	        AS tat      ON tat.ID       = tatd.ID
+LEFT OUTER JOIN     General.DimDate                 AS dd       ON tat.tarikh   = dd.GregorianDate
+INNER JOIN          Base.tbl_Ashxas                 AS ta       ON ta.ID        = tat.FK_AshXas_ID
+
+WHERE 
+	(tat.FK_Salmali=@Year  OR @Year IS NULL)
+AND tatd.FK_Vaset = @People 
+AND (tat.tarikh>=@DateFrom OR @DateFrom IS NULL)
+AND (tat.tarikh<=@DateTo   OR @DateTo   IS NULL)
+AND tat.kind = 50
+ 
+
 ");
         }
     }
