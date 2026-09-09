@@ -116,7 +116,47 @@ namespace NZ.Xazane.WinForms.Base
                 return false;
             }
 
-            if (_BankAccount.ID == 0 || (_BankAccount.ID > 0 && _BankAccount.Code != NzCode.MS_Decimal))
+            if (NzComboBank.MS_Get_Selected() == null)
+			{
+	            mS_Notify1.Show(NzComboBank);
+	            NzComboBank.Focus();
+
+	            new Form_Notify("تـوجـه", "بانک را انتخاب کنید",
+			            Form_Notify.FarsiMessageBoxIcon.اخطار)
+		            .Popup(Form_Notify.Direction_Show.Right_To_Left, 1500);
+				NzComboBank.ShowMenu();
+
+				return false;
+            }
+
+            if (NzKartXan.SelectedIndex <0)
+            {
+	            mS_Notify1.Show(NzKartXan);
+	            NzKartXan.Focus();
+
+	            new Form_Notify("تـوجـه", "کارتخوان را انتخاب کنید",
+			            Form_Notify.FarsiMessageBoxIcon.اخطار)
+		            .Popup(Form_Notify.Direction_Show.Right_To_Left, 1500);
+	            NzKartXan.DroppedDown = true;
+
+	            return false;
+            }
+
+            if (NzKindHesab.SelectedIndex < 0)
+            {
+	            mS_Notify1.Show(NzKindHesab);
+	            NzKindHesab.Focus();
+
+	            new Form_Notify("تـوجـه", "نوع حساب را انتخاب کنید",
+			            Form_Notify.FarsiMessageBoxIcon.اخطار)
+		            .Popup(Form_Notify.Direction_Show.Right_To_Left, 1500);
+	            NzKindHesab.DroppedDown = true;
+
+	            return false;
+            }
+
+
+			if (_BankAccount.ID == 0 || (_BankAccount.ID > 0 && _BankAccount.Code != NzCode.MS_Decimal))
             {
                 var result = _Manager.IsCodeUnique<Accounts>
                             (new {

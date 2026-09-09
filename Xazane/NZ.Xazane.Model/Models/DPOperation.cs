@@ -39,6 +39,11 @@ namespace NZ.Xazane.Model.Models
         public string       sharh               { get; set; }
         public bool         is_ok               { get; set; }
 
+        [NotMapped]
+        public string       UserCreate          { get; set; }
+        [NotMapped]
+		public string       UserEdit            { get; set; }
+
         public ICollection<ChequeOperation>             ChequeOP          { get; set; }  
         public ICollection<PayBoxOperation>             PayBoxOP          { get; set; }
 

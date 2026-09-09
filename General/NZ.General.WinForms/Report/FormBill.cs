@@ -68,13 +68,7 @@ namespace NZ.General.WinForms.Report
 			            .GetDataRows()
 			            .Select(x => x.DataRow as CircularRowItem)
 			            .ToList();
-
-			//if (NzTabInfo.SelectedIndex == 0)
-
-   //         var list = NzGrid
-   //                     .GetDataRows()
-   //                     .Select(x => x.DataRow as BillRowItem)
-   //                     .ToList();
+             
             var PrnDiag = new Print_Dialog(path, "List", list);
             var people  = NzCustomer.MS_Get_Selected() as People;
 

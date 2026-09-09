@@ -9,10 +9,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MS_Control.Tarikh;
 using NZ.Anbar.Model;
 
 namespace Nz.Anbar.WinForms.Base
@@ -546,6 +548,18 @@ namespace Nz.Anbar.WinForms.Base
 
 			// ناوبری به صفحه ویدیو
 			webView21.CoreWebView2.Navigate(videoPageUrl);
+		}
+
+		private void mS_GridX_Setting1_MS_On_Print_Clicked(object sender, EventArgs e)
+		{
+			mS_GridX_Setting1.MS_Company_Name	= SystemConstant.ActiveCompany.title;
+			mS_GridX_Setting1.MS_Logo			= SystemConstant.ActiveCompany.logo !=null? Image.FromStream(new MemoryStream(SystemConstant.ActiveCompany.logo)) :null;
+			mS_GridX_Setting1.MS_Molahezat		= SystemConstant.ActiveCompany.molahezat;
+			mS_GridX_Setting1.MS_Report_Name	= this.Text;
+			mS_GridX_Setting1.MS_User_Name		= SystemConstant.ActiveUser.title;
+			mS_GridX_Setting1.MS_Tarix_Report	= new MS_Structure_Shamsi(DateTime.Now).ToShamsi();
+
+
 		}
 	}
 }

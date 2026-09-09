@@ -73,6 +73,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzPrintA5 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.NzPosPrint = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsPosPrint1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.NzSave = new System.Windows.Forms.ToolStripButton();
 			this.NzNew = new System.Windows.Forms.ToolStripButton();
@@ -98,7 +99,6 @@ namespace Nz.Anbar.WinForms.App
 			this.uiTabPage1 = new Janus.Windows.UI.Tab.UITabPage();
 			this.mS_Notify1 = new MS_Control.Controls.MS_Notify();
 			this.nzObjectPopup1 = new Nz.Anbar.WinForms.Component.NzObjectPopup();
-			this.NsPosPrint1 = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
 			this.uiTabPage12.SuspendLayout();
@@ -663,28 +663,35 @@ namespace Nz.Anbar.WinForms.App
 			// NzPrintA4
 			// 
 			this.NzPrintA4.Name = "NzPrintA4";
-			this.NzPrintA4.Size = new System.Drawing.Size(180, 22);
+			this.NzPrintA4.Size = new System.Drawing.Size(139, 22);
 			this.NzPrintA4.Text = "چاپ  A4";
 			this.NzPrintA4.Click += new System.EventHandler(this.NzPrintNormalA4_Click);
 			// 
 			// NzPrintA5
 			// 
 			this.NzPrintA5.Name = "NzPrintA5";
-			this.NzPrintA5.Size = new System.Drawing.Size(180, 22);
+			this.NzPrintA5.Size = new System.Drawing.Size(139, 22);
 			this.NzPrintA5.Text = "چاپ  A5";
 			this.NzPrintA5.Click += new System.EventHandler(this.NzPrintNormalA5_Click);
 			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+			this.toolStripSeparator1.Size = new System.Drawing.Size(136, 6);
 			// 
 			// NzPosPrint
 			// 
 			this.NzPosPrint.Name = "NzPosPrint";
-			this.NzPosPrint.Size = new System.Drawing.Size(180, 22);
+			this.NzPosPrint.Size = new System.Drawing.Size(139, 22);
 			this.NzPosPrint.Text = "فیش پرینت 1";
 			this.NzPosPrint.Click += new System.EventHandler(this.NzPosPrint_Click);
+			// 
+			// NsPosPrint1
+			// 
+			this.NsPosPrint1.Name = "NsPosPrint1";
+			this.NsPosPrint1.Size = new System.Drawing.Size(139, 22);
+			this.NsPosPrint1.Text = "فیش پرینت 2";
+			this.NsPosPrint1.Click += new System.EventHandler(this.NsPosPrint1_Click);
 			// 
 			// toolStripSeparator3
 			// 
@@ -1149,13 +1156,6 @@ namespace Nz.Anbar.WinForms.App
 			this.nzObjectPopup1.Padding = new System.Windows.Forms.Padding(0);
 			this.nzObjectPopup1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.nzObjectPopup1.Size = new System.Drawing.Size(0, 0);
-			// 
-			// NsPosPrint1
-			// 
-			this.NsPosPrint1.Name = "NsPosPrint1";
-			this.NsPosPrint1.Size = new System.Drawing.Size(180, 22);
-			this.NsPosPrint1.Text = "فیش پرینت 2";
-			this.NsPosPrint1.Click += new System.EventHandler(this.NsPosPrint1_Click);
 			// 
 			// Form_SaleBack
 			// 

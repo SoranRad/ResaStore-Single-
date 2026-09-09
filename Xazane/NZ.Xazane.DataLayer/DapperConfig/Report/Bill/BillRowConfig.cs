@@ -29,7 +29,7 @@ UNION ALL
 
 SELECT 
         tax.FK_DP AS ID ,
-        (case tad.kind when 1  then N'دریافت وجوه ' when 2 then N'پرداخت وجوه ' when 6 then N'کسورات حساب' when 7 then N'اضافات حساب' else N'' END) +
+        (case tad.kind when 1  then N'دریافت وجوه ' when 2 then N'پرداخت وجوه ' when 6 then N' بدهکاری ' when 7 then N' بستانکاری ' else N'' END) +
         (case when tad.kind=1 OR tad.kind =2 then ( case when tax.kind = 9  then N'نقدی' else N'بانکی' END ) else N'' END )    AS Title,
         tax.mablaq,
         tad.kind,

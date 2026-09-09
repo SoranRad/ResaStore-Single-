@@ -236,12 +236,13 @@
 			this.mS_GridX_Setting1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_GridX_Setting1.MS_Color_End = System.Drawing.Color.PowderBlue;
 			this.mS_GridX_Setting1.MS_Color_Start = System.Drawing.Color.AliceBlue;
-			this.mS_GridX_Setting1.MS_GridX = null;
+			this.mS_GridX_Setting1.MS_GridX = this.NsGridKala;
 			this.mS_GridX_Setting1.Name = "mS_GridX_Setting1";
 			this.mS_GridX_Setting1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.mS_GridX_Setting1.Size = new System.Drawing.Size(1033, 27);
 			this.mS_GridX_Setting1.TabIndex = 755;
 			this.mS_GridX_Setting1.Text = "mS_GridX_Setting1";
+			this.mS_GridX_Setting1.MS_On_Print_Clicked += new System.EventHandler(this.mS_GridX_Setting1_MS_On_Print_Clicked);
 			// 
 			// toolStripSeparator1
 			// 

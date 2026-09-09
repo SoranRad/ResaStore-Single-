@@ -15,6 +15,7 @@ namespace NZ.Xazane.DataLayer.DapperConfig.ViewModel
             //DECLARE @People BIGINT = 86,@DateFrom DATE, @DateTo DATE ,@Year SMALLINT = 1397, @Group TINYINT = 1
             SetList(@"
 
+
 SELECT 
 
 N'خزانه داری(دریافت و پرداخت)' AS SubsystemTitle ,
@@ -22,12 +23,16 @@ N'خزانه داری(دریافت و پرداخت)' AS SubsystemTitle ,
 (CASE WHEN tad.kind =1 OR tad.kind =7 THEN 1 ELSE 2 END)		AS Kind,
 NULL	        AS Count,
 tax.kind		AS Code,
-N''				AS Title,
+LTRIM(RTRIM(CASE WHEN tad.kind = 1 OR tad.kind =7 THEN thxBes.title ELSE thxBed.title END))	AS Title,
+
 SUM( CASE WHEN tad.kind = 1 OR tad.kind =7 THEN 0 ELSE tax.mablaq END ) AS Debit,
 SUM( CASE WHEN tad.kind = 1 OR tad.kind =7 THEN tax.mablaq ELSE 0 END ) AS Credit
 
-FROM Xazane.tbl_Amaliat_Xazaneh  AS tax
-INNER JOIN Xazane.tbl_Amaliat_DP AS tad ON tad.ID = tax.FK_DP
+FROM                Xazane.tbl_Amaliat_Xazaneh      AS tax
+INNER JOIN          Xazane.tbl_Amaliat_DP           AS tad      ON tad.ID = tax.FK_DP
+LEFT OUTER JOIN     Xazane.tbl_Hesab_Xazaneh        AS thxBed   ON thxBed.ID = tax.FK_Xazaneh_Bad  
+LEFT OUTER JOIN     Xazane.tbl_Hesab_Xazaneh        AS thxBes   ON thxBes.ID = tax.FK_Xazaneh_Bas  
+
 
 WHERE 
     (tad.FK_Salmali = @Year OR @Year IS NULL)
@@ -35,9 +40,11 @@ AND tad.FK_ShaXs=@People
 AND (tad.tarikh>=@DateFrom OR @DateFrom IS NULL)
 AND (tad.tarikh<=@DateTo   OR @DateTo   IS NULL)
 
+GROUP BY 
 
-GROUP BY (CASE WHEN tad.kind =1 OR tad.kind =7 THEN 1 ELSE 2 END)
-,tax.kind 
+(CASE WHEN tad.kind = 1 OR tad.kind = 7 THEN 1 ELSE 2 END),
+(CASE WHEN tad.kind = 1 OR tad.kind = 7 THEN thxBes.title ELSE thxBed.title END),
+tax.kind
 
 UNION ALL
  
@@ -59,7 +66,7 @@ INNER JOIN Xazane.tbl_Amaliat_DP AS tad ON tad.ID = tac.FK_DP
 
 WHERE 
 	(tad.FK_Salmali = @Year OR @Year IS NULL)
-AND  tad.FK_ShaXs	= @People 
+AND tad.FK_ShaXs	= @People 
 AND (tad.tarikh >= @DateFrom OR @DateFrom IS NULL)
 AND (tad.tarikh <= @DateTo   OR @DateTo   IS NULL)
 

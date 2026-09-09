@@ -154,18 +154,18 @@
   <data name="NsEditKala.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
   <data name="NsDeleteKala.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -222,6 +222,9 @@
         R7awL5BPd4oCrihOAicpAlO0FRZjm4H9RYyVfv+/IktV6EJ+McAP3NtiUFuDsZwAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="NsBottomBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>170, 10</value>
+  </metadata>
   <data name="NsGridSubGroup.BuiltInTextsData" xml:space="preserve">
     <value>&lt;LocalizableData ID="LocalizableStrings" Collection="true"&gt;&lt;GroupByBoxInfo&gt;برای گروه بندی ستون مورد نظر را به این قسمت بکشید&lt;/GroupByBoxInfo&gt;&lt;CalendarNoneButton&gt;هیچ&lt;/CalendarNoneButton&gt;&lt;CalendarTodayButton&gt;امروز&lt;/CalendarTodayButton&gt;&lt;RecordNavigator&gt;رکورد از&lt;/RecordNavigator&gt;&lt;RecordNavigatorError&gt;شما نمی توانید به رکورد مشخص شده بروید&lt;/RecordNavigatorError&gt;&lt;EmptyGridInfo&gt;هیچ اطلاعاتی برای نمایش وجود ندارد&lt;/EmptyGridInfo&gt;&lt;OutlookDateEmpty&gt;هیچ&lt;/OutlookDateEmpty&gt;&lt;OutlookDateOlder&gt;قدیم تر&lt;/OutlookDateOlder&gt;&lt;OutlookDateLastMonth&gt;ماه قبل&lt;/OutlookDateLastMonth&gt;&lt;OutlookDateEarlierThisMonth&gt;پیش از این ماه&lt;/OutlookDateEarlierThisMonth&gt;&lt;OutlookDateThreeWeeksAgo&gt;سه هفته قبل&lt;/OutlookDateThreeWeeksAgo&gt;&lt;OutlookDateTwoWeeksAgo&gt;دو هفته قبل&lt;/OutlookDateTwoWeeksAgo&gt;&lt;OutlookDateLastWeek&gt;هفته پیش&lt;/OutlookDateLastWeek&gt;&lt;OutlookDateYesterday&gt;دیروز&lt;/OutlookDateYesterday&gt;&lt;OutlookDateToday&gt;امروز&lt;/OutlookDateToday&gt;&lt;OutlookDateTomorrow&gt;فردا&lt;/OutlookDateTomorrow&gt;&lt;OutlookDateNextWeek&gt;هفته بعد&lt;/OutlookDateNextWeek&gt;&lt;OutlookDateTwoWeeksAway&gt;از دو هفته به بعد&lt;/OutlookDateTwoWeeksAway&gt;&lt;OutlookDateThreeWeeksAway&gt;از سه هفته به بعد&lt;/OutlookDateThreeWeeksAway&gt;&lt;OutlookDateLaterThisMonth&gt;بعد از این ماه&lt;/OutlookDateLaterThisMonth&gt;&lt;OutlookDateNextMonth&gt;ماه بعد&lt;/OutlookDateNextMonth&gt;&lt;OutlookDateBeyondNextMonth&gt;از ماه بعدی&lt;/OutlookDateBeyondNextMonth&gt;&lt;DropDownOkButton&gt;تائید&lt;/DropDownOkButton&gt;&lt;DropDownCancelButton&gt;انصراف&lt;/DropDownCancelButton&gt;&lt;FilterRowConditionEqual&gt;مساوی&lt;/FilterRowConditionEqual&gt;&lt;FilterRowConditionNotEqual&gt;مخالف&lt;/FilterRowConditionNotEqual&gt;&lt;FilterRowConditionGreaterThan&gt;بزرگتر از&lt;/FilterRowConditionGreaterThan&gt;&lt;FilterRowConditionGreaterThanOrEqual&gt;بزرگتر مساوی&lt;/FilterRowConditionGreaterThanOrEqual&gt;&lt;FilterRowConditionLessThan&gt;کوچکتر&lt;/FilterRowConditionLessThan&gt;&lt;FilterRowConditionLessThanOrEqual&gt;کوچکتر مساوی&lt;/FilterRowConditionLessThanOrEqual&gt;&lt;FilterRowConditionContains&gt;شامل شود&lt;/FilterRowConditionContains&gt;&lt;FilterRowConditionNotContains&gt;شامل نباشد&lt;/FilterRowConditionNotContains&gt;&lt;FilterRowConditionEndsWith&gt;پایان یابد&lt;/FilterRowConditionEndsWith&gt;&lt;FilterRowConditionBeginsWith&gt;شروع شود&lt;/FilterRowConditionBeginsWith&gt;&lt;FilterRowConditionIsEmpty&gt;خالی&lt;/FilterRowConditionIsEmpty&gt;&lt;FilterRowConditionNotIsEmpty&gt;پر&lt;/FilterRowConditionNotIsEmpty&gt;&lt;FilterRowConditionClear&gt;پاک کردن&lt;/FilterRowConditionClear&gt;&lt;/LocalizableData&gt;</value>
   </data>
@@ -235,17 +238,17 @@
     <value>
         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
-        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
+        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
 </value>
   </data>
   <data name="NsDeleteSubGroup.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -302,6 +305,9 @@
         AAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="mS_Tool_Strip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>297, 8</value>
+  </metadata>
   <data name="NsMainGrid.BuiltInTextsData" xml:space="preserve">
     <value>&lt;LocalizableData ID="LocalizableStrings" Collection="true"&gt;&lt;GroupByBoxInfo&gt;برای گروه بندی ستون مورد نظر را به این قسمت بکشید&lt;/GroupByBoxInfo&gt;&lt;CalendarNoneButton&gt;هیچ&lt;/CalendarNoneButton&gt;&lt;CalendarTodayButton&gt;امروز&lt;/CalendarTodayButton&gt;&lt;RecordNavigator&gt;رکورد از&lt;/RecordNavigator&gt;&lt;RecordNavigatorError&gt;شما نمی توانید به رکورد مشخص شده بروید&lt;/RecordNavigatorError&gt;&lt;EmptyGridInfo&gt;هیچ اطلاعاتی برای نمایش وجود ندارد&lt;/EmptyGridInfo&gt;&lt;OutlookDateEmpty&gt;هیچ&lt;/OutlookDateEmpty&gt;&lt;OutlookDateOlder&gt;قدیم تر&lt;/OutlookDateOlder&gt;&lt;OutlookDateLastMonth&gt;ماه قبل&lt;/OutlookDateLastMonth&gt;&lt;OutlookDateEarlierThisMonth&gt;پیش از این ماه&lt;/OutlookDateEarlierThisMonth&gt;&lt;OutlookDateThreeWeeksAgo&gt;سه هفته قبل&lt;/OutlookDateThreeWeeksAgo&gt;&lt;OutlookDateTwoWeeksAgo&gt;دو هفته قبل&lt;/OutlookDateTwoWeeksAgo&gt;&lt;OutlookDateLastWeek&gt;هفته پیش&lt;/OutlookDateLastWeek&gt;&lt;OutlookDateYesterday&gt;دیروز&lt;/OutlookDateYesterday&gt;&lt;OutlookDateToday&gt;امروز&lt;/OutlookDateToday&gt;&lt;OutlookDateTomorrow&gt;فردا&lt;/OutlookDateTomorrow&gt;&lt;OutlookDateNextWeek&gt;هفته بعد&lt;/OutlookDateNextWeek&gt;&lt;OutlookDateTwoWeeksAway&gt;از دو هفته به بعد&lt;/OutlookDateTwoWeeksAway&gt;&lt;OutlookDateThreeWeeksAway&gt;از سه هفته به بعد&lt;/OutlookDateThreeWeeksAway&gt;&lt;OutlookDateLaterThisMonth&gt;بعد از این ماه&lt;/OutlookDateLaterThisMonth&gt;&lt;OutlookDateNextMonth&gt;ماه بعد&lt;/OutlookDateNextMonth&gt;&lt;OutlookDateBeyondNextMonth&gt;از ماه بعدی&lt;/OutlookDateBeyondNextMonth&gt;&lt;DropDownOkButton&gt;تائید&lt;/DropDownOkButton&gt;&lt;DropDownCancelButton&gt;انصراف&lt;/DropDownCancelButton&gt;&lt;FilterRowConditionEqual&gt;مساوی&lt;/FilterRowConditionEqual&gt;&lt;FilterRowConditionNotEqual&gt;مخالف&lt;/FilterRowConditionNotEqual&gt;&lt;FilterRowConditionGreaterThan&gt;بزرگتر از&lt;/FilterRowConditionGreaterThan&gt;&lt;FilterRowConditionGreaterThanOrEqual&gt;بزرگتر مساوی&lt;/FilterRowConditionGreaterThanOrEqual&gt;&lt;FilterRowConditionLessThan&gt;کوچکتر&lt;/FilterRowConditionLessThan&gt;&lt;FilterRowConditionLessThanOrEqual&gt;کوچکتر مساوی&lt;/FilterRowConditionLessThanOrEqual&gt;&lt;FilterRowConditionContains&gt;شامل شود&lt;/FilterRowConditionContains&gt;&lt;FilterRowConditionNotContains&gt;شامل نباشد&lt;/FilterRowConditionNotContains&gt;&lt;FilterRowConditionEndsWith&gt;پایان یابد&lt;/FilterRowConditionEndsWith&gt;&lt;FilterRowConditionBeginsWith&gt;شروع شود&lt;/FilterRowConditionBeginsWith&gt;&lt;FilterRowConditionIsEmpty&gt;خالی&lt;/FilterRowConditionIsEmpty&gt;&lt;FilterRowConditionNotIsEmpty&gt;پر&lt;/FilterRowConditionNotIsEmpty&gt;&lt;FilterRowConditionClear&gt;پاک کردن&lt;/FilterRowConditionClear&gt;&lt;/LocalizableData&gt;</value>
   </data>
@@ -314,18 +320,18 @@
   <data name="NsEditMainGroup.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
   <data name="NsDeleteMainGroup.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -369,4 +375,7 @@
         AAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>47</value>
+  </metadata>
 </root>

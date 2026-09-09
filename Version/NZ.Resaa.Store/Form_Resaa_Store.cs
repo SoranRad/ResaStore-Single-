@@ -604,6 +604,26 @@ namespace NZ.Resaa.Store
 				}
 	        }
         }
+
+        private void LoadDefaultPrintParametters()
+        {
+	        MS_Control.Controls.MS_GridX_Setting.Company = SystemConstant.ActiveCompany.title;
+	        MS_Control.Controls.MS_GridX_Setting.UserTitle = SystemConstant.ActiveUser.title;
+	        MS_Control.Controls.MS_GridX_Setting.ReportDate = new MS_Structure_Shamsi(DateTime.Now).ToShamsi();
+	        MS_Control.Controls.MS_GridX_Setting.Molahezat = SystemConstant.ActiveCompany.molahezat;
+	        if (SystemConstant.ActiveCompany.logo != null)
+	        {
+                try
+                {
+                    MS_Control.Controls.MS_GridX_Setting.Logo = Image.FromStream(new MemoryStream(SystemConstant.ActiveCompany.logo));
+                }
+                catch (Exception ex)
+                {
+	                log.Error(ex);
+				}
+	        }
+
+        }
         #endregion
 
         private void    ms_MdiTab_MdiTabAdded               (object sender, MdiTabStripTabEventArgs e)
@@ -639,6 +659,8 @@ namespace NZ.Resaa.Store
             GenerateMenuIndex   ();
             ApplyAccessRole     ();
             CheckExpiredDate    ();
+            LoadDefaultPrintParametters();
+
         }
         private void    Form_Resaa_Store_FormClosing        (object sender, FormClosingEventArgs e)
         {

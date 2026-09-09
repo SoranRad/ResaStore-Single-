@@ -39,9 +39,13 @@ SELECT tad.ID ,
        tad.tarikh_add ,
        tad.tarikh_edit ,
        LTRIM(RTRIM(tad.sharh )) sharh,
-       tad.is_ok 
-	   
-FROM Xazane.tbl_Amaliat_DP AS tad
+       tad.is_ok ,
+       LTRIM(RTRIM(UserInsert.title)) AS UserCreate,
+       LTRIM(RTRIM(UserEdit.title)) AS UserEdit
+
+FROM             Xazane.tbl_Amaliat_DP   AS tad
+LEFT OUTER JOIN  General.tbl_User        AS UserInsert   ON UserInsert.ID    = tad.FK_User_Add
+LEFT OUTER JOIN  General.tbl_User        AS UserEdit     ON UserEdit.ID      = tad.FK_User_Edit
 WHERE tad.ID=@ID;
 
 SELECT tax.ID ,
@@ -61,6 +65,7 @@ SELECT tax.ID ,
        tax.tarikh_edit,
 	   LTRIM(RTRIM(CreditAccount.title ))  AS CreditAccountTitle,
 	   LTRIM(RTRIM(DebitAccount.title ))   AS DebitAccountTitle
+
 FROM Xazane.tbl_Amaliat_Xazaneh AS tax
 LEFT OUTER JOIN Xazane.tbl_Hesab_Xazaneh AS DebitAccount ON DebitAccount.ID = tax.FK_Xazaneh_Bad
 LEFT OUTER JOIN Xazane.tbl_Hesab_Xazaneh AS CreditAccount ON CreditAccount.ID = tax.FK_Xazaneh_Bas

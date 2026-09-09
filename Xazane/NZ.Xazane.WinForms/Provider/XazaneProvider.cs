@@ -64,7 +64,11 @@ namespace NZ.Xazane.WinForms
                 list.MSZ_ForEach(x =>
                 {
                     x.KindTitle = ((Enums.NzPaymentOperatingKind) x.Kind).NzToString();
-                    x.Title     = ((Enums.NzPaymentOperatingKind) x.Code).NzToString();
+                    x.Title     = ((Enums.NzPaymentOperatingKind)x.Code) == Enums.NzPaymentOperatingKind.Kosurat ||
+								  ((Enums.NzPaymentOperatingKind)x.Code) == Enums.NzPaymentOperatingKind.Addition
+								  ?x.Title
+								  : ((Enums.NzPaymentOperatingKind)x.Code).NzToString()
+								  ;
 
                     x.Code      = null;
                 });
@@ -94,7 +98,7 @@ namespace NZ.Xazane.WinForms
                         &&  x.Kind != (byte)Enums.NzPaymentOperatingKind.RemaindDebit
                         &&  x.Kind != (byte)Enums.NzPaymentOperatingKind.RemaindCredit
                         )
-                            x.Title = ((Enums.NzPaymentOperatingKind) x.Kind).NzToString()+ @" " +x.Title;
+                            x.Title = ((Enums.NzPaymentOperatingKind) x.Kind).NzToString()+ @" " +x.Title ;
                 });
 
                 return list;

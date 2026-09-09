@@ -49,14 +49,12 @@ namespace NZ.Xazane.WinForms.Base
         {
             if (_Kind==Enums.NzAccountKind.Deficit)
             {
-                this.TitleText = "لیست کسورات";
+                this.TitleText = "لیست انواع بدهکاری";
             }
             else
             {
-                this.TitleText = "لیست اضافات";
+                this.TitleText = "لیست انواع بستانکاری";
             }
-            
-
         }
         private void RefreshGrid()
         {
@@ -83,7 +81,7 @@ namespace NZ.Xazane.WinForms.Base
         {
             var pos = mS_GridX1.VerticalScrollPosition;
             RefreshGrid();
-            var id = Convert.ToInt16(((AddingNewEventArgs)e).NewObject);
+            var id = Convert.ToInt64(((AddingNewEventArgs)e).NewObject);
             var row = mS_GridX1.GetRows()
                 .SingleOrDefault(x => (x.DataRow as Accounts).ID == id);
             if (row == null) return;

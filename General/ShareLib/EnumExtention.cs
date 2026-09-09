@@ -168,9 +168,9 @@ namespace ShareLib
                 case Enums.NzPaymentOperatingKind.Naql_Enteqal:
                     return @"نقل و انتقال";
                 case Enums.NzPaymentOperatingKind.Kosurat:
-                    return @"کسورات";
+                    return @"بدهکاری";
                 case Enums.NzPaymentOperatingKind.Addition:
-                    return @"اضافات";
+                    return @"بستانکاری";
                 case Enums.NzPaymentOperatingKind.Enteqal_Shaxs:
                     return @"انتقال حساب بین اشخاص";
                 case Enums.NzPaymentOperatingKind.Naqd:

@@ -24,20 +24,22 @@ Xazane.GetDPDetail(tad.ID) AS Title,
 (CASE WHEN tad.kind = 1 THEN 0 ELSE ISNULL(Cheque.mablaq,0)+ISNULL(CashPos.mablaq,0)+ISNULL(tad.takhfif,0) END) AS Debit,
 (CASE WHEN tad.kind = 1 THEN ISNULL(Cheque.mablaq,0)+ISNULL(CashPos.mablaq,0)+ISNULL(tad.takhfif,0) ELSE 0 END ) AS Credit
 
-FROM 
-Xazane.tbl_Amaliat_DP AS tad
+FROM Xazane.tbl_Amaliat_DP AS tad
+
 LEFT OUTER JOIN (
-SELECT tax2.FK_DP,SUM(tax2.mablaq) AS Mablaq 
-FROM Xazane.tbl_Amaliat_Xazaneh AS tax2
-GROUP BY tax2.FK_DP
+	SELECT tax2.FK_DP,SUM(tax2.mablaq) AS Mablaq 
+	FROM Xazane.tbl_Amaliat_Xazaneh AS tax2
+	GROUP BY tax2.FK_DP
 ) AS CashPos ON CashPos.FK_DP = tad.ID
 
 LEFT OUTER JOIN(
-SELECT tac2.FK_DP,SUM(tac2.mablaq)AS Mablaq 
-FROM Xazane.tbl_Amaliat_Check AS tac2
-GROUP BY tac2.FK_DP
+	SELECT tac2.FK_DP,SUM(tac2.mablaq)AS Mablaq 
+	FROM Xazane.tbl_Amaliat_Check AS tac2
+	GROUP BY tac2.FK_DP
 ) AS Cheque ON Cheque.FK_DP = tad.ID
 INNER JOIN General.DimDate					AS dd  ON dd.GregorianDate = tad.tarikh
+
+
 WHERE 
 	 (tad.FK_Salmali	= @Year OR @Year IS NULL)
 AND  tad.FK_ShaXs	= @People
@@ -55,14 +57,16 @@ tad.tarikh AS Date,
 LTRIM(RTRIM(tad.sharh)) AS Description,
 dd.PersianStr,
 tax.kind,
-(CASE WHEN tax.kind = 6 THEN N'کسورات حساب شخص ' ELSE N'اضـافات حسـاب شخص ' END ) AS Title,
+(CASE WHEN tax.kind = 6 THEN LTRIM(RTRIM(thxBed.title)) ELSE LTRIM(RTRIM(thxBes.title))  END ) AS Title,
 (CASE WHEN tax.kind = 7 THEN 0 ELSE tax.mablaq END )  AS Debit,
 (CASE WHEN tax.kind = 7 THEN tax.mablaq ELSE 0 END )  AS Credit
 
-FROM 
-Xazane.tbl_Amaliat_Xazaneh  AS tax
-LEFT OUTER JOIN Xazane.tbl_Amaliat_DP AS tad ON tax.FK_DP = tad.ID
-INNER JOIN General.DimDate					AS dd  ON dd.GregorianDate = tad.tarikh
+FROM				Xazane.tbl_Amaliat_Xazaneh			AS tax
+LEFT OUTER			JOIN Xazane.tbl_Amaliat_DP			AS tad		ON tax.FK_DP			= tad.ID
+INNER JOIN			General.DimDate						AS dd		ON dd.GregorianDate		= tad.tarikh
+LEFT OUTER JOIN     Xazane.tbl_Hesab_Xazaneh			AS thxBed   ON thxBed.ID			= tax.FK_Xazaneh_Bad  
+LEFT OUTER JOIN     Xazane.tbl_Hesab_Xazaneh			AS thxBes   ON thxBes.ID			= tax.FK_Xazaneh_Bas  
+
 WHERE 
 	 (tad.FK_Salmali	= @Year OR @Year IS NULL)
 AND  tad.FK_ShaXs	= @People

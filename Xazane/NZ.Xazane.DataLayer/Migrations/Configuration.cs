@@ -10,7 +10,9 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = nameof(XazaneContext);
+            AutomaticMigrationDataLossAllowed = false;
+
+			ContextKey = nameof(XazaneContext);
         }
 
         protected override void Seed(NZ.Xazane.DataLayer.XazaneContext context)

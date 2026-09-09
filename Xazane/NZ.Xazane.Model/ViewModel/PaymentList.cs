@@ -16,7 +16,7 @@ namespace NZ.Xazane.Model.ViewModel
         public byte         PersianDayInMonth   { get; set; }
         public string       PersianStr          { get; set; }
         public string       CustomerTitle       { get; set; }
-        public decimal      TotalMount          => Cache + Pos + (Cheque??0) - (takhfif??0);
+        public decimal      TotalMount          => Cache + Pos + (Cheque??0) + (takhfif??0);
         public decimal      Cache               { get; set; }
         public decimal      Pos                 { get; set; }
         public decimal?     Cheque              { get; set; }

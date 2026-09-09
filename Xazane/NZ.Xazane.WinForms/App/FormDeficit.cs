@@ -57,15 +57,15 @@ namespace NZ.Xazane.WinForms.App
         {
             if (_Kind == Enums.NzPaymentOperatingKind.Kosurat)
             {
-                this.TitleText               = @"ثبت کسورات";
-                lblNoh.Text             = @"انتخاب نوع کسورات :";
+                this.TitleText               = @"ثبت بدهکاری";
+                lblNoh.Text             = @"انتخاب نوع بدهکاری :";
                 LineSeperator.BackColor = Color.Maroon;
 
             }
             else 
             {
-                this.TitleText = @"ثبت اضافات";
-                lblNoh.Text               = @"انتخاب نوع اضافات :";
+                this.TitleText = @"ثبت بستانکاری";
+                lblNoh.Text               = @"انتخاب نوع بستانکاری :";
                 LineSeperator.BackColor = Color.DarkCyan;
 
             }
@@ -93,8 +93,13 @@ namespace NZ.Xazane.WinForms.App
                 _Is_Edit                = true;
                 var PayBox              = _DP.PayBoxOP.SingleOrDefault();
                 NzComboShaxs.MS_Set_Select(_DP.FK_ShaXs);
-                NzComboDeficit.MS_Set_Select(PayBox.FK_Xazaneh_Bad);
-                NzDate.MS_Tarikh      = new MS_Structure_Shamsi(_DP.tarikh);
+
+                if(((Enums.NzPaymentOperatingKind)_DP.kind) == Enums.NzPaymentOperatingKind.Kosurat)
+                    NzComboDeficit.MS_Set_Select(PayBox.FK_Xazaneh_Bad);
+                else
+	                NzComboDeficit.MS_Set_Select(PayBox.FK_Xazaneh_Bas);
+
+				NzDate.MS_Tarikh      = new MS_Structure_Shamsi(_DP.tarikh);
                 NzSerial.Text           = _DP.serial.ToString();
                 //NzMab.MS_Decimal        = PayBox.mablaq;
                 NzMab.Text              = PayBox.mablaq.ToString("0,0.##");
@@ -136,6 +141,7 @@ namespace NZ.Xazane.WinForms.App
             }
             
             _DP.FK_ShaXs            = (NzComboShaxs.MS_Get_Selected() as People).ID;
+
             if(_Kind == Enums.NzPaymentOperatingKind.Kosurat)
                 Paybox.FK_Xazaneh_Bad   = (NzComboDeficit.MS_Get_Selected() as Accounts).ID;
             else 

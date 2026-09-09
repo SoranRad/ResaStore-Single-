@@ -1,4 +1,12 @@
-﻿using System;
+﻿using Janus.Windows.GridEX;
+using MS_Control;
+using MS_Control.Tarikh;
+using NZ.Xazane.Business;
+using NZ.Xazane.Model.Models;
+using NZ.Xazane.Model.ViewModel;
+using ShareLib;
+using ShareLib.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,14 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Janus.Windows.GridEX;
-using MS_Control;
-using MS_Control.Tarikh;
-using NZ.Xazane.Business;
-using NZ.Xazane.Model.Models;
-using NZ.Xazane.Model.ViewModel;
-using ShareLib;
-using ShareLib.Utils;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace NZ.Xazane.WinForms.App
 {
@@ -123,9 +124,17 @@ namespace NZ.Xazane.WinForms.App
                     #endregion
                     #region Cheque
                     NzGridItems.DataSource          = DP.ChequeOP?.ToList();
-                    #endregion
-                }
-                catch (Exception ex)
+					#endregion
+
+					#region Details
+
+					NsTarikhCreate.Text     = DP.tarikh_add.ToPersianDate() + " " + DP.tarikh_add.ToString("HH:m");
+					NsTarikhEdit.Text       = DP.tarikh_edit?.ToPersianDate() + " " + DP.tarikh_edit?.ToString("HH:m");
+					NsUserCreate.Text       = DP.UserCreate;
+					NsUserEdit.Text         = DP.UserEdit;
+					#endregion
+				}
+				catch (Exception ex)
                 {
                     MS_Message.Show("خطا در خواندن اطلاعات", "خطا", ex.Message, MessageBoxButtons.OK);
                 }
@@ -142,7 +151,13 @@ namespace NZ.Xazane.WinForms.App
                 NzPosAmount.Text =
                     NzPosIdentity.Text =
                         NzPosDesc.Text = "";
-            var str = _Kind == Enums.NzPaymentOperatingKind.Daryaft
+
+            NsTarikhCreate.Text =
+	            NsTarikhEdit.Text =
+		            NsUserCreate.Text =
+			            NsUserEdit.Text = "";
+
+			var str = _Kind == Enums.NzPaymentOperatingKind.Daryaft
                 ? @"BankTitle"
                 : @"PayAccountTitle";
             var str2 = _Kind == Enums.NzPaymentOperatingKind.Daryaft
@@ -326,9 +341,5 @@ namespace NZ.Xazane.WinForms.App
             RefreshGrid();
         }
 
-        private void mS_GridX_Setting2_MS_On_Print_Clicked(object sender, EventArgs e)
-        {
-            mS_GridX_Setting2.FillParametter("لیست"+_Kind);
-        }
     }
 }
