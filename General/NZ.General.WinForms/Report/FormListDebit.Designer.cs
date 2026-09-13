@@ -46,6 +46,10 @@
 			this.NzGrid = new MS_Control.Controls.MS_GridX();
 			this.mS_GridX_Setting2 = new MS_Control.Controls.MS_GridX_Setting();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+			this.NsMessage = new System.Windows.Forms.ToolStripButton();
+			this.NsProgress = new System.Windows.Forms.ToolStripProgressBar();
+			this.NsProgressText = new System.Windows.Forms.ToolStripLabel();
+			this.NsCancel = new System.Windows.Forms.ToolStripButton();
 			this.mS_Panel1 = new MS_Control.Controls.MS_Panel();
 			this.ms_Save = new MS_Control.Controls.MS_Button_GridX();
 			this.label2 = new System.Windows.Forms.Label();
@@ -56,10 +60,6 @@
 			this.NzTabClear = new Janus.Windows.UI.Tab.UITabPage();
 			this.NzTabCredit = new Janus.Windows.UI.Tab.UITabPage();
 			this.NzTabDebit = new Janus.Windows.UI.Tab.UITabPage();
-			this.NsMessage = new System.Windows.Forms.ToolStripButton();
-			this.NsProgress = new System.Windows.Forms.ToolStripProgressBar();
-			this.NsProgressText = new System.Windows.Forms.ToolStripLabel();
-			this.NsCancel = new System.Windows.Forms.ToolStripButton();
 			((System.ComponentModel.ISupportInitialize)(this.NzGrid)).BeginInit();
 			this.mS_GridX_Setting2.SuspendLayout();
 			this.mS_Panel1.SuspendLayout();
@@ -144,7 +144,7 @@
 			this.NzGrid.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
 			this.NzGrid.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
 			this.NzGrid.SelectOnExpand = false;
-			this.NzGrid.Size = new System.Drawing.Size(1204, 531);
+			this.NzGrid.Size = new System.Drawing.Size(1204, 530);
 			this.NzGrid.TabIndex = 726;
 			this.NzGrid.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
 			this.NzGrid.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -164,7 +164,7 @@
             this.NsProgress,
             this.NsProgressText,
             this.NsCancel});
-			this.mS_GridX_Setting2.Location = new System.Drawing.Point(0, 577);
+			this.mS_GridX_Setting2.Location = new System.Drawing.Point(0, 576);
 			this.mS_GridX_Setting2.MS_BorderColor = System.Drawing.Color.DodgerBlue;
 			this.mS_GridX_Setting2.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_GridX_Setting2.MS_Color_End = System.Drawing.Color.PowderBlue;
@@ -172,7 +172,7 @@
 			this.mS_GridX_Setting2.MS_GridX = this.NzGrid;
 			this.mS_GridX_Setting2.Name = "mS_GridX_Setting2";
 			this.mS_GridX_Setting2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_GridX_Setting2.Size = new System.Drawing.Size(1204, 25);
+			this.mS_GridX_Setting2.Size = new System.Drawing.Size(1204, 26);
 			this.mS_GridX_Setting2.TabIndex = 728;
 			this.mS_GridX_Setting2.Text = "mS_GridX_Setting2";
 			// 
@@ -180,7 +180,49 @@
 			// 
 			this.toolStripSeparator3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 26);
+			// 
+			// NsMessage
+			// 
+			this.NsMessage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.NsMessage.Image = ((System.Drawing.Image)(resources.GetObject("NsMessage.Image")));
+			this.NsMessage.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.NsMessage.Name = "NsMessage";
+			this.NsMessage.Size = new System.Drawing.Size(23, 23);
+			this.NsMessage.Text = "ارسال پیامک";
+			this.NsMessage.Click += new System.EventHandler(this.NsMessage_Click);
+			// 
+			// NsProgress
+			// 
+			this.NsProgress.AutoSize = false;
+			this.NsProgress.BackColor = System.Drawing.Color.White;
+			this.NsProgress.Margin = new System.Windows.Forms.Padding(5, 2, 10, 1);
+			this.NsProgress.Name = "NsProgress";
+			this.NsProgress.RightToLeftLayout = true;
+			this.NsProgress.Size = new System.Drawing.Size(150, 16);
+			this.NsProgress.Value = 20;
+			this.NsProgress.Visible = false;
+			// 
+			// NsProgressText
+			// 
+			this.NsProgressText.Font = new System.Drawing.Font("IRANSans(Small)", 14F, System.Drawing.FontStyle.Bold);
+			this.NsProgressText.ForeColor = System.Drawing.Color.Green;
+			this.NsProgressText.Name = "NsProgressText";
+			this.NsProgressText.Size = new System.Drawing.Size(41, 23);
+			this.NsProgressText.Text = "1 / 23";
+			this.NsProgressText.Visible = false;
+			// 
+			// NsCancel
+			// 
+			this.NsCancel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.NsCancel.Image = global::MS_Resource.GlobalResources._ms_Delete;
+			this.NsCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.NsCancel.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
+			this.NsCancel.Name = "NsCancel";
+			this.NsCancel.Size = new System.Drawing.Size(23, 23);
+			this.NsCancel.Text = "انصراف";
+			this.NsCancel.Visible = false;
+			this.NsCancel.Click += new System.EventHandler(this.NsCancel_Click);
 			// 
 			// mS_Panel1
 			// 
@@ -365,48 +407,6 @@
 			this.NzTabDebit.Size = new System.Drawing.Size(379, 0);
 			this.NzTabDebit.TabStop = true;
 			this.NzTabDebit.Text = "لیست بدهـکاران";
-			// 
-			// NsMessage
-			// 
-			this.NsMessage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.NsMessage.Image = ((System.Drawing.Image)(resources.GetObject("NsMessage.Image")));
-			this.NsMessage.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.NsMessage.Name = "NsMessage";
-			this.NsMessage.Size = new System.Drawing.Size(23, 22);
-			this.NsMessage.Text = "ارسال پیامک";
-			this.NsMessage.Click += new System.EventHandler(this.NsMessage_Click);
-			// 
-			// NsProgress
-			// 
-			this.NsProgress.AutoSize = false;
-			this.NsProgress.BackColor = System.Drawing.Color.White;
-			this.NsProgress.Margin = new System.Windows.Forms.Padding(5, 2, 10, 1);
-			this.NsProgress.Name = "NsProgress";
-			this.NsProgress.RightToLeftLayout = true;
-			this.NsProgress.Size = new System.Drawing.Size(150, 16);
-			this.NsProgress.Value = 20;
-			this.NsProgress.Visible = false;
-			// 
-			// NsProgressText
-			// 
-			this.NsProgressText.Font = new System.Drawing.Font("IRANSans(Small)", 14F, System.Drawing.FontStyle.Bold);
-			this.NsProgressText.ForeColor = System.Drawing.Color.Green;
-			this.NsProgressText.Name = "NsProgressText";
-			this.NsProgressText.Size = new System.Drawing.Size(41, 23);
-			this.NsProgressText.Text = "1 / 23";
-			this.NsProgressText.Visible = false;
-			// 
-			// NsCancel
-			// 
-			this.NsCancel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.NsCancel.Image = global::MS_Resource.GlobalResources._ms_Delete;
-			this.NsCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.NsCancel.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
-			this.NsCancel.Name = "NsCancel";
-			this.NsCancel.Size = new System.Drawing.Size(23, 23);
-			this.NsCancel.Text = "انصراف";
-			this.NsCancel.Visible = false;
-			this.NsCancel.Click += new System.EventHandler(this.NsCancel_Click);
 			// 
 			// FormListDebit
 			// 

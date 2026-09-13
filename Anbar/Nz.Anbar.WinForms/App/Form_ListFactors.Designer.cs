@@ -36,6 +36,8 @@
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_3 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.HeaderImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_4 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column18.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_5 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column18.HeaderImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_6 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column19.ButtonImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_7 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column19.HeaderImage");
 			Janus.Windows.GridEX.GridEXLayout NzGridHeads_Layout_1 = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_1_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_1_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.HeaderImage");
@@ -53,6 +55,10 @@
 			this.NzGridHeads = new MS_Control.Controls.MS_GridX();
 			this.mS_GridX_Setting2 = new MS_Control.Controls.MS_GridX_Setting();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+			this.NsMessage = new System.Windows.Forms.ToolStripButton();
+			this.NsProgress = new System.Windows.Forms.ToolStripProgressBar();
+			this.NsProgressText = new System.Windows.Forms.ToolStripLabel();
+			this.NsCancel = new System.Windows.Forms.ToolStripButton();
 			this.Splitter1 = new DevComponents.DotNetBar.ExpandableSplitter();
 			this.mS_Panel1 = new MS_Control.Controls.MS_Panel();
 			this.NzFactorKinds = new Janus.Windows.UI.Tab.UITab();
@@ -69,6 +75,7 @@
 			this.NzPrintA5 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.NzPosPrint = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsPosPrint2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.NzPrintTransfer = new System.Windows.Forms.ToolStripSplitButton();
 			this.NzPrintTransferA5 = new System.Windows.Forms.ToolStripMenuItem();
 			this.NzItems = new System.Windows.Forms.ToolStripButton();
@@ -103,7 +110,6 @@
 			this.NzGridItems = new MS_Control.Controls.MS_GridX();
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
 			this.ms_Save = new MS_Control.Controls.MS_Button_GridX();
-			this.NsPosPrint2 = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
 			this.uiTabPage12.SuspendLayout();
@@ -130,7 +136,7 @@
 			this.Tab_Control_Main.Name = "Tab_Control_Main";
 			this.Tab_Control_Main.Office2007CustomColor = System.Drawing.Color.Transparent;
 			this.Tab_Control_Main.ShowFocusRectangle = false;
-			this.Tab_Control_Main.Size = new System.Drawing.Size(1214, 506);
+			this.Tab_Control_Main.Size = new System.Drawing.Size(1334, 649);
 			this.Tab_Control_Main.TabIndex = 725;
 			this.Tab_Control_Main.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
             this.uiTabPage12,
@@ -160,7 +166,7 @@
 			this.uiTabPage12.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.uiTabPage12.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.uiTabPage12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage12.Size = new System.Drawing.Size(1180, 504);
+			this.uiTabPage12.Size = new System.Drawing.Size(1300, 647);
 			this.uiTabPage12.TabStop = true;
 			this.uiTabPage12.Text = "اطلاعات";
 			// 
@@ -204,13 +210,17 @@
 			NzGridHeads_Layout_0_Reference_3.Instance = ((object)(resources.GetObject("NzGridHeads_Layout_0_Reference_3.Instance")));
 			NzGridHeads_Layout_0_Reference_4.Instance = ((object)(resources.GetObject("NzGridHeads_Layout_0_Reference_4.Instance")));
 			NzGridHeads_Layout_0_Reference_5.Instance = ((object)(resources.GetObject("NzGridHeads_Layout_0_Reference_5.Instance")));
+			NzGridHeads_Layout_0_Reference_6.Instance = ((object)(resources.GetObject("NzGridHeads_Layout_0_Reference_6.Instance")));
+			NzGridHeads_Layout_0_Reference_7.Instance = ((object)(resources.GetObject("NzGridHeads_Layout_0_Reference_7.Instance")));
 			NzGridHeads_Layout_0.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
             NzGridHeads_Layout_0_Reference_0,
             NzGridHeads_Layout_0_Reference_1,
             NzGridHeads_Layout_0_Reference_2,
             NzGridHeads_Layout_0_Reference_3,
             NzGridHeads_Layout_0_Reference_4,
-            NzGridHeads_Layout_0_Reference_5});
+            NzGridHeads_Layout_0_Reference_5,
+            NzGridHeads_Layout_0_Reference_6,
+            NzGridHeads_Layout_0_Reference_7});
 			NzGridHeads_Layout_0.LayoutString = resources.GetString("NzGridHeads_Layout_0.LayoutString");
 			NzGridHeads_Layout_1.Key = "PreFactor";
 			NzGridHeads_Layout_1_Reference_0.Instance = ((object)(resources.GetObject("NzGridHeads_Layout_1_Reference_0.Instance")));
@@ -249,7 +259,7 @@
 			this.NzGridHeads.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
 			this.NzGridHeads.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
 			this.NzGridHeads.SelectOnExpand = false;
-			this.NzGridHeads.Size = new System.Drawing.Size(1180, 261);
+			this.NzGridHeads.Size = new System.Drawing.Size(1300, 404);
 			this.NzGridHeads.TabIndex = 719;
 			this.NzGridHeads.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
 			this.NzGridHeads.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -265,8 +275,12 @@
 			this.mS_GridX_Setting2.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.mS_GridX_Setting2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.mS_GridX_Setting2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator3});
-			this.mS_GridX_Setting2.Location = new System.Drawing.Point(0, 322);
+            this.toolStripSeparator3,
+            this.NsMessage,
+            this.NsProgress,
+            this.NsProgressText,
+            this.NsCancel});
+			this.mS_GridX_Setting2.Location = new System.Drawing.Point(0, 465);
 			this.mS_GridX_Setting2.MS_BorderColor = System.Drawing.Color.DodgerBlue;
 			this.mS_GridX_Setting2.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_GridX_Setting2.MS_Color_End = System.Drawing.Color.PowderBlue;
@@ -274,7 +288,7 @@
 			this.mS_GridX_Setting2.MS_GridX = this.NzGridHeads;
 			this.mS_GridX_Setting2.Name = "mS_GridX_Setting2";
 			this.mS_GridX_Setting2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_GridX_Setting2.Size = new System.Drawing.Size(1180, 25);
+			this.mS_GridX_Setting2.Size = new System.Drawing.Size(1300, 25);
 			this.mS_GridX_Setting2.TabIndex = 725;
 			this.mS_GridX_Setting2.Text = "mS_GridX_Setting2";
 			this.mS_GridX_Setting2.MS_On_Print_Clicked += new System.EventHandler(this.mS_GridX_Setting2_MS_On_Print_Clicked);
@@ -284,6 +298,48 @@
 			this.toolStripSeparator3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
 			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+			// 
+			// NsMessage
+			// 
+			this.NsMessage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.NsMessage.Image = ((System.Drawing.Image)(resources.GetObject("NsMessage.Image")));
+			this.NsMessage.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.NsMessage.Name = "NsMessage";
+			this.NsMessage.Size = new System.Drawing.Size(23, 22);
+			this.NsMessage.Text = "ارسال پیامک";
+			this.NsMessage.Click += new System.EventHandler(this.NsMessage_Click);
+			// 
+			// NsProgress
+			// 
+			this.NsProgress.AutoSize = false;
+			this.NsProgress.BackColor = System.Drawing.Color.White;
+			this.NsProgress.Margin = new System.Windows.Forms.Padding(5, 2, 10, 1);
+			this.NsProgress.Name = "NsProgress";
+			this.NsProgress.RightToLeftLayout = true;
+			this.NsProgress.Size = new System.Drawing.Size(150, 16);
+			this.NsProgress.Value = 20;
+			this.NsProgress.Visible = false;
+			// 
+			// NsProgressText
+			// 
+			this.NsProgressText.Font = new System.Drawing.Font("IRANSans(Small)", 14F, System.Drawing.FontStyle.Bold);
+			this.NsProgressText.ForeColor = System.Drawing.Color.Green;
+			this.NsProgressText.Name = "NsProgressText";
+			this.NsProgressText.Size = new System.Drawing.Size(41, 23);
+			this.NsProgressText.Text = "1 / 23";
+			this.NsProgressText.Visible = false;
+			// 
+			// NsCancel
+			// 
+			this.NsCancel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.NsCancel.Image = ((System.Drawing.Image)(resources.GetObject("NsCancel.Image")));
+			this.NsCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.NsCancel.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
+			this.NsCancel.Name = "NsCancel";
+			this.NsCancel.Size = new System.Drawing.Size(23, 23);
+			this.NsCancel.Text = "انصراف";
+			this.NsCancel.Visible = false;
+			this.NsCancel.Click += new System.EventHandler(this.NsCancel_Click);
 			// 
 			// Splitter1
 			// 
@@ -312,10 +368,10 @@
 			this.Splitter1.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
 			this.Splitter1.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-			this.Splitter1.Location = new System.Drawing.Point(0, 347);
+			this.Splitter1.Location = new System.Drawing.Point(0, 490);
 			this.Splitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Splitter1.Name = "Splitter1";
-			this.Splitter1.Size = new System.Drawing.Size(1180, 8);
+			this.Splitter1.Size = new System.Drawing.Size(1300, 8);
 			this.Splitter1.Style = DevComponents.DotNetBar.eSplitterStyle.Office2007;
 			this.Splitter1.TabIndex = 748;
 			this.Splitter1.TabStop = false;
@@ -333,7 +389,7 @@
 			this.mS_Panel1.MS_Color_End = System.Drawing.Color.SkyBlue;
 			this.mS_Panel1.MS_Color_Start = System.Drawing.Color.AliceBlue;
 			this.mS_Panel1.Name = "mS_Panel1";
-			this.mS_Panel1.Size = new System.Drawing.Size(1180, 61);
+			this.mS_Panel1.Size = new System.Drawing.Size(1300, 61);
 			this.mS_Panel1.TabIndex = 720;
 			// 
 			// NzFactorKinds
@@ -343,7 +399,7 @@
 			this.NzFactorKinds.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzFactorKinds.FirstTabOffset = 25;
 			this.NzFactorKinds.Font = new System.Drawing.Font("IRANSans(Small)", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NzFactorKinds.Location = new System.Drawing.Point(147, 1);
+			this.NzFactorKinds.Location = new System.Drawing.Point(207, 1);
 			this.NzFactorKinds.Name = "NzFactorKinds";
 			this.NzFactorKinds.PageBorder = Janus.Windows.UI.Tab.PageBorder.None;
 			this.NzFactorKinds.SettingsKey = "NzFactorKinds";
@@ -441,14 +497,14 @@
             this.NzChangeToSale,
             this.toolStripSeparator1,
             this.NzAddItem});
-			this.mS_Tool_Strip1.Location = new System.Drawing.Point(832, 0);
+			this.mS_Tool_Strip1.Location = new System.Drawing.Point(983, 0);
 			this.mS_Tool_Strip1.MS_BorderColor = System.Drawing.Color.SkyBlue;
 			this.mS_Tool_Strip1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_Tool_Strip1.MS_Color_End = System.Drawing.Color.LightBlue;
 			this.mS_Tool_Strip1.MS_Color_Start = System.Drawing.Color.AliceBlue;
 			this.mS_Tool_Strip1.Name = "mS_Tool_Strip1";
 			this.mS_Tool_Strip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_Tool_Strip1.Size = new System.Drawing.Size(348, 28);
+			this.mS_Tool_Strip1.Size = new System.Drawing.Size(317, 28);
 			this.mS_Tool_Strip1.TabIndex = 709;
 			this.mS_Tool_Strip1.Text = "mS_Tool_Strip1";
 			// 
@@ -476,7 +532,7 @@
 			this.NzPrintA4.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
 			this.NzPrintA4.Name = "NzPrintA4";
 			this.NzPrintA4.Padding = new System.Windows.Forms.Padding(0, 6, 0, 3);
-			this.NzPrintA4.Size = new System.Drawing.Size(180, 37);
+			this.NzPrintA4.Size = new System.Drawing.Size(156, 37);
 			this.NzPrintA4.Text = "چاپ  A4";
 			this.NzPrintA4.Click += new System.EventHandler(this.NzPrintA4_Click);
 			// 
@@ -486,14 +542,14 @@
 			this.NzPrintA5.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
 			this.NzPrintA5.Name = "NzPrintA5";
 			this.NzPrintA5.Padding = new System.Windows.Forms.Padding(0, 6, 0, 3);
-			this.NzPrintA5.Size = new System.Drawing.Size(180, 37);
+			this.NzPrintA5.Size = new System.Drawing.Size(156, 37);
 			this.NzPrintA5.Text = "چاپ  A5";
 			this.NzPrintA5.Click += new System.EventHandler(this.NzPrintA5_Click);
 			// 
 			// toolStripSeparator2
 			// 
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+			this.toolStripSeparator2.Size = new System.Drawing.Size(153, 6);
 			// 
 			// NzPosPrint
 			// 
@@ -501,9 +557,19 @@
 			this.NzPosPrint.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
 			this.NzPosPrint.Name = "NzPosPrint";
 			this.NzPosPrint.Padding = new System.Windows.Forms.Padding(0, 6, 0, 3);
-			this.NzPosPrint.Size = new System.Drawing.Size(180, 37);
+			this.NzPosPrint.Size = new System.Drawing.Size(156, 37);
 			this.NzPosPrint.Text = "فیش پرینت 1";
 			this.NzPosPrint.Click += new System.EventHandler(this.NzPosPrint_Click);
+			// 
+			// NsPosPrint2
+			// 
+			this.NsPosPrint2.Font = new System.Drawing.Font("IRANSans(Small)", 15F);
+			this.NsPosPrint2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+			this.NsPosPrint2.Name = "NsPosPrint2";
+			this.NsPosPrint2.Padding = new System.Windows.Forms.Padding(0, 6, 0, 3);
+			this.NsPosPrint2.Size = new System.Drawing.Size(156, 37);
+			this.NsPosPrint2.Text = "فیش پرینت 2";
+			this.NsPosPrint2.Click += new System.EventHandler(this.NsPosPrint2_Click);
 			// 
 			// NzPrintTransfer
 			// 
@@ -600,7 +666,7 @@
 			this.ms_mah.BackColor = System.Drawing.Color.Transparent;
 			this.ms_mah.FirstTabOffset = 10;
 			this.ms_mah.Font = new System.Drawing.Font("IRANSans(Small)", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.ms_mah.Location = new System.Drawing.Point(188, 33);
+			this.ms_mah.Location = new System.Drawing.Point(248, 33);
 			this.ms_mah.Name = "ms_mah";
 			this.ms_mah.Office2007ColorScheme = Janus.Windows.UI.Office2007ColorScheme.Custom;
 			this.ms_mah.Office2007CustomColor = System.Drawing.Color.AntiqueWhite;
@@ -747,13 +813,13 @@
 			this.mS_Panel2.Controls.Add(this.label15);
 			this.mS_Panel2.Controls.Add(this.NzGridItems);
 			this.mS_Panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.mS_Panel2.Location = new System.Drawing.Point(0, 355);
+			this.mS_Panel2.Location = new System.Drawing.Point(0, 498);
 			this.mS_Panel2.MS_BorderColor = System.Drawing.Color.Aqua;
 			this.mS_Panel2.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_Panel2.MS_Color_End = System.Drawing.Color.SkyBlue;
 			this.mS_Panel2.MS_Color_Start = System.Drawing.Color.AliceBlue;
 			this.mS_Panel2.Name = "mS_Panel2";
-			this.mS_Panel2.Size = new System.Drawing.Size(1180, 149);
+			this.mS_Panel2.Size = new System.Drawing.Size(1300, 149);
 			this.mS_Panel2.TabIndex = 749;
 			this.mS_Panel2.Visible = false;
 			// 
@@ -897,7 +963,7 @@
 			this.NzGridItems.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
 			this.NzGridItems.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.AntiqueWhite;
 			this.NzGridItems.SelectOnExpand = false;
-			this.NzGridItems.Size = new System.Drawing.Size(944, 152);
+			this.NzGridItems.Size = new System.Drawing.Size(1064, 152);
 			this.NzGridItems.TabIndex = 750;
 			this.NzGridItems.TabKeyBehavior = Janus.Windows.GridEX.TabKeyBehavior.ControlNavigation;
 			this.NzGridItems.TabStop = false;
@@ -952,20 +1018,10 @@
 			this.ms_Save.WordWrap = false;
 			this.ms_Save.Click += new System.EventHandler(this.ms_Save_Click);
 			// 
-			// NsPosPrint2
-			// 
-			this.NsPosPrint2.Font = new System.Drawing.Font("IRANSans(Small)", 15F);
-			this.NsPosPrint2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-			this.NsPosPrint2.Name = "NsPosPrint2";
-			this.NsPosPrint2.Padding = new System.Windows.Forms.Padding(0, 6, 0, 3);
-			this.NsPosPrint2.Size = new System.Drawing.Size(180, 37);
-			this.NsPosPrint2.Text = "فیش پرینت 2";
-			this.NsPosPrint2.Click += new System.EventHandler(this.NsPosPrint2_Click);
-			// 
 			// Form_ListFactors
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-			this.ClientSize = new System.Drawing.Size(1214, 506);
+			this.ClientSize = new System.Drawing.Size(1334, 649);
 			this.Controls.Add(this.Tab_Control_Main);
 			this.Font = new System.Drawing.Font("IRANSans(Small)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.KeyPreview = true;
@@ -1057,5 +1113,9 @@
 		private System.Windows.Forms.Label label15;
 		private MS_Control.Controls.MS_GridX NzGridItems;
 		private System.Windows.Forms.ToolStripMenuItem NsPosPrint2;
+		private System.Windows.Forms.ToolStripProgressBar NsProgress;
+		private System.Windows.Forms.ToolStripButton NsMessage;
+		private System.Windows.Forms.ToolStripLabel NsProgressText;
+		private System.Windows.Forms.ToolStripButton NsCancel;
 	}
 }

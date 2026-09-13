@@ -521,6 +521,7 @@
     <Compile Include="Settings\TabSettingContainer.Designer.cs">
       <DependentUpon>TabSettingContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sms\Messaging.cs" />
     <None Include="..\..\General\MS_Resource\GlobalResources.Designer.cs">
       <Link>GlobalResources.Designer.cs</Link>
       <AutoGen>True</AutoGen>

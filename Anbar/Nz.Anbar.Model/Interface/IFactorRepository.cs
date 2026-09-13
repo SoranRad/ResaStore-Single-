@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Nz.Anbar.Model.ViewModel;
 using NZ.Anbar.Model;
+using Nz.Anbar.Model.Report.Sms;
 
 namespace Nz.Anbar.Model.Interface
 {
@@ -21,6 +22,8 @@ namespace Nz.Anbar.Model.Interface
         void                        FixFifoKardex   ();
         void                        FixRemain       ();
         void                        FixKardexOfProducts (long IDFactor, long IdRiz);
+        IEnumerable<FactorMessageDto> GetFactorForMessage(List<long> Ids);
+
 
     }
 }

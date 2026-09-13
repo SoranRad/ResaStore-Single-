@@ -14,6 +14,7 @@ using MS_Control;
 using ShareLib;
 using Nz.Anbar.Model.ViewModel;
 using System.Threading.Tasks;
+using Nz.Anbar.Model.Report.Sms;
 
 namespace NZ.Anbar.DataLayer.Repo
 {
@@ -248,7 +249,7 @@ namespace NZ.Anbar.DataLayer.Repo
             }
         }
 
-        public void FixKardexOfProducts(long IDFactor, long IdRiz)
+        public void                     FixKardexOfProducts(long IDFactor, long IdRiz)
         {
 	        try
 	        {
@@ -448,6 +449,28 @@ namespace NZ.Anbar.DataLayer.Repo
             }
             
         }
+
+        public IEnumerable<FactorMessageDto> GetFactorForMessage(List<long> Ids)
+        {
+	        if (Ids == null || !Ids.Any())
+		        return null;
+
+	        Assembly asm        = Assembly.Load(this.GetType().Assembly.GetName());
+	        var t               = asm.GetTypes().FirstOrDefault(x => x.BaseType == typeof(DapperEntityConfiguration<FactorMessageDto>));
+	        var instance        = (DapperEntityConfiguration<FactorMessageDto>)Activator.CreateInstance(t);
+	        var SelectSingle    = instance.GetList;
+	        var str             = SelectSingle;
+
+			if (Ids.Count==1)
+	            str += " WHERE tat.ID = " + Ids.First();
+            else 
+	            str += " WHERE tat.ID IN (" + string.Join(" , ",Ids.Select(x=>x.ToString()))+" ) ";
+
+	        using (var con = ConnectionManager.Create())
+	        {
+		        return con.Query<FactorMessageDto>(str);
+	        }
+		}
         #endregion
     }
 }

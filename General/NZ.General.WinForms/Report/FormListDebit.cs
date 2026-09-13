@@ -163,12 +163,12 @@ namespace NZ.General.WinForms.Report
 			NsProgress.Minimum = 0;
 			NsProgress.Value = 0;
 			NsProgressText.Text = @"0 \ " + NsProgress.Maximum;
+			var msg = new Messaging();
 
 			foreach (var row in NzGrid.GetCheckedRows())
 			{
 				var dataRow = row.DataRow as RemaindPeople;
 				var cell = row.Cells["S"];
-				var msg = new Messaging();
 
 
 				await msg.SendSarResidQest(

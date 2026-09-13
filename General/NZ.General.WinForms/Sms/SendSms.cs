@@ -1,12 +1,13 @@
-﻿using NZ.General.WinForms.Setting;
+﻿using ADODB;
+using NZ.General.WinForms.Setting;
+using ShareLib.RestApi;
+using ShareLib.Sms;
 using ShareLib.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ShareLib.RestApi;
-using ShareLib.Sms;
 
 namespace NZ.General.WinForms.Sms
 {
@@ -192,5 +193,91 @@ namespace NZ.General.WinForms.Sms
 			    return false;
 		    }
 		}
-    }
+	    public async Task<bool> SendFactorAlarm(long PhoneNumber, string NAME, string SERIAL, decimal PRICE, string DATE,
+		    string MANDE_HESAB =null, string TARIKH_TASVIEH = null)
+	    {
+			/*
+			  #NAME# گرامی سلام،
+			    فاکتور #SERIAL# به مبلغ #PRICE# در تاریخ #DATE# برای شما در #COMPANY# صادر شد.
+			   مهلت تسویه تا تاریخ : #TARIKH_TASVIEH#
+			    مانده حساب :  #MANDE_HESAB#
+			   
+			 */
+
+			
+
+			int QalebNo = 546898;
+			if(MANDE_HESAB == null && TARIKH_TASVIEH == null)
+				QalebNo = 546898;
+			else if(MANDE_HESAB == null && TARIKH_TASVIEH != null)
+				QalebNo = 765760;
+			else if (MANDE_HESAB != null && TARIKH_TASVIEH == null)
+				QalebNo = 422547;
+			else if (MANDE_HESAB != null && TARIKH_TASVIEH != null)
+				QalebNo = 125779;
+			try
+		    {
+			    if (await GetToken() == false)
+				    return false;
+
+
+			    var SmsApi = new FastSmsApi(HttpClientFactory.Generate(new TokenDto() { Token = TOKEN }));
+				var listParams = new List<TemplateParamDto>()
+				{
+					new TemplateParamDto(){Name = "NAME",     Value = NAME},
+					new TemplateParamDto(){Name = "SERIAL",   Value = SERIAL.En2Fa()},
+					new TemplateParamDto(){Name = "PRICE",    Value = PRICE.ToString("N").En2Fa()},
+					new TemplateParamDto(){Name = "DATE",     Value = DATE.En2Fa()},
+					new TemplateParamDto(){Name = "COMPANY",  Value = SystemConstant.ActiveCompany.title.En2Fa()},
+				};
+
+				if (MANDE_HESAB == null && TARIKH_TASVIEH != null)
+					listParams.Add(new TemplateParamDto(){ Name = "TARIKH_TASVIEH", Value = TARIKH_TASVIEH.En2Fa() });
+			    else if (MANDE_HESAB != null && TARIKH_TASVIEH == null)
+					listParams.Add(new TemplateParamDto() { Name = "MANDE_HESAB", Value = MANDE_HESAB.En2Fa() });
+				else if (MANDE_HESAB != null && TARIKH_TASVIEH != null)
+				{
+					listParams.Add(new TemplateParamDto() { Name = "TARIKH_TASVIEH", Value = TARIKH_TASVIEH.En2Fa() });
+					listParams.Add(new TemplateParamDto() { Name = "MANDE_HESAB", Value = MANDE_HESAB.En2Fa() });
+				}
+
+
+				var parametter = new FastSendSmsDto()
+			    {
+				    Mobile = PhoneNumber,
+				    Password = _setting.Password,
+				    UserName = _setting.Username,
+				    TemplateID = QalebNo,
+				    TemplateParams = listParams.ToArray()
+			    };
+
+				var result = await SmsApi.SendSms(parametter,TOKEN);
+				if (result == null)
+				{
+					log.Error("پاسخ نامعلوم در ارسال پیامک");
+					return false;
+				}
+
+			    if (!result.IsSuccess)
+			    {
+				    if (result.Errors != null && result.Errors.Any())
+				    {
+					    var error = string.Join("\r\n", result.Errors.SelectMany(x => x.Value));
+					    log.Error(result.Message, new Exception(error));
+				    }
+
+				    return false;
+			    }
+
+			    return true;
+		    }
+		    catch (Exception ex)
+		    {
+			    log.Error(ex.Message, ex);
+			    return false;
+		    }
+	    }
+
+
+	}
 }

@@ -12,7 +12,11 @@ using ShareLib.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using Nz.Anbar.WinForms.Sms;
+using Nz.Anbar.Model.Report.Sms;
 
 namespace Nz.Anbar.WinForms.App
 {
@@ -27,10 +31,11 @@ namespace Nz.Anbar.WinForms.App
 	    #endregion
 		#region Fields
 		private ReportManager       _Manager;
+		private bool _CancelJob = false;
         private Enums.NzFactorKind  _Kind;
         #endregion
-        #region Constructor
-        public      Form_ListFactors        ()
+		#region Constructor
+		public      Form_ListFactors        ()
         {
             InitializeComponent();
             _Manager                            = new ReportManager();
@@ -83,6 +88,10 @@ namespace Nz.Anbar.WinForms.App
 
             NzPrint.Visible         = !NzPrintTransfer.Visible;
             NzChangeToSale.Visible  = _Kind == Enums.NzFactorKind.PishFaktor;
+
+           
+	        NsMessage.Visible = _Kind == Enums.NzFactorKind.Frosh;
+            
         }
         private void SetCurrentMonth                    ()
         {
@@ -305,6 +314,36 @@ namespace Nz.Anbar.WinForms.App
             NzGridHeads.VerticalScrollPosition = Spos;
 
         }
+
+        private async Task SendMessage()
+        {
+	        var msg = new Messaging();
+	        var mgr = new FactorManager();
+	        var ids = new List<long>(){ (NzGridHeads.CurrentRow.DataRow as GeneralFactor).ID};
+	        var factorMsgs = mgr.GetFactorForMessage(ids);
+	        
+		    var dataRow     = NzGridHeads.CurrentRow.DataRow as GeneralFactor;
+		    var cell        = NzGridHeads.CurrentRow.Cells["S"];
+		    var factorMsg   = factorMsgs.SingleOrDefault(x => x.ID == dataRow.ID);
+
+		    if (factorMsg == null)
+			    return;
+
+		    if (string.IsNullOrWhiteSpace(factorMsg.Mobile))
+			    return;
+
+		    await msg.SendAlarmFactor(
+			    cell,
+			    Convert.ToInt64(factorMsg.Mobile as string),
+			    factorMsg.Customer,
+			    factorMsg.Serial.ToString(),
+			    factorMsg.Price,
+			    factorMsg.Date,
+			    null,
+			    factorMsg.Tasvieh
+		    );
+             
+		}
         #endregion
         private void NzFactorKinds_SelectedTabChanged   (object sender, Janus.Windows.UI.Tab.TabEventArgs e)
         {
@@ -350,7 +389,7 @@ namespace Nz.Anbar.WinForms.App
             if(NzItems.Checked)
                 RefreshItem();
         }
-        private void NzGridHeads_ColumnButtonClick      (object sender, ColumnActionEventArgs e)
+        private async void NzGridHeads_ColumnButtonClick(object sender, ColumnActionEventArgs e)
         {
             switch (e.Column.Key)
             {
@@ -439,7 +478,10 @@ namespace Nz.Anbar.WinForms.App
                     }
                     break;
                 case "P":
-                    LoadPaymentList(); 
+                    LoadPaymentList();
+                    break;
+                case "S":
+	                await SendMessage();
                     break;
             }
         }
@@ -521,7 +563,7 @@ namespace Nz.Anbar.WinForms.App
                 ms_Save.Show();
         }
 
-        private void Form_ListFactors_Shown(object sender, EventArgs e)
+        private void Form_ListFactors_Shown             (object sender, EventArgs e)
         {
             //NzGridHeads.Focus();
             //NzGridHeads.MoveTo(NzGridHeads.FilterRow);
@@ -529,20 +571,74 @@ namespace Nz.Anbar.WinForms.App
             
             //NzGridHeads.FilterRow.BeginEdit();
         }
-
-		private void NsCopy_Click(object sender, EventArgs e)
+		private void NsCopy_Click                       (object sender, EventArgs e)
 		{
 			if(NzGridHeads.CurrentRow?.RowType!=RowType.Record)
 				return;
 
-			var ID =Convert.ToInt64( NzGridHeads.CurrentRow.Cells["ID"].Value);
+			var ID = Convert.ToInt64( NzGridHeads.CurrentRow.Cells["ID"].Value);
 
 			var frm = new FormCopyToYear();
 
 			frm.IdFactor = ID;
 			frm.ShowDialog(StorageProvider.MainForm);
 		}
+		private async void NsMessage_Click              (object sender, EventArgs e)
+		{
+			if (!NzGridHeads.GetCheckedRows().Any())
+			{
+				MS_Message.Show("یک یا چند ردیف را انتخاب کنید");
+				return;
+			}
 
-		
+			_CancelJob = false;
+			NsMessage.Visible = false;
+			NsProgress.Visible = NsProgressText.Visible = NsCancel.Visible = true;
+			NsProgress.Maximum = NzGridHeads.GetCheckedRows().Count();
+			NsProgress.Minimum = 0;
+			NsProgress.Value = 0;
+			NsProgressText.Text = @"0 \ " + NsProgress.Maximum;
+			var msg = new Messaging();
+			var mgr = new FactorManager();
+			var ids = NzGridHeads.GetCheckedRows().Select(x => (x.DataRow as GeneralFactor).ID).ToList();
+			var factorMsgs = mgr.GetFactorForMessage(ids);
+
+
+			foreach (var row in NzGridHeads.GetCheckedRows())
+			{
+				var dataRow     = row.DataRow as GeneralFactor;
+				var cell        = row.Cells["S"];
+				var factorMsg   = factorMsgs.SingleOrDefault(x => x.ID == dataRow.ID);
+                
+				if(factorMsg == null)
+                    continue;
+
+                if(string.IsNullOrWhiteSpace(factorMsg.Mobile))
+                    continue;
+
+				await msg.SendAlarmFactor(
+					cell,
+					Convert.ToInt64(factorMsg.Mobile as string),
+					factorMsg.Customer,
+                    factorMsg.Serial.ToString(),
+                    factorMsg.Price,
+                    factorMsg.Date,
+					null,
+					factorMsg.Tasvieh
+				);
+
+				NsProgress.Value++;
+				NsProgressText.Text = NsProgress.Value + @" \ " + NsProgress.Maximum;
+				if (_CancelJob)
+					break;
+			}
+		}
+
+		private void NsCancel_Click                     (object sender, EventArgs e)
+		{
+			_CancelJob = true;
+			NsProgress.Visible = NsProgressText.Visible = NsCancel.Visible = false;
+			NsMessage.Visible = true;
+		}
 	}
 }
