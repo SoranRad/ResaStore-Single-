@@ -31,29 +31,29 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_PishFrosh_Factor));
 			Janus.Windows.GridEX.GridEXLayout ms_Grid_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
 			this.Tab_Control_Main = new Janus.Windows.UI.Tab.UITab();
-			this.uiTabPage12 = new Janus.Windows.UI.Tab.UITabPage();
 			this.ms_Grid = new MS_Control.Controls.MS_GridX();
 			this.mS_GridX_Setting1 = new MS_Control.Controls.MS_GridX_Setting();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.NzRefresh = new System.Windows.Forms.ToolStripButton();
 			this.mS_Panel1 = new MS_Control.Controls.MS_Panel();
-			this.Nzfactor = new Nz.Anbar.WinForms.Component.NzPishFrosh();
+			this.NzConfirm = new MS_Control.Controls.MS_Button_GridX();
 			this.NzCustomerLable = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.mS_RadioBox1 = new MS_Control.Controls.MS_RadioBox();
 			this.NzCurrentYear = new MS_Control.Controls.MS_RadioBox();
-			this.NzAnbar = new Nz.Anbar.WinForms.Component.NzStorage();
 			this.label1 = new System.Windows.Forms.Label();
 			this.NzCirculr = new MS_Control.Controls.MS_Button_GridX();
+			this.uiTabPage12 = new Janus.Windows.UI.Tab.UITabPage();
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
-			this.NzConfirm = new MS_Control.Controls.MS_Button_GridX();
+			this.Nzfactor = new Nz.Anbar.WinForms.Component.NzPishFrosh();
+			this.NzAnbar = new Nz.Anbar.WinForms.Component.NzStorage();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
-			this.uiTabPage12.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ms_Grid)).BeginInit();
 			this.mS_GridX_Setting1.SuspendLayout();
 			this.mS_Panel1.SuspendLayout();
+			this.uiTabPage12.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// Tab_Control_Main
@@ -82,23 +82,6 @@
 			this.Tab_Control_Main.TextOrientation = Janus.Windows.UI.Tab.TextOrientation.Vertical;
 			this.Tab_Control_Main.UseThemes = false;
 			this.Tab_Control_Main.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2003;
-			// 
-			// uiTabPage12
-			// 
-			this.uiTabPage12.Controls.Add(this.ms_Grid);
-			this.uiTabPage12.Controls.Add(this.mS_GridX_Setting1);
-			this.uiTabPage12.Controls.Add(this.mS_Panel1);
-			this.uiTabPage12.Location = new System.Drawing.Point(1, 1);
-			this.uiTabPage12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.uiTabPage12.Name = "uiTabPage12";
-			this.uiTabPage12.PanelFormatStyle.Alpha = 70;
-			this.uiTabPage12.PanelFormatStyle.BackColor = System.Drawing.Color.SkyBlue;
-			this.uiTabPage12.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
-			this.uiTabPage12.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
-			this.uiTabPage12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage12.Size = new System.Drawing.Size(1084, 604);
-			this.uiTabPage12.TabStop = true;
-			this.uiTabPage12.Text = "اطلاعات";
 			// 
 			// ms_Grid
 			// 
@@ -209,35 +192,33 @@
 			this.mS_Panel1.Size = new System.Drawing.Size(1084, 80);
 			this.mS_Panel1.TabIndex = 723;
 			// 
-			// Nzfactor
+			// NzConfirm
 			// 
-			this.Nzfactor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.Nzfactor.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.DownArrow;
-			this.Nzfactor.DropSize = new System.Drawing.Size(309, 29);
-			this.Nzfactor.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.Nzfactor.Location = new System.Drawing.Point(713, 44);
-			this.Nzfactor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.Nzfactor.MS_Auto_Popup = false;
-			this.Nzfactor.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.Nzfactor.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.Nzfactor.MS_CaptureFocus = false;
-			this.Nzfactor.MS_Change_Border_Color_On_Enter = true;
-			this.Nzfactor.MS_Change_Color_On_Enter = true;
-			this.Nzfactor.MS_Drop_Direction = MS_Control.TSDD.KindShow.Right;
-			this.Nzfactor.MS_DropDownSizeMode = MS_Control.TSDD.SizeMode.Control_Size;
-			this.Nzfactor.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-			this.Nzfactor.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.Nzfactor.MS_Exit_By_Down = true;
-			this.Nzfactor.MS_Exit_By_Enter = true;
-			this.Nzfactor.MS_Exit_By_Up = true;
-			this.Nzfactor.MS_Last_Control = null;
-			this.Nzfactor.MS_Next_Control = null;
-			this.Nzfactor.Name = "Nzfactor";
-			this.Nzfactor.Office2007CustomColor = System.Drawing.Color.SkyBlue;
-			this.Nzfactor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.Nzfactor.Size = new System.Drawing.Size(309, 29);
-			this.Nzfactor.TabIndex = 783;
-			this.Nzfactor.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			this.NzConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NzConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NzConfirm.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.NzConfirm.Image = ((System.Drawing.Image)(resources.GetObject("NzConfirm.Image")));
+			this.NzConfirm.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
+			this.NzConfirm.Location = new System.Drawing.Point(386, 44);
+			this.NzConfirm.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NzConfirm.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NzConfirm.MS_Change_Border_Color_On_Enter = false;
+			this.NzConfirm.MS_Change_Color_On_Enter = false;
+			this.NzConfirm.MS_Enter_Border_Color = System.Drawing.Color.Empty;
+			this.NzConfirm.MS_Enter_Color = System.Drawing.Color.Empty;
+			this.NzConfirm.Name = "NzConfirm";
+			this.NzConfirm.Office2007ColorScheme = Janus.Windows.UI.Office2007ColorScheme.Custom;
+			this.NzConfirm.Office2007CustomColor = System.Drawing.Color.DodgerBlue;
+			this.NzConfirm.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NzConfirm.ShowFocusRectangle = false;
+			this.NzConfirm.Size = new System.Drawing.Size(182, 31);
+			this.NzConfirm.TabIndex = 784;
+			this.NzConfirm.Text = "بستن فاکتور و تایید نهایی";
+			this.NzConfirm.TextHorizontalAlignment = Janus.Windows.EditControls.TextAlignment.Near;
+			this.NzConfirm.UseThemes = false;
+			this.NzConfirm.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
+			this.NzConfirm.WordWrap = false;
+			this.NzConfirm.Click += new System.EventHandler(this.NzConfirm_Click);
 			// 
 			// NzCustomerLable
 			// 
@@ -330,36 +311,6 @@
 			this.NzCurrentYear.VisualStyle = Janus.Windows.UI.VisualStyle.VS2005;
 			this.NzCurrentYear.CheckedChanged += new System.EventHandler(this.NzCurrentYear_CheckedChanged);
 			// 
-			// NzAnbar
-			// 
-			this.NzAnbar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.NzAnbar.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.DownArrow;
-			this.NzAnbar.DropSize = new System.Drawing.Size(309, 29);
-			this.NzAnbar.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NzAnbar.Location = new System.Drawing.Point(713, 6);
-			this.NzAnbar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.NzAnbar.MS_Auto_Popup = false;
-			this.NzAnbar.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.NzAnbar.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NzAnbar.MS_CaptureFocus = false;
-			this.NzAnbar.MS_Change_Border_Color_On_Enter = true;
-			this.NzAnbar.MS_Change_Color_On_Enter = true;
-			this.NzAnbar.MS_Drop_Direction = MS_Control.TSDD.KindShow.Right;
-			this.NzAnbar.MS_DropDownSizeMode = MS_Control.TSDD.SizeMode.Control_Size;
-			this.NzAnbar.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-			this.NzAnbar.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NzAnbar.MS_Exit_By_Down = true;
-			this.NzAnbar.MS_Exit_By_Enter = true;
-			this.NzAnbar.MS_Exit_By_Up = true;
-			this.NzAnbar.MS_Last_Control = null;
-			this.NzAnbar.MS_Next_Control = null;
-			this.NzAnbar.Name = "NzAnbar";
-			this.NzAnbar.Office2007CustomColor = System.Drawing.Color.SkyBlue;
-			this.NzAnbar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.NzAnbar.Size = new System.Drawing.Size(309, 29);
-			this.NzAnbar.TabIndex = 775;
-			this.NzAnbar.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
-			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
@@ -400,6 +351,23 @@
 			this.NzCirculr.WordWrap = false;
 			this.NzCirculr.Click += new System.EventHandler(this.NzCirculr_Click);
 			// 
+			// uiTabPage12
+			// 
+			this.uiTabPage12.Controls.Add(this.ms_Grid);
+			this.uiTabPage12.Controls.Add(this.mS_GridX_Setting1);
+			this.uiTabPage12.Controls.Add(this.mS_Panel1);
+			this.uiTabPage12.Location = new System.Drawing.Point(1, 1);
+			this.uiTabPage12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.uiTabPage12.Name = "uiTabPage12";
+			this.uiTabPage12.PanelFormatStyle.Alpha = 70;
+			this.uiTabPage12.PanelFormatStyle.BackColor = System.Drawing.Color.SkyBlue;
+			this.uiTabPage12.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
+			this.uiTabPage12.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
+			this.uiTabPage12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.uiTabPage12.Size = new System.Drawing.Size(1084, 604);
+			this.uiTabPage12.TabStop = true;
+			this.uiTabPage12.Text = "اطلاعات";
+			// 
 			// uiTabPage14
 			// 
 			this.uiTabPage14.AutoScroll = true;
@@ -415,33 +383,65 @@
 			this.uiTabPage14.TabStop = true;
 			this.uiTabPage14.Text = "پرسش و پاسخ";
 			// 
-			// NzConfirm
+			// Nzfactor
 			// 
-			this.NzConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.NzConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzConfirm.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-			this.NzConfirm.Image = global::MS_Resource.GlobalResources._ms_Save;
-			this.NzConfirm.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
-			this.NzConfirm.Location = new System.Drawing.Point(386, 44);
-			this.NzConfirm.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.NzConfirm.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NzConfirm.MS_Change_Border_Color_On_Enter = false;
-			this.NzConfirm.MS_Change_Color_On_Enter = false;
-			this.NzConfirm.MS_Enter_Border_Color = System.Drawing.Color.Empty;
-			this.NzConfirm.MS_Enter_Color = System.Drawing.Color.Empty;
-			this.NzConfirm.Name = "NzConfirm";
-			this.NzConfirm.Office2007ColorScheme = Janus.Windows.UI.Office2007ColorScheme.Custom;
-			this.NzConfirm.Office2007CustomColor = System.Drawing.Color.DodgerBlue;
-			this.NzConfirm.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.NzConfirm.ShowFocusRectangle = false;
-			this.NzConfirm.Size = new System.Drawing.Size(182, 31);
-			this.NzConfirm.TabIndex = 784;
-			this.NzConfirm.Text = "بستن فاکتور و تایید نهایی";
-			this.NzConfirm.TextHorizontalAlignment = Janus.Windows.EditControls.TextAlignment.Near;
-			this.NzConfirm.UseThemes = false;
-			this.NzConfirm.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
-			this.NzConfirm.WordWrap = false;
-			this.NzConfirm.Click += new System.EventHandler(this.NzConfirm_Click);
+			this.Nzfactor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.Nzfactor.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.DownArrow;
+			this.Nzfactor.DropSize = new System.Drawing.Size(309, 29);
+			this.Nzfactor.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.Nzfactor.Location = new System.Drawing.Point(713, 44);
+			this.Nzfactor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.Nzfactor.MS_Auto_Popup = false;
+			this.Nzfactor.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.Nzfactor.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.Nzfactor.MS_CaptureFocus = false;
+			this.Nzfactor.MS_Change_Border_Color_On_Enter = true;
+			this.Nzfactor.MS_Change_Color_On_Enter = true;
+			this.Nzfactor.MS_Drop_Direction = MS_Control.TSDD.KindShow.Right;
+			this.Nzfactor.MS_DropDownSizeMode = MS_Control.TSDD.SizeMode.Control_Size;
+			this.Nzfactor.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.Nzfactor.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.Nzfactor.MS_Exit_By_Down = true;
+			this.Nzfactor.MS_Exit_By_Enter = true;
+			this.Nzfactor.MS_Exit_By_Up = true;
+			this.Nzfactor.MS_Last_Control = null;
+			this.Nzfactor.MS_Next_Control = null;
+			this.Nzfactor.Name = "Nzfactor";
+			this.Nzfactor.Office2007CustomColor = System.Drawing.Color.SkyBlue;
+			this.Nzfactor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.Nzfactor.Size = new System.Drawing.Size(309, 29);
+			this.Nzfactor.TabIndex = 783;
+			this.Nzfactor.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			// 
+			// NzAnbar
+			// 
+			this.NzAnbar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NzAnbar.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.DownArrow;
+			this.NzAnbar.DropSize = new System.Drawing.Size(309, 29);
+			this.NzAnbar.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NzAnbar.Location = new System.Drawing.Point(713, 6);
+			this.NzAnbar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.NzAnbar.MS_Auto_Popup = false;
+			this.NzAnbar.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NzAnbar.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NzAnbar.MS_CaptureFocus = false;
+			this.NzAnbar.MS_Change_Border_Color_On_Enter = true;
+			this.NzAnbar.MS_Change_Color_On_Enter = true;
+			this.NzAnbar.MS_Drop_Direction = MS_Control.TSDD.KindShow.Right;
+			this.NzAnbar.MS_DropDownSizeMode = MS_Control.TSDD.SizeMode.Control_Size;
+			this.NzAnbar.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NzAnbar.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NzAnbar.MS_Exit_By_Down = true;
+			this.NzAnbar.MS_Exit_By_Enter = true;
+			this.NzAnbar.MS_Exit_By_Up = true;
+			this.NzAnbar.MS_Last_Control = null;
+			this.NzAnbar.MS_Next_Control = null;
+			this.NzAnbar.Name = "NzAnbar";
+			this.NzAnbar.Office2007CustomColor = System.Drawing.Color.SkyBlue;
+			this.NzAnbar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NzAnbar.Size = new System.Drawing.Size(309, 29);
+			this.NzAnbar.TabIndex = 775;
+			this.NzAnbar.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
 			// 
 			// Form_PishFrosh_Factor
 			// 
@@ -453,13 +453,13 @@
 			this.Text = "وضعیت پیش فروش بر اساس فاکتور";
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).EndInit();
 			this.Tab_Control_Main.ResumeLayout(false);
-			this.uiTabPage12.ResumeLayout(false);
-			this.uiTabPage12.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ms_Grid)).EndInit();
 			this.mS_GridX_Setting1.ResumeLayout(false);
 			this.mS_GridX_Setting1.PerformLayout();
 			this.mS_Panel1.ResumeLayout(false);
 			this.mS_Panel1.PerformLayout();
+			this.uiTabPage12.ResumeLayout(false);
+			this.uiTabPage12.PerformLayout();
 			this.ResumeLayout(false);
 
 		}

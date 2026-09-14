@@ -102,6 +102,14 @@ namespace Nz.Anbar.WinForms.App
 			this.mS_Lable_Ex7 = new MS_Control.Controls.MS_Lable_Ex();
 			this.label5 = new System.Windows.Forms.Label();
 			this.uiTabPage2 = new Janus.Windows.UI.Tab.UITabPage();
+			this.uiGroupBox3 = new Janus.Windows.EditControls.UIGroupBox();
+			this.NsTitleGirande = new MS_Control.Controls.MS_TextBox();
+			this.label18 = new System.Windows.Forms.Label();
+			this.NsSendToGirande = new MS_Control.Controls.MS_CheckBox();
+			this.label17 = new System.Windows.Forms.Label();
+			this.NsAddressGirande = new MS_Control.Controls.MS_TextBox();
+			this.label20 = new System.Windows.Forms.Label();
+			this.NsMobileGirande = new MS_Control.Controls.MS_TextBox();
 			this.NsVisitorGroup = new Janus.Windows.EditControls.UIGroupBox();
 			this.NsVisitorMablaq = new MS_Control.Controls.MS_Decimal_Label();
 			this.NsVisitorPercent = new MS_Control.Controls.MS_NumericTextBox();
@@ -112,16 +120,9 @@ namespace Nz.Anbar.WinForms.App
 			this.uiGroupBox1 = new Janus.Windows.EditControls.UIGroupBox();
 			this.NsAmani = new MS_Control.Controls.MS_CheckBox();
 			this.NzFactors = new Nz.Anbar.WinForms.Component.NzFactors();
-			this.NsSendToGirande = new MS_Control.Controls.MS_CheckBox();
-			this.NsAddressGirande = new MS_Control.Controls.MS_TextBox();
 			this.label15 = new System.Windows.Forms.Label();
-			this.NsMobileGirande = new MS_Control.Controls.MS_TextBox();
-			this.NsTitleGirande = new MS_Control.Controls.MS_TextBox();
 			this.label16 = new System.Windows.Forms.Label();
 			this.NsMohlatTasvieh = new MS_Control.Tarikh.MS_Tarikh_TextBox();
-			this.label20 = new System.Windows.Forms.Label();
-			this.label17 = new System.Windows.Forms.Label();
-			this.label18 = new System.Windows.Forms.Label();
 			this.uiTabPage1 = new Janus.Windows.UI.Tab.UITabPage();
 			this.label10 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
@@ -132,7 +133,6 @@ namespace Nz.Anbar.WinForms.App
 			this.label3 = new System.Windows.Forms.Label();
 			this.mS_Notify1 = new MS_Control.Controls.MS_Notify();
 			this.nzObjectPopup1 = new Nz.Anbar.WinForms.Component.NzObjectPopup();
-			this.uiGroupBox3 = new Janus.Windows.EditControls.UIGroupBox();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
 			this.uiTabPage12.SuspendLayout();
@@ -142,13 +142,13 @@ namespace Nz.Anbar.WinForms.App
 			this.uiGroupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NzGrid)).BeginInit();
 			this.uiTabPage2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox3)).BeginInit();
+			this.uiGroupBox3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NsVisitorGroup)).BeginInit();
 			this.NsVisitorGroup.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox1)).BeginInit();
 			this.uiGroupBox1.SuspendLayout();
 			this.uiTabPage1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox3)).BeginInit();
-			this.uiGroupBox3.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// Tab_Control_Main
@@ -1267,6 +1267,157 @@ namespace Nz.Anbar.WinForms.App
 			this.uiTabPage2.TabStop = true;
 			this.uiTabPage2.Text = "جـزئیات";
 			// 
+			// uiGroupBox3
+			// 
+			this.uiGroupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.uiGroupBox3.BackColor = System.Drawing.Color.Transparent;
+			this.uiGroupBox3.BorderColor = System.Drawing.Color.LightBlue;
+			this.uiGroupBox3.Controls.Add(this.NsTitleGirande);
+			this.uiGroupBox3.Controls.Add(this.label18);
+			this.uiGroupBox3.Controls.Add(this.NsSendToGirande);
+			this.uiGroupBox3.Controls.Add(this.label17);
+			this.uiGroupBox3.Controls.Add(this.NsAddressGirande);
+			this.uiGroupBox3.Controls.Add(this.label20);
+			this.uiGroupBox3.Controls.Add(this.NsMobileGirande);
+			this.uiGroupBox3.Location = new System.Drawing.Point(9, 145);
+			this.uiGroupBox3.Margin = new System.Windows.Forms.Padding(2);
+			this.uiGroupBox3.Name = "uiGroupBox3";
+			this.uiGroupBox3.Size = new System.Drawing.Size(910, 151);
+			this.uiGroupBox3.TabIndex = 784;
+			// 
+			// NsTitleGirande
+			// 
+			this.NsTitleGirande.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsTitleGirande.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsTitleGirande.Location = new System.Drawing.Point(516, 19);
+			this.NsTitleGirande.MaxLength = 500;
+			this.NsTitleGirande.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NsTitleGirande.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsTitleGirande.MS_Change_Border_Color_On_Enter = true;
+			this.NsTitleGirande.MS_Change_Color_On_Enter = true;
+			this.NsTitleGirande.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsTitleGirande.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsTitleGirande.MS_Exit_By_Down = true;
+			this.NsTitleGirande.MS_Exit_By_Enter = true;
+			this.NsTitleGirande.MS_Exit_By_Up = true;
+			this.NsTitleGirande.MS_Last_Control = null;
+			this.NsTitleGirande.MS_Next_Control = null;
+			this.NsTitleGirande.Name = "NsTitleGirande";
+			this.NsTitleGirande.Size = new System.Drawing.Size(279, 27);
+			this.NsTitleGirande.TabIndex = 780;
+			// 
+			// label18
+			// 
+			this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label18.AutoSize = true;
+			this.label18.BackColor = System.Drawing.Color.Transparent;
+			this.label18.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.label18.Location = new System.Drawing.Point(797, 21);
+			this.label18.Name = "label18";
+			this.label18.Size = new System.Drawing.Size(82, 23);
+			this.label18.TabIndex = 778;
+			this.label18.Text = "عنوان گیرنده :";
+			this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// NsSendToGirande
+			// 
+			this.NsSendToGirande.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsSendToGirande.BackColor = System.Drawing.Color.Transparent;
+			this.NsSendToGirande.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsSendToGirande.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NsSendToGirande.Location = new System.Drawing.Point(381, 114);
+			this.NsSendToGirande.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
+			this.NsSendToGirande.MS_BorderColor = System.Drawing.Color.Transparent;
+			this.NsSendToGirande.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsSendToGirande.MS_Change_Border_Color_On_Enter = true;
+			this.NsSendToGirande.MS_Change_Color_On_Checked = true;
+			this.NsSendToGirande.MS_Change_Color_On_Enter = true;
+			this.NsSendToGirande.MS_Checked_Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.NsSendToGirande.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsSendToGirande.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsSendToGirande.MS_Exit_By_Down = true;
+			this.NsSendToGirande.MS_Exit_By_Enter = true;
+			this.NsSendToGirande.MS_Exit_By_Up = true;
+			this.NsSendToGirande.MS_Last_Control = null;
+			this.NsSendToGirande.MS_Next_Control = null;
+			this.NsSendToGirande.MS_UnChecked_Color = System.Drawing.Color.Transparent;
+			this.NsSendToGirande.Name = "NsSendToGirande";
+			this.NsSendToGirande.ShowFocusRectangle = false;
+			this.NsSendToGirande.Size = new System.Drawing.Size(414, 31);
+			this.NsSendToGirande.TabIndex = 819;
+			this.NsSendToGirande.Text = "   به گیرنده ارسال شده است";
+			this.NsSendToGirande.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
+			// 
+			// label17
+			// 
+			this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label17.AutoSize = true;
+			this.label17.BackColor = System.Drawing.Color.Transparent;
+			this.label17.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.label17.Location = new System.Drawing.Point(797, 85);
+			this.label17.Name = "label17";
+			this.label17.Size = new System.Drawing.Size(83, 23);
+			this.label17.TabIndex = 778;
+			this.label17.Text = "آدرس گیرنده :";
+			this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// NsAddressGirande
+			// 
+			this.NsAddressGirande.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsAddressGirande.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsAddressGirande.Location = new System.Drawing.Point(8, 83);
+			this.NsAddressGirande.MaxLength = 500;
+			this.NsAddressGirande.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NsAddressGirande.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsAddressGirande.MS_Change_Border_Color_On_Enter = true;
+			this.NsAddressGirande.MS_Change_Color_On_Enter = true;
+			this.NsAddressGirande.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsAddressGirande.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsAddressGirande.MS_Exit_By_Down = true;
+			this.NsAddressGirande.MS_Exit_By_Enter = true;
+			this.NsAddressGirande.MS_Exit_By_Up = true;
+			this.NsAddressGirande.MS_Last_Control = null;
+			this.NsAddressGirande.MS_Next_Control = null;
+			this.NsAddressGirande.Name = "NsAddressGirande";
+			this.NsAddressGirande.Size = new System.Drawing.Size(787, 27);
+			this.NsAddressGirande.TabIndex = 780;
+			// 
+			// label20
+			// 
+			this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label20.AutoSize = true;
+			this.label20.BackColor = System.Drawing.Color.Transparent;
+			this.label20.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.label20.Location = new System.Drawing.Point(797, 53);
+			this.label20.Name = "label20";
+			this.label20.Size = new System.Drawing.Size(89, 23);
+			this.label20.TabIndex = 778;
+			this.label20.Text = "موبایل گیرنده :";
+			this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// NsMobileGirande
+			// 
+			this.NsMobileGirande.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsMobileGirande.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsMobileGirande.Location = new System.Drawing.Point(586, 51);
+			this.NsMobileGirande.MaxLength = 500;
+			this.NsMobileGirande.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NsMobileGirande.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsMobileGirande.MS_Change_Border_Color_On_Enter = true;
+			this.NsMobileGirande.MS_Change_Color_On_Enter = true;
+			this.NsMobileGirande.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsMobileGirande.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsMobileGirande.MS_Exit_By_Down = true;
+			this.NsMobileGirande.MS_Exit_By_Enter = true;
+			this.NsMobileGirande.MS_Exit_By_Up = true;
+			this.NsMobileGirande.MS_Last_Control = null;
+			this.NsMobileGirande.MS_Next_Control = null;
+			this.NsMobileGirande.Name = "NsMobileGirande";
+			this.NsMobileGirande.Size = new System.Drawing.Size(209, 27);
+			this.NsMobileGirande.TabIndex = 780;
+			// 
 			// NsVisitorGroup
 			// 
 			this.NsVisitorGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1476,57 +1627,6 @@ namespace Nz.Anbar.WinForms.App
 			this.NzFactors.TabIndex = 820;
 			this.NzFactors.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
 			// 
-			// NsSendToGirande
-			// 
-			this.NsSendToGirande.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.NsSendToGirande.BackColor = System.Drawing.Color.Transparent;
-			this.NsSendToGirande.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsSendToGirande.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NsSendToGirande.Location = new System.Drawing.Point(381, 114);
-			this.NsSendToGirande.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
-			this.NsSendToGirande.MS_BorderColor = System.Drawing.Color.Transparent;
-			this.NsSendToGirande.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NsSendToGirande.MS_Change_Border_Color_On_Enter = true;
-			this.NsSendToGirande.MS_Change_Color_On_Checked = true;
-			this.NsSendToGirande.MS_Change_Color_On_Enter = true;
-			this.NsSendToGirande.MS_Checked_Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-			this.NsSendToGirande.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-			this.NsSendToGirande.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NsSendToGirande.MS_Exit_By_Down = true;
-			this.NsSendToGirande.MS_Exit_By_Enter = true;
-			this.NsSendToGirande.MS_Exit_By_Up = true;
-			this.NsSendToGirande.MS_Last_Control = null;
-			this.NsSendToGirande.MS_Next_Control = null;
-			this.NsSendToGirande.MS_UnChecked_Color = System.Drawing.Color.Transparent;
-			this.NsSendToGirande.Name = "NsSendToGirande";
-			this.NsSendToGirande.ShowFocusRectangle = false;
-			this.NsSendToGirande.Size = new System.Drawing.Size(414, 31);
-			this.NsSendToGirande.TabIndex = 819;
-			this.NsSendToGirande.Text = "   به گیرنده ارسال شده است";
-			this.NsSendToGirande.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
-			// 
-			// NsAddressGirande
-			// 
-			this.NsAddressGirande.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.NsAddressGirande.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsAddressGirande.Location = new System.Drawing.Point(8, 83);
-			this.NsAddressGirande.MaxLength = 500;
-			this.NsAddressGirande.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.NsAddressGirande.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NsAddressGirande.MS_Change_Border_Color_On_Enter = true;
-			this.NsAddressGirande.MS_Change_Color_On_Enter = true;
-			this.NsAddressGirande.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-			this.NsAddressGirande.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NsAddressGirande.MS_Exit_By_Down = true;
-			this.NsAddressGirande.MS_Exit_By_Enter = true;
-			this.NsAddressGirande.MS_Exit_By_Up = true;
-			this.NsAddressGirande.MS_Last_Control = null;
-			this.NsAddressGirande.MS_Next_Control = null;
-			this.NsAddressGirande.Name = "NsAddressGirande";
-			this.NsAddressGirande.Size = new System.Drawing.Size(787, 27);
-			this.NsAddressGirande.TabIndex = 780;
-			// 
 			// label15
 			// 
 			this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1539,48 +1639,6 @@ namespace Nz.Anbar.WinForms.App
 			this.label15.TabIndex = 778;
 			this.label15.Text = "فاکتور مرجع :";
 			this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// NsMobileGirande
-			// 
-			this.NsMobileGirande.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.NsMobileGirande.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsMobileGirande.Location = new System.Drawing.Point(586, 51);
-			this.NsMobileGirande.MaxLength = 500;
-			this.NsMobileGirande.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.NsMobileGirande.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NsMobileGirande.MS_Change_Border_Color_On_Enter = true;
-			this.NsMobileGirande.MS_Change_Color_On_Enter = true;
-			this.NsMobileGirande.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-			this.NsMobileGirande.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NsMobileGirande.MS_Exit_By_Down = true;
-			this.NsMobileGirande.MS_Exit_By_Enter = true;
-			this.NsMobileGirande.MS_Exit_By_Up = true;
-			this.NsMobileGirande.MS_Last_Control = null;
-			this.NsMobileGirande.MS_Next_Control = null;
-			this.NsMobileGirande.Name = "NsMobileGirande";
-			this.NsMobileGirande.Size = new System.Drawing.Size(209, 27);
-			this.NsMobileGirande.TabIndex = 780;
-			// 
-			// NsTitleGirande
-			// 
-			this.NsTitleGirande.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.NsTitleGirande.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsTitleGirande.Location = new System.Drawing.Point(516, 19);
-			this.NsTitleGirande.MaxLength = 500;
-			this.NsTitleGirande.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.NsTitleGirande.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NsTitleGirande.MS_Change_Border_Color_On_Enter = true;
-			this.NsTitleGirande.MS_Change_Color_On_Enter = true;
-			this.NsTitleGirande.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-			this.NsTitleGirande.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NsTitleGirande.MS_Exit_By_Down = true;
-			this.NsTitleGirande.MS_Exit_By_Enter = true;
-			this.NsTitleGirande.MS_Exit_By_Up = true;
-			this.NsTitleGirande.MS_Last_Control = null;
-			this.NsTitleGirande.MS_Next_Control = null;
-			this.NsTitleGirande.Name = "NsTitleGirande";
-			this.NsTitleGirande.Size = new System.Drawing.Size(279, 27);
-			this.NsTitleGirande.TabIndex = 780;
 			// 
 			// label16
 			// 
@@ -1627,45 +1685,6 @@ namespace Nz.Anbar.WinForms.App
 			this.NsMohlatTasvieh.Size = new System.Drawing.Size(107, 29);
 			this.NsMohlatTasvieh.TabIndex = 779;
 			this.NsMohlatTasvieh.Text = "//";
-			// 
-			// label20
-			// 
-			this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.label20.AutoSize = true;
-			this.label20.BackColor = System.Drawing.Color.Transparent;
-			this.label20.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label20.Location = new System.Drawing.Point(797, 53);
-			this.label20.Name = "label20";
-			this.label20.Size = new System.Drawing.Size(89, 23);
-			this.label20.TabIndex = 778;
-			this.label20.Text = "موبایل گیرنده :";
-			this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// label17
-			// 
-			this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.label17.AutoSize = true;
-			this.label17.BackColor = System.Drawing.Color.Transparent;
-			this.label17.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label17.Location = new System.Drawing.Point(797, 85);
-			this.label17.Name = "label17";
-			this.label17.Size = new System.Drawing.Size(83, 23);
-			this.label17.TabIndex = 778;
-			this.label17.Text = "آدرس گیرنده :";
-			this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// label18
-			// 
-			this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.label18.AutoSize = true;
-			this.label18.BackColor = System.Drawing.Color.Transparent;
-			this.label18.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label18.Location = new System.Drawing.Point(797, 21);
-			this.label18.Name = "label18";
-			this.label18.Size = new System.Drawing.Size(82, 23);
-			this.label18.TabIndex = 778;
-			this.label18.Text = "عنوان گیرنده :";
-			this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// uiTabPage1
 			// 
@@ -1773,31 +1792,13 @@ namespace Nz.Anbar.WinForms.App
 			// nzObjectPopup1
 			// 
 			this.nzObjectPopup1.DropShadowEnabled = false;
+			this.nzObjectPopup1.Font = new System.Drawing.Font("IRANSans(Small)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.nzObjectPopup1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
 			this.nzObjectPopup1.Name = "nzObjectPopup1";
 			this.nzObjectPopup1.NzSelected = null;
 			this.nzObjectPopup1.Padding = new System.Windows.Forms.Padding(0);
 			this.nzObjectPopup1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.nzObjectPopup1.Size = new System.Drawing.Size(0, 0);
-			// 
-			// uiGroupBox3
-			// 
-			this.uiGroupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.uiGroupBox3.BackColor = System.Drawing.Color.Transparent;
-			this.uiGroupBox3.BorderColor = System.Drawing.Color.LightBlue;
-			this.uiGroupBox3.Controls.Add(this.NsTitleGirande);
-			this.uiGroupBox3.Controls.Add(this.label18);
-			this.uiGroupBox3.Controls.Add(this.NsSendToGirande);
-			this.uiGroupBox3.Controls.Add(this.label17);
-			this.uiGroupBox3.Controls.Add(this.NsAddressGirande);
-			this.uiGroupBox3.Controls.Add(this.label20);
-			this.uiGroupBox3.Controls.Add(this.NsMobileGirande);
-			this.uiGroupBox3.Location = new System.Drawing.Point(9, 145);
-			this.uiGroupBox3.Margin = new System.Windows.Forms.Padding(2);
-			this.uiGroupBox3.Name = "uiGroupBox3";
-			this.uiGroupBox3.Size = new System.Drawing.Size(910, 151);
-			this.uiGroupBox3.TabIndex = 784;
 			// 
 			// Form_Purchase
 			// 
@@ -1825,6 +1826,9 @@ namespace Nz.Anbar.WinForms.App
 			this.uiGroupBox2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NzGrid)).EndInit();
 			this.uiTabPage2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox3)).EndInit();
+			this.uiGroupBox3.ResumeLayout(false);
+			this.uiGroupBox3.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NsVisitorGroup)).EndInit();
 			this.NsVisitorGroup.ResumeLayout(false);
 			this.NsVisitorGroup.PerformLayout();
@@ -1833,9 +1837,6 @@ namespace Nz.Anbar.WinForms.App
 			this.uiGroupBox1.PerformLayout();
 			this.uiTabPage1.ResumeLayout(false);
 			this.uiTabPage1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox3)).EndInit();
-			this.uiGroupBox3.ResumeLayout(false);
-			this.uiGroupBox3.PerformLayout();
 			this.ResumeLayout(false);
 
         }

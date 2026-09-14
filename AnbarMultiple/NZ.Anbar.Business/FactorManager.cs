@@ -8,6 +8,7 @@ using Nz.Anbar.Model.Interface;
 using Nz.Anbar.Model.ViewModel;
 using NZ.Anbar.DataLayer.Repo;
 using NZ.Anbar.Model;
+using Nz.Anbar.Model.Report.Sms;
 using ShareLib.Utils;
 
 namespace NZ.Anbar.Business
@@ -84,6 +85,11 @@ namespace NZ.Anbar.Business
         {
             _Repo.FixRemain();
         }
-        #endregion
-    }
+        public IEnumerable<FactorMessageDto> GetFactorForMessage(List<long> Ids)
+        {
+	        return _Repo.GetFactorForMessage(Ids);
+
+        }
+		#endregion
+	}
 }

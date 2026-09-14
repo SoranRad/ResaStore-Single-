@@ -70,7 +70,7 @@ namespace Nz.Anbar.WinForms.Provider
         }
         private void    ms_Object_Click            (object sender, EventArgs e)
         {
-            var frm         = new FormListObject();
+            var frm         = new FormCodingKala();
             frm.MdiParent   = StorageProvider.MainForm;
             frm.Show();
         }

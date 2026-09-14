@@ -222,7 +222,11 @@ namespace Nz.Anbar.WinForms.App
 		{
 			throw new NotImplementedException();
 		}
-
+		public void RemoveLast()
+		{
+			var last = _Factor.FactorItems.LastOrDefault(x => x.State != Enums.NzItemState.Deleted);
+			_Factor.FactorItems.Remove(last);
+		}
 		public void AddOrUpdate(NzObject Object, Enums.NzSalingKind Kind, decimal meqdar = 1)
 		{
 			var row = _Factor

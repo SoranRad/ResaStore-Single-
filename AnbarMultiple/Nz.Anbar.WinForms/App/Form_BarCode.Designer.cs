@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
 			this.components = new System.ComponentModel.Container();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem1 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem2 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem5 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem6 = new Janus.Windows.EditControls.UIComboBoxItem();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_BarCode));
 			Janus.Windows.GridEX.GridEXLayout NzGrid_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
@@ -347,15 +347,15 @@
 			this.NzKind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzKind.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
 			this.NzKind.Cursor = System.Windows.Forms.Cursors.Hand;
-			uiComboBoxItem1.FormatStyle.Alpha = 0;
-			uiComboBoxItem1.IsSeparator = false;
-			uiComboBoxItem1.Text = "فروش عادی";
-			uiComboBoxItem2.FormatStyle.Alpha = 0;
-			uiComboBoxItem2.IsSeparator = false;
-			uiComboBoxItem2.Text = "فروش عمده";
+			uiComboBoxItem5.FormatStyle.Alpha = 0;
+			uiComboBoxItem5.IsSeparator = false;
+			uiComboBoxItem5.Text = "فروش عادی";
+			uiComboBoxItem6.FormatStyle.Alpha = 0;
+			uiComboBoxItem6.IsSeparator = false;
+			uiComboBoxItem6.Text = "فروش عمده";
 			this.NzKind.Items.AddRange(new Janus.Windows.EditControls.UIComboBoxItem[] {
-            uiComboBoxItem1,
-            uiComboBoxItem2});
+            uiComboBoxItem5,
+            uiComboBoxItem6});
 			this.NzKind.Location = new System.Drawing.Point(4, 29);
 			this.NzKind.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzKind.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -756,6 +756,8 @@
 			this.NzGrid.CancelingRowEdit += new Janus.Windows.GridEX.RowActionCancelEventHandler(this.NzGrid_CancelingRowEdit);
 			this.NzGrid.GetNewRow += new Janus.Windows.GridEX.GetNewRowEventHandler(this.NzGrid_GetNewRow);
 			this.NzGrid.CellUpdated += new Janus.Windows.GridEX.ColumnActionEventHandler(this.ms_grid_CellUpdated);
+			this.NzGrid.RecordsDeleted += new System.EventHandler(this.NzGrid_RecordAdded);
+			this.NzGrid.RecordUpdated += new System.EventHandler(this.NzGrid_RecordAdded);
 			this.NzGrid.RecordAdded += new System.EventHandler(this.NzGrid_RecordAdded);
 			this.NzGrid.UpdatingRecord += new System.ComponentModel.CancelEventHandler(this.ms_grid_UpdatingRecord);
 			this.NzGrid.AddingRecord += new System.ComponentModel.CancelEventHandler(this.ms_grid_AddingRecord);

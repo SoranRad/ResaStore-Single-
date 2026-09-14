@@ -123,6 +123,7 @@
     <Compile Include="DapperConfig\Report\CircularObjectConfig.cs" />
     <Compile Include="DapperConfig\Report\CircularOfLocationConfig.cs" />
     <Compile Include="DapperConfig\Report\DailyCircularConfig.cs" />
+    <Compile Include="DapperConfig\Report\Message\FactorMessageDtoConfig.cs" />
     <Compile Include="DapperConfig\Report\ObjectRemaindOnDateConfig.cs" />
     <Compile Include="DapperConfig\Report\PishFrosh\FactorVaHavalePishFroshYekShaxsConfig.cs" />
     <Compile Include="DapperConfig\Report\PishFrosh\PishFoshFactorConfig.cs" />

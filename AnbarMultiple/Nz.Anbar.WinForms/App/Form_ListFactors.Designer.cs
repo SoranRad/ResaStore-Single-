@@ -34,8 +34,10 @@
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.HeaderImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_3 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.HeaderImage");
-			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_4 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column21.ButtonImage");
-			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_5 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column21.HeaderImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_4 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column3.ButtonImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_5 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column3.HeaderImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_6 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column4.ButtonImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_7 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column4.HeaderImage");
 			Janus.Windows.GridEX.GridEXLayout NzGridHeads_Layout_1 = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_1_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_1_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.HeaderImage");
@@ -102,6 +104,10 @@
 			this.NzGridItems = new MS_Control.Controls.MS_GridX();
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
 			this.ms_Save = new MS_Control.Controls.MS_Button_GridX();
+			this.NsCancel = new System.Windows.Forms.ToolStripButton();
+			this.NsProgressText = new System.Windows.Forms.ToolStripLabel();
+			this.NsProgress = new System.Windows.Forms.ToolStripProgressBar();
+			this.NsMessage = new System.Windows.Forms.ToolStripButton();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
 			this.uiTabPage12.SuspendLayout();
@@ -183,7 +189,7 @@
 			this.NzGridHeads.FocusCellDisplayMode = Janus.Windows.GridEX.FocusCellDisplayMode.UseSelectedFormatStyle;
 			this.NzGridHeads.FocusStyle = Janus.Windows.GridEX.FocusStyle.Solid;
 			this.NzGridHeads.Font = new System.Drawing.Font("IRANSans(Small) Light", 15F);
-			this.NzGridHeads.FrozenColumns = 2;
+			this.NzGridHeads.FrozenColumns = 6;
 			this.NzGridHeads.GridLineColor = System.Drawing.Color.Black;
 			this.NzGridHeads.GridLines = Janus.Windows.GridEX.GridLines.Vertical;
 			this.NzGridHeads.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid;
@@ -201,13 +207,17 @@
 			NzGridHeads_Layout_0_Reference_3.Instance = ((object)(resources.GetObject("NzGridHeads_Layout_0_Reference_3.Instance")));
 			NzGridHeads_Layout_0_Reference_4.Instance = ((object)(resources.GetObject("NzGridHeads_Layout_0_Reference_4.Instance")));
 			NzGridHeads_Layout_0_Reference_5.Instance = ((object)(resources.GetObject("NzGridHeads_Layout_0_Reference_5.Instance")));
+			NzGridHeads_Layout_0_Reference_6.Instance = ((object)(resources.GetObject("NzGridHeads_Layout_0_Reference_6.Instance")));
+			NzGridHeads_Layout_0_Reference_7.Instance = ((object)(resources.GetObject("NzGridHeads_Layout_0_Reference_7.Instance")));
 			NzGridHeads_Layout_0.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
             NzGridHeads_Layout_0_Reference_0,
             NzGridHeads_Layout_0_Reference_1,
             NzGridHeads_Layout_0_Reference_2,
             NzGridHeads_Layout_0_Reference_3,
             NzGridHeads_Layout_0_Reference_4,
-            NzGridHeads_Layout_0_Reference_5});
+            NzGridHeads_Layout_0_Reference_5,
+            NzGridHeads_Layout_0_Reference_6,
+            NzGridHeads_Layout_0_Reference_7});
 			NzGridHeads_Layout_0.LayoutString = resources.GetString("NzGridHeads_Layout_0.LayoutString");
 			NzGridHeads_Layout_1.Key = "PreFactor";
 			NzGridHeads_Layout_1_Reference_0.Instance = ((object)(resources.GetObject("NzGridHeads_Layout_1_Reference_0.Instance")));
@@ -246,7 +256,7 @@
 			this.NzGridHeads.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
 			this.NzGridHeads.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
 			this.NzGridHeads.SelectOnExpand = false;
-			this.NzGridHeads.Size = new System.Drawing.Size(1304, 319);
+			this.NzGridHeads.Size = new System.Drawing.Size(1304, 318);
 			this.NzGridHeads.TabIndex = 719;
 			this.NzGridHeads.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
 			this.NzGridHeads.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -262,8 +272,12 @@
 			this.mS_GridX_Setting2.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.mS_GridX_Setting2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.mS_GridX_Setting2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator3});
-			this.mS_GridX_Setting2.Location = new System.Drawing.Point(0, 385);
+            this.toolStripSeparator3,
+            this.NsMessage,
+            this.NsProgress,
+            this.NsProgressText,
+            this.NsCancel});
+			this.mS_GridX_Setting2.Location = new System.Drawing.Point(0, 384);
 			this.mS_GridX_Setting2.MS_BorderColor = System.Drawing.Color.DodgerBlue;
 			this.mS_GridX_Setting2.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_GridX_Setting2.MS_Color_End = System.Drawing.Color.PowderBlue;
@@ -271,7 +285,7 @@
 			this.mS_GridX_Setting2.MS_GridX = this.NzGridHeads;
 			this.mS_GridX_Setting2.Name = "mS_GridX_Setting2";
 			this.mS_GridX_Setting2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_GridX_Setting2.Size = new System.Drawing.Size(1304, 25);
+			this.mS_GridX_Setting2.Size = new System.Drawing.Size(1304, 26);
 			this.mS_GridX_Setting2.TabIndex = 725;
 			this.mS_GridX_Setting2.Text = "mS_GridX_Setting2";
 			this.mS_GridX_Setting2.MS_On_Print_Clicked += new System.EventHandler(this.mS_GridX_Setting2_MS_On_Print_Clicked);
@@ -280,7 +294,7 @@
 			// 
 			this.toolStripSeparator3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 26);
 			// 
 			// Splitter1
 			// 
@@ -418,14 +432,14 @@
             this.NzChangeToSale,
             this.toolStripSeparator1,
             this.NzAnbars});
-			this.mS_Tool_Strip1.Location = new System.Drawing.Point(965, 0);
+			this.mS_Tool_Strip1.Location = new System.Drawing.Point(873, 0);
 			this.mS_Tool_Strip1.MS_BorderColor = System.Drawing.Color.SkyBlue;
 			this.mS_Tool_Strip1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_Tool_Strip1.MS_Color_End = System.Drawing.Color.LightBlue;
 			this.mS_Tool_Strip1.MS_Color_Start = System.Drawing.Color.AliceBlue;
 			this.mS_Tool_Strip1.Name = "mS_Tool_Strip1";
 			this.mS_Tool_Strip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_Tool_Strip1.Size = new System.Drawing.Size(339, 31);
+			this.mS_Tool_Strip1.Size = new System.Drawing.Size(431, 31);
 			this.mS_Tool_Strip1.TabIndex = 709;
 			this.mS_Tool_Strip1.Text = "mS_Tool_Strip1";
 			// 
@@ -928,6 +942,48 @@
 			this.ms_Save.WordWrap = false;
 			this.ms_Save.Click += new System.EventHandler(this.ms_Save_Click);
 			// 
+			// NsCancel
+			// 
+			this.NsCancel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.NsCancel.Image = ((System.Drawing.Image)(resources.GetObject("NsCancel.Image")));
+			this.NsCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.NsCancel.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
+			this.NsCancel.Name = "NsCancel";
+			this.NsCancel.Size = new System.Drawing.Size(23, 23);
+			this.NsCancel.Text = "انصراف";
+			this.NsCancel.Visible = false;
+			this.NsCancel.Click += new System.EventHandler(this.NsCancel_Click);
+			// 
+			// NsProgressText
+			// 
+			this.NsProgressText.Font = new System.Drawing.Font("IRANSans(Small)", 14F, System.Drawing.FontStyle.Bold);
+			this.NsProgressText.ForeColor = System.Drawing.Color.Green;
+			this.NsProgressText.Name = "NsProgressText";
+			this.NsProgressText.Size = new System.Drawing.Size(41, 23);
+			this.NsProgressText.Text = "1 / 23";
+			this.NsProgressText.Visible = false;
+			// 
+			// NsProgress
+			// 
+			this.NsProgress.AutoSize = false;
+			this.NsProgress.BackColor = System.Drawing.Color.White;
+			this.NsProgress.Margin = new System.Windows.Forms.Padding(5, 2, 10, 1);
+			this.NsProgress.Name = "NsProgress";
+			this.NsProgress.RightToLeftLayout = true;
+			this.NsProgress.Size = new System.Drawing.Size(150, 16);
+			this.NsProgress.Value = 20;
+			this.NsProgress.Visible = false;
+			// 
+			// NsMessage
+			// 
+			this.NsMessage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.NsMessage.Image = ((System.Drawing.Image)(resources.GetObject("NsMessage.Image")));
+			this.NsMessage.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.NsMessage.Name = "NsMessage";
+			this.NsMessage.Size = new System.Drawing.Size(23, 23);
+			this.NsMessage.Text = "ارسال پیامک";
+			this.NsMessage.Click += new System.EventHandler(this.NsMessage_Click);
+			// 
 			// Form_ListFactors
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1020,5 +1076,9 @@
 		private System.Windows.Forms.Label NsUserCreate;
 		private System.Windows.Forms.Label NsUserEdit;
 		private System.Windows.Forms.ToolStripButton NsCopy;
+		private System.Windows.Forms.ToolStripButton NsCancel;
+		private System.Windows.Forms.ToolStripButton NsMessage;
+		private System.Windows.Forms.ToolStripProgressBar NsProgress;
+		private System.Windows.Forms.ToolStripLabel NsProgressText;
 	}
 }

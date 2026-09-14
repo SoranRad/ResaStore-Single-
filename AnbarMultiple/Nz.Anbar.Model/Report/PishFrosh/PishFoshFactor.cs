@@ -24,6 +24,8 @@ namespace Nz.Anbar.Model.Report.PishFrosh
 		public decimal		PishFrosh			 { get; set; }
 		public decimal		Tahvili				 { get; set; }
 		public decimal		MandeTahvili		 => this.PishFrosh - this.Tahvili;
+		public decimal		MablaqTahvili		 => this.Tahvili * this.nerkh;
+		public decimal		MablaqMandeTahvili	 => this.MandeTahvili * this.nerkh;
 		public decimal		MojudiKol			 { get; set; }
 		public decimal		Mojudi				 { get; set; }
 	}

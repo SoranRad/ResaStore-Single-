@@ -1,25 +1,26 @@
-﻿using System;
+﻿using Dapper;
+using MS_Control;
+using Nz.Anbar.Model.Interface;
+using Nz.Anbar.Model.Report.Sms;
+using Nz.Anbar.Model.ViewModel;
+using NZ.Anbar.DataLayer.Context;
+using NZ.Anbar.Model;
+using ShareLib;
+using ShareLib.Interfaces;
+using ShareLib.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ShareLib.Interfaces;
-using ShareLib.Utils;
 using System.Data.Common;
+using System.Data.Entity;
 using System.Data.Entity.Core.Mapping;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Migrations;
-using Dapper;
-using Nz.Anbar.Model.Interface;
-using NZ.Anbar.DataLayer.Context;
-using NZ.Anbar.Model;
+using System.Linq;
 using System.Reflection;
-using MS_Control;
-using ShareLib;
-using Nz.Anbar.Model.ViewModel;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace NZ.Anbar.DataLayer.Repo
 {
@@ -437,6 +438,27 @@ namespace NZ.Anbar.DataLayer.Repo
             }
             
         }
-        #endregion
-    }
+		public IEnumerable<FactorMessageDto> GetFactorForMessage(List<long> Ids)
+		{
+			if (Ids == null || !Ids.Any())
+				return null;
+
+			Assembly asm = Assembly.Load(this.GetType().Assembly.GetName());
+			var t = asm.GetTypes().FirstOrDefault(x => x.BaseType == typeof(DapperEntityConfiguration<FactorMessageDto>));
+			var instance = (DapperEntityConfiguration<FactorMessageDto>)Activator.CreateInstance(t);
+			var SelectSingle = instance.GetList;
+			var str = SelectSingle;
+
+			if (Ids.Count == 1)
+				str += " WHERE tat.ID = " + Ids.First();
+			else
+				str += " WHERE tat.ID IN (" + string.Join(" , ", Ids.Select(x => x.ToString())) + " ) ";
+
+			using (var con = ConnectionManager.Create())
+			{
+				return con.Query<FactorMessageDto>(str);
+			}
+		}
+		#endregion
+	}
 }

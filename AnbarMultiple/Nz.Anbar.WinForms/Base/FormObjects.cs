@@ -29,16 +29,19 @@ namespace Nz.Anbar.WinForms.Base
         private bool                _Is_Edit = false;
         public event EventHandler   MS_Do_Save;
         private bool _IsFirstLoad   = false;
-        #endregion
-        public          FormObjects         (Manager Manager, NzObject Row = null)
+        private readonly short? _subGroup;
+
+		#endregion
+		public FormObjects         (Manager Manager, NzObject Row = null, short? SubGroup = null)
         {
             InitializeComponent();
             
             _Manager    = Manager??new Manager();
             _Item       = Row;
-        }
-        #region Methods
-        private void    LoadItem   ()
+            _subGroup = SubGroup;
+		}
+		#region Methods
+		private void    LoadItem   ()
         {
             try
             {
@@ -312,7 +315,10 @@ namespace Nz.Anbar.WinForms.Base
             NzBrand         .Refresh_Grid();
             NzBasteBandi    .Refresh_Grid();
 
-            NzState.SelectedIndex   = 0;
+            if (_subGroup.HasValue)
+	            NzSubGroups.MS_Set_Select(_subGroup.Value);
+
+			NzState.SelectedIndex   = 0;
             NzKind.SelectedIndex    = 0;
 
             NzCode.MaxLength        = SystemConstant

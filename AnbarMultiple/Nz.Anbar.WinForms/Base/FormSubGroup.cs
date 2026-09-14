@@ -22,16 +22,18 @@ namespace Nz.Anbar.WinForms.Base
         #region Fields
         private Manager             _Manager;
         private SubGroup            _Item;
+        private readonly short?     _defaultMainGroup;
         private bool                _Is_Edit = false;
         public event EventHandler   MS_Do_Save;
         #endregion
         #region Constructor
-        public FormSubGroup        (Manager Manager, SubGroup Row = null)
+        public FormSubGroup        (Manager Manager, SubGroup Row = null, short? DefaultMainGroup = null)
         {
             InitializeComponent();
 
             _Manager    = Manager;
             _Item       = Row;
+            _defaultMainGroup = DefaultMainGroup;
         }
         #endregion
         #region Methods
@@ -49,7 +51,7 @@ namespace Nz.Anbar.WinForms.Base
                                 _Item.Code
                             });
 
-                NzTitle.Text    = _Item.title;
+                NzTitle.Text    = _Item.title; 
                
                 NzMainGroup.MS_Set_Select(_Item.FK_GroupKala_1th);
                 if (_Item.FK_GroupKala_1th.HasValue)
@@ -77,6 +79,7 @@ namespace Nz.Anbar.WinForms.Base
             _Item.title                 = NzTitle.Text;
             _Item.Code                  = Convert.ToInt16(NzCode.ButtonText + NzCode.Text);
             _Item.FK_GroupKala_1th      = (NzMainGroup.MS_Get_Selected() as MainGroup).Code;
+            
         }
         private void    Reset      ()
         {
@@ -138,8 +141,11 @@ namespace Nz.Anbar.WinForms.Base
         {
             NzMainGroup.Refresh_Grid( (object)_Manager);
             NzCode.MaxLength = CODELENGTH;
+            if(_defaultMainGroup.HasValue)
+	            NzMainGroup.MS_Set_Select(_defaultMainGroup.Value);
 
-            if (_Item != null && _Item.ID > 0)
+
+			if (_Item != null && _Item.ID > 0)
                 LoadItem();
             else
                 Reset();

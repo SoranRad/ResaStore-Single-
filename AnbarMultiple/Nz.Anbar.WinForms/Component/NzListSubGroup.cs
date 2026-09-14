@@ -39,7 +39,8 @@ namespace Nz.Anbar.WinForms.Component
             _ListAccounts       = _Manager
                                     .GetList<SubGroup>(new
                                         {
-                                            Year = SystemConstant.ActiveYear.Salmali
+										FkGroup1 = (short?)null
+
                                         });
             ms_grid.DataSource  = _ListAccounts?.ToList();
         }
@@ -111,8 +112,8 @@ namespace Nz.Anbar.WinForms.Component
         {
             _ListAccounts   = _Manager.GetList<SubGroup>(new
             {
-                Year = SystemConstant.ActiveYear.Salmali
-            });
+				FkGroup1 = (short?)null
+			});
             RefreshControl();
         }
         private void    NzAdd          (object sender, EventArgs eventArgs)

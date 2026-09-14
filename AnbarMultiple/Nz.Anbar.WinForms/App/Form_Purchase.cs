@@ -112,7 +112,7 @@ namespace Nz.Anbar.WinForms.App
                 NzFactors.Refresh_Grid();
             }
 
-            nzObjectPopup1.RefreshControl   (new Size(550, 220));
+            nzObjectPopup1.RefreshControl   (new Size(650, 250));
             nzObjectPopup1.NzSelectObject   += NzObjectPopup1OnNzSelectObject;
             nzObjectPopup1.NzEscapedPress   += NzObjectPopup1OnNzEscapedPress;
 
@@ -782,7 +782,14 @@ namespace Nz.Anbar.WinForms.App
                 {
                     NzGrid.CancelCurrentEdit();
                     NzGrid.CurrentRow.CancelEdit();
-                    _DoRefresh = false;
+
+                    var item = NzGrid.CurrentRow.DataRow as FactorItem;
+                    if (item != null)
+	                    _Bind.Remove(item);
+                    else
+	                    _Bind.RemoveLast();
+
+					_DoRefresh = false;
                     RefreshFactorSum();
                     _DoRefresh = true;
                     return;
@@ -840,10 +847,14 @@ namespace Nz.Anbar.WinForms.App
                 var Cur = e.Row;
                 if (Cur != null && Cur.RowType == RowType.NewRecord)
                 {
-                    var row = Cur.DataRow as FactorItem;
-                    if (row != null)
-                        _Bind.Remove(row);
-                }
+					if (Cur.DataRow is FactorItem row)
+					{
+						_Bind.Remove(row);
+						_DoRefresh = false;
+						RefreshFactorSum();
+						_DoRefresh = true;
+					}
+				}
             }
             catch (Exception ex)
             {

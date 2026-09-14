@@ -172,7 +172,12 @@ namespace Nz.Anbar.WinForms.App
 
             ReOrderRowNumber((i.radif));
         }
-        public void         RemoveAt        (int index)
+        public void RemoveLast()
+        {
+	        var last = _Factor.FactorItems.LastOrDefault(x => x.State != Enums.NzItemState.Deleted);
+	        _Factor.FactorItems.Remove(last);
+        }
+		public void         RemoveAt        (int index)
         {
             var i=_Factor.FactorItems.Where(x=>x.State!=Enums.NzItemState.Deleted).OrderBy(x=>x.radif).ToList()[index];
             if (i.ID == 0)

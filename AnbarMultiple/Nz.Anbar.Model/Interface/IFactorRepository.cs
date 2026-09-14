@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Nz.Anbar.Model.ViewModel;
 using NZ.Anbar.Model;
+using Nz.Anbar.Model.Report.Sms;
 
 namespace Nz.Anbar.Model.Interface
 {
@@ -20,5 +21,7 @@ namespace Nz.Anbar.Model.Interface
         IEnumerable<PrintFactor>    GetAllPrint     (List<long> List);
         void                        FixFifoKardex   ();
         void FixRemain();
+        IEnumerable<FactorMessageDto> GetFactorForMessage(List<long> Ids);
+
     }
 }

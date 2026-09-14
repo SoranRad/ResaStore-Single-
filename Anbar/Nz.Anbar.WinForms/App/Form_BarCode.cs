@@ -89,7 +89,7 @@ namespace Nz.Anbar.WinForms.App
             byte KindCustomer = 2;
 
             NzCustomer.Refresh_Grid         (_Manager.Connection,KindCustomer);
-            nzObjectPopup1.RefreshControl   (new Size(550, 210));
+            nzObjectPopup1.RefreshControl   (new Size(670, 260));
             nzObjectPopup1.NzSelectObject   += NzObjectPopup1OnNzSelectObject;
             nzObjectPopup1.NzEscapedPress   += NzObjectPopup1OnNzEscapedPress;
             NzGrid.FilterMode               = FilterMode.None;
@@ -876,7 +876,14 @@ namespace Nz.Anbar.WinForms.App
                     {
                         NzGrid.CancelCurrentEdit();
                         NzGrid.CurrentRow.CancelEdit();
-                        _DoRefresh = false;
+
+                        var item = NzGrid.CurrentRow.DataRow as FactorItem;
+                        if (item != null)
+	                        _Bind.Remove(item);
+                        else
+	                        _Bind.RemoveLast();
+
+						_DoRefresh = false;
                         RefreshFactorSum();
                         _DoRefresh = true;
                         return;
@@ -965,6 +972,9 @@ namespace Nz.Anbar.WinForms.App
                     if (row != null)
                     {
                         _Bind.Remove(row);
+                        _DoRefresh = false;
+                        RefreshFactorSum();
+                        _DoRefresh = true;
 						if (_Setting.AutoSave)
 							Save();
 					}

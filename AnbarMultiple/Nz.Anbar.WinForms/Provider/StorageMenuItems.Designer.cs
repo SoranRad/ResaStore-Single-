@@ -34,8 +34,6 @@
 			this.NzLocation = new System.Windows.Forms.ToolStripMenuItem();
 			this.ms_Storage = new System.Windows.Forms.ToolStripMenuItem();
 			this.ms_Unit = new System.Windows.Forms.ToolStripMenuItem();
-			this.ms_GroupMain = new System.Windows.Forms.ToolStripMenuItem();
-			this.ms_GroupSub = new System.Windows.Forms.ToolStripMenuItem();
 			this.ms_Object = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
 			this.NzReadyItems = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,6 +60,7 @@
 			this.NzProfitAll = new System.Windows.Forms.ToolStripMenuItem();
 			this.NzProfitMonthly = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+			this.NsPurchaseAnalyze = new System.Windows.Forms.ToolStripMenuItem();
 			this.NzReviewFactorPayment = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
 			this.NzPishFactorKala = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +71,6 @@
 			this.NzObjectMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.NzSalemenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-			this.NsPurchaseAnalyze = new System.Windows.Forms.ToolStripMenuItem();
 			this.mS_Menu1.SuspendLayout();
 			this.NzSideBarMenu.SuspendLayout();
 			this.SuspendLayout();
@@ -103,8 +101,6 @@
             this.NzLocation,
             this.ms_Storage,
             this.ms_Unit,
-            this.ms_GroupMain,
-            this.ms_GroupSub,
             this.ms_Object,
             this.toolStripSeparator9,
             this.NzReadyItems,
@@ -123,7 +119,7 @@
 			this.NzLocation.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
 			this.NzLocation.Image = ((System.Drawing.Image)(resources.GetObject("NzLocation.Image")));
 			this.NzLocation.Name = "NzLocation";
-			this.NzLocation.Size = new System.Drawing.Size(238, 28);
+			this.NzLocation.Size = new System.Drawing.Size(242, 28);
 			this.NzLocation.Text = "موقعیت فروش و خدمات";
 			this.NzLocation.Click += new System.EventHandler(this.NzLocation_Click);
 			// 
@@ -132,7 +128,7 @@
 			this.ms_Storage.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
 			this.ms_Storage.Image = ((System.Drawing.Image)(resources.GetObject("ms_Storage.Image")));
 			this.ms_Storage.Name = "ms_Storage";
-			this.ms_Storage.Size = new System.Drawing.Size(238, 28);
+			this.ms_Storage.Size = new System.Drawing.Size(242, 28);
 			this.ms_Storage.Text = "تعریف انـبار";
 			this.ms_Storage.Click += new System.EventHandler(this.ms_Storage_Click);
 			// 
@@ -142,29 +138,9 @@
 			this.ms_Unit.Image = ((System.Drawing.Image)(resources.GetObject("ms_Unit.Image")));
 			this.ms_Unit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
 			this.ms_Unit.Name = "ms_Unit";
-			this.ms_Unit.Size = new System.Drawing.Size(238, 28);
+			this.ms_Unit.Size = new System.Drawing.Size(242, 28);
 			this.ms_Unit.Text = "تعریف واحدهای شمارش";
 			this.ms_Unit.Click += new System.EventHandler(this.ms_Unit_Click);
-			// 
-			// ms_GroupMain
-			// 
-			this.ms_GroupMain.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.ms_GroupMain.Image = ((System.Drawing.Image)(resources.GetObject("ms_GroupMain.Image")));
-			this.ms_GroupMain.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			this.ms_GroupMain.Name = "ms_GroupMain";
-			this.ms_GroupMain.Size = new System.Drawing.Size(238, 28);
-			this.ms_GroupMain.Text = "تعریف گروه اصلی کالا/خدمات";
-			this.ms_GroupMain.Click += new System.EventHandler(this.ms_GroupMain_Click);
-			// 
-			// ms_GroupSub
-			// 
-			this.ms_GroupSub.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.ms_GroupSub.Image = ((System.Drawing.Image)(resources.GetObject("ms_GroupSub.Image")));
-			this.ms_GroupSub.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			this.ms_GroupSub.Name = "ms_GroupSub";
-			this.ms_GroupSub.Size = new System.Drawing.Size(238, 28);
-			this.ms_GroupSub.Text = "تعریف گروه فرعی کالا/خدمات";
-			this.ms_GroupSub.Click += new System.EventHandler(this.ms_GroupSub_Click);
 			// 
 			// ms_Object
 			// 
@@ -172,20 +148,20 @@
 			this.ms_Object.Image = ((System.Drawing.Image)(resources.GetObject("ms_Object.Image")));
 			this.ms_Object.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
 			this.ms_Object.Name = "ms_Object";
-			this.ms_Object.Size = new System.Drawing.Size(238, 28);
-			this.ms_Object.Text = "تعریف کالا/خدمات";
+			this.ms_Object.Size = new System.Drawing.Size(242, 28);
+			this.ms_Object.Text = "تعریف کدینگ کالا/خدمات";
 			this.ms_Object.Click += new System.EventHandler(this.ms_Object_Click);
 			// 
 			// toolStripSeparator9
 			// 
 			this.toolStripSeparator9.Name = "toolStripSeparator9";
-			this.toolStripSeparator9.Size = new System.Drawing.Size(235, 6);
+			this.toolStripSeparator9.Size = new System.Drawing.Size(239, 6);
 			// 
 			// NzReadyItems
 			// 
 			this.NzReadyItems.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.NzReadyItems.Name = "NzReadyItems";
-			this.NzReadyItems.Size = new System.Drawing.Size(238, 28);
+			this.NzReadyItems.Size = new System.Drawing.Size(242, 28);
 			this.NzReadyItems.Text = "تعریف اقلام آمـاده برای فروش";
 			this.NzReadyItems.Click += new System.EventHandler(this.NzReadyItems_Click);
 			// 
@@ -193,7 +169,7 @@
 			// 
 			this.NzBasteBandi.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
 			this.NzBasteBandi.Name = "NzBasteBandi";
-			this.NzBasteBandi.Size = new System.Drawing.Size(238, 28);
+			this.NzBasteBandi.Size = new System.Drawing.Size(242, 28);
 			this.NzBasteBandi.Text = "تعریف بسته بندی کالا/خدمات";
 			this.NzBasteBandi.Click += new System.EventHandler(this.NzBasteBandi_Click);
 			// 
@@ -201,7 +177,7 @@
 			// 
 			this.NzBrandMenu.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
 			this.NzBrandMenu.Name = "NzBrandMenu";
-			this.NzBrandMenu.Size = new System.Drawing.Size(238, 28);
+			this.NzBrandMenu.Size = new System.Drawing.Size(242, 28);
 			this.NzBrandMenu.Text = "تعریف برند کالا/خدمات";
 			this.NzBrandMenu.Click += new System.EventHandler(this.NzBrandMenu_Click);
 			// 
@@ -418,6 +394,14 @@
 			this.toolStripSeparator10.Name = "toolStripSeparator10";
 			this.toolStripSeparator10.Size = new System.Drawing.Size(271, 6);
 			// 
+			// NsPurchaseAnalyze
+			// 
+			this.NsPurchaseAnalyze.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
+			this.NsPurchaseAnalyze.Name = "NsPurchaseAnalyze";
+			this.NsPurchaseAnalyze.Size = new System.Drawing.Size(274, 28);
+			this.NsPurchaseAnalyze.Text = "بررسی وضعیت خریدها";
+			this.NsPurchaseAnalyze.Click += new System.EventHandler(this.NsPurchaseAnalyze_Click);
+			// 
 			// NzReviewFactorPayment
 			// 
 			this.NzReviewFactorPayment.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
@@ -532,14 +516,6 @@
 			this.toolStripMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
 			// 
-			// NsPurchaseAnalyze
-			// 
-			this.NsPurchaseAnalyze.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.NsPurchaseAnalyze.Name = "NsPurchaseAnalyze";
-			this.NsPurchaseAnalyze.Size = new System.Drawing.Size(274, 28);
-			this.NsPurchaseAnalyze.Text = "بررسی وضعیت خریدها";
-			this.NsPurchaseAnalyze.Click += new System.EventHandler(this.NsPurchaseAnalyze_Click);
-			// 
 			// StorageMenuItems
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -562,8 +538,6 @@
         public System.Windows.Forms.ToolStripMenuItem ms_baseinfo;
         private System.Windows.Forms.ToolStripMenuItem ms_Storage;
         private System.Windows.Forms.ToolStripMenuItem ms_Unit;
-        private System.Windows.Forms.ToolStripMenuItem ms_GroupMain;
-        private System.Windows.Forms.ToolStripMenuItem ms_GroupSub;
         private System.Windows.Forms.ToolStripMenuItem ms_Object;
         private System.Windows.Forms.ToolStripMenuItem NzBrandMenu;
         public System.Windows.Forms.ToolStripMenuItem StorageMenu;

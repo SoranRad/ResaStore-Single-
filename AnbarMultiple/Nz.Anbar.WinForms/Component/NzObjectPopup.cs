@@ -509,63 +509,67 @@ namespace Nz.Anbar.WinForms.Component
         #region Designer
         private void InitializeComponent            ()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NzObjectPopup));
-            Janus.Windows.GridEX.GridEXLayout NzGrid_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
-            this.NzGrid = new MS_Control.Controls.MS_GridX();
-            ((System.ComponentModel.ISupportInitialize)(this.NzGrid)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // NzGrid
-            // 
-            this.NzGrid.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.False;
-            this.NzGrid.AllowRemoveColumns = Janus.Windows.GridEX.InheritableBoolean.True;
-            this.NzGrid.AlternatingColors = true;
-            this.NzGrid.AlternatingRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.NzGrid.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.NzGrid.BorderStyle = Janus.Windows.GridEX.BorderStyle.Flat;
-            this.NzGrid.BuiltInTextsData = resources.GetString("NzGrid.BuiltInTextsData");
-            this.NzGrid.ColumnSetNavigation = Janus.Windows.GridEX.ColumnSetNavigation.ColumnSet;
-            this.NzGrid.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.NzGrid.DefaultFilterRowComparison = Janus.Windows.GridEX.FilterConditionOperator.Contains;
-            NzGrid_DesignTimeLayout.LayoutString = resources.GetString("NzGrid_DesignTimeLayout.LayoutString");
-            this.NzGrid.DesignTimeLayout = NzGrid_DesignTimeLayout;
-            this.NzGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.NzGrid.DynamicFiltering = true;
-            this.NzGrid.EnterKeyBehavior = Janus.Windows.GridEX.EnterKeyBehavior.None;
-            this.NzGrid.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic;
-            this.NzGrid.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
-            this.NzGrid.FilterRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.NzGrid.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
-            this.NzGrid.FocusCellDisplayMode = Janus.Windows.GridEX.FocusCellDisplayMode.UseSelectedFormatStyle;
-            this.NzGrid.FocusStyle = Janus.Windows.GridEX.FocusStyle.None;
-            this.NzGrid.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
-            this.NzGrid.GridLineColor = System.Drawing.Color.Black;
-            this.NzGrid.GridLines = Janus.Windows.GridEX.GridLines.Vertical;
-            this.NzGrid.GroupByBoxVisible = false;
-            this.NzGrid.HeaderFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.NzGrid.HeaderFormatStyle.ForeColor = System.Drawing.Color.Black;
-            this.NzGrid.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
-            this.NzGrid.Location = new System.Drawing.Point(0, 0);
-            this.NzGrid.Name = "NzGrid";
-            this.NzGrid.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom;
-            this.NzGrid.Office2007CustomColor = System.Drawing.SystemColors.HotTrack;
-            this.NzGrid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.NzGrid.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowIndex;
-            this.NzGrid.SelectedFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.NzGrid.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
-            this.NzGrid.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.NzGrid.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
-            this.NzGrid.SelectOnExpand = false;
-            this.NzGrid.Size = new System.Drawing.Size(800, 400);
-            this.NzGrid.TabIndex = 719;
-            this.NzGrid.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.NzGrid.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
-            this.NzGrid.TreeLineColor = System.Drawing.Color.Black;
-            this.NzGrid.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
-            this.NzGrid.RowDoubleClick += new Janus.Windows.GridEX.RowActionEventHandler(this.NzGrid_RowDoubleClick);
-            this.NzGrid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NzGrid_KeyPress);
-            ((System.ComponentModel.ISupportInitialize)(this.NzGrid)).EndInit();
-            this.ResumeLayout(false);
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NzObjectPopup));
+			Janus.Windows.GridEX.GridEXLayout NzGrid_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
+			this.NzGrid = new MS_Control.Controls.MS_GridX();
+			((System.ComponentModel.ISupportInitialize)(this.NzGrid)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// NzGrid
+			// 
+			this.NzGrid.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.False;
+			this.NzGrid.AllowRemoveColumns = Janus.Windows.GridEX.InheritableBoolean.True;
+			this.NzGrid.AlternatingColors = true;
+			this.NzGrid.AlternatingRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.NzGrid.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.NzGrid.BorderStyle = Janus.Windows.GridEX.BorderStyle.Flat;
+			this.NzGrid.BuiltInTextsData = resources.GetString("NzGrid.BuiltInTextsData");
+			this.NzGrid.ColumnSetNavigation = Janus.Windows.GridEX.ColumnSetNavigation.ColumnSet;
+			this.NzGrid.Cursor = System.Windows.Forms.Cursors.Arrow;
+			this.NzGrid.DefaultFilterRowComparison = Janus.Windows.GridEX.FilterConditionOperator.Contains;
+			NzGrid_DesignTimeLayout.LayoutString = resources.GetString("NzGrid_DesignTimeLayout.LayoutString");
+			this.NzGrid.DesignTimeLayout = NzGrid_DesignTimeLayout;
+			this.NzGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.NzGrid.DynamicFiltering = true;
+			this.NzGrid.EnterKeyBehavior = Janus.Windows.GridEX.EnterKeyBehavior.None;
+			this.NzGrid.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic;
+			this.NzGrid.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
+			this.NzGrid.FilterRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NzGrid.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
+			this.NzGrid.FocusCellDisplayMode = Janus.Windows.GridEX.FocusCellDisplayMode.UseSelectedFormatStyle;
+			this.NzGrid.FocusStyle = Janus.Windows.GridEX.FocusStyle.None;
+			this.NzGrid.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NzGrid.GridLineColor = System.Drawing.Color.Black;
+			this.NzGrid.GridLines = Janus.Windows.GridEX.GridLines.Vertical;
+			this.NzGrid.GroupByBoxVisible = false;
+			this.NzGrid.HeaderFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+			this.NzGrid.HeaderFormatStyle.ForeColor = System.Drawing.Color.Black;
+			this.NzGrid.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
+			this.NzGrid.Location = new System.Drawing.Point(0, 0);
+			this.NzGrid.Name = "NzGrid";
+			this.NzGrid.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom;
+			this.NzGrid.Office2007CustomColor = System.Drawing.SystemColors.HotTrack;
+			this.NzGrid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NzGrid.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowIndex;
+			this.NzGrid.SelectedFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+			this.NzGrid.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
+			this.NzGrid.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+			this.NzGrid.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
+			this.NzGrid.SelectOnExpand = false;
+			this.NzGrid.Size = new System.Drawing.Size(800, 400);
+			this.NzGrid.TabIndex = 719;
+			this.NzGrid.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NzGrid.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
+			this.NzGrid.TreeLineColor = System.Drawing.Color.Black;
+			this.NzGrid.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			this.NzGrid.RowDoubleClick += new Janus.Windows.GridEX.RowActionEventHandler(this.NzGrid_RowDoubleClick);
+			this.NzGrid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NzGrid_KeyPress);
+			// 
+			// NzObjectPopup
+			// 
+			this.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			((System.ComponentModel.ISupportInitialize)(this.NzGrid)).EndInit();
+			this.ResumeLayout(false);
 
         }
         #endregion
