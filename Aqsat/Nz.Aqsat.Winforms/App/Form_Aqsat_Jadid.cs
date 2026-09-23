@@ -370,7 +370,7 @@ namespace Nz.Aqsat.Winforms.App
 					: null;
 				var Year = SystemConstant.ActiveYear.Salmali;
 
-				_Manager.Save(_Aqsat, autoSerial,(object) new { Year , Group });
+				_Manager.Save(_Aqsat, false,(object) new { Year , Group });
 
 				//=======================================
 				new Form_Notify("ذخـیـره سـازی", "اطـلاعـات بـا مـوفـقـیـت ثـبـت شـــد.",
