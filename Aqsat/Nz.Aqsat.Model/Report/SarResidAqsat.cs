@@ -22,6 +22,6 @@ namespace Nz.Aqsat.Model.Report
 		public decimal		mablaqQest			{ get; set; }
 		public byte			Radif				{ get; set; }
 		public int			DayRemaind			{ get; set; }
-		
+		public string		Sharh				{ get; set; }
 	}
 }
