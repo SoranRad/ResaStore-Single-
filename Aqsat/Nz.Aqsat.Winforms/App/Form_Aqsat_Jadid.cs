@@ -361,12 +361,7 @@ namespace Nz.Aqsat.Winforms.App
 				
 				RemoveUnSavedRow();
 
-				bool autoSerial = false;
-
-				if (_IsEdit)
-					autoSerial = false;
-				else
-					autoSerial = _Serial == NzSerial.MS_Decimal;
+				var autoSerial = !_IsEdit && NsAutoSerial.Checked;
 
 
 				//======================================
@@ -1281,9 +1276,11 @@ namespace Nz.Aqsat.Winforms.App
 			
 		}
 
+		#endregion
 
-        #endregion
-
-       
-    }
+		private void NsAutoSerial_CheckedChanged(object sender, EventArgs e)
+		{
+			NzSerial.Enabled = !NsAutoSerial.Checked;
+		}
+	}
 }

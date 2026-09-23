@@ -39,6 +39,7 @@
 			Janus.Windows.Common.Layouts.JanusLayoutReference NsGridEdit_Layout_0_Reference_4 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column3.ButtonImage");
 			this.Tab_Control_Main = new Janus.Windows.UI.Tab.UITab();
 			this.uiGroupBox1 = new Janus.Windows.EditControls.UIGroupBox();
+			this.NsAutoSerial = new MS_Control.Controls.MS_CheckBox();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.NsLastDay = new MS_Control.Controls.MS_CheckBox();
 			this.NsRoundLast = new MS_Control.Controls.MS_RadioBox();
@@ -134,6 +135,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.uiGroupBox1.BackColor = System.Drawing.Color.Transparent;
 			this.uiGroupBox1.BorderColor = System.Drawing.Color.LightBlue;
+			this.uiGroupBox1.Controls.Add(this.NsAutoSerial);
 			this.uiGroupBox1.Controls.Add(this.panel1);
 			this.uiGroupBox1.Controls.Add(this.NsKind);
 			this.uiGroupBox1.Controls.Add(this.nzRemainZamen);
@@ -167,6 +169,38 @@
 			this.uiGroupBox1.Name = "uiGroupBox1";
 			this.uiGroupBox1.Size = new System.Drawing.Size(712, 341);
 			this.uiGroupBox1.TabIndex = 0;
+			// 
+			// NsAutoSerial
+			// 
+			this.NsAutoSerial.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.NsAutoSerial.BackColor = System.Drawing.Color.Transparent;
+			this.NsAutoSerial.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.NsAutoSerial.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsAutoSerial.FormatStyle.Font = new System.Drawing.Font("IRANSans(Small) Medium", 12F);
+			this.NsAutoSerial.Location = new System.Drawing.Point(526, 31);
+			this.NsAutoSerial.Margin = new System.Windows.Forms.Padding(7, 21, 7, 21);
+			this.NsAutoSerial.MS_BorderColor = System.Drawing.Color.RoyalBlue;
+			this.NsAutoSerial.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsAutoSerial.MS_Change_Border_Color_On_Enter = true;
+			this.NsAutoSerial.MS_Change_Color_On_Checked = true;
+			this.NsAutoSerial.MS_Change_Color_On_Enter = true;
+			this.NsAutoSerial.MS_Checked_Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.NsAutoSerial.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsAutoSerial.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsAutoSerial.MS_Exit_By_Down = true;
+			this.NsAutoSerial.MS_Exit_By_Enter = true;
+			this.NsAutoSerial.MS_Exit_By_Up = true;
+			this.NsAutoSerial.MS_Last_Control = null;
+			this.NsAutoSerial.MS_Next_Control = null;
+			this.NsAutoSerial.MS_UnChecked_Color = System.Drawing.Color.Transparent;
+			this.NsAutoSerial.Name = "NsAutoSerial";
+			this.NsAutoSerial.ShowFocusRectangle = false;
+			this.NsAutoSerial.Size = new System.Drawing.Size(18, 29);
+			this.NsAutoSerial.TabIndex = 866;
+			this.NsAutoSerial.TabStop = false;
+			this.NsAutoSerial.ToolTipText = "تولید خودکار شماره سریال";
+			this.NsAutoSerial.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003;
+			this.NsAutoSerial.CheckedChanged += new System.EventHandler(this.NsAutoSerial_CheckedChanged);
 			// 
 			// panel1
 			// 
@@ -751,7 +785,7 @@
 			this.NzTarikh.Cursor = System.Windows.Forms.Cursors.IBeam;
 			this.NzTarikh.DropSize = new System.Drawing.Size(0, 0);
 			this.NzTarikh.Font = new System.Drawing.Font("IRANSans(Small)", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NzTarikh.Location = new System.Drawing.Point(501, 31);
+			this.NzTarikh.Location = new System.Drawing.Point(338, 31);
 			this.NzTarikh.MinimumSize = new System.Drawing.Size(107, 29);
 			this.NzTarikh.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzTarikh.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -770,7 +804,7 @@
 			this.NzTarikh.ReadOnly = false;
 			this.NzTarikh.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.NzTarikh.Size = new System.Drawing.Size(107, 29);
-			this.NzTarikh.TabIndex = 1;
+			this.NzTarikh.TabIndex = 2;
 			this.NzTarikh.Text = "//";
 			// 
 			// label8
@@ -779,7 +813,7 @@
 			this.label8.AutoSize = true;
 			this.label8.BackColor = System.Drawing.Color.Transparent;
 			this.label8.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label8.Location = new System.Drawing.Point(521, 7);
+			this.label8.Location = new System.Drawing.Point(358, 7);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(70, 23);
 			this.label8.TabIndex = 772;
@@ -792,7 +826,7 @@
 			this.NzSerial.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzSerial.DigitGroup = false;
 			this.NzSerial.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NzSerial.Location = new System.Drawing.Point(611, 31);
+			this.NzSerial.Location = new System.Drawing.Point(448, 31);
 			this.NzSerial.MaxLength = 0;
 			this.NzSerial.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
 			this.NzSerial.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -808,9 +842,8 @@
 			this.NzSerial.MS_Last_Control = null;
 			this.NzSerial.MS_Next_Control = null;
 			this.NzSerial.Name = "NzSerial";
-			this.NzSerial.Size = new System.Drawing.Size(91, 29);
-			this.NzSerial.TabIndex = 0;
-			this.NzSerial.TabStop = false;
+			this.NzSerial.Size = new System.Drawing.Size(79, 29);
+			this.NzSerial.TabIndex = 1;
 			this.NzSerial.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center;
 			this.NzSerial.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
 			// 
@@ -820,7 +853,7 @@
 			this.label1.AutoSize = true;
 			this.label1.BackColor = System.Drawing.Color.Transparent;
 			this.label1.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label1.Location = new System.Drawing.Point(642, 7);
+			this.label1.Location = new System.Drawing.Point(479, 7);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(41, 23);
 			this.label1.TabIndex = 770;
@@ -844,7 +877,7 @@
 			this.label2.AutoSize = true;
 			this.label2.BackColor = System.Drawing.Color.Transparent;
 			this.label2.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label2.Location = new System.Drawing.Point(393, 7);
+			this.label2.Location = new System.Drawing.Point(601, 7);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(59, 23);
 			this.label2.TabIndex = 776;
@@ -1106,7 +1139,7 @@
 			this.NsKind.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
 			this.NsKind.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NsKind.Font = new System.Drawing.Font("IRANSans(Small) Medium", 13F);
-			this.NsKind.Location = new System.Drawing.Point(339, 31);
+			this.NsKind.Location = new System.Drawing.Point(547, 31);
 			this.NsKind.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.NsKind.MaxDropDownItems = 15;
 			this.NsKind.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -1123,7 +1156,7 @@
 			this.NsKind.Name = "NsKind";
 			this.NsKind.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.NsKind.Size = new System.Drawing.Size(159, 29);
-			this.NsKind.TabIndex = 2;
+			this.NsKind.TabIndex = 0;
 			this.NsKind.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
 			// 
 			// nzRemainZamen
@@ -1315,5 +1348,6 @@
         private System.Windows.Forms.Label label11;
         private MS_Control.Controls.MS_GridX NsGridEdit;
 		private MS_Control.Controls.MS_CheckBox NsLastDay;
+		private MS_Control.Controls.MS_CheckBox NsAutoSerial;
 	}
 }

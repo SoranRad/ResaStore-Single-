@@ -52,7 +52,8 @@ namespace Nz.Anbar.WinForms.Report.PishFrosh
 					return;
 				}
 				var Anbar = (NzAnbar.MS_Get_Selected() as Storage).ID;
-				var Factor = (Nzfactor.MS_Get_Selected() as FactorPishFrosh).ID;
+				var Factor = (Nzfactor.MS_Get_Selected() as FactorPishFrosh);
+				this.Text = "وضعیت پیش فروش بر اساس فاکتور " + Factor.Serial + " "+ Factor.Customer;
 				var Mgr = new ReportManager();
 				var List = Mgr
 					.GetReport<PishFoshFactor>
@@ -60,7 +61,7 @@ namespace Nz.Anbar.WinForms.Report.PishFrosh
 					{
 						Year = NzCurrentYear.Checked?(short?)SystemConstant.ActiveYear.Salmali : null, 
 						Anbar,
-						Factor
+						Factor = Factor.ID
 					}, null);
 
 				ms_Grid.DataSource = List?.ToList();
