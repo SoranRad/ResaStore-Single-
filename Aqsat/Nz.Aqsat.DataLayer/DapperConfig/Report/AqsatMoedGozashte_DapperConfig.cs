@@ -28,6 +28,7 @@ LTRIM(RTRIM(ta_zamen.mobile))   AS ZamenMobile,
 ddSarResid.PersianStr           AS TarixSarResid,
 tar.mablaqQest,
 tar.Radif,
+LTRIM(RTRIM(tam.Sharh)) AS Sharh,
 DATEDIFF(DAY,tar.tarixQest,GETDATE()) AS DayRemaind
 
 FROM                Aqsat.tbl_Aqsat_Riz     AS tar

@@ -124,7 +124,7 @@ namespace Nz.Aqsat.Winforms.App
 			NsGridRizAdd.Show();
 			panel1.Show();
 
-			NzSerial.Focus();
+			NsKind.Focus();
 	        _DoRefresh = true;
         }
 		private void LoadAqsat								()

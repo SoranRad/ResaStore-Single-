@@ -18,7 +18,6 @@ using Nz.Aqsat.Model.Report;
 using Nz.Aqsat.Winforms.Alarm;
 using Nz.Aqsat.WinForms.Settings;
 using Nz.Asat.Winforms.Settings;
-using static ShareLib.Enums;
 
 namespace Nz.Bar.Winforms.Provider
 {

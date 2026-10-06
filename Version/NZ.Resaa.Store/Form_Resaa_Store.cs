@@ -75,6 +75,7 @@ namespace NZ.Resaa.Store
             loadingMadul = LoadXazane       (_config); 
             loadingMadul = LoadAqsat        (_config); 
             loadingMadul = LoadWebSite      (_config);
+            loadingMadul = LoadOrder        (_config);
             return true;
         }
         private bool    LoadGeneral                 (Config config)
@@ -457,8 +458,80 @@ namespace NZ.Resaa.Store
 	        }
 	        return true;
         }
+        private bool    LoadOrder                   (Config config)
+        {
+	        try
+	        {
 
-        private void    LoadReportMenus             ()
+		        var dir = Path.GetDirectoryName(Application.ExecutablePath);
+
+		        if (!File.Exists(Path.Combine(dir, "Nz.Order.Winforms.dll")))
+			        return true;
+
+		        Assembly asm = Assembly.LoadFrom("Nz.Order.Winforms.dll");
+		        var i = asm
+			        .GetTypes()
+			        .FirstOrDefault(x => x.GetInterfaces().Contains(typeof(IEntryProvider)));
+
+		        var costruc = i.GetConstructors();
+		        if (!costruc.Any())
+			        return false;
+
+		        var item = costruc.FirstOrDefault();
+
+		        if (item == null)
+			        return false;
+
+		        object c = item.Invoke(null);
+
+		        Form_Factory._Form_Factory_Order = c as IEntryProvider;
+		        var tmp = (c as IEntryProvider);
+		        Form_Factory.SystemList.Add(tmp);
+
+		        if (tmp == null)
+			        return false;
+
+		        tmp.SetMainForm(this);
+		        tmp?.SetSettings(config.Settings);
+
+
+		        //ms_baseinfo
+			       // .DropDownItems
+			       // .AddRange(tmp.GetMenu(Enums.MenuKind.BaseInfo)
+				      //  .OfType<ToolStripItem>()
+				      //  .ToArray());
+		        var optMenu = new ToolStripMenuItem(tmp.GetName)
+		        {
+			        Font = new Font("IRANSans(Small) Medium", 14.5f),
+			        Image = global::MS_Resource.GlobalResources.StoreHouse,
+		        };
+
+		        optMenu
+			        .DropDownItems
+			        .AddRange(tmp.GetMenu(Enums.MenuKind.Operation)
+				        .OfType<ToolStripItem>()
+				        .ToArray());
+
+		        mS_Menu1.Items.Insert(mS_Menu1.Items.Count - 3, optMenu);
+
+		        //NzSidebar
+			       // .Items
+			       // .AddRange(
+				      //  tmp
+					     //   .GetMenu(Enums.MenuKind.Sidebar)
+					     //   .OfType<ToolStripItem>()
+					     //   .ToArray()
+			       // );
+
+	        }
+	        catch (Exception ex)
+	        {
+		        log.Error(ex);
+	        }
+	        return true;
+        }
+
+		private void    LoadReportMenus             ()
         {
             try
             {
@@ -604,8 +677,7 @@ namespace NZ.Resaa.Store
 				}
 	        }
         }
-
-        private void LoadDefaultPrintParametters()
+        private void    LoadDefaultPrintParametters ()
         {
 	        MS_Control.Controls.MS_GridX_Setting.Company = SystemConstant.ActiveCompany.title;
 	        MS_Control.Controls.MS_GridX_Setting.UserTitle = SystemConstant.ActiveUser.title;

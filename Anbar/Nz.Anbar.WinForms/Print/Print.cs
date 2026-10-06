@@ -119,7 +119,9 @@ namespace Nz.Anbar.WinForms.Print
                         x.Darsad_Maliat,
                         x.Ezafat,
                         x.Remaind,
-                        x.Saat
+                        x.Saat,
+                        x.VisitorMobile,
+                        x.VisitorTitle
                     })
                     .Select(x => new MS_Report_Loading
                     {
@@ -222,8 +224,11 @@ namespace Nz.Anbar.WinForms.Print
 
                                     {"mab_kol_harf"     , MS_Util.num2str(x.Key.mablaq_KOl.ToString("F0")).Trim()},
                                     {"mola"             , Co.molahezat??""},
-                                    {"RemaindShaxs"     , _remaind}
-                                 }
+                                    {"RemaindShaxs"     , _remaind}, 
+									{"VisitorMobile"    , x.Key.VisitorMobile??""},
+									{"VisitorTitle"     , x.Key.VisitorTitle??""}
+
+								 }
                     })
                     .ToList();
             }

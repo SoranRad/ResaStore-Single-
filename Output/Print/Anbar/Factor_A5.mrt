@@ -26,7 +26,7 @@
     <DataSources isList="true" count="0" />
     <Relations isList="true" count="0" />
     <Report isRef="0" />
-    <Variables isList="true" count="32">
+    <Variables isList="true" count="34">
       <value>,company,company,System.String,,False,False</value>
       <value>,serial,serial,System.String,,False,False</value>
       <value>,tarikh,tarikh,System.String,,False,False</value>
@@ -59,6 +59,8 @@
       <value>,qest,qest,System.Nullable`1[System.Decimal],,False,False</value>
       <value>,Remaind,Remaind,System.Nullable`1[System.Decimal],,False,False</value>
       <value>,RemaindShaxs,RemaindShaxs,System.String,,False,False</value>
+      <value>,VisitorTitle,VisitorTitle,System.String,,False,False</value>
+      <value>,VisitorMobile,VisitorMobile,System.String,,False,False</value>
     </Variables>
   </Dictionary>
   <EngineVersion>EngineV2</EngineVersion>
@@ -1893,10 +1895,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>9/27/2025 10:49:09 AM</ReportChanged>
+  <ReportChanged>9/28/2026 9:58:28 AM</ReportChanged>
   <ReportCreated>9/16/2014 9:44:57 AM</ReportCreated>
   <ReportFile>E:\_Workspace_Project_\_ResaStore_Single_\Output\Print\Anbar\Factor_A5.mrt</ReportFile>
-  <ReportGuid>221eec912a08456886d152d05783c101</ReportGuid>
+  <ReportGuid>0ccffbd793f04088ad8132fca6cfd514</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2015.2.0</ReportVersion>

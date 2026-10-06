@@ -22,8 +22,9 @@ namespace ShareLib.Utils
                                                 _Form_Factory_General,
                                                 _Form_Factory_Site,
                                                 _Form_Factory_Bar,
-                                                _Form_Factory_Aqsat
-                                                ;
+                                                _Form_Factory_Aqsat,
+                                                _Form_Factory_Order
+												;
 
         public static List<IEntryProvider>      SystemList = new List<IEntryProvider>();
         #endregion

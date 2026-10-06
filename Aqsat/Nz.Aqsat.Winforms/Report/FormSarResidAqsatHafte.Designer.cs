@@ -32,8 +32,8 @@
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridFuture_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.ButtonImage");
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSarResidAqsatHafte));
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridFuture_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.HeaderImage");
-			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridFuture_Layout_0_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column14.ButtonImage");
-			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridFuture_Layout_0_Reference_3 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column14.HeaderImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridFuture_Layout_0_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column15.ButtonImage");
+			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridFuture_Layout_0_Reference_3 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column15.HeaderImage");
 			Janus.Windows.GridEX.GridEXLayout NzGridItems_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridItems_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridItems_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.HeaderImage");
@@ -77,7 +77,7 @@
 			this.Tab_Control_Main.Name = "Tab_Control_Main";
 			this.Tab_Control_Main.Office2007CustomColor = System.Drawing.Color.Transparent;
 			this.Tab_Control_Main.ShowFocusRectangle = false;
-			this.Tab_Control_Main.Size = new System.Drawing.Size(1117, 513);
+			this.Tab_Control_Main.Size = new System.Drawing.Size(1117, 512);
 			this.Tab_Control_Main.TabIndex = 8;
 			this.Tab_Control_Main.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
             this.uiTabPage12,
@@ -106,7 +106,7 @@
 			this.uiTabPage12.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.uiTabPage12.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.uiTabPage12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage12.Size = new System.Drawing.Size(1083, 511);
+			this.uiTabPage12.Size = new System.Drawing.Size(1083, 510);
 			this.uiTabPage12.TabStop = true;
 			this.uiTabPage12.Text = "اطلاعات";
 			// 
@@ -163,7 +163,7 @@
 			this.NzGridFuture.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
 			this.NzGridFuture.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
 			this.NzGridFuture.SelectOnExpand = false;
-			this.NzGridFuture.Size = new System.Drawing.Size(1083, 254);
+			this.NzGridFuture.Size = new System.Drawing.Size(1083, 253);
 			this.NzGridFuture.TabIndex = 8;
 			this.NzGridFuture.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
 			this.NzGridFuture.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -200,7 +200,7 @@
 			this.Splitter1.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(236)))), ((int)(((byte)(255)))));
 			this.Splitter1.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-			this.Splitter1.Location = new System.Drawing.Point(0, 283);
+			this.Splitter1.Location = new System.Drawing.Point(0, 282);
 			this.Splitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Splitter1.Name = "Splitter1";
 			this.Splitter1.Size = new System.Drawing.Size(1083, 8);
@@ -252,7 +252,7 @@
 			NzGridItems_Layout_0.LayoutString = resources.GetString("NzGridItems_Layout_0.LayoutString");
 			this.NzGridItems.Layouts.AddRange(new Janus.Windows.GridEX.GridEXLayout[] {
             NzGridItems_Layout_0});
-			this.NzGridItems.Location = new System.Drawing.Point(0, 291);
+			this.NzGridItems.Location = new System.Drawing.Point(0, 290);
 			this.NzGridItems.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.NzGridItems.Name = "NzGridItems";
 			this.NzGridItems.NewRowPosition = Janus.Windows.GridEX.NewRowPosition.BottomRow;
@@ -358,7 +358,7 @@
             this.NsProgress,
             this.NsProgressText,
             this.NsCancel});
-			this.mS_GridX_Setting1.Location = new System.Drawing.Point(0, 513);
+			this.mS_GridX_Setting1.Location = new System.Drawing.Point(0, 512);
 			this.mS_GridX_Setting1.MS_BorderColor = System.Drawing.Color.DodgerBlue;
 			this.mS_GridX_Setting1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_GridX_Setting1.MS_Color_End = System.Drawing.Color.PowderBlue;
@@ -366,7 +366,7 @@
 			this.mS_GridX_Setting1.MS_GridX = this.NzGridFuture;
 			this.mS_GridX_Setting1.Name = "mS_GridX_Setting1";
 			this.mS_GridX_Setting1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_GridX_Setting1.Size = new System.Drawing.Size(1117, 25);
+			this.mS_GridX_Setting1.Size = new System.Drawing.Size(1117, 26);
 			this.mS_GridX_Setting1.TabIndex = 9;
 			this.mS_GridX_Setting1.Text = "mS_GridX_Setting1";
 			// 
@@ -374,7 +374,7 @@
 			// 
 			this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 26);
 			// 
 			// NsRefresh
 			// 
@@ -382,7 +382,7 @@
 			this.NsRefresh.Image = global::MS_Resource.GlobalResources.refresh;
 			this.NsRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.NsRefresh.Name = "NsRefresh";
-			this.NsRefresh.Size = new System.Drawing.Size(23, 22);
+			this.NsRefresh.Size = new System.Drawing.Size(23, 23);
 			this.NsRefresh.Text = "بروزرسانی لیست";
 			this.NsRefresh.Click += new System.EventHandler(this.NsRefresh_Click);
 			// 
@@ -394,7 +394,7 @@
 			this.NsDetail.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.NsDetail.Margin = new System.Windows.Forms.Padding(0, 1, 10, 2);
 			this.NsDetail.Name = "NsDetail";
-			this.NsDetail.Size = new System.Drawing.Size(23, 22);
+			this.NsDetail.Size = new System.Drawing.Size(23, 23);
 			this.NsDetail.Text = "نمایش جزئیات";
 			this.NsDetail.CheckedChanged += new System.EventHandler(this.NsDetail_CheckedChanged);
 			// 
@@ -402,7 +402,7 @@
 			// 
 			this.toolStripSeparator2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 26);
 			// 
 			// NsMessage
 			// 
@@ -410,7 +410,7 @@
 			this.NsMessage.Image = ((System.Drawing.Image)(resources.GetObject("NsMessage.Image")));
 			this.NsMessage.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.NsMessage.Name = "NsMessage";
-			this.NsMessage.Size = new System.Drawing.Size(23, 22);
+			this.NsMessage.Size = new System.Drawing.Size(23, 23);
 			this.NsMessage.Text = "ارسال پیامک برای ردیف های انتخابی";
 			this.NsMessage.Click += new System.EventHandler(this.NsMessage_Click);
 			// 
@@ -441,7 +441,7 @@
 			this.NsCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.NsCancel.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
 			this.NsCancel.Name = "NsCancel";
-			this.NsCancel.Size = new System.Drawing.Size(23, 22);
+			this.NsCancel.Size = new System.Drawing.Size(23, 23);
 			this.NsCancel.Text = "انصراف";
 			this.NsCancel.Visible = false;
 			this.NsCancel.Click += new System.EventHandler(this.NsCancel_Click);

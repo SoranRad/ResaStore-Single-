@@ -528,7 +528,7 @@
             </Text40>
           </Components>
           <Conditions isList="true" count="0" />
-          <DataSourceName isNull="true" />
+          <DataRelationName isNull="true" />
           <Filters isList="true" count="0" />
           <Guid>f7127c552b0a4174b1286cbc4ea1c388</Guid>
           <Name>DataBand2</Name>
@@ -1203,10 +1203,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>3/12/2026 11:42:50 AM</ReportChanged>
+  <ReportChanged>5/24/2026 11:53:22 AM</ReportChanged>
   <ReportCreated>8/21/2014 7:32:51 PM</ReportCreated>
   <ReportFile>E:\_Workspace_Project_\_ResaStore_Single_\Output\Print\Anbar\Pos_Print1.mrt</ReportFile>
-  <ReportGuid>3e03aef00fac466c8a9d43081acc48dc</ReportGuid>
+  <ReportGuid>ca61ebc241cd4157976b1b60a8ed9f4a</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2015.2.0</ReportVersion>
