@@ -17,7 +17,7 @@ namespace Nz.Order.Winforms.Settings
 		public TabSettingContainer()
 		{
 			InitializeComponent();
-			NsBarSetting.SettingFunction += () => Settings;
+			NsOrderSetting.SettingFunction += () => Settings;
 		}
 
 		public void LoadSetting(SettingItems settings)
@@ -28,15 +28,15 @@ namespace Nz.Order.Winforms.Settings
 			NsSyncInterval.MS_Decimal	= settings.SyncInterval;
 		}
 
-		public NsSettingTabPage TabSetting => NsBarSetting;
+		public NsSettingTabPage TabSetting => NsOrderSetting;
 
-		public SettingItems Settings =>
-			new SettingItems()
+		public Nz.Order.Winforms.Settings.SettingItems Settings =>
+			new Nz.Order.Winforms.Settings.SettingItems() 
 			{
-				ApiKey = Settings.ApiKey,
-				AutoSyncStock = NsAutoSyncStock.Checked,
-				AutoSyncOrders = NsAutoSyncOrders.Checked,
-				SyncInterval = Convert.ToByte(NsSyncInterval.MS_Decimal)
+				ApiKey			= NsApikey.Text,
+				AutoSyncStock	= NsAutoSyncStock.Checked,
+				AutoSyncOrders	= NsAutoSyncOrders.Checked,
+				SyncInterval	= Convert.ToByte(NsSyncInterval.MS_Decimal)
 			};
 	}
 }

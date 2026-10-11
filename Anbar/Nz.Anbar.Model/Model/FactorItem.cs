@@ -23,11 +23,11 @@ namespace NZ.Anbar.Model
         public long         FK_Title             { get; set; }
         public short        FK_Salmali           { get; set; }
         public int          FK_Kala              { get; set; }
-        public short?       FK_Vahed             { get; set; }
-        [DefaultValue(1)]
-        public byte         FK_Anbar_Az          { get; set; }
-        public byte?        FK_Anbar_Be          { get; set; }
-        public byte?        kind                 { get; set; }
+        //public short?       FK_Vahed             { get; set; }
+        //[DefaultValue(1)]
+        //public byte         FK_Anbar_Az          { get; set; }
+        //public byte?        FK_Anbar_Be          { get; set; }
+        //public byte? kind { get; set; }
         public int          radif                { get; set; }
         public decimal      meqdar               { get; set; }
         public decimal      nerkh                { get; set; }
@@ -36,7 +36,7 @@ namespace NZ.Anbar.Model
         public decimal      takhfif_darsad       { get; set; }
         public decimal      mablaq               { get; set; }
         public decimal      Remain               { get; set; }
-        public string       CostDescriptor       { get; set; }
+        //public string       CostDescriptor       { get; set; }
 
         [Column(TypeName = "timestamp")]
         [MaxLength(8)]
@@ -45,7 +45,7 @@ namespace NZ.Anbar.Model
 
         public ICollection<Kardex>  KardexItems     { get; set; }
         public FactorHead           FactorHead      { get; set; }
-        public Unit                 Unit            { get; set; }
+     
 
         [NotMapped]
         public string               ObjectTitle     { get; set; }

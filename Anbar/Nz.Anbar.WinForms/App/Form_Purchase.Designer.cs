@@ -31,10 +31,10 @@ namespace Nz.Anbar.WinForms.App
         private void InitializeComponent()
         {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Purchase));
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem5 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem6 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem7 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem8 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem1 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem2 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem3 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem4 = new Janus.Windows.EditControls.UIComboBoxItem();
 			Janus.Windows.GridEX.GridEXLayout NzGrid_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.HeaderImage");
@@ -882,25 +882,25 @@ namespace Nz.Anbar.WinForms.App
 			this.NzKindSale.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
 			this.NzKindSale.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzKindSale.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			uiComboBoxItem5.FormatStyle.Alpha = 0;
-			uiComboBoxItem5.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem5.Image")));
-			uiComboBoxItem5.IsSeparator = false;
-			uiComboBoxItem5.Text = "فروش خرده";
-			uiComboBoxItem6.FormatStyle.Alpha = 0;
-			uiComboBoxItem6.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem6.Image")));
-			uiComboBoxItem6.IsSeparator = false;
-			uiComboBoxItem6.Text = "فروش عمـده";
-			uiComboBoxItem7.FormatStyle.Alpha = 0;
-			uiComboBoxItem7.IsSeparator = false;
-			uiComboBoxItem7.Text = "همکاری";
-			uiComboBoxItem8.FormatStyle.Alpha = 0;
-			uiComboBoxItem8.IsSeparator = false;
-			uiComboBoxItem8.Text = "تخفیفات";
+			uiComboBoxItem1.FormatStyle.Alpha = 0;
+			uiComboBoxItem1.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem1.Image")));
+			uiComboBoxItem1.IsSeparator = false;
+			uiComboBoxItem1.Text = "فروش خرده";
+			uiComboBoxItem2.FormatStyle.Alpha = 0;
+			uiComboBoxItem2.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem2.Image")));
+			uiComboBoxItem2.IsSeparator = false;
+			uiComboBoxItem2.Text = "فروش عمـده";
+			uiComboBoxItem3.FormatStyle.Alpha = 0;
+			uiComboBoxItem3.IsSeparator = false;
+			uiComboBoxItem3.Text = "همکاری";
+			uiComboBoxItem4.FormatStyle.Alpha = 0;
+			uiComboBoxItem4.IsSeparator = false;
+			uiComboBoxItem4.Text = "تخفیفات";
 			this.NzKindSale.Items.AddRange(new Janus.Windows.EditControls.UIComboBoxItem[] {
-            uiComboBoxItem5,
-            uiComboBoxItem6,
-            uiComboBoxItem7,
-            uiComboBoxItem8});
+            uiComboBoxItem1,
+            uiComboBoxItem2,
+            uiComboBoxItem3,
+            uiComboBoxItem4});
 			this.NzKindSale.Location = new System.Drawing.Point(300, 25);
 			this.NzKindSale.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzKindSale.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;

@@ -10,6 +10,7 @@ using Nz.Anbar.Model.Model;
 using NZ.Anbar.Business;
 using NZ.Anbar.Model;
 using Nz.Anbar.Model.Report;
+using Nz.Anbar.WinForms.Settings;
 using ShareLib.Utils;
 
 namespace Nz.Anbar.WinForms.Base
@@ -30,17 +31,22 @@ namespace Nz.Anbar.WinForms.Base
         private bool                _Is_Edit = false;
         public event EventHandler   MS_Do_Save;
         private bool _IsFirstLoad   = false;
-        #endregion
-        public          FormObjects         (Manager Manager, NzObject Row = null,short? SubGroup = null)
+        private SettingItems _settings;
+
+		#endregion
+		public FormObjects         (Manager Manager, NzObject Row = null,short? SubGroup = null)
         {
             InitializeComponent();
             
             _Manager    = Manager??new Manager();
             _Item       = Row;
             _subGroup = SubGroup;
-        }
-        #region Methods
-        private void    LoadItem   ()
+            _settings = Form_Factory._Form_Factory_Anbar.GetSettings() as SettingItems;
+
+
+		}
+		#region Methods
+		private void    LoadItem   ()
         {
             try
             {
@@ -77,7 +83,6 @@ namespace Nz.Anbar.WinForms.Base
                 NzGender.Text           = _Item.Gender;
 
                 NzSeason.SelectedIndex  = _Item.Season ?? 0;
-                NzBasteBandi.MS_Set_Select(_Item.FK_BasteBandi);
 
                 NzColor.Text            = _Item.Color?.ToString();
                 if (_Item.Color != null && _Item.Color != 0)
@@ -85,8 +90,8 @@ namespace Nz.Anbar.WinForms.Base
                 else
                     NzColor.ControlStyle.ControlColor = Color.White;
 
-                nzUnit_2.MS_Set_Select(_Item.FK_Vahed_Fari);
-                Nz_Zarib.Text     = _Item.Zarib.ToString("0,0.##;0,0.##; ");
+                NzBasteBandi.MS_Set_Select(_Item.FK_BasteBandi);
+				Nz_Zarib.Text     = _Item.Zarib.ToString("0,0.##;0,0.##; ");
 
                 NsWebsiteKind.SelectedValue = _Item.WebSiteProductKind;
                 NsWebsiteProductID1.Text = _Item.WebSiteProductId1 ?.ToString();
@@ -152,21 +157,21 @@ namespace Nz.Anbar.WinForms.Base
             _Item.IsOffPercent      = NsIsOffPercent.Checked;
             _Item.OffAmount         = NsOffAmount.MS_Decimal;
             
-            if (string.IsNullOrWhiteSpace(nzUnit_2.Text))
+            if (string.IsNullOrWhiteSpace(NzBasteBandi.Text))
             {
-                _Item.FK_Vahed_Fari = null;
+                _Item.FK_BasteBandi = null;
                 _Item.Zarib         = 0;
             }
             else
             {
-                if (nzUnit_2.MS_Get_Selected() is Unit Unit2)
+                if (NzBasteBandi.MS_Get_Selected() is BasteBandi basteBandi)
                 {
-                    _Item.FK_Vahed_Fari = Unit2.ID;
+                    _Item.FK_BasteBandi = basteBandi.ID;
                     _Item.Zarib = Nz_Zarib.MS_Decimal;
                 }
                 else
                 {
-                    _Item.FK_Vahed_Fari = null;
+                    _Item.FK_BasteBandi = null;
                     _Item.Zarib = 0;
                 }
             }
@@ -306,26 +311,14 @@ namespace Nz.Anbar.WinForms.Base
                 return false;
             }
 
-            if (!string.IsNullOrWhiteSpace(nzUnit_2.Text) )
+            if (!string.IsNullOrWhiteSpace(NzBasteBandi.Text) )
             {
-                var asli = NzUnits.MS_Get_Selected() as Unit;
-                var fari = nzUnit_2.MS_Get_Selected() as Unit;
-
-                if (asli.ID == fari.ID)
-                {
-                    uiTab1.SelectedIndex = 1;
-                    mS_Notify1.Show(nzUnit_2);
-                    nzUnit_2.Focus();
-                    MS_Message.Show("واحد اصلی و فرعی نباید یکی باشند");
-                    return false;
-                }
-
                 if (Nz_Zarib.MS_Decimal <= 0)
                 {
                     uiTab1.SelectedIndex = 1;
                     mS_Notify1.Show(Nz_Zarib);
                     Nz_Zarib.Focus();
-                    MS_Message.Show("در صورتیکه واحد فرعی را مشخص کردید باید ضریب تبدیل آن را نیز وارد کنید");
+                    MS_Message.Show("در صورتیکه بسته بندی را مشخص کردید باید ضریب تبدیل آن را نیز وارد کنید");
                     return false;
                 }
                 
@@ -336,8 +329,7 @@ namespace Nz.Anbar.WinForms.Base
         private void    Init       ()
         {
             NzSubGroups     .Refresh_Grid((object)_Manager);
-            NzUnits         .Refresh_Grid((object)_Manager);
-            nzUnit_2        .Refresh_Grid((object)_Manager);
+            NzUnits         .Refresh_Grid((object)_Manager); 
             NzBrand         .Refresh_Grid();
             NzBasteBandi    .Refresh_Grid();
 
@@ -350,6 +342,10 @@ namespace Nz.Anbar.WinForms.Base
             NzCode.MaxLength        = SystemConstant
                                         .NzSubGroupCodeLen - 
                                             SystemConstant.NzSubGroupCodeLen;
+
+            //== حالت بسته بندی
+	        NzBasteBandi.Visible = Nz_Zarib.Visible = label24.Visible = label26.Visible = _settings.BasteBandiActive;
+
 
             if (_Item != null && _Item.ID > 0)
                 LoadItem();
@@ -388,7 +384,7 @@ namespace Nz.Anbar.WinForms.Base
 
         private void TranslateUnits()
         {
-            Nz_Translate.Text =" هر " + NzUnits.Text + " شامل " + Nz_Zarib.MS_Decimal + " " + nzUnit_2.Text + " می باشد";
+            Nz_Translate.Text =" هر " + NzBasteBandi.Text + " شامل " + Nz_Zarib.MS_Decimal + " " + NzUnits.Text  + " می باشد";
         }
         #endregion
 
@@ -504,16 +500,11 @@ namespace Nz.Anbar.WinForms.Base
              
         }
 
-
         private void NzUnits_MS_On_Row_Selected (object sender, MS_Control.TSDD.On_Selected e)
         {
             TranslateUnits();
         }
-        private void nzUnit_2_MS_On_Row_Selected(object sender, MS_Control.TSDD.On_Selected e)
-        {
-            TranslateUnits();
-
-        }
+       
         private void Nz_Zarib_TextChanged       (object sender, EventArgs e)
         {
             TranslateUnits();
@@ -524,5 +515,10 @@ namespace Nz.Anbar.WinForms.Base
         {
 	        NsIsOffPercent.Enabled = NsIsOffAmount.Enabled = NsOffAmount.Enabled = NsIsOffActive.Checked;
         }
-    }
+
+		private void NzBasteBandi_MS_On_Row_Selected(object sender, MS_Control.TSDD.On_Selected e)
+		{
+			TranslateUnits();
+		}
+	}
 }

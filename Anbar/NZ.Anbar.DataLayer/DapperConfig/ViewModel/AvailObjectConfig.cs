@@ -30,22 +30,20 @@ SELECT tkx.ID ,
        tkx.nerkh_frosh1 ,
        tkx.nerkh_frosh2 ,
        tkx.nerkh_frosh3 ,
-       --tkx.FK_Image ,
-       --tkx.FK_Vahed_Fari,
-	   --tkx.Zarib,
+       tkx.FK_BasteBandi,
+	   tkx.Zarib,
        tkx.IsOffActive,
        tkx.IsOffPercent,
        tkx.OffAmount,
-
-       --Rtrim(Ltrim(tkx.keshvarSazande   ))  AS keshvarSazande,
 	   RTRIM(LTRIM(tv.title			    ))	AS UnitTitle,
-	   RTRIM(LTRIM(tgk.title		    ))	AS SubGroupTitle
-       --,RTRIM(LTRIM(tv2.title			    ))	AS Unit2Title
+	   RTRIM(LTRIM(tgk.title		    ))	AS SubGroupTitle,
+       LTRIM(RTRIM(tbb.Title))              AS BastebandiTitle
 
 FROM				Base.tbl_Kala_Xadamat	AS tkx
 INNER JOIN			Base.tbl_Vahed			AS tv	ON tv.ID		= tkx.FK_Vahed 
---LEFT OUTER JOIN		Base.tbl_Vahed			AS tv2	ON tv2.ID		= tkx.FK_Vahed_Fari
 INNER JOIN			Base.tbl_GroupKala_2th	AS tgk	ON tgk.Code		= tkx.FK_GroupKala_2th
+LEFT OUTER JOIN     Base.tbl_BasteBandi	    AS tbb	ON tbb.ID	    = tkx.FK_BasteBandi
+
 LEFT OUTER JOIN (
                     SELECT 
                     tar.FK_Kala,

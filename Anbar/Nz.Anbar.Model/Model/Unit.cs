@@ -9,8 +9,7 @@ namespace NZ.Anbar.Model
     public class Unit : ISqlQueryMaker,IEntityUsage
     {
         public Unit()
-        {
-            FactorItems     = new HashSet<FactorItem>();
+        { 
             Objects         = new HashSet<NzObject>();
         }
 
@@ -18,8 +17,7 @@ namespace NZ.Anbar.Model
         [StringLength(100)]
         public string       title       { get; set; }
         public short        ID          { get; set; }
-
-        public ICollection<FactorItem>          FactorItems     { get; set; }
+         
         public ICollection<NzObject>            Objects         { get; set; }
 
         public string CircularQuery()

@@ -23,8 +23,6 @@ namespace NZ.Anbar.DataLayer.Repo
                 if (tmp != Items[i].nerkh_2)
                 {
                     Items[i].nerkh_2 = tmp;
-                    Items[i].CostDescriptor =
-                        $"({Items[i].meqdar.ToString(FormatString)} × {Price.ToString(FormatString)} - {Items[i].FactorHead.Serial} )\n";
                 }
             }
         }
@@ -38,8 +36,7 @@ namespace NZ.Anbar.DataLayer.Repo
             foreach (var item in Factor
                                     .FactorItems
                                     .Where(x =>    x.ID == 0 
-                                                && x.FK_Kala     == Item.FK_Kala 
-                                                && x.FK_Anbar_Az == Item.FK_Anbar_Az))
+                                                && x.FK_Kala     == Item.FK_Kala ))
             {
                 Items.Add(item);
             }
@@ -54,7 +51,6 @@ namespace NZ.Anbar.DataLayer.Repo
                     .Where  (x =>
                                     x.FactorHead.kind >= 11 
                                 &&  x.FactorHead.kind < 100
-                                &&  x.FK_Anbar_Az   == Item.FK_Anbar_Az
                                 &&  x.FK_Kala       == Item.FK_Kala
                                 &&  x.FK_Salmali    == Item.FK_Salmali)
                     .ToList ()
@@ -76,8 +72,7 @@ namespace NZ.Anbar.DataLayer.Repo
                 db
                     .FactorItems
                     .Include    (x=>x.FactorHead)
-                    .Where      (x =>   x.FK_Anbar_Az   == Item.FK_Anbar_Az
-                                    &&  x.FK_Kala       == Item.FK_Kala
+                    .Where      (x =>    x.FK_Kala       == Item.FK_Kala
                                     &&  x.FK_Salmali    == Item.FK_Salmali)
                     .ToList     ()
                     .Where      (x => !ListDelete.Contains(x.ID))
@@ -86,7 +81,7 @@ namespace NZ.Anbar.DataLayer.Repo
             AddNewFactorItems   (kardex, Factor, Item);
             CascadeUpdate       (db,     kardex);
 
-            if ((oldRow != null) && (oldRow.FK_Kala != Item.FK_Kala || oldRow.FK_Anbar_Az != Item.FK_Anbar_Az))
+            if ((oldRow != null) && (oldRow.FK_Kala != Item.FK_Kala ))
                 Delete(db, Factor, oldRow, ListDelete);
         }
         public  static void     Delete                  (StorageContext db, FactorHead Factor, FactorItem Item, List<long> ListDelete)
@@ -95,8 +90,7 @@ namespace NZ.Anbar.DataLayer.Repo
                 db
                     .FactorItems
                     .Include    (x => x.FactorHead)
-                    .Where      (x =>       x.FK_Anbar_Az   == Item.FK_Anbar_Az
-                                        &&  x.FK_Kala       == Item.FK_Kala
+                    .Where      (x =>       x.FK_Kala       == Item.FK_Kala
                                         &&  x.ID            != Item.ID
                                         &&  x.FK_Salmali    == Item.FK_Salmali)
                     .ToList ()

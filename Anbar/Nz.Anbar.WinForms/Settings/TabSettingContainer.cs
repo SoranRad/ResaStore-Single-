@@ -54,6 +54,7 @@ namespace Nz.Anbar.WinForms.Settings
 			NsPrintCount.MS_Decimal		= settings.PrintCountInBarcode;
 			NsAutomaticSave.Checked		= settings.AutoSave;
 			NzKindPrint.SelectedIndex	= (byte)settings.KindPrint;
+			NsBasteBandi.Checked		= settings.BasteBandiActive;
 		}
 
 		public NsSettingTabPage TabSetting => NsStorageSetting;
@@ -72,7 +73,8 @@ namespace Nz.Anbar.WinForms.Settings
 				OffAmount				= NsOffAmount.MS_Decimal,
 				PrintCountInBarcode		= (short)NsPrintCount.MS_Decimal,
 				AutoSave				= NsAutomaticSave.Checked,
-				KindPrint				= ((Enums.NzKindPrint)NzKindPrint.SelectedIndex)
+				KindPrint				= ((Enums.NzKindPrint)NzKindPrint.SelectedIndex),
+				BasteBandiActive		= NsBasteBandi.Checked,
 			};
 
         private void NsIsOffActive_CheckedChanged(object sender, EventArgs e)

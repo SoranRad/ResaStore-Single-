@@ -55,7 +55,9 @@ namespace NZ.Anbar.Model
 
         public short?        FK_Brand            { get; set; }
         public short?        FK_BasteBandi       { get; set; }
-        public decimal?      Height              { get; set; }
+        public decimal       Zarib               { get; set; }
+
+		public decimal?      Height              { get; set; }
         public decimal?      Width               { get; set; }
         public decimal?      Length              { get; set; }
         public byte?         Season              { get; set; }
@@ -64,10 +66,6 @@ namespace NZ.Anbar.Model
         public int?          Color               { get; set; }
         [StringLength(20)]
         public string        Size                { get; set; }
-
-        public decimal       Zarib               { get; set; }
-        public short?        FK_Vahed_Fari       { get; set; }
-
 
         //==== ارتیاط با سایر مدلهای دیگر 
         public Unit                         tbl_Vahed               { get; set; }
@@ -157,8 +155,7 @@ SELECT tkx.ID ,
        tkx.Season,
 	   LTRIM(RTRIM(tkx.Size)) AS Size,
 	   tkx.Color,
-       tkx.Zarib,
-       tkx.FK_Vahed_Fari,
+       tkx.Zarib, 
        Rtrim(Ltrim(tkx.Gender))             AS Gender ,
 	   LTRIM(RTRIM(tb.Title))               AS BrandTitle,
 	   LTRIM(RTRIM(tbb.Title))              AS BastebandiTitle,
@@ -168,7 +165,7 @@ SELECT tkx.ID ,
        tkx.IsOffActive,
        tkx.IsOffPercent,
        tkx.OffAmount ,
-        tkx.ShowInBarcodeForm
+       tkx.ShowInBarcodeForm
 
 FROM Base.tbl_Kala_Xadamat              AS tkx
 INNER JOIN Base.tbl_Vahed               AS tv       ON tv.ID        = tkx.FK_Vahed
@@ -213,8 +210,7 @@ SELECT tkx.ID ,
        tkx.Season,
 	   LTRIM(RTRIM(tkx.Size)) AS Size,
 	   tkx.Color,
-       tkx.Zarib,
-       tkx.FK_Vahed_Fari,
+       tkx.Zarib, 
        Rtrim(Ltrim(tkx.Gender)) AS Gender,
 	   LTRIM(RTRIM(tb.Title))  AS BrandTitle,
 	   LTRIM(RTRIM(tbb.Title)) AS BastebandiTitle,

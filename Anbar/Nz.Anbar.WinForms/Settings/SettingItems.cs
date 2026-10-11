@@ -28,7 +28,8 @@ namespace Nz.Anbar.WinForms.Settings
 				 OffAmount = 0,
 				 PrintCountInBarcode = 1,
 				 AutoSave = true,
-				 KindPrint = Enums.NzKindPrint.PosPrint
+				 KindPrint = Enums.NzKindPrint.PosPrint,
+				 BasteBandiActive  = false
 			};
 		}
 
@@ -49,5 +50,7 @@ namespace Nz.Anbar.WinForms.Settings
 		public Enums.NzKindPrint KindPrint		{ get; set; }
 		public short	PrintCountInBarcode		{ get; set; }
 		public bool		AutoSave				{ get; set; }
+		public bool		BasteBandiActive		{ get; set; }
+
 	}
 }

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Nz.Order.Winforms.App;
 
 namespace Nz.Order.Winforms.Provider
 {
@@ -21,23 +22,23 @@ namespace Nz.Order.Winforms.Provider
 
 		private void NsCategories_Click(object sender, EventArgs e)
 		{
-			//var frm = new FormAqsatKind();
-			//frm.MdiParent = AqsatProvider.MainForm;
-			//frm.Show();
+			var frm = new FormCategory();
+			frm.MdiParent = OrderProvider.MainForm;
+			frm.Show();
 		}
 
 		private void NsProducts_Click(object sender, EventArgs e)
 		{
-			//var frm = new FormAqsatKind();
-			//frm.MdiParent = AqsatProvider.MainForm;
-			//frm.Show();
+			var frm = new FormProducts();
+			frm.MdiParent = OrderProvider.MainForm;
+			frm.Show();
 		}
 
 		private void NsListOrders_Click(object sender, EventArgs e)
 		{
-			//var frm = new FormAqsatKind();
-			//frm.MdiParent = AqsatProvider.MainForm;
-			//frm.Show();
+			var frm = new FormOrders();
+			frm.MdiParent = OrderProvider.MainForm;
+			frm.Show();
 		}
 	}
 }

@@ -103,7 +103,7 @@ namespace Nz.Anbar.WinForms.EndYear
                         State       = Enums.NzItemState.AddedNew,
                         FK_Title    = Factor.ID,
                         FactorHead  = Factor,
-                        FK_Anbar_Az = 1,
+                        //FK_Anbar_Az = 1,
                         FK_Salmali  = SystemConstant.ActiveYear.Salmali,
 
                         FK_Kala     = x.Code,
@@ -112,7 +112,7 @@ namespace Nz.Anbar.WinForms.EndYear
                         meqdar      = x.Remain,
                         Remain      = x.Remain,
 
-                        CostDescriptor = x.Serial.ToString()
+                        //CostDescriptor = x.Serial.ToString()
                     };
                     Factor.FactorItems.Add(item);
 

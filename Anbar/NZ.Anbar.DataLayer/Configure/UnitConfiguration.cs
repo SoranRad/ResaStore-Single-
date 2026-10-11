@@ -17,10 +17,10 @@ namespace NZ.Anbar.DataLayer.Configure
             this.Property           (e => e.title)
                 .IsFixedLength();
 
-            this
-                .HasMany            (e => e.FactorItems)
-                .WithOptional       (e => e.Unit)
-                .HasForeignKey      (e => e.FK_Vahed);
+            //this
+            //    .HasMany            (e => e.FactorItems)
+            //    .WithOptional       (e => e.Unit)
+            //    .HasForeignKey      (e => e.FK_Vahed);
 
             this
                 .HasMany            (e => e.Objects)

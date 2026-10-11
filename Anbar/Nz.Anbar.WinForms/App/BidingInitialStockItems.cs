@@ -93,7 +93,7 @@ namespace Nz.Anbar.WinForms.App
             item.State          = Enums.NzItemState.AddedNew;
             item.FK_Title       = _Factor.ID;
             item.FactorHead     = _Factor;
-            item.FK_Anbar_Az    = 1;
+            //item.FK_Anbar_Az    = 1;
             item.FK_Salmali     = SystemConstant.ActiveYear.Salmali;
             item.FactorHead     = _Factor;
             _Factor.FactorItems.Add(item);
@@ -111,7 +111,7 @@ namespace Nz.Anbar.WinForms.App
             r.FK_Title      = _Factor.ID;
             r.FactorHead    = _Factor;
             r.FK_Salmali    = SystemConstant.ActiveYear.Salmali;
-            r.FK_Anbar_Az   = 1;
+            //r.FK_Anbar_Az   = 1;
             r.FactorHead    = _Factor;
             _Factor.FactorItems.Add(r);
             return r;
@@ -227,7 +227,7 @@ namespace Nz.Anbar.WinForms.App
                     radif           = GetNewRowNumber() + 1,
                     FactorHead      = _Factor,
                     FK_Salmali      = SystemConstant.ActiveYear.Salmali,
-                    FK_Anbar_Az     = 1,
+                    //FK_Anbar_Az     = 1,
                     meqdar          = meqdar,
                     nerkh           = Price,
 					mablaq          = meqdar * Price,

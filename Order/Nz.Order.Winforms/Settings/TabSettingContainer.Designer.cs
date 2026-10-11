@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.NzTabs = new Janus.Windows.UI.Tab.UITab();
-			this.NsBarSetting = new ShareLib.Component.NsSettingTabPage();
+			this.NsOrderSetting = new ShareLib.Component.NsSettingTabPage();
 			this.NsAutoSyncOrders = new MS_Control.Controls.MS_CheckBox();
 			this.NsSyncInterval = new MS_Control.Controls.MS_NumericTextBox();
 			this.NsAutoSyncStock = new MS_Control.Controls.MS_CheckBox();
@@ -39,7 +39,7 @@
 			this.mS_Label3 = new MS_Control.Controls.MS_Label();
 			((System.ComponentModel.ISupportInitialize)(this.NzTabs)).BeginInit();
 			this.NzTabs.SuspendLayout();
-			this.NsBarSetting.SuspendLayout();
+			this.NsOrderSetting.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// NzTabs
@@ -58,7 +58,7 @@
 			this.NzTabs.Size = new System.Drawing.Size(805, 436);
 			this.NzTabs.TabIndex = 712;
 			this.NzTabs.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
-            this.NsBarSetting});
+            this.NsOrderSetting});
 			this.NzTabs.TabsStateStyles.DisabledFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.NzTabs.TabsStateStyles.DisabledFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.NzTabs.TabsStateStyles.FormatStyle.BackColor = System.Drawing.Color.LightBlue;
@@ -67,27 +67,27 @@
 			this.NzTabs.UseThemes = false;
 			this.NzTabs.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2003;
 			// 
-			// NsBarSetting
+			// NsOrderSetting
 			// 
-			this.NsBarSetting.AutoScroll = true;
-			this.NsBarSetting.Controls.Add(this.NsAutoSyncOrders);
-			this.NsBarSetting.Controls.Add(this.NsSyncInterval);
-			this.NsBarSetting.Controls.Add(this.NsAutoSyncStock);
-			this.NsBarSetting.Controls.Add(this.NsApikey);
-			this.NsBarSetting.Controls.Add(this.mS_Label1);
-			this.NsBarSetting.Controls.Add(this.mS_Label4);
-			this.NsBarSetting.Controls.Add(this.mS_Label3);
-			this.NsBarSetting.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NsBarSetting.Location = new System.Drawing.Point(0, 23);
-			this.NsBarSetting.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.NsBarSetting.Name = "NsBarSetting";
-			this.NsBarSetting.PanelFormatStyle.Alpha = 70;
-			this.NsBarSetting.PanelFormatStyle.BackColor = System.Drawing.Color.SkyBlue;
-			this.NsBarSetting.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
-			this.NsBarSetting.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.NsBarSetting.Size = new System.Drawing.Size(805, 413);
-			this.NsBarSetting.TabStop = true;
-			this.NsBarSetting.Text = "سفارشات";
+			this.NsOrderSetting.AutoScroll = true;
+			this.NsOrderSetting.Controls.Add(this.NsAutoSyncOrders);
+			this.NsOrderSetting.Controls.Add(this.NsSyncInterval);
+			this.NsOrderSetting.Controls.Add(this.NsAutoSyncStock);
+			this.NsOrderSetting.Controls.Add(this.NsApikey);
+			this.NsOrderSetting.Controls.Add(this.mS_Label1);
+			this.NsOrderSetting.Controls.Add(this.mS_Label4);
+			this.NsOrderSetting.Controls.Add(this.mS_Label3);
+			this.NsOrderSetting.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NsOrderSetting.Location = new System.Drawing.Point(0, 23);
+			this.NsOrderSetting.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.NsOrderSetting.Name = "NsOrderSetting";
+			this.NsOrderSetting.PanelFormatStyle.Alpha = 70;
+			this.NsOrderSetting.PanelFormatStyle.BackColor = System.Drawing.Color.SkyBlue;
+			this.NsOrderSetting.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
+			this.NsOrderSetting.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NsOrderSetting.Size = new System.Drawing.Size(805, 413);
+			this.NsOrderSetting.TabStop = true;
+			this.NsOrderSetting.Text = "سفارشات";
 			// 
 			// NsAutoSyncOrders
 			// 
@@ -252,8 +252,8 @@
 			this.Size = new System.Drawing.Size(805, 436);
 			((System.ComponentModel.ISupportInitialize)(this.NzTabs)).EndInit();
 			this.NzTabs.ResumeLayout(false);
-			this.NsBarSetting.ResumeLayout(false);
-			this.NsBarSetting.PerformLayout();
+			this.NsOrderSetting.ResumeLayout(false);
+			this.NsOrderSetting.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -261,7 +261,7 @@
 		#endregion
 
 		private Janus.Windows.UI.Tab.UITab NzTabs;
-		private ShareLib.Component.NsSettingTabPage NsBarSetting;
+		private ShareLib.Component.NsSettingTabPage NsOrderSetting;
 		private MS_Control.Controls.MS_CheckBox NsAutoSyncStock;
 		private MS_Control.Controls.MS_TextBox NsApikey;
 		private MS_Control.Controls.MS_Label mS_Label1;

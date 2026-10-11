@@ -24,8 +24,7 @@ SELECT tar.ID ,
        RTRIM(LTRIM(tkx.title)) AS ObjectTitle,
 	   RTRIM(LTRIM(tv.title)) AS UnitTitle,
 	   tar.Remain,
-	   tar.nerkh_2,
-	   RTRIM(LTRIM(tar.CostDescriptor)) AS CostDescriptor
+	   tar.nerkh_2
 
 	   
 FROM Anbar.tbl_Amaliat_Riz AS tar

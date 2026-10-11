@@ -37,10 +37,6 @@ SELECT tar.ID ,
        tar.FK_Title ,
        tar.FK_Salmali ,
        tar.FK_Kala ,
-       tar.FK_Vahed ,
-       tar.FK_Anbar_Az ,
-       tar.FK_Anbar_Be ,
-       tar.kind ,
        tar.radif ,
        tar.meqdar ,
        tar.nerkh ,
@@ -53,8 +49,7 @@ SELECT tar.ID ,
 	   RTRIM(LTRIM(tkx.title)) AS ObjectTitle,
 	   RTRIM(LTRIM(tv.title)) AS UnitTitle,
 	   tar.Remain,
-	   tar.nerkh_2,
-	   RTRIM(LTRIM(tar.CostDescriptor)) AS CostDescriptor
+	   tar.nerkh_2
 
 FROM Anbar.tbl_Amaliat_Riz AS tar
 INNER JOIN Base.tbl_Kala_Xadamat AS tkx ON  tkx.Code = tar.FK_Kala
