@@ -41,7 +41,16 @@ namespace NZ.Anbar.DataLayer.Configure
                 .HasPrecision   (8, 3);
 
             this
-                .Property       (e => e.rowversion)
+	            .Property(e => e.MeqdarKolBaste)
+	            .HasPrecision(8, 3);
+
+            this
+	            .Property(e => e.MeqdarKhordBaste)
+	            .HasPrecision(8, 3);
+
+
+			this
+				.Property       (e => e.rowversion)
                 .IsFixedLength  ();
 
             this

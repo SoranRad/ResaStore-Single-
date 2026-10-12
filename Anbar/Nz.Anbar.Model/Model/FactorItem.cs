@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using System.Data;
+using Nz.Anbar.Model.Model;
 using ShareLib;
 
 namespace NZ.Anbar.Model
@@ -19,42 +20,42 @@ namespace NZ.Anbar.Model
         
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long         ID                   { get; set; }
-        public long         FK_Title             { get; set; }
-        public short        FK_Salmali           { get; set; }
-        public int          FK_Kala              { get; set; }
-        //public short?       FK_Vahed             { get; set; }
-        //[DefaultValue(1)]
-        //public byte         FK_Anbar_Az          { get; set; }
-        //public byte?        FK_Anbar_Be          { get; set; }
-        //public byte? kind { get; set; }
-        public int          radif                { get; set; }
-        public decimal      meqdar               { get; set; }
-        public decimal      nerkh                { get; set; }
-        public decimal      nerkh_2              { get; set; }
-        public decimal      takhfif              { get; set; }
-        public decimal      takhfif_darsad       { get; set; }
-        public decimal      mablaq               { get; set; }
-        public decimal      Remain               { get; set; }
-        //public string       CostDescriptor       { get; set; }
+        public long         ID                          { get; set; }
+        public long         FK_Title                    { get; set; }
+        public short        FK_Salmali                  { get; set; }
+        public int          FK_Kala                     { get; set; }
+        public int          radif                       { get; set; }
+        public decimal      meqdar                      { get; set; }
+        public decimal      nerkh                       { get; set; }
+        public decimal      nerkh_2                     { get; set; }
+        public decimal      takhfif                     { get; set; }
+        public decimal      takhfif_darsad              { get; set; }
+        public decimal      mablaq                      { get; set; }
+        public decimal      Remain                      { get; set; }
+        
+        public decimal      MeqdarKolBaste              { get; set; }
+        public decimal      MeqdarKhordBaste            { get; set; }
 
         [Column(TypeName = "timestamp")]
         [MaxLength(8)]
         [Timestamp]
-        public byte[]               rowversion      { get; set; }
+        public byte[]               rowversion          { get; set; }
 
-        public ICollection<Kardex>  KardexItems     { get; set; }
-        public FactorHead           FactorHead      { get; set; }
-     
+        public ICollection<Kardex>  KardexItems         { get; set; }
+        public FactorHead           FactorHead          { get; set; }
 
+		[NotMapped]
+		public string               BasteBandiTitle     { get; set; }
+		[NotMapped]
+		public decimal              Zarib               { get; set; }
+		[NotMapped]
+        public string               ObjectTitle         { get; set; }
         [NotMapped]
-        public string               ObjectTitle     { get; set; }
+        public string               UnitTitle           { get; set; }
         [NotMapped]
-        public string               UnitTitle       { get; set; }
+        public Enums.NzItemState    State               { get; set; }
         [NotMapped]
-        public Enums.NzItemState State { get; set; }
-        [NotMapped]
-        public byte                 StateID         => (byte) this.State;
+        public byte                 StateID             => (byte) this.State;
 
 
         public void RefreshAmounts(decimal Nerkh)

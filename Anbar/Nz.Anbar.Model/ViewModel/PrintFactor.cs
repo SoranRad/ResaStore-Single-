@@ -61,6 +61,10 @@ namespace Nz.Anbar.Model.ViewModel
 		public string       VisitorTitle        { get; set; }
 		public string       VisitorMobile       { get; set; }
 
+		public decimal      MeqdarKolBaste      { get; set; }
+		public decimal      MeqdarKhordBaste    { get; set; }
+		public string       BasteBandiTitle     { get; set; }
+
 
 		public decimal Remaind => mablaq_KOl - (Cheque ?? 0) - (Cache ?? 0) - (Pos ?? 0)-(Takhfif_Tasvieh ?? 0);
 

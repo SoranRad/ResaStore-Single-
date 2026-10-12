@@ -63,7 +63,7 @@ namespace Nz.Anbar.WinForms.App
 			this.Tab_Control_Main.Name = "Tab_Control_Main";
 			this.Tab_Control_Main.Office2007CustomColor = System.Drawing.Color.Transparent;
 			this.Tab_Control_Main.ShowFocusRectangle = false;
-			this.Tab_Control_Main.Size = new System.Drawing.Size(945, 449);
+			this.Tab_Control_Main.Size = new System.Drawing.Size(1066, 449);
 			this.Tab_Control_Main.TabIndex = 723;
 			this.Tab_Control_Main.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
             this.uiTabPage12,
@@ -88,7 +88,7 @@ namespace Nz.Anbar.WinForms.App
 			this.uiTabPage12.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.uiTabPage12.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.uiTabPage12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage12.Size = new System.Drawing.Size(915, 447);
+			this.uiTabPage12.Size = new System.Drawing.Size(1036, 447);
 			this.uiTabPage12.TabStop = true;
 			this.uiTabPage12.Text = "اطلاعات";
 			// 
@@ -149,7 +149,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzGrid.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
 			this.NzGrid.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.AntiqueWhite;
 			this.NzGrid.SelectOnExpand = false;
-			this.NzGrid.Size = new System.Drawing.Size(915, 447);
+			this.NzGrid.Size = new System.Drawing.Size(1036, 447);
 			this.NzGrid.TabIndex = 752;
 			this.NzGrid.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
 			this.NzGrid.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -160,6 +160,8 @@ namespace Nz.Anbar.WinForms.App
 			this.NzGrid.RowDoubleClick += new Janus.Windows.GridEX.RowActionEventHandler(this.ms_grid_RowDoubleClick);
 			this.NzGrid.EditModeChanged += new System.EventHandler(this.ms_grid_EditModeChanged);
 			this.NzGrid.CancelingRowEdit += new Janus.Windows.GridEX.RowActionCancelEventHandler(this.NzGrid_CancelingRowEdit);
+			this.NzGrid.GetNewRow += new Janus.Windows.GridEX.GetNewRowEventHandler(this.NzGrid_GetNewRow);
+			this.NzGrid.CellEdited += new Janus.Windows.GridEX.ColumnActionEventHandler(this.NzGrid_CellEdited);
 			this.NzGrid.CellUpdated += new Janus.Windows.GridEX.ColumnActionEventHandler(this.ms_grid_CellUpdated);
 			this.NzGrid.RecordUpdated += new System.EventHandler(this.NzGrid_RecordUpdated);
 			this.NzGrid.RecordAdded += new System.EventHandler(this.NzGrid_RecordAdded);
@@ -193,7 +195,7 @@ namespace Nz.Anbar.WinForms.App
 			this.mS_GridX_Setting1.MS_GridX = this.NzGrid;
 			this.mS_GridX_Setting1.Name = "mS_GridX_Setting1";
 			this.mS_GridX_Setting1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_GridX_Setting1.Size = new System.Drawing.Size(945, 25);
+			this.mS_GridX_Setting1.Size = new System.Drawing.Size(1066, 25);
 			this.mS_GridX_Setting1.TabIndex = 722;
 			this.mS_GridX_Setting1.Text = "mS_GridX_Setting1";
 			// 
@@ -225,6 +227,7 @@ namespace Nz.Anbar.WinForms.App
 			// nzObjectPopup1
 			// 
 			this.nzObjectPopup1.DropShadowEnabled = false;
+			this.nzObjectPopup1.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
 			this.nzObjectPopup1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
 			this.nzObjectPopup1.Name = "nzObjectPopup1";
 			this.nzObjectPopup1.NzSelected = null;
@@ -236,7 +239,7 @@ namespace Nz.Anbar.WinForms.App
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 28F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(945, 474);
+			this.ClientSize = new System.Drawing.Size(1066, 474);
 			this.Controls.Add(this.Tab_Control_Main);
 			this.Controls.Add(this.mS_GridX_Setting1);
 			this.Font = new System.Drawing.Font("IRANSans", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -82,9 +82,15 @@ namespace Nz.Anbar.WinForms.App
         }
         private void Init                           ()
         {
+	        //== لود تنظیمات
 	        _settings = Form_Factory._Form_Factory_Anbar.GetSettings() as SettingItems;
 	        NzPeopleRemaind.Checked = _settings.ShowRemaind;
-
+	        if (_settings.BasteBandiActive)
+	        {
+		        this.Width = 1225;
+		        NzGrid.RootTable.ColumnSets["BasteBandi"].Visible = true;
+	        }
+            //======
             byte KindCustomer = 1;
 
             var xaridar     = 
@@ -857,7 +863,6 @@ namespace Nz.Anbar.WinForms.App
         }
         private void ms_grid_CellUpdated            (object sender, ColumnActionEventArgs e)
         {
-
             try
             {
                 var row = NzGrid.CurrentRow?.DataRow as FactorItem;
@@ -875,7 +880,7 @@ namespace Nz.Anbar.WinForms.App
         }
         private void NzGrid_RecordAdded             (object sender, EventArgs e)
         {
-                _DoRefresh = false;
+            _DoRefresh = false;
                 RefreshFactorSum();
             _DoRefresh = true;
         }
@@ -904,19 +909,33 @@ namespace Nz.Anbar.WinForms.App
         {
             try
             {
-                if (NzGrid.CurrentRow == null || e.Column.DataMember!="meqdar")
+                if(NzGrid.CurrentRow == null)
                     return;
+
+				if ( e.Column.DataMember!="meqdar" 
+					&& e.Column.DataMember != nameof(FactorItem.MeqdarKolBaste)
+					&& e.Column.DataMember != nameof(FactorItem.MeqdarKhordBaste)
+                )
+                return;
 
                 var key = NzGrid.CurrentRow.DataRow as FactorItem;
 
                 if ((byte)_Kind >= 50)
                 {
                     var objectItem      = nzObjectPopup1.GetAvailObject(key?.FK_Kala ?? 0);
-                    var Value           = Convert.ToDecimal(e.Value);
                     var InitialValue    = Convert.ToDecimal(e.InitialValue);
+                    var Value           = Convert.ToDecimal(e.Value);
+                    var row           = NzGrid.CurrentRow.DataRow as FactorItem;
 
-                    if (
-                           objectItem.kind      ==  (byte) Enums.NzObjectKind.Object
+					if (e.Column.DataMember == "meqdar")
+	                    Value = Convert.ToDecimal(e.Value);
+					else if (e.Column.DataMember == nameof(FactorItem.MeqdarKolBaste))
+						Value = (Value * (row?.Zarib ?? 0)) + (row?.MeqdarKhordBaste ?? 0);
+					else if (e.Column.DataMember == nameof(FactorItem.MeqdarKhordBaste))
+						Value = ((row?.MeqdarKolBaste ?? 0) * (row?.Zarib ?? 0)) + Value;
+
+					if (
+                       objectItem.kind      ==  (byte) Enums.NzObjectKind.Object
                         && objectItem?.remaind  <   Value
                         && Value                !=  InitialValue 
                     )
@@ -931,9 +950,9 @@ namespace Nz.Anbar.WinForms.App
 
                         if (result == DialogResult.No)
                         {
-                            e.Cancel = true;
-                            e.Value = e.InitialValue;
-                            //NzGrid.Refresh();
+	                        NzGrid.CurrentColumn = e.Column;
+	                        e.Cancel = true;
+	                         
                         }
                     }
                 }
@@ -1034,25 +1053,15 @@ namespace Nz.Anbar.WinForms.App
                 RefreshOffPercent();
             else if (col == "mablaq")
                 RefreshSum();
-            //===============================
-            //===============================
-            _DoRefresh = true;
+            else if (col == nameof(FactorItem.MeqdarKolBaste))
+	            RefreshMeqdarBasteBandiKol();
+            else if (col == nameof(FactorItem.MeqdarKhordBaste))
+	            RefreshMeqdarBasteBandiKhord();
+			//===============================
+			//===============================
+			_DoRefresh = true;
         }
-        private void EditTextBoxOnGotFocus          (object sender, EventArgs eventArgs)
-        {
-            if (NzGrid.EditTextBox != null)
-                NzGrid.EditTextBox.Text = NzGrid.CurrentRow.Cells[NzGrid.CurrentColumn].Text;
-        }
-        private void EditTextBoxOnKeyDown           (object sender, KeyEventArgs keyEventArgs)
-        {
-            if (NzGrid.EditTextBox != null)
-            {
-                _Pos            = NzGrid.EditTextBox.SelectionStart + NzGrid.EditTextBox.SelectionLength;
-                _Len            = NzGrid.EditTextBox.Text.Length;
-                _Is_Delete_Key  = keyEventArgs.KeyCode == Keys.Delete;
-            }
-        }
-
+        
         private void Set_Cursor_Location            ()
         {
             if(NzGrid.EditTextBox==null) 
@@ -1262,20 +1271,20 @@ namespace Nz.Anbar.WinForms.App
                                             CultureInfo.CurrentCulture,
                                             out decimal num))
                 {
-                    var r = NzGrid.CurrentRow.DataRow as FactorItem;
-                    var cellSum = NzGrid.CurrentRow.Cells["mablaq"];
-                    var cellOff = NzGrid.CurrentRow.Cells["takhfif_darsad"];
+					var r = NzGrid.CurrentRow.DataRow as FactorItem;
+					var cellSum = NzGrid.CurrentRow.Cells["mablaq"];
+					var cellOff = NzGrid.CurrentRow.Cells["takhfif_darsad"];
 
-                    var sum = (r?.nerkh ?? 0) * (r?.meqdar ?? 0);
-                    var takhfif = num;
+					var sum = (r?.nerkh ?? 0) * (r?.meqdar ?? 0);
+					var takhfif = num;
 
-                    cellOff.Text = "0";
-                    cellOff.Value = 0;
+					cellOff.Text = "0";
+					cellOff.Value = 0;
 
-                    cellSum.Text = (sum - takhfif).ToString(cellSum.Column.FormatString);
-                    cellSum.Value = sum - takhfif;
-                }
-            }
+					cellSum.Text = (sum - takhfif).ToString(cellSum.Column.FormatString);
+					cellSum.Value = sum - takhfif;
+				}
+			}
             catch (Exception ex)
             {
                 log.Error(ex);
@@ -1305,9 +1314,101 @@ namespace Nz.Anbar.WinForms.App
             }
 
         }
-        #endregion
-        //====================================
-        private void NzObjectPopup1OnNzSelectObject     (object sender, EventArgs eventArgs)
+        private void RefreshMeqdarBasteBandiKol     ()
+        {
+	        try
+	        {
+		        if (NzGrid.CurrentRow == null)
+			        return;
+
+		        var text = NzGrid.EditTextBox.Text.Trim();
+		        var Str = string.IsNullOrEmpty(text)
+			        ? "0"
+			        : text;
+
+		        if (decimal.TryParse(Str,
+			            sty,
+			            CultureInfo.CurrentCulture,
+			            out decimal num))
+		        {
+					var r = NzGrid.CurrentRow.DataRow as FactorItem;
+					var cellMeqdar = NzGrid.CurrentRow.Cells[nameof(FactorItem.meqdar)];
+                     
+					var Kol = num * (r?.Zarib ?? 0) + (r?.MeqdarKhordBaste??0);
+
+					cellMeqdar.Text = (Kol).ToString(cellMeqdar.Column.FormatString);
+					cellMeqdar.Value = Kol;
+					//==============================================
+
+					var sum = Kol * (r?.nerkh ?? 0);
+
+					if (sum == 0)
+					{
+						RefreshCurrency(0, 0);
+						return;
+					}
+
+					var takhfif = (r?.takhfif_darsad ?? 0) > 0
+						? Math.Round((r?.takhfif_darsad ?? 0) / 100 * sum)
+						: (r?.takhfif);
+					RefreshCurrency(sum, takhfif ?? 0);
+				}
+	        }
+	        catch (Exception ex)
+	        {
+		        log.Error(ex);
+                RefreshCurrency(0, 0);
+            }
+		}
+		private void RefreshMeqdarBasteBandiKhord()
+		{
+			try
+			{
+				if (NzGrid.CurrentRow == null)
+					return;
+
+				var text = NzGrid.EditTextBox.Text.Trim();
+				var Str = string.IsNullOrEmpty(text)
+					? "0"
+					: text;
+
+				if (decimal.TryParse(Str,
+					    sty,
+					    CultureInfo.CurrentCulture,
+					    out decimal num))
+				{
+					var r = NzGrid.CurrentRow.DataRow as FactorItem;
+					var cellMeqdar = NzGrid.CurrentRow.Cells[nameof(FactorItem.meqdar)];
+
+					var Kol = (r?.MeqdarKolBaste??0) * (r?.Zarib ?? 0) + num;
+
+					cellMeqdar.Text = (Kol).ToString(cellMeqdar.Column.FormatString);
+					cellMeqdar.Value = Kol;
+					//==============================================
+
+					var sum = Kol * (r?.nerkh ?? 0);
+
+					if (sum == 0)
+					{
+						RefreshCurrency(0, 0);
+						return;
+					}
+
+					var takhfif = (r?.takhfif_darsad ?? 0) > 0
+						? Math.Round((r?.takhfif_darsad ?? 0) / 100 * sum)
+						: (r?.takhfif);
+					RefreshCurrency(sum, takhfif ?? 0);
+				}
+			}
+			catch (Exception ex)
+			{
+				log.Error(ex);
+				RefreshCurrency(0, 0);
+			}
+		}
+		#endregion
+		//====================================
+		private void NzObjectPopup1OnNzSelectObject     (object sender, EventArgs eventArgs)
         {
             if (nzObjectPopup1.NzSelected == null || NzGrid.CurrentRow == null )
                 return;
@@ -1319,9 +1420,12 @@ namespace Nz.Anbar.WinForms.App
             Current?.BeginEdit();
             
 
-            Current.Cells["ObjectTitle"].Value  = obj.title;
-            Current.Cells["FK_Kala"].Value      = obj.Code;
-            Current.Cells["UnitTitle"].Value    = obj.UnitTitle;
+            Current.Cells["ObjectTitle"].Value                          = obj.title;
+            Current.Cells["FK_Kala"].Value                              = obj.Code;
+            Current.Cells["UnitTitle"].Value                            = obj.UnitTitle;
+            Current.Cells[nameof(FactorItem.BasteBandiTitle)].Value     = obj.BastebandiTitle;
+            Current.Cells[nameof(FactorItem.Zarib)].Value               = obj.Zarib;
+           
 
             if (Current != null && Current.DataRow!=null)
             {
@@ -1367,8 +1471,10 @@ namespace Nz.Anbar.WinForms.App
                 RefreshFactorSum();
             }
 
-            NzGrid.CurrentColumn = NzGrid.RootTable.Columns["meqdar"];
-        }
+            NzGrid.CurrentColumn = _settings.BasteBandiActive 
+	            ? NzGrid.RootTable.Columns[nameof(FactorItem.MeqdarKolBaste)] 
+	            : NzGrid.RootTable.Columns["meqdar"];
+		}
         private void NzObjectPopup1OnNzEscapedPress     (object sender, EventArgs eventArgs)
         {
             if (NzGrid.CurrentRow == null)

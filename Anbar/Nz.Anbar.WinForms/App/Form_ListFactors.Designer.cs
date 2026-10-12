@@ -259,7 +259,7 @@
 			this.NzGridHeads.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
 			this.NzGridHeads.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
 			this.NzGridHeads.SelectOnExpand = false;
-			this.NzGridHeads.Size = new System.Drawing.Size(1300, 404);
+			this.NzGridHeads.Size = new System.Drawing.Size(1300, 403);
 			this.NzGridHeads.TabIndex = 719;
 			this.NzGridHeads.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
 			this.NzGridHeads.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -280,7 +280,7 @@
             this.NsProgress,
             this.NsProgressText,
             this.NsCancel});
-			this.mS_GridX_Setting2.Location = new System.Drawing.Point(0, 465);
+			this.mS_GridX_Setting2.Location = new System.Drawing.Point(0, 464);
 			this.mS_GridX_Setting2.MS_BorderColor = System.Drawing.Color.DodgerBlue;
 			this.mS_GridX_Setting2.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_GridX_Setting2.MS_Color_End = System.Drawing.Color.PowderBlue;
@@ -288,7 +288,7 @@
 			this.mS_GridX_Setting2.MS_GridX = this.NzGridHeads;
 			this.mS_GridX_Setting2.Name = "mS_GridX_Setting2";
 			this.mS_GridX_Setting2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_GridX_Setting2.Size = new System.Drawing.Size(1300, 25);
+			this.mS_GridX_Setting2.Size = new System.Drawing.Size(1300, 26);
 			this.mS_GridX_Setting2.TabIndex = 725;
 			this.mS_GridX_Setting2.Text = "mS_GridX_Setting2";
 			this.mS_GridX_Setting2.MS_On_Print_Clicked += new System.EventHandler(this.mS_GridX_Setting2_MS_On_Print_Clicked);
@@ -297,7 +297,7 @@
 			// 
 			this.toolStripSeparator3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 26);
 			// 
 			// NsMessage
 			// 
@@ -305,7 +305,7 @@
 			this.NsMessage.Image = ((System.Drawing.Image)(resources.GetObject("NsMessage.Image")));
 			this.NsMessage.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.NsMessage.Name = "NsMessage";
-			this.NsMessage.Size = new System.Drawing.Size(23, 22);
+			this.NsMessage.Size = new System.Drawing.Size(23, 23);
 			this.NsMessage.Text = "ارسال پیامک";
 			this.NsMessage.Click += new System.EventHandler(this.NsMessage_Click);
 			// 
@@ -343,30 +343,30 @@
 			// 
 			// Splitter1
 			// 
-			this.Splitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+			this.Splitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
 			this.Splitter1.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
 			this.Splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.Splitter1.ExpandActionClick = false;
-			this.Splitter1.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+			this.Splitter1.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
 			this.Splitter1.ExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.ExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.Splitter1.ExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
 			this.Splitter1.GripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.Splitter1.GripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-			this.Splitter1.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+			this.Splitter1.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(236)))), ((int)(((byte)(255)))));
 			this.Splitter1.GripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-			this.Splitter1.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(151)))), ((int)(((byte)(61)))));
-			this.Splitter1.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(184)))), ((int)(((byte)(94)))));
+			this.Splitter1.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(140)))), ((int)(((byte)(96)))));
+			this.Splitter1.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(175)))), ((int)(((byte)(139)))));
 			this.Splitter1.HotBackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground2;
 			this.Splitter1.HotBackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground;
-			this.Splitter1.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+			this.Splitter1.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
 			this.Splitter1.HotExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.HotExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.Splitter1.HotExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-			this.Splitter1.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+			this.Splitter1.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
 			this.Splitter1.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-			this.Splitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+			this.Splitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(236)))), ((int)(((byte)(255)))));
 			this.Splitter1.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
 			this.Splitter1.Location = new System.Drawing.Point(0, 490);
 			this.Splitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

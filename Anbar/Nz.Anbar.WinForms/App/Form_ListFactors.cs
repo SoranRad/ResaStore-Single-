@@ -14,9 +14,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 using Nz.Anbar.WinForms.Sms;
-using Nz.Anbar.Model.Report.Sms;
+using Nz.Anbar.WinForms.Settings;
 
 namespace Nz.Anbar.WinForms.App
 {
@@ -33,12 +32,18 @@ namespace Nz.Anbar.WinForms.App
 		private ReportManager       _Manager;
 		private bool _CancelJob = false;
         private Enums.NzFactorKind  _Kind;
-        #endregion
+        private SettingItems _settings;
+
+		#endregion
 		#region Constructor
-		public      Form_ListFactors        ()
+		public Form_ListFactors        ()
         {
             InitializeComponent();
-            _Manager                            = new ReportManager();
+            //== لود تنظیمات
+            _settings = Form_Factory._Form_Factory_Anbar.GetSettings() as SettingItems;
+            if (_settings.BasteBandiActive)
+	            NzGridItems.RootTable.ColumnSets["BansteBandi"].Visible = true;
+			_Manager                            = new ReportManager();
             this.Icon = global::MS_Resource.GlobalResources.Logo_Resaa;
             SetCurrentMonth();
             NzFactorKinds.SelectedTabChanged    += NzFactorKinds_SelectedTabChanged;

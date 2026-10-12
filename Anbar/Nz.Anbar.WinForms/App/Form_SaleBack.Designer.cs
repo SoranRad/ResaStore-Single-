@@ -1064,6 +1064,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzGrid.RowDoubleClick += new Janus.Windows.GridEX.RowActionEventHandler(this.ms_grid_RowDoubleClick);
 			this.NzGrid.EditModeChanged += new System.EventHandler(this.ms_grid_EditModeChanged);
 			this.NzGrid.CancelingRowEdit += new Janus.Windows.GridEX.RowActionCancelEventHandler(this.NzGrid_CancelingRowEdit);
+			this.NzGrid.GetNewRow += new Janus.Windows.GridEX.GetNewRowEventHandler(this.NzGrid_GetNewRow);
 			this.NzGrid.CellEdited += new Janus.Windows.GridEX.ColumnActionEventHandler(this.NzGrid_CellEdited);
 			this.NzGrid.CellUpdated += new Janus.Windows.GridEX.ColumnActionEventHandler(this.ms_grid_CellUpdated);
 			this.NzGrid.RecordsDeleted += new System.EventHandler(this.NzGrid_RecordAdded);
@@ -1150,6 +1151,7 @@ namespace Nz.Anbar.WinForms.App
 			// nzObjectPopup1
 			// 
 			this.nzObjectPopup1.DropShadowEnabled = false;
+			this.nzObjectPopup1.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
 			this.nzObjectPopup1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
 			this.nzObjectPopup1.Name = "nzObjectPopup1";
 			this.nzObjectPopup1.NzSelected = null;

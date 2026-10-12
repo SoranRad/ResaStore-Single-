@@ -34,6 +34,7 @@ SELECT tpfi.ID,
 FROM Base.tbl_PreFactorItems		AS tpfi
 INNER JOIN Base.tbl_Kala_Xadamat	AS tkx	ON tpfi.FK_Kala		= tkx.ID
 INNER JOIN Base.tbl_Vahed			AS tv	ON tv.ID			= tkx.FK_Vahed
+
 WHERE tpfi.FK_Title = @ID
 
 ");

@@ -23,13 +23,18 @@ SELECT tar.ID ,
        tar.mablaq ,
        RTRIM(LTRIM(tkx.title)) AS ObjectTitle,
 	   RTRIM(LTRIM(tv.title)) AS UnitTitle,
+	   RTRIM(LTRIM(tbb.Title)) AS BasteBandiTitle,
+       tkx.Zarib,
 	   tar.Remain,
-	   tar.nerkh_2
-
+	   tar.nerkh_2,
+       tar.MeqdarKolBaste,
+       tar.MeqdarKhordBaste
 	   
-FROM Anbar.tbl_Amaliat_Riz AS tar
-INNER JOIN Base.tbl_Kala_Xadamat AS tkx ON tkx.Code = tar.FK_Kala
-INNER JOIN Base.tbl_Vahed AS tv ON tv.ID = tkx.FK_Vahed
+FROM            Anbar.tbl_Amaliat_Riz   AS tar
+INNER JOIN      Base.tbl_Kala_Xadamat   AS tkx  ON tkx.Code     = tar.FK_Kala
+INNER JOIN      Base.tbl_Vahed          AS tv   ON tv.ID        = tkx.FK_Vahed
+LEFT OUTER JOIN Base.tbl_BasteBandi     AS tbb  ON tbb.ID       = tkx.FK_BasteBandi
+
 
 WHERE tar.FK_Title=@ID
 ");

@@ -18,6 +18,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MS_Control;
+using Nz.Anbar.WinForms.Settings;
 using static ShareLib.Enums;
 
 namespace Nz.Anbar.WinForms.App
@@ -29,11 +30,18 @@ namespace Nz.Anbar.WinForms.App
 		private Enums.NzFactorKind  _Kind = NzFactorKind.Frosh;
 
 		public List<FactorItem> Items { get; set; }
+		private SettingItems _settings;
+
 		#endregion
 
 		public FormSelectFactor()
 		{
 			InitializeComponent();
+			//== لود تنظیمات
+			_settings = Form_Factory._Form_Factory_Anbar.GetSettings() as SettingItems;
+			if (_settings.BasteBandiActive)
+				NzGridItems.RootTable.ColumnSets["BansteBandi"].Visible = true;
+
 			_Manager                            = new ReportManager();
 			this.Icon = global::MS_Resource.GlobalResources.Logo_Resaa;
 			SetCurrentMonth(); 

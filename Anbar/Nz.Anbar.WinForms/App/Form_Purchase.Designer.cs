@@ -31,10 +31,10 @@ namespace Nz.Anbar.WinForms.App
         private void InitializeComponent()
         {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Purchase));
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem1 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem2 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem3 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem4 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem5 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem6 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem7 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem8 = new Janus.Windows.EditControls.UIComboBoxItem();
 			Janus.Windows.GridEX.GridEXLayout NzGrid_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.HeaderImage");
@@ -162,7 +162,7 @@ namespace Nz.Anbar.WinForms.App
 			this.Tab_Control_Main.Name = "Tab_Control_Main";
 			this.Tab_Control_Main.Office2007CustomColor = System.Drawing.Color.Transparent;
 			this.Tab_Control_Main.ShowFocusRectangle = false;
-			this.Tab_Control_Main.Size = new System.Drawing.Size(958, 549);
+			this.Tab_Control_Main.Size = new System.Drawing.Size(931, 549);
 			this.Tab_Control_Main.TabIndex = 0;
 			this.Tab_Control_Main.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
             this.uiTabPage12,
@@ -210,7 +210,7 @@ namespace Nz.Anbar.WinForms.App
 			this.uiTabPage12.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.uiTabPage12.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.uiTabPage12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage12.Size = new System.Drawing.Size(928, 547);
+			this.uiTabPage12.Size = new System.Drawing.Size(901, 547);
 			this.uiTabPage12.TabStop = true;
 			this.uiTabPage12.Text = "اطلاعات";
 			// 
@@ -218,7 +218,7 @@ namespace Nz.Anbar.WinForms.App
 			// 
 			this.NzDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzDescription.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzDescription.Location = new System.Drawing.Point(4, 376);
+			this.NzDescription.Location = new System.Drawing.Point(-23, 376);
 			this.NzDescription.MaxLength = 500;
 			this.NzDescription.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzDescription.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -439,7 +439,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzSumFactor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzSumFactor.BackColor = System.Drawing.Color.Lavender;
 			this.NzSumFactor.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
-			this.NzSumFactor.Location = new System.Drawing.Point(559, 518);
+			this.NzSumFactor.Location = new System.Drawing.Point(532, 518);
 			this.NzSumFactor.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzSumFactor.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzSumFactor.MS_Decimal = new decimal(new int[] {
@@ -459,7 +459,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzSumRows.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzSumRows.BackColor = System.Drawing.Color.Lavender;
 			this.NzSumRows.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
-			this.NzSumRows.Location = new System.Drawing.Point(559, 410);
+			this.NzSumRows.Location = new System.Drawing.Point(532, 410);
 			this.NzSumRows.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzSumRows.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzSumRows.MS_Decimal = new decimal(new int[] {
@@ -479,7 +479,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzTaxPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzTaxPrice.BackColor = System.Drawing.Color.Lavender;
 			this.NzTaxPrice.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
-			this.NzTaxPrice.Location = new System.Drawing.Point(621, 492);
+			this.NzTaxPrice.Location = new System.Drawing.Point(594, 492);
 			this.NzTaxPrice.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzTaxPrice.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzTaxPrice.MS_Decimal = new decimal(new int[] {
@@ -499,7 +499,7 @@ namespace Nz.Anbar.WinForms.App
 			this.mS_Decimal_Label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.mS_Decimal_Label1.BackColor = System.Drawing.Color.White;
 			this.mS_Decimal_Label1.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.mS_Decimal_Label1.Location = new System.Drawing.Point(559, 410);
+			this.mS_Decimal_Label1.Location = new System.Drawing.Point(532, 410);
 			this.mS_Decimal_Label1.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.mS_Decimal_Label1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_Decimal_Label1.MS_Decimal = new decimal(new int[] {
@@ -518,7 +518,7 @@ namespace Nz.Anbar.WinForms.App
 			// 
 			this.NzTaxPercent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzTaxPercent.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
-			this.NzTaxPercent.Location = new System.Drawing.Point(559, 492);
+			this.NzTaxPercent.Location = new System.Drawing.Point(532, 492);
 			this.NzTaxPercent.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzTaxPercent.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzTaxPercent.MS_Change_Border_Color_On_Enter = true;
@@ -544,7 +544,7 @@ namespace Nz.Anbar.WinForms.App
 			this.label2.AutoSize = true;
 			this.label2.BackColor = System.Drawing.Color.Transparent;
 			this.label2.Font = new System.Drawing.Font("IRANSans(Small)", 12F);
-			this.label2.Location = new System.Drawing.Point(889, 376);
+			this.label2.Location = new System.Drawing.Point(862, 376);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(36, 20);
 			this.label2.TabIndex = 161;
@@ -554,7 +554,7 @@ namespace Nz.Anbar.WinForms.App
 			// 
 			this.mS_Lable_Ex14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.mS_Lable_Ex14.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.mS_Lable_Ex14.Location = new System.Drawing.Point(599, 492);
+			this.mS_Lable_Ex14.Location = new System.Drawing.Point(572, 492);
 			this.mS_Lable_Ex14.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.mS_Lable_Ex14.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_Lable_Ex14.MS_Color_End = System.Drawing.Color.Empty;
@@ -569,7 +569,7 @@ namespace Nz.Anbar.WinForms.App
 			// 
 			this.mS_Lable_Ex6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.mS_Lable_Ex6.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.mS_Lable_Ex6.Location = new System.Drawing.Point(770, 518);
+			this.mS_Lable_Ex6.Location = new System.Drawing.Point(743, 518);
 			this.mS_Lable_Ex6.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.mS_Lable_Ex6.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_Lable_Ex6.MS_Color_End = System.Drawing.Color.Empty;
@@ -584,7 +584,7 @@ namespace Nz.Anbar.WinForms.App
 			// 
 			this.mS_Lable_Ex3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.mS_Lable_Ex3.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.mS_Lable_Ex3.Location = new System.Drawing.Point(770, 466);
+			this.mS_Lable_Ex3.Location = new System.Drawing.Point(743, 466);
 			this.mS_Lable_Ex3.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.mS_Lable_Ex3.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_Lable_Ex3.MS_Color_End = System.Drawing.Color.Empty;
@@ -599,7 +599,7 @@ namespace Nz.Anbar.WinForms.App
 			// 
 			this.mS_Lable_Ex5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.mS_Lable_Ex5.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.mS_Lable_Ex5.Location = new System.Drawing.Point(770, 438);
+			this.mS_Lable_Ex5.Location = new System.Drawing.Point(743, 438);
 			this.mS_Lable_Ex5.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.mS_Lable_Ex5.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_Lable_Ex5.MS_Color_End = System.Drawing.Color.Empty;
@@ -614,7 +614,7 @@ namespace Nz.Anbar.WinForms.App
 			// 
 			this.mS_Lable_Ex4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.mS_Lable_Ex4.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.mS_Lable_Ex4.Location = new System.Drawing.Point(770, 492);
+			this.mS_Lable_Ex4.Location = new System.Drawing.Point(743, 492);
 			this.mS_Lable_Ex4.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.mS_Lable_Ex4.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_Lable_Ex4.MS_Color_End = System.Drawing.Color.Empty;
@@ -629,7 +629,7 @@ namespace Nz.Anbar.WinForms.App
 			// 
 			this.NzExtend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzExtend.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
-			this.NzExtend.Location = new System.Drawing.Point(559, 466);
+			this.NzExtend.Location = new System.Drawing.Point(532, 466);
 			this.NzExtend.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzExtend.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzExtend.MS_Change_Border_Color_On_Enter = true;
@@ -653,7 +653,7 @@ namespace Nz.Anbar.WinForms.App
 			// 
 			this.mS_Lable_Ex1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.mS_Lable_Ex1.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.mS_Lable_Ex1.Location = new System.Drawing.Point(770, 410);
+			this.mS_Lable_Ex1.Location = new System.Drawing.Point(743, 410);
 			this.mS_Lable_Ex1.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.mS_Lable_Ex1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_Lable_Ex1.MS_Color_End = System.Drawing.Color.Empty;
@@ -668,7 +668,7 @@ namespace Nz.Anbar.WinForms.App
 			// 
 			this.NzOffPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzOffPrice.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
-			this.NzOffPrice.Location = new System.Drawing.Point(621, 438);
+			this.NzOffPrice.Location = new System.Drawing.Point(594, 438);
 			this.NzOffPrice.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzOffPrice.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzOffPrice.MS_Change_Border_Color_On_Enter = true;
@@ -705,7 +705,7 @@ namespace Nz.Anbar.WinForms.App
 			this.mS_Tool_Strip1.MS_Color_Start = System.Drawing.Color.AliceBlue;
 			this.mS_Tool_Strip1.Name = "mS_Tool_Strip1";
 			this.mS_Tool_Strip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_Tool_Strip1.Size = new System.Drawing.Size(928, 25);
+			this.mS_Tool_Strip1.Size = new System.Drawing.Size(901, 25);
 			this.mS_Tool_Strip1.TabIndex = 6;
 			this.mS_Tool_Strip1.Text = "mS_Tool_Strip1";
 			// 
@@ -845,7 +845,7 @@ namespace Nz.Anbar.WinForms.App
 			this.uiGroupBox2.Location = new System.Drawing.Point(4, 21);
 			this.uiGroupBox2.Margin = new System.Windows.Forms.Padding(2);
 			this.uiGroupBox2.Name = "uiGroupBox2";
-			this.uiGroupBox2.Size = new System.Drawing.Size(920, 58);
+			this.uiGroupBox2.Size = new System.Drawing.Size(893, 58);
 			this.uiGroupBox2.TabIndex = 0;
 			// 
 			// NzLocation
@@ -855,7 +855,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzLocation.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzLocation.DropSize = new System.Drawing.Size(189, 29);
 			this.NzLocation.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NzLocation.Location = new System.Drawing.Point(108, 25);
+			this.NzLocation.Location = new System.Drawing.Point(81, 25);
 			this.NzLocation.MS_Auto_Popup = false;
 			this.NzLocation.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzLocation.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -882,26 +882,26 @@ namespace Nz.Anbar.WinForms.App
 			this.NzKindSale.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
 			this.NzKindSale.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzKindSale.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			uiComboBoxItem1.FormatStyle.Alpha = 0;
-			uiComboBoxItem1.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem1.Image")));
-			uiComboBoxItem1.IsSeparator = false;
-			uiComboBoxItem1.Text = "فروش خرده";
-			uiComboBoxItem2.FormatStyle.Alpha = 0;
-			uiComboBoxItem2.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem2.Image")));
-			uiComboBoxItem2.IsSeparator = false;
-			uiComboBoxItem2.Text = "فروش عمـده";
-			uiComboBoxItem3.FormatStyle.Alpha = 0;
-			uiComboBoxItem3.IsSeparator = false;
-			uiComboBoxItem3.Text = "همکاری";
-			uiComboBoxItem4.FormatStyle.Alpha = 0;
-			uiComboBoxItem4.IsSeparator = false;
-			uiComboBoxItem4.Text = "تخفیفات";
+			uiComboBoxItem5.FormatStyle.Alpha = 0;
+			uiComboBoxItem5.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem5.Image")));
+			uiComboBoxItem5.IsSeparator = false;
+			uiComboBoxItem5.Text = "فروش خرده";
+			uiComboBoxItem6.FormatStyle.Alpha = 0;
+			uiComboBoxItem6.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem6.Image")));
+			uiComboBoxItem6.IsSeparator = false;
+			uiComboBoxItem6.Text = "فروش عمـده";
+			uiComboBoxItem7.FormatStyle.Alpha = 0;
+			uiComboBoxItem7.IsSeparator = false;
+			uiComboBoxItem7.Text = "همکاری";
+			uiComboBoxItem8.FormatStyle.Alpha = 0;
+			uiComboBoxItem8.IsSeparator = false;
+			uiComboBoxItem8.Text = "تخفیفات";
 			this.NzKindSale.Items.AddRange(new Janus.Windows.EditControls.UIComboBoxItem[] {
-            uiComboBoxItem1,
-            uiComboBoxItem2,
-            uiComboBoxItem3,
-            uiComboBoxItem4});
-			this.NzKindSale.Location = new System.Drawing.Point(300, 25);
+            uiComboBoxItem5,
+            uiComboBoxItem6,
+            uiComboBoxItem7,
+            uiComboBoxItem8});
+			this.NzKindSale.Location = new System.Drawing.Point(273, 25);
 			this.NzKindSale.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzKindSale.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzKindSale.MS_Change_Border_Color_On_Enter = true;
@@ -922,7 +922,7 @@ namespace Nz.Anbar.WinForms.App
 			// 
 			this.NzCustomerRemain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzCustomerRemain.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.NzCustomerRemain.Location = new System.Drawing.Point(418, 25);
+			this.NzCustomerRemain.Location = new System.Drawing.Point(391, 25);
 			this.NzCustomerRemain.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzCustomerRemain.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzCustomerRemain.MS_Color_End = System.Drawing.Color.Empty;
@@ -939,7 +939,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzLableLocation.AutoSize = true;
 			this.NzLableLocation.BackColor = System.Drawing.Color.Transparent;
 			this.NzLableLocation.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NzLableLocation.Location = new System.Drawing.Point(185, 4);
+			this.NzLableLocation.Location = new System.Drawing.Point(158, 4);
 			this.NzLableLocation.Name = "NzLableLocation";
 			this.NzLableLocation.Size = new System.Drawing.Size(92, 23);
 			this.NzLableLocation.TabIndex = 765;
@@ -952,7 +952,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzKindSaleLbl.AutoSize = true;
 			this.NzKindSaleLbl.BackColor = System.Drawing.Color.Transparent;
 			this.NzKindSaleLbl.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NzKindSaleLbl.Location = new System.Drawing.Point(332, 4);
+			this.NzKindSaleLbl.Location = new System.Drawing.Point(305, 4);
 			this.NzKindSaleLbl.Name = "NzKindSaleLbl";
 			this.NzKindSaleLbl.Size = new System.Drawing.Size(64, 23);
 			this.NzKindSaleLbl.TabIndex = 765;
@@ -965,7 +965,7 @@ namespace Nz.Anbar.WinForms.App
 			this.label4.AutoSize = true;
 			this.label4.BackColor = System.Drawing.Color.Transparent;
 			this.label4.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label4.Location = new System.Drawing.Point(429, 5);
+			this.label4.Location = new System.Drawing.Point(402, 5);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(83, 23);
 			this.label4.TabIndex = 765;
@@ -983,7 +983,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzDate.Cursor = System.Windows.Forms.Cursors.IBeam;
 			this.NzDate.DropSize = new System.Drawing.Size(0, 0);
 			this.NzDate.Font = new System.Drawing.Font("IRANSans(Small)", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NzDate.Location = new System.Drawing.Point(741, 25);
+			this.NzDate.Location = new System.Drawing.Point(714, 25);
 			this.NzDate.MinimumSize = new System.Drawing.Size(107, 29);
 			this.NzDate.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzDate.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -1011,7 +1011,7 @@ namespace Nz.Anbar.WinForms.App
 			this.label8.AutoSize = true;
 			this.label8.BackColor = System.Drawing.Color.Transparent;
 			this.label8.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label8.Location = new System.Drawing.Point(774, 5);
+			this.label8.Location = new System.Drawing.Point(747, 5);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(42, 23);
 			this.label8.TabIndex = 756;
@@ -1024,7 +1024,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzSerial.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzSerial.DigitGroup = false;
 			this.NzSerial.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NzSerial.Location = new System.Drawing.Point(852, 25);
+			this.NzSerial.Location = new System.Drawing.Point(825, 25);
 			this.NzSerial.MaxLength = 4;
 			this.NzSerial.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
 			this.NzSerial.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -1052,7 +1052,7 @@ namespace Nz.Anbar.WinForms.App
 			this.label1.AutoSize = true;
 			this.label1.BackColor = System.Drawing.Color.Transparent;
 			this.label1.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label1.Location = new System.Drawing.Point(865, 5);
+			this.label1.Location = new System.Drawing.Point(838, 5);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(41, 23);
 			this.label1.TabIndex = 162;
@@ -1064,7 +1064,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzCustomer.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.DownArrow;
 			this.NzCustomer.DropSize = new System.Drawing.Size(197, 29);
 			this.NzCustomer.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NzCustomer.Location = new System.Drawing.Point(542, 25);
+			this.NzCustomer.Location = new System.Drawing.Point(515, 25);
 			this.NzCustomer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.NzCustomer.MS_Auto_Popup = false;
 			this.NzCustomer.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -1095,7 +1095,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzCustomerLable.AutoSize = true;
 			this.NzCustomerLable.BackColor = System.Drawing.Color.Transparent;
 			this.NzCustomerLable.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NzCustomerLable.Location = new System.Drawing.Point(614, 4);
+			this.NzCustomerLable.Location = new System.Drawing.Point(587, 4);
 			this.NzCustomerLable.Name = "NzCustomerLable";
 			this.NzCustomerLable.Size = new System.Drawing.Size(52, 23);
 			this.NzCustomerLable.TabIndex = 163;
@@ -1162,7 +1162,7 @@ namespace Nz.Anbar.WinForms.App
 			this.NzGrid.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
 			this.NzGrid.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.AntiqueWhite;
 			this.NzGrid.SelectOnExpand = false;
-			this.NzGrid.Size = new System.Drawing.Size(928, 291);
+			this.NzGrid.Size = new System.Drawing.Size(901, 291);
 			this.NzGrid.TabIndex = 1;
 			this.NzGrid.TabKeyBehavior = Janus.Windows.GridEX.TabKeyBehavior.ControlNavigation;
 			this.NzGrid.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
@@ -1194,7 +1194,7 @@ namespace Nz.Anbar.WinForms.App
 			this.label6.BackColor = System.Drawing.Color.Transparent;
 			this.label6.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
 			this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.label6.Location = new System.Drawing.Point(888, 441);
+			this.label6.Location = new System.Drawing.Point(861, 441);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(42, 23);
 			this.label6.TabIndex = 161;
@@ -1204,7 +1204,7 @@ namespace Nz.Anbar.WinForms.App
 			// 
 			this.NzOffPercent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzOffPercent.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
-			this.NzOffPercent.Location = new System.Drawing.Point(559, 438);
+			this.NzOffPercent.Location = new System.Drawing.Point(532, 438);
 			this.NzOffPercent.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzOffPercent.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzOffPercent.MS_Change_Border_Color_On_Enter = true;
@@ -1228,7 +1228,7 @@ namespace Nz.Anbar.WinForms.App
 			// 
 			this.mS_Lable_Ex7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.mS_Lable_Ex7.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.mS_Lable_Ex7.Location = new System.Drawing.Point(599, 438);
+			this.mS_Lable_Ex7.Location = new System.Drawing.Point(572, 438);
 			this.mS_Lable_Ex7.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.mS_Lable_Ex7.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_Lable_Ex7.MS_Color_End = System.Drawing.Color.Empty;
@@ -1246,7 +1246,7 @@ namespace Nz.Anbar.WinForms.App
 			this.label5.BackColor = System.Drawing.Color.Transparent;
 			this.label5.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
 			this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.label5.Location = new System.Drawing.Point(890, 393);
+			this.label5.Location = new System.Drawing.Point(863, 393);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(41, 23);
 			this.label5.TabIndex = 161;
@@ -1804,7 +1804,7 @@ namespace Nz.Anbar.WinForms.App
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(958, 549);
+			this.ClientSize = new System.Drawing.Size(931, 549);
 			this.Controls.Add(this.Tab_Control_Main);
 			this.Font = new System.Drawing.Font("IRANSans(Small) Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);

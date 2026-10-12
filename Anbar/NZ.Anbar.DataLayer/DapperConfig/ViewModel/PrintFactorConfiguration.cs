@@ -53,15 +53,25 @@ Ltrim(Rtrim(ta.fax)) AS fax,
 Ltrim(Rtrim(ta.addressHome)) AS addressHome,
 Ltrim(Rtrim(ta.telDowom)) AS telDowom,
 Ltrim(Rtrim(ta.mobDowom)) AS mobDowom,
-Ltrim(Rtrim(ta.addresswork)) AS addresswork
+Ltrim(Rtrim(ta.addresswork)) AS addresswork,
+
+Ltrim(Rtrim(taVisitor.title)) AS VisitorTitle,
+Ltrim(Rtrim(taVisitor.mobile)) AS VisitorMobile,
+
+RTRIM(LTRIM(tbb.Title)) AS BasteBandiTitle,
+tar.MeqdarKolBaste,
+tar.MeqdarKhordBaste
  
-FROM Anbar.tbl_Amaliat_Title		AS tat
-INNER JOIN General.DimDate			AS dd	ON dd.GregorianDate = tat.tarikh
-INNER JOIN Anbar.tbl_Amaliat_Riz	AS tar	ON tar.FK_Title		= tat.ID
-INNER JOIN Base.tbl_Kala_Xadamat	AS tkx	ON tkx.Code			= tar.FK_Kala
-INNER JOIN Base.tbl_Vahed			AS tv	ON tv.ID			= tkx.FK_Vahed
-LEFT OUTER JOIN Base.tbl_Ashxas		AS ta	ON ta.ID			= tat.FK_AshXas_ID 
-LEFT OUTER JOIN Anbar.tbl_Amaliat_Title_Detail AS tatd ON tatd.ID = tat.ID
+FROM Anbar.tbl_Amaliat_Title					AS tat
+INNER JOIN General.DimDate						AS dd	ON dd.GregorianDate = tat.tarikh
+INNER JOIN Anbar.tbl_Amaliat_Riz				AS tar	ON tar.FK_Title		= tat.ID
+INNER JOIN Base.tbl_Kala_Xadamat				AS tkx	ON tkx.Code			= tar.FK_Kala
+INNER JOIN Base.tbl_Vahed						AS tv	ON tv.ID			= tkx.FK_Vahed
+LEFT OUTER JOIN Base.tbl_Ashxas					AS ta	ON ta.ID			= tat.FK_AshXas_ID 
+LEFT OUTER JOIN Anbar.tbl_Amaliat_Title_Detail	AS tatd ON tatd.ID			= tat.ID
+LEFT OUTER JOIN Base.tbl_BasteBandi				AS tbb  ON tbb.ID			= tkx.FK_BasteBandi
+LEFT OUTER JOIN Base.tbl_Ashxas					AS taVisitor ON taVisitor.ID = tatd.FK_Vaset 
+
 
 WHERE ta.ID=@ID
 
@@ -114,7 +124,10 @@ Payment.Pos,
 ChequePayment.Cheque,
 Takhfif.OffAmount AS Takhfif_Tasvieh,
 Ltrim(Rtrim(taVisitor.title)) AS VisitorTitle,
-Ltrim(Rtrim(taVisitor.mobile)) AS VisitorMobile
+Ltrim(Rtrim(taVisitor.mobile)) AS VisitorMobile,
+RTRIM(LTRIM(tbb.Title)) AS BasteBandiTitle,
+tar.MeqdarKolBaste,
+tar.MeqdarKhordBaste
 
  
 FROM Anbar.tbl_Amaliat_Title		AS tat
@@ -124,7 +137,8 @@ INNER JOIN Base.tbl_Kala_Xadamat	AS tkx			ON tkx.Code			= tar.FK_Kala
 INNER JOIN Base.tbl_Vahed			AS tv			ON tv.ID			= tkx.FK_Vahed
 LEFT OUTER JOIN Base.tbl_Ashxas		AS ta			ON ta.ID			= tat.FK_AshXas_ID 
 LEFT OUTER JOIN Anbar.tbl_Amaliat_Title_Detail		AS tatd ON tatd.ID = tat.ID
-LEFT OUTER JOIN Base.tbl_Ashxas		AS taVisitor	ON taVisitor.ID			= tatd.FK_Vaset 
+LEFT OUTER JOIN Base.tbl_Ashxas						AS taVisitor ON taVisitor.ID = tatd.FK_Vaset 
+LEFT OUTER JOIN Base.tbl_BasteBandi					AS tbb  ON tbb.ID	= tkx.FK_BasteBandi
 
 
 LEFT OUTER JOIN 
