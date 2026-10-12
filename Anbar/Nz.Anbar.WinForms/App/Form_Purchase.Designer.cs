@@ -31,10 +31,10 @@ namespace Nz.Anbar.WinForms.App
         private void InitializeComponent()
         {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Purchase));
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem5 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem6 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem7 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem8 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem1 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem2 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem3 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem4 = new Janus.Windows.EditControls.UIComboBoxItem();
 			Janus.Windows.GridEX.GridEXLayout NzGrid_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGrid_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.HeaderImage");
@@ -71,6 +71,9 @@ namespace Nz.Anbar.WinForms.App
 			this.NzOffPrice = new MS_Control.Controls.MS_NumericTextBox();
 			this.mS_Tool_Strip1 = new MS_Control.Controls.MS_Tool_Strip();
 			this.NzPrint = new System.Windows.Forms.ToolStripSplitButton();
+			this.NsA4PrintBaste = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsA5PrintBaste = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
 			this.NzPrintA4 = new System.Windows.Forms.ToolStripMenuItem();
 			this.NzPrintA5 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -715,6 +718,9 @@ namespace Nz.Anbar.WinForms.App
 			this.NzPrint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			this.NzPrint.DropDownButtonWidth = 15;
 			this.NzPrint.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NsA4PrintBaste,
+            this.NsA5PrintBaste,
+            this.toolStripSeparator5,
             this.NzPrintA4,
             this.NzPrintA5,
             this.toolStripSeparator1,
@@ -731,49 +737,71 @@ namespace Nz.Anbar.WinForms.App
 			this.NzPrint.Text = "چاپ فاکتور ";
 			this.NzPrint.Click += new System.EventHandler(this.NzPrint_Click);
 			// 
+			// NsA4PrintBaste
+			// 
+			this.NsA4PrintBaste.Name = "NsA4PrintBaste";
+			this.NsA4PrintBaste.Size = new System.Drawing.Size(187, 28);
+			this.NsA4PrintBaste.Text = "چاپ  A4 بسته بندی";
+			this.NsA4PrintBaste.Visible = false;
+			this.NsA4PrintBaste.Click += new System.EventHandler(this.NsA4PrintBaste_Click);
+			// 
+			// NsA5PrintBaste
+			// 
+			this.NsA5PrintBaste.Name = "NsA5PrintBaste";
+			this.NsA5PrintBaste.Size = new System.Drawing.Size(187, 28);
+			this.NsA5PrintBaste.Text = "چاپ  A5 بسته بندی";
+			this.NsA5PrintBaste.Visible = false;
+			this.NsA5PrintBaste.Click += new System.EventHandler(this.NsA5PrintBaste_Click);
+			// 
+			// toolStripSeparator5
+			// 
+			this.toolStripSeparator5.Name = "toolStripSeparator5";
+			this.toolStripSeparator5.Size = new System.Drawing.Size(184, 6);
+			this.toolStripSeparator5.Visible = false;
+			// 
 			// NzPrintA4
 			// 
 			this.NzPrintA4.Name = "NzPrintA4";
-			this.NzPrintA4.Size = new System.Drawing.Size(174, 28);
+			this.NzPrintA4.Size = new System.Drawing.Size(187, 28);
 			this.NzPrintA4.Text = "چاپ  A4";
 			this.NzPrintA4.Click += new System.EventHandler(this.NzPrintNormalA4_Click);
 			// 
 			// NzPrintA5
 			// 
 			this.NzPrintA5.Name = "NzPrintA5";
-			this.NzPrintA5.Size = new System.Drawing.Size(174, 28);
+			this.NzPrintA5.Size = new System.Drawing.Size(187, 28);
 			this.NzPrintA5.Text = "چاپ  A5";
 			this.NzPrintA5.Click += new System.EventHandler(this.NzPrintNormalA5_Click);
 			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(171, 6);
+			this.toolStripSeparator1.Size = new System.Drawing.Size(184, 6);
 			// 
 			// NzPosPrint
 			// 
 			this.NzPosPrint.Name = "NzPosPrint";
-			this.NzPosPrint.Size = new System.Drawing.Size(174, 28);
+			this.NzPosPrint.Size = new System.Drawing.Size(187, 28);
 			this.NzPosPrint.Text = "فیش پرینت 1";
 			this.NzPosPrint.Click += new System.EventHandler(this.NzPosPrint_Click);
 			// 
 			// NsPosPrint1
 			// 
 			this.NsPosPrint1.Name = "NsPosPrint1";
-			this.NsPosPrint1.Size = new System.Drawing.Size(174, 28);
+			this.NsPosPrint1.Size = new System.Drawing.Size(187, 28);
 			this.NsPosPrint1.Text = "فیش پرینت 2";
 			this.NsPosPrint1.Click += new System.EventHandler(this.NsPosPrint1_Click);
 			// 
 			// toolStripSeparator2
 			// 
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(171, 6);
+			this.toolStripSeparator2.Size = new System.Drawing.Size(184, 6);
 			// 
 			// NzPeopleRemaind
 			// 
 			this.NzPeopleRemaind.CheckOnClick = true;
 			this.NzPeopleRemaind.Name = "NzPeopleRemaind";
-			this.NzPeopleRemaind.Size = new System.Drawing.Size(174, 28);
+			this.NzPeopleRemaind.Size = new System.Drawing.Size(187, 28);
 			this.NzPeopleRemaind.Text = "چاپ مانده شخص";
 			// 
 			// toolStripSeparator3
@@ -882,25 +910,25 @@ namespace Nz.Anbar.WinForms.App
 			this.NzKindSale.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
 			this.NzKindSale.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzKindSale.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			uiComboBoxItem5.FormatStyle.Alpha = 0;
-			uiComboBoxItem5.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem5.Image")));
-			uiComboBoxItem5.IsSeparator = false;
-			uiComboBoxItem5.Text = "فروش خرده";
-			uiComboBoxItem6.FormatStyle.Alpha = 0;
-			uiComboBoxItem6.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem6.Image")));
-			uiComboBoxItem6.IsSeparator = false;
-			uiComboBoxItem6.Text = "فروش عمـده";
-			uiComboBoxItem7.FormatStyle.Alpha = 0;
-			uiComboBoxItem7.IsSeparator = false;
-			uiComboBoxItem7.Text = "همکاری";
-			uiComboBoxItem8.FormatStyle.Alpha = 0;
-			uiComboBoxItem8.IsSeparator = false;
-			uiComboBoxItem8.Text = "تخفیفات";
+			uiComboBoxItem1.FormatStyle.Alpha = 0;
+			uiComboBoxItem1.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem1.Image")));
+			uiComboBoxItem1.IsSeparator = false;
+			uiComboBoxItem1.Text = "فروش خرده";
+			uiComboBoxItem2.FormatStyle.Alpha = 0;
+			uiComboBoxItem2.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem2.Image")));
+			uiComboBoxItem2.IsSeparator = false;
+			uiComboBoxItem2.Text = "فروش عمـده";
+			uiComboBoxItem3.FormatStyle.Alpha = 0;
+			uiComboBoxItem3.IsSeparator = false;
+			uiComboBoxItem3.Text = "همکاری";
+			uiComboBoxItem4.FormatStyle.Alpha = 0;
+			uiComboBoxItem4.IsSeparator = false;
+			uiComboBoxItem4.Text = "تخفیفات";
 			this.NzKindSale.Items.AddRange(new Janus.Windows.EditControls.UIComboBoxItem[] {
-            uiComboBoxItem5,
-            uiComboBoxItem6,
-            uiComboBoxItem7,
-            uiComboBoxItem8});
+            uiComboBoxItem1,
+            uiComboBoxItem2,
+            uiComboBoxItem3,
+            uiComboBoxItem4});
 			this.NzKindSale.Location = new System.Drawing.Point(273, 25);
 			this.NzKindSale.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzKindSale.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -1936,5 +1964,8 @@ namespace Nz.Anbar.WinForms.App
 		private MS_Control.Controls.MS_Lable_Ex mS_Lable_Ex8;
 		private MS_Control.Controls.MS_Decimal_Label NsVisitorMablaq;
 		private Janus.Windows.EditControls.UIGroupBox uiGroupBox3;
+		private System.Windows.Forms.ToolStripMenuItem NsA4PrintBaste;
+		private System.Windows.Forms.ToolStripMenuItem NsA5PrintBaste;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
 	}
 }

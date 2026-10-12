@@ -13,8 +13,10 @@ namespace ShareLib
             PaperA4 =0,
             PaperA5,
             PosPrint,
-            Posprint1
-        }
+            Posprint1,
+            PaperA4Baste ,
+            PaperA5Baste,
+		}
         public enum MenuKind
         {
             BaseInfo = 1,

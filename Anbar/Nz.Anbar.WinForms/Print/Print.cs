@@ -71,13 +71,20 @@ namespace Nz.Anbar.WinForms.Print
                 case Enums.NzKindPrint.PaperA5:
                     _ReportPath += "Factor_A5.mrt";
                     break;
-                case Enums.NzKindPrint.PosPrint:
+                case Enums.NzKindPrint.PaperA4Baste:
+	                _ReportPath += "Factor_A4_baste.mrt";
+	                break;
+                case Enums.NzKindPrint.PaperA5Baste:
+	                _ReportPath += "Factor_A5_Baste.mrt";
+	                break;
+				case Enums.NzKindPrint.PosPrint:
                     _ReportPath += "Pos_Print.mrt";
                     break;
                 case Enums.NzKindPrint.Posprint1:
 	                _ReportPath += "Pos_Print1.mrt";
 	                break;
-			}
+                 
+            }
         }
         private void        Load            ()
         {
@@ -140,6 +147,10 @@ namespace Nz.Anbar.WinForms.Print
                                                     y.takhfif_darsad,
                                                     y.mablaq,
                                                     y.Barcode,
+                                                    y.BasteBandiTitle,
+                                                    y.MeqdarKhordBaste,
+													y.MeqdarKolBaste
+
                                                 }).OrderBy(y =>y.radif).ThenBy(y => y.FK_Kala),
                         List_Parametter     = x.Key.kind>=11 && x.Key.kind < 50
                         ? new Dictionary<string, object>()

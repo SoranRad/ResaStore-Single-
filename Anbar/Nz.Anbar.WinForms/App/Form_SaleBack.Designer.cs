@@ -69,6 +69,9 @@ namespace Nz.Anbar.WinForms.App
 			this.NzOffPrice = new MS_Control.Controls.MS_NumericTextBox();
 			this.mS_Tool_Strip1 = new MS_Control.Controls.MS_Tool_Strip();
 			this.NzPrint = new System.Windows.Forms.ToolStripSplitButton();
+			this.NsA4PrintBaste = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsA5PrintBaste = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.NzPrintA4 = new System.Windows.Forms.ToolStripMenuItem();
 			this.NzPrintA5 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -647,6 +650,9 @@ namespace Nz.Anbar.WinForms.App
 			this.NzPrint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			this.NzPrint.DropDownButtonWidth = 15;
 			this.NzPrint.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NsA4PrintBaste,
+            this.NsA5PrintBaste,
+            this.toolStripSeparator2,
             this.NzPrintA4,
             this.NzPrintA5,
             this.toolStripSeparator1,
@@ -660,36 +666,55 @@ namespace Nz.Anbar.WinForms.App
 			this.NzPrint.Text = "چاپ فاکتور ";
 			this.NzPrint.Click += new System.EventHandler(this.NzPrint_Click);
 			// 
+			// NsA4PrintBaste
+			// 
+			this.NsA4PrintBaste.Name = "NsA4PrintBaste";
+			this.NsA4PrintBaste.Size = new System.Drawing.Size(180, 22);
+			this.NsA4PrintBaste.Text = "چاپ  A4 بسته بندی";
+			this.NsA4PrintBaste.Click += new System.EventHandler(this.NsA4PrintBaste_Click);
+			// 
+			// NsA5PrintBaste
+			// 
+			this.NsA5PrintBaste.Name = "NsA5PrintBaste";
+			this.NsA5PrintBaste.Size = new System.Drawing.Size(180, 22);
+			this.NsA5PrintBaste.Text = "چاپ  A5 بسته بندی";
+			this.NsA5PrintBaste.Click += new System.EventHandler(this.NsA5PrintBaste_Click);
+			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+			// 
 			// NzPrintA4
 			// 
 			this.NzPrintA4.Name = "NzPrintA4";
-			this.NzPrintA4.Size = new System.Drawing.Size(139, 22);
+			this.NzPrintA4.Size = new System.Drawing.Size(180, 22);
 			this.NzPrintA4.Text = "چاپ  A4";
 			this.NzPrintA4.Click += new System.EventHandler(this.NzPrintNormalA4_Click);
 			// 
 			// NzPrintA5
 			// 
 			this.NzPrintA5.Name = "NzPrintA5";
-			this.NzPrintA5.Size = new System.Drawing.Size(139, 22);
+			this.NzPrintA5.Size = new System.Drawing.Size(180, 22);
 			this.NzPrintA5.Text = "چاپ  A5";
 			this.NzPrintA5.Click += new System.EventHandler(this.NzPrintNormalA5_Click);
 			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(136, 6);
+			this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
 			// 
 			// NzPosPrint
 			// 
 			this.NzPosPrint.Name = "NzPosPrint";
-			this.NzPosPrint.Size = new System.Drawing.Size(139, 22);
+			this.NzPosPrint.Size = new System.Drawing.Size(180, 22);
 			this.NzPosPrint.Text = "فیش پرینت 1";
 			this.NzPosPrint.Click += new System.EventHandler(this.NzPosPrint_Click);
 			// 
 			// NsPosPrint1
 			// 
 			this.NsPosPrint1.Name = "NsPosPrint1";
-			this.NsPosPrint1.Size = new System.Drawing.Size(139, 22);
+			this.NsPosPrint1.Size = new System.Drawing.Size(180, 22);
 			this.NsPosPrint1.Text = "فیش پرینت 2";
 			this.NsPosPrint1.Click += new System.EventHandler(this.NsPosPrint1_Click);
 			// 
@@ -1251,5 +1276,8 @@ namespace Nz.Anbar.WinForms.App
         private System.Windows.Forms.Label NzKindSaleLbl;
 		private MS_Control.Controls.MS_Button_GridX NsChooseFactor;
 		private System.Windows.Forms.ToolStripMenuItem NsPosPrint1;
+		private System.Windows.Forms.ToolStripMenuItem NsA4PrintBaste;
+		private System.Windows.Forms.ToolStripMenuItem NsA5PrintBaste;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 	}
 }

@@ -89,6 +89,7 @@ namespace Nz.Anbar.WinForms.App
 	        {
 		        this.Width = 1225;
 		        NzGrid.RootTable.ColumnSets["BasteBandi"].Visible = true;
+		        NsA5PrintBaste.Visible = NsA4PrintBaste.Visible = toolStripSeparator4.Visible = true;
 	        }
             //======
             byte KindCustomer = 1;
@@ -1640,7 +1641,31 @@ namespace Nz.Anbar.WinForms.App
             var prn = new Print.Print(_Manager, _Factor.ID, Enums.NzKindPrint.PaperA5, remaind);
             prn.Show(this);
         }
-        private void NzPosPrint_Click                   (object sender, EventArgs e)
+		private void NsA4PrintBaste_Click               (object sender, EventArgs e)
+		{
+			var remaind = "";
+			if (NzPeopleRemaind.Checked)
+			{
+				var tmp = NzCustomer.MS_Get_Selected() as People;
+				NzCustomerRemain.NzSetCustoemr(tmp?.ID ?? 0);
+				remaind = "مانده حساب شخص : " + NzCustomerRemain.Text;
+			}
+			var prn = new Print.Print(_Manager, _Factor.ID, Enums.NzKindPrint.PaperA4Baste, remaind);
+			prn.Show(this);
+		}
+		private void NsA5PrintBaste_Click               (object sender, EventArgs e)
+		{
+			var remaind = "";
+			if (NzPeopleRemaind.Checked)
+			{
+				var tmp = NzCustomer.MS_Get_Selected() as People;
+				NzCustomerRemain.NzSetCustoemr(tmp?.ID ?? 0);
+				remaind = "مانده حساب شخص : " + NzCustomerRemain.Text;
+			}
+			var prn = new Print.Print(_Manager, _Factor.ID, Enums.NzKindPrint.PaperA5Baste, remaind);
+			prn.Show(this);
+		}
+		private void NzPosPrint_Click                   (object sender, EventArgs e)
         {
             var prn = new Print.Print(_Manager, _Factor.ID, Enums.NzKindPrint.PosPrint);
             prn.Show(this);
@@ -1770,6 +1795,6 @@ namespace Nz.Anbar.WinForms.App
 	        }
         }
 
-	
+		
 	}
 }

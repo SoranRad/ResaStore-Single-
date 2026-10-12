@@ -42,7 +42,10 @@ namespace Nz.Anbar.WinForms.App
             //== لود تنظیمات
             _settings = Form_Factory._Form_Factory_Anbar.GetSettings() as SettingItems;
             if (_settings.BasteBandiActive)
+            {
 	            NzGridItems.RootTable.ColumnSets["BansteBandi"].Visible = true;
+	            NsA4PrintBaste.Visible = NsA5PrintBaste.Visible = toolStripSeparator4.Visible = true;
+            }
 			_Manager                            = new ReportManager();
             this.Icon = global::MS_Resource.GlobalResources.Logo_Resaa;
             SetCurrentMonth();
@@ -388,6 +391,15 @@ namespace Nz.Anbar.WinForms.App
 	        PrintFactor(Enums.NzKindPrint.Posprint1);
 
 		}
+        private void NsA4PrintBaste_Click               (object sender, EventArgs e)
+        {
+	        PrintFactor(Enums.NzKindPrint.PaperA4Baste);
+		}
+        private void NsA5PrintBaste_Click               (object sender, EventArgs e)
+        {
+	        PrintFactor(Enums.NzKindPrint.PaperA5Baste);
+		}
+
 
 		private void NzGridHeads_SelectionChanged       (object sender, EventArgs e)
         {
@@ -645,5 +657,7 @@ namespace Nz.Anbar.WinForms.App
 			NsProgress.Visible = NsProgressText.Visible = NsCancel.Visible = false;
 			NsMessage.Visible = true;
 		}
+
+		
 	}
 }

@@ -110,6 +110,9 @@
 			this.NzGridItems = new MS_Control.Controls.MS_GridX();
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
 			this.ms_Save = new MS_Control.Controls.MS_Button_GridX();
+			this.NsA4PrintBaste = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsA5PrintBaste = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
 			this.uiTabPage12.SuspendLayout();
@@ -497,14 +500,14 @@
             this.NzChangeToSale,
             this.toolStripSeparator1,
             this.NzAddItem});
-			this.mS_Tool_Strip1.Location = new System.Drawing.Point(983, 0);
+			this.mS_Tool_Strip1.Location = new System.Drawing.Point(952, 0);
 			this.mS_Tool_Strip1.MS_BorderColor = System.Drawing.Color.SkyBlue;
 			this.mS_Tool_Strip1.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_Tool_Strip1.MS_Color_End = System.Drawing.Color.LightBlue;
 			this.mS_Tool_Strip1.MS_Color_Start = System.Drawing.Color.AliceBlue;
 			this.mS_Tool_Strip1.Name = "mS_Tool_Strip1";
 			this.mS_Tool_Strip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.mS_Tool_Strip1.Size = new System.Drawing.Size(317, 28);
+			this.mS_Tool_Strip1.Size = new System.Drawing.Size(348, 28);
 			this.mS_Tool_Strip1.TabIndex = 709;
 			this.mS_Tool_Strip1.Text = "mS_Tool_Strip1";
 			// 
@@ -513,6 +516,9 @@
 			this.NzPrint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			this.NzPrint.DropDownButtonWidth = 15;
 			this.NzPrint.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NsA4PrintBaste,
+            this.NsA5PrintBaste,
+            this.toolStripSeparator4,
             this.NzPrintA4,
             this.NzPrintA5,
             this.toolStripSeparator2,
@@ -532,7 +538,7 @@
 			this.NzPrintA4.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
 			this.NzPrintA4.Name = "NzPrintA4";
 			this.NzPrintA4.Padding = new System.Windows.Forms.Padding(0, 6, 0, 3);
-			this.NzPrintA4.Size = new System.Drawing.Size(156, 37);
+			this.NzPrintA4.Size = new System.Drawing.Size(180, 37);
 			this.NzPrintA4.Text = "چاپ  A4";
 			this.NzPrintA4.Click += new System.EventHandler(this.NzPrintA4_Click);
 			// 
@@ -542,14 +548,14 @@
 			this.NzPrintA5.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
 			this.NzPrintA5.Name = "NzPrintA5";
 			this.NzPrintA5.Padding = new System.Windows.Forms.Padding(0, 6, 0, 3);
-			this.NzPrintA5.Size = new System.Drawing.Size(156, 37);
+			this.NzPrintA5.Size = new System.Drawing.Size(180, 37);
 			this.NzPrintA5.Text = "چاپ  A5";
 			this.NzPrintA5.Click += new System.EventHandler(this.NzPrintA5_Click);
 			// 
 			// toolStripSeparator2
 			// 
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(153, 6);
+			this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
 			// 
 			// NzPosPrint
 			// 
@@ -557,7 +563,7 @@
 			this.NzPosPrint.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
 			this.NzPosPrint.Name = "NzPosPrint";
 			this.NzPosPrint.Padding = new System.Windows.Forms.Padding(0, 6, 0, 3);
-			this.NzPosPrint.Size = new System.Drawing.Size(156, 37);
+			this.NzPosPrint.Size = new System.Drawing.Size(180, 37);
 			this.NzPosPrint.Text = "فیش پرینت 1";
 			this.NzPosPrint.Click += new System.EventHandler(this.NzPosPrint_Click);
 			// 
@@ -567,7 +573,7 @@
 			this.NsPosPrint2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
 			this.NsPosPrint2.Name = "NsPosPrint2";
 			this.NsPosPrint2.Padding = new System.Windows.Forms.Padding(0, 6, 0, 3);
-			this.NsPosPrint2.Size = new System.Drawing.Size(156, 37);
+			this.NsPosPrint2.Size = new System.Drawing.Size(180, 37);
 			this.NsPosPrint2.Text = "فیش پرینت 2";
 			this.NsPosPrint2.Click += new System.EventHandler(this.NsPosPrint2_Click);
 			// 
@@ -592,7 +598,7 @@
 			this.NzPrintTransferA5.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
 			this.NzPrintTransferA5.Name = "NzPrintTransferA5";
 			this.NzPrintTransferA5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-			this.NzPrintTransferA5.Size = new System.Drawing.Size(168, 38);
+			this.NzPrintTransferA5.Size = new System.Drawing.Size(180, 38);
 			this.NzPrintTransferA5.Text = "چاپ حواله  A5";
 			this.NzPrintTransferA5.Click += new System.EventHandler(this.NzPrintTransferA5_Click);
 			// 
@@ -1018,6 +1024,31 @@
 			this.ms_Save.WordWrap = false;
 			this.ms_Save.Click += new System.EventHandler(this.ms_Save_Click);
 			// 
+			// NsA4PrintBaste
+			// 
+			this.NsA4PrintBaste.Font = new System.Drawing.Font("IRANSans(Small)", 15F);
+			this.NsA4PrintBaste.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+			this.NsA4PrintBaste.Name = "NsA4PrintBaste";
+			this.NsA4PrintBaste.Padding = new System.Windows.Forms.Padding(0, 6, 0, 3);
+			this.NsA4PrintBaste.Size = new System.Drawing.Size(198, 37);
+			this.NsA4PrintBaste.Text = "چاپ  A4 بسته بندی";
+			this.NsA4PrintBaste.Click += new System.EventHandler(this.NsA4PrintBaste_Click);
+			// 
+			// NsA5PrintBaste
+			// 
+			this.NsA5PrintBaste.Font = new System.Drawing.Font("IRANSans(Small)", 15F);
+			this.NsA5PrintBaste.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+			this.NsA5PrintBaste.Name = "NsA5PrintBaste";
+			this.NsA5PrintBaste.Padding = new System.Windows.Forms.Padding(0, 6, 0, 3);
+			this.NsA5PrintBaste.Size = new System.Drawing.Size(198, 37);
+			this.NsA5PrintBaste.Text = "چاپ  A5 بسته بندی";
+			this.NsA5PrintBaste.Click += new System.EventHandler(this.NsA5PrintBaste_Click);
+			// 
+			// toolStripSeparator4
+			// 
+			this.toolStripSeparator4.Name = "toolStripSeparator4";
+			this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+			// 
 			// Form_ListFactors
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1117,5 +1148,8 @@
 		private System.Windows.Forms.ToolStripButton NsMessage;
 		private System.Windows.Forms.ToolStripLabel NsProgressText;
 		private System.Windows.Forms.ToolStripButton NsCancel;
+		private System.Windows.Forms.ToolStripMenuItem NsA4PrintBaste;
+		private System.Windows.Forms.ToolStripMenuItem NsA5PrintBaste;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
 	}
 }

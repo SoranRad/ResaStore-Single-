@@ -87,6 +87,8 @@ namespace Nz.Anbar.WinForms.App
 			{
 				this.Width = 1225;
 				NzGrid.RootTable.ColumnSets["BasteBandi"].Visible = true;
+				NsA5PrintBaste.Visible = NsA4PrintBaste.Visible = toolStripSeparator4.Visible = true;
+
 			}
 			//======
 			byte KindCustomer = 1;
@@ -1424,6 +1426,16 @@ namespace Nz.Anbar.WinForms.App
         private void NsPosPrint1_Click                  (object sender, EventArgs e)
         {
 	        var prn = new Print.Print(_Manager, _Factor.ID, Enums.NzKindPrint.Posprint1);
+	        prn.Show(this);
+		}
+        private void NsA4PrintBaste_Click               (object sender, EventArgs e)
+        {
+	        var prn = new Print.Print(_Manager, _Factor.ID, Enums.NzKindPrint.PaperA4Baste);
+	        prn.Show(this);
+		}
+        private void NsA5PrintBaste_Click               (object sender, EventArgs e)
+        {
+	        var prn = new Print.Print(_Manager, _Factor.ID, Enums.NzKindPrint.PaperA5Baste);
 	        prn.Show(this);
 		}
 
