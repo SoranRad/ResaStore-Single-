@@ -98,6 +98,11 @@
     <Reference Include="MS_Control">
       <HintPath>..\..\Output\MS_Control.dll</HintPath>
     </Reference>
+    <Reference Include="MS_Resource, Version=5.4.1461.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\MS_Resource.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -173,6 +178,7 @@
     <EmbeddedResource Include="Settings\TabSettingContainer.resx">
       <DependentUpon>TabSettingContainer.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Helpers\README.md" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -184,6 +190,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Anbar\NZ.Anbar.Business\NZ.Anbar.Business.csproj">
+      <Project>{45109af9-e2a5-46de-8a7f-35834f74054f}</Project>
+      <Name>NZ.Anbar.Business</Name>
+      <Private>False</Private>
+    </ProjectReference>
     <ProjectReference Include="..\..\Anbar\NZ.Anbar.DataLayer\NZ.Anbar.DataLayer.csproj">
       <Project>{00666ea3-c845-4a03-bea8-2c8ec67a317e}</Project>
       <Name>NZ.Anbar.DataLayer</Name>

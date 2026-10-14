@@ -134,8 +134,8 @@ namespace Nz.Order.Winforms.Provider
 		}
 		public NsSettingTabPage[] GetSettingTabPage()
 		{
-			//_settingContainer = new TabSettingContainer();
-			//_settingContainer.LoadSetting((SettingItems)_settings);
+			_settingContainer = new TabSettingContainer();
+			_settingContainer.LoadSetting((SettingItems)_settings);
 
 			return new NsSettingTabPage[] { _settingContainer.TabSetting };
 		}

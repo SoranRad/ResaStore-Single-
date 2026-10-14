@@ -3,10 +3,9 @@ using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Nz.Order.Winforms.Helpers;
 using TwentyDevs.ResultCore;
 
-namespace ResaAccounting.Sync
+namespace Nz.Order.Winforms.Helpers
 {
     /// <summary>
     /// نمونه فرم آماده برای انتقال گروه‌ها، کالاها و موجودی به سامانه ثبت سفارش رسا.

@@ -88,6 +88,18 @@ namespace Nz.Order.Winforms.Helpers
         public List<SyncProductDto> Products { get; set; } = new List<SyncProductDto>();
     }
 
+    public class DeleteCategoriesRequest
+    {
+        /// <summary>کد گروه‌ها در سامانه (رشته‌ای)</summary>
+        public List<string> Codes { get; set; } = new List<string>();
+    }
+
+    public class DeleteProductsRequest
+    {
+        /// <summary>کد کالاها در سامانه (عددی)</summary>
+        public List<int> Codes { get; set; } = new List<int>();
+    }
+
     public class ApplyStockRequest
     {
         /// <summary>زمان خواندن موجودی از حسابداری (UTC). مبنای محاسبه موجودی در سامانه است.</summary>
@@ -99,6 +111,69 @@ namespace Nz.Order.Winforms.Helpers
     #endregion
 
     #region آیتم‌های ارسالی
+
+    /// <summary>گروه کالای موجود در سامانه (برای خواندن). کد گروه در سامانه رشته‌ای است.</summary>
+    public class ServerCategoryDto
+    {
+        public int Id { get; set; }
+
+        /// <summary>کد گروه در سامانه</summary>
+        public string Code { get; set; } = string.Empty;
+
+        public string Title { get; set; } = string.Empty;
+
+        public bool IsActive { get; set; }
+
+        /// <summary>تعداد کالاهای این گروه؛ اگر بزرگ‌تر از صفر باشد گروه قابل حذف نیست.</summary>
+        public int ProductCount { get; set; }
+
+        /// <summary>کد گروه به‌صورت عددی (در صورت عددی بودن)</summary>
+        public short? CodeAsShort
+        {
+            get
+            {
+                return short.TryParse(Code, NumberStyles.Integer, CultureInfo.InvariantCulture, out var value)
+                    ? value
+                    : (short?)null;
+            }
+        }
+    }
+
+    /// <summary>موردی که حذف نشد، همراه با دلیل.</summary>
+    public class SyncBlockedItemDto
+    {
+        public string Code { get; set; } = string.Empty;
+
+        public string Reason { get; set; } = string.Empty;
+    }
+
+    /// <summary>نتیجه عملیات حذف گروهی.</summary>
+    public class SyncDeleteResultDto
+    {
+        public int Deleted { get; set; }
+
+        public List<string> NotFound { get; set; } = new List<string>();
+
+        /// <summary>مواردی که به دلیل وابستگی حذف نشدند</summary>
+        public List<SyncBlockedItemDto> Blocked { get; set; } = new List<SyncBlockedItemDto>();
+
+        public string ToPersianSummary()
+        {
+            var text = "حذف‌شده: " + Deleted.ToString(CultureInfo.InvariantCulture);
+
+            if (NotFound != null && NotFound.Count > 0)
+            {
+                text += " | یافت‌نشده: " + NotFound.Count.ToString(CultureInfo.InvariantCulture);
+            }
+
+            if (Blocked != null && Blocked.Count > 0)
+            {
+                text += " | حذف‌نشده: " + Blocked.Count.ToString(CultureInfo.InvariantCulture);
+            }
+
+            return text;
+        }
+    }
 
     /// <summary>گروه کالا. کد گروه در حسابداری از نوع short است.</summary>
     public class SyncCategoryDto
@@ -134,6 +209,48 @@ namespace Nz.Order.Winforms.Helpers
         public decimal DiscountPrice { get; set; }
 
         public string Description { get; set; }
+
+        /// <summary>
+        /// واحد بسته بندی (مثلاً «کارتن»).
+        /// اگر null باشد، تنظیمات بسته بندی داخل سامانه دست‌نخورده می‌ماند.
+        /// </summary>
+        public string PackagingUnit { get; set; }
+
+        /// <summary>
+        /// ضریب تبدیل: تعداد واحد شمارشی در هر واحد بسته بندی (مثلاً ۲۴).
+        /// اگر null باشد، تنظیمات بسته بندی داخل سامانه دست‌نخورده می‌ماند.
+        /// </summary>
+        public decimal? ConversionFactor { get; set; }
+
+        // ==================== فیلدهای خواندنی ====================
+        // این فیلدها هنگام «دریافت فهرست کالاها از سامانه» پر می‌شوند و
+        // هنگام ارسال به سامانه نادیده گرفته می‌شوند.
+
+        /// <summary>شناسه کالا در سامانه</summary>
+        public int Id { get; set; }
+
+        /// <summary>عنوان گروه در سامانه</summary>
+        public string CategoryTitle { get; set; }
+
+        public bool TrackInventory { get; set; }
+
+        /// <summary>موجودی مبنا در سامانه</summary>
+        public decimal StockQuantity { get; set; }
+
+        /// <summary>موجودی قابل استفاده در سامانه</summary>
+        public decimal AvailableStock { get; set; }
+
+        /// <summary>آیا کالا در سامانه بسته بندی معتبر دارد؟</summary>
+        public bool HasPackaging { get; set; }
+
+        public bool IsActive { get; set; }
+
+        /// <summary>تعداد سفارش‌هایی که این کالا در آن‌ها استفاده شده؛ اگر بزرگ‌تر از صفر باشد حذف ممکن نیست.</summary>
+        public int OrderCount { get; set; }
+
+        public List<string> Images { get; set; } = new List<string>();
+
+        public DateTimeOffset? StockUpdatedAt { get; set; }
     }
 
     /// <summary>ردیف موجودی و نرخ‌های یک کالا.</summary>

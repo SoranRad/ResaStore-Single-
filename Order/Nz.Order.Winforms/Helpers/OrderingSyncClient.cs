@@ -1,12 +1,18 @@
+using RestSharp;
+using ShareLib.Utils;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Security.Policy;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using RestSharp;
+using Nz.Order.Winforms.Settings;
+using RestSharp.Authenticators;
+using RestSharp.Serializers.Json;
 using TwentyDevs.ResultCore;
 
 namespace Nz.Order.Winforms.Helpers
@@ -47,13 +53,33 @@ namespace Nz.Order.Winforms.Helpers
             _apiKey = apiKey.Trim();
             _batchSize = batchSize < 1 ? 1 : batchSize;
 
+            
+
+            var httpClientHandler = new HttpClientHandler();
+            httpClientHandler.ServerCertificateCustomValidationCallback = (msg, cert, chain, errors) => { return true; }; // Ignore SSL errors for local development
+            var httpClient = new HttpClient(httpClientHandler);
+            httpClient.BaseAddress = new Uri(baseUrl.Trim().TrimEnd('/'));
+            //var authenticator = new JwtAuthenticator(Token);
+            //var options = new RestClientOptions() { Authenticator = authenticator };
+            var configSerialize = new ConfigureSerialization(config => config.UseSystemTextJson(new JsonSerializerOptions() { PropertyNameCaseInsensitive = true, PropertyNamingPolicy = null }));
             var options = new RestClientOptions(baseUrl.Trim().TrimEnd('/'))
             {
-                Timeout = TimeSpan.FromSeconds(120),
-                ThrowOnAnyError = false
+	            Timeout = TimeSpan.FromSeconds(250),
+	            ThrowOnAnyError = false,
+
             };
 
-            _client = new RestClient(options);
+
+            _client = new RestClient
+            (
+	            httpClient: httpClient
+	            , options: options
+	            , configureSerialization: configSerialize
+            );
+
+            //return client;
+
+			//_client = new RestClient(options);
         }
 
         #region ۱) گروه‌های کالا
@@ -113,6 +139,96 @@ namespace Nz.Order.Winforms.Helpers
                 items,
                 batch => new ApplyStockRequest { StockDate = isoDate, Items = batch },
                 cancellationToken);
+        }
+
+        #endregion
+
+        #region ۴) خواندن فهرست‌ها از سامانه
+
+        /// <summary>دریافت فهرست گروه‌های کالای موجود در سامانه.</summary>
+        /// <remarks>تعداد کالاهای هر گروه در فیلد <c>ProductCount</c> برمی‌گردد؛ گروهی که کالا دارد قابل حذف نیست.</remarks>
+        public async Task<Result<List<ServerCategoryDto>>> GetCategoriesAsync(
+            CancellationToken cancellationToken = default)
+        {
+            var result = await GetAsync<List<ServerCategoryDto>>("api/sync/categories", null, cancellationToken)
+                .ConfigureAwait(false);
+
+            if (!result.IsSuccess)
+            {
+                return Result.Fail<List<ServerCategoryDto>>(result.ToErrorMessage());
+            }
+
+            return Result.Success(result.Data ?? new List<ServerCategoryDto>());
+        }
+
+        /// <summary>
+        /// دریافت فهرست کامل کالاهای سامانه با همه مشخصات (نرخ‌ها، موجودی، بسته بندی و …).
+        /// </summary>
+        /// <param name="includeInactive">در صورت true بودن، کالاهای غیرفعال هم برگردانده می‌شوند.</param>
+        public async Task<Result<List<SyncProductDto>>> GetProductsAsync(
+            bool includeInactive = true,
+            CancellationToken cancellationToken = default)
+        {
+            var query = "api/sync/products?includeInactive=" + (includeInactive ? "true" : "false");
+
+            var result = await GetAsync<List<SyncProductDto>>(query, null, cancellationToken).ConfigureAwait(false);
+
+            if (!result.IsSuccess)
+            {
+                return Result.Fail<List<SyncProductDto>>(result.ToErrorMessage());
+            }
+
+            return Result.Success(result.Data ?? new List<SyncProductDto>());
+        }
+
+        #endregion
+
+        #region ۵) حذف با کنترل وابستگی
+
+        /// <summary>
+        /// حذف گروه‌های کالا.
+        /// گروهی که کالای مرتبط داشته باشد حذف نمی‌شود و در فهرست <c>Blocked</c> با دلیل برمی‌گردد.
+        /// </summary>
+        /// <param name="codes">کد گروه‌ها در سامانه (رشته‌ای)</param>
+        public async Task<Result<SyncDeleteResultDto>> DeleteCategoriesAsync(
+            IReadOnlyCollection<string> codes,
+            CancellationToken cancellationToken = default)
+        {
+            var list = codes == null
+                ? new List<string>()
+                : codes.Where(code => !string.IsNullOrWhiteSpace(code)).Select(code => code.Trim()).ToList();
+
+            if (list.Count == 0)
+            {
+                return Result.Success(new SyncDeleteResultDto());
+            }
+
+            return await PostAsync<DeleteCategoriesRequest, SyncDeleteResultDto>(
+                "api/sync/categories/delete",
+                new DeleteCategoriesRequest { Codes = list },
+                cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// حذف کالاها.
+        /// کالایی که در سفارش‌ها استفاده شده باشد حذف نمی‌شود و در فهرست <c>Blocked</c> با دلیل برمی‌گردد.
+        /// </summary>
+        /// <param name="codes">کد کالاها</param>
+        public async Task<Result<SyncDeleteResultDto>> DeleteProductsAsync(
+            IReadOnlyCollection<int> codes,
+            CancellationToken cancellationToken = default)
+        {
+            var list = codes == null ? new List<int>() : codes.Where(code => code > 0).Distinct().ToList();
+
+            if (list.Count == 0)
+            {
+                return Result.Success(new SyncDeleteResultDto());
+            }
+
+            return await PostAsync<DeleteProductsRequest, SyncDeleteResultDto>(
+                "api/sync/products/delete",
+                new DeleteProductsRequest { Codes = list },
+                cancellationToken).ConfigureAwait(false);
         }
 
         #endregion
@@ -191,6 +307,69 @@ namespace Nz.Order.Winforms.Helpers
             }
 
             return Result.Success(total);
+        }
+
+        /// <summary>فراخوانی GET و خواندن پاسخ یکسان سامانه.</summary>
+        private async Task<Result<TData>> GetAsync<TData>(
+            string resource,
+            IEnumerable<KeyValuePair<string, string>> query,
+            CancellationToken cancellationToken)
+        {
+            var request = new RestRequest(resource, Method.Get);
+            request.AddHeader("X-Api-Key", _apiKey);
+
+            if (query != null)
+            {
+                foreach (var pair in query)
+                {
+                    request.AddQueryParameter(pair.Key, pair.Value);
+                }
+            }
+
+            try
+            {
+                var response = await _client.ExecuteAsync(request, cancellationToken).ConfigureAwait(false);
+
+                return ReadEnvelope<TData>(response.Content, response.StatusCode, response.ErrorMessage);
+            }
+            catch (OperationCanceledException)
+            {
+                throw;
+            }
+            catch (Exception exception)
+            {
+                return Result.Fail<TData>($"ارتباط با سامانه برقرار نشد: {exception.Message}");
+            }
+        }
+
+        /// <summary>فراخوانی POST با نوع دلخواه پاسخ.</summary>
+        private async Task<Result<TData>> PostAsync<TBody, TData>(
+            string resource,
+            TBody body,
+            CancellationToken cancellationToken)
+            where TBody : class
+        {
+            var request = new RestRequest(resource, Method.Post);
+            request.AddHeader("X-Api-Key", _apiKey);
+
+            var json = JsonSerializer.Serialize(body, JsonOptions);
+
+            request.AddStringBody(json, ContentType.Json);
+
+            try
+            {
+                var response = await _client.ExecuteAsync(request, cancellationToken).ConfigureAwait(false);
+
+                return ReadEnvelope<TData>(response.Content, response.StatusCode, response.ErrorMessage);
+            }
+            catch (OperationCanceledException)
+            {
+                throw;
+            }
+            catch (Exception exception)
+            {
+                return Result.Fail<TData>($"ارتباط با سامانه برقرار نشد: {exception.Message}");
+            }
         }
 
         private async Task<Result<SyncResultDto>> PostAsync<TBody>(
@@ -292,7 +471,17 @@ namespace Nz.Order.Winforms.Helpers
         }
 
         #endregion
-    }
+
+        public static OrderingSyncClient GetInstance()
+        {
+            var _setting = Form_Factory._Form_Factory_Order.GetSettings() as SettingItems;
+#if DEBUG
+	        return new OrderingSyncClient("http://localhost:5173/", _setting.ApiKey);
+#else
+			return new OrderingSyncClient("https://order.nikshaho.com/", _setting.ApiKey);
+#endif
+		}
+	}
 
     /// <summary>کمکی برای خوانا کردن خطاهای پاسخ سامانه</summary>
     public static class ResultExtensions

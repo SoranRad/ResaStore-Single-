@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Nz.Order.Winforms.App;
+using Nz.Order.Winforms.Helpers;
 
 namespace Nz.Order.Winforms.Provider
 {
@@ -37,6 +38,13 @@ namespace Nz.Order.Winforms.Provider
 		private void NsListOrders_Click(object sender, EventArgs e)
 		{
 			var frm = new FormOrders();
+			frm.MdiParent = OrderProvider.MainForm;
+			frm.Show();
+		}
+
+		private void NsTest_Click(object sender, EventArgs e)
+		{
+			var frm = new SyncForm();
 			frm.MdiParent = OrderProvider.MainForm;
 			frm.Show();
 		}

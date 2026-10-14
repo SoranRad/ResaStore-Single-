@@ -37,6 +37,7 @@
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.NsListOrders = new System.Windows.Forms.ToolStripMenuItem();
 			this.NzReport = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsTest = new System.Windows.Forms.ToolStripMenuItem();
 			this.mS_Menu1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -76,7 +77,8 @@
             this.NsCategories,
             this.NsProducts,
             this.toolStripSeparator2,
-            this.NsListOrders});
+            this.NsListOrders,
+            this.NsTest});
 			this.StorageMenu.Font = new System.Drawing.Font("IRANSans(Small) Medium", 15F);
 			this.StorageMenu.Image = ((System.Drawing.Image)(resources.GetObject("StorageMenu.Image")));
 			this.StorageMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -119,6 +121,13 @@
 			this.NzReport.Size = new System.Drawing.Size(96, 28);
 			this.NzReport.Text = "گـزارشـات";
 			// 
+			// NsTest
+			// 
+			this.NsTest.Name = "NsTest";
+			this.NsTest.Size = new System.Drawing.Size(213, 30);
+			this.NsTest.Text = "آزمایش سامانه ";
+			this.NsTest.Click += new System.EventHandler(this.NsTest_Click);
+			// 
 			// OrderMenuItems
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -141,5 +150,6 @@
 		private System.Windows.Forms.ToolStripMenuItem NsProducts;
 		private System.Windows.Forms.ToolStripMenuItem NsListOrders;
 		public System.Windows.Forms.ToolStripMenuItem NzReport;
+		private System.Windows.Forms.ToolStripMenuItem NsTest;
 	}
 }
