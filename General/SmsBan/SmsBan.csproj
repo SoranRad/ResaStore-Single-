@@ -143,6 +143,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -154,6 +155,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <!-- لایه‌ی مدل -->
+    <Compile Include="Model\SmsEnums.cs" />
+    <Compile Include="Model\SmsOutbox.cs" />
+    <Compile Include="Model\SmsArchive.cs" />
+    <Compile Include="Model\SmsInbox.cs" />
+    <Compile Include="Model\SmsRateCounter.cs" />
+    <Compile Include="Model\SmsWorkerState.cs" />
+    <!-- لایه‌ی داده و مایگریشن -->
+    <Compile Include="DataLayer\SmsBanContext.cs" />
+    <Compile Include="DataLayer\Context\SmsBanContextFactory.cs" />
+    <Compile Include="DataLayer\Context\SmsBanDb.cs" />
+    <Compile Include="DataLayer\Configure\SmsOutboxConfig.cs" />
+    <Compile Include="DataLayer\Configure\SmsArchiveConfig.cs" />
+    <Compile Include="DataLayer\Configure\SmsInboxConfig.cs" />
+    <Compile Include="DataLayer\Configure\SmsRateCounterConfig.cs" />
+    <Compile Include="DataLayer\Configure\SmsWorkerStateConfig.cs" />
+    <Compile Include="DataLayer\Migrations\Configuration.cs" />
+    <Compile Include="DataLayer\Migrations\202610170716078_InitialCreate.cs" />
+    <Compile Include="DataLayer\Migrations\202610170716078_InitialCreate.Designer.cs" />
+    <!-- لایه‌ی مودم -->
+    <Compile Include="Modem\ModemModels.cs" />
+    <Compile Include="Modem\NativeModem.cs" />
+    <Compile Include="Modem\ModemGateway.cs" />
+    <!-- هسته‌ی ماژول -->
+    <Compile Include="Core\JalaliDate.cs" />
+    <Compile Include="Core\SmsBanOptions.cs" />
+    <Compile Include="Core\SmsPageCalculator.cs" />
+    <Compile Include="Core\SmsTexts.cs" />
+    <Compile Include="Core\SmsRequest.cs" />
+    <Compile Include="Core\SmsWorkerStateService.cs" />
+    <Compile Include="Core\SmsRateLimiter.cs" />
+    <Compile Include="Core\SmsQueueService.cs" />
+    <Compile Include="Core\SmsSenderWorker.cs" />
+    <Compile Include="Core\SmsInboxService.cs" />
+    <Compile Include="Core\SmsBanService.cs" />
+    <!-- رابط کاربری -->
+    <Compile Include="UI\FormSettings.cs" />
+    <Compile Include="UI\FormQueueManager.cs" />
+    <!-- فرم پیش‌فرض پروژه -->
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +222,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <!-- DLL بومی مودم (نسخه x64). هنگام بیلد کنار خروجی کپی می‌شود تا
+         برنامه بتواند آن را بارگذاری کند. برای معماری x86 باید فایل
+         SMS_BAN_DLL\32Bit جایگزین شود. -->
+    <None Include="lib\x64\DllManshoorGSM.dll">
+      <Link>DllManshoorGSM.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
