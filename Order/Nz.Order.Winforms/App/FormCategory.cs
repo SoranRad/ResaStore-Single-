@@ -31,15 +31,13 @@ namespace Nz.Order.Winforms.App
 					.DeclaringType);
 		#endregion
 		#region Fields
-		private Manager _Manager;
-		//private Settings.SettingItems _Settings;
+		private Manager _Manager; 
 		private OrderingSyncClient _client;
 		#endregion
 
 		public FormCategory()
 		{
 			InitializeComponent();
-			//_Settings = Form_Factory._Form_Factory_Order.GetSettings() as SettingItems;
 			this.Icon = global::MS_Resource.GlobalResources.Logo_Resaa;
 			_Manager = new Manager();
 		}
@@ -146,7 +144,7 @@ namespace Nz.Order.Winforms.App
 				NsSync.Enabled = true;
 			}
 		}
-		private  async void		NsRefresh_Click					(object sender, EventArgs e)
+		private async void		NsRefresh_Click					(object sender, EventArgs e)
 		{
 			await RefreshGrid_RemoteCategory();
 			RefreshGrid_SubGroup();

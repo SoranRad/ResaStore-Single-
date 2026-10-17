@@ -99,6 +99,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Order", "Order", "{0727C8E7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nz.Order.Winforms", "..\..\Order\Nz.Order.Winforms\Nz.Order.Winforms.csproj", "{86AE1924-F663-43F9-BDBB-1A78F7483E7E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsBan", "..\..\General\SmsBan\SmsBan.csproj", "{EAAA8168-F6D8-4DAC-8A49-D44694287806}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -355,6 +357,14 @@ Global
 		{86AE1924-F663-43F9-BDBB-1A78F7483E7E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{86AE1924-F663-43F9-BDBB-1A78F7483E7E}.Release|x86.ActiveCfg = Release|Any CPU
 		{86AE1924-F663-43F9-BDBB-1A78F7483E7E}.Release|x86.Build.0 = Release|Any CPU
+		{EAAA8168-F6D8-4DAC-8A49-D44694287806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAAA8168-F6D8-4DAC-8A49-D44694287806}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAAA8168-F6D8-4DAC-8A49-D44694287806}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EAAA8168-F6D8-4DAC-8A49-D44694287806}.Debug|x86.Build.0 = Debug|Any CPU
+		{EAAA8168-F6D8-4DAC-8A49-D44694287806}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAAA8168-F6D8-4DAC-8A49-D44694287806}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAAA8168-F6D8-4DAC-8A49-D44694287806}.Release|x86.ActiveCfg = Release|Any CPU
+		{EAAA8168-F6D8-4DAC-8A49-D44694287806}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -388,6 +398,7 @@ Global
 		{EA2237A1-4AB5-49A2-A084-6459FFCD33B8} = {877B4980-81C5-455B-8646-A1B52BFEBC10}
 		{17FB2997-C85D-4AAD-BD95-D2B54E9CB9F5} = {877B4980-81C5-455B-8646-A1B52BFEBC10}
 		{86AE1924-F663-43F9-BDBB-1A78F7483E7E} = {0727C8E7-347B-47D4-AF93-A8D40B5A7827}
+		{EAAA8168-F6D8-4DAC-8A49-D44694287806} = {D45B553D-51F6-494F-BE7F-1CDA2717EF2F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {40463BE8-C08F-4A75-A1A0-09C8428CCBED}

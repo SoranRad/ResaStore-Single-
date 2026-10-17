@@ -476,7 +476,7 @@ namespace Nz.Order.Winforms.Helpers
         {
             var _setting = Form_Factory._Form_Factory_Order.GetSettings() as SettingItems;
 #if DEBUG
-	        return new OrderingSyncClient("http://localhost:5173/", _setting.ApiKey);
+	        return new OrderingSyncClient("http://localhost:5088/", _setting.ApiKey);
 #else
 			return new OrderingSyncClient("https://order.nikshaho.com/", _setting.ApiKey);
 #endif

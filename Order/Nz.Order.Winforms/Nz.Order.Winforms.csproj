@@ -162,6 +162,9 @@
     <EmbeddedResource Include="App\FormCategory.resx">
       <DependentUpon>FormCategory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="App\FormProducts.resx">
+      <DependentUpon>FormProducts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
