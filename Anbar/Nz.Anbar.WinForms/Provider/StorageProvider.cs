@@ -20,6 +20,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Nz.Anbar.WinForms.Sms;
 using static Stimulsoft.Base.StiDbType;
 
 namespace Nz.Anbar.WinForms.Provider
@@ -38,8 +39,8 @@ namespace Nz.Anbar.WinForms.Provider
         public static Form                      MainForm;
         private StorageAlarm                    _storageAlarm;
         private TabSettingContainer             _settingContainer;
-        private ISettingItems               _settings;
-
+        private ISettingItems                   _settings;
+        private SmsTemplateContainer            _smsTemplateContainer;
         #endregion
         #region Constructors
         public StorageProvider()
@@ -268,7 +269,7 @@ namespace Nz.Anbar.WinForms.Provider
             }
         }
 
-		public NsSettingTabPage[]                     GetSettingTabPage       ()
+		public NsSettingTabPage[]                   GetSettingTabPage       ()
 		{
 			_settingContainer = new TabSettingContainer();
             _settingContainer.LoadSetting((SettingItems)_settings );
@@ -286,6 +287,12 @@ namespace Nz.Anbar.WinForms.Provider
 		public ISettingItems                        GetSettings             ()
 		{
 			return _settings;
+		}
+
+		public NsSmsTemplateTabPage[]               GetSmsTemplateTabPages  ()
+		{
+			_smsTemplateContainer = _smsTemplateContainer ?? new SmsTemplateContainer();
+			return _smsTemplateContainer.TemplateTabPage;
 		}
 
 		public bool                                 HasSrtartupForm         ()

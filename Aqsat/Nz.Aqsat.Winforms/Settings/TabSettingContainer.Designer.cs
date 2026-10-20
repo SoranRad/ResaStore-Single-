@@ -1,4 +1,4 @@
-﻿namespace Nz.Asat.Winforms.Settings
+﻿namespace Nz.Aqsat.Winforms.Settings
 {
 	partial class TabSettingContainer
 	{

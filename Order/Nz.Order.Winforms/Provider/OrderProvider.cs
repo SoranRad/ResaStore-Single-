@@ -152,6 +152,12 @@ namespace Nz.Order.Winforms.Provider
 			return _settings;
 		}
 
+		public NsSmsTemplateTabPage[] GetSmsTemplateTabPages()
+		{
+			return null;
+		}
+
+
 		public async Task<MS_Chart[]> GetChartSummarry()
 		{
 			return null;

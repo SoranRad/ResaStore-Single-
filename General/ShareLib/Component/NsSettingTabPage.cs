@@ -14,7 +14,7 @@ namespace ShareLib.Component
 {
 	public partial class NsSettingTabPage : UITabPage
 	{
-		 public SettingItems SettingFunction;
+		public SettingItems SettingFunction;
 
 		public EventHandler<ISettingItems> OnSavedItems;
 

@@ -16,6 +16,7 @@ using NZ.General.WinForms.EndYear;
 using NZ.General.WinForms.Misc;
 using NZ.General.WinForms.Report;
 using NZ.General.WinForms.Setting;
+using NZ.General.WinForms.Sms;
 using ShareLib.Utils;
 using ShareLib.ViewModel;
 
@@ -222,6 +223,12 @@ namespace NZ.General.WinForms.Provider
 			var frm = new FormPartnerStatus();
 			frm.MdiParent = GeneralProvider.MainForm;
 			frm.Show();
+		}
+
+		private void NsSmsQaleb_Click(object sender, EventArgs e)
+		{
+			var frm = new FormSmsTemplate();
+			frm.ShowDialog(GeneralProvider.MainForm);
 		}
 	}
 	}

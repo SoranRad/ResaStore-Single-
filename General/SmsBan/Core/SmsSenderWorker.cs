@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading;
@@ -306,8 +306,8 @@ namespace SmsBan.Core
 			var sendOptions = new ModemSendOptions
 			{
 				RequestDeliveryReport	= _options.RequestDeliveryReport,
-				SendInterval			= _options.SendInterval,
-				RetryTimes				= _options.ModemRetryTimes,
+				PartSendIntervalMs		= _options.PartSendIntervalMs,
+				RetryCount				= _options.ModemRetryCount,
 				SmsValidity				= _options.SmsValidity,
 				SmsCenter				= _options.SmsCenter
 			};
@@ -348,8 +348,8 @@ namespace SmsBan.Core
 					ModemDevice		= _modem.Status.DeviceInfo,
 					EnqueuedBy		= item.EnqueuedBy,
 					SentBy			= OwnerId,
-					SendInterval	= _options.SendInterval,
-					RetryTimes		= _options.ModemRetryTimes,
+					SendInterval	= _options.PartSendIntervalMs,
+					RetryTimes		= _options.ModemRetryCount,
 					SmsValidity		= _options.SmsValidity,
 					SmsCenter		= _options.SmsCenter
 				});
@@ -420,8 +420,8 @@ namespace SmsBan.Core
 						ModemDevice		= _modem.Status.DeviceInfo,
 						EnqueuedBy		= item.EnqueuedBy,
 						SentBy			= OwnerId,
-						SendInterval	= _options.SendInterval,
-						RetryTimes		= _options.ModemRetryTimes,
+						SendInterval	= _options.PartSendIntervalMs,
+						RetryTimes		= _options.ModemRetryCount,
 						SmsValidity		= _options.SmsValidity,
 						SmsCenter		= _options.SmsCenter
 					});

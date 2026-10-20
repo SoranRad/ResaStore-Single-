@@ -17,7 +17,7 @@ using Nz.Site.Business;
 using Nz.Site.Model.Report;
 using Nz.Site.Winforms.Settings;
 using Nz.Site.WinForms.Settings;
-using static ShareLib.Enums;
+
 
 namespace Nz.Site.Winforms.Provider
 {
@@ -199,7 +199,7 @@ namespace Nz.Site.Winforms.Provider
             throw new NotImplementedException();
         }
 
-        public void                             SetProperty             (string Name, object Value)
+		public void                             SetProperty             (string Name, object Value)
         {
             throw new NotImplementedException();
         }
@@ -249,12 +249,17 @@ namespace Nz.Site.Winforms.Provider
 
             }
         }
-		public NsSettingTabPage[]                 GetSettingTabPage       ()
+		public NsSettingTabPage[]               GetSettingTabPage       ()
 		{
 			_settingContainer = new TabSettingContainer();
 			_settingContainer.LoadSetting((SettingItems)_settings );
 
 			return new NsSettingTabPage[] { _settingContainer.TabSetting };
+		}
+
+		public NsSmsTemplateTabPage[]           GetSmsTemplateTabPages  ()
+		{
+			return null;
 		}
 
 		public void                             SetSettings             (IEnumerable<dynamic> settings)
@@ -276,12 +281,11 @@ namespace Nz.Site.Winforms.Provider
 			return null;
 		}
 
-		public async Task<IEnumerable<T>> GetPartnerReportList<T>(DateTime? Start, DateTime? End, params long[] Ids) where T : class
+		public async Task<IEnumerable<T>>       GetPartnerReportList<T> (DateTime? Start, DateTime? End, params long[] Ids) where T : class
 		{
 			return null;
 		}
-
-		public async Task<T> GetPartnerReportItem<T>(DateTime? Start, DateTime? End, params long[] Ids) where T : class
+		public async Task<T>                    GetPartnerReportItem<T> (DateTime? Start, DateTime? End, params long[] Ids) where T : class
 		{
 			return null;
 		}

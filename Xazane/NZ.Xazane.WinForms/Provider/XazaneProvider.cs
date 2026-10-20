@@ -322,7 +322,12 @@ namespace NZ.Xazane.WinForms
 
         }
 
-        public bool                             HasSrtartupForm         ()
+        public NsSmsTemplateTabPage[] GetSmsTemplateTabPages()
+        {
+	        return null;
+        }
+
+		public bool                             HasSrtartupForm         ()
         {
 	        return false;
         }

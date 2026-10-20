@@ -21,6 +21,14 @@ namespace NZ.General.WinForms.Setting
 				ShowAlarm				= true,
 				ShowBackupOnExit		= true,
 				SmsActivation			= false,
+				UseModemForSms			= false,
+				MaxSmsPerDay			= 695,
+				MaxSmsPerMinute			= 65,
+				CharacterPerPart		= 69,
+				PeriodReadSmsInMinute	= 5,
+				ModemConnected			= false,
+				ModemDeviceNo			= 0,
+				CountryCode				= 98,
 			};
 		}
 
@@ -40,5 +48,15 @@ namespace NZ.General.WinForms.Setting
 		public bool		SmsActivation			{ get; set; }
 		public string	Username				{ get; set; }
 		public string	Password				{ get; set; }
+		
+		public bool		UseModemForSms			{ get; set; }
+		public short	MaxSmsPerDay			{ get; set; }
+		public short	MaxSmsPerMinute			{ get; set; }
+		public byte		CharacterPerPart		{ get; set; }
+		public byte		PeriodReadSmsInMinute	{ get; set; }
+		public bool		ModemConnected			{ get; set; }
+		public byte		ModemDeviceNo			{ get; set; }
+		public short	CountryCode				{ get; set; }
+
 	}
 }

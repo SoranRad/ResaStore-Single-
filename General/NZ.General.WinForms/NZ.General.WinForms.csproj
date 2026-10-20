@@ -636,8 +636,20 @@
     <Compile Include="Setting\TabSettingContainer.Designer.cs">
       <DependentUpon>TabSettingContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sms\FormSmsTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sms\FormSmsTemplate.Designer.cs">
+      <DependentUpon>FormSmsTemplate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sms\Messaging.cs" />
     <Compile Include="Sms\SendSms.cs" />
+    <Compile Include="Sms\SmsTemplateContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sms\SmsTemplateContainer.Designer.cs">
+      <DependentUpon>SmsTemplateContainer.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Web.WebView2">
@@ -679,6 +691,11 @@
     <ProjectReference Include="..\ShareLib\ShareLib.csproj">
       <Project>{ee295af7-3238-4f98-b5fc-9f16c02391e8}</Project>
       <Name>ShareLib</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SmsBan\SmsBan.csproj">
+      <Project>{eaaa8168-f6d8-4dac-8a49-d44694287806}</Project>
+      <Name>SmsBan</Name>
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
@@ -857,6 +874,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Setting\TabSettingContainer.resx">
       <DependentUpon>TabSettingContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sms\FormSmsTemplate.resx">
+      <DependentUpon>FormSmsTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sms\SmsTemplateContainer.resx">
+      <DependentUpon>SmsTemplateContainer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

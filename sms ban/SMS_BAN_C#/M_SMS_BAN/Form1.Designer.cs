@@ -30,7 +30,6 @@
         {
 			this.components = new System.ComponentModel.Container();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -1748,6 +1747,7 @@
 			this.S_Mob_Edit.Size = new System.Drawing.Size(99, 22);
 			this.S_Mob_Edit.TabIndex = 19;
 			this.S_Mob_Edit.Text = "9123456789";
+			this.S_Mob_Edit.TextChanged += new System.EventHandler(this.S_Mob_Edit_TextChanged);
 			// 
 			// Delay2PartEdit
 			// 
@@ -4244,7 +4244,6 @@
         }
 
         #endregion
-        private System.DirectoryServices.DirectoryEntry directoryEntry1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;

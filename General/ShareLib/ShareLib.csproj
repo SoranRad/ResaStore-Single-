@@ -110,6 +110,12 @@
     <Compile Include="Component\NsSettingTabPage.Designer.cs">
       <DependentUpon>NsSettingTabPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Component\NsSmsTemplateTabPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Component\NsSmsTemplateTabPage.Designer.cs">
+      <DependentUpon>NsSmsTemplateTabPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="DropDownItem.cs" />
     <Compile Include="Interfaces\DapperEntityConfiguration.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
@@ -127,6 +133,7 @@
     <Compile Include="Models\Report\NoteOfDate.cs" />
     <Compile Include="Models\Report\PartnerStatus.cs" />
     <Compile Include="Models\Report\SummaryNote.cs" />
+    <Compile Include="Models\SmsTemplate.cs" />
     <Compile Include="Models\YearNoteList.cs" />
     <Compile Include="RestApi\BaseApi.cs" />
     <Compile Include="RestApi\HttpClientFactory.cs" />

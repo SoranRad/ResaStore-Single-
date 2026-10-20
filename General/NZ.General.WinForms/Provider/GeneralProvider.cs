@@ -18,6 +18,7 @@ using MS_Control.Controls;
 using NZ.General.Business;
 using NZ.General.WinForms.Alarm;
 using NZ.General.WinForms.Component;
+using NZ.General.WinForms.Sms;
 using ShareLib.Component;
 
 namespace NZ.General.WinForms
@@ -37,6 +38,7 @@ namespace NZ.General.WinForms
         public static Form                  MainForm;
         private TabSettingContainer         _settingContainer;
         private SettingItems               _settings;
+        private SmsTemplateContainer        _smsTemplateContainer;
         #endregion
         #region Consructor
         public GeneralProvider()
@@ -180,6 +182,12 @@ namespace NZ.General.WinForms
 		public ISettingItems                    GetSettings         ()
 		{
 			return _settings;
+		}
+
+		public NsSmsTemplateTabPage[] GetSmsTemplateTabPages()
+		{
+			_smsTemplateContainer = _smsTemplateContainer ?? new SmsTemplateContainer();
+			return _smsTemplateContainer.TemplateTabPage;
 		}
 
 		public bool HasSrtartupForm()

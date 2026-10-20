@@ -27,7 +27,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -191,8 +191,18 @@
     <Compile Include="Core\SmsInboxService.cs" />
     <Compile Include="Core\SmsBanService.cs" />
     <!-- رابط کاربری -->
-    <Compile Include="UI\FormSettings.cs" />
-    <Compile Include="UI\FormQueueManager.cs" />
+    <Compile Include="UI\FormConfigModem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormConfigModem.Designer.cs">
+      <DependentUpon>FormConfigModem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormQueueManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <!-- فرم پیش‌فرض پروژه -->
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -210,6 +220,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\FormConfigModem.resx">
+      <DependentUpon>FormConfigModem.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -48,7 +48,7 @@
 			this.NzTab.Name = "NzTab";
 			this.NzTab.Office2007CustomColor = System.Drawing.Color.Transparent;
 			this.NzTab.ShowFocusRectangle = false;
-			this.NzTab.Size = new System.Drawing.Size(716, 391);
+			this.NzTab.Size = new System.Drawing.Size(898, 547);
 			this.NzTab.TabIndex = 7;
 			this.NzTab.TabsStateStyles.DisabledFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.NzTab.TabsStateStyles.DisabledFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -64,13 +64,13 @@
 			this.Panel_Foother.Controls.Add(this.ms_Save);
 			this.Panel_Foother.Controls.Add(this.ms_Exit);
 			this.Panel_Foother.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.Panel_Foother.Location = new System.Drawing.Point(0, 391);
+			this.Panel_Foother.Location = new System.Drawing.Point(0, 547);
 			this.Panel_Foother.MS_BorderColor = System.Drawing.Color.DarkGray;
 			this.Panel_Foother.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.Panel_Foother.MS_Color_End = System.Drawing.Color.Gainsboro;
 			this.Panel_Foother.MS_Color_Start = System.Drawing.Color.WhiteSmoke;
 			this.Panel_Foother.Name = "Panel_Foother";
-			this.Panel_Foother.Size = new System.Drawing.Size(716, 45);
+			this.Panel_Foother.Size = new System.Drawing.Size(898, 45);
 			this.Panel_Foother.TabIndex = 8;
 			// 
 			// ms_Save
@@ -133,7 +133,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(716, 436);
+			this.ClientSize = new System.Drawing.Size(898, 592);
 			this.Controls.Add(this.NzTab);
 			this.Controls.Add(this.Panel_Foother);
 			this.MaximizeBox = false;

@@ -11,13 +11,21 @@ namespace SmsBan.Modem
 		/// <summary>درخواست گزارش تحویل از اپراتور.</summary>
 		public bool		RequestDeliveryReport	{ get; set; }
 
-		/// <summary>فاصله‌ی ارسال بین بخش‌های یک پیامک چندصفحه‌ای.</summary>
-		public int		SendInterval			{ get; set; }
+		/// <summary>
+		/// فاصله‌ی زمانی بین ارسال بخش‌های یک پیامک چندصفحه‌ای، به میلی‌ثانیه
+		/// (پارامتر <c>Send_Interval</c>).
+		/// </summary>
+		public int		PartSendIntervalMs		{ get; set; }
 
-		/// <summary>تعداد تلاش مجدد مودم در صورت خطا.</summary>
-		public int		RetryTimes				{ get; set; }
+		/// <summary>
+		/// تعداد تلاش مجدد مودم در صورت بروز مشکل هنگام ارسال
+		/// (پارامتر <c>Retry_Times</c>).
+		/// </summary>
+		public int		RetryCount				{ get; set; }
 
-		/// <summary>مدت اعتبار پیامک.</summary>
+		/// <summary>
+		/// مدت اعتبار پیامک در مرکز پیامک (پارامتر <c>SMS_Validity</c>)، بازه‌ی ۱ تا ۷.
+		/// </summary>
 		public int		SmsValidity				{ get; set; }
 
 		/// <summary>شماره‌ی مرکز پیامک؛ اگر خالی باشد از سیم‌کارت خوانده می‌شود.</summary>
@@ -26,9 +34,9 @@ namespace SmsBan.Modem
 		public ModemSendOptions()
 		{
 			RequestDeliveryReport	= true;
-			SendInterval			= 0;
-			RetryTimes				= 0;
-			SmsValidity				= 1;
+			PartSendIntervalMs		= 1000;
+			RetryCount				= 2;
+			SmsValidity				= 7;		// حداکثر
 			SmsCenter				= null;
 		}
 	}
@@ -74,14 +82,24 @@ namespace SmsBan.Modem
 
 		public ModemStatus				Status	{ get; private set; }
 
+		/// <summary>
+		/// شماره‌ی دستگاهی که با تابع <c>SMS_Select_Device</c> انتخاب می‌شود.
+		/// این شماره دستگاه است، نه اندیس؛ بازه‌ی مجاز ۰ تا ۱۲۷.
+		/// </summary>
+		public int						DeviceNumber { get; set; }
+
+		/// <summary>شماره دستگاهی که در آخرین <see cref="Open"/> واقعاً انتخاب شد.</summary>
+		public int						SelectedDeviceNumber { get; private set; }
+
 		public ModemGateway()
 		{
-			Status = new ModemStatus();
+			Status		= new ModemStatus();
+			DeviceNumber = 1;
 		}
 
 		/// <summary>
 		/// باز کردن و آماده‌سازی مودم.
-		/// همیشه اولین مودم شناسایی‌شده انتخاب می‌شود.
+		/// مودم مورد نظر با تابع <c>SMS_Select_Device</c> انتخاب می‌شود.
 		/// </summary>
 		public ModemStatus Open()
 		{
@@ -105,8 +123,23 @@ namespace SmsBan.Modem
 						return Status;
 					}
 
-					// همیشه اولین مودم.
-					NativeModem.SMS_Select_Device(1);
+					// انتخاب دستگاه مورد نظر با تابع SMS_Select_Device.
+					// این تابع «شماره دستگاه» (۰ تا ۱۲۷) می‌گیرد، نه اندیس دستگاه.
+					var deviceNumber = DeviceNumber;
+
+					if (deviceNumber < 0 || deviceNumber > 127)
+					{
+						log.WarnFormat(
+							"شماره دستگاه {0} خارج از بازه ۰ تا ۱۲۷ است. مقدار ۱ استفاده می‌شود.",
+							deviceNumber);
+
+						deviceNumber = 1;
+					}
+
+					NativeModem.SMS_Select_Device((short)deviceNumber);
+
+					SelectedDeviceNumber		= deviceNumber;
+					Status.SelectedDeviceNumber	= deviceNumber;
 
 					ReadIdentity();
 
@@ -255,13 +288,18 @@ namespace SmsBan.Modem
 
 					string reference;
 
+					log.DebugFormat(
+						"ارسال به {0} | اعتبار: {1} | تاخیر بین بخش‌ها: {2} ms | تلاش مجدد: {3} | گزارش تحویل: {4} | مرکز: {5}",
+						phoneNumber, options.SmsValidity, options.PartSendIntervalMs,
+						options.RetryCount, options.RequestDeliveryReport, smsCenter);
+
 					NativeModem.S_SMS3(
 						out reference,
 						phoneNumber,
 						text,
 						options.RequestDeliveryReport,
-						options.SendInterval,
-						options.RetryTimes,
+						options.PartSendIntervalMs,
+						options.RetryCount,
 						options.SmsValidity,
 						0,
 						smsCenter ?? string.Empty);

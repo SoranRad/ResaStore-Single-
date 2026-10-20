@@ -22,9 +22,7 @@ namespace Nz.Aqsat.Winforms.sms
 	    }
 
 	    public async Task  SendSarResidQest(GridEXCell Cell ,long PhoneNumber, string Customer, string Count, string AGHSATTITLE, string Date, string Amount)
-
 	    {
-		    var tmp		= Cell.Image;
 			Cell.Image	= MS_Resource.GlobalResources.refresh;
 			Count		= Converter.ConvertToPersian(Convert.ToInt32(Count));
 

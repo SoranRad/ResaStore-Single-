@@ -260,6 +260,13 @@
     <Compile Include="Settings\TabSettingContainer.Designer.cs">
       <DependentUpon>TabSettingContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sms\Messaging.cs" />
+    <Compile Include="Sms\SmsTemplateContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sms\SmsTemplateContainer.Designer.cs">
+      <DependentUpon>SmsTemplateContainer.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="App\FormCar.resx">
       <DependentUpon>FormCar.cs</DependentUpon>
     </EmbeddedResource>
@@ -289,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\TabSettingContainer.resx">
       <DependentUpon>TabSettingContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sms\SmsTemplateContainer.resx">
+      <DependentUpon>SmsTemplateContainer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="..\..\General\MS_Resource\GlobalResources.resx">
       <Link>GlobalResources.resx</Link>

@@ -110,61 +110,85 @@ namespace SmsBan.Core
 	public static class SmsPhoneNumber
 	{
 		/// <summary>
-		/// تبدیل ارقام فارسی/عربی به لاتین و حذف کاراکترهای جداکننده،
-		/// سپس افزودن پیش‌شماره‌ی کشور در صورت نبودن آن.
+		/// تنها ارقام لاتین را برمی‌گرداند؛ ارقام فارسی و عربی تبدیل می‌شوند
+		/// و سایر کاراکترها (فاصله، خط تیره، پرانتز، علامت +) حذف می‌گردند.
+		/// </summary>
+		public static string DigitsOnly(string value)
+		{
+			if (string.IsNullOrEmpty(value))
+				return string.Empty;
+
+			var builder = new StringBuilder(value.Length);
+
+			foreach (var ch in value)
+			{
+				if (ch >= '0' && ch <= '9')
+					builder.Append(ch);
+				else if (ch >= '\u06F0' && ch <= '\u06F9')		// ارقام فارسی
+					builder.Append((char)('0' + (ch - '\u06F0')));
+				else if (ch >= '\u0660' && ch <= '\u0669')		// ارقام عربی
+					builder.Append((char)('0' + (ch - '\u0660')));
+			}
+
+			return builder.ToString();
+		}
+
+		/// <summary>
+		/// ساخت شماره‌ی نهایی برای تحویل به مودم:
+		///     پیش‌شماره‌ی کشور + شماره‌ی ملی بدون صفر ابتدایی
+		///
+		/// برای مثال با پیش‌شماره‌ی 98 و شماره‌ی 09123456789 نتیجه 989123456789 است.
+		/// علامت + و صفر ابتدایی حذف می‌شوند.
 		/// </summary>
 		public static string Normalize(string number, string countryCode)
 		{
-			if (string.IsNullOrWhiteSpace(number))
-				return string.Empty;
-
-			if (string.IsNullOrWhiteSpace(countryCode))
-				countryCode = "+98";
-
-			countryCode = countryCode.Trim();
-
-			var clean = new StringBuilder(number.Length);
-
-			foreach (var ch in number)
-			{
-				if (ch >= '0' && ch <= '9')
-					clean.Append(ch);
-				else if (ch >= '\u06F0' && ch <= '\u06F9')		// ارقام فارسی
-					clean.Append((char)('0' + (ch - '\u06F0')));
-				else if (ch >= '\u0660' && ch <= '\u0669')		// ارقام عربی
-					clean.Append((char)('0' + (ch - '\u0660')));
-				// سایر کاراکترها (فاصله، خط تیره، پرانتز، +) نادیده گرفته می‌شوند.
-			}
-
-			var digits = clean.ToString();
+			var digits = DigitsOnly(number);
 
 			if (digits.Length == 0)
 				return string.Empty;
 
-			var code = countryCode.Replace("+", string.Empty).Trim();
+			var code = DigitsOnly(countryCode);
 
-			// 0098... -> 98...
+			if (code.Length == 0)
+				code = "98";
+
+			// 0098... → 98...
 			if (digits.StartsWith("00"))
 				digits = digits.Substring(2);
 
-			// شماره‌ای که از قبل پیش‌شماره‌ی کشور را دارد.
-			if (digits.StartsWith(code) && digits.Length > code.Length + 3)
-				return "+" + digits;
+			// اگر شماره از قبل پیش‌شماره‌ی کشور را دارد، دست‌نخورده می‌ماند.
+			if (digits.StartsWith(code) && digits.Length > code.Length + 5)
+				return digits;
 
-			// شماره‌ی داخلی مانند 09121234567
+			// صفر ابتدایی شماره‌ی ملی حذف می‌شود.
 			if (digits.StartsWith("0"))
 				digits = digits.Substring(1);
 
-			return "+" + code + digits;
+			return code + digits;
 		}
 
-		/// <summary>نمایش خوانا برای گزارش‌ها.</summary>
-		public static string ToDisplay(string number)
+		/// <summary>نمایش خوانا برای گزارش‌ها (به شکل 09121234567).</summary>
+		public static string ToDisplay(string number, string countryCode)
 		{
 			if (string.IsNullOrWhiteSpace(number))
 				return string.Empty;
 
-			return number.Replace("+98", "0").Trim();
+			var digits = DigitsOnly(number);
+			var code   = DigitsOnly(countryCode);
+
+			if (code.Length == 0)
+				code = "98";
+
+			if (digits.StartsWith(code) && digits.Length > code.Length)
+				return "0" + digits.Substring(code.Length);
+
+			return digits;
+		}
+
+		/// <summary>نمایش خوانا با پیش‌شماره‌ی پیش‌فرض 98.</summary>
+		public static string ToDisplay(string number)
+		{
+			return ToDisplay(number, "98");
 		}
 	}
 }

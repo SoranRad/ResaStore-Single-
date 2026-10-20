@@ -340,8 +340,8 @@ namespace M_SMS_BAN
             { 
                 Sms_FromEdit.Text = Index_From.ToString();
                 Sms_ToEdit.Text = Index_To.ToString();
-             }
-         }
+	        }
+	    }
 
 
         private void checkBox4_CheckedChanged_1(object sender, EventArgs e)
@@ -1091,5 +1091,10 @@ namespace M_SMS_BAN
         {
 
         }
-    }
+
+		private void S_Mob_Edit_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

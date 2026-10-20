@@ -482,9 +482,10 @@ namespace SmsBan.UI
 
 				var text = string.Format(
 					"مودم: {0}\r\nنسخه نرم‌افزار: {1}\r\nاتصال: {2}   آماده: {3}\r\nآنتن: {4}\r\n" +
-					"IMEI: {5}\r\nSIM: {6}\r\nمرکز پیامک: {7}\r\n\r\n" +
-					"سهمیه دقیقه: {8} از {9}   (باقی‌مانده {10})\r\n" +
-					"سهمیه روز: {11} از {12}   (باقی‌مانده {13})\r\n\r\n{14}",
+					"IMEI: {5}\r\nSIM: {6}\r\nمرکز پیامک: {7}\r\n" +
+					"تعداد دستگاه شناسایی‌شده: {8}   شماره دستگاه انتخاب‌شده: {9}\r\n\r\n" +
+					"سهمیه دقیقه: {10} از {11}   (باقی‌مانده {12})\r\n" +
+					"سهمیه روز: {13} از {14}   (باقی‌مانده {15})\r\n\r\n{16}",
 					status.DeviceInfo,
 					status.SoftwareVersion,
 					status.Connected,
@@ -493,6 +494,8 @@ namespace SmsBan.UI
 					status.Imei,
 					status.SimId,
 					status.SmsCenter,
+					status.DeviceCount,
+					status.SelectedDeviceNumber,
 					quota.MinuteUsed, quota.MinuteLimit, quota.MinuteRemaining,
 					quota.DayUsed, quota.DayLimit, quota.DayRemaining,
 					status.LastError);

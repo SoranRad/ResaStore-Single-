@@ -78,7 +78,11 @@ namespace SmsBan.Core
 				options.EnqueuedBy = Environment.MachineName;
 
 			_options	= options;
-			_modem		= new ModemGateway();
+			_modem		= new ModemGateway
+			{
+				// انتخاب دستگاه مورد نظر با تابع SMS_Select_Device (شماره دستگاه، نه اندیس).
+				DeviceNumber = options.DeviceNumber
+			};
 			_queue		= new SmsQueueService(options);
 			_limiter	= new SmsRateLimiter(options);
 			_sender		= new SmsSenderWorker(options, _modem);

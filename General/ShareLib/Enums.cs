@@ -230,5 +230,16 @@ namespace ShareLib
             CachePos,
 
         }
+
+        public enum NsSmsTemplateKind : byte
+        {
+			Frosh = 1,
+            ResideVajh,
+            MandeShaxs ,
+            AqsatSarresid,
+            AqsatMande,
+            ErsalSefaresh,
+            KharidMahsoul,
+        }
     }
 }

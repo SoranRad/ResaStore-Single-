@@ -276,6 +276,12 @@
       <DependentUpon>TabSettingContainer.cs</DependentUpon>
     </Compile>
     <Compile Include="sms\Messaging.cs" />
+    <Compile Include="sms\SmsTemplateContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sms\SmsTemplateContainer.Designer.cs">
+      <DependentUpon>SmsTemplateContainer.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Alarm\AqsatAlarm.resx">
       <DependentUpon>AqsatAlarm.cs</DependentUpon>
     </EmbeddedResource>
@@ -311,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\TabSettingContainer.resx">
       <DependentUpon>TabSettingContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sms\SmsTemplateContainer.resx">
+      <DependentUpon>SmsTemplateContainer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="..\..\General\MS_Resource\GlobalResources.resx">
       <Link>GlobalResources.resx</Link>

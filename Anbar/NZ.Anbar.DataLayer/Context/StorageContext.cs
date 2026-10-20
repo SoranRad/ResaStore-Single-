@@ -37,7 +37,6 @@ namespace NZ.Anbar.DataLayer.Context
         protected override void         OnModelCreating     (DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.AddFromAssembly(GetType().Assembly);
-            
         }
     }
 }

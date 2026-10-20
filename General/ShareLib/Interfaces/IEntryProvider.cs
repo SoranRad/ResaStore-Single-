@@ -43,7 +43,10 @@ namespace ShareLib.Interfaces
         void                                SetSettings             (IEnumerable<dynamic> settings);
         ISettingItems                       GetSettings             ();
 
-        bool                                HasSrtartupForm         ();
+        NsSmsTemplateTabPage[]              GetSmsTemplateTabPages  ();
+
+
+		bool                                HasSrtartupForm         ();
         Form                                GetStartupPage          ();
 
         Task<IEnumerable<T>>                GetPartnerReportList<T> (DateTime? Start, DateTime? End,params long[] Ids) where T : class;

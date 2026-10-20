@@ -17,7 +17,8 @@ using Nz.Aqsat.Business;
 using Nz.Aqsat.Model.Report;
 using Nz.Aqsat.Winforms.Alarm;
 using Nz.Aqsat.WinForms.Settings;
-using Nz.Asat.Winforms.Settings;
+using Nz.Aqsat.Winforms.sms;
+using Nz.Aqsat.Winforms.Settings;
 
 namespace Nz.Bar.Winforms.Provider
 {
@@ -35,7 +36,8 @@ namespace Nz.Bar.Winforms.Provider
         private AqsatMenuItems                    Menues;
         private TabSettingContainer             _settingContainer;
         private ISettingItems                   _settings;
-        private AqsatAlarm _aqsatAlarm;
+        private AqsatAlarm                      _aqsatAlarm;
+        private SmsTemplateContainer            _smsTemplateContainer;
 		#endregion
 		#region Constructor
 		public ToolStripItem    MainMenuSysytem     => null;
@@ -205,8 +207,14 @@ namespace Nz.Bar.Winforms.Provider
         {
 	        return _settings;
         }
-		
-        public async Task<MS_Chart[]>           GetChartSummarry        ()
+
+        public NsSmsTemplateTabPage[]           GetSmsTemplateTabPages  ()
+        {
+	        _smsTemplateContainer = _smsTemplateContainer ?? new SmsTemplateContainer();
+	        return _smsTemplateContainer.TemplateTabPage;
+        }
+
+		public async Task<MS_Chart[]>           GetChartSummarry        ()
         {
             return null;
         }

@@ -13,6 +13,7 @@ using MS_Control.DataBase.Con_Str;
 using ShareLib.RestApi;
 using ShareLib.Utils;
 using ShareLib.Sms;
+using SmsBan.UI;
 
 namespace NZ.General.WinForms.Setting
 {
@@ -44,6 +45,17 @@ namespace NZ.General.WinForms.Setting
 				NsUsername.Text = settings.Username;
 				NsPassword.Text = settings.Password;
 			}
+
+			if (settings.UseModemForSms)
+			{
+				NsUseModem.Checked = settings.UseModemForSms;
+				NsMaxSmsPerDay.MS_Decimal = settings.MaxSmsPerDay;
+				NsMaxSmsPerMinute.MS_Decimal = settings.MaxSmsPerMinute;
+				NsCharacterInPart.MS_Decimal = settings.CharacterPerPart;
+				NsReadSmsPeriod.MS_Decimal = settings.PeriodReadSmsInMinute;
+				NsConnectedModem.Checked = settings.ModemConnected;
+				NsCountryCode.MS_Decimal = settings.CountryCode;
+			}
 		}
 
 		public NsSettingTabPage[] TabSetting => new NsSettingTabPage[]{ NsGeneralSetting,NsSmsTabPage};
@@ -60,8 +72,17 @@ namespace NZ.General.WinForms.Setting
 				 ShowBackupOnExit		= NsBackup.Checked,
 				 AllowMultipleDatabase	= NsMultipleDatabase.Checked,
 				 SmsActivation			= NsSmsActivation.Checked,
-				 Username = NsSmsActivation.Checked? NsUsername.Text.Trim() : string.Empty,
-				 Password = NsSmsActivation.Checked? NsPassword.Text.Trim() : string.Empty,
+				 Username				= NsSmsActivation.Checked? NsUsername.Text.Trim() : string.Empty,
+				 Password				= NsSmsActivation.Checked? NsPassword.Text.Trim() : string.Empty,
+				 UseModemForSms			= NsUseModem.Checked,
+				 ModemConnected			= NsUseModem.Checked ? NsConnectedModem.Checked : false,
+				 ModemDeviceNo			= NsUseModem.Checked ? (byte)NsDeviceNo.MS_Decimal :(byte)0,
+				 CountryCode			= NsUseModem.Checked ? (short)NsCountryCode.MS_Decimal : (short)0,
+				 CharacterPerPart		= NsUseModem.Checked ? (byte)NsCharacterInPart.MS_Decimal: (byte)69,
+				 MaxSmsPerDay			= NsUseModem.Checked ? (short)NsMaxSmsPerDay.MS_Decimal: (short)69,
+				 MaxSmsPerMinute		= NsUseModem.Checked ? (short)NsMaxSmsPerMinute.MS_Decimal : (short)69,
+				 PeriodReadSmsInMinute	= NsUseModem.Checked ? (byte)NsMaxSmsPerDay.MS_Decimal : (byte)5,
+				 
 			};
 
 		private bool IsOK()
@@ -146,5 +167,15 @@ namespace NZ.General.WinForms.Setting
 	        NzGetInfo.SafeSetProperty(nameof(NzGetInfo.Enabled), true);
 
 		}
-    }
+
+		private void mS_CheckBox1_CheckedChanged(object sender, EventArgs e)
+		{
+			uiGroupBox2.Enabled = NsUseModem.Checked;
+		}
+
+		private void NsModemConfig_Click(object sender, EventArgs e)
+		{
+			new FormConfigModem().ShowDialog(this.ParentForm);
+		}
+	}
 }

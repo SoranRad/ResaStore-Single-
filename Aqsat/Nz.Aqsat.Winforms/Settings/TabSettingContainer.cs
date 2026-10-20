@@ -2,7 +2,7 @@
 using Nz.Aqsat.WinForms.Settings;
 using ShareLib.Component;
 
-namespace Nz.Asat.Winforms.Settings
+namespace Nz.Aqsat.Winforms.Settings
 {
 	public partial class TabSettingContainer : UserControl
 	{

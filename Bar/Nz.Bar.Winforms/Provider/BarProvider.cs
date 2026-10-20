@@ -18,6 +18,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Nz.Bar.WinForms.Sms;
 using static ShareLib.Enums;
 
 namespace Nz.Bar.Winforms.Provider
@@ -36,9 +37,10 @@ namespace Nz.Bar.Winforms.Provider
         private BarMenuItems                    Menues;
         private TabSettingContainer             _settingContainer;
         private ISettingItems                   _settings;
-        #endregion
-        #region Constructor
-        public ToolStripItem    MainMenuSysytem     => null;
+        private SmsTemplateContainer            _smsTemplateContainer;
+		#endregion
+		#region Constructor
+		public ToolStripItem    MainMenuSysytem     => null;
         public string           GetName             => "محـصولات";
 
         public BarProvider()
@@ -227,7 +229,6 @@ namespace Nz.Bar.Winforms.Provider
         {
             return null;
         }
-
         public Task<IEnumerable<DailyCircular>> GetDailyCircular        (short Year, short Month)
         {
             try
@@ -249,7 +250,6 @@ namespace Nz.Bar.Winforms.Provider
 
 			return new NsSettingTabPage[]{_settingContainer.TabSetting};
 		}
-
 		public void                             SetSettings             (IEnumerable<dynamic> settings)
 		{
 			var setting = settings.SingleOrDefault(x => x.Name == SettingItems.KeyName);
@@ -258,28 +258,31 @@ namespace Nz.Bar.Winforms.Provider
 			else
 				_settings = Converter.Convert<SettingItems>(setting);
 		}
-
 		public ISettingItems                    GetSettings             ()
 		{
 			return _settings;
+		}
+
+		public NsSmsTemplateTabPage[]           GetSmsTemplateTabPages  ()
+		{
+			_smsTemplateContainer = _smsTemplateContainer ?? new SmsTemplateContainer();
+			return _smsTemplateContainer.TemplateTabPage;
 		}
 
 		public bool                             HasSrtartupForm         ()
 		{
 			return false;
 		}
-
 		public Form                             GetStartupPage          ()
 		{
 			return null;
 		}
 
-		public async Task<IEnumerable<T>> GetPartnerReportList<T>(DateTime? Start, DateTime? End, params long[] Ids) where T : class
+		public async Task<IEnumerable<T>>       GetPartnerReportList<T> (DateTime? Start, DateTime? End, params long[] Ids) where T : class
 		{
 			return null;
 		}
-
-		public async Task<T> GetPartnerReportItem<T>(DateTime? Start, DateTime? End, params long[] Ids) where T : class
+		public async Task<T>                    GetPartnerReportItem<T> (DateTime? Start, DateTime? End, params long[] Ids) where T : class
 		{
 			return null;
 		}

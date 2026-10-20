@@ -153,6 +153,9 @@ namespace SmsBan.Modem
 
 		public short	DeviceCount		{ get; set; }
 
+		/// <summary>شماره دستگاهی که با <c>SMS_Select_Device</c> انتخاب شده است (۰ تا ۱۲۷).</summary>
+		public int		SelectedDeviceNumber	{ get; set; }
+
 		public string	DeviceInfo		{ get; set; }
 
 		public string	SoftwareVersion	{ get; set; }

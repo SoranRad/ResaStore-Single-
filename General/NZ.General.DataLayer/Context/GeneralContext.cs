@@ -26,12 +26,12 @@ namespace NZ.General.DataLayer
         public virtual DbSet<Dialog>                tbl_Mokaleme_Ashxas     { get; set; }
         public virtual DbSet<ImageDocument>         tbl_Image               { get; set; }
         public virtual DbSet<Activation>            tbl_Config              { get; set; }
+        public virtual DbSet<SmsTemplate>           tbl_SmsTemplate         { get; set; }
 
 
         protected override void     OnModelCreating (DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.AddFromAssembly(GetType().Assembly);
-            
         }
     }
 }
