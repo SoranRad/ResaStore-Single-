@@ -38,6 +38,12 @@
 			this.ms_People = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.ms_settings = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsSmsMenu = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsSmsQaleb = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsSendSms = new System.Windows.Forms.ToolStripMenuItem();
+			this.NaQueueMangerMnu = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsChat = new System.Windows.Forms.ToolStripMenuItem();
+			this.NsModemConfig = new System.Windows.Forms.ToolStripMenuItem();
 			this.NsSettings = new System.Windows.Forms.ToolStripMenuItem();
 			this.ms_Users = new System.Windows.Forms.ToolStripMenuItem();
 			this.ms_UserAccess = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,9 +74,6 @@
 			this.Change_Pic = new System.Windows.Forms.OpenFileDialog();
 			this.NzSideBarMenu = new MS_Control.Controls.MS_Menu();
 			this.NzCustomer = new System.Windows.Forms.ToolStripMenuItem();
-			this.NsSmsMenu = new System.Windows.Forms.ToolStripMenuItem();
-			this.NsSmsQaleb = new System.Windows.Forms.ToolStripMenuItem();
-			this.NsSendSms = new System.Windows.Forms.ToolStripMenuItem();
 			this.mS_Menu1.SuspendLayout();
 			this.NzSideBarMenu.SuspendLayout();
 			this.SuspendLayout();
@@ -199,6 +202,60 @@
 			this.ms_settings.Size = new System.Drawing.Size(95, 28);
 			this.ms_settings.Tag = "180";
 			this.ms_settings.Text = "امـکانـات";
+			// 
+			// NsSmsMenu
+			// 
+			this.NsSmsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NsSmsQaleb,
+            this.NsSendSms,
+            this.NaQueueMangerMnu,
+            this.NsChat,
+            this.NsModemConfig});
+			this.NsSmsMenu.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NsSmsMenu.Image = ((System.Drawing.Image)(resources.GetObject("NsSmsMenu.Image")));
+			this.NsSmsMenu.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+			this.NsSmsMenu.Name = "NsSmsMenu";
+			this.NsSmsMenu.Size = new System.Drawing.Size(248, 28);
+			this.NsSmsMenu.Tag = "";
+			this.NsSmsMenu.Text = "پیامک";
+			// 
+			// NsSmsQaleb
+			// 
+			this.NsSmsQaleb.Image = ((System.Drawing.Image)(resources.GetObject("NsSmsQaleb.Image")));
+			this.NsSmsQaleb.Name = "NsSmsQaleb";
+			this.NsSmsQaleb.Size = new System.Drawing.Size(219, 28);
+			this.NsSmsQaleb.Text = "قالب های ارسال پیامک";
+			this.NsSmsQaleb.Click += new System.EventHandler(this.NsSmsQaleb_Click);
+			// 
+			// NsSendSms
+			// 
+			this.NsSendSms.Image = ((System.Drawing.Image)(resources.GetObject("NsSendSms.Image")));
+			this.NsSendSms.Name = "NsSendSms";
+			this.NsSendSms.Size = new System.Drawing.Size(219, 28);
+			this.NsSendSms.Text = "ارسال پیامک";
+			// 
+			// NaQueueMangerMnu
+			// 
+			this.NaQueueMangerMnu.Image = ((System.Drawing.Image)(resources.GetObject("NaQueueMangerMnu.Image")));
+			this.NaQueueMangerMnu.Name = "NaQueueMangerMnu";
+			this.NaQueueMangerMnu.Size = new System.Drawing.Size(219, 28);
+			this.NaQueueMangerMnu.Text = "مدیریت صف ارسال پیامک";
+			this.NaQueueMangerMnu.Click += new System.EventHandler(this.NaQueueMangerMnu_Click);
+			// 
+			// NsChat
+			// 
+			this.NsChat.Name = "NsChat";
+			this.NsChat.Size = new System.Drawing.Size(219, 28);
+			this.NsChat.Text = "لیست پیامک ها";
+			this.NsChat.Click += new System.EventHandler(this.NsChat_Click);
+			// 
+			// NsModemConfig
+			// 
+			this.NsModemConfig.Image = global::MS_Resource.GlobalResources.Toolbar2;
+			this.NsModemConfig.Name = "NsModemConfig";
+			this.NsModemConfig.Size = new System.Drawing.Size(219, 28);
+			this.NsModemConfig.Text = "تنظیمات مودم";
+			this.NsModemConfig.Click += new System.EventHandler(this.NsModemConfig_Click);
 			// 
 			// NsSettings
 			// 
@@ -486,32 +543,6 @@
 			this.NzCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.NzCustomer.Click += new System.EventHandler(this.NzCustomer_Click);
 			// 
-			// NsSmsMenu
-			// 
-			this.NsSmsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.NsSmsQaleb,
-            this.NsSendSms});
-			this.NsSmsMenu.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NsSmsMenu.Image = ((System.Drawing.Image)(resources.GetObject("NsSmsMenu.Image")));
-			this.NsSmsMenu.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
-			this.NsSmsMenu.Name = "NsSmsMenu";
-			this.NsSmsMenu.Size = new System.Drawing.Size(248, 28);
-			this.NsSmsMenu.Tag = "";
-			this.NsSmsMenu.Text = "پیامک";
-			// 
-			// NsSmsQaleb
-			// 
-			this.NsSmsQaleb.Name = "NsSmsQaleb";
-			this.NsSmsQaleb.Size = new System.Drawing.Size(202, 28);
-			this.NsSmsQaleb.Text = "قالب های ارسال پیامک";
-			this.NsSmsQaleb.Click += new System.EventHandler(this.NsSmsQaleb_Click);
-			// 
-			// NsSendSms
-			// 
-			this.NsSendSms.Name = "NsSendSms";
-			this.NsSendSms.Size = new System.Drawing.Size(202, 28);
-			this.NsSendSms.Text = "ارسال پیامک";
-			// 
 			// GeneralMenuItems
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -568,8 +599,11 @@
         private System.Windows.Forms.ToolStripMenuItem NzUpdateMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem NsSettings;
 		private System.Windows.Forms.ToolStripMenuItem NsPartnerStatus;
-		private System.Windows.Forms.ToolStripMenuItem NsSmsMenu;
 		private System.Windows.Forms.ToolStripMenuItem NsSmsQaleb;
 		private System.Windows.Forms.ToolStripMenuItem NsSendSms;
+		private System.Windows.Forms.ToolStripMenuItem NaQueueMangerMnu;
+		private System.Windows.Forms.ToolStripMenuItem NsSmsMenu;
+		private System.Windows.Forms.ToolStripMenuItem NsChat;
+		private System.Windows.Forms.ToolStripMenuItem NsModemConfig;
 	}
 }

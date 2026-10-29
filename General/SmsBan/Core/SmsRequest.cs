@@ -77,6 +77,12 @@ namespace SmsBan.Core
 
 		public string	PhoneNumber		{ get; set; }
 
+		/// <summary>
+		/// نام مخاطبِ شماره؛ اگر شماره در دفترچه‌ی اشخاص نباشد «ناشناس» است.
+		/// این مقدار در لایه‌ی نمایش پر می‌شود، نه در کوئری صف.
+		/// </summary>
+		public string	ContactName		{ get; set; }
+
 		public string	MessageText		{ get; set; }
 
 		public int		PageCount		{ get; set; }
@@ -189,6 +195,114 @@ namespace SmsBan.Core
 		public static string ToDisplay(string number)
 		{
 			return ToDisplay(number, "98");
+		}
+
+		/// <summary>
+		/// شماره‌ی ملی بدون پیش‌شماره‌ی کشور و بدون صفر ابتدایی.
+		/// مثلاً 989123456789 یا 09123456789 هر دو به 9123456789 تبدیل می‌شوند.
+		/// </summary>
+		public static string ToNational(string number, string countryCode)
+		{
+			var digits = DigitsOnly(number);
+
+			if (digits.Length == 0)
+				return string.Empty;
+
+			var code = DigitsOnly(countryCode);
+
+			if (code.Length == 0)
+				code = "98";
+
+			// 0098... → 98...
+			if (digits.StartsWith("00"))
+				digits = digits.Substring(2);
+
+			// حذف پیش‌شماره‌ی کشور
+			if (digits.StartsWith(code) && digits.Length > code.Length)
+				digits = digits.Substring(code.Length);
+
+			// حذف صفر ابتدایی
+			if (digits.StartsWith("0"))
+				digits = digits.Substring(1);
+
+			return digits;
+		}
+
+		/// <summary>شماره‌ی ملی با پیش‌شماره‌ی پیش‌فرض 98.</summary>
+		public static string ToNational(string number)
+		{
+			return ToNational(number, "98");
+		}
+
+		/// <summary>
+		/// قالب‌بندی یک شماره‌ی ملی (بدون کد کشور) به شکل 912-345-6789.
+		/// اگر طول شماره ۱۰ نباشد، بدون تغییر برگردانده می‌شود.
+		/// </summary>
+		public static string FormatNationalDigits(string nationalDigits)
+		{
+			var digits = DigitsOnly(nationalDigits);
+
+			if (digits.Length != 10)
+				return digits;
+
+			return digits.Substring(0, 3) + "-" +
+				   digits.Substring(3, 3) + "-" +
+				   digits.Substring(6, 4);
+		}
+
+		/// <summary>
+		/// قالب‌بندی هر شکل شماره به 912-345-6789.
+		/// مثلاً 989123456789 و 09123456789 هر دو 912-345-6789 می‌شوند.
+		/// </summary>
+		public static string FormatNational(string number, string countryCode)
+		{
+			return FormatNationalDigits(ToNational(number, countryCode));
+		}
+
+		/// <summary>قالب‌بندی با پیش‌شماره‌ی پیش‌فرض 98.</summary>
+		public static string FormatNational(string number)
+		{
+			return FormatNational(number, "98");
+		}
+
+		/// <summary>
+		/// حالت‌های مختلف نوشتن یک شماره (برای جست‌وجو در بانک اطلاعاتی).
+		///
+		/// چون شماره‌ی پیامک‌های دریافتی ممکن است با قالب‌های مختلف ذخیره شده باشد
+		/// (مثلاً 09121234567 یا +989121234567 یا 989121234567)، برای یافتن
+		/// همه‌ی پیامک‌های یک مخاطب از این فهرست استفاده می‌شود.
+		/// </summary>
+		public static string[] Variants(string normalizedNumber, string countryCode)
+		{
+			if (string.IsNullOrWhiteSpace(normalizedNumber))
+				return new string[0];
+
+			var digits = DigitsOnly(normalizedNumber);
+
+			if (digits.Length == 0)
+				return new string[0];
+
+			var code = DigitsOnly(countryCode);
+
+			if (code.Length == 0)
+				code = "98";
+
+			var list = new System.Collections.Generic.List<string>();
+
+			list.Add(digits);
+			list.Add("+" + digits);
+			list.Add("00" + digits);
+
+			if (digits.StartsWith(code) && digits.Length > code.Length)
+			{
+				var rest = digits.Substring(code.Length);
+
+				list.Add("0" + rest);
+				list.Add(rest);
+			}
+
+			return System.Linq.Enumerable.ToArray(
+				System.Linq.Enumerable.Distinct(list));
 		}
 	}
 }

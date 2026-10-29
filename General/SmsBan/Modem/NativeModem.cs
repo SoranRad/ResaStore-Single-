@@ -31,7 +31,47 @@ namespace SmsBan.Modem
 		/// </summary>
 		internal static string ExpectedDllPath
 		{
-			get { return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, DllName); }
+			get { return ResolveDllPath(); }
+		}
+
+		/// <summary>
+		/// یافتن مسیر واقعی فایل DLL.
+		///
+		/// ابتدا کنار خودِ اسمبلی جست‌وجو می‌شود (نه پوشه‌ی جاری)، چون برنامه
+		/// ممکن است از پوشه‌ی دیگری اجرا شود یا پوشه‌ی جاری عوض شود.
+		/// </summary>
+		internal static string ResolveDllPath()
+		{
+			string assemblyPath = null;
+
+			try
+			{
+				var location = Assembly.GetExecutingAssembly().Location;
+
+				if (!string.IsNullOrEmpty(location))
+					assemblyPath = Path.Combine(Path.GetDirectoryName(location), DllName);
+			}
+			catch
+			{
+				// در حالت پنهان یا تک‌فایلی ممکن است مسیر در دسترس نباشد.
+			}
+
+			var candidates = new[]
+			{
+				assemblyPath,
+				Path.Combine(AppDomain.CurrentDomain.BaseDirectory, DllName),
+				Path.Combine(Environment.CurrentDirectory, DllName)
+			};
+
+			foreach (var candidate in candidates)
+			{
+				if (!string.IsNullOrEmpty(candidate) && File.Exists(candidate))
+					return candidate;
+			}
+
+			// هیچ‌کدام پیدا نشد؛ اولین گزینه برای پیام خطا برگردانده می‌شود.
+			return assemblyPath
+				?? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, DllName);
 		}
 
 		/// <summary>
@@ -40,14 +80,14 @@ namespace SmsBan.Modem
 		/// </summary>
 		internal static void EnsureAvailable()
 		{
-			var path = ExpectedDllPath;
+			var path = ResolveDllPath();
 
 			if (!File.Exists(path))
 				throw new FileNotFoundException(
 					string.Format(
 						"فایل «{0}» در مسیر «{1}» پیدا نشد. " +
 						"این فایل باید کنار فایل اجرایی برنامه قرار داشته باشد.",
-						DllName, AppDomain.CurrentDomain.BaseDirectory), path);
+						DllName, Path.GetDirectoryName(path)), path);
 
 			var expected = Environment.Is64BitProcess ? "x64" : "x86";
 			var actual   = DetectArchitecture(path);
@@ -58,7 +98,41 @@ namespace SmsBan.Modem
 						"معماری فایل «{0}» برابر {1} است در حالی که برنامه در حالت {2} اجرا می‌شود. " +
 						"باید نسخه‌ی {2} این فایل استفاده شود.",
 						DllName, actual, expected));
+
+			PreloadDll(path);
 		}
+
+		/// <summary>
+		/// بارگذاری فایل DLL با مسیر کامل، پیش از نخستین فراخوانی P/Invoke.
+		///
+		/// تابع‌های DllImport فقط نام فایل را می‌دهند و ویندوز آن را در پوشه‌ی
+		/// برنامه جست‌وجو می‌کند؛ اگر فایل کنار اسمبلی باشد ولی پوشه‌ی برنامه
+		/// جای دیگری باشد، فراخوانی شکست می‌خورد. با بارگذاری کامل مسیر،
+		/// نسخه‌ی درست در حافظه‌ی پروسه حاضر می‌شود و بقیه‌ی فراخوانی‌ها
+		/// همان را پیدا می‌کنند.
+		/// </summary>
+		private static void PreloadDll(string path)
+		{
+			if (string.Equals(_preloadedPath, path, StringComparison.OrdinalIgnoreCase))
+				return;
+
+			var handle = LoadLibraryW(path);
+
+			if (handle == IntPtr.Zero)
+			{
+				var error = Marshal.GetLastWin32Error();
+
+				throw new DllNotFoundException(
+					string.Format("بارگذاری فایل «{0}» ناموفق بود (کد خطای ویندوز {1}).", path, error));
+			}
+
+			_preloadedPath = path;
+		}
+
+		private static string _preloadedPath;
+
+		[DllImport("kernel32.dll", EntryPoint = "LoadLibraryW", CharSet = CharSet.Unicode, SetLastError = true)]
+		private static extern IntPtr LoadLibraryW(string fileName);
 
 		/// <summary>
 		/// خواندن معماری فایل PE. مقدار بازگشتی "x86"، "x64" یا null است.
@@ -264,5 +338,75 @@ namespace SmsBan.Modem
 
 		[DllImport(DllName, EntryPoint = "Get_GSM_Message", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
 		internal static extern void Get_GSM_Message(out GsmMessageStruct gsmMsg);
+
+		/// <summary>
+		/// وضعیت حافظه‌ی پیامک مودم/سیم‌کارت، مطابق نمونه‌ی رسمی شرکت.
+		/// </summary>
+		[StructLayout(LayoutKind.Sequential)]
+		internal struct SmsSpaceStruct
+		{
+			/// <summary>تعداد جای خالی باقی‌مانده.</summary>
+			public int	FreeSpace;
+
+			/// <summary>ظرفیت کل حافظه.</summary>
+			public int	TotalSize;
+
+			/// <summary>اگر false باشد، اطلاعات حافظه معتبر نیست.</summary>
+			public bool	Result;
+		}
+
+		[DllImport(DllName, EntryPoint = "Get_SMS_Space", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+		internal static extern void Get_SMS_Space(out SmsSpaceStruct smsSpace);
+
+		// ------------------------------------------------------------------
+		// بافر ارسال گروهی (مطابق نمونه‌ی رسمی شرکت)
+		//
+		// این توابع در DLL موجودند. ترتیب استفاده در حالت گروهی:
+		//   SMS_Buf_Clear → Group_SMS_Setting → Add_Group_SMS_Buffer
+		//   → SMS_Buf_Start(true) → ... → SMS_Buf_Start(false)
+		// ------------------------------------------------------------------
+
+		/// <summary>تنظیمات ارسال گروهی: گزارش تحویل، اعتبار، چرخش سیم‌کارت، تکرار، فاصله و مرکز پیامک.</summary>
+		[DllImport(DllName, EntryPoint = "Group_SMS_Setting", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.StdCall)]
+		internal static extern void Group_SMS_Setting(
+			bool smsDelivery,
+			int smsValidity,
+			int smsNoChangeSim,
+			int repeatNo,
+			int sendInterval,
+			[MarshalAs(UnmanagedType.BStr)] string smsCenter);
+
+		/// <summary>افزودن یک پیامک به بافر ارسال گروهی.</summary>
+		[DllImport(DllName, EntryPoint = "Add_Group_SMS_Buffer", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.StdCall)]
+		internal static extern void Add_Group_SMS_Buffer(
+			[MarshalAs(UnmanagedType.BStr)] string phoneNo,
+			[MarshalAs(UnmanagedType.BStr)] string smsContext);
+
+		/// <summary>خالی‌کردن بافر ارسال؛ در صورت true، ارسال در جریان هم متوقف می‌شود.</summary>
+		[DllImport(DllName, EntryPoint = "SMS_Buf_Clear", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+		internal static extern void SMS_Buf_Clear(bool stop);
+
+		/// <summary>شروع یا توقف ارسال بافر.</summary>
+		[DllImport(DllName, EntryPoint = "SMS_Buf_Start", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+		internal static extern void SMS_Buf_Start(bool start);
+
+		/// <summary>توقف موقت ارسال بافر.</summary>
+		[DllImport(DllName, EntryPoint = "SMS_Buf_Pause", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+		internal static extern void SMS_Buf_Pause();
+
+		/// <summary>شماره‌ی ردیف جاری بافر.</summary>
+		[DllImport(DllName, EntryPoint = "Get_SMS_Buf_Indx", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+		internal static extern int Get_SMS_Buf_Indx();
+
+		/// <summary>تعداد پیامک‌های ارسال‌شده از بافر.</summary>
+		[DllImport(DllName, EntryPoint = "Get_SMS_Buf_Sended", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+		internal static extern int Get_SMS_Buf_Sended();
+
+		/// <summary>
+		/// وضعیت یک ردیف بافر.
+		/// خروجی: تحویل‌شده (گزارش تحویل)؛ پارامتر دوم: ارسال تمام شده.
+		/// </summary>
+		[DllImport(DllName, EntryPoint = "Get_SMS_Buf_Status2", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+		internal static extern bool Get_SMS_Buf_Status2(int index, ref bool sendDone);
 	}
 }

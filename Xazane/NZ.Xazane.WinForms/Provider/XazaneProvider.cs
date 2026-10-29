@@ -389,6 +389,12 @@ namespace NZ.Xazane.WinForms
 			return null;
 		}
 
+		public async Task InitionalizeModule()
+		{
+		}
 
+		public async Task FinalitionliozeModule()
+		{
+		}
 	}
 }

@@ -683,7 +683,7 @@
 			this.NsModemConfig.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.NsModemConfig.Image = global::MS_Resource.GlobalResources.Toolbar2;
 			this.NsModemConfig.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
-			this.NsModemConfig.Location = new System.Drawing.Point(344, 193);
+			this.NsModemConfig.Location = new System.Drawing.Point(357, 191);
 			this.NsModemConfig.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NsModemConfig.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NsModemConfig.MS_Change_Border_Color_On_Enter = false;

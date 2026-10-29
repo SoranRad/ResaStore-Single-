@@ -290,5 +290,12 @@ namespace Nz.Site.Winforms.Provider
 			return null;
 		}
 
+		public async Task InitionalizeModule()
+		{
+		}
+
+		public async Task FinalitionliozeModule()
+		{
+		}
 	}
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ShareLib.Sms;
 using ShareLib.Utils;
 
 namespace NZ.General.WinForms.Sms
@@ -22,8 +23,7 @@ namespace NZ.General.WinForms.Sms
 			Cell.Image	= MS_Resource.GlobalResources.refresh;
 		 
 			 
-			var sendSms = new SendSms();
-			var r = await sendSms.SendRemainAlarm(
+			var r = await SmsSenderFactory.Current.SendRemainAlarm(
 
 				PhoneNumber,
 				NAME,

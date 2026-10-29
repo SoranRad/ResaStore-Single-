@@ -287,6 +287,13 @@ namespace Nz.Bar.Winforms.Provider
 			return null;
 		}
 
+		public async Task InitionalizeModule()
+		{
+		}
+
+		public async Task FinalitionliozeModule()
+		{
+		}
 
 	}
 }

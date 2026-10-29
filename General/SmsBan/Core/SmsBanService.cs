@@ -57,6 +57,7 @@ namespace SmsBan.Core
 		private readonly SmsRateLimiter		_limiter;
 		private readonly SmsSenderWorker	_sender;
 		private readonly SmsInboxService	_inbox;
+		private readonly SmsConversationService _conversation;
 
 		private Timer						_readTimer;
 		private bool						_started;
@@ -87,6 +88,7 @@ namespace SmsBan.Core
 			_limiter	= new SmsRateLimiter(options);
 			_sender		= new SmsSenderWorker(options, _modem);
 			_inbox		= new SmsInboxService(options, _modem);
+			_conversation = new SmsConversationService(options);
 		}
 
 		public SmsBanOptions	Options			{ get { return _options; } }
@@ -98,6 +100,9 @@ namespace SmsBan.Core
 		public SmsRateLimiter	RateLimiter		{ get { return _limiter; } }
 
 		public SmsInboxService	Inbox			{ get { return _inbox; } }
+
+		/// <summary>سرویس خواندن گفتگو و حذف پیامک‌ها.</summary>
+		public SmsConversationService Conversations { get { return _conversation; } }
 
 		public bool				IsStarted		{ get { return _started; } }
 
@@ -272,9 +277,16 @@ namespace SmsBan.Core
 		}
 
 		/// <summary>
-		/// هم‌خوانی گزارش تحویل با رویدادهای مودم.
-		/// رویدادهای «ارسال موفق» شماره‌ی مرجع را برمی‌گردانند و با آن
-		/// رکورد آرشیو علامت‌گذاری می‌شود. تعداد رکوردهای به‌روزشده برگردانده می‌شود.
+		/// هم‌خوانی رویدادهای ارسال مودم با آرشیو.
+		///
+		/// مودم پس از ارسال، رویدادهایی می‌فرستد که شماره‌های مرجع پارت‌ها را دارند
+		/// (مثلاً «All_Part:3 Refrences:56-57-58-»). اینجا آن‌ها با مرجع ذخیره‌شده
+		/// در آرشیو مقایسه می‌شوند:
+		///   - رویداد موفق اگر رکوردی اشتباهاً ناموفق ثبت شده باشد، به «ارسال‌شده» برمی‌گردد.
+		///   - رویداد خطا اگر رکوردی «ارسال‌شده» ثبت شده باشد، به «ناموفق» تغییر می‌کند.
+		///
+		/// توجه: این رویدادها «ارسال» را تأیید می‌کنند، نه «تحویل» را.
+		/// وضعیت تحویل فقط با گزارش تحویل اپراتور (SMS STATUS REPORT) مشخص می‌شود.
 		/// </summary>
 		public int SyncDeliveryReports()
 		{
@@ -286,22 +298,40 @@ namespace SmsBan.Core
 			if (events.Count == 0)
 				return 0;
 
-			var references = new List<string>();
+			var sentReferences	= new List<string>();
+			var failedReferences = new List<string>();
+			var failureText		= string.Empty;
 
 			foreach (var item in events)
 			{
-				if (item.Code != ModemEventCode.SmsPartSentReference
-					&& item.Code != ModemEventCode.SmsPartSentSuccessful
-					&& item.Code != ModemEventCode.SmsAllPartsSentSuccessful)
+				var references = SmsReferenceParser.Parse(item.Text);
+
+				if (references.Count == 0)
 					continue;
 
-				var reference = (item.Text ?? string.Empty).Trim();
+				switch (item.Code)
+				{
+					case ModemEventCode.SmsPartSentReference:
+					case ModemEventCode.SmsPartSentSuccessful:
+					case ModemEventCode.SmsAllPartsSentSuccessful:
+						foreach (var reference in references)
+							if (!sentReferences.Contains(reference))
+								sentReferences.Add(reference);
+						break;
 
-				if (reference.Length > 0)
-					references.Add(reference);
+					case ModemEventCode.SmsSendFailed:
+					case ModemEventCode.SmsNoReference:
+						foreach (var reference in references)
+							if (!failedReferences.Contains(reference))
+								failedReferences.Add(reference);
+
+						if (string.IsNullOrEmpty(failureText))
+							failureText = item.Text;
+						break;
+				}
 			}
 
-			if (references.Count == 0)
+			if (sentReferences.Count == 0 && failedReferences.Count == 0)
 				return 0;
 
 			int updated = 0;
@@ -310,20 +340,31 @@ namespace SmsBan.Core
 			{
 				using (var db = SmsBanDb.Create(_options.ConnectionString))
 				{
-					foreach (var reference in references.Distinct())
+					var rows = db.tbl_SmsArchive
+						.Where(x => x.SmsReference != null && x.SmsReference != "")
+						.ToList();
+
+					foreach (var row in rows)
 					{
-						var rows = db.tbl_SmsArchive
-							.Where(x => x.SmsReference == reference && x.Status == (int)SmsMessageStatus.Sent)
-							.ToList();
-
-						foreach (var row in rows)
+						// رویداد موفق برای رکورد ناموفق → اصلاح به ارسال‌شده.
+						if (row.Status == (int)SmsMessageStatus.Failed
+							&& SmsReferenceParser.Overlaps(row.SmsReference, sentReferences))
 						{
-							if (row.IsDelivered)
-								continue;
+							row.Status			= (int)SmsMessageStatus.Sent;
+							row.ErrorMessage	= null;
+							updated++;
+							continue;
+						}
 
-							row.IsDelivered			= true;
-							row.DeliveredAt			= DateTime.Now;
-							row.DeliveredAtShamsi	= JalaliDate.ToShamsi(DateTime.Now);
+						// رویداد خطا برای رکورد ارسال‌شده → اصلاح به ناموفق.
+						if (row.Status == (int)SmsMessageStatus.Sent
+							&& SmsReferenceParser.Overlaps(row.SmsReference, failedReferences))
+						{
+							row.Status = (int)SmsMessageStatus.Failed;
+
+							if (!string.IsNullOrEmpty(failureText))
+								row.ErrorMessage = failureText;
+
 							updated++;
 						}
 					}
@@ -336,6 +377,9 @@ namespace SmsBan.Core
 			{
 				log.Error(ex);
 			}
+
+			if (updated > 0)
+				log.InfoFormat("{0} رکورد آرشیو با رویدادهای مودم هم‌خوان شد.", updated);
 
 			return updated;
 		}
@@ -376,6 +420,82 @@ namespace SmsBan.Core
 		public List<SmsInbox> GetInbox(DateTime? from, DateTime? to, string phoneNumber, int maxRows)
 		{
 			return _inbox.GetInbox(from, to, phoneNumber, maxRows);
+		}
+
+		/// <summary>
+		/// پیامک‌های موجود در حافظه‌ی دستگاه، گروه‌بندی‌شده.
+		/// پارت‌های یک پیامک چندپارتی یک ردیف محسوب می‌شوند.
+		/// </summary>
+		public List<DeviceSmsGroup> ReadDeviceGroups()
+		{
+			return _inbox.ReadDeviceGroups();
+		}
+
+		/// <summary>وضعیت حافظه‌ی پیامک مودم/سیم‌کارت.</summary>
+		public ModemMemoryInfo GetMemoryInfo()
+		{
+			return _modem.GetMemoryInfo();
+		}
+
+		// ==================================================================
+		// حذف پیامک‌ها از بانک اطلاعاتی
+		// ==================================================================
+
+		/// <summary>حذف یک پیامک ارسالی (از جدول آرشیو).</summary>
+		public bool DeleteSent(long id)
+		{
+			return _conversation.DeleteOutgoing(id);
+		}
+
+		/// <summary>حذف یک پیامک دریافتی (از جدول صندوق ورودی).</summary>
+		public bool DeleteReceived(long id)
+		{
+			return _conversation.DeleteIncoming(id);
+		}
+
+		/// <summary>حذف یک پیامک بر اساس شناسه و جهت آن.</summary>
+		public bool DeleteMessage(long id, bool isOutgoing)
+		{
+			return _conversation.DeleteMessage(id, isOutgoing);
+		}
+
+		/// <summary>حذف گروهی پیامک‌های ارسالی. تعداد ردیف‌های حذف‌شده برگردانده می‌شود.</summary>
+		public int DeleteSent(IEnumerable<long> ids)
+		{
+			return _conversation.DeleteOutgoing(ids);
+		}
+
+		/// <summary>حذف گروهی پیامک‌های دریافتی. تعداد ردیف‌های حذف‌شده برگردانده می‌شود.</summary>
+		public int DeleteReceived(IEnumerable<long> ids)
+		{
+			return _conversation.DeleteIncoming(ids);
+		}
+
+		/// <summary>
+		/// حذف کل گفتگوی یک یا چند شماره (هم ارسالی و هم دریافتی).
+		/// برای گرفتن حالت‌های مختلف شماره از <c>SmsContact.Variants</c> استفاده کنید.
+		/// </summary>
+		public int DeleteConversation(IEnumerable<string> phoneVariants)
+		{
+			return _conversation.DeleteConversation(phoneVariants);
+		}
+
+		/// <summary>حذف گفتگوی یک شماره در جهت مشخص.</summary>
+		public int DeleteConversation(IEnumerable<string> phoneVariants, SmsDirection direction)
+		{
+			return _conversation.DeleteConversation(phoneVariants, direction);
+		}
+
+		/// <summary>حذف پیامک‌های ارسالی قدیمی‌تر از یک تاریخ.</summary>
+		public int DeleteSentBefore(DateTime date)
+		{
+			return _conversation.DeleteOutgoingBefore(date);
+		}
+
+		/// <summary>حذف پیامک‌های دریافتی قدیمی‌تر از یک تاریخ.</summary>
+		public int DeleteReceivedBefore(DateTime date)
+		{
+			return _conversation.DeleteIncomingBefore(date);
 		}
 
 		// ==================================================================

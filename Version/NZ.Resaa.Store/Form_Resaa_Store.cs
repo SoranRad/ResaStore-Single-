@@ -85,9 +85,11 @@ namespace NZ.Resaa.Store
             
             tmp.SetMainForm(this);
             tmp.SetSettings(config.Settings);
+			Task.Run(async () => await tmp.InitionalizeModule());
 
-            
-            ms_baseinfo
+			//tmp.InitionalizeModule().RunSynchronously();
+
+			ms_baseinfo
                 .DropDownItems
                 .AddRange(tmp.GetMenu(Enums.MenuKind.BaseInfo)
                     .OfType<ToolStripItem>()
@@ -140,10 +142,12 @@ namespace NZ.Resaa.Store
 
             tmp?.SetMainForm(this);
             tmp?.SetSettings(config.Settings);
-            //mS_Menu1.Items.Insert(1, tmp.MainMenuSysytem);
+            Task.Run(async () => await tmp.InitionalizeModule());
 
-            ms_baseinfo
-                .DropDownItems
+
+
+			ms_baseinfo
+				.DropDownItems
                 .AddRange(tmp.GetMenu(Enums.MenuKind.BaseInfo)
                     .OfType<ToolStripItem>()
                     .ToArray());
@@ -206,11 +210,13 @@ namespace NZ.Resaa.Store
                     return false;
 
                 tmp.SetMainForm(this);
-                tmp?.SetSettings(config.Settings); 
+                tmp?.SetSettings(config.Settings);
+				Task.Run(async () => await tmp.InitionalizeModule());
 
 
-                    ms_baseinfo
-                        .DropDownItems
+
+				ms_baseinfo
+					.DropDownItems
                         .AddRange(tmp.GetMenu(Enums.MenuKind.BaseInfo)
                             .OfType<ToolStripItem>()
                             .ToArray());
@@ -279,11 +285,13 @@ namespace NZ.Resaa.Store
 			        return false;
 
 		        tmp.SetMainForm(this);
-		        tmp?.SetSettings(config.Settings); 
+		        tmp?.SetSettings(config.Settings);
+				Task.Run(async () => await tmp.InitionalizeModule());
 
 
-		        ms_baseinfo
-			        .DropDownItems
+
+				ms_baseinfo
+					.DropDownItems
 			        .AddRange(tmp.GetMenu(Enums.MenuKind.BaseInfo)
 				        .OfType<ToolStripItem>()
 				        .ToArray());
@@ -350,11 +358,11 @@ namespace NZ.Resaa.Store
 			        return false;
 
 		        tmp.SetMainForm(this);
-		        tmp?.SetSettings(config.Settings); 
+		        tmp?.SetSettings(config.Settings);
+				Task.Run(async () => await tmp.InitionalizeModule());
 
-
-		        ms_baseinfo
-			        .DropDownItems
+				ms_baseinfo
+					.DropDownItems
 			        .AddRange(tmp.GetMenu(Enums.MenuKind.BaseInfo)
 				        .OfType<ToolStripItem>()
 				        .ToArray());
@@ -421,11 +429,13 @@ namespace NZ.Resaa.Store
 			        return false;
 
 		        tmp.SetMainForm(this);
-		        tmp?.SetSettings(config.Settings); 
+		        tmp?.SetSettings(config.Settings);
+				Task.Run(async () => await tmp.InitionalizeModule());
 
 
-		        ms_baseinfo
-			        .DropDownItems
+
+				ms_baseinfo
+					.DropDownItems
 			        .AddRange(tmp.GetMenu(Enums.MenuKind.BaseInfo)
 				        .OfType<ToolStripItem>()
 				        .ToArray());
@@ -493,14 +503,16 @@ namespace NZ.Resaa.Store
 
 		        tmp.SetMainForm(this);
 		        tmp?.SetSettings(config.Settings);
+				Task.Run(async () => await tmp.InitionalizeModule());
 
 
-		        //ms_baseinfo
-			       // .DropDownItems
-			       // .AddRange(tmp.GetMenu(Enums.MenuKind.BaseInfo)
-				      //  .OfType<ToolStripItem>()
-				      //  .ToArray());
-		        var optMenu = new ToolStripMenuItem(tmp.GetName)
+
+				//ms_baseinfo
+				// .DropDownItems
+				// .AddRange(tmp.GetMenu(Enums.MenuKind.BaseInfo)
+				//  .OfType<ToolStripItem>()
+				//  .ToArray());
+				var optMenu = new ToolStripMenuItem(tmp.GetName)
 		        {
 			        Font = new Font("IRANSans(Small) Medium", 14.5f),
 			        Image = global::MS_Resource.GlobalResources.StoreHouse,

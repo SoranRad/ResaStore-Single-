@@ -399,6 +399,14 @@ SELECT	@SumFroshKalaAmani		AS SumFroshKalaAmani ,
 			return null;
 		}
 
+
+		public async Task InitionalizeModule()
+		{
+		}
+
+		public async Task FinalitionliozeModule()
+		{
+		}
 		#endregion
 
 	}

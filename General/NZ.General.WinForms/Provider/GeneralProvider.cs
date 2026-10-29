@@ -1,25 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Janus.Windows.UI.Tab;
 using MDIWindowManager;
-using ShareLib;
-using ShareLib.Interfaces;
-using ShareLib.Models;
-using System.Windows.Forms;
-using NZ.General.WinForms.Misc;
-using NZ.General.WinForms.Provider;
-using NZ.General.WinForms.Setting;
-using ShareLib.Utils;
-using ShareLib.ViewModel;
-using Janus.Windows.UI.Tab;
 using MS_Control.Controls;
 using NZ.General.Business;
 using NZ.General.WinForms.Alarm;
 using NZ.General.WinForms.Component;
+using NZ.General.WinForms.Misc;
+using NZ.General.WinForms.Provider;
+using NZ.General.WinForms.Setting;
 using NZ.General.WinForms.Sms;
+using ShareLib;
 using ShareLib.Component;
+using ShareLib.Interfaces;
+using ShareLib.Models;
+using ShareLib.Sms;
+using ShareLib.Utils;
+using ShareLib.ViewModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace NZ.General.WinForms
 {
@@ -206,7 +207,6 @@ namespace NZ.General.WinForms
 
 			return false;
 		}
-
 		public Form GetStartupPage()
 		{
 			return !_settings.ShowAlarm ? null : new Form_Alarm();
@@ -220,6 +220,31 @@ namespace NZ.General.WinForms
 		public async Task<T> GetPartnerReportItem<T>(DateTime? Start, DateTime? End, params long[] Ids) where T : class
 		{
 			return null;
+		}
+
+		public async Task InitionalizeModule()
+		{
+			var settings = GetSettings() as SettingItems;
+
+			ISmsSender sender;
+
+			if (settings.UseModemForSms)
+			{
+
+				sender = new ModemSmsSender(); // ← مودم
+			}
+			else
+			{
+				sender = new UsraServiceSmsSender(); // ← وبسرویس
+				Menues.HideModemMenu();
+			}
+
+			SmsSenderFactory.Initialize(sender);
+		}
+
+		public async Task FinalitionliozeModule()
+		{
+			SmsSenderFactory.Reset();
 		}
 
 		#endregion

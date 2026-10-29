@@ -124,16 +124,17 @@ namespace SmsBan.Modem
 					}
 
 					// انتخاب دستگاه مورد نظر با تابع SMS_Select_Device.
-					// این تابع «شماره دستگاه» (۰ تا ۱۲۷) می‌گیرد، نه اندیس دستگاه.
+					// این تابع «شماره دستگاه» می‌گیرد (شماره‌گذاری از صفر).
 					var deviceNumber = DeviceNumber;
 
-					if (deviceNumber < 0 || deviceNumber > 127)
+					if (deviceNumber < 0 || deviceNumber >= count)
 					{
 						log.WarnFormat(
-							"شماره دستگاه {0} خارج از بازه ۰ تا ۱۲۷ است. مقدار ۱ استفاده می‌شود.",
-							deviceNumber);
+							"شماره دستگاه {0} معتبر نیست (تعداد دستگاه‌های شناسایی‌شده: {1}). " +
+							"دستگاه شماره ۰ انتخاب می‌شود.",
+							deviceNumber, count);
 
-						deviceNumber = 1;
+						deviceNumber = 0;
 					}
 
 					NativeModem.SMS_Select_Device((short)deviceNumber);
@@ -141,10 +142,30 @@ namespace SmsBan.Modem
 					SelectedDeviceNumber		= deviceNumber;
 					Status.SelectedDeviceNumber	= deviceNumber;
 
-					ReadIdentity();
+					Status.Ready = NativeModem.GSM_Ready();
+
+					// اگر ماژول خاموش باشد، روشن و کمی صبر می‌کنیم.
+					if (!Status.Ready)
+					{
+						log.Info("ماژول GSM آماده نیست؛ روشن می‌شود.");
+
+						NativeModem.GSM_ON();
+						System.Threading.Thread.Sleep(3000);
+
+						Status.Ready = NativeModem.GSM_Ready();
+					}
 
 					Status.Connected = NativeModem.GSM_Test_Connect();
-					Status.Ready     = NativeModem.GSM_Ready();
+
+					// شناسایی دستگاه باید پس از آماده‌شدن ماژول انجام شود؛
+					// در غیر این صورت IMEI و مشخصات دستگاه خالی برمی‌گردند.
+					ReadIdentity();
+
+					if (string.IsNullOrEmpty(Status.DeviceInfo))
+					{
+						System.Threading.Thread.Sleep(500);
+						ReadIdentity();
+					}
 
 					// پیامک فارسی: ابتدا نوع کاراکتر یونیکد، سپس حالت PDU.
 					// ترتیب مهم است (طبق مستندات رسمی).
@@ -181,6 +202,44 @@ namespace SmsBan.Modem
 				}
 
 				return Status;
+			}
+		}
+
+		/// <summary>
+		/// اطمینان از آماده و متصل بودن مودم.
+		///
+		/// اگر اتصال برقرار باشد true برمی‌گرداند؛ در غیر این صورت یک بار مودم را
+		/// باز و آماده می‌کند (انتخاب دستگاه، تنظیم UCS2 و PDU).
+		/// این متد پیش از هر ارسال و هر دور خواندن صدا زده می‌شود تا اگر مودم
+		/// جدا و دوباره وصل شده باشد، بدون خطا به کار خود ادامه دهد.
+		/// </summary>
+		public bool EnsureConnected()
+		{
+			lock (_sync)
+			{
+				try
+				{
+					NativeModem.EnsureAvailable();
+
+					if (NativeModem.SMS_Device_Count() > 0 && NativeModem.GSM_Test_Connect())
+					{
+						Status.DeviceFound	= true;
+						Status.Connected	= true;
+
+						return true;
+					}
+
+					log.Warn("اتصال مودم برقرار نیست؛ تلاش برای بازکردن دوباره.");
+				}
+				catch (Exception ex)
+				{
+					log.Warn("بررسی اتصال مودم ناموفق بود؛ تلاش برای بازکردن دوباره.", ex);
+				}
+
+				// اتصال قطع است → بازکردن دوباره.
+				var status = Open();
+
+				return status != null && status.DeviceFound && status.Connected;
 			}
 		}
 
@@ -269,11 +328,16 @@ namespace SmsBan.Modem
 			{
 				try
 				{
-					NativeModem.EnsureAvailable();
-
-					if (NativeModem.SMS_Device_Count() <= 0)
+					// اطمینان از متصل بودن مودم پیش از ارسال.
+					// اگر اتصال قطع شده باشد، مودم دوباره باز و آماده می‌شود.
+					if (!EnsureConnected())
 					{
-						result.Message = "مودم متصل نیست.";
+						result.Success		= false;
+						result.NotConnected	= true;
+						result.Message		= "مودم متصل نیست.";
+
+						log.WarnFormat("ارسال به {0} انجام نشد؛ مودم متصل نیست.", phoneNumber);
+
 						return result;
 					}
 
@@ -342,6 +406,45 @@ namespace SmsBan.Modem
 					return -1;
 				}
 			}
+		}
+
+		/// <summary>
+		/// وضعیت حافظه‌ی پیامک مودم/سیم‌کارت (ظرفیت، فضای آزاد و تعداد پیامک).
+		/// </summary>
+		public ModemMemoryInfo GetMemoryInfo()
+		{
+			var info = new ModemMemoryInfo();
+
+			lock (_sync)
+			{
+				try
+				{
+					NativeModem.SmsSpaceStruct space;
+
+					NativeModem.Get_SMS_Space(out space);
+
+					info.FreeSpace	= space.FreeSpace;
+					info.TotalSize	= space.TotalSize;
+					info.IsValid	= space.Result;
+				}
+				catch (Exception ex)
+				{
+					log.Error(ex);
+					info.IsValid = false;
+				}
+
+				try
+				{
+					info.MessageCount = NativeModem.Get_SMS_NO();
+				}
+				catch (Exception ex)
+				{
+					log.Error(ex);
+					info.MessageCount = -1;
+				}
+			}
+
+			return info;
 		}
 
 		/// <summary>
@@ -470,6 +573,179 @@ namespace SmsBan.Modem
 		}
 
 		/// <summary>
+		/// خالی‌کردن کامل حافظه‌ی پیامک مودم/سیم‌کارت.
+		/// </summary>
+		public bool DeleteAll()
+		{
+			lock (_sync)
+			{
+				try
+				{
+					return NativeModem.SMS_Delete(0, (int)ModemDeleteType.All);
+				}
+				catch (Exception ex)
+				{
+					log.Error(ex);
+					return false;
+				}
+			}
+		}
+
+		// ==================================================================
+		// بافر ارسال گروهی (مطابق نمونه‌ی رسمی شرکت)
+		// ==================================================================
+
+		/// <summary>شماره‌ی ردیف جاری بافر ارسال.</summary>
+		public int GetBufferIndex()
+		{
+			lock (_sync)
+			{
+				try
+				{
+					return NativeModem.Get_SMS_Buf_Indx();
+				}
+				catch (Exception ex)
+				{
+					log.Error(ex);
+					return -1;
+				}
+			}
+		}
+
+		/// <summary>تعداد پیامک‌های ارسال‌شده از بافر.</summary>
+		public int GetBufferSentCount()
+		{
+			lock (_sync)
+			{
+				try
+				{
+					return NativeModem.Get_SMS_Buf_Sended();
+				}
+				catch (Exception ex)
+				{
+					log.Error(ex);
+					return -1;
+				}
+			}
+		}
+
+		/// <summary>
+		/// وضعیت یک ردیف بافر: آیا ارسال تمام شده و آیا گزارش تحویل آمده است.
+		/// </summary>
+		public ModemBufferStatus GetBufferStatus(int index)
+		{
+			var status = new ModemBufferStatus { Index = index };
+
+			lock (_sync)
+			{
+				try
+				{
+					bool sendDone = false;
+
+					status.Delivered	= NativeModem.Get_SMS_Buf_Status2(index, ref sendDone);
+					status.SendDone		= sendDone;
+				}
+				catch (Exception ex)
+				{
+					log.Error(ex);
+				}
+			}
+
+			return status;
+		}
+
+		/// <summary>خالی‌کردن بافر ارسال؛ اگر stop=true ارسال در جریان هم متوقف می‌شود.</summary>
+		public void ClearSendBuffer(bool stop)
+		{
+			lock (_sync)
+			{
+				try
+				{
+					NativeModem.SMS_Buf_Clear(stop);
+				}
+				catch (Exception ex)
+				{
+					log.Error(ex);
+				}
+			}
+		}
+
+		/// <summary>شروع یا توقف ارسال بافر.</summary>
+		public void StartSendBuffer(bool start)
+		{
+			lock (_sync)
+			{
+				try
+				{
+					NativeModem.SMS_Buf_Start(start);
+				}
+				catch (Exception ex)
+				{
+					log.Error(ex);
+				}
+			}
+		}
+
+		/// <summary>توقف موقت ارسال بافر.</summary>
+		public void PauseSendBuffer()
+		{
+			lock (_sync)
+			{
+				try
+				{
+					NativeModem.SMS_Buf_Pause();
+				}
+				catch (Exception ex)
+				{
+					log.Error(ex);
+				}
+			}
+		}
+
+		/// <summary>
+		/// تنظیمات بافر ارسال گروهی؛ پیش از افزودن پیامک‌ها صدا زده می‌شود.
+		/// </summary>
+		/// <param name="changeSimAfter">پس از چند پیامک، سیم‌کارت عوض شود (۰ = هرگز).</param>
+		public void ConfigureGroupSending(ModemSendOptions options, int changeSimAfter = 0)
+		{
+			options = options ?? new ModemSendOptions();
+
+			lock (_sync)
+			{
+				try
+				{
+					NativeModem.Group_SMS_Setting(
+						options.RequestDeliveryReport,
+						options.SmsValidity,
+						changeSimAfter,
+						options.RetryCount,
+						options.PartSendIntervalMs,
+						options.SmsCenter ?? string.Empty);
+				}
+				catch (Exception ex)
+				{
+					log.Error(ex);
+				}
+			}
+		}
+
+		/// <summary>افزودن یک پیامک به بافر ارسال گروهی.</summary>
+		public void AddGroupMessage(string phoneNumber, string text)
+		{
+			lock (_sync)
+			{
+				try
+				{
+					NativeModem.Add_Group_SMS_Buffer(phoneNumber, text);
+				}
+				catch (Exception ex)
+				{
+					log.Error(ex);
+				}
+			}
+		}
+
+		/// <summary>
 		/// خواندن رویدادهای انباشته‌شده‌ی مودم (ارسال موفق، خطای ارسال و ...).
 		/// </summary>
 		public List<ModemEvent> PollEvents()
@@ -487,14 +763,18 @@ namespace SmsBan.Modem
 						NativeModem.GsmMessageStruct message;
 						NativeModem.Get_GSM_Message(out message);
 
+						NativeModem.Clear_Buf();
+
+						// رویداد نامعتبر (بدون کد و بدون متن) نادیده گرفته می‌شود.
+						if (message.Result < 0 && string.IsNullOrEmpty(message.MessageText))
+							continue;
+
 						list.Add(new ModemEvent
 						{
 							Code		= message.Result,
 							Text		= message.MessageText,
 							OccurredAt	= DateTime.Now
 						});
-
-						NativeModem.Clear_Buf();
 					}
 				}
 				catch (Exception ex)

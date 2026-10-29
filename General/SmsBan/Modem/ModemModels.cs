@@ -107,6 +107,12 @@ namespace SmsBan.Modem
 	{
 		public bool		Success		{ get; set; }
 
+		/// <summary>
+		/// true یعنی ارسال حتی شروع نشد چون مودم در دسترس/متصل نبود.
+		/// در این حالت تلاش ارسال نباید مصرف شود.
+		/// </summary>
+		public bool		NotConnected { get; set; }
+
 		/// <summary>شماره‌ی مرجع؛ برای پیگیری گزارش تحویل به کار می‌رود.</summary>
 		public string	Reference	{ get; set; }
 
@@ -174,6 +180,68 @@ namespace SmsBan.Modem
 		{
 			return string.Format("{0} | Connected={1} | Ready={2} | Sig={3}",
 				DeviceInfo, Connected, Ready, Signal);
+		}
+	}
+
+	/// <summary>
+	/// وضعیت حافظه‌ی پیامک مودم/سیم‌کارت.
+	/// </summary>
+	public class ModemMemoryInfo
+	{
+		/// <summary>ظرفیت کل حافظه (تعداد جای پیامک).</summary>
+		public int	TotalSize		{ get; set; }
+
+		/// <summary>تعداد جای خالی باقی‌مانده.</summary>
+		public int	FreeSpace		{ get; set; }
+
+		/// <summary>تعداد پیامک‌های موجود؛ ۱- یعنی خوانده نشد.</summary>
+		public int	MessageCount	{ get; set; }
+
+		/// <summary>آیا اطلاعات حافظه معتبر است.</summary>
+		public bool	IsValid			{ get; set; }
+
+		/// <summary>تعداد جای اشغال‌شده.</summary>
+		public int UsedSpace
+		{
+			get
+			{
+				if (TotalSize <= 0)
+					return MessageCount > 0 ? MessageCount : 0;
+
+				return Math.Max(0, TotalSize - FreeSpace);
+			}
+		}
+
+		/// <summary>درصد استفاده از حافظه (۰ تا ۱۰۰).</summary>
+		public int UsedPercent
+		{
+			get
+			{
+				if (TotalSize <= 0)
+					return 0;
+
+				return Math.Min(100, (int)Math.Round(UsedSpace * 100.0 / TotalSize));
+			}
+		}
+	}
+
+	/// <summary>
+	/// وضعیت یک ردیف از بافر ارسال مودم.
+	/// </summary>
+	public class ModemBufferStatus
+	{
+		/// <summary>شماره‌ی ردیف در بافر.</summary>
+		public int	Index		{ get; set; }
+
+		/// <summary>ارسال این ردیف تمام شده است.</summary>
+		public bool	SendDone	{ get; set; }
+
+		/// <summary>گزارش تحویل دریافت شده است.</summary>
+		public bool	Delivered	{ get; set; }
+
+		public override string ToString()
+		{
+			return string.Format("Index={0} SendDone={1} Delivered={2}", Index, SendDone, Delivered);
 		}
 	}
 }

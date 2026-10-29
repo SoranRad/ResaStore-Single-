@@ -131,11 +131,6 @@
       <HintPath>..\..\Output\MS_Control.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="MS_Print_Dialog, Version=1.0.1442.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Output\MS_Print_Dialog.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="MS_Resource, Version=5.4.1461.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Output\MS_Resource.dll</HintPath>
@@ -174,6 +169,8 @@
     <Compile Include="DataLayer\Migrations\Configuration.cs" />
     <Compile Include="DataLayer\Migrations\202610170716078_InitialCreate.cs" />
     <Compile Include="DataLayer\Migrations\202610170716078_InitialCreate.Designer.cs" />
+    <Compile Include="DataLayer\Migrations\202610250739435_AddReceivedParts.cs" />
+    <Compile Include="DataLayer\Migrations\202610250739435_AddReceivedParts.Designer.cs" />
     <!-- لایه‌ی مودم -->
     <Compile Include="Modem\ModemModels.cs" />
     <Compile Include="Modem\NativeModem.cs" />
@@ -189,19 +186,80 @@
     <Compile Include="Core\SmsQueueService.cs" />
     <Compile Include="Core\SmsSenderWorker.cs" />
     <Compile Include="Core\SmsInboxService.cs" />
+    <Compile Include="Core\SmsConversationService.cs" />
+    <Compile Include="Core\SmsContactService.cs" />
+    <Compile Include="Core\SmsReferenceParser.cs" />
     <Compile Include="Core\SmsBanService.cs" />
     <!-- رابط کاربری -->
+    <Compile Include="UI\ArchiveRow.cs" />
+    <Compile Include="UI\Components\LeftChatMessage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Components\LeftChatMessage.Designer.cs">
+      <DependentUpon>LeftChatMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Components\RightChatMessage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Components\RightChatMessage.Designer.cs">
+      <DependentUpon>RightChatMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Components\UsersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Components\UsersControl.Designer.cs">
+      <DependentUpon>UsersControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormArchive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormArchive.Designer.cs">
+      <DependentUpon>FormArchive.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FormConfigModem.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\FormConfigModem.Designer.cs">
       <DependentUpon>FormConfigModem.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\FormQueueMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormQueueMonitor.Designer.cs">
+      <DependentUpon>FormQueueMonitor.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FormSettings.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UI\FormSettings.Designer.cs">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FormQueueManager.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormQueueManager.Designer.cs">
+      <DependentUpon>FormQueueManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ChatBubble.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\FormChat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormChat.Designer.cs">
+      <DependentUpon>FormChat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormSimMessages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormSimMessages.Designer.cs">
+      <DependentUpon>FormSimMessages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormDeviceMemory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormDeviceMemory.Designer.cs">
+      <DependentUpon>FormDeviceMemory.cs</DependentUpon>
     </Compile>
     <!-- فرم پیش‌فرض پروژه -->
     <Compile Include="Form1.cs">
@@ -211,6 +269,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -219,9 +278,40 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\Components\LeftChatMessage.resx">
+      <DependentUpon>LeftChatMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Components\RightChatMessage.resx">
+      <DependentUpon>RightChatMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Components\UsersControl.resx">
+      <DependentUpon>UsersControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormArchive.resx">
+      <DependentUpon>FormArchive.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FormConfigModem.resx">
       <DependentUpon>FormConfigModem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormQueueMonitor.resx">
+      <DependentUpon>FormQueueMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormSettings.resx">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormQueueManager.resx">
+      <DependentUpon>FormQueueManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormChat.resx">
+      <DependentUpon>FormChat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormSimMessages.resx">
+      <DependentUpon>FormSimMessages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormDeviceMemory.resx">
+      <DependentUpon>FormDeviceMemory.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -242,6 +332,57 @@
       <Link>DllManshoorGSM.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Send Mail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outlook_clean_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resultset_last.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resultset_next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resultset_previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resultset_first.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

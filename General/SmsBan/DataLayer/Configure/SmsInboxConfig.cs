@@ -29,6 +29,7 @@ namespace SmsBan.DataLayer.Configure
 			this.Property					(x => x.SimId).HasMaxLength(64).IsUnicode(true);
 			this.Property					(x => x.DedupHash).HasMaxLength(64).IsUnicode(false);
 			this.Property					(x => x.ReceivedAtShamsi).HasMaxLength(19).IsUnicode(false);
+			this.Property					(x => x.ReceivedParts).HasMaxLength(512).IsUnicode(false);
 
 			// جلوگیری از ذخیره‌ی پیامک تکراری در سطح بانک اطلاعاتی.
 			this.HasIndex					(x => x.DedupHash).IsUnique();

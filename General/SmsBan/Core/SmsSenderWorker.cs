@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading;
@@ -198,22 +199,23 @@ namespace SmsBan.Core
 			if (DateTime.Now < _waitUntil)
 				return false;
 
-			// آماده‌سازی مودم.
-			if (!_modem.Status.Connected)
+			// آماده‌سازی مودم: اگر اتصال قطع شده باشد، دوباره باز و آماده می‌شود.
+			var wasConnected = _modem.Status.Connected;
+
+			if (!_modem.EnsureConnected())
 			{
-				var status = _modem.Open();
+				log.Warn("مودم در دسترس نیست؛ ارسال به بعد موکول شد.");
+				_waitUntil = DateTime.Now.AddSeconds(5);
+				return false;
+			}
 
-				if (!status.DeviceFound)
-				{
-					_waitUntil = DateTime.Now.AddSeconds(5);
-					return false;
-				}
-
+			if (!wasConnected)
+			{
 				try
 				{
 					using (var db = CreateContext())
 					{
-						SmsWorkerStateService.SetModemDevice(db, status.DeviceInfo);
+						SmsWorkerStateService.SetModemDevice(db, _modem.Status.DeviceInfo);
 					}
 				}
 				catch (Exception ex)
@@ -314,14 +316,87 @@ namespace SmsBan.Core
 
 			var result = _modem.Send(item.PhoneNumber, item.MessageText, sendOptions);
 
+			// خروجی S_SMS3 ممکن است مرجع همه‌ی پارت‌ها را برنگرداند؛
+			// رویداد «ارسال تمام پارت‌ها» فهرست کامل را می‌دهد.
+			var reference = result.Reference;
+
+			if (result.Success)
+			{
+				log.DebugFormat("مرجع خروجی S_SMS3 برای پیامک {0}: '{1}'", item.ID, result.Reference);
+
+				var fromEvents = CollectSentReferences(TimeSpan.FromSeconds(5));
+
+				// ادغام هر دو منبع؛ گاهی هیچ‌کدام به‌تنهایی فهرست کامل را ندارند.
+				reference = SmsReferenceParser.Merge(result.Reference, fromEvents) ?? result.Reference;
+
+				var referenceCount = SmsReferenceParser.Parse(reference).Count;
+
+				if (referenceCount > 0 && referenceCount < item.PageCount)
+				{
+					log.WarnFormat(
+						"برای پیامک {0} فقط مرجع {1} از {2} پارت دریافت شد: '{3}'",
+						item.ID, referenceCount, item.PageCount, reference);
+				}
+			}
+
 			var duration = (int)(DateTime.Now - attemptStart).TotalMilliseconds;
 
 			if (result.Success)
-				CompleteItem(db, item, result.Reference, attemptStart, duration);
+				CompleteItem(db, item, reference, attemptStart, duration);
 			else
 				FailItem(db, item, result, attemptStart, duration);
 
 			return true;
+		}
+
+		/// <summary>
+		/// انتظار برای رویداد «ارسال تمام پارت‌ها» و استخراج فهرست کامل مرجع‌ها.
+		/// اگر رویداد نرسد، null برمی‌گردد تا از مرجع خروجی S_SMS3 استفاده شود.
+		/// </summary>
+		private string CollectSentReferences(TimeSpan timeout)
+		{
+			var deadline	= DateTime.Now.Add(timeout);
+			var references	= new List<string>();
+			var allParts	= false;
+
+			try
+			{
+				while (DateTime.Now < deadline)
+				{
+					var events = _modem.PollEvents();
+
+					foreach (var item in events)
+					{
+						if (item.Code != ModemEventCode.SmsPartSentReference
+							&& item.Code != ModemEventCode.SmsPartSentSuccessful
+							&& item.Code != ModemEventCode.SmsAllPartsSentSuccessful)
+							continue;
+
+						foreach (var reference in SmsReferenceParser.Parse(item.Text))
+						{
+							if (!references.Contains(reference))
+								references.Add(reference);
+						}
+
+						if (item.Code == ModemEventCode.SmsAllPartsSentSuccessful)
+							allParts = true;
+					}
+
+					if (allParts)
+						break;
+
+					System.Threading.Thread.Sleep(200);
+				}
+			}
+			catch (Exception ex)
+			{
+				log.Error(ex);
+			}
+
+			if (references.Count == 0)
+				return null;
+
+			return string.Join(",", references);
 		}
 
 		/// <summary>ثبت ارسال موفق: انتقال به آرشیو و کسر از سهمیه.</summary>
@@ -339,7 +414,7 @@ namespace SmsBan.Core
 					PageCount		= item.PageCount,
 					Status			= (int)SmsMessageStatus.Sent,
 					RetryCount		= item.RetryCount,
-					SmsReference	= reference,
+					SmsReference	= SmsReferenceParser.Normalize(reference),
 					CreatedAt		= item.CreatedAt,
 					CreatedAtShamsi	= item.CreatedAtShamsi,
 					SentAt			= sentAt,
@@ -374,6 +449,29 @@ namespace SmsBan.Core
 			var error = string.IsNullOrWhiteSpace(result.ErrorCode)
 				? result.Message
 				: string.Format("{0} (کد {1})", result.Message, result.ErrorCode);
+
+			// اگر ارسال حتی شروع نشده باشد (مودم در دسترس نبوده)،
+			// تلاش مصرف نمی‌شود تا پیامک بی‌جهت ناموفق اعلام نشود.
+			if (result.NotConnected)
+			{
+				using (var transaction = db.Database.BeginTransaction())
+				{
+					item.Status			= (int)SmsMessageStatus.Pending;
+					item.LastError		= error;
+					item.LockedBy		= null;
+					item.LockedAt		= null;
+					item.LockedAtShamsi	= null;
+
+					db.SaveChanges();
+					transaction.Commit();
+				}
+
+				_waitUntil = DateTime.Now.AddSeconds(5);
+
+				log.WarnFormat("ارسال پیامک {0} به تعویق افتاد؛ مودم متصل نیست.", item.ID);
+
+				return;
+			}
 
 			bool canRetry = item.RetryCount < _options.MaxRetryCount;
 

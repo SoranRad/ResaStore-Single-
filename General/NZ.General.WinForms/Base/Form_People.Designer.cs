@@ -1510,7 +1510,7 @@ namespace NZ.General.WinForms.Base
 			this.label29.AutoSize = true;
 			this.label29.BackColor = System.Drawing.Color.Transparent;
 			this.label29.ForeColor = System.Drawing.Color.Maroon;
-			this.label29.Location = new System.Drawing.Point(254, 528);
+			this.label29.Location = new System.Drawing.Point(169, 528);
 			this.label29.Name = "label29";
 			this.label29.Size = new System.Drawing.Size(62, 23);
 			this.label29.TabIndex = 835;
@@ -1522,7 +1522,7 @@ namespace NZ.General.WinForms.Base
 			this.label10.AutoSize = true;
 			this.label10.BackColor = System.Drawing.Color.Transparent;
 			this.label10.ForeColor = System.Drawing.Color.Maroon;
-			this.label10.Location = new System.Drawing.Point(249, 252);
+			this.label10.Location = new System.Drawing.Point(164, 252);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(65, 23);
 			this.label10.TabIndex = 835;
@@ -1534,7 +1534,7 @@ namespace NZ.General.WinForms.Base
 			this.label19.AutoSize = true;
 			this.label19.BackColor = System.Drawing.Color.Transparent;
 			this.label19.ForeColor = System.Drawing.Color.Maroon;
-			this.label19.Location = new System.Drawing.Point(310, 528);
+			this.label19.Location = new System.Drawing.Point(225, 528);
 			this.label19.Name = "label19";
 			this.label19.Size = new System.Drawing.Size(84, 23);
 			this.label19.TabIndex = 835;
@@ -1546,7 +1546,7 @@ namespace NZ.General.WinForms.Base
 			this.label9.AutoSize = true;
 			this.label9.BackColor = System.Drawing.Color.Transparent;
 			this.label9.ForeColor = System.Drawing.Color.Maroon;
-			this.label9.Location = new System.Drawing.Point(68, 251);
+			this.label9.Location = new System.Drawing.Point(-17, 251);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(84, 23);
 			this.label9.TabIndex = 835;
@@ -1558,7 +1558,7 @@ namespace NZ.General.WinForms.Base
 			this.label7.AutoSize = true;
 			this.label7.BackColor = System.Drawing.Color.Transparent;
 			this.label7.ForeColor = System.Drawing.Color.Maroon;
-			this.label7.Location = new System.Drawing.Point(6, 252);
+			this.label7.Location = new System.Drawing.Point(-79, 252);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(65, 23);
 			this.label7.TabIndex = 835;
@@ -1570,7 +1570,7 @@ namespace NZ.General.WinForms.Base
 			this.label2.AutoSize = true;
 			this.label2.BackColor = System.Drawing.Color.Transparent;
 			this.label2.ForeColor = System.Drawing.Color.Maroon;
-			this.label2.Location = new System.Drawing.Point(310, 252);
+			this.label2.Location = new System.Drawing.Point(225, 252);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(84, 23);
 			this.label2.TabIndex = 835;
@@ -1582,7 +1582,7 @@ namespace NZ.General.WinForms.Base
 			this.label42.AutoSize = true;
 			this.label42.BackColor = System.Drawing.Color.Transparent;
 			this.label42.ForeColor = System.Drawing.Color.Maroon;
-			this.label42.Location = new System.Drawing.Point(368, 306);
+			this.label42.Location = new System.Drawing.Point(283, 306);
 			this.label42.Name = "label42";
 			this.label42.Size = new System.Drawing.Size(85, 23);
 			this.label42.TabIndex = 834;
@@ -1594,7 +1594,7 @@ namespace NZ.General.WinForms.Base
 			this.label43.AutoSize = true;
 			this.label43.BackColor = System.Drawing.Color.Transparent;
 			this.label43.ForeColor = System.Drawing.Color.Maroon;
-			this.label43.Location = new System.Drawing.Point(125, 17);
+			this.label43.Location = new System.Drawing.Point(40, 17);
 			this.label43.Name = "label43";
 			this.label43.Size = new System.Drawing.Size(82, 23);
 			this.label43.TabIndex = 833;
@@ -1606,7 +1606,7 @@ namespace NZ.General.WinForms.Base
 			this.label44.AutoSize = true;
 			this.label44.BackColor = System.Drawing.Color.Transparent;
 			this.label44.ForeColor = System.Drawing.Color.Maroon;
-			this.label44.Location = new System.Drawing.Point(373, 17);
+			this.label44.Location = new System.Drawing.Point(288, 17);
 			this.label44.Name = "label44";
 			this.label44.Size = new System.Drawing.Size(80, 23);
 			this.label44.TabIndex = 832;
@@ -1619,7 +1619,7 @@ namespace NZ.General.WinForms.Base
 			this.NzDeleteWarranty.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.NzDeleteWarranty.Image = global::MS_Resource.GlobalResources.Negin__1_;
 			this.NzDeleteWarranty.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Center;
-			this.NzDeleteWarranty.Location = new System.Drawing.Point(400, 527);
+			this.NzDeleteWarranty.Location = new System.Drawing.Point(315, 527);
 			this.NzDeleteWarranty.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzDeleteWarranty.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzDeleteWarranty.MS_Change_Border_Color_On_Enter = false;
@@ -1646,7 +1646,7 @@ namespace NZ.General.WinForms.Base
 			this.NzOpenWarranty.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.NzOpenWarranty.Image = global::MS_Resource.GlobalResources.OpenFolder;
 			this.NzOpenWarranty.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Center;
-			this.NzOpenWarranty.Location = new System.Drawing.Point(426, 527);
+			this.NzOpenWarranty.Location = new System.Drawing.Point(341, 527);
 			this.NzOpenWarranty.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzOpenWarranty.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzOpenWarranty.MS_Change_Border_Color_On_Enter = false;
@@ -1673,7 +1673,7 @@ namespace NZ.General.WinForms.Base
 			this.NzDeleteSign.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.NzDeleteSign.Image = global::MS_Resource.GlobalResources.Negin__1_;
 			this.NzDeleteSign.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Center;
-			this.NzDeleteSign.Location = new System.Drawing.Point(158, 250);
+			this.NzDeleteSign.Location = new System.Drawing.Point(73, 250);
 			this.NzDeleteSign.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzDeleteSign.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzDeleteSign.MS_Change_Border_Color_On_Enter = false;
@@ -1700,7 +1700,7 @@ namespace NZ.General.WinForms.Base
 			this.NzOpenSign.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.NzOpenSign.Image = global::MS_Resource.GlobalResources.OpenFolder;
 			this.NzOpenSign.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Center;
-			this.NzOpenSign.Location = new System.Drawing.Point(183, 250);
+			this.NzOpenSign.Location = new System.Drawing.Point(98, 250);
 			this.NzOpenSign.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzOpenSign.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzOpenSign.MS_Change_Border_Color_On_Enter = false;
@@ -1727,7 +1727,7 @@ namespace NZ.General.WinForms.Base
 			this.NzDeletePic.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.NzDeletePic.Image = global::MS_Resource.GlobalResources.Negin__1_;
 			this.NzDeletePic.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Center;
-			this.NzDeletePic.Location = new System.Drawing.Point(400, 250);
+			this.NzDeletePic.Location = new System.Drawing.Point(315, 250);
 			this.NzDeletePic.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzDeletePic.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzDeletePic.MS_Change_Border_Color_On_Enter = false;
@@ -1754,7 +1754,7 @@ namespace NZ.General.WinForms.Base
 			this.NzOpenPic.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.NzOpenPic.Image = global::MS_Resource.GlobalResources.OpenFolder;
 			this.NzOpenPic.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Center;
-			this.NzOpenPic.Location = new System.Drawing.Point(426, 250);
+			this.NzOpenPic.Location = new System.Drawing.Point(341, 250);
 			this.NzOpenPic.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzOpenPic.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.NzOpenPic.MS_Change_Border_Color_On_Enter = false;
@@ -1780,7 +1780,7 @@ namespace NZ.General.WinForms.Base
 			this.NzSign.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.NzSign.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.NzSign.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzSign.Location = new System.Drawing.Point(6, 44);
+			this.NzSign.Location = new System.Drawing.Point(-79, 44);
 			this.NzSign.Margin = new System.Windows.Forms.Padding(4);
 			this.NzSign.Name = "NzSign";
 			this.NzSign.Size = new System.Drawing.Size(200, 200);
@@ -1794,7 +1794,7 @@ namespace NZ.General.WinForms.Base
 			this.NzPic.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.NzPic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.NzPic.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzPic.Location = new System.Drawing.Point(249, 44);
+			this.NzPic.Location = new System.Drawing.Point(164, 44);
 			this.NzPic.Margin = new System.Windows.Forms.Padding(4);
 			this.NzPic.Name = "NzPic";
 			this.NzPic.Size = new System.Drawing.Size(200, 200);
@@ -1808,7 +1808,7 @@ namespace NZ.General.WinForms.Base
 			this.NzWarranty.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.NzWarranty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.NzWarranty.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzWarranty.Location = new System.Drawing.Point(254, 331);
+			this.NzWarranty.Location = new System.Drawing.Point(169, 331);
 			this.NzWarranty.Margin = new System.Windows.Forms.Padding(4);
 			this.NzWarranty.Name = "NzWarranty";
 			this.NzWarranty.Size = new System.Drawing.Size(195, 187);

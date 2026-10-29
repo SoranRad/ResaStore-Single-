@@ -195,5 +195,12 @@ namespace Nz.Order.Winforms.Provider
 			return null;
 		}
 
+		public async Task InitionalizeModule()
+		{
+		}
+
+		public async Task FinalitionliozeModule()
+		{
+		}
 	}
 }

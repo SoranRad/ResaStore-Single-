@@ -55,6 +55,7 @@ namespace NZ.General.WinForms.Setting
 				NsReadSmsPeriod.MS_Decimal = settings.PeriodReadSmsInMinute;
 				NsConnectedModem.Checked = settings.ModemConnected;
 				NsCountryCode.MS_Decimal = settings.CountryCode;
+				NsDeviceNo.MS_Decimal = settings.ModemDeviceNo;
 			}
 		}
 
@@ -81,7 +82,7 @@ namespace NZ.General.WinForms.Setting
 				 CharacterPerPart		= NsUseModem.Checked ? (byte)NsCharacterInPart.MS_Decimal: (byte)69,
 				 MaxSmsPerDay			= NsUseModem.Checked ? (short)NsMaxSmsPerDay.MS_Decimal: (short)69,
 				 MaxSmsPerMinute		= NsUseModem.Checked ? (short)NsMaxSmsPerMinute.MS_Decimal : (short)69,
-				 PeriodReadSmsInMinute	= NsUseModem.Checked ? (byte)NsMaxSmsPerDay.MS_Decimal : (byte)5,
+				 PeriodReadSmsInMinute	= NsUseModem.Checked ? (byte)NsReadSmsPeriod.MS_Decimal : (byte)5,
 				 
 			};
 
@@ -116,7 +117,6 @@ namespace NZ.General.WinForms.Setting
 
         private async void NsOK_Click(object sender, EventArgs e)
         {
-
 			if(!IsOK())
 				return;
 

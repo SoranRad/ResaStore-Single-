@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Janus.Windows.GridEX;
+using MS_Control;
+using MS_Control.MainForms;
 using SmsBan.Core;
 using SmsBan.Model;
 
@@ -13,28 +15,45 @@ namespace SmsBan.UI
 	///
 	/// امکانات: نمایش صف، نمایش آرشیو، لغو، تغییر اولویت، جابه‌جایی دستی،
 	/// بازگرداندن پیامک‌های ناموفق به صف و توقف/ادامه‌ی ارسال.
+	///
+	/// این فرم به روش استاندارد ویژوال استودیو نوشته شده است:
+	/// کد رابط کاربری در فایل <c>FormQueueManager.Designer.cs</c> قرار دارد
+	/// و از طریق Designer قابل ویرایش است.
+	///
+	/// توجه: ستون‌های دو گرید در متد <see cref="SetupGrids"/> در همین فایل
+	/// تعریف شده‌اند (نه در Designer) تا هنگام ویرایش فرم در Designer از بین نروند.
+	/// برای تغییر عنوان یا عرض ستون‌ها همین متد را ویرایش کنید.
 	/// </summary>
-	public class FormQueueManager : Form
+	public partial class FormQueueManager : Form_Mother_IRANSans
 	{
 		#region Logging
+
 		private static readonly log4net.ILog log =
 			log4net
 				.LogManager
 				.GetLogger
-				(System.Reflection
-					.MethodBase
-					.GetCurrentMethod()
-					.DeclaringType);
+				(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 		#endregion
 
-		private readonly SmsBanService	_service;
+		#region Fields
 
-		private DataGridView			_gridQueue;
-		private DataGridView			_gridArchive;
-		private ComboBox				_cmbArchiveStatus;
-		private ToolStripStatusLabel	_lblStatus;
-		private ToolStripButton			_btnPauseResume;
-		private Timer					_timer;
+		private readonly SmsBanService _service;
+
+		/// <summary>برای یافتن نام مخاطب از روی شماره.</summary>
+		private readonly SmsContactService _contactService;
+
+		private Timer _timer;
+
+		/// <summary>برای جلوگیری از بارگذاری مجدد هنگام تغییر برنامه‌ای کمبوی آرشیو.</summary>
+		private bool _suppressReload;
+
+		/// <summary>ستون‌های گریدها یک‌بار تعریف می‌شوند.</summary>
+		private bool _queueColumnsReady;
+
+		private bool _archiveColumnsReady;
+		#endregion
+
+		#region Constructor
 
 		public FormQueueManager(SmsBanService service)
 		{
@@ -42,225 +61,107 @@ namespace SmsBan.UI
 				throw new ArgumentNullException("service");
 
 			_service = service;
+			_contactService = new SmsContactService(service.Options);
 
-			BuildUi();
-			Load += OnFormLoad;
+			InitializeComponent();
+
+			_suppressReload = true;
+			cmbArchiveStatus.SelectedIndex = 0;
+			_suppressReload = false;
 		}
+		#endregion
 
-		// ==================================================================
-		// ساخت رابط کاربری
-		// ==================================================================
+		#region Grid Setup
 
-		private void BuildUi()
+		/// <summary>
+		/// تعریف ستون‌های گرید صف؛ فقط یک‌بار و در صورت آماده بودن گرید.
+		/// این متد عمداً بیرون از فایل Designer نگه داشته شده تا با بازتولید
+		/// کد طراحی، ستون‌ها حذف نشوند.
+		/// </summary>
+		private void EnsureQueueColumns()
 		{
-			Text				= "مدیریت صف ارسال پیامک";
-			RightToLeft			= RightToLeft.Yes;
-			RightToLeftLayout	= true;
-			Font				= new Font("Tahoma", 9F);
-			StartPosition		= FormStartPosition.CenterScreen;
-			Size				= new Size(1100, 650);
+			if (_queueColumnsReady)
+				return;
 
-			var toolStrip = new ToolStrip
+			var table = gridQueue.RootTable;
+
+			if (table == null)
+				return;
+
+			try
 			{
-				RightToLeft		= RightToLeft.Yes,
-				GripStyle		= ToolStripGripStyle.Hidden,
-				ImageScalingSize = new Size(16, 16)
-			};
+				table.Columns.Clear();
 
-			toolStrip.Items.Add(MakeButton("به‌روزرسانی",	OnRefresh));
-			toolStrip.Items.Add(new ToolStripSeparator());
-			toolStrip.Items.Add(MakeButton("ابتدا",			(s, e) => ActOnSelected(id => _service.MoveToTop(id),    "انتقال به ابتدا")));
-			toolStrip.Items.Add(MakeButton("بالا",			(s, e) => ActOnSelected(id => _service.MoveUp(id),       "انتقال به بالا")));
-			toolStrip.Items.Add(MakeButton("پایین",			(s, e) => ActOnSelected(id => _service.MoveDown(id),     "انتقال به پایین")));
-			toolStrip.Items.Add(MakeButton("انتها",			(s, e) => ActOnSelected(id => _service.MoveToBottom(id), "انتقال به انتها")));
-			toolStrip.Items.Add(new ToolStripSeparator());
+				AddColumn(table.Columns, "ID",				"شناسه",			60,	 TextAlignment.Center);
+				AddColumn(table.Columns, "PriorityText",	"اولویت",			80,	 TextAlignment.Center);
+				AddColumn(table.Columns, "ContactName",		"مخاطب",			130, TextAlignment.Near);
+				AddColumn(table.Columns, "PhoneNumber",		"شماره",			130, TextAlignment.Center);
+				AddColumn(table.Columns, "MessageText",		"متن پیامک",		320, TextAlignment.Near);
+				AddColumn(table.Columns, "PageCount",		"صفحه",				60,	 TextAlignment.Center);
+				AddColumn(table.Columns, "StatusText",		"وضعیت",			110, TextAlignment.Center);
+				AddColumn(table.Columns, "RetryCount",		"بازگشت",			70,	 TextAlignment.Center);
+				AddColumn(table.Columns, "CreatedAtShamsi",	"تاریخ ثبت",		140, TextAlignment.Center);
+				AddColumn(table.Columns, "EnqueuedBy",		"درخواست‌دهنده",	130, TextAlignment.Center);
+				AddColumn(table.Columns, "LastError",		"آخرین خطا",		200, TextAlignment.Near);
 
-			var priorityButton = new ToolStripDropDownButton("تغییر اولویت");
-
-			priorityButton.DropDownItems.Add("فوری",  null, (s, e) => ChangePriority(SmsPriority.Urgent));
-			priorityButton.DropDownItems.Add("متوسط", null, (s, e) => ChangePriority(SmsPriority.Medium));
-			priorityButton.DropDownItems.Add("عادی",  null, (s, e) => ChangePriority(SmsPriority.Normal));
-
-			toolStrip.Items.Add(priorityButton);
-
-			toolStrip.Items.Add(MakeButton("لغو مورد",		OnCancelSelected));
-			toolStrip.Items.Add(MakeButton("لغو همه",		OnCancelAll));
-			toolStrip.Items.Add(new ToolStripSeparator());
-
-			_btnPauseResume = MakeButton("توقف ارسال", OnPauseResume);
-			toolStrip.Items.Add(_btnPauseResume);
-
-			toolStrip.Items.Add(new ToolStripSeparator());
-			toolStrip.Items.Add(MakeButton("وضعیت مودم",	OnShowStatus));
-
-			var tabs = new TabControl
-			{
-				Dock		= DockStyle.Fill,
-				RightToLeft	= RightToLeft.Yes,
-				Padding		= new Point(12, 6)
-			};
-
-			_gridQueue = MakeGrid();
-			AddQueueColumns(_gridQueue);
-
-			var tabQueue = new TabPage("صف ارسال");
-			tabQueue.Controls.Add(_gridQueue);
-
-			_gridArchive = MakeGrid();
-			AddArchiveColumns(_gridArchive);
-
-			var panelArchive = new Panel { Dock = DockStyle.Fill };
-
-			var panelTop = new Panel { Dock = DockStyle.Top, Height = 38 };
-
-			_cmbArchiveStatus = new ComboBox
-			{
-				DropDownStyle	= ComboBoxStyle.DropDownList,
-				Location		= new Point(10, 8),
-				Width			= 160
-			};
-
-			_cmbArchiveStatus.Items.AddRange(new object[]
-			{
-				"همه",
-				"ارسال شد",
-				"ارسال نشد",
-				"لغو شد"
-			});
-
-			_cmbArchiveStatus.SelectedIndex = 0;
-			_cmbArchiveStatus.SelectedIndexChanged += (s, e) => ReloadArchive();
-
-			var btnRetry = new Button
-			{
-				Text		= "بازگشت به صف",
-				Location	= new Point(180, 6),
-				Size		= new Size(120, 26)
-			};
-
-			btnRetry.Click += OnRetryFailed;
-
-			panelTop.Controls.Add(_cmbArchiveStatus);
-			panelTop.Controls.Add(btnRetry);
-
-			_gridArchive.Dock = DockStyle.Fill;
-
-			panelArchive.Controls.Add(_gridArchive);
-			panelArchive.Controls.Add(panelTop);
-
-			var tabArchive = new TabPage("آرشیو ارسال‌ها");
-			tabArchive.Controls.Add(panelArchive);
-
-			tabs.TabPages.Add(tabQueue);
-			tabs.TabPages.Add(tabArchive);
-
-			var statusStrip = new StatusStrip { RightToLeft = RightToLeft.Yes };
-			_lblStatus = new ToolStripStatusLabel("آماده");
-			statusStrip.Items.Add(_lblStatus);
-
-			Controls.Add(tabs);
-			Controls.Add(toolStrip);
-			Controls.Add(statusStrip);
-		}
-
-		private static ToolStripButton MakeButton(string text, EventHandler handler)
-		{
-			var button = new ToolStripButton(text)
-			{
-				DisplayStyle	= ToolStripItemDisplayStyle.Text,
-				AutoSize		= true
-			};
-
-			button.Click += handler;
-
-			return button;
-		}
-
-		private static DataGridView MakeGrid()
-		{
-			return new DataGridView
-			{
-				Dock					= DockStyle.Fill,
-				ReadOnly				= true,
-				AllowUserToAddRows		= false,
-				AllowUserToDeleteRows	= false,
-				AutoGenerateColumns		= false,
-				SelectionMode			= DataGridViewSelectionMode.FullRowSelect,
-				MultiSelect				= false,
-				RowHeadersVisible		= false,
-				RightToLeft				= RightToLeft.Yes,
-				BackgroundColor			= SystemColors.Window,
-				AutoSizeColumnsMode		= DataGridViewAutoSizeColumnsMode.None
-			};
-		}
-
-		private static void AddQueueColumns(DataGridView grid)
-		{
-			grid.Columns.Add(MakeText("ID",			"شناسه",		60));
-			grid.Columns.Add(MakeText("PriorityText",	"اولویت",		70));
-			grid.Columns.Add(MakeText("PhoneNumber",	"شماره",		120));
-			grid.Columns.Add(MakeText("MessageText",	"متن پیامک",	320));
-			grid.Columns.Add(MakeText("PageCount",		"صفحه",			50));
-			grid.Columns.Add(MakeText("StatusText",		"وضعیت",		100));
-			grid.Columns.Add(MakeText("RetryCount",		"بازگشت",		60));
-			grid.Columns.Add(MakeText("CreatedAtShamsi","تاریخ ثبت",	130));
-			grid.Columns.Add(MakeText("EnqueuedBy",		"درخواست‌دهنده",	120));
-			grid.Columns.Add(MakeText("LastError",		"آخرین خطا",	180));
-		}
-
-		private static void AddArchiveColumns(DataGridView grid)
-		{
-			grid.Columns.Add(MakeText("ID",					"شناسه",		60));
-			grid.Columns.Add(MakeText("StatusText",			"وضعیت",		100));
-			grid.Columns.Add(MakeText("PhoneNumber",		"شماره",		120));
-			grid.Columns.Add(MakeText("MessageText",		"متن پیامک",	300));
-			grid.Columns.Add(MakeText("PageCount",			"صفحه",			50));
-			grid.Columns.Add(MakeText("CreatedAtShamsi",	"تاریخ ثبت",	130));
-			grid.Columns.Add(MakeText("SentAtShamsi",		"زمان ارسال",	130));
-			grid.Columns.Add(MakeText("SmsReference",		"مرجع",			90));
-			grid.Columns.Add(MakeText("IsDelivered",		"تحویل",		55));
-			grid.Columns.Add(MakeText("ErrorMessage",		"خطا",			200));
-		}
-
-		private static DataGridViewTextBoxColumn MakeText(string property, string header, int width)
-		{
-			return new DataGridViewTextBoxColumn
-			{
-				DataPropertyName	= property,
-				HeaderText			= header,
-				Width				= width,
-				SortMode			= DataGridViewColumnSortMode.NotSortable
-			};
-		}
-
-		// ==================================================================
-		// چرخه‌ی عمر فرم
-		// ==================================================================
-
-		private void OnFormLoad(object sender, EventArgs e)
-		{
-			ReloadAll();
-
-			_timer = new Timer { Interval = 5000 };
-			_timer.Tick += (s, args) => ReloadAll();
-			_timer.Start();
-		}
-
-		protected override void OnFormClosed(FormClosedEventArgs e)
-		{
-			if (_timer != null)
-			{
-				_timer.Stop();
-				_timer.Dispose();
-				_timer = null;
+				_queueColumnsReady = true;
 			}
-
-			base.OnFormClosed(e);
+			catch (Exception ex)
+			{
+				log.Error(ex);
+			}
 		}
 
-		// ==================================================================
-		// بارگذاری داده‌ها
-		// ==================================================================
+		/// <summary>تعریف ستون‌های گرید آرشیو؛ فقط یک‌بار و در صورت آماده بودن گرید.</summary>
+		private void EnsureArchiveColumns()
+		{
+			//if (_archiveColumnsReady)
+			//	return;
+
+			//var table = gridArchive.RootTable;
+
+			//if (table == null)
+			//	return;
+
+			//try
+			//{
+			//	table.Columns.Clear();
+
+			//	AddColumn(table.Columns, "ID",				"شناسه",			60,	 TextAlignment.Center);
+			//	AddColumn(table.Columns, "StatusText",		"وضعیت",			110, TextAlignment.Center);
+			//	AddColumn(table.Columns, "PhoneNumber",		"شماره",			130, TextAlignment.Center);
+			//	AddColumn(table.Columns, "MessageText",		"متن پیامک",		300, TextAlignment.Near);
+			//	AddColumn(table.Columns, "PageCount",		"صفحه",				60,	 TextAlignment.Center);
+			//	AddColumn(table.Columns, "CreatedAtShamsi",	"تاریخ ثبت",		140, TextAlignment.Center);
+			//	AddColumn(table.Columns, "SentAtShamsi",	"زمان ارسال",		140, TextAlignment.Center);
+			//	AddColumn(table.Columns, "SmsReference",	"مرجع",				90,	 TextAlignment.Center);
+			//	AddColumn(table.Columns, "IsDelivered",		"تحویل",			60,	 TextAlignment.Center);
+			//	AddColumn(table.Columns, "ErrorMessage",	"خطا",				200, TextAlignment.Near);
+
+			//	_archiveColumnsReady = true;
+			//}
+			//catch (Exception ex)
+			//{
+			//	log.Error(ex);
+			//}
+		}
+
+		private static void AddColumn(GridEXColumnCollection table,
+			string dataMember, string caption, int width, TextAlignment alignment)
+		{
+			var column = new GridEXColumn();
+
+			column.DataMember		= dataMember;
+			column.Caption			= caption;
+			column.Width			= width;
+			column.Visible			= true;
+			column.TextAlignment	= alignment;
+
+			table.Add(column);
+		}
+		#endregion
+
+		#region Methods
 
 		private void ReloadAll()
 		{
@@ -273,21 +174,66 @@ namespace SmsBan.UI
 		{
 			try
 			{
-				var rows = _service.GetQueue(new SmsQueueFilter { MaxRows = 2000 });
+				var rows	= _service.GetQueue(new SmsQueueFilter { MaxRows = 2000 });
+				var map		= BuildContactMap();
 
-				var selectedId = GetSelectedId(_gridQueue);
+				foreach (var row in rows)
+					row.ContactName = ResolveContactName(map, row.PhoneNumber);
 
-				_gridQueue.DataSource = rows;
+				EnsureQueueColumns();
 
-				SelectById(_gridQueue, selectedId);
+				gridQueue.DataSource = rows;
 
-				_lblStatus.Text = string.Format("تعداد در صف: {0}", rows.Count);
+				lblStatus.Text = string.Format("تعداد در صف: {0}", rows.Count);
 			}
 			catch (Exception ex)
 			{
 				log.Error(ex);
-				_lblStatus.Text = "خطا در خواندن صف: " + ex.Message;
+				lblStatus.Text = "خطا در خواندن صف: " + ex.Message;
 			}
+		}
+
+		/// <summary>
+		/// نمایه‌ی «شماره‌ی نرمال‌شده → نام مخاطب» از دفترچه‌ی اشخاص.
+		/// هر شماره فقط یک‌بار خوانده می‌شود تا برای هر ردیف صف به بانک مراجعه نشود.
+		/// </summary>
+		private Dictionary<string, string> BuildContactMap()
+		{
+			var map = new Dictionary<string, string>(StringComparer.Ordinal);
+
+			try
+			{
+				foreach (var contact in _contactService.GetContacts())
+				{
+					foreach (var phone in contact.InternationalPhones)
+					{
+						if (!map.ContainsKey(phone))
+							map[phone] = contact.DisplayName;
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				log.Error(ex);
+			}
+
+			return map;
+		}
+
+		/// <summary>نام مخاطب برای یک شماره؛ اگر در دفترچه نباشد «ناشناس».</summary>
+		private string ResolveContactName(Dictionary<string, string> map, string phoneNumber)
+		{
+			if (map == null)
+				return SmsContactService.UnknownDisplayName;
+
+			var key = SmsPhoneNumber.Normalize(phoneNumber, _service.Options.CountryCode);
+
+			string name;
+
+			if (!string.IsNullOrEmpty(key) && map.TryGetValue(key, out name))
+				return name;
+
+			return SmsContactService.UnknownDisplayName;
 		}
 
 		private void ReloadArchive()
@@ -296,7 +242,7 @@ namespace SmsBan.UI
 			{
 				SmsMessageStatus? status = null;
 
-				switch (_cmbArchiveStatus.SelectedIndex)
+				switch (cmbArchiveStatus.SelectedIndex)
 				{
 					case 1: status = SmsMessageStatus.Sent;		break;
 					case 2: status = SmsMessageStatus.Failed;	break;
@@ -304,12 +250,16 @@ namespace SmsBan.UI
 				}
 
 				var rows = _service.GetArchive(status, null, null, 2000);
+				var map  = BuildContactMap();
 
-				_gridArchive.DataSource = rows
+				EnsureArchiveColumns();
+
+				gridArchive.DataSource = rows
 					.Select(x => new ArchiveRow
 					{
 						ID				= x.ID,
 						StatusText		= SmsTexts.Status(x.Status),
+						ContactName		= ResolveContactName(map, x.PhoneNumber),
 						PhoneNumber		= x.PhoneNumber,
 						MessageText		= x.MessageText,
 						PageCount		= x.PageCount,
@@ -331,9 +281,7 @@ namespace SmsBan.UI
 		{
 			try
 			{
-				var paused = _service.IsPaused();
-
-				_btnPauseResume.Text = paused ? "ادامه ارسال" : "توقف ارسال";
+				btnPauseResume.Text = _service.IsPaused() ? "ادامه ارسال" : "توقف ارسال";
 			}
 			catch (Exception ex)
 			{
@@ -341,49 +289,39 @@ namespace SmsBan.UI
 			}
 		}
 
-		private static long? GetSelectedId(DataGridView grid)
+		private long? GetSelectedQueueId()
 		{
-			if (grid.CurrentRow == null)
+			var row = gridQueue.CurrentRow;
+
+			if (row == null)
 				return null;
 
-			var item = grid.CurrentRow.DataBoundItem as SmsQueueItem;
+			var item = row.DataRow as SmsQueueItem;
 
 			return item != null ? item.ID : (long?)null;
 		}
 
-		private static void SelectById(DataGridView grid, long? id)
+		private void Run(Func<bool> action, string caption)
 		{
-			if (id == null)
-				return;
-
-			foreach (DataGridViewRow row in grid.Rows)
+			try
 			{
-				var item = row.DataBoundItem as SmsQueueItem;
-
-				if (item != null && item.ID == id.Value)
-				{
-					row.Selected = true;
-					return;
-				}
+				action();
+				ReloadAll();
 			}
-		}
-
-		// ==================================================================
-		// عملیات
-		// ==================================================================
-
-		private void OnRefresh(object sender, EventArgs e)
-		{
-			ReloadAll();
+			catch (Exception ex)
+			{
+				log.Error(ex);
+				MS_Message.Show(this, "خطا", "خطا در " + caption, ex.Message, MessageBoxButtons.OK);
+			}
 		}
 
 		private void ActOnSelected(Func<long, bool> action, string caption)
 		{
-			var id = GetSelectedId(_gridQueue);
+			var id = GetSelectedQueueId();
 
 			if (id == null)
 			{
-				ShowInfo("ابتدا یک ردیف از صف را انتخاب کنید.");
+				MS_Message.Show(this, "ابتدا یک ردیف از صف را انتخاب کنید.", "اطلاع");
 				return;
 			}
 
@@ -392,70 +330,127 @@ namespace SmsBan.UI
 
 		private void ChangePriority(SmsPriority priority)
 		{
-			var id = GetSelectedId(_gridQueue);
+			var id = GetSelectedQueueId();
 
 			if (id == null)
 			{
-				ShowInfo("ابتدا یک ردیف از صف را انتخاب کنید.");
+				MS_Message.Show(this, "ابتدا یک ردیف از صف را انتخاب کنید.", "اطلاع");
 				return;
 			}
 
 			Run(() => _service.ChangePriority(id.Value, priority), "تغییر اولویت");
 		}
+		#endregion
 
-		private void OnCancelSelected(object sender, EventArgs e)
+		#region Event Handlers
+
+		private void FormQueueManager_Load(object sender, EventArgs e)
 		{
-			var id = GetSelectedId(_gridQueue);
+			ReloadAll();
+
+			_timer = new Timer { Interval = 5000 };
+			_timer.Tick += Timer_Tick;
+			_timer.Start();
+		}
+
+		private void Timer_Tick(object sender, EventArgs e)
+		{
+			ReloadAll();
+		}
+
+		private void FormQueueManager_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			if (_timer == null)
+				return;
+
+			_timer.Stop();
+			_timer.Dispose();
+			_timer = null;
+		}
+
+		private void btnRefresh_Click(object sender, EventArgs e)
+		{
+			ReloadAll();
+		}
+
+		private void btnTop_Click(object sender, EventArgs e)
+		{
+			ActOnSelected(id => _service.MoveToTop(id), "انتقال به ابتدا");
+		}
+
+		private void btnUp_Click(object sender, EventArgs e)
+		{
+			ActOnSelected(id => _service.MoveUp(id), "انتقال به بالا");
+		}
+
+		private void btnDown_Click(object sender, EventArgs e)
+		{
+			ActOnSelected(id => _service.MoveDown(id), "انتقال به پایین");
+		}
+
+		private void btnBottom_Click(object sender, EventArgs e)
+		{
+			ActOnSelected(id => _service.MoveToBottom(id), "انتقال به انتها");
+		}
+
+		private void btnUrgent_Click(object sender, EventArgs e)
+		{
+			ChangePriority(SmsPriority.Urgent);
+		}
+
+		private void btnMedium_Click(object sender, EventArgs e)
+		{
+			ChangePriority(SmsPriority.Medium);
+		}
+
+		private void btnNormal_Click(object sender, EventArgs e)
+		{
+			ChangePriority(SmsPriority.Normal);
+		}
+
+		private void btnCancel_Click(object sender, EventArgs e)
+		{
+			var id = GetSelectedQueueId();
 
 			if (id == null)
 			{
-				ShowInfo("ابتدا یک ردیف از صف را انتخاب کنید.");
+				MS_Message.Show(this, "ابتدا یک ردیف از صف را انتخاب کنید.", "اطلاع");
 				return;
 			}
 
-			if (MessageBox.Show(this, "آیا این ردیف از صف لغو شود؟", "تأیید لغو",
-					MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+			var confirm = MS_Message.Show(this, "تأیید لغو", "تأیید لغو",
+				"آیا این ردیف از صف لغو شود؟", MessageBoxButtons.YesNo);
+
+			if (confirm != DialogResult.Yes)
 				return;
 
 			Run(() => _service.Cancel(id.Value), "لغو ردیف");
 		}
 
-		private void OnCancelAll(object sender, EventArgs e)
+		private void btnCancelAll_Click(object sender, EventArgs e)
 		{
-			if (MessageBox.Show(this, "تمام ردیف‌های در انتظار لغو شوند؟", "تأیید لغو گروهی",
-					MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
+			var confirm = MS_Message.Show(this, "تأیید لغو گروهی", "تأیید لغو گروهی",
+				"تمام ردیف‌های در انتظار لغو شوند؟", MessageBoxButtons.YesNo);
+
+			if (confirm != DialogResult.Yes)
 				return;
 
-			int count = 0;
-
-			Run(() =>
+			try
 			{
-				count = _service.CancelAllPending();
-				return true;
-			}, "لغو گروهی");
+				var count = _service.CancelAllPending();
 
-			ShowInfo(string.Format("{0} ردیف لغو شد.", count));
-		}
+				ReloadAll();
 
-		private void OnRetryFailed(object sender, EventArgs e)
-		{
-			var row = _gridArchive.CurrentRow;
-
-			if (row == null)
-			{
-				ShowInfo("ابتدا یک ردیف از آرشیو را انتخاب کنید.");
-				return;
+				MS_Message.Show(this, string.Format("{0} ردیف لغو شد.", count), "اطلاع");
 			}
-
-			var archiveRow = row.DataBoundItem as ArchiveRow;
-
-			if (archiveRow == null)
-				return;
-
-			Run(() => _service.RetryFailed(archiveRow.ID), "بازگشت به صف");
+			catch (Exception ex)
+			{
+				log.Error(ex);
+				MS_Message.Show(this, "خطا", "خطا در لغو گروهی", ex.Message, MessageBoxButtons.OK);
+			}
 		}
 
-		private void OnPauseResume(object sender, EventArgs e)
+		private void btnPauseResume_Click(object sender, EventArgs e)
 		{
 			try
 			{
@@ -469,16 +464,16 @@ namespace SmsBan.UI
 			catch (Exception ex)
 			{
 				log.Error(ex);
-				ShowInfo("خطا: " + ex.Message);
+				MS_Message.Show(this, "خطا", "خطا در تغییر وضعیت ارسال", ex.Message, MessageBoxButtons.OK);
 			}
 		}
 
-		private void OnShowStatus(object sender, EventArgs e)
+		private void btnStatus_Click(object sender, EventArgs e)
 		{
 			try
 			{
-				var status = _service.GetModemStatus();
-				var quota = _service.GetQuota();
+				var status	= _service.GetModemStatus();
+				var quota	= _service.GetQuota();
 
 				var text = string.Format(
 					"مودم: {0}\r\nنسخه نرم‌افزار: {1}\r\nاتصال: {2}   آماده: {3}\r\nآنتن: {4}\r\n" +
@@ -500,47 +495,43 @@ namespace SmsBan.UI
 					quota.DayUsed, quota.DayLimit, quota.DayRemaining,
 					status.LastError);
 
-				MessageBox.Show(this, text, "وضعیت مودم", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MS_Message.Show(this, "وضعیت مودم", "وضعیت مودم", text, MessageBoxButtons.OK);
 			}
 			catch (Exception ex)
 			{
 				log.Error(ex);
-				ShowInfo("خطا: " + ex.Message);
+				MS_Message.Show(this, "خطا", "خطا در خواندن وضعیت", ex.Message, MessageBoxButtons.OK);
 			}
 		}
 
-		private void Run(Func<bool> action, string caption)
+		private void cmbArchiveStatus_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			try
+			if (_suppressReload)
+				return;
+
+			ReloadArchive();
+		}
+
+		private void btnRetry_Click(object sender, EventArgs e)
+		{
+			var row = gridArchive.CurrentRow;
+
+			if (row == null)
 			{
-				action();
-				ReloadAll();
+				MS_Message.Show(this, "ابتدا یک ردیف از آرشیو را انتخاب کنید.", "اطلاع");
+				return;
 			}
-			catch (Exception ex)
-			{
-				log.Error(ex);
-				ShowInfo(string.Format("خطا در {0}:\r\n{1}", caption, ex.Message));
-			}
+
+			var archiveRow = row.DataRow as ArchiveRow;
+
+			if (archiveRow == null)
+				return;
+
+			Run(() => _service.RetryFailed(archiveRow.ID), "بازگشت به صف");
 		}
 
-		private void ShowInfo(string message)
-		{
-			MessageBox.Show(this, message, "اطلاع", MessageBoxButtons.OK, MessageBoxIcon.Information);
-		}
-
-		/// <summary>ردیف قابل نمایش آرشیو.</summary>
-		private class ArchiveRow
-		{
-			public long		ID				{ get; set; }
-			public string	StatusText		{ get; set; }
-			public string	PhoneNumber		{ get; set; }
-			public string	MessageText		{ get; set; }
-			public int		PageCount		{ get; set; }
-			public string	CreatedAtShamsi	{ get; set; }
-			public string	SentAtShamsi	{ get; set; }
-			public string	SmsReference	{ get; set; }
-			public string	IsDelivered		{ get; set; }
-			public string	ErrorMessage	{ get; set; }
-		}
+		#endregion
+		#region Nested Types
+		#endregion
 	}
 }

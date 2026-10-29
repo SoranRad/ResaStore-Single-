@@ -145,7 +145,11 @@ namespace SmsBan.Core
 		/// </summary>
 		public int		LeaseSeconds			{ get; set; }
 
-		/// <summary>اگر true باشد، پس از خواندن موفق هر پیامک، از حافظه‌ی مودم حذف می‌شود.</summary>
+		/// <summary>
+		/// اگر true باشد، هر پیامکی که خوانده و ذخیره‌اش در بانک تأیید شود
+		/// از حافظه‌ی مودم پاک می‌شود.
+		/// پیامکی که ذخیره نشده باشد در حافظه باقی می‌ماند.
+		/// </summary>
 		public bool		DeleteAfterRead			{ get; set; }
 
 		/// <summary>حداکثر تعداد پیامکی که در هر دور خواندن از مودم بررسی می‌شود.</summary>
@@ -163,7 +167,7 @@ namespace SmsBan.Core
 			MaxSmsPerMinute			= 50;
 			CharsPerPage			= SmsPageCalculator.DefaultCharsPerPage;
 			CountryCode				= "98";
-			DeviceNumber			= 1;
+			DeviceNumber			= 0;
 			SmsValidity				= (int)SmsValidityPeriod.Maximum;
 			PartSendIntervalMs		= 1000;
 			ModemRetryCount			= 2;
@@ -173,7 +177,7 @@ namespace SmsBan.Core
 			MaxRetryCount			= 3;
 			SendPollIntervalMs		= 1000;
 			LeaseSeconds			= 60;
-			DeleteAfterRead			= false;
+			DeleteAfterRead			= true;
 			MaxReadPerCycle			= 500;
 		}
 

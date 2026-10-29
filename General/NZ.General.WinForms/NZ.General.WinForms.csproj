@@ -643,13 +643,14 @@
       <DependentUpon>FormSmsTemplate.cs</DependentUpon>
     </Compile>
     <Compile Include="Sms\Messaging.cs" />
-    <Compile Include="Sms\SendSms.cs" />
+    <Compile Include="Sms\ModemSmsSender.cs" />
     <Compile Include="Sms\SmsTemplateContainer.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Sms\SmsTemplateContainer.Designer.cs">
       <DependentUpon>SmsTemplateContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sms\UsraServiceSmsSender.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Web.WebView2">

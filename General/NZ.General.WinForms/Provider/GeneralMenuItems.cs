@@ -17,8 +17,8 @@ using NZ.General.WinForms.Misc;
 using NZ.General.WinForms.Report;
 using NZ.General.WinForms.Setting;
 using NZ.General.WinForms.Sms;
-using ShareLib.Utils;
-using ShareLib.ViewModel;
+using ShareLib.Utils; 
+using SmsBan.UI;
 
 namespace NZ.General.WinForms.Provider
 {
@@ -44,6 +44,12 @@ namespace NZ.General.WinForms.Provider
         public void     SetMenu                    ()
         {
             //NzActivation.Visible = false;
+        }
+
+        public void HideModemMenu()
+        {
+	        NsSmsMenu.Visible = false;
+
         }
 
         private void    ms_salmali_Click           (object sender, EventArgs e)
@@ -229,6 +235,37 @@ namespace NZ.General.WinForms.Provider
 		{
 			var frm = new FormSmsTemplate();
 			frm.ShowDialog(GeneralProvider.MainForm);
+		}
+
+		private void NaQueueMangerMnu_Click(object sender, EventArgs e)
+		{
+			if (!ModemSmsSender.IsReady)
+			{
+				MS_Message.Show("سرویس مودم فعال نیست.");
+				return;
+			}
+
+			var frm = new FormQueueMonitor(ModemSmsSender.Service);
+			frm.MdiParent = GeneralProvider.MainForm;
+			frm.Show();
+		}
+
+		private void NsChat_Click(object sender, EventArgs e)
+		{
+			if (!ModemSmsSender.IsReady)
+			{
+				MS_Message.Show("سرویس مودم فعال نیست.");
+				return;
+			}
+
+			var frm         = new FormArchive(ModemSmsSender.Service);
+			frm.MdiParent   = GeneralProvider.MainForm;
+			frm.Show();
+		}
+
+		private void NsModemConfig_Click(object sender, EventArgs e)
+		{
+			new FormConfigModem().ShowDialog(GeneralProvider.MainForm);
 		}
 	}
 	}

@@ -1,6 +1,7 @@
 ﻿using Janus.Windows.GridEX;
 using MS_Control;
 using NZ.General.WinForms.Sms;
+using ShareLib.Sms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +23,8 @@ namespace Nz.Anbar.WinForms.Sms
 			var tmp = Cell.Image;
 			Cell.Image = MS_Resource.GlobalResources.refresh;
 
-
-			var sendSms = new SendSms();
-			var r = await sendSms.SendFactorAlarm(
+			 
+			var r = await SmsSenderFactory.Current.SendFactorAlarm(
 
 				PhoneNumber,
 				NAME,

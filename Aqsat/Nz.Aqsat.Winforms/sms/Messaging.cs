@@ -1,14 +1,15 @@
-﻿using System;
+﻿using Janus.Windows.GridEX;
+using MS_Control;
+using Nz.Aqsat.WinForms.Settings;
+using NZ.General.WinForms.Sms;
+using ShareLib.Sms;
+using ShareLib.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Janus.Windows.GridEX;
-using MS_Control;
-using Nz.Aqsat.WinForms.Settings;
-using NZ.General.WinForms.Sms;
-using ShareLib.Utils;
 
 namespace Nz.Aqsat.Winforms.sms
 {
@@ -26,11 +27,8 @@ namespace Nz.Aqsat.Winforms.sms
 			Cell.Image	= MS_Resource.GlobalResources.refresh;
 			Count		= Converter.ConvertToPersian(Convert.ToInt32(Count));
 
-			//bool r= new Random().Next(10)/2 == 0;
-			//await Task.Delay(1500);
-
-			var sendSms = new SendSms();
-			var r = await sendSms.SendSarResidQest(
+			 
+			var r = await SmsSenderFactory.Current.SendSarResidQest(
 
 				PhoneNumber,
 				Customer,
@@ -58,15 +56,10 @@ namespace Nz.Aqsat.Winforms.sms
 
 	    public async Task SendAqsatMande(GridEXCell Cell, long PhoneNumber, string Customer, string Count, string AGHSATTITLE, string Date, string Amount)
 
-	    {
-		    //var tmp = Cell.Image;
+	    { 
 		    Cell.Image = MS_Resource.GlobalResources.refresh;
-
-			//bool r = new Random().Next(10) / 2 == 0;
-			//await Task.Delay(1500);
-
-			var sendSms = new SendSms();
-			var r = await sendSms.SendAqsatMande(
+			 
+			var r = await SmsSenderFactory.Current.SendAqsatMande(
 
 			 PhoneNumber,
 			 Customer,
