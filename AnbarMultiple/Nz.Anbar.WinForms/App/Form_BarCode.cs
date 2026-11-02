@@ -884,12 +884,11 @@ namespace Nz.Anbar.WinForms.App
 	        {
 		        _Bind.RemoveTempRow();
 	        }
-	        catch (Exception exception)
-	        {
-
-
-	        }
-        }
+			catch (Exception ex)
+			{
+				log.Error(ex);
+			}
+		}
         #endregion
         #region TextBox Events
         private void EditTextBoxOnKeyPress          (object sender, KeyPressEventArgs e)

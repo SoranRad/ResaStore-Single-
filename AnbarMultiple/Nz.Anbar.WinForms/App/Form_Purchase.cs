@@ -103,7 +103,14 @@ namespace Nz.Anbar.WinForms.App
 
             NzPayment.Visible               = Form_Factory.IsSystemValid(Enums.MS_System.Xazane);
             NzCustomer.Refresh_Grid         (_Manager.Connection,KindCustomer);
-            NzAnbar.Refresh_Anbar           ();
+
+            //=====  ویزیتور
+            if (_Kind == Enums.NzFactorKind.Frosh)
+	            NsVisitor.Refresh_Grid(_Manager.Connection, 3);
+            else
+	            NsVisitorGroup.Visible = false;
+
+			NzAnbar.Refresh_Anbar           ();
             NzAnbar.MS_On_Row_Selected +=NzAnbar_On_Selected;
             if (NzAnbar.MS_Get_Selected() != null)
             {
@@ -205,7 +212,19 @@ namespace Nz.Anbar.WinForms.App
                 NzTaxPrice.Text             = (_Factor?.FactorDetail?.mablaq_Maliat ?? 0).ToString(_FormatString);
                 NzNoRemainEffect.Checked    = _Factor.NoRemainEffect;
 
-                if (_Factor?.FactorDetail?.tarikh_etebar.HasValue == true)
+                //=========== ارسال سفارش
+                NsAddressGirande.Text = _Factor?.FactorDetail?.AddressGirande;
+                NsMobileGirande.Text = _Factor?.FactorDetail?.MobileGirande;
+                NsTitleGirande.Text = _Factor?.FactorDetail?.TitleGirande;
+                NsSendToGirande.Checked = _Factor?.FactorDetail?.Sent ?? false; 
+
+                //=========== ویزیتور 
+                NsVisitorPercent.Text = (_Factor?.FactorDetail?.Darsad_Porsant ?? 0).ToString(_FormatString);
+                if (_Factor?.FactorDetail?.FK_Vaset != null)
+	                NsVisitor.MS_Set_Select(_Factor?.FactorDetail?.FK_Vaset ?? 0);
+
+
+				if (_Factor?.FactorDetail?.tarikh_etebar.HasValue == true)
 	                NsMohlatTasvieh.MS_Tarikh = new MS_Structure_Shamsi(_Factor?.FactorDetail?.tarikh_etebar);
 
                 if (_Factor.FK_Mabna != null)
@@ -267,9 +286,10 @@ namespace Nz.Anbar.WinForms.App
                     || NsSendToGirande.Checked
                     || NsMohlatTasvieh.MS_Tarikh.HasValue
 	                || _Factor.ID > 0
-                    
-                )
-                {
+					|| NsVisitor.MS_Get_Selected() != null
+
+				)
+				{
 	                if (_Factor.FactorDetail == null)
 	                {
 		                _Factor.FactorDetail = new FactorDetail()
@@ -393,7 +413,17 @@ namespace Nz.Anbar.WinForms.App
             NzRemain.MS_Decimal         = 0;
             NzSerial.Focus();
 
-            _DoRefresh                  = true;
+			//=========== ارسال سفارش
+			NsAddressGirande.Text =
+				NsMobileGirande.Text =
+					NsTitleGirande.Text = "";
+			NsSendToGirande.Checked = false;
+
+			//=========== ویزیتور 
+			NsVisitorPercent.Text = (0).ToString(_FormatString);
+			NsVisitor.MS_Set_Select(null);
+
+			_DoRefresh                  = true;
         }
         private void ShowMenu                       ()
         {
@@ -892,10 +922,9 @@ namespace Nz.Anbar.WinForms.App
 
                         if (result == DialogResult.No)
                         {
-                            e.Cancel = true;
-                            e.Value = e.InitialValue;
-                            //NzGrid.Refresh();
-                        }
+							NzGrid.CurrentColumn = e.Column;
+							e.Cancel = true;
+						}
                     }
                 }
 
@@ -933,12 +962,11 @@ namespace Nz.Anbar.WinForms.App
 	        {
 		        _Bind.RemoveTempRow();
 	        }
-	        catch (Exception exception)
-	        {
-
-
-	        }
-        }
+			catch (Exception ex)
+			{
+				log.Error(ex);
+			}
+		}
         #endregion
         #region TextBox Events
         private void EditTextBoxOnKeyPress          (object sender, KeyPressEventArgs e)

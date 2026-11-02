@@ -38,7 +38,7 @@ INNER JOIN	Base.tbl_GroupKala_2th	AS tgk	ON tgk.Code		= tkx.FK_GroupKala_2th
 INNER JOIN	Base.tbl_GroupKala_1th	AS tgk2 ON tgk2.Code	= tgk.FK_GroupKala_1th
 
 WHERE 
-	        tat.FK_Salmali= 1402
+	     tat.FK_Salmali= @Year
          AND 
          (
                 (tat.kind >= 11  AND tat.kind <= 100 AND tat.FK_Anbar_Az = @Anbar)
@@ -46,14 +46,16 @@ WHERE
         )  
         AND tkx.point_bohrani > 0 
         AND tkx.kind = 1
+
 GROUP BY 
-tgk.FK_GroupKala_1th,
-tkx.FK_GroupKala_2th,
-tkx.Code,
-RTRIM(RTRIM(tkx.title)) ,
-RTRIM(RTRIM(tgk.title)) ,
-RTRIM(RTRIM(tgk2.title)),
-tkx.point_bohrani
+
+        tgk.FK_GroupKala_1th,
+        tkx.FK_GroupKala_2th,
+        tkx.Code,
+        RTRIM(RTRIM(tkx.title)) ,
+        RTRIM(RTRIM(tgk.title)) ,
+        RTRIM(RTRIM(tgk2.title)),
+        tkx.point_bohrani
 
 ");
 

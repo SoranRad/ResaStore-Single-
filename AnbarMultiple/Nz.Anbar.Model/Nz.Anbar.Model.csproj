@@ -99,6 +99,7 @@
     <Compile Include="Report\CircularObject.cs" />
     <Compile Include="Report\CircularOfLocation.cs" />
     <Compile Include="Report\FactorDetails.cs" />
+    <Compile Include="Report\FactorReminder.cs" />
     <Compile Include="Report\ObjectRemaindOnDate.cs" />
     <Compile Include="Report\PishFrosh\FactorVaHavalePishFroshYekShaxs.cs" />
     <Compile Include="Report\PishFrosh\PishFoshFactor.cs" />

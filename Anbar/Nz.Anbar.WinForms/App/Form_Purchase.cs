@@ -421,6 +421,17 @@ namespace Nz.Anbar.WinForms.App
             NzSerial.Focus();
             NzKindSale.SelectedIndex    = 0;
 
+            //=========== ارسال سفارش
+            NsAddressGirande.Text =
+                NsMobileGirande.Text =
+                    NsTitleGirande.Text = "";
+            NsSendToGirande.Checked = false;
+
+            //=========== ویزیتور 
+            NsVisitorPercent.Text = (0).ToString(_FormatString);
+            NsVisitor.MS_Set_Select(null);
+
+
             _DoRefresh                  = true;
         }
         private void ShowMenu                       ()
@@ -993,11 +1004,10 @@ namespace Nz.Anbar.WinForms.App
                 
 		        _Bind.RemoveTempRow();
 	        }
-	        catch (Exception exception)
-	        {
-
-
-	        }
+	         catch (Exception ex)
+            {
+                log.Error(ex);
+            }
         }
         #endregion
         #region TextBox Events

@@ -30,7 +30,7 @@ namespace Nz.Aqsat.Model.Models
 		[NotMapped]
 		public bool								CanModifyOrDelete		=> (ID == 0 || (ID>0 && !isPardaxt));
 		[NotMapped]								
-		public string							isPardaxtTitle			=> this.isPardaxt?"تسوسه شده":"مانده";
+		public string							isPardaxtTitle			=> this.isPardaxt?"تسویه شده":"مانده";
 
 
 

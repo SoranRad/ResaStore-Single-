@@ -447,10 +447,17 @@ namespace Nz.Anbar.WinForms.App
 
                 if (NzGrid.CurrentRow.RowType == RowType.NewRecord)
                 {
-                    NzGrid.CancelCurrentEdit();
-                    NzGrid.CurrentRow.CancelEdit();
-                    return;
-                }
+					NzGrid.CancelCurrentEdit();
+					NzGrid.CurrentRow.CancelEdit();
+
+					var item = NzGrid.CurrentRow.DataRow as FactorItem;
+					if (item != null)
+						_Bind.Remove(item);
+					else
+						_Bind.RemoveLast();
+
+					return;
+				}
                 var row = NzGrid.CurrentRow.DataRow as FactorItem;
                 if (row?.ID > 0)
                 {

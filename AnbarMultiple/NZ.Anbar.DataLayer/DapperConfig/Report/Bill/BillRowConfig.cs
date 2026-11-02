@@ -89,6 +89,29 @@ LEFT OUTER JOIN General.DimDate     AS dd   ON dd.GregorianDate = tat.tarikh
 WHERE tat.FK_Salmali=@Year and tat.FK_AshXas_ID =@People AND tatd.mablaq_Maliat > 0
 AND (tat.kind>=11 AND tat.kind<=55)
 
+UNION ALL
+
+SELECT tat.ID ,
+       (tatd.Darsad_Porsant) AS meqdar ,
+       tat.Serial,
+       (0)AS nerkh ,
+       (ISNULL(tatd.Darsad_Porsant,0)*tat.mablaq/100) AS mablaq ,
+       N'پورسانت فروش' AS ObjectTitle,
+       dd.PersianStr,
+       tat.tarikh,
+       (3) AS kind
+
+	     
+FROM Anbar.tbl_Amaliat_Title                AS tat  
+INNER JOIN Anbar.tbl_Amaliat_Title_Detail   AS tatd ON  tat.ID = tatd.ID
+LEFT OUTER JOIN General.DimDate     AS dd   ON dd.GregorianDate = tat.tarikh 
+
+WHERE 
+    tat.FK_Salmali      = @Year 
+AND tatd.FK_Vaset       = @People 
+AND tatd.Darsad_Porsant > 0
+AND tat.kind = 50 
+
 ");
 		}
 	}

@@ -167,6 +167,11 @@ namespace Nz.Bar.Winforms.Provider
 	        return null;
         }
 
+        public NsSmsTemplateTabPage[] GetSmsTemplateTabPages()
+        {
+	        return null;
+        }
+
         public bool HasSrtartupForm()
         {
 			return false;
@@ -185,8 +190,16 @@ namespace Nz.Bar.Winforms.Provider
         public async Task<T> GetPartnerReportItem<T>(DateTime? Start, DateTime? End, params long[] Ids) where T : class
         {
 	        return null;
-
         }
 
-	}
+        public async Task InitionalizeModule()
+        {
+	        
+        }
+
+        public async Task FinalitionliozeModule()
+        {
+	        
+        }
+    }
 }

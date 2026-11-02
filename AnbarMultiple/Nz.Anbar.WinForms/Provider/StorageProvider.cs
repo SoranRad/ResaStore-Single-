@@ -225,7 +225,7 @@ namespace Nz.Anbar.WinForms.Provider
         }
         public UITabPage[]                    GetAlarmsTabPage           ()
         {
-            return new UITabPage[]{_storageAlarm.GetTabPage()};
+            return _storageAlarm.GetTabPage().ToArray();
         }
 
         public async Task<MS_Chart[]>       GetChartSummarry    ()
@@ -289,6 +289,11 @@ namespace Nz.Anbar.WinForms.Provider
 			return _settings;
 		}
 
+		public NsSmsTemplateTabPage[] GetSmsTemplateTabPages()
+		{
+			return null;
+		}
+
 		public bool HasSrtartupForm()
 		{
 			return false;
@@ -307,6 +312,16 @@ namespace Nz.Anbar.WinForms.Provider
 		{
 			return null;
 
+		}
+
+		public async Task InitionalizeModule()
+		{
+			 
+		}
+
+		public async Task FinalitionliozeModule()
+		{
+			 
 		}
 
 		#endregion

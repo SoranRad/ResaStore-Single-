@@ -113,22 +113,22 @@ UNION ALL
 
 SELECT 
 
-(1)			AS Subsystem,
-tat.kind	AS Kind ,
-N'انبار(خریدو فروش)' AS SubsystemTitle,
-NULL AS Code ,
-N'مالیات' AS Title,
-NULL  AS Count,
+    (1)			AS Subsystem,
+    tat.kind	AS Kind ,
+    N'انبار(خریدو فروش)' AS SubsystemTitle,
+    NULL AS Code ,
+    N'مالیات' AS Title,
+    NULL  AS Count,
 
-SUM(
-(CASE WHEN tat.kind >=12 AND tat.kind<50 THEN 0
-ELSE tatd.mablaq_Maliat END)
-) AS Debit,
+    SUM(
+    (CASE WHEN tat.kind >=12 AND tat.kind<50 THEN 0
+    ELSE tatd.mablaq_Maliat END)
+    ) AS Debit,
 
-SUM(
-(CASE WHEN tat.kind >=12 AND tat.kind<50 THEN tatd.mablaq_Maliat
-ELSE 0 END)
-) AS Credit
+    SUM(
+    (CASE WHEN tat.kind >=12 AND tat.kind<50 THEN tatd.mablaq_Maliat
+    ELSE 0 END)
+    ) AS Credit
 
 
 FROM Anbar.tbl_Amaliat_Title_Detail AS tatd
@@ -141,6 +141,36 @@ AND (tat.tarikh>=@DateFrom OR @DateFrom IS NULL)
 AND (tat.tarikh<=@DateTo   OR @DateTo   IS NULL)
 AND (tat.kind>=12 AND tat.kind<=100)
 GROUP BY tat.kind
+
+UNION ALL
+
+SELECT 
+
+    (1)			AS Subsystem,
+    (3)	        AS Kind ,
+    N'انبار(خریدو فروش)' AS SubsystemTitle,
+    NULL AS Code ,
+    N'پورسانت فروش' AS Title,
+    COUNT(distinct tat.ID)  AS Count,
+
+    (0) AS Debit,
+
+    SUM(ISNULL(tatd.Darsad_Porsant,0)*tat.mablaq/100) AS Credit
+
+
+FROM Anbar.tbl_Amaliat_Title_Detail AS tatd
+INNER JOIN Anbar.tbl_Amaliat_Title	AS tat ON tat.ID = tatd.ID
+
+WHERE 
+    (tat.FK_Salmali = @Year OR @Year IS NULL)
+AND tatd.FK_Vaset = @People 
+AND (tat.tarikh >= @DateFrom OR @DateFrom IS NULL)
+AND (tat.tarikh <= @DateTo   OR @DateTo   IS NULL)
+AND tat.kind = 50
+
+GROUP BY tat.kind
+
+
 
 ");
 

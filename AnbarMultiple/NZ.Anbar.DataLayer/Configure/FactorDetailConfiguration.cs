@@ -14,9 +14,6 @@ namespace NZ.Anbar.DataLayer.Configure
         {
             this.ToTable    ("Anbar.tbl_Amaliat_Title_Detail");
 
-            //this.HasRequired(x=>x.FactorHead)
-            //    .WithRequiredPrincipal()
-
             this
                 .Property   (e => e.Darsad_Maliat)
                 .HasPrecision(6, 2);
