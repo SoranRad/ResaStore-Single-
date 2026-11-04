@@ -144,8 +144,14 @@ namespace SmsBan.Core
 
 		private readonly SmsBanOptions	_options;
 		private readonly ModemGateway	_modem;
+		private readonly SmsStateNotifier _notifier;
 
 		public SmsInboxService(SmsBanOptions options, ModemGateway modem)
+			: this(options, modem, null)
+		{
+		}
+
+		public SmsInboxService(SmsBanOptions options, ModemGateway modem, SmsStateNotifier notifier)
 		{
 			if (options == null)
 				throw new ArgumentNullException("options");
@@ -155,6 +161,16 @@ namespace SmsBan.Core
 
 			_options	= options;
 			_modem		= modem;
+			_notifier	= notifier;
+		}
+
+		/// <summary>انتشار رخداد وضعیت؛ اگر پخش‌کننده‌ای تنظیم نشده باشد کاری نمی‌کند.</summary>
+		private void Notify(SmsStateKind kind, string message)
+		{
+			if (_notifier == null)
+				return;
+
+			_notifier.Raise(kind, message, null, _modem.Status.DeviceInfo);
 		}
 
 		private SmsBanContext CreateContext()
@@ -173,6 +189,9 @@ namespace SmsBan.Core
 			if (!_modem.Status.DeviceFound)
 			{
 				log.Warn("خواندن پیامک انجام نشد؛ مودم شناسایی نشد.");
+
+				Notify(SmsStateKind.Error, "خواندن پیامک انجام نشد؛ مودم شناسایی نشد.");
+
 				return 0;
 			}
 
@@ -212,6 +231,12 @@ namespace SmsBan.Core
 
 			if (deleted > 0)
 				log.InfoFormat("{0} پیامک پس از ذخیره از حافظه‌ی مودم پاک شد.", deleted);
+
+			if (saved > 0)
+			{
+				Notify(SmsStateKind.Success,
+					string.Format("{0} پیامک جدید دریافت و در بانک ذخیره شد.", saved));
+			}
 
 			return saved;
 		}
@@ -373,6 +398,9 @@ namespace SmsBan.Core
 						db.SaveChanges();
 
 						log.InfoFormat("{0} پیامک بر اساس گزارش تحویل، «تحویل‌شده» علامت خورد.", updated);
+
+						Notify(SmsStateKind.Success,
+							string.Format("گزارش تحویل برای {0} پیامک دریافت شد.", updated));
 					}
 				}
 			}

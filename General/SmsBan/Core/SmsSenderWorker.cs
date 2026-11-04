@@ -37,6 +37,7 @@ namespace SmsBan.Core
 		private readonly SmsBanOptions	_options;
 		private readonly ModemGateway	_modem;
 		private readonly SmsRateLimiter	_limiter;
+		private readonly SmsStateNotifier _notifier;
 
 		private Thread					_thread;
 		private volatile bool			_stopping;
@@ -46,6 +47,11 @@ namespace SmsBan.Core
 		private DateTime				_waitUntil = DateTime.MinValue;
 
 		public SmsSenderWorker(SmsBanOptions options, ModemGateway modem)
+			: this(options, modem, null)
+		{
+		}
+
+		public SmsSenderWorker(SmsBanOptions options, ModemGateway modem, SmsStateNotifier notifier)
 		{
 			if (options == null)
 				throw new ArgumentNullException("options");
@@ -56,6 +62,7 @@ namespace SmsBan.Core
 			_options	= options;
 			_modem		= modem;
 			_limiter	= new SmsRateLimiter(options);
+			_notifier	= notifier;
 		}
 
 		/// <summary>شناسه‌ی این نمونه، برای مالکیت ارسال.</summary>
@@ -205,12 +212,26 @@ namespace SmsBan.Core
 			if (!_modem.EnsureConnected())
 			{
 				log.Warn("مودم در دسترس نیست؛ ارسال به بعد موکول شد.");
+
+				Notify(
+					SmsStateKind.Error,
+					string.Format("اتصال به مودم برقرار نشد: {0}",
+						string.IsNullOrWhiteSpace(_modem.Status.LastError)
+							? "مودم در دسترس نیست."
+							: _modem.Status.LastError),
+					null);
+
 				_waitUntil = DateTime.Now.AddSeconds(5);
 				return false;
 			}
 
 			if (!wasConnected)
 			{
+				Notify(
+					SmsStateKind.Success,
+					string.Format("اتصال به مودم برقرار شد ({0}).", _modem.Status.DeviceInfo),
+					null);
+
 				try
 				{
 					using (var db = CreateContext())
@@ -342,11 +363,48 @@ namespace SmsBan.Core
 			var duration = (int)(DateTime.Now - attemptStart).TotalMilliseconds;
 
 			if (result.Success)
+			{
 				CompleteItem(db, item, reference, attemptStart, duration);
+
+				Notify(
+					SmsStateKind.Success,
+					string.Format("پیامک به {0} ارسال شد ({1} صفحه).", item.PhoneNumber, item.PageCount),
+					item.PhoneNumber);
+			}
 			else
+			{
 				FailItem(db, item, result, attemptStart, duration);
 
+				var reason = string.IsNullOrWhiteSpace(result.ErrorCode)
+					? result.Message
+					: string.Format("{0} (کد {1})", result.Message, result.ErrorCode);
+
+				if (result.NotConnected)
+				{
+					Notify(
+						SmsStateKind.Warning,
+						string.Format("ارسال به {0} به تعویق افتاد؛ مودم در دسترس نیست.", item.PhoneNumber),
+						item.PhoneNumber);
+				}
+				else
+				{
+					Notify(
+						SmsStateKind.Error,
+						string.Format("ارسال پیامک به {0} ناموفق بود: {1}", item.PhoneNumber, reason),
+						item.PhoneNumber);
+				}
+			}
+
 			return true;
+		}
+
+		/// <summary>انتشار رخداد وضعیت؛ اگر پخش‌کننده‌ای تنظیم نشده باشد کاری نمی‌کند.</summary>
+		private void Notify(SmsStateKind kind, string message, string phoneNumber)
+		{
+			if (_notifier == null)
+				return;
+
+			_notifier.Raise(kind, message, phoneNumber, _modem.Status.DeviceInfo);
 		}
 
 		/// <summary>

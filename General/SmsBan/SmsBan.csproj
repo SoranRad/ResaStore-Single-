@@ -189,6 +189,7 @@
     <Compile Include="Core\SmsConversationService.cs" />
     <Compile Include="Core\SmsContactService.cs" />
     <Compile Include="Core\SmsReferenceParser.cs" />
+    <Compile Include="Core\SmsStateNotification.cs" />
     <Compile Include="Core\SmsBanService.cs" />
     <!-- رابط کاربری -->
     <Compile Include="UI\ArchiveRow.cs" />

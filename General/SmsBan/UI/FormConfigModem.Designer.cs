@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
+			this.components = new System.ComponentModel.Container();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.groupBox25 = new System.Windows.Forms.GroupBox();
@@ -324,7 +325,7 @@
 			this.ComboBox1 = new System.Windows.Forms.ComboBox();
 			this.label18 = new System.Windows.Forms.Label();
 			this.BitBtn5 = new System.Windows.Forms.Button();
-			this.Timer1 = new System.Windows.Forms.Timer();
+			this.Timer1 = new System.Windows.Forms.Timer(this.components);
 			this.groupBox22 = new System.Windows.Forms.GroupBox();
 			this.CheckBox_R_Buffer = new System.Windows.Forms.CheckBox();
 			this.label53 = new System.Windows.Forms.Label();
@@ -336,11 +337,11 @@
 			this.BufClearBitBtn = new System.Windows.Forms.Button();
 			this.LastBufEdit = new System.Windows.Forms.TextBox();
 			this.LastBufBitBtn = new System.Windows.Forms.Button();
-			this.timer2 = new System.Windows.Forms.Timer();
+			this.timer2 = new System.Windows.Forms.Timer(this.components);
 			this.StatusBar1 = new System.Windows.Forms.StatusStrip();
 			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-			this.timer3 = new System.Windows.Forms.Timer();
-			this.timer4 = new System.Windows.Forms.Timer();
+			this.timer3 = new System.Windows.Forms.Timer(this.components);
+			this.timer4 = new System.Windows.Forms.Timer(this.components);
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.groupBox25.SuspendLayout();
@@ -1341,7 +1342,7 @@
 			// 
 			this.Chbox_StopSend.AutoSize = true;
 			this.Chbox_StopSend.Font = new System.Drawing.Font("IRANSans(Small)", 12F);
-			this.Chbox_StopSend.Location = new System.Drawing.Point(34, 368);
+			this.Chbox_StopSend.Location = new System.Drawing.Point(75, 365);
 			this.Chbox_StopSend.Margin = new System.Windows.Forms.Padding(2);
 			this.Chbox_StopSend.Name = "Chbox_StopSend";
 			this.Chbox_StopSend.Size = new System.Drawing.Size(81, 24);
@@ -1921,10 +1922,10 @@
 			this.tabPage3.Controls.Add(this.groupBox16);
 			this.tabPage3.Controls.Add(this.groupBox3);
 			this.tabPage3.Controls.Add(this.groupBox18);
-			this.tabPage3.Location = new System.Drawing.Point(4, 29);
+			this.tabPage3.Location = new System.Drawing.Point(4, 30);
 			this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
 			this.tabPage3.Name = "tabPage3";
-			this.tabPage3.Size = new System.Drawing.Size(884, 494);
+			this.tabPage3.Size = new System.Drawing.Size(884, 493);
 			this.tabPage3.TabIndex = 2;
 			this.tabPage3.Text = "خواندن پیامک";
 			this.tabPage3.UseVisualStyleBackColor = true;
@@ -2245,7 +2246,7 @@
 			this.groupBox18.Controls.Add(this.label38);
 			this.groupBox18.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.groupBox18.Font = new System.Drawing.Font("IRANSans(Small)", 12F);
-			this.groupBox18.Location = new System.Drawing.Point(0, 96);
+			this.groupBox18.Location = new System.Drawing.Point(0, 95);
 			this.groupBox18.Margin = new System.Windows.Forms.Padding(2);
 			this.groupBox18.Name = "groupBox18";
 			this.groupBox18.Padding = new System.Windows.Forms.Padding(2);
@@ -2572,10 +2573,10 @@
 			this.tabPage4.Controls.Add(this.dataGridView1);
 			this.tabPage4.Controls.Add(this.richTextBox1);
 			this.tabPage4.Controls.Add(this.groupBox29);
-			this.tabPage4.Location = new System.Drawing.Point(4, 29);
+			this.tabPage4.Location = new System.Drawing.Point(4, 30);
 			this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
 			this.tabPage4.Name = "tabPage4";
-			this.tabPage4.Size = new System.Drawing.Size(884, 494);
+			this.tabPage4.Size = new System.Drawing.Size(884, 493);
 			this.tabPage4.TabIndex = 3;
 			this.tabPage4.Text = "خواندن تمام پیامک ذخیره شده";
 			this.tabPage4.UseVisualStyleBackColor = true;
@@ -2602,14 +2603,14 @@
 			this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
 			this.dataGridView1.Location = new System.Drawing.Point(0, 218);
 			this.dataGridView1.Name = "dataGridView1";
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSans(Small)", 12F);
-			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSans(Small)", 12F);
+			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.dataGridView1.Size = new System.Drawing.Size(884, 268);
 			this.dataGridView1.TabIndex = 4;
 			// 
@@ -2776,10 +2777,10 @@
 			this.tabPage5.Controls.Add(this.RichEdit1_GetCID);
 			this.tabPage5.Controls.Add(this.groupBox30);
 			this.tabPage5.Controls.Add(this.groupBox2);
-			this.tabPage5.Location = new System.Drawing.Point(4, 29);
+			this.tabPage5.Location = new System.Drawing.Point(4, 30);
 			this.tabPage5.Name = "tabPage5";
 			this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage5.Size = new System.Drawing.Size(884, 494);
+			this.tabPage5.Size = new System.Drawing.Size(884, 493);
 			this.tabPage5.TabIndex = 4;
 			this.tabPage5.Text = "تماس و کالر آی دی";
 			this.tabPage5.UseVisualStyleBackColor = true;
@@ -2787,7 +2788,7 @@
 			// RichEdit1_GetCID
 			// 
 			this.RichEdit1_GetCID.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.RichEdit1_GetCID.Location = new System.Drawing.Point(3, 194);
+			this.RichEdit1_GetCID.Location = new System.Drawing.Point(3, 193);
 			this.RichEdit1_GetCID.Name = "RichEdit1_GetCID";
 			this.RichEdit1_GetCID.Size = new System.Drawing.Size(878, 297);
 			this.RichEdit1_GetCID.TabIndex = 18;
@@ -2930,10 +2931,10 @@
 			this.tabPage6.Controls.Add(this.groupBox21);
 			this.tabPage6.Controls.Add(this.groupBox20);
 			this.tabPage6.Controls.Add(this.groupBox8);
-			this.tabPage6.Location = new System.Drawing.Point(4, 29);
+			this.tabPage6.Location = new System.Drawing.Point(4, 30);
 			this.tabPage6.Name = "tabPage6";
 			this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage6.Size = new System.Drawing.Size(884, 494);
+			this.tabPage6.Size = new System.Drawing.Size(884, 493);
 			this.tabPage6.TabIndex = 5;
 			this.tabPage6.Text = "مودم";
 			this.tabPage6.UseVisualStyleBackColor = true;
@@ -3347,10 +3348,10 @@
 			this.tabPage7.Controls.Add(this.groupBox31);
 			this.tabPage7.Controls.Add(this.groupBox23);
 			this.tabPage7.Controls.Add(this.groupBox19);
-			this.tabPage7.Location = new System.Drawing.Point(4, 29);
+			this.tabPage7.Location = new System.Drawing.Point(4, 30);
 			this.tabPage7.Name = "tabPage7";
 			this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage7.Size = new System.Drawing.Size(884, 494);
+			this.tabPage7.Size = new System.Drawing.Size(884, 493);
 			this.tabPage7.TabIndex = 6;
 			this.tabPage7.Text = "سیم کارت";
 			this.tabPage7.UseVisualStyleBackColor = true;
@@ -3588,10 +3589,10 @@
 			// 
 			// tabPage8
 			// 
-			this.tabPage8.Location = new System.Drawing.Point(4, 29);
+			this.tabPage8.Location = new System.Drawing.Point(4, 30);
 			this.tabPage8.Name = "tabPage8";
 			this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage8.Size = new System.Drawing.Size(884, 494);
+			this.tabPage8.Size = new System.Drawing.Size(884, 493);
 			this.tabPage8.TabIndex = 7;
 			this.tabPage8.Text = "GPRS";
 			this.tabPage8.UseVisualStyleBackColor = true;
@@ -3605,10 +3606,10 @@
 			this.tabPage9.Controls.Add(this.groupBox9);
 			this.tabPage9.Controls.Add(this.groupBox11);
 			this.tabPage9.Controls.Add(this.groupBox12);
-			this.tabPage9.Location = new System.Drawing.Point(4, 29);
+			this.tabPage9.Location = new System.Drawing.Point(4, 30);
 			this.tabPage9.Name = "tabPage9";
 			this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage9.Size = new System.Drawing.Size(884, 494);
+			this.tabPage9.Size = new System.Drawing.Size(884, 493);
 			this.tabPage9.TabIndex = 8;
 			this.tabPage9.Text = "Administrator";
 			this.tabPage9.UseVisualStyleBackColor = true;

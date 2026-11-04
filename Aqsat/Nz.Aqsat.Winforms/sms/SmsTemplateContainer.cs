@@ -51,7 +51,7 @@ namespace Nz.Aqsat.Winforms.sms
 					{
 						Id = 0,
 						Kind = (byte)Enums.NsSmsTemplateKind.AqsatSarresid,
-						Message = string.Join("\r\n", NsMessageSarResid.Lines),
+						Message = string.Join("\n", NsMessageSarResid.Lines),
 					};
 			}
 		}
@@ -84,7 +84,7 @@ namespace Nz.Aqsat.Winforms.sms
 					{
 						Id = 0,
 						Kind = (byte)Enums.NsSmsTemplateKind.AqsatMande,
-						Message = string.Join("\r\n", NsMessageMande.Lines),
+						Message = string.Join("\n", NsMessageMande.Lines),
 					};
 			}
 		}

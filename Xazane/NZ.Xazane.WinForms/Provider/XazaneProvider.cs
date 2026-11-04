@@ -396,5 +396,7 @@ namespace NZ.Xazane.WinForms
 		public async Task FinalitionliozeModule()
 		{
 		}
-	}
+
+		public event EventHandler<StateNotificationChangedEventArgs> StatusBarStateChanged;
+    }
 }

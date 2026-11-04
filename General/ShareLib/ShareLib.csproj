@@ -150,6 +150,7 @@
     <Compile Include="Utils\CryptographyHelper.cs" />
     <Compile Include="Utils\Extentions.cs" />
     <Compile Include="Utils\InvokeCommand.cs" />
+    <Compile Include="Utils\StateNotificationChangedEventArgs.cs" />
     <Compile Include="Utils\Utility.cs" />
     <Compile Include="ViewModel\ActivationResultDto.cs" />
     <Compile Include="ViewModel\Backup.cs" />

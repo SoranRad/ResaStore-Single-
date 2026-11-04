@@ -58,6 +58,7 @@ namespace SmsBan.Core
 		private readonly SmsSenderWorker	_sender;
 		private readonly SmsInboxService	_inbox;
 		private readonly SmsConversationService _conversation;
+		private readonly SmsStateNotifier	_notifier;
 
 		private Timer						_readTimer;
 		private bool						_started;
@@ -86,9 +87,22 @@ namespace SmsBan.Core
 			};
 			_queue		= new SmsQueueService(options);
 			_limiter	= new SmsRateLimiter(options);
-			_sender		= new SmsSenderWorker(options, _modem);
-			_inbox		= new SmsInboxService(options, _modem);
+			_notifier	= new SmsStateNotifier();
+			_sender		= new SmsSenderWorker(options, _modem, _notifier);
+			_inbox		= new SmsInboxService(options, _modem, _notifier);
 			_conversation = new SmsConversationService(options);
+		}
+
+		/// <summary>
+		/// رخداد تغییر وضعیت سرویس پیامک (اتصال مودم، ارسال، دریافت و خطاها).
+		///
+		/// توجه: این رخداد از نخ پس‌زمینه صدا زده می‌شود؛ برای به‌روزرسانی رابط
+		/// کاربری باید با <c>Invoke</c> به نخ UI منتقل شود.
+		/// </summary>
+		public event EventHandler<SmsStateChangedEventArgs> StateChanged
+		{
+			add		{ _notifier.StateChanged += value; }
+			remove	{ _notifier.StateChanged -= value; }
 		}
 
 		public SmsBanOptions	Options			{ get { return _options; } }
@@ -496,6 +510,109 @@ namespace SmsBan.Core
 		public int DeleteReceivedBefore(DateTime date)
 		{
 			return _conversation.DeleteIncomingBefore(date);
+		}
+
+		// ==================================================================
+		// بررسی وضعیت ارسال/تحویل با تابع بافر مودم
+		// ==================================================================
+
+		/// <summary>
+		/// بررسی وضعیت ارسال و تحویل یک رکورد آرشیو با تابع
+		/// <c>Get_SMS_Buf_Status2</c> مودم (همان روش نمونه‌ی شرکت).
+		///
+		/// هشدار مهم: این تابع در نمونه‌ی شرکت برای پیامک‌هایی استفاده شده که
+		/// با «بافر ارسال گروهی» فرستاده می‌شوند. در تست زنده، پیامک‌های ارسال‌شده
+		/// با <c>S_SMS3</c> در این بافر دیده نشدند و خروجی همیشه false بود.
+		/// این متد برای آزمایش و عیب‌یابی نگه داشته شده است.
+		///
+		/// چون <see cref="ModemGateway"/> همه‌ی فراخوانی‌های بومی را سریال می‌کند،
+		/// این متد ممکن است پشت یک ارسال در جریان (تا حدود ۲۰ ثانیه) منتظر بماند؛
+		/// از نخ رابط کاربری مستقیم صدا نزنید و با <c>Task.Run</c> اجرا کنید.
+		/// </summary>
+		public SmsDeliveryCheck TryRefreshDeliveryStatus(long archiveId)
+		{
+			var result = new SmsDeliveryCheck();
+
+			if (!_options.IsModemHost)
+			{
+				result.Message = "این کامپیوتر میزبان مودم نیست.";
+				return result;
+			}
+
+			try
+			{
+				SmsArchive row;
+
+				using (var db = SmsBanDb.Create(_options.ConnectionString))
+				{
+					row = db.tbl_SmsArchive
+						.AsNoTracking()
+						.FirstOrDefault(x => x.ID == archiveId);
+				}
+
+				if (row == null)
+				{
+					result.Message = "رکورد آرشیو پیدا نشد.";
+					return result;
+				}
+
+				result.Found		= true;
+				result.Reference	= row.SmsReference;
+
+				var references = SmsReferenceParser.Parse(row.SmsReference);
+
+				if (references.Count == 0)
+				{
+					result.Message = "برای این پیامک شماره‌ی مرجع ثبت نشده است.";
+					return result;
+				}
+
+				foreach (var reference in references)
+				{
+					int index;
+
+					if (!int.TryParse(reference, out index))
+						continue;
+
+					var status = _modem.GetBufferStatus(index);
+
+					if (status.SendDone)
+						result.SendDone = true;
+
+					if (status.Delivered)
+						result.Delivered = true;
+				}
+
+				if (result.Delivered)
+				{
+					using (var db = SmsBanDb.Create(_options.ConnectionString))
+					{
+						var entity = db.tbl_SmsArchive.FirstOrDefault(x => x.ID == archiveId);
+
+						if (entity != null && !entity.IsDelivered)
+						{
+							entity.IsDelivered			= true;
+							entity.DeliveredAt			= DateTime.Now;
+							entity.DeliveredAtShamsi	= JalaliDate.ToShamsi(DateTime.Now);
+
+							db.SaveChanges();
+						}
+					}
+				}
+
+				result.Message = result.Delivered
+					? "مودم تحویل را تأیید کرد."
+					: result.SendDone
+						? "مودم ارسال را تأیید کرد ولی تحویل را نه."
+						: "مودم هیچ وضعیتی برای این مرجع برنگرداند.";
+			}
+			catch (Exception ex)
+			{
+				log.Error(ex);
+				result.Message = "خطا در بررسی وضعیت: " + ex.Message;
+			}
+
+			return result;
 		}
 
 		// ==================================================================

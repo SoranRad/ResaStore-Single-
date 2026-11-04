@@ -8,6 +8,11 @@ namespace ShareLib
 {
     public class Enums
     {
+	    public enum StateNotificationKind : byte
+	    {
+		    Success, Warning, Error
+		}
+
         public enum NzKindPrint :byte
         {
             PaperA4 =0,

@@ -136,6 +136,9 @@
 			this.ClientSize = new System.Drawing.Size(698, 562);
 			this.Controls.Add(this.NzTab);
 			this.Controls.Add(this.Panel_Foother);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "FormSmsTemplate";
 			this.ShowInTaskbar = false;
 			this.Text = "قالب های ارسال پیامک";

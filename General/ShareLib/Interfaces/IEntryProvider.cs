@@ -1,14 +1,15 @@
-﻿using System;
+﻿using Janus.Windows.UI.Tab;
+using MS_Control.Controls;
+using ShareLib.Component;
+using ShareLib.Models;
+using ShareLib.Utils;
+using ShareLib.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Janus.Windows.UI.Tab;
-using MS_Control.Controls;
-using ShareLib.Component;
-using ShareLib.Models;
-using ShareLib.ViewModel;
 
 namespace ShareLib.Interfaces
 {
@@ -54,5 +55,7 @@ namespace ShareLib.Interfaces
 
         Task                                InitionalizeModule      ();
         Task                                FinalitionliozeModule   ();
-    }
+
+        event EventHandler<StateNotificationChangedEventArgs> StatusBarStateChanged;
+	}
 }

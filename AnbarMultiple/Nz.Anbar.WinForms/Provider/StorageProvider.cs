@@ -316,13 +316,15 @@ namespace Nz.Anbar.WinForms.Provider
 
 		public async Task InitionalizeModule()
 		{
-			 
+
 		}
 
 		public async Task FinalitionliozeModule()
 		{
 			 
 		}
+
+		public event EventHandler<StateNotificationChangedEventArgs> StatusBarStateChanged;
 
 		#endregion
 

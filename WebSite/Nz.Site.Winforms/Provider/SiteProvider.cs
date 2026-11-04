@@ -297,5 +297,7 @@ namespace Nz.Site.Winforms.Provider
 		public async Task FinalitionliozeModule()
 		{
 		}
-	}
+
+		public event EventHandler<StateNotificationChangedEventArgs> StatusBarStateChanged;
+    }
 }

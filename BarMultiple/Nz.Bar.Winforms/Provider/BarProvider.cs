@@ -8,6 +8,7 @@ using ShareLib;
 using ShareLib.Component;
 using ShareLib.Interfaces;
 using ShareLib.Models;
+using ShareLib.Utils;
 using ShareLib.ViewModel;
 
 namespace Nz.Bar.Winforms.Provider
@@ -201,5 +202,7 @@ namespace Nz.Bar.Winforms.Provider
         {
 	        
         }
+
+        public event EventHandler<StateNotificationChangedEventArgs> StatusBarStateChanged;
     }
 }

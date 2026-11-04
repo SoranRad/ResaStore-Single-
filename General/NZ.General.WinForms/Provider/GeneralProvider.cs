@@ -231,7 +231,10 @@ namespace NZ.General.WinForms
 			if (settings.UseModemForSms)
 			{
 
-				sender = new ModemSmsSender(); // ← مودم
+				var ModemSender = new ModemSmsSender();
+                ModemSender.StatusBarStateChanged+= ModemSenderOnStatusBarStateChanged;
+                sender = ModemSender;
+                // ← مودم
 			}
 			else
 			{
@@ -242,10 +245,17 @@ namespace NZ.General.WinForms
 			SmsSenderFactory.Initialize(sender);
 		}
 
+		private void ModemSenderOnStatusBarStateChanged(object sender, StateNotificationChangedEventArgs e)
+		{
+			StatusBarStateChanged?.Invoke(this, e);
+		}
+
 		public async Task FinalitionliozeModule()
 		{
 			SmsSenderFactory.Reset();
 		}
+
+		public event EventHandler<StateNotificationChangedEventArgs> StatusBarStateChanged;
 
 		#endregion
 	}

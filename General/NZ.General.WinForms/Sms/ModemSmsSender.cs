@@ -42,6 +42,8 @@ namespace NZ.General.WinForms.Sms
 		public static SmsBanOptions Options { get { return _options; } }
 		public static bool			IsReady { get { return _service != null; } }
 
+		public event EventHandler<StateNotificationChangedEventArgs> StatusBarStateChanged;
+
 		#endregion
 
 
@@ -84,6 +86,19 @@ namespace NZ.General.WinForms.Sms
 				log.Error(_service.InitializationError);	// ← throw نکنید، فقط لاگ
 
 			_service.Start();								// روی میزبان مودم: نخ ارسال + تایمر دریافت
+			_service.StateChanged +=ServiceOnStateChanged;
+		}
+
+		private void ServiceOnStateChanged(object sender, SmsStateChangedEventArgs e)
+		{
+			if (StatusBarStateChanged != null)
+				StatusBarStateChanged(this, new StateNotificationChangedEventArgs()
+				{
+					DisplayText = e.DisplayText,
+					Kind = (Enums.StateNotificationKind)(byte)e.Kind,
+					Message = e.Message,
+					OccurredAt = e.OccurredAt
+				});
 		}
 
 		public async Task<bool> SendSarResidQest

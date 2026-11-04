@@ -85,7 +85,7 @@ namespace NZ.Resaa.Store
             
             tmp.SetMainForm(this);
             tmp.SetSettings(config.Settings);
-			Task.Run(async () => await tmp.InitionalizeModule());
+			//Task.Run(async () => await tmp.InitionalizeModule());
 
 			//tmp.InitionalizeModule().RunSynchronously();
 
@@ -142,7 +142,7 @@ namespace NZ.Resaa.Store
 
             tmp?.SetMainForm(this);
             tmp?.SetSettings(config.Settings);
-            Task.Run(async () => await tmp.InitionalizeModule());
+            //Task.Run(async () => await tmp.InitionalizeModule());
 
 
 
@@ -211,7 +211,7 @@ namespace NZ.Resaa.Store
 
                 tmp.SetMainForm(this);
                 tmp?.SetSettings(config.Settings);
-				Task.Run(async () => await tmp.InitionalizeModule());
+				//Task.Run(async () => await tmp.InitionalizeModule());
 
 
 
@@ -286,7 +286,7 @@ namespace NZ.Resaa.Store
 
 		        tmp.SetMainForm(this);
 		        tmp?.SetSettings(config.Settings);
-				Task.Run(async () => await tmp.InitionalizeModule());
+				//Task.Run(async () => await tmp.InitionalizeModule());
 
 
 
@@ -359,7 +359,7 @@ namespace NZ.Resaa.Store
 
 		        tmp.SetMainForm(this);
 		        tmp?.SetSettings(config.Settings);
-				Task.Run(async () => await tmp.InitionalizeModule());
+				//Task.Run(async () => await tmp.InitionalizeModule());
 
 				ms_baseinfo
 					.DropDownItems
@@ -430,7 +430,7 @@ namespace NZ.Resaa.Store
 
 		        tmp.SetMainForm(this);
 		        tmp?.SetSettings(config.Settings);
-				Task.Run(async () => await tmp.InitionalizeModule());
+				//Task.Run(async () => await tmp.InitionalizeModule());
 
 
 
@@ -503,7 +503,7 @@ namespace NZ.Resaa.Store
 
 		        tmp.SetMainForm(this);
 		        tmp?.SetSettings(config.Settings);
-				Task.Run(async () => await tmp.InitionalizeModule());
+				//Task.Run(async () => await tmp.InitionalizeModule());
 
 
 
@@ -750,10 +750,19 @@ namespace NZ.Resaa.Store
         {
             if (Form_Factory.ExitForm?.ShowDialog(this) != DialogResult.OK)
                 e.Cancel = true;
+
+            foreach (var module in Form_Factory.SystemList)
+				Task.Run(async () => await module.FinalitionliozeModule()); 
         }
         private void    Form_Resaa_Store_Shown              (object sender, EventArgs e)
         {
-            if(Form_Factory._Form_Factory_General.HasSrtartupForm())
+			foreach (var madule in Form_Factory.SystemList)
+				madule.StatusBarStateChanged += MaduleOnStatusBarStateChanged;
+
+			foreach (var madule in Form_Factory.SystemList)
+		        Task.Run(async () => await madule.InitionalizeModule());
+
+			if (Form_Factory._Form_Factory_General.HasSrtartupForm())
 	            Form_Factory._Form_Factory_General.GetStartupPage()?.ShowDialog(this);
 
             GetVersion();
@@ -769,15 +778,73 @@ namespace NZ.Resaa.Store
                 applicationIdle1.Idle+=ApplicationIdle1OnIdle;
 	            applicationIdle1.Start();
             }
+
+           
         }
 
-        private void ApplicationIdle1OnIdle(object sender, EventArgs e)
+        private void MaduleOnStatusBarStateChanged(object sender, StateNotificationChangedEventArgs e)
+        {
+
+	        if (InvokeRequired)
+	        {
+		        BeginInvoke(new Action<object, StateNotificationChangedEventArgs>(MaduleOnStatusBarStateChanged), sender, e);
+		        return;
+	        }
+
+			if (NsBottomBar.Items.OfType<ToolStripLabel>().Any(x => x.Tag == sender))
+			{
+				var item = NsBottomBar.Items.OfType<ToolStripLabel>().FirstOrDefault(x => x.Tag == sender);
+				item.Text = e.DisplayText;
+				item.ToolTipText = e.Message;
+
+				switch (e.Kind)
+				{
+					case Enums.StateNotificationKind.Success:
+						item.Image = global::MS_Resource.GlobalResources._ms_Save;
+						break;
+					case Enums.StateNotificationKind.Warning:
+						item.Image = global::MS_Resource.GlobalResources.help;
+						break;
+                    case Enums.StateNotificationKind.Error:
+						item.Image = global::MS_Resource.GlobalResources._ms_Delete;
+						break;
+				}
+			}
+	        else
+	        {
+                var item        = new ToolStripLabel();
+                item.Tag        = sender;
+		        item.Margin     = new Padding(0, 1, 5, 2);
+		        item.Name       = sender.ToString();
+		        item.Padding    = new System.Windows.Forms.Padding(5, 0, 0, 0);
+		        //item.Size       = new System.Drawing.Size(99, 27);
+				item.Text       = e.DisplayText;
+				item.ToolTipText = e.Message;
+
+				switch (e.Kind)
+				{
+					case Enums.StateNotificationKind.Success:
+						item.Image = global::MS_Resource.GlobalResources._ms_Save;
+						break;
+					case Enums.StateNotificationKind.Warning:
+						item.Image = global::MS_Resource.GlobalResources.help;
+						break;
+					case Enums.StateNotificationKind.Error:
+						item.Image = global::MS_Resource.GlobalResources._ms_Delete;
+						break;
+				}
+
+				this.NsBottomBar.Items.Add(item);
+	        }
+
+        }
+
+        private void    ApplicationIdle1OnIdle              (object sender, EventArgs e)
         {
 	        new FormUserLock().ShowDialog(this);
 	        applicationIdle1.Restart();
         }
-
-        private void ApplicationIdle1OnTick(object sender, TickEventArgs e)
+        private void    ApplicationIdle1OnTick              (object sender, TickEventArgs e)
         {
 	        NsElapsedLock.Text = e.IsWarnPeriod 
 		        ? $@"حساب کاربری بعد از {applicationIdle1.TimeRemaining.Seconds} ثانیه قفل خواهد شد " 
@@ -800,14 +867,13 @@ namespace NZ.Resaa.Store
             InvokeCommand.Invoke(Form_Factory.CmdChangeUsYear);
             LoadFooterStrip();
         }
-
         private void    NzAbout_Click                       (object sender, EventArgs e)
         {
             new FormAbout().ShowDialog(this);
              
         }
 
-        private void NsLockAccount_Click(object sender, EventArgs e)
+        private void    NsLockAccount_Click                 (object sender, EventArgs e)
         {
 	        applicationIdle1.Stop();
 	        ApplicationIdle1OnIdle(null, null);

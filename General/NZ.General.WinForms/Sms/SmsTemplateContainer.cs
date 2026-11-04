@@ -43,7 +43,7 @@ namespace NZ.General.WinForms.Sms
 					{
 						Id = 0,
 						Kind = (byte)Enums.NsSmsTemplateKind.MandeShaxs,
-						Message = string.Join("\r\n", NsMessage.Lines),
+						Message = string.Join("\n", NsMessage.Lines),
 					};
 			}
 		}

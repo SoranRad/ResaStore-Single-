@@ -119,7 +119,8 @@ namespace Nz.Anbar.WinForms.Provider
         
         private void    NzListFactors_Click        (object sender, EventArgs e)
         {
-            var frm         = new Form_ListFactors();
+	        
+			var frm         = new Form_ListFactors();
             frm.MdiParent   = StorageProvider.MainForm;
             frm.Show();
         }

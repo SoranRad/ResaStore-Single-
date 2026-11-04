@@ -53,12 +53,13 @@ namespace Nz.Anbar.WinForms.Alarm
             {
 	            var manager = new Manager();
 	            var Mgr     = new ReportManager();
+	            _List		= new List<PointOrder>();
+				IEnumerable<PointOrder> list = new List<PointOrder>();
 
-	            var storages   = manager.GetList<Storage>(new
+				var storages   = manager.GetList<Storage>(new
 	            {
 		            Year = SystemConstant.ActiveYear.Salmali
 	            }); 
-	            IEnumerable<PointOrder> list = new List<PointOrder>();
 
                 foreach (var storage in storages)
                 {
