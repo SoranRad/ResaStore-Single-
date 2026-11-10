@@ -330,6 +330,63 @@ namespace SmsBan.Core
 		}
 
 		/// <summary>
+		/// تبدیل کد نتیجه‌ی ارسال (TP_ST) گزارش تحویل به عدد.
+		/// مقدار ممکن است به شکل «0x00»، «00» یا «0» برگردد.
+		/// </summary>
+		private static int? ParseTpSt(string tpSt)
+		{
+			if (string.IsNullOrWhiteSpace(tpSt))
+				return null;
+
+			var text = tpSt.Trim();
+
+			try
+			{
+				if (text.StartsWith("0x", StringComparison.OrdinalIgnoreCase))
+					return Convert.ToInt32(text.Substring(2), 16);
+
+				int dec;
+
+				if (int.TryParse(text, NumberStyles.Integer, CultureInfo.InvariantCulture, out dec))
+					return dec;
+
+				return Convert.ToInt32(text, 16);
+			}
+			catch
+			{
+				return null;
+			}
+		}
+
+		/// <summary>توضیح فارسی کد نتیجه‌ی ارسال، طبق جدول مستندات DLL.</summary>
+		private static string DescribeTpSt(int value)
+		{
+			switch (value)
+			{
+				case 0x00: return "تحویل موفق";
+				case 0x01: return "ارسال شد ولی وضعیت نامعلوم";
+				case 0x02: return "جایگزین شد";
+				case 0x20: return "ازدحام؛ در حال تلاش";
+				case 0x21: return "مخاطب مشغول؛ در حال تلاش";
+				case 0x22: return "مخاطب پاسخ نداد؛ در حال تلاش";
+				case 0x23: return "سرویس رد شد؛ در حال تلاش";
+				case 0x24: return "کیفیت سرویس موجود نیست؛ در حال تلاش";
+				case 0x25: return "خطای مخاطب؛ در حال تلاش";
+				case 0x40: return "خطای مسیریابی (RPC)";
+				case 0x41: return "مقصد ناسازگار";
+				case 0x42: return "اتصال رد شد";
+				case 0x43: return "دسترس‌ناپذیر";
+				case 0x44: return "کیفیت سرویس موجود نیست";
+				case 0x45: return "ارتباط بین‌شبکه‌ای موجود نیست";
+				case 0x46: return "پیام منقضی شد";
+				case 0x47: return "پیام توسط فرستنده حذف شد";
+				case 0x48: return "پیام توسط مرکز پیامک حذف شد";
+				case 0x49: return "وجود ندارد";
+				default:   return string.Format("کد نامشخص {0}", value);
+			}
+		}
+
+		/// <summary>
 		/// آیا این پیامک، گزارش تحویل اپراتور (SMS STATUS REPORT) است.
 		/// </summary>
 		private static bool IsStatusReport(ModemSmsMessage message)
@@ -343,29 +400,15 @@ namespace SmsBan.Core
 
 		/// <summary>
 		/// به‌روزرسانی وضعیت تحویل آرشیو بر اساس گزارش‌های تحویل اپراتور.
-		/// شماره‌ی مرجع از متن گزارش استخراج و با مرجع ذخیره‌شده مقایسه می‌شود.
+		///
+		/// طبق مستندات DLL، پیامک گزارش تحویل این دو فیلد را دارد:
+		///   - <c>S_Reference</c>: مرجع پیامک ارسالی (برای تطبیق)
+		///   - <c>TP_ST</c>      : نتیجه‌ی ارسال (0x00 = تحویل موفق، 0x40 و بالاتر = خطا)
 		/// </summary>
 		private void ApplyStatusReports(IList<ModemSmsMessage> reports)
 		{
 			if (reports == null || reports.Count == 0)
 				return;
-
-			var references = new List<string>();
-
-			foreach (var report in reports)
-			{
-				foreach (var reference in SmsReferenceParser.Parse(report.SmsText))
-				{
-					if (!references.Contains(reference))
-						references.Add(reference);
-				}
-			}
-
-			if (references.Count == 0)
-			{
-				log.Warn("گزارش تحویل بدون شماره‌ی مرجعِ قابل خواندن دریافت شد.");
-				return;
-			}
 
 			try
 			{
@@ -375,32 +418,84 @@ namespace SmsBan.Core
 						.Where(x => x.SmsReference != null && x.SmsReference != "")
 						.ToList();
 
-					var updated	= 0;
-					var now		= DateTime.Now;
+					var delivered	= 0;
+					var failed		= 0;
+					var now			= DateTime.Now;
 
-					foreach (var row in rows)
+					foreach (var report in reports)
 					{
-						if (row.IsDelivered)
+						// مرجع پیامک ارسالی در فیلد S_Reference است؛ اگر خالی بود،
+						// به‌عنوان آخرین راه از متن گزارش خوانده می‌شود.
+						var references = SmsReferenceParser.Parse(report.SReference);
+
+						if (references.Count == 0)
+							references = SmsReferenceParser.Parse(report.SmsText);
+
+						if (references.Count == 0)
+						{
+							log.WarnFormat("گزارش تحویل بدون مرجع قابل خواندن: type='{0}' tpst='{1}'",
+								report.SmsType, report.TPSt);
 							continue;
+						}
 
-						if (!SmsReferenceParser.Overlaps(row.SmsReference, references))
+						var status = ParseTpSt(report.TPSt);
+
+						if (status == null)
+						{
+							log.WarnFormat("کد نتیجه‌ی گزارش تحویل قابل خواندن نبود: '{0}'", report.TPSt);
 							continue;
+						}
 
-						row.IsDelivered			= true;
-						row.DeliveredAt			= now;
-						row.DeliveredAtShamsi	= JalaliDate.ToShamsi(now);
+						foreach (var row in rows)
+						{
+							if (!SmsReferenceParser.Overlaps(row.SmsReference, references))
+								continue;
 
-						updated++;
+							if (status.Value == 0x00)
+							{
+								// تحویل موفق
+								if (row.IsDelivered)
+									continue;
+
+								row.IsDelivered			= true;
+								row.DeliveredAt			= now;
+								row.DeliveredAtShamsi	= JalaliDate.ToShamsi(now);
+
+								delivered++;
+							}
+							else if (status.Value >= 0x40)
+							{
+								// خطای دائمی
+								if (row.Status == (int)SmsMessageStatus.Failed && row.IsDelivered)
+									continue;
+
+								row.Status		= (int)SmsMessageStatus.Failed;
+								row.ErrorMessage = string.Format("گزارش تحویل: {0}", DescribeTpSt(status.Value));
+
+								failed++;
+							}
+
+							// 0x01 و بازه‌ی 0x20 تا 0x25 یعنی «در حال تلاش»؛ کاری لازم نیست.
+						}
 					}
 
-					if (updated > 0)
+					if (delivered > 0 || failed > 0)
 					{
 						db.SaveChanges();
 
-						log.InfoFormat("{0} پیامک بر اساس گزارش تحویل، «تحویل‌شده» علامت خورد.", updated);
+						log.InfoFormat("گزارش تحویل: {0} تحویل‌شده، {1} ناموفق.", delivered, failed);
 
-						Notify(SmsStateKind.Success,
-							string.Format("گزارش تحویل برای {0} پیامک دریافت شد.", updated));
+						if (delivered > 0)
+						{
+							Notify(SmsStateKind.Success,
+								string.Format("گزارش تحویل برای {0} پیامک دریافت شد.", delivered));
+						}
+
+						if (failed > 0)
+						{
+							Notify(SmsStateKind.Warning,
+								string.Format("{0} پیامک بر اساس گزارش تحویل، ناموفق اعلام شد.", failed));
+						}
 					}
 				}
 			}
@@ -506,26 +601,27 @@ namespace SmsBan.Core
 			if (messages == null)
 				return 0;
 
-			var incoming = messages
-				.Where(x => x != null && !string.IsNullOrEmpty(x.SmsText))
-				.ToList();
+			var all = messages.Where(x => x != null).ToList();
 
-			if (incoming.Count == 0)
+			if (all.Count == 0)
 				return 0;
 
 			// گزارش تحویل، پیامک عادی نیست؛ فقط وضعیت آرشیو را به‌روز می‌کند
 			// و در صندوق ورودی ذخیره نمی‌شود.
-			var statusReports = incoming.Where(IsStatusReport).ToList();
+			//
+			// توجه: گزارش تحویل معمولاً متن خالی دارد و اطلاعاتش در فیلدهای
+			// S_Reference و TP_ST است؛ بنابراین نباید با فیلتر «متن غیرخالی» حذف شود.
+			var statusReports = all.Where(IsStatusReport).ToList();
 
 			if (statusReports.Count > 0)
-			{
-				incoming = incoming.Where(x => !IsStatusReport(x)).ToList();
-
 				ApplyStatusReports(statusReports);
 
-				if (incoming.Count == 0)
-					return 0;
-			}
+			var incoming = all
+				.Where(x => !IsStatusReport(x) && !string.IsNullOrEmpty(x.SmsText))
+				.ToList();
+
+			if (incoming.Count == 0)
+				return 0;
 
 			var groups = BuildGroups(incoming);
 
@@ -873,7 +969,7 @@ namespace SmsBan.Core
 				return 0;
 
 			var items = messages
-				.Where(x => x != null && !string.IsNullOrEmpty(x.SmsText))
+				.Where(x => x != null && (!string.IsNullOrEmpty(x.SmsText) || IsStatusReport(x)))
 				.ToList();
 
 			if (items.Count == 0)

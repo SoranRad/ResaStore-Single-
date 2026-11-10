@@ -120,6 +120,8 @@ namespace NZ.General.WinForms.Sms
 			message			= message.Replace("#" +nameof(CardNumber) +"#",	CardNumber);
 			message			= message.Replace("#" +nameof(phoneBill) +"#",		phoneBill);
 
+			message = message.Replace("\n", "\r");
+
 			var i = _service.Enqueue(PhoneNumber.ToString(), message, SmsPriority.Normal);
 			return i > 0;
 		}
@@ -144,6 +146,9 @@ namespace NZ.General.WinForms.Sms
 			message			= message.Replace("#" + nameof(CardNumber) + "#",		CardNumber);
 			message			= message.Replace("#" + nameof(phoneBill) + "#",		phoneBill);
 
+			message = message.Replace("\n", "\r");
+
+
 			var i = _service.Enqueue(PhoneNumber.ToString(), message, SmsPriority.Normal);
 			return i > 0;
 		}
@@ -165,7 +170,10 @@ namespace NZ.General.WinForms.Sms
 			message			= message.Replace("#" + nameof(PRICE) + "#",				PRICE.ToString("N"));
 			message			= message.Replace("#" + nameof(DATE) + "#",				DATE);
 			message			= message.Replace("#" + nameof(MANDE_HESAB) + "#",			MANDE_HESAB);
-			message			= message.Replace("#" + nameof(TARIKH_TASVIEH) + "#",		TARIKH_TASVIEH); 
+			message			= message.Replace("#" + nameof(TARIKH_TASVIEH) + "#",		TARIKH_TASVIEH);
+
+			message = message.Replace("\n", "\r");
+
 
 			var i = _service.Enqueue(PhoneNumber.ToString(), message, SmsPriority.Normal);
 			return i > 0;
@@ -180,6 +188,9 @@ namespace NZ.General.WinForms.Sms
 			var message = template.Message.Replace("#" + nameof(PhoneNumber) + "#", PhoneNumber.ToString());
 			message = message.Replace("#" + nameof(NAME) + "#", NAME);
 			message = message.Replace("#" + nameof(MONY) + "#", MONY.ToString("N"));
+
+			message = message.Replace("\n", "\r");
+
 
 			var i = _service.Enqueue(PhoneNumber.ToString(), message, SmsPriority.Normal);
 			return i > 0;

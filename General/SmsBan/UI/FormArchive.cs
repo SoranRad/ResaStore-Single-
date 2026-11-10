@@ -84,7 +84,7 @@ namespace SmsBan.UI
 		{
 			try
 			{
-				_contacts = _contactService.GetContactsOrderedByLastMessage();
+				_contacts = _contactService.GetContactsOrderedByLastMessage().OrderByDescending(x=>x.LastActivity).ToList();
 				FillContacts();
 			}
 			catch (Exception ex)
@@ -99,6 +99,7 @@ namespace SmsBan.UI
 			var conts = contacts ?? _contacts;
 
 			NsUsersPanel.Controls.Clear();
+			var controls = new List<UsersControl>();
 
 			var odd = false;
 			foreach (var contact in conts)
@@ -115,8 +116,11 @@ namespace SmsBan.UI
 				contactControl.Margin = new Padding(3, 5, 3, 5);
 
 				contactControl.Click += ContactControlOnClick;
-				NsUsersPanel.Controls.Add(contactControl);
+				controls.Add(contactControl);
 			}
+
+			if (controls != null  && controls.Any()) 
+				NsUsersPanel.Controls.AddRange(controls.ToArray());
 		}
 
 		private void ContactControlOnClick(object sender, EventArgs e)

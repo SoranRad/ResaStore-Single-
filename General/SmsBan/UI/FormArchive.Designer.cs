@@ -30,10 +30,10 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormArchive));
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem1 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem2 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem3 = new Janus.Windows.EditControls.UIComboBoxItem();
-			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem4 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem5 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem6 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem7 = new Janus.Windows.EditControls.UIComboBoxItem();
+			Janus.Windows.EditControls.UIComboBoxItem uiComboBoxItem8 = new Janus.Windows.EditControls.UIComboBoxItem();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.NsUsersPanel = new System.Windows.Forms.Panel();
 			this.NsRefresh = new MS_Control.Controls.MS_Button_GridX();
@@ -251,17 +251,17 @@
 			this.NsNumbers.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
 			this.NsNumbers.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NsNumbers.Dock = System.Windows.Forms.DockStyle.Top;
-			uiComboBoxItem1.FormatStyle.Alpha = 0;
-			uiComboBoxItem1.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem1.Image")));
-			uiComboBoxItem1.IsSeparator = false;
-			uiComboBoxItem1.Text = "فعال";
-			uiComboBoxItem2.FormatStyle.Alpha = 0;
-			uiComboBoxItem2.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem2.Image")));
-			uiComboBoxItem2.IsSeparator = false;
-			uiComboBoxItem2.Text = "غیر فعال";
+			uiComboBoxItem5.FormatStyle.Alpha = 0;
+			uiComboBoxItem5.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem5.Image")));
+			uiComboBoxItem5.IsSeparator = false;
+			uiComboBoxItem5.Text = "فعال";
+			uiComboBoxItem6.FormatStyle.Alpha = 0;
+			uiComboBoxItem6.Image = ((System.Drawing.Image)(resources.GetObject("uiComboBoxItem6.Image")));
+			uiComboBoxItem6.IsSeparator = false;
+			uiComboBoxItem6.Text = "غیر فعال";
 			this.NsNumbers.Items.AddRange(new Janus.Windows.EditControls.UIComboBoxItem[] {
-            uiComboBoxItem1,
-            uiComboBoxItem2});
+            uiComboBoxItem5,
+            uiComboBoxItem6});
 			this.NsNumbers.Location = new System.Drawing.Point(4, 0);
 			this.NsNumbers.Margin = new System.Windows.Forms.Padding(5);
 			this.NsNumbers.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -286,17 +286,17 @@
 			this.NsProirity.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
 			this.NsProirity.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NsProirity.Dock = System.Windows.Forms.DockStyle.Bottom;
-			uiComboBoxItem3.FormatStyle.Alpha = 0;
-			uiComboBoxItem3.IsSeparator = false;
-			uiComboBoxItem3.Text = "ارسال عادی";
-			uiComboBoxItem3.Value = ((byte)(0));
-			uiComboBoxItem4.FormatStyle.Alpha = 0;
-			uiComboBoxItem4.IsSeparator = false;
-			uiComboBoxItem4.Text = "ارسال فوری";
-			uiComboBoxItem4.Value = ((byte)(3));
+			uiComboBoxItem7.FormatStyle.Alpha = 0;
+			uiComboBoxItem7.IsSeparator = false;
+			uiComboBoxItem7.Text = "ارسال عادی";
+			uiComboBoxItem7.Value = ((byte)(0));
+			uiComboBoxItem8.FormatStyle.Alpha = 0;
+			uiComboBoxItem8.IsSeparator = false;
+			uiComboBoxItem8.Text = "ارسال فوری";
+			uiComboBoxItem8.Value = ((byte)(3));
 			this.NsProirity.Items.AddRange(new Janus.Windows.EditControls.UIComboBoxItem[] {
-            uiComboBoxItem3,
-            uiComboBoxItem4});
+            uiComboBoxItem7,
+            uiComboBoxItem8});
 			this.NsProirity.Location = new System.Drawing.Point(4, 41);
 			this.NsProirity.Margin = new System.Windows.Forms.Padding(5);
 			this.NsProirity.MS_BorderColor = System.Drawing.Color.SteelBlue;

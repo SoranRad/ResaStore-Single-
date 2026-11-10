@@ -670,21 +670,10 @@ namespace SmsBan.Modem
 			}
 		}
 
-		/// <summary>شروع یا توقف ارسال بافر.</summary>
-		public void StartSendBuffer(bool start)
-		{
-			lock (_sync)
-			{
-				try
-				{
-					NativeModem.SMS_Buf_Start(start);
-				}
-				catch (Exception ex)
-				{
-					log.Error(ex);
-				}
-			}
-		}
+		// توجه: تابع NativeModem.SMS_Buf_Start در تست زنده باعث
+		// AccessViolationException (خرابی حافظه و کرش پروسه) شد، بنابراین
+		// اعلان و پوشش آن حذف شده است. تا زمانی که امضای درست این تابع
+		// از سازنده گرفته نشود، از حالت «بافر ارسال گروهی» استفاده نکنید.
 
 		/// <summary>توقف موقت ارسال بافر.</summary>
 		public void PauseSendBuffer()

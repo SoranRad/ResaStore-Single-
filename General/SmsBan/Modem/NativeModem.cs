@@ -386,9 +386,13 @@ namespace SmsBan.Modem
 		[DllImport(DllName, EntryPoint = "SMS_Buf_Clear", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
 		internal static extern void SMS_Buf_Clear(bool stop);
 
-		/// <summary>شروع یا توقف ارسال بافر.</summary>
-		[DllImport(DllName, EntryPoint = "SMS_Buf_Start", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-		internal static extern void SMS_Buf_Start(bool start);
+		/// <summary>
+		/// توجه: تابع <c>SMS_Buf_Start</c> عمداً اعلان نشده است.
+		/// در تست زنده، فراخوانی آن با امضای نمونه‌ی شرکت
+		/// (<c>void SMS_Buf_Start(bool)</c>) باعث AccessViolationException و
+		/// کرش پروسه شد؛ یعنی امضای واقعی این نسخه‌ی DLL متفاوت است.
+		/// تا دریافت امضای درست از سازنده، از حالت بافر ارسال گروهی استفاده نکنید.
+		/// </summary>
 
 		/// <summary>توقف موقت ارسال بافر.</summary>
 		[DllImport(DllName, EntryPoint = "SMS_Buf_Pause", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
