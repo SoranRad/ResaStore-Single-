@@ -13,8 +13,7 @@ namespace NZ.Xazane.DataLayer.DapperConfig.ViewModel
         public RemaindBalanceConfig()
         {
             SetItem(@"
-DECLARE @DP DECIMAL,@Deficit DECIMAL,@Assign DECIMAL,@Back DECIMAL,@Remaind DECIMAL
-
+DECLARE @DP DECIMAL,@Deficit DECIMAL,@Assign DECIMAL,@Back DECIMAL,@Remaind DECIMAL,@FundAccounts DECIMAL  
 
 SET @DP =(
 	SELECT 
@@ -111,8 +110,29 @@ SET @Remaind =
 		AND  tad.FK_ShaXs	= @ID
 		AND (tad.kind = 11	OR tad.kind = 12)
 )
+SET @FundAccounts =
+(
+SELECT
 
-SELECT ISNULL(@DP,0)+ISNULL(@Deficit,0)+ISNULL(@Assign,0)+ISNULL(@Back,0)+ISNULL(@Remaind,0) as Balance;
+    SUM( CASE 
+    WHEN (tax.kind = 5 AND DebitAccount.FK_People = @ID) OR (tax.kind = 3) THEN  tax.mablaq 
+    WHEN (tax.kind = 5 AND CreditAccount.FK_People = @ID) OR (tax.kind = 4) THEN -tax.mablaq
+    ELSE 0 
+    END ) AS Balance
+
+FROM				Xazane.tbl_Amaliat_Xazaneh		AS tax
+INNER JOIN          General.DimDate					AS dd                   ON dd.GregorianDate         = tax.tarikh
+LEFT OUTER JOIN		xazane.tbl_Hesab_Xazaneh		AS DebitAccount			ON DebitAccount.ID          = tax.FK_Xazaneh_Bad
+LEFT OUTER JOIN		xazane.tbl_Hesab_Xazaneh		AS CreditAccount		ON CreditAccount.ID         = tax.FK_Xazaneh_Bas
+
+WHERE 
+        (tax.FK_Salmali = @Year )
+    AND (tax.kind = 5 OR tax.kind = 4 OR tax.kind = 3 )
+    AND (DebitAccount.Kind = 6 OR CreditAccount.Kind = 6)  
+    AND (DebitAccount.FK_People = @ID OR CreditAccount.FK_People = @ID)
+)
+
+SELECT ISNULL(@DP,0)+ISNULL(@Deficit,0)+ISNULL(@Assign,0)+ISNULL(@Back,0)+ISNULL(@Remaind,0) + ISNULL(@FundAccounts,0)  as Balance;
 
 ");
         }

@@ -99,6 +99,7 @@
     <Compile Include="Report\PeopleCheque.cs" />
     <Compile Include="Report\PeopleChequeAssign.cs" />
     <Compile Include="Report\PeopleChequeBack.cs" />
+    <Compile Include="Report\PeopleFundCircular.cs" />
     <Compile Include="Report\PeopleRemaind.cs" />
     <Compile Include="Report\ReviewAccountDaily.cs" />
     <Compile Include="Report\ReviewAccountDetail.cs" />

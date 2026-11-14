@@ -104,6 +104,8 @@ namespace ShareLib
             Off             = 14,
             AssignCheque    = 15,
             chequePayBack   = 16,
+            Enteqal_Az_Bas  = 17,
+            Enteqal_Be_Bad  = 18,
         }
         public enum NzChequeStateFlag : byte
         {

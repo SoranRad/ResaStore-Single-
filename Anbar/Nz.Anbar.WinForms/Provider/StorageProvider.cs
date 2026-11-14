@@ -407,6 +407,9 @@ SELECT	@SumFroshKalaAmani		AS SumFroshKalaAmani ,
 		public async Task FinalitionliozeModule()
 		{
 		}
+
+		public event EventHandler<StateNotificationChangedEventArgs> StatusBarStateChanged;
+
 		#endregion
 
 	}

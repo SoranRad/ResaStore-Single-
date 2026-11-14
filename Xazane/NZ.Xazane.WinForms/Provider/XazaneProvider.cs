@@ -64,7 +64,13 @@ namespace NZ.Xazane.WinForms
                 list.MSZ_ForEach(x =>
                 {
                     x.KindTitle = ((Enums.NzPaymentOperatingKind) x.Kind).NzToString();
-                    x.Title     = ((Enums.NzPaymentOperatingKind)x.Code) == Enums.NzPaymentOperatingKind.Kosurat ||
+
+                    if (
+	                    (Enums.NzPaymentOperatingKind)x.Kind != Enums.NzPaymentOperatingKind.Naql_Enteqal
+                        && (Enums.NzPaymentOperatingKind)x.Kind != Enums.NzPaymentOperatingKind.Daramad
+                        && (Enums.NzPaymentOperatingKind)x.Kind != Enums.NzPaymentOperatingKind.Hazine
+						)
+						x.Title     = ((Enums.NzPaymentOperatingKind)x.Code) == Enums.NzPaymentOperatingKind.Kosurat ||
 								  ((Enums.NzPaymentOperatingKind)x.Code) == Enums.NzPaymentOperatingKind.Addition
 								  ?x.Title
 								  : ((Enums.NzPaymentOperatingKind)x.Code).NzToString()
@@ -128,7 +134,44 @@ namespace NZ.Xazane.WinForms
 	        }
         }
 
-        public IForm_Editor                 GetFormForEdit      (Enums.FormOperation FormKind,params object[] otherParam)
+        public decimal GetRemaind(long ID)
+        {
+	        try
+	        {
+		        var Mgr = new ReportManager();
+		        var item = Mgr.GetItem<RemaindBalance>(new { ID, Year = SystemConstant.ActiveYear.Salmali }, string.Empty);
+
+
+		        return item?.Balance ?? 0;
+	        }
+	        catch (Exception ex)
+	        {
+		        log.Error(ex);
+		        return 0;
+	        }
+        }
+        public IEnumerable<RemaindPeople> GetListRemaind(DateTime? AzTarikh, DateTime? TaTarikh)
+        {
+	        try
+	        {
+		        var Mgr = new ReportManager();
+		        var list = Mgr.GetReport<RemaindPeople>(new
+		        {
+			        Year = SystemConstant.ActiveYear.Salmali,
+			        AzTarikh,
+			        TaTarikh
+		        }, string.Empty);
+		        return list;
+	        }
+	        catch (Exception ex)
+	        {
+		        log.Error(ex);
+		        return null;
+	        }
+        }
+
+
+		public IForm_Editor                 GetFormForEdit      (Enums.FormOperation FormKind,params object[] otherParam)
         {
             switch (FormKind)
             {
@@ -209,42 +252,7 @@ namespace NZ.Xazane.WinForms
             return Enums.MS_System.Xazane;
         }
 
-        public decimal                      GetRemaind          (long ID)
-        {
-            try
-            {
-                var Mgr     = new ReportManager();
-                var item    = Mgr.GetItem<RemaindBalance>(new { ID,Year= SystemConstant.ActiveYear.Salmali }, string.Empty);
-
-
-                return item?.Balance ?? 0;
-            }
-            catch (Exception ex)
-            {
-                log.Error(ex);
-                return 0;
-            }
-        }
-        public IEnumerable<RemaindPeople>   GetListRemaind      (DateTime? AzTarikh, DateTime? TaTarikh)
-        {
-            try
-            {
-                var Mgr = new ReportManager();
-                var list = Mgr.GetReport<RemaindPeople>(new
-                {
-                    Year = SystemConstant.ActiveYear.Salmali,
-                    AzTarikh,
-                    TaTarikh
-                }, string.Empty);
-                return list;
-            }
-            catch (Exception ex)
-            {
-                log.Error(ex);
-                return null;
-            }
-        }
-
+      
         public bool                         GetFeature          (short FeatureItem)
         {
             return true;

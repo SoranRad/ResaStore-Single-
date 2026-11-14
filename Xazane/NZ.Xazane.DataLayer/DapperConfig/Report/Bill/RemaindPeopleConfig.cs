@@ -34,6 +34,8 @@ RTRIM(LTRIM(ta.mobile))		AS mobile,
 +ISNULL(ChequeBack.Remaind,0)
 +ISNULL(Assign.Remaind,0)
 +ISNULL(OFFAmount.Remaind,0)
++ISNULL(DebitAccounts.Mablaq,0)
++ISNULL(CreditAccounts.Mablaq,0)
 
 ) AS Balance
 
@@ -148,6 +150,45 @@ LEFT OUTER JOIN
 
 ) AS Assign ON Assign.FK_Shaxs_Vaziat = ta.ID
 
+LEFT OUTER JOIN
+(
+    SELECT
+            DebitAccount.FK_People,
+            SUM(tax.mablaq ) AS Mablaq
+    FROM				Xazane.tbl_Amaliat_Xazaneh		AS tax
+    INNER JOIN          General.DimDate					AS dd                   ON dd.GregorianDate         = tax.tarikh
+    LEFT OUTER JOIN		xazane.tbl_Hesab_Xazaneh		AS DebitAccount			ON DebitAccount.ID          = tax.FK_Xazaneh_Bad
+
+    WHERE 
+            (tax.FK_Salmali = @Year)
+        AND (tax.kind = 5 OR tax.kind = 3)
+        AND (DebitAccount.Kind = 6)
+        AND (DebitAccount.FK_People IS NOT NULL)
+        AND (tax.tarikh >= @AzTarikh OR @AzTarikh IS NULL)
+        AND (tax.tarikh <= @TaTarikh OR @TaTarikh IS NULL)
+
+    GROUP BY DebitAccount.FK_People
+) AS DebitAccounts ON DebitAccounts.FK_People = ta.ID
+
+LEFT OUTER JOIN
+(
+    SELECT
+            CreditAccount.FK_People,
+            SUM(-tax.mablaq ) AS Mablaq
+    FROM				Xazane.tbl_Amaliat_Xazaneh		AS tax
+    INNER JOIN          General.DimDate					AS dd                   ON dd.GregorianDate         = tax.tarikh 
+    LEFT OUTER JOIN		xazane.tbl_Hesab_Xazaneh		AS CreditAccount		ON CreditAccount.ID         = tax.FK_Xazaneh_Bas
+
+    WHERE 
+            (tax.FK_Salmali = @Year)
+        AND (tax.kind = 5 OR tax.kind = 4)
+        AND (CreditAccount.Kind = 6)
+        AND (CreditAccount.FK_People IS NOT NULL)
+        AND (tax.tarikh >= @AzTarikh OR @AzTarikh IS NULL)
+        AND (tax.tarikh <= @TaTarikh OR @TaTarikh IS NULL)
+
+    GROUP BY CreditAccount.FK_People
+) AS CreditAccounts ON CreditAccounts.FK_People = ta.ID
 ");
         }
     }

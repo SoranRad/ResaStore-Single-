@@ -142,6 +142,10 @@
     <Compile Include="Migrations\202602260704530_add-radif-to-payment.Designer.cs">
       <DependentUpon>202602260704530_add-radif-to-payment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202611111629194_add-peopele-to-account.cs" />
+    <Compile Include="Migrations\202611111629194_add-peopele-to-account.Designer.cs">
+      <DependentUpon>202611111629194_add-peopele-to-account.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repo\DpRepository.cs" />
@@ -169,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202602260704530_add-radif-to-payment.resx">
       <DependentUpon>202602260704530_add-radif-to-payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202611111629194_add-peopele-to-account.resx">
+      <DependentUpon>202611111629194_add-peopele-to-account.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

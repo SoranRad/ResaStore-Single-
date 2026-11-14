@@ -6,6 +6,7 @@ using MS_Control.MainForms;
 using NZ.Xazane.Business;
 using NZ.Xazane.Model;
 using ShareLib;
+using ShareLib.Models;
 using ShareLib.Utils;
 
 namespace NZ.Xazane.WinForms.Base
@@ -45,7 +46,7 @@ namespace NZ.Xazane.WinForms.Base
                 NzCode.MS_Decimal     = _Deficit.Code;
                 NzTitle.Text          = _Deficit.title;
                 NzInitValue.Text      = _Deficit.mojudi_avalie.ToString("0,0.##");
-                NzDeficit.Text        = _Deficit.shobe;
+                NzPeople.MS_Set_Select(_Deficit.FK_People);
                 NzState.SelectedIndex = _Deficit.is_disable ? 1 : 0;
             }
             catch (Exception ex)
@@ -61,7 +62,7 @@ namespace NZ.Xazane.WinForms.Base
 
             _Deficit.title         = NzTitle.Text;
             _Deficit.mojudi_avalie = NzInitValue.MS_Decimal;
-            _Deficit.shobe         = NzDeficit.Text;
+            _Deficit.FK_People     = (NzPeople.MS_Get_Selected() as People).ID;
             _Deficit.is_disable    = NzState.SelectedIndex == 1;
             _Deficit.Kind          = (byte)_Kind;
         }
@@ -78,7 +79,7 @@ namespace NZ.Xazane.WinForms.Base
                                                 .ToString();
                 NzTitle.Text           = "";
                 NzInitValue.MS_Decimal = 0;
-                NzDeficit.Text         = "";
+                NzPeople.MS_Set_Select(null);
                 NzState.SelectedIndex  = 0;
             }
             catch (Exception ex)
@@ -101,11 +102,21 @@ namespace NZ.Xazane.WinForms.Base
             {
                 mS_Notify1.Show(NzTitle);
                 NzTitle.Focus();
-                new Form_Notify("تـوجـه", "عنوان صندوق وارد کـنیــد.",
+                new Form_Notify("تـوجـه", "عنوان تنخواه را وارد کـنیــد.",
                         Form_Notify.FarsiMessageBoxIcon.اخطار)
                     .Popup(Form_Notify.Direction_Show.Right_To_Left, 1500);
                 return false;
             }
+
+            if (NzPeople.MS_Get_Selected() == null)
+            {
+	            mS_Notify1.Show(NzPeople);
+	            NzPeople.Focus();
+	            new Form_Notify("تـوجـه", " تنخواه گردان را وارد کـنیــد.",
+			            Form_Notify.FarsiMessageBoxIcon.اخطار)
+		            .Popup(Form_Notify.Direction_Show.Right_To_Left, 1500);
+	            return false;
+			}
 
             if (_Deficit.ID == 0 || (_Deficit.ID > 0 && _Deficit.Code != NzCode.MS_Decimal))
             {
@@ -130,7 +141,8 @@ namespace NZ.Xazane.WinForms.Base
         private void Init   ()
         {
             NzState.SelectedIndex = 0;
-            if (_Deficit != null && _Deficit.ID > 0)
+            NzPeople.Refresh_Grid(_Manager, (byte)3);
+			if (_Deficit != null && _Deficit.ID > 0)
                 LoadItem();
             else
                 Reset();

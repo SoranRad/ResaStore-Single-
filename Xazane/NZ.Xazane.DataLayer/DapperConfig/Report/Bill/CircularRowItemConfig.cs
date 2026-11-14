@@ -167,6 +167,56 @@ AND (tad.kind		= 11		OR tad.kind = 12)
 AND (tad.tarikh>=@DateFrom		OR @DateFrom IS NULL)
 AND (tad.tarikh<=@DateTo		OR @DateTo   IS NULL)
 
+/* =================== نقل و انتقال وجوه بین حساب ها و ثبت هزینه و درآمد*/
+UNION ALL
+
+SELECT 
+
+(4)		AS SubSystem,
+tax.ID ,
+tax.tarikh AS Date,
+LTRIM(RTRIM(tax.sharh)) AS Description,
+dd.PersianStr,
+(
+CASE 
+    WHEN tax.kind = 5 AND DebitAccount.FK_People = @People  THEN 18 
+    WHEN tax.kind = 5 AND CreditAccount.FK_People = @People  THEN 17 
+    WHEN tax.kind = 4 THEN 4 
+    WHEN tax.kind = 3 THEN 3
+    ELSE 0 END 
+)AS kind, 
+(CASE 
+    WHEN tax.kind = 5 AND DebitAccount.FK_People = @People  THEN LTRIM(RTRIM(CreditAccount.title)) 
+    WHEN tax.kind = 5 AND CreditAccount.FK_People = @People  THEN LTRIM(RTRIM(DebitAccount.title)) 
+    WHEN tax.kind = 4 THEN LTRIM(RTRIM(DebitAccount.title)) 
+    WHEN tax.kind = 3 THEN LTRIM(RTRIM(CreditAccount.title)) 
+    ELSE N'تراکنش نامعلوم' END 
+)AS Title,
+
+ ( CASE 
+WHEN (tax.kind = 5 AND DebitAccount.FK_People = @People) OR (tax.kind = 3) THEN  tax.mablaq ELSE 0 
+END ) AS Debit,
+ ( CASE 
+WHEN (tax.kind = 5 AND CreditAccount.FK_People = @People) OR (tax.kind = 4) THEN  tax.mablaq ELSE 0 
+END ) AS Credit
+ 
+
+
+FROM				Xazane.tbl_Amaliat_Xazaneh		AS tax
+INNER JOIN          General.DimDate					AS dd                   ON dd.GregorianDate         = tax.tarikh
+LEFT OUTER JOIN		xazane.tbl_Hesab_Xazaneh		AS DebitAccount			ON DebitAccount.ID          = tax.FK_Xazaneh_Bad
+LEFT OUTER JOIN		xazane.tbl_Hesab_Xazaneh		AS CreditAccount		ON CreditAccount.ID         = tax.FK_Xazaneh_Bas
+
+WHERE 
+        (tax.FK_Salmali = @Year  OR @Year IS NULL)
+    AND (tax.kind = 5 OR tax.kind = 4 OR tax.kind = 3 )
+    AND (DebitAccount.Kind = 6 OR CreditAccount.Kind = 6)  
+    AND (DebitAccount.FK_People = @People OR CreditAccount.FK_People = @People)
+    AND (tax.tarikh >= @DateFrom OR @DateFrom IS NULL)
+    AND (tax.tarikh <= @DateTo   OR @DateTo   IS NULL)
+
+
+
 ");
         }
 

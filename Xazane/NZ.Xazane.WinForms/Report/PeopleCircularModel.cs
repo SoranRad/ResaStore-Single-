@@ -30,6 +30,8 @@ namespace NZ.Xazane.WinForms.Report
         public IEnumerable<PeopleCheque>        Cheque          { get; set; }
         public IEnumerable<PeopleChequeBack>    ChequeBack      { get; set; }
         public IEnumerable<PeopleChequeAssign>  ChequeAssign    { get; set; }
+        public IEnumerable<PeopleFundCircular>  PeopleFund      { get; set; }
+
 
         public decimal GetBalance()
         {
@@ -39,14 +41,17 @@ namespace NZ.Xazane.WinForms.Report
             var cheque          = this.Cheque?.         Sum(x => x.Balance)??0;
             var chequeBack      = this.ChequeBack?.     Sum(x => x.Balance)??0;
             var chequeAssign    = this.ChequeAssign?.   Sum(x => x.mablaq)??0;
+            var PeopleFund      = this.PeopleFund?.     Sum(x => x.mablaq)??0;
 
             var Balance         = this.DRemaind 
-                                     + cache
-                                     + pos
-                                     + Msic
-                                     + cheque
-                                     + chequeBack
-                                     + chequeAssign;
+                                  + cache
+                                  + pos
+                                  + Msic
+                                  + cheque
+                                  + chequeBack
+                                  + chequeAssign
+                                  + PeopleFund
+                                  ;
 
             return Balance;
         }

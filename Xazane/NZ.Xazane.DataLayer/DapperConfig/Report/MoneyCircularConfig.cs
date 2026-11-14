@@ -149,6 +149,53 @@ AND	 tac.Kind_Vaziat		=   @KindAssign
 AND (tac.Tarix_Vaziat	    >=  @DateFrom OR @DateFrom IS NULL)
 AND (tac.Tarix_Vaziat	    <=  @DateTo   OR @DateTo   IS NULL);
 
+--=========================================================  حساب های تنخواه گردان
+SELECT 
+
+tax.ID,
+(
+CASE 
+    WHEN tax.kind = 5 AND DebitAccount.FK_People = @People  THEN N'انتقال وجه به ' 
+    WHEN tax.kind = 5 AND CreditAccount.FK_People = @People  THEN N'انتقال وجه از ' 
+    WHEN tax.kind = 4 THEN N'پرداخت هزینه' 
+    WHEN tax.kind = 3 THEN N'واریز درآمد' 
+    ELSE N'تراکنش نامعلوم' END 
+) AS Title,
+(
+    CASE 
+        WHEN (tax.kind = 5 AND DebitAccount.FK_People = @People)  OR (tax.kind = 3) THEN  tax.mablaq 
+        WHEN (tax.kind = 5 AND CreditAccount.FK_People = @People) OR (tax.kind = 4) THEN -tax.mablaq 
+        ELSE 0
+    END        
+) AS mablaq,
+LTRIM(RTRIM(tax.sharh))		        AS sharh, 
+tarix.PersianStr,
+(CASE 
+    WHEN tax.kind = 5 AND DebitAccount.FK_People = @People  THEN LTRIM(RTRIM(CreditAccount.title)) 
+    WHEN tax.kind = 5 AND CreditAccount.FK_People = @People  THEN LTRIM(RTRIM(DebitAccount.title)) 
+    WHEN tax.kind = 4 THEN LTRIM(RTRIM(DebitAccount.title)) 
+    WHEN tax.kind = 3 THEN LTRIM(RTRIM(CreditAccount.title)) 
+    ELSE N'تراکنش نامعلوم' END 
+)AS Hesab, 
+tax.serial AS Serial,
+tax.tarikh
+ 
+FROM				Xazane.tbl_Amaliat_Xazaneh		AS tax
+ 
+LEFT OUTER JOIN		xazane.tbl_Hesab_Xazaneh		AS DebitAccount			ON DebitAccount.ID          = tax.FK_Xazaneh_Bad
+LEFT OUTER JOIN		xazane.tbl_Hesab_Xazaneh		AS CreditAccount		ON CreditAccount.ID         = tax.FK_Xazaneh_Bas
+LEFT OUTER JOIN		General.DimDate				    AS tarix	            ON tarix.GregorianDate      = tax.tarikh
+ 
+
+WHERE 
+        tax.FK_Salmali = @Year 
+    AND (tax.kind = 5 OR tax.kind = 4 OR tax.kind = 3 )
+    AND (DebitAccount.Kind = 6 OR CreditAccount.Kind = 6) 
+    AND (DebitAccount.FK_People = @People OR CreditAccount.FK_People = @People)   
+    AND (tax.tarikh >= @DateFrom OR @DateFrom IS NULL)
+    AND (tax.tarikh <= @DateTo   OR @DateTo   IS NULL)
+   
+
 ");
         }
     }

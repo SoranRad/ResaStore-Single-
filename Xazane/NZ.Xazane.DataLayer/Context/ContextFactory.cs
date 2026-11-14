@@ -12,7 +12,7 @@ namespace NZ.Xazane.DataLayer.Context
     {
         public XazaneContext Create()
         {
-            ConnectionManager.ConStr = @"Server=.\sqlentr;Database=DB_NzResaaStore;User Id=sa;Password=123456;MultipleActiveResultSets=True;Persist Security Info = True;MultipleActiveResultSets=true;App=NzResaaStore;";
+            ConnectionManager.ConStr = @"Data Source=.\sqlentr;Initial Catalog=DB_NzResaaStore_Single;Integrated Security=True;Persist Security Info = True;MultipleActiveResultSets=true;App=NzResaaStore;";
             return new XazaneContext(ConnectionManager.Create(), true);
         }
     }

@@ -12,7 +12,7 @@ namespace NZ.Xazane.DataLayer.DapperConfig.ViewModel
     {
         public BillRowItemConfig()
         {
-            //DECLARE @People BIGINT = 86,@DateFrom DATE, @DateTo DATE ,@Year SMALLINT = 1397, @Group TINYINT = 1
+
             SetList(@"
 
 
@@ -190,6 +190,51 @@ AND (tad.tarikh >= @DateFrom OR @DateFrom IS NULL)
 AND (tad.tarikh <= @DateTo   OR @DateTo   IS NULL)
 
 GROUP BY tad.kind
+
+
+UNION ALL 
+
+SELECT 
+
+N'خزانه داری(دریافت و پرداخت)' AS SubsystemTitle , 
+(2)				AS Subsystem,
+tax.kind, 
+(NULL)			AS Count,	
+tax.kind		AS Code,
+--N''				AS Title,
+(
+CASE 
+WHEN (tax.kind = 5 AND DebitAccount.FK_People  = @People) OR (tax.kind = 3) THEN LTRIM(RTRIM(CreditAccount.title))
+WHEN (tax.kind = 5 AND CreditAccount.FK_People = @People) OR (tax.kind = 4) THEN LTRIM(RTRIM(DebitAccount.title))
+END
+) AS Title,
+SUM( CASE 
+WHEN (tax.kind = 5 AND DebitAccount.FK_People = @People) OR (tax.kind = 3) THEN  tax.mablaq ELSE 0 
+END ) AS Debit,
+SUM( CASE 
+WHEN (tax.kind = 5 AND CreditAccount.FK_People = @People) OR (tax.kind = 4) THEN  tax.mablaq ELSE 0 
+END ) AS Credit
+
+ 
+FROM				Xazane.tbl_Amaliat_Xazaneh		AS tax
+LEFT OUTER JOIN		xazane.tbl_Hesab_Xazaneh		AS DebitAccount			ON DebitAccount.ID          = tax.FK_Xazaneh_Bad
+LEFT OUTER JOIN		xazane.tbl_Hesab_Xazaneh		AS CreditAccount		ON CreditAccount.ID         = tax.FK_Xazaneh_Bas
+
+WHERE 
+        (tax.FK_Salmali = @Year  OR @Year IS NULL)
+    AND (tax.kind = 5 OR tax.kind = 4 OR tax.kind = 3 )
+    AND (DebitAccount.Kind = 6 OR CreditAccount.Kind = 6)  
+    AND (DebitAccount.FK_People = @People OR CreditAccount.FK_People = @People)
+    AND (tax.tarikh >= @DateFrom OR @DateFrom IS NULL)
+    AND (tax.tarikh <= @DateTo   OR @DateTo   IS NULL)
+
+GROUP BY tax.kind,
+(
+CASE 
+WHEN (tax.kind = 5 AND DebitAccount.FK_People  = @People) OR (tax.kind = 3) THEN LTRIM(RTRIM(CreditAccount.title))
+WHEN (tax.kind = 5 AND CreditAccount.FK_People = @People) OR (tax.kind = 4) THEN LTRIM(RTRIM(DebitAccount.title))
+END
+)
 ");
         }
     }

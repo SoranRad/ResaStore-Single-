@@ -33,6 +33,10 @@ namespace NZ.Xazane.Model
         [StringLength(100)]
         public string               Kind_Hesab          { get; set; }
 
+        public long?                FK_People           { get; set; }
+        [NotMapped]
+        public string               PeopleTitle         { get; set; }
+
         public ICollection<ChequeBook>             tbl_Daste_Chque         { get; set; }
         public string                              StateTitle              => this.is_disable ? "غیر فعال" : "فعال";
 
@@ -47,7 +51,7 @@ namespace NZ.Xazane.Model
         {
             return @"
                     SELECT TOP(1)tadx.ID FROM Xazane.tbl_Amaliat_Xazaneh AS tadx
-                                WHERE tadx.FK_Xazaneh_Bad=@ID OR tadx.FK_Xazaneh_Bas=@ID
+                                WHERE tadx.FK_Xazaneh_Bad = @ID OR tadx.FK_Xazaneh_Bas = @ID
 ";
         }
         public string           GenerateCode        ()
@@ -73,10 +77,14 @@ namespace NZ.Xazane.Model
                             Ltrim(Rtrim(thx.shobe))as shobe ,
                             thx.has_POS ,
                             thx.Shomare_Hesab ,
-                            Ltrim(Rtrim(thx.Kind_Hesab))as Kind_Hesab
+                            thx.FK_People,
+                            Ltrim(Rtrim(thx.Kind_Hesab))as Kind_Hesab,
+                            Ltrim(Rtrim(ta.title))as PeopleTitle
 
-                        FROM Xazane.tbl_Hesab_Xazaneh AS thx
-                        WHERE thx.Kind=@Kind ";
+
+                        FROM                Xazane.tbl_Hesab_Xazaneh    AS thx
+                        LEFT OUTER JOIN     Base.tbl_Ashxas             AS ta   ON ta.ID = thx.FK_People
+                        WHERE thx.Kind = @Kind ";
         }
         public string           UniqueCode          ()
         {

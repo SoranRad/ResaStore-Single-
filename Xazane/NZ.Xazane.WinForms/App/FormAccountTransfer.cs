@@ -146,21 +146,13 @@ namespace NZ.Xazane.WinForms.App
             }
 
 
-            if (NzSanduqAz.Checked)
-                _Transfer.FK_Xazaneh_Bas      = (NzAccountAz.MS_Get_Selected() as Accounts).ID;
-            else if (NzBankAz.Checked)
-                _Transfer.FK_Xazaneh_Bas      = (NzAccountAz.MS_Get_Selected() as Accounts).ID;
-            else if (NzTanxahAz.Checked)
-                _Transfer.FK_Xazaneh_Bas      = (NzAccountAz.MS_Get_Selected() as Accounts).ID;
+            if (NzSanduqAz.Checked || NzBankAz.Checked || NzTanxahAz.Checked)
+                _Transfer.FK_Xazaneh_Bas      = (NzAccountAz.MS_Get_Selected() as Accounts)?.ID;
 
-            if (NzSanduqBe.Checked)
-                _Transfer.FK_Xazaneh_Bad      = (NzAccountBe.MS_Get_Selected() as Accounts).ID;
-            else if (NzBankBe.Checked)
-                _Transfer.FK_Xazaneh_Bad      = (NzAccountBe.MS_Get_Selected() as Accounts).ID;
-            else if (NzTanxahBe.Checked)
-                _Transfer.FK_Xazaneh_Bad      = (NzAccountBe.MS_Get_Selected() as Accounts).ID;
+            if (NzSanduqBe.Checked || NzBankBe.Checked || NzTanxahBe.Checked)
+                _Transfer.FK_Xazaneh_Bad      = (NzAccountBe.MS_Get_Selected() as Accounts)?.ID;
 
-             
+
             _Transfer.tarikh                  = NzDate.MS_Tarikh.Value.ToDatetime();
             _Transfer.serial                  = Convert.ToInt32(NzSerial.Text);
             _Transfer.mablaq                  = NzMab.MS_Decimal;

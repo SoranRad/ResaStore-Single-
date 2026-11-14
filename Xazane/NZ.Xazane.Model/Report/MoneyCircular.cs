@@ -22,8 +22,6 @@ namespace NZ.Xazane.Model.Report
         public string       DebitTitle          { get; set; }
         public string       CreditTitle         { get; set; }
         public string       PersianStr          { get; set; }
-
-
         
 
         public decimal  Balance     
@@ -55,7 +53,7 @@ namespace NZ.Xazane.Model.Report
                 switch (Main)
                 {
                     case Enums.NzPaymentOperatingKind.Daryaft:
-                        return " دریافت "+ Sub.NzToString();
+                        return " دریافت " + Sub.NzToString();
                     case Enums.NzPaymentOperatingKind.Pardaxt:
                         return " پرداخت " + Sub.NzToString();
                     case Enums.NzPaymentOperatingKind.Kosurat:
