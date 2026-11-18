@@ -17,11 +17,93 @@ namespace NZ.Anbar.DataLayer.DapperConfig.Report
     {
         public PurchaceAnalyzeConfig()
         {
-            SetList(@"
+	        SetList(@"
+
+WITH Riz AS (
+    SELECT
+        tar.ID,
+        tar.FK_Title,
+        tar.FK_Kala,
+        RTRIM(LTRIM(tkx.title)) AS ObjectTitle,
+        RTRIM(LTRIM(tv.title))  AS UnitTitle,
+        SUM(tar.meqdar)         AS meqdar,
+        SUM(tar.mablaq)         AS mablaq,
+        SUM(tar.Remain)         AS Remain,
+        SUM(tar.Remain * tar.nerkh) AS RemainMablaq
+
+    FROM Anbar.tbl_Amaliat_Riz          AS tar
+    INNER JOIN Base.tbl_Kala_Xadamat    AS tkx  ON tkx.Code = tar.FK_Kala
+    INNER JOIN Base.tbl_Vahed           AS tv   ON tv.ID = tkx.FK_Vahed
+    WHERE tar.FK_Title = @ID
+    GROUP BY tar.ID, tar.FK_Title, tar.FK_Kala, tkx.title, tv.title
+)
+SELECT
+    Riz.ID,
+    Riz.FK_Title,
+    Riz.FK_Kala,
+    Riz.ObjectTitle,
+    Riz.UnitTitle,
+    Riz.meqdar,
+    Riz.Remain,
+    Riz.RemainMablaq,
+    Riz.mablaq,
+    Khroj.MablaqFrosh,
+    Khroj.MeqdarFrosh,
+    Khroj.MeqdarBargash,
+    Khroj.MablaqBargash,
+    Payment.Cache,
+    Payment.Pos,
+    ISNULL( ChequePayment.Cheque,0) + ISNULL( PeopleCheque.Mablaq,0) AS Cheque
+FROM Riz
+    OUTER APPLY (
+
+        SELECT
+            SUM(CASE WHEN tat.kind = 50 THEN tar.meqdar  ELSE 0 END) AS MeqdarFrosh,
+            SUM(CASE WHEN tat.kind = 51 THEN tar.meqdar  ELSE 0 END) AS MeqdarBargash,
+            SUM(CASE WHEN tat.kind = 50 THEN tar.nerkh_2 ELSE 0 END) AS MablaqFrosh,
+            SUM(CASE WHEN tat.kind = 51 THEN tar.nerkh_2 ELSE 0 END) AS MablaqBargash
+        FROM Anbar.tbl_Amaliat_Riz AS tar
+        INNER JOIN Anbar.tbl_Amaliat_Title AS tat ON tar.FK_Title = tat.ID
+        WHERE (tat.kind = 50 OR tat.kind = 51)
+          AND tat.FK_Mabna = @ID
+          AND tar.FK_Kala = Riz.FK_Kala
+
+    ) AS Khroj
+    OUTER APPLY (
+
+        SELECT
+            SUM(CASE WHEN tax.kind = 9  THEN tax.mablaq ELSE 0 END) AS Cache,
+            SUM(CASE WHEN tax.kind = 10 THEN tax.mablaq ELSE 0 END) AS Pos
+        FROM Xazane.tbl_Amaliat_Xazaneh AS tax
+        INNER JOIN Xazane.tbl_Amaliat_DP AS tad ON tad.ID = tax.FK_DP
+        WHERE tad.FK_Faktor = Riz.FK_Title AND tad.Fk_Factor_radif_Id = Riz.FK_Kala
+
+    ) AS Payment
+    OUTER APPLY (
+
+        SELECT SUM(tac.mablaq) AS Cheque
+        FROM Xazane.tbl_Amaliat_Check AS tac
+        INNER JOIN Xazane.tbl_Amaliat_DP AS tad2 ON tad2.ID = tac.FK_DP
+        WHERE tad2.FK_Faktor = Riz.FK_Title
+          AND tad2.Fk_Factor_radif_Id = Riz.FK_Kala
+          AND (tac.Kind_Vaziat <> 3 OR tac.Kind_Vaziat IS NULL)
+
+    ) AS ChequePayment
+
+    OUTER APPLY (
+
+        SELECT SUM(tac2.mablaq) AS Mablaq
+        FROM Xazane.tbl_Amaliat_Check AS tac2
+        INNER JOIN Xazane.tbl_Amaliat_DP AS tad3 ON tad3.ID = tac2.FK_DP_Vagozari 
+        WHERE tad3.FK_Faktor = Riz.FK_Title AND tad3.Fk_Factor_radif_Id = Riz.FK_Kala
+         
+    ) AS PeopleCheque
+");
+	        /*SetList(@"
 
 WITH Riz AS (
 
-	SELECT 
+	SELECT
 			tar.ID,
 			tar.FK_Title,
 			tar.FK_Kala,
@@ -40,7 +122,7 @@ WITH Riz AS (
 
 	GROUP BY tar.ID,tar.FK_Title,tar.FK_Kala,tkx.title,tv.title
 )
-SELECT 
+SELECT
 
 Riz.ID,
 Riz.FK_Title,
@@ -64,15 +146,15 @@ FROM Riz
 
 LEFT OUTER JOIN(
 
-		Select 
-		
+		Select
+
 		tar.FK_Kala,
 		SUM(case when tat.kind =50 then tar.meqdar else 0 end ) AS MeqdarFrosh,
 		SUM(case when tat.kind =51 then tar.meqdar else 0 end ) AS MeqdarBargash,
 
 		SUM(case when tat.kind =50 then tar.nerkh_2 else 0 end ) AS MablaqFrosh,
 		SUM(case when tat.kind =51 then tar.nerkh_2 else 0 end ) AS MablaqBargash
-		
+
 
 		FROM Anbar.tbl_Amaliat_Riz          	AS tar
 		INNER JOIN Anbar.tbl_Amaliat_Title 		AS tat 		ON tar.FK_Title = tat.ID
@@ -82,10 +164,10 @@ LEFT OUTER JOIN(
 		GROUP BY tar.FK_Kala
 
 )AS Khroj ON Khroj.FK_Kala = Riz.FK_Kala
- 
- LEFT OUTER JOIN 
+
+ LEFT OUTER JOIN
 	(
-		SELECT 
+		SELECT
 				tad.FK_Faktor,
 				tad.Fk_Factor_radif_Id,
 				SUM(   CASE
@@ -102,12 +184,12 @@ LEFT OUTER JOIN(
 								0
 						END
 					) AS Pos
-	 
+
 		FROM Xazane.tbl_Amaliat_Xazaneh		AS tax
 		INNER JOIN Xazane.tbl_Amaliat_DP	AS tad ON tad.ID = tax.FK_DP
-        
+
 		WHERE tad.Fk_Factor_radif_Id IS NOT NULL AND tad.FK_Faktor =@ID
-		
+
 		GROUP BY tad.FK_Faktor,tad.Fk_Factor_radif_Id
 
 	)  AS Payment ON Payment.FK_Faktor = Riz.FK_Title AND Payment.Fk_Factor_radif_Id = Riz.FK_Kala
@@ -115,9 +197,9 @@ LEFT OUTER JOIN(
 
 LEFT OUTER JOIN
 (
-	SELECT 
+	SELECT
 		tad2.FK_Faktor ,
-        tad2.Fk_Factor_radif_Id,
+	    tad2.Fk_Factor_radif_Id,
 		SUM(tac.mablaq) AS Cheque
 
 	FROM Xazane.tbl_Amaliat_Check		AS tac
@@ -129,9 +211,9 @@ LEFT OUTER JOIN
 
 ) AS ChequePayment ON ChequePayment.FK_Faktor = Riz.FK_Title AND ChequePayment.Fk_Factor_radif_Id = Riz.FK_Kala
 
- 
 
-");
+
+");*/
         }
     }
 }

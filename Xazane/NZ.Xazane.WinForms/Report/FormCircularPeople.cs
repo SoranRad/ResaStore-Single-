@@ -57,7 +57,7 @@ namespace NZ.Xazane.WinForms.Report
                     DateTo  = NzDateTo.MS_Tarikh.Value.ToDatetime().Date;
 
                 var mgr     = new ReportManager();
-                var Items   = mgr.MultipleList<MoneyCircular, PeopleCircularModel,PeopleCheque,PeopleChequeBack,PeopleChequeAssign>
+                var Items   = mgr.MultipleList<MoneyCircular, PeopleCircularModel,PeopleCheque,PeopleChequeBack,PeopleChequeAssign,PeopleFundCircular>
                 (
                     Enums.NzMultipleReportKind.First,
                     new
@@ -87,6 +87,7 @@ namespace NZ.Xazane.WinForms.Report
                 _Circular.Cheque       = Items.Item3.ToList();
                 _Circular.ChequeBack   = Items.Item4.ToList();
                 _Circular.ChequeAssign = Items.Item5.ToList();
+                _Circular.PeopleFund   = Items.Item6.ToList();
 
                 NzGrid.DataSource = new List<PeopleCircularModel>() { _Circular };
                 NzGrid.ExpandRecords();

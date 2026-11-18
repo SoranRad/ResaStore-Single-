@@ -34,6 +34,8 @@ namespace NZ.Xazane.WinForms.Factor
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFactorPaymentList));
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.ButtonImage");
 			Janus.Windows.GridEX.GridEXLayout NzGridItems_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
+			Janus.Windows.GridEX.GridEXLayout NsPeopleChequeGrid_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
+			Janus.Windows.Common.Layouts.JanusLayoutReference NsPeopleChequeGrid_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
 			this.NzGridHeads = new MS_Control.Controls.MS_GridX();
 			this.Splitter1 = new DevComponents.DotNetBar.ExpandableSplitter();
 			this.NzTabInfo = new Janus.Windows.UI.Tab.UITab();
@@ -67,6 +69,8 @@ namespace NZ.Xazane.WinForms.Factor
 			this.NzNewPayment = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.NsRadifShowOnly = new System.Windows.Forms.ToolStripButton();
+			this.NsPeopleCheque = new Janus.Windows.UI.Tab.UITabPage();
+			this.NsPeopleChequeGrid = new MS_Control.Controls.MS_GridX();
 			((System.ComponentModel.ISupportInitialize)(this.NzGridHeads)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.NzTabInfo)).BeginInit();
 			this.NzTabInfo.SuspendLayout();
@@ -76,6 +80,8 @@ namespace NZ.Xazane.WinForms.Factor
 			this.NzTabCache.SuspendLayout();
 			this.mS_GridX_Setting2.SuspendLayout();
 			this.mS_Tool_Strip1.SuspendLayout();
+			this.NsPeopleCheque.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.NsPeopleChequeGrid)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// NzGridHeads
@@ -190,6 +196,7 @@ namespace NZ.Xazane.WinForms.Factor
 			this.NzTabInfo.Size = new System.Drawing.Size(970, 183);
 			this.NzTabInfo.TabIndex = 8;
 			this.NzTabInfo.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
+            this.NsPeopleCheque,
             this.uiTabPage3,
             this.NzTabPos,
             this.NzTabCache});
@@ -216,7 +223,7 @@ namespace NZ.Xazane.WinForms.Factor
 			this.uiTabPage3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.uiTabPage3.Size = new System.Drawing.Size(968, 156);
 			this.uiTabPage3.TabStop = true;
-			this.uiTabPage3.Text = "  چـک دریافتی  ";
+			this.uiTabPage3.Text = "  چـک   ";
 			// 
 			// NzGridItems
 			// 
@@ -532,7 +539,7 @@ namespace NZ.Xazane.WinForms.Factor
 			// 
 			this.NsFixRadifPayment.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
 			this.NsFixRadifPayment.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.NsFixRadifPayment.Image = global::MS_Resource.GlobalResources.access;
+			this.NsFixRadifPayment.Image = ((System.Drawing.Image)(resources.GetObject("NsFixRadifPayment.Image")));
 			this.NsFixRadifPayment.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.NsFixRadifPayment.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
 			this.NsFixRadifPayment.Name = "NsFixRadifPayment";
@@ -644,6 +651,70 @@ namespace NZ.Xazane.WinForms.Factor
 			this.NsRadifShowOnly.Visible = false;
 			this.NsRadifShowOnly.CheckedChanged += new System.EventHandler(this.NsRadifShowOnly_CheckedChanged);
 			// 
+			// NsPeopleCheque
+			// 
+			this.NsPeopleCheque.Controls.Add(this.NsPeopleChequeGrid);
+			this.NsPeopleCheque.Location = new System.Drawing.Point(1, 26);
+			this.NsPeopleCheque.Name = "NsPeopleCheque";
+			this.NsPeopleCheque.Size = new System.Drawing.Size(968, 156);
+			this.NsPeopleCheque.TabStop = true;
+			this.NsPeopleCheque.Text = "چک های دیگران";
+			// 
+			// NsPeopleChequeGrid
+			// 
+			this.NsPeopleChequeGrid.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.False;
+			this.NsPeopleChequeGrid.AllowRemoveColumns = Janus.Windows.GridEX.InheritableBoolean.True;
+			this.NsPeopleChequeGrid.AlternatingColors = true;
+			this.NsPeopleChequeGrid.AlternatingRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.NsPeopleChequeGrid.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.NsPeopleChequeGrid.BorderStyle = Janus.Windows.GridEX.BorderStyle.RaisedLight3D;
+			this.NsPeopleChequeGrid.ColumnSetNavigation = Janus.Windows.GridEX.ColumnSetNavigation.ColumnSet;
+			this.NsPeopleChequeGrid.Cursor = System.Windows.Forms.Cursors.VSplit;
+			this.NsPeopleChequeGrid.DefaultFilterRowComparison = Janus.Windows.GridEX.FilterConditionOperator.Contains;
+			this.NsPeopleChequeGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.NsPeopleChequeGrid.DynamicFiltering = true;
+			this.NsPeopleChequeGrid.EnterKeyBehavior = Janus.Windows.GridEX.EnterKeyBehavior.None;
+			this.NsPeopleChequeGrid.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
+			this.NsPeopleChequeGrid.FilterRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsPeopleChequeGrid.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
+			this.NsPeopleChequeGrid.FocusCellDisplayMode = Janus.Windows.GridEX.FocusCellDisplayMode.UseSelectedFormatStyle;
+			this.NsPeopleChequeGrid.FocusStyle = Janus.Windows.GridEX.FocusStyle.Solid;
+			this.NsPeopleChequeGrid.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NsPeopleChequeGrid.FrozenColumns = 3;
+			this.NsPeopleChequeGrid.GridLineColor = System.Drawing.Color.Black;
+			this.NsPeopleChequeGrid.GridLines = Janus.Windows.GridEX.GridLines.Vertical;
+			this.NsPeopleChequeGrid.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid;
+			this.NsPeopleChequeGrid.GroupByBoxVisible = false;
+			this.NsPeopleChequeGrid.HeaderFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+			this.NsPeopleChequeGrid.HeaderFormatStyle.ForeColor = System.Drawing.Color.Black;
+			this.NsPeopleChequeGrid.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
+			NsPeopleChequeGrid_Layout_0.IsCurrentLayout = true;
+			NsPeopleChequeGrid_Layout_0.Key = "Transfer";
+			NsPeopleChequeGrid_Layout_0_Reference_0.Instance = ((object)(resources.GetObject("NsPeopleChequeGrid_Layout_0_Reference_0.Instance")));
+			NsPeopleChequeGrid_Layout_0.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
+            NsPeopleChequeGrid_Layout_0_Reference_0});
+			NsPeopleChequeGrid_Layout_0.LayoutString = resources.GetString("NsPeopleChequeGrid_Layout_0.LayoutString");
+			this.NsPeopleChequeGrid.Layouts.AddRange(new Janus.Windows.GridEX.GridEXLayout[] {
+            NsPeopleChequeGrid_Layout_0});
+			this.NsPeopleChequeGrid.Location = new System.Drawing.Point(0, 0);
+			this.NsPeopleChequeGrid.Name = "NsPeopleChequeGrid";
+			this.NsPeopleChequeGrid.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom;
+			this.NsPeopleChequeGrid.Office2007CustomColor = System.Drawing.SystemColors.HotTrack;
+			this.NsPeopleChequeGrid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NsPeopleChequeGrid.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowIndex;
+			this.NsPeopleChequeGrid.SelectedFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+			this.NsPeopleChequeGrid.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
+			this.NsPeopleChequeGrid.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+			this.NsPeopleChequeGrid.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
+			this.NsPeopleChequeGrid.SelectOnExpand = false;
+			this.NsPeopleChequeGrid.Size = new System.Drawing.Size(968, 156);
+			this.NsPeopleChequeGrid.TabIndex = 9;
+			this.NsPeopleChequeGrid.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
+			this.NsPeopleChequeGrid.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsPeopleChequeGrid.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
+			this.NsPeopleChequeGrid.TreeLineColor = System.Drawing.Color.Black;
+			this.NsPeopleChequeGrid.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			// 
 			// FormFactorPaymentList
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
@@ -672,6 +743,8 @@ namespace NZ.Xazane.WinForms.Factor
 			this.mS_GridX_Setting2.PerformLayout();
 			this.mS_Tool_Strip1.ResumeLayout(false);
 			this.mS_Tool_Strip1.PerformLayout();
+			this.NsPeopleCheque.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.NsPeopleChequeGrid)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -712,5 +785,7 @@ namespace NZ.Xazane.WinForms.Factor
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripButton NsRadifShowOnly;
 		private System.Windows.Forms.ToolStripButton NsFixRadifPayment;
+		private Janus.Windows.UI.Tab.UITabPage NsPeopleCheque;
+		private MS_Control.Controls.MS_GridX NsPeopleChequeGrid;
 	}
 }

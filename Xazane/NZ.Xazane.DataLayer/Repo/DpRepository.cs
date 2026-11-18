@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Dapper;
 using NZ.Xazane.Model.Interfaces;
 using NZ.Xazane.Model.Models;
+using NZ.Xazane.Model.ViewModel;
 using ShareLib;
 using ShareLib.Interfaces;
 using ShareLib.Utils;
@@ -40,16 +41,39 @@ namespace NZ.Xazane.DataLayer.Repo
         }
         #endregion
         #region Methods
-        public void                         Delete          (long ID)
+        public void                         Delete                  (long ID)
         {
             var Item = _Context.tbl_Amaliat_DP.Find(ID);
+            var ItemDp = GetItem(ID);
             if (Item != null)
             {
+                if (ItemDp != null)
+                {
+	                foreach (var chequePayment in ItemDp.PeopleCheques)
+	                {
+						var cheque = _Context.tbl_Amaliat_Check.SingleOrDefault(x => x.ID == chequePayment.ID);
+						if (cheque != null)
+						{
+							cheque.DpHead_Vagozari = null;
+							cheque.FK_DP_Vagozari = null;
+							cheque.FK_Salmali_Vaziat = null;
+							cheque.Kind_Vaziat = null;
+							cheque.Tarix_Vaziat = null;
+							cheque.FK_Xazaneh_Vaziat = null;
+							cheque.FK_User_Edit_Vaziat = cheque.FK_User_Add_Vaziat == null ? null : (short?)SystemConstant.ActiveUser.ID;
+							cheque.FK_User_Add_Vaziat = cheque.FK_User_Add_Vaziat ?? SystemConstant.ActiveUser.ID;
+							cheque.Tarix_Edit_Vaziat = cheque.Tarix_Add_Vaziat == null ? null : (DateTime?)DateTime.Now;
+							cheque.Tarix_Add_Vaziat = cheque.Tarix_Add_Vaziat ?? DateTime.Now;
+							cheque.Sharh_Vaziat = null;
+							cheque.FK_Shaxs_Vaziat = null;
+						}
+	                }
+                }
                 _Context.Entry(Item).State = EntityState.Deleted;
-                _Context.SaveChanges();
+				_Context.SaveChanges();
             }
         }
-        public DPOperation                  GetItem         (long ID)
+        public DPOperation                  GetItem                 (long ID)
         {
             Assembly asm        = Assembly.Load(this.GetType().Assembly.GetName());
             var t               = asm.GetTypes().FirstOrDefault(x => x.BaseType == typeof(DapperEntityConfiguration<DPOperation>));
@@ -63,11 +87,14 @@ namespace NZ.Xazane.DataLayer.Repo
                 using (var mul = con.QueryMultiple(SelectSingle, new { ID }))
                 {
                     Head = mul.ReadSingleOrDefault<DPOperation>();
+                    
                     if (Head == null)
                         return null;
-                    Head.PayBoxOP = mul.Read<PayBoxOperation>()?.ToList();
-                    Head.ChequeOP = mul.Read<ChequeOperation>()?.ToList();
-                }
+
+                    Head.PayBoxOP           = mul.Read<PayBoxOperation>()?.ToList();
+                    Head.ChequeOP           = mul.Read<ChequeOperation>()?.ToList();
+                    Head.PeopleCheques      = mul.Read<PeopleChequePayment>()?.ToList();
+				}
 
                 return Head;
             }
@@ -75,7 +102,7 @@ namespace NZ.Xazane.DataLayer.Repo
             
         }
 
-        public DPOperation                  GetItemByFactorID(long IdFactor)
+        public DPOperation                  GetItemByFactorID       (long IdFactor)
         {
             var dp = _Context.tbl_Amaliat_DP.FirstOrDefault(x=>x.FK_Faktor==IdFactor);
             if (dp == null)
@@ -83,11 +110,11 @@ namespace NZ.Xazane.DataLayer.Repo
 
             return GetItem(dp.ID);
         }
-        public IEnumerable<DPOperation>     GetList         (object Param)
+        public IEnumerable<DPOperation>     GetList                 (object Param)
         {
             throw new NotImplementedException();
         }
-        public int                          GetMaxSerial    (object Param )
+        public int                          GetMaxSerial            (object Param )
         {
             Assembly asm        = Assembly.Load(this.GetType().Assembly.GetName());
             var t               = asm.GetTypes().FirstOrDefault(x => x.BaseType == typeof(DapperEntityConfiguration<DPOperation>));
@@ -104,7 +131,7 @@ namespace NZ.Xazane.DataLayer.Repo
 
             
         }
-        public bool                         IsCodeUnique    (object Param)
+        public bool                         IsCodeUnique            (object Param)
         {
             Assembly asm        = Assembly.Load(this.GetType().Assembly.GetName());
             var t               = asm.GetTypes().FirstOrDefault(x => x.BaseType == typeof(DapperEntityConfiguration<DPOperation>));
@@ -121,11 +148,31 @@ namespace NZ.Xazane.DataLayer.Repo
 
            
         }
-        public void                         Save            (DPOperation DPItem)
+        public void                         Save                    (DPOperation DPItem)
         {
             if (DPItem.ID == 0)
             {
                 _Context.tbl_Amaliat_DP.Add(DPItem);
+
+                foreach (var chequePayment in DPItem.PeopleCheques.Where(x=>x.State == Enums.NzItemState.AddedNew))
+                {
+	                var cheque = _Context.tbl_Amaliat_Check.SingleOrDefault(x => x.ID == chequePayment.ID);
+	                if (cheque != null)
+	                {
+		                cheque.DpHead_Vagozari      = DPItem;
+		                cheque.FK_Salmali_Vaziat    = SystemConstant.ActiveYear.Salmali;
+		                cheque.Kind_Vaziat          = (byte)Enums.NzChequeStateFlag.Vagozari;
+		                cheque.Tarix_Vaziat         = DateTime.Now.Date;
+		                cheque.FK_Xazaneh_Vaziat    = null;
+		                cheque.FK_User_Edit_Vaziat  = cheque.FK_User_Add_Vaziat ==null ? null : (short?)SystemConstant.ActiveUser.ID;
+						cheque.FK_User_Add_Vaziat   = cheque.FK_User_Add_Vaziat ?? SystemConstant.ActiveUser.ID;
+						cheque.Tarix_Edit_Vaziat    = cheque.Tarix_Add_Vaziat == null ? null : (DateTime?)DateTime.Now;
+						cheque.Tarix_Add_Vaziat     = cheque.Tarix_Add_Vaziat ?? DateTime.Now;
+						cheque.Sharh_Vaziat         = chequePayment.Sharh_Vaziat ;
+						cheque.FK_Shaxs_Vaziat      = DPItem.FK_ShaXs;
+	                }
+                }
+
                 _Context.SaveChanges();
             }
             else
@@ -135,13 +182,6 @@ namespace NZ.Xazane.DataLayer.Repo
 
                 foreach (var item in DPItem.ChequeOP.Where(x=>x.ID==0))
                     _Context.Entry(item).State = EntityState.Added;
-
-                //var r = _Context.tbl_Amaliat_DP.Local.SingleOrDefault(x => x.ID == DPItem.ID);
-                //if (r != null)
-                //{
-                //    foreach (var entity in _Context.ChangeTracker.Entries())
-                //        _Context.Entry(entity.Entity).State = EntityState.Detached;
-                //}
 
                 _Context.Entry(DPItem).State = EntityState.Modified;
 
@@ -161,10 +201,61 @@ namespace NZ.Xazane.DataLayer.Repo
                     else
                         _Context.Entry(item).State = EntityState.Unchanged;
 
-                _Context.SaveChanges();
+                //============== واگذاری چک
+				foreach (var chequePayment in DPItem.PeopleCheques.Where(x => x.State == Enums.NzItemState.AddedNew))
+				{
+					var cheque = _Context.tbl_Amaliat_Check.SingleOrDefault(x => x.ID == chequePayment.ID);
+					if (cheque != null)
+					{
+						cheque.DpHead_Vagozari = DPItem;
+						cheque.FK_Salmali_Vaziat = SystemConstant.ActiveYear.Salmali;
+						cheque.Kind_Vaziat = (byte)Enums.NzChequeStateFlag.Vagozari;
+						cheque.Tarix_Vaziat = DateTime.Now.Date;
+						cheque.FK_Xazaneh_Vaziat = null;
+						cheque.FK_User_Edit_Vaziat = cheque.FK_User_Add_Vaziat == null ? null : (short?)SystemConstant.ActiveUser.ID;
+						cheque.FK_User_Add_Vaziat = cheque.FK_User_Add_Vaziat ?? SystemConstant.ActiveUser.ID;
+						cheque.Tarix_Edit_Vaziat = cheque.Tarix_Add_Vaziat == null ? null : (DateTime?)DateTime.Now;
+						cheque.Tarix_Add_Vaziat = cheque.Tarix_Add_Vaziat ?? DateTime.Now;
+						cheque.Sharh_Vaziat = chequePayment.Sharh_Vaziat;
+						cheque.FK_Shaxs_Vaziat = DPItem.FK_ShaXs;
+					}
+				}
+
+				//============= ویرایش چک واگذاری 
+				foreach (var chequePayment in DPItem.PeopleCheques.Where(x => x.State == Enums.NzItemState.NotChanged))
+				{
+					var cheque = _Context.tbl_Amaliat_Check.SingleOrDefault(x => x.ID == chequePayment.ID);
+					if (cheque != null)
+					{
+						if(cheque.FK_Shaxs_Vaziat != DPItem.FK_ShaXs)
+						    cheque.FK_Shaxs_Vaziat = DPItem.FK_ShaXs;
+					}
+				}
+				
+				//============= حذف چک واگذاری
+				foreach (var chequePayment in DPItem.PeopleCheques.Where(x => x.State == Enums.NzItemState.Deleted))
+				{
+					var cheque = _Context.tbl_Amaliat_Check.SingleOrDefault(x => x.ID == chequePayment.ID);
+					if (cheque != null)
+					{
+						cheque.DpHead_Vagozari          = null;
+						cheque.FK_Salmali_Vaziat        = null;
+						cheque.Kind_Vaziat              = (byte)Enums.NzChequeStateFlag.Nazd_Sanduq;
+						cheque.Tarix_Vaziat             = DateTime.Now;
+						cheque.FK_Xazaneh_Vaziat        = null;
+						cheque.FK_User_Edit_Vaziat      = cheque.FK_User_Add_Vaziat == null ? null : (short?)SystemConstant.ActiveUser.ID;
+						cheque.FK_User_Add_Vaziat       = cheque.FK_User_Add_Vaziat ?? SystemConstant.ActiveUser.ID;
+						cheque.Tarix_Edit_Vaziat        = cheque.Tarix_Add_Vaziat == null ? null : (DateTime?)DateTime.Now;
+						cheque.Tarix_Add_Vaziat         = cheque.Tarix_Add_Vaziat ?? DateTime.Now;
+						cheque.Sharh_Vaziat             = null;
+						cheque.FK_Shaxs_Vaziat          = null;
+					}
+				}
+
+				_Context.SaveChanges();
             }
         }
-        public IEnumerable<T>               GetView<T>      (object Param)
+        public IEnumerable<T>               GetView<T>              (object Param)
         {
             Assembly asm        = Assembly.Load(this.GetType().Assembly.GetName());
             var t               = asm.GetTypes().FirstOrDefault(x => x.BaseType == typeof(DapperEntityConfiguration<T>));

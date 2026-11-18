@@ -1,4 +1,6 @@
-﻿namespace NZ.Xazane.WinForms.App
+﻿using NZ.Xazane.WinForms.Component;
+
+namespace NZ.Xazane.WinForms.App
 {
     partial class FormPayment
     {
@@ -33,6 +35,8 @@
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridRecieve_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridRecieve_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridRecieve_Layout_0_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.ButtonImage");
+			Janus.Windows.GridEX.GridEXLayout NsPeopleChequeGrid_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
+			Janus.Windows.Common.Layouts.JanusLayoutReference NsPeopleChequeGrid_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
 			Janus.Windows.GridEX.GridEXLayout NzGridPayment_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridPayment_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridPayment_Layout_0_Reference_1 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column1.ButtonImage");
@@ -69,6 +73,16 @@
 			this.NzTabInfo = new Janus.Windows.UI.Tab.UITab();
 			this.NzTabRecieve = new Janus.Windows.UI.Tab.UITabPage();
 			this.NzGridRecieve = new MS_Control.Controls.MS_GridX();
+			this.NsPeopleCheque = new Janus.Windows.UI.Tab.UITabPage();
+			this.uiGroupBox2 = new Janus.Windows.EditControls.UIGroupBox();
+			this.NsPeopleChequeSelector = new NZ.Xazane.WinForms.Component.NsPeopleChequePopup();
+			this.NsSharh_Vaziat = new MS_Control.Controls.MS_TextBox();
+			this.label13 = new System.Windows.Forms.Label();
+			this.NsAddToList = new MS_Control.Controls.MS_Button_GridX();
+			this.label16 = new System.Windows.Forms.Label();
+			this.label15 = new System.Windows.Forms.Label();
+			this.label14 = new System.Windows.Forms.Label();
+			this.NsPeopleChequeGrid = new MS_Control.Controls.MS_GridX();
 			this.NzTabPayment = new Janus.Windows.UI.Tab.UITabPage();
 			this.NzGridPayment = new MS_Control.Controls.MS_GridX();
 			this.NzTabPos = new Janus.Windows.UI.Tab.UITabPage();
@@ -108,6 +122,10 @@
 			this.NzTabInfo.SuspendLayout();
 			this.NzTabRecieve.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NzGridRecieve)).BeginInit();
+			this.NsPeopleCheque.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox2)).BeginInit();
+			this.uiGroupBox2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.NsPeopleChequeGrid)).BeginInit();
 			this.NzTabPayment.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NzGridPayment)).BeginInit();
 			this.NzTabPos.SuspendLayout();
@@ -123,7 +141,7 @@
 			this.Tab_Control_Main.Name = "Tab_Control_Main";
 			this.Tab_Control_Main.Office2007CustomColor = System.Drawing.Color.Transparent;
 			this.Tab_Control_Main.ShowFocusRectangle = false;
-			this.Tab_Control_Main.Size = new System.Drawing.Size(1038, 527);
+			this.Tab_Control_Main.Size = new System.Drawing.Size(1038, 591);
 			this.Tab_Control_Main.TabIndex = 0;
 			this.Tab_Control_Main.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
             this.uiTabPage12,
@@ -132,7 +150,7 @@
 			this.Tab_Control_Main.TabsStateStyles.DisabledFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.Tab_Control_Main.TabsStateStyles.FormatStyle.BackColor = System.Drawing.Color.PowderBlue;
 			this.Tab_Control_Main.TabsStateStyles.SelectedFormatStyle.BackColor = System.Drawing.Color.Gold;
-			this.Tab_Control_Main.TabsStateStyles.SelectedFormatStyle.Font = new System.Drawing.Font("Tahoma", 9.5F, System.Drawing.FontStyle.Bold);
+			this.Tab_Control_Main.TabsStateStyles.SelectedFormatStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
 			this.Tab_Control_Main.TabStripAlignment = Janus.Windows.UI.Tab.TabStripAlignment.Right;
 			this.Tab_Control_Main.TextOrientation = Janus.Windows.UI.Tab.TextOrientation.Vertical;
 			this.Tab_Control_Main.UseThemes = false;
@@ -164,7 +182,7 @@
 			this.uiTabPage12.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.uiTabPage12.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.uiTabPage12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.uiTabPage12.Size = new System.Drawing.Size(1006, 525);
+			this.uiTabPage12.Size = new System.Drawing.Size(1006, 589);
 			this.uiTabPage12.TabStop = true;
 			this.uiTabPage12.Text = "اطلاعات";
 			// 
@@ -210,7 +228,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzDescription.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzDescription.Font = new System.Drawing.Font("IRANSans(Small)", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NzDescription.Location = new System.Drawing.Point(11, 362);
+			this.NzDescription.Location = new System.Drawing.Point(11, 426);
 			this.NzDescription.MaxLength = 200;
 			this.NzDescription.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzDescription.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -243,7 +261,7 @@
 			this.panel1.Controls.Add(this.mS_Lable_Ex1);
 			this.panel1.Controls.Add(this.mS_Lable_Ex12);
 			this.panel1.Controls.Add(this.mS_Lable_Ex13);
-			this.panel1.Location = new System.Drawing.Point(712, 354);
+			this.panel1.Location = new System.Drawing.Point(712, 418);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(291, 169);
 			this.panel1.TabIndex = 1;
@@ -643,17 +661,18 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzTabInfo.BackColor = System.Drawing.Color.Transparent;
-			this.NzTabInfo.FirstTabOffset = 30;
+			this.NzTabInfo.FirstTabOffset = 40;
 			this.NzTabInfo.Location = new System.Drawing.Point(-1, 82);
 			this.NzTabInfo.MultiLine = true;
 			this.NzTabInfo.Name = "NzTabInfo";
 			this.NzTabInfo.Office2007CustomColor = System.Drawing.Color.Transparent;
 			this.NzTabInfo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.NzTabInfo.ShowFocusRectangle = false;
-			this.NzTabInfo.Size = new System.Drawing.Size(1008, 273);
+			this.NzTabInfo.Size = new System.Drawing.Size(1008, 337);
 			this.NzTabInfo.TabIndex = 3;
 			this.NzTabInfo.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
             this.NzTabRecieve,
+            this.NsPeopleCheque,
             this.NzTabPayment,
             this.NzTabPos,
             this.NzTabCache});
@@ -678,7 +697,7 @@
 			this.NzTabRecieve.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.NzTabRecieve.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.NzTabRecieve.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.NzTabRecieve.Size = new System.Drawing.Size(1006, 241);
+			this.NzTabRecieve.Size = new System.Drawing.Size(1006, 305);
 			this.NzTabRecieve.TabStop = true;
 			this.NzTabRecieve.Text = "  چـک دریافتی  ";
 			// 
@@ -735,7 +754,7 @@
 			this.NzGridRecieve.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
 			this.NzGridRecieve.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.White;
 			this.NzGridRecieve.SelectOnExpand = false;
-			this.NzGridRecieve.Size = new System.Drawing.Size(1006, 241);
+			this.NzGridRecieve.Size = new System.Drawing.Size(1006, 305);
 			this.NzGridRecieve.TabIndex = 0;
 			this.NzGridRecieve.TabKeyBehavior = Janus.Windows.GridEX.TabKeyBehavior.ControlNavigation;
 			this.NzGridRecieve.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
@@ -755,13 +774,231 @@
 			this.NzGridRecieve.CurrentCellChanged += new System.EventHandler(this.NzGridRecieve_CurrentCellChanged);
 			this.NzGridRecieve.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NzGridRecieve_KeyPress);
 			// 
+			// NsPeopleCheque
+			// 
+			this.NsPeopleCheque.Controls.Add(this.uiGroupBox2);
+			this.NsPeopleCheque.Controls.Add(this.NsPeopleChequeGrid);
+			this.NsPeopleCheque.Location = new System.Drawing.Point(1, 31);
+			this.NsPeopleCheque.Name = "NsPeopleCheque";
+			this.NsPeopleCheque.Size = new System.Drawing.Size(1006, 305);
+			this.NsPeopleCheque.TabStop = true;
+			this.NsPeopleCheque.Text = "پرداخت چک های دیگران";
+			// 
+			// uiGroupBox2
+			// 
+			this.uiGroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.uiGroupBox2.BackColor = System.Drawing.Color.Transparent;
+			this.uiGroupBox2.BorderColor = System.Drawing.Color.LightBlue;
+			this.uiGroupBox2.Controls.Add(this.NsPeopleChequeSelector);
+			this.uiGroupBox2.Controls.Add(this.NsSharh_Vaziat);
+			this.uiGroupBox2.Controls.Add(this.label13);
+			this.uiGroupBox2.Controls.Add(this.NsAddToList);
+			this.uiGroupBox2.Controls.Add(this.label16);
+			this.uiGroupBox2.Controls.Add(this.label15);
+			this.uiGroupBox2.Controls.Add(this.label14);
+			this.uiGroupBox2.Location = new System.Drawing.Point(5, 0);
+			this.uiGroupBox2.Margin = new System.Windows.Forms.Padding(2);
+			this.uiGroupBox2.Name = "uiGroupBox2";
+			this.uiGroupBox2.Size = new System.Drawing.Size(994, 115);
+			this.uiGroupBox2.TabIndex = 849;
+			// 
+			// NsPeopleChequeSelector
+			// 
+			this.NsPeopleChequeSelector.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsPeopleChequeSelector.BorderStyle = Janus.Windows.GridEX.BorderStyle.Flat;
+			this.NsPeopleChequeSelector.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.DownArrow;
+			this.NsPeopleChequeSelector.DropSize = new System.Drawing.Size(554, 31);
+			this.NsPeopleChequeSelector.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
+			this.NsPeopleChequeSelector.Location = new System.Drawing.Point(343, 17);
+			this.NsPeopleChequeSelector.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.NsPeopleChequeSelector.MS_Auto_Popup = false;
+			this.NsPeopleChequeSelector.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NsPeopleChequeSelector.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsPeopleChequeSelector.MS_CaptureFocus = false;
+			this.NsPeopleChequeSelector.MS_Change_Border_Color_On_Enter = true;
+			this.NsPeopleChequeSelector.MS_Change_Color_On_Enter = true;
+			this.NsPeopleChequeSelector.MS_Drop_Direction = MS_Control.TSDD.KindShow.Right;
+			this.NsPeopleChequeSelector.MS_DropDownSizeMode = MS_Control.TSDD.SizeMode.Control_Size;
+			this.NsPeopleChequeSelector.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+			this.NsPeopleChequeSelector.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsPeopleChequeSelector.MS_Exit_By_Down = true;
+			this.NsPeopleChequeSelector.MS_Exit_By_Enter = true;
+			this.NsPeopleChequeSelector.MS_Exit_By_Up = true;
+			this.NsPeopleChequeSelector.MS_Last_Control = null;
+			this.NsPeopleChequeSelector.MS_Next_Control = null;
+			this.NsPeopleChequeSelector.Name = "NsPeopleChequeSelector";
+			this.NsPeopleChequeSelector.Office2007CustomColor = System.Drawing.Color.SkyBlue;
+			this.NsPeopleChequeSelector.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NsPeopleChequeSelector.Size = new System.Drawing.Size(554, 31);
+			this.NsPeopleChequeSelector.TabIndex = 0;
+			this.NsPeopleChequeSelector.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			// 
+			// NsSharh_Vaziat
+			// 
+			this.NsSharh_Vaziat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsSharh_Vaziat.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsSharh_Vaziat.Font = new System.Drawing.Font("IRANSans(Small)", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.NsSharh_Vaziat.Location = new System.Drawing.Point(133, 57);
+			this.NsSharh_Vaziat.MaxLength = 200;
+			this.NsSharh_Vaziat.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NsSharh_Vaziat.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsSharh_Vaziat.MS_Change_Border_Color_On_Enter = true;
+			this.NsSharh_Vaziat.MS_Change_Color_On_Enter = true;
+			this.NsSharh_Vaziat.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+			this.NsSharh_Vaziat.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsSharh_Vaziat.MS_Exit_By_Down = true;
+			this.NsSharh_Vaziat.MS_Exit_By_Enter = true;
+			this.NsSharh_Vaziat.MS_Exit_By_Up = true;
+			this.NsSharh_Vaziat.MS_Last_Control = null;
+			this.NsSharh_Vaziat.MS_Next_Control = null;
+			this.NsSharh_Vaziat.Name = "NsSharh_Vaziat";
+			this.NsSharh_Vaziat.Size = new System.Drawing.Size(764, 32);
+			this.NsSharh_Vaziat.TabIndex = 1;
+			// 
+			// label13
+			// 
+			this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label13.AutoSize = true;
+			this.label13.BackColor = System.Drawing.Color.Transparent;
+			this.label13.Location = new System.Drawing.Point(896, 20);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(83, 23);
+			this.label13.TabIndex = 845;
+			this.label13.Text = "انتخاب چک  :";
+			// 
+			// NsAddToList
+			// 
+			this.NsAddToList.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsAddToList.FlatBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.NsAddToList.Image = ((System.Drawing.Image)(resources.GetObject("NsAddToList.Image")));
+			this.NsAddToList.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.Far;
+			this.NsAddToList.ImageSize = new System.Drawing.Size(24, 24);
+			this.NsAddToList.Location = new System.Drawing.Point(6, 58);
+			this.NsAddToList.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NsAddToList.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsAddToList.MS_Change_Border_Color_On_Enter = false;
+			this.NsAddToList.MS_Change_Color_On_Enter = false;
+			this.NsAddToList.MS_Enter_Border_Color = System.Drawing.Color.Empty;
+			this.NsAddToList.MS_Enter_Color = System.Drawing.Color.Empty;
+			this.NsAddToList.Name = "NsAddToList";
+			this.NsAddToList.Office2007ColorScheme = Janus.Windows.UI.Office2007ColorScheme.Custom;
+			this.NsAddToList.Office2007CustomColor = System.Drawing.Color.DodgerBlue;
+			this.NsAddToList.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NsAddToList.ShowFocusRectangle = false;
+			this.NsAddToList.Size = new System.Drawing.Size(121, 31);
+			this.NsAddToList.TabIndex = 2;
+			this.NsAddToList.Text = "افزودن به لیست";
+			this.NsAddToList.TextHorizontalAlignment = Janus.Windows.EditControls.TextAlignment.Near;
+			this.NsAddToList.UseThemes = false;
+			this.NsAddToList.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
+			this.NsAddToList.WordWrap = false;
+			this.NsAddToList.Click += new System.EventHandler(this.NsAddToList_Click);
+			// 
+			// label16
+			// 
+			this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label16.AutoSize = true;
+			this.label16.BackColor = System.Drawing.Color.Transparent;
+			this.label16.Location = new System.Drawing.Point(898, 57);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(68, 23);
+			this.label16.TabIndex = 845;
+			this.label16.Text = "توضیخات :";
+			// 
+			// label15
+			// 
+			this.label15.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label15.AutoSize = true;
+			this.label15.BackColor = System.Drawing.Color.Transparent;
+			this.label15.Font = new System.Drawing.Font("IRANSans(Small)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.label15.ForeColor = System.Drawing.Color.SeaGreen;
+			this.label15.Location = new System.Drawing.Point(576, 95);
+			this.label15.Name = "label15";
+			this.label15.Size = new System.Drawing.Size(325, 20);
+			this.label15.TabIndex = 846;
+			this.label15.Text = "*  بعد از ثبت وضعیت چک های انتحابی به واگذار شده تبدیل می شود.";
+			// 
+			// label14
+			// 
+			this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label14.AutoSize = true;
+			this.label14.BackColor = System.Drawing.Color.Transparent;
+			this.label14.Font = new System.Drawing.Font("IRANSans(Small)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.label14.ForeColor = System.Drawing.Color.SeaGreen;
+			this.label14.Location = new System.Drawing.Point(133, 92);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(353, 20);
+			this.label14.TabIndex = 846;
+			this.label14.Text = "*  تنها چک هایی که وضعیت آنها نزد صندوق  است را می توانید انتخاب کنید.";
+			// 
+			// NsPeopleChequeGrid
+			// 
+			this.NsPeopleChequeGrid.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.False;
+			this.NsPeopleChequeGrid.AllowRemoveColumns = Janus.Windows.GridEX.InheritableBoolean.True;
+			this.NsPeopleChequeGrid.AlternatingColors = true;
+			this.NsPeopleChequeGrid.AlternatingRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.NsPeopleChequeGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsPeopleChequeGrid.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.NsPeopleChequeGrid.BorderStyle = Janus.Windows.GridEX.BorderStyle.RaisedLight3D;
+			this.NsPeopleChequeGrid.ColumnSetNavigation = Janus.Windows.GridEX.ColumnSetNavigation.ColumnSet;
+			this.NsPeopleChequeGrid.Cursor = System.Windows.Forms.Cursors.Arrow;
+			this.NsPeopleChequeGrid.DefaultFilterRowComparison = Janus.Windows.GridEX.FilterConditionOperator.Contains;
+			this.NsPeopleChequeGrid.DynamicFiltering = true;
+			this.NsPeopleChequeGrid.EnterKeyBehavior = Janus.Windows.GridEX.EnterKeyBehavior.None;
+			this.NsPeopleChequeGrid.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
+			this.NsPeopleChequeGrid.FilterRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsPeopleChequeGrid.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
+			this.NsPeopleChequeGrid.FocusCellDisplayMode = Janus.Windows.GridEX.FocusCellDisplayMode.UseSelectedFormatStyle;
+			this.NsPeopleChequeGrid.FocusStyle = Janus.Windows.GridEX.FocusStyle.Solid;
+			this.NsPeopleChequeGrid.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NsPeopleChequeGrid.FrozenColumns = 3;
+			this.NsPeopleChequeGrid.GridLineColor = System.Drawing.Color.Black;
+			this.NsPeopleChequeGrid.GridLines = Janus.Windows.GridEX.GridLines.Vertical;
+			this.NsPeopleChequeGrid.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid;
+			this.NsPeopleChequeGrid.GroupByBoxVisible = false;
+			this.NsPeopleChequeGrid.HeaderFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+			this.NsPeopleChequeGrid.HeaderFormatStyle.ForeColor = System.Drawing.Color.Black;
+			this.NsPeopleChequeGrid.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
+			NsPeopleChequeGrid_Layout_0.IsCurrentLayout = true;
+			NsPeopleChequeGrid_Layout_0.Key = "Transfer";
+			NsPeopleChequeGrid_Layout_0_Reference_0.Instance = ((object)(resources.GetObject("NsPeopleChequeGrid_Layout_0_Reference_0.Instance")));
+			NsPeopleChequeGrid_Layout_0.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
+            NsPeopleChequeGrid_Layout_0_Reference_0});
+			NsPeopleChequeGrid_Layout_0.LayoutString = resources.GetString("NsPeopleChequeGrid_Layout_0.LayoutString");
+			this.NsPeopleChequeGrid.Layouts.AddRange(new Janus.Windows.GridEX.GridEXLayout[] {
+            NsPeopleChequeGrid_Layout_0});
+			this.NsPeopleChequeGrid.Location = new System.Drawing.Point(0, 119);
+			this.NsPeopleChequeGrid.Name = "NsPeopleChequeGrid";
+			this.NsPeopleChequeGrid.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom;
+			this.NsPeopleChequeGrid.Office2007CustomColor = System.Drawing.SystemColors.HotTrack;
+			this.NsPeopleChequeGrid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NsPeopleChequeGrid.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowIndex;
+			this.NsPeopleChequeGrid.SelectedFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+			this.NsPeopleChequeGrid.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
+			this.NsPeopleChequeGrid.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+			this.NsPeopleChequeGrid.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
+			this.NsPeopleChequeGrid.SelectOnExpand = false;
+			this.NsPeopleChequeGrid.Size = new System.Drawing.Size(1005, 185);
+			this.NsPeopleChequeGrid.TabIndex = 7;
+			this.NsPeopleChequeGrid.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
+			this.NsPeopleChequeGrid.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsPeopleChequeGrid.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
+			this.NsPeopleChequeGrid.TreeLineColor = System.Drawing.Color.Black;
+			this.NsPeopleChequeGrid.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+			this.NsPeopleChequeGrid.ColumnButtonClick += new Janus.Windows.GridEX.ColumnActionEventHandler(this.NsPeopleChequeGrid_ColumnButtonClick);
+			// 
 			// NzTabPayment
 			// 
 			this.NzTabPayment.Controls.Add(this.NzGridPayment);
 			this.NzTabPayment.Key = "NzTabPayment";
 			this.NzTabPayment.Location = new System.Drawing.Point(1, 31);
 			this.NzTabPayment.Name = "NzTabPayment";
-			this.NzTabPayment.Size = new System.Drawing.Size(1006, 241);
+			this.NzTabPayment.Size = new System.Drawing.Size(1006, 305);
 			this.NzTabPayment.TabStop = true;
 			this.NzTabPayment.Text = "چـک پرداختی ";
 			// 
@@ -818,7 +1055,7 @@
 			this.NzGridPayment.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.White;
 			this.NzGridPayment.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
 			this.NzGridPayment.SelectOnExpand = false;
-			this.NzGridPayment.Size = new System.Drawing.Size(1006, 241);
+			this.NzGridPayment.Size = new System.Drawing.Size(1006, 305);
 			this.NzGridPayment.TabIndex = 0;
 			this.NzGridPayment.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
 			this.NzGridPayment.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -855,7 +1092,7 @@
 			this.NzTabPos.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.NzTabPos.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.NzTabPos.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.NzTabPos.Size = new System.Drawing.Size(894, 242);
+			this.NzTabPos.Size = new System.Drawing.Size(1006, 305);
 			this.NzTabPos.TabStop = true;
 			this.NzTabPos.Text = "(حواله بانکی / کارتخوان)";
 			// 
@@ -864,7 +1101,7 @@
 			this.NzBankDecription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzBankDecription.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzBankDecription.Font = new System.Drawing.Font("IRANSans(Small)", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NzBankDecription.Location = new System.Drawing.Point(162, 158);
+			this.NzBankDecription.Location = new System.Drawing.Point(274, 158);
 			this.NzBankDecription.MaxLength = 200;
 			this.NzBankDecription.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzBankDecription.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -889,7 +1126,7 @@
 			this.NzIdentifier.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzIdentifier.DigitGroup = false;
 			this.NzIdentifier.Font = new System.Drawing.Font("IRANSans(Small)", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NzIdentifier.Location = new System.Drawing.Point(378, 83);
+			this.NzIdentifier.Location = new System.Drawing.Point(490, 83);
 			this.NzIdentifier.MaxLength = 20;
 			this.NzIdentifier.Mode = MS_Control.Controls.MS_NumericTextBox.TextBoxMode.IntNumber;
 			this.NzIdentifier.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -916,7 +1153,7 @@
 			this.NzBankAccount.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.DownArrow;
 			this.NzBankAccount.DropSize = new System.Drawing.Size(289, 32);
 			this.NzBankAccount.Font = new System.Drawing.Font("IRANSans(Small)", 15F);
-			this.NzBankAccount.Location = new System.Drawing.Point(285, 45);
+			this.NzBankAccount.Location = new System.Drawing.Point(397, 45);
 			this.NzBankAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.NzBankAccount.MS_Auto_Popup = false;
 			this.NzBankAccount.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -946,7 +1183,7 @@
 			this.NzBankAmount.ButtonText = "000";
 			this.NzBankAmount.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzBankAmount.Font = new System.Drawing.Font("IRANSans(Small)", 15F);
-			this.NzBankAmount.Location = new System.Drawing.Point(415, 120);
+			this.NzBankAmount.Location = new System.Drawing.Point(527, 120);
 			this.NzBankAmount.MaxLength = 40;
 			this.NzBankAmount.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzBankAmount.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -972,7 +1209,7 @@
 			this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label8.AutoSize = true;
 			this.label8.BackColor = System.Drawing.Color.Transparent;
-			this.label8.Location = new System.Drawing.Point(573, 158);
+			this.label8.Location = new System.Drawing.Point(685, 158);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(41, 23);
 			this.label8.TabIndex = 831;
@@ -983,7 +1220,7 @@
 			this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label7.AutoSize = true;
 			this.label7.BackColor = System.Drawing.Color.Transparent;
-			this.label7.Location = new System.Drawing.Point(573, 122);
+			this.label7.Location = new System.Drawing.Point(685, 122);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(40, 23);
 			this.label7.TabIndex = 831;
@@ -994,7 +1231,7 @@
 			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label5.AutoSize = true;
 			this.label5.BackColor = System.Drawing.Color.Transparent;
-			this.label5.Location = new System.Drawing.Point(573, 85);
+			this.label5.Location = new System.Drawing.Point(685, 85);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(94, 23);
 			this.label5.TabIndex = 831;
@@ -1005,7 +1242,7 @@
 			this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label4.AutoSize = true;
 			this.label4.BackColor = System.Drawing.Color.Transparent;
-			this.label4.Location = new System.Drawing.Point(573, 48);
+			this.label4.Location = new System.Drawing.Point(685, 48);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(128, 23);
 			this.label4.TabIndex = 831;
@@ -1026,7 +1263,7 @@
 			this.NzTabCache.PanelFormatStyle.Alpha = 70;
 			this.NzTabCache.PanelFormatStyle.BackColor = System.Drawing.Color.SkyBlue;
 			this.NzTabCache.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
-			this.NzTabCache.Size = new System.Drawing.Size(894, 242);
+			this.NzTabCache.Size = new System.Drawing.Size(1006, 305);
 			this.NzTabCache.TabStop = true;
 			this.NzTabCache.Text = "نـقـــدی";
 			// 
@@ -1034,7 +1271,7 @@
 			// 
 			this.NzCacheDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.NzCacheDescription.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NzCacheDescription.Location = new System.Drawing.Point(162, 120);
+			this.NzCacheDescription.Location = new System.Drawing.Point(274, 120);
 			this.NzCacheDescription.MaxLength = 200;
 			this.NzCacheDescription.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzCacheDescription.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -1058,7 +1295,7 @@
 			this.NzCache.ButtonStyle = Janus.Windows.GridEX.EditControls.EditButtonStyle.DownArrow;
 			this.NzCache.DropSize = new System.Drawing.Size(289, 31);
 			this.NzCache.Font = new System.Drawing.Font("IRANSans(Small)", 14F);
-			this.NzCache.Location = new System.Drawing.Point(285, 48);
+			this.NzCache.Location = new System.Drawing.Point(397, 48);
 			this.NzCache.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.NzCache.MS_Auto_Popup = false;
 			this.NzCache.MS_BorderColor = System.Drawing.Color.SteelBlue;
@@ -1088,7 +1325,7 @@
 			this.NzCacheAmount.ButtonText = "000";
 			this.NzCacheAmount.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NzCacheAmount.Font = new System.Drawing.Font("IRANSans(Small)", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.NzCacheAmount.Location = new System.Drawing.Point(415, 84);
+			this.NzCacheAmount.Location = new System.Drawing.Point(527, 84);
 			this.NzCacheAmount.MaxLength = 40;
 			this.NzCacheAmount.MS_BorderColor = System.Drawing.Color.SteelBlue;
 			this.NzCacheAmount.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
@@ -1114,7 +1351,7 @@
 			this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label9.AutoSize = true;
 			this.label9.BackColor = System.Drawing.Color.Transparent;
-			this.label9.Location = new System.Drawing.Point(573, 120);
+			this.label9.Location = new System.Drawing.Point(685, 120);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(41, 23);
 			this.label9.TabIndex = 842;
@@ -1125,7 +1362,7 @@
 			this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label10.AutoSize = true;
 			this.label10.BackColor = System.Drawing.Color.Transparent;
-			this.label10.Location = new System.Drawing.Point(573, 89);
+			this.label10.Location = new System.Drawing.Point(685, 89);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(40, 23);
 			this.label10.TabIndex = 843;
@@ -1136,7 +1373,7 @@
 			this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label12.AutoSize = true;
 			this.label12.BackColor = System.Drawing.Color.Transparent;
-			this.label12.Location = new System.Drawing.Point(573, 52);
+			this.label12.Location = new System.Drawing.Point(685, 52);
 			this.label12.Name = "label12";
 			this.label12.Size = new System.Drawing.Size(99, 23);
 			this.label12.TabIndex = 845;
@@ -1191,7 +1428,7 @@
 			this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.label11.AutoSize = true;
 			this.label11.BackColor = System.Drawing.Color.Transparent;
-			this.label11.Location = new System.Drawing.Point(541, 362);
+			this.label11.Location = new System.Drawing.Point(541, 426);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(68, 23);
 			this.label11.TabIndex = 843;
@@ -1214,7 +1451,7 @@
 			this.mS_Lable_Ex3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.mS_Lable_Ex3.BackColor = System.Drawing.Color.Transparent;
 			this.mS_Lable_Ex3.ForeColor = System.Drawing.Color.Blue;
-			this.mS_Lable_Ex3.Location = new System.Drawing.Point(605, 362);
+			this.mS_Lable_Ex3.Location = new System.Drawing.Point(605, 426);
 			this.mS_Lable_Ex3.MS_BorderColor = System.Drawing.Color.Empty;
 			this.mS_Lable_Ex3.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_Lable_Ex3.MS_Color_End = System.Drawing.Color.Empty;
@@ -1277,7 +1514,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1038, 527);
+			this.ClientSize = new System.Drawing.Size(1038, 591);
 			this.Controls.Add(this.Tab_Control_Main);
 			this.Font = new System.Drawing.Font("IRANSans(Small)", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.MaximizeBox = false;
@@ -1298,6 +1535,11 @@
 			this.NzTabInfo.ResumeLayout(false);
 			this.NzTabRecieve.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.NzGridRecieve)).EndInit();
+			this.NsPeopleCheque.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox2)).EndInit();
+			this.uiGroupBox2.ResumeLayout(false);
+			this.uiGroupBox2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.NsPeopleChequeGrid)).EndInit();
 			this.NzTabPayment.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.NzGridPayment)).EndInit();
 			this.NzTabPos.ResumeLayout(false);
@@ -1371,5 +1613,15 @@
         private System.Windows.Forms.Label NzLableFactor;
         private MS_Control.Controls.MS_Decimal_Label NzFactorMablaq;
 		private MS_Control.Controls.MS_Lable_Ex mS_Lable_Ex4;
+		private Janus.Windows.UI.Tab.UITabPage NsPeopleCheque;
+		private MS_Control.Controls.MS_GridX NsPeopleChequeGrid;
+		private NsPeopleChequePopup NsPeopleChequeSelector;
+		private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.Label label14;
+		private System.Windows.Forms.Label label15;
+		private MS_Control.Controls.MS_Button_GridX NsAddToList;
+		private MS_Control.Controls.MS_TextBox NsSharh_Vaziat;
+		private System.Windows.Forms.Label label16;
+		private Janus.Windows.EditControls.UIGroupBox uiGroupBox2;
 	}
 }

@@ -295,5 +295,6 @@ namespace Nz.Bar.Winforms.Provider
 		{
 		}
 
-	}
+		public event EventHandler<StateNotificationChangedEventArgs> StatusBarStateChanged;
+    }
 }

@@ -191,7 +191,11 @@ namespace ShareLib
                     return @"واگذاری چک ";
                 case Enums.NzPaymentOperatingKind.chequePayBack:
                     return @"برگشـت چـک ";
-                default:
+                case Enums.NzPaymentOperatingKind.Enteqal_Az_Bas:
+	                return @" انتقال وجه به ";
+                case Enums.NzPaymentOperatingKind.Enteqal_Be_Bad:
+	                return @" انتقال وجه از ";
+				default:
                     return @"";
             }
         }

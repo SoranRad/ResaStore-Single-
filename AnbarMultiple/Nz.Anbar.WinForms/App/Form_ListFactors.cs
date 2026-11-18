@@ -470,7 +470,7 @@ namespace Nz.Anbar.WinForms.App
 
                         }
 
-                        var ID  = NzGridHeads.CurrentRow.Cells["ID"].Value;
+                         var ID  = NzGridHeads.CurrentRow.Cells["ID"].Value;
                         IEnumerable<FactorPaymentResolve> List = null;
                         var Mgr = new FactorManager();
                         var mgr = new ReportManager();
@@ -478,14 +478,10 @@ namespace Nz.Anbar.WinForms.App
                         if (Payment)
                             List =  mgr.GetReport<FactorPaymentResolve>(new {ID = (long) ID}, null);
 
-                        Mgr.Delete((long)ID);
-
                         if (Payment && List != null && List.Any())
-                        {
-                            var whereClause = string.Join(" OR ", List.Select(x => "ID =" + x.ID));
-                            mgr.GetItem<FactorPaymentsDelete>(null, whereClause);
-                        }
+                            mgr.GetItem<FactorPaymentsDelete>(new {ID}, null);
 
+                        Mgr.Delete((long)ID);
 
                         new Form_Notify
                             (

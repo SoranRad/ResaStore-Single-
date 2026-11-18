@@ -99,6 +99,7 @@
     <Compile Include="Report\PeopleCheque.cs" />
     <Compile Include="Report\PeopleChequeAssign.cs" />
     <Compile Include="Report\PeopleChequeBack.cs" />
+    <Compile Include="Report\PeopleFundCircular.cs" />
     <Compile Include="Report\PeopleRemaind.cs" />
     <Compile Include="Report\ReviewAccountDaily.cs" />
     <Compile Include="Report\ReviewAccountDetail.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="ViewModel\PaymentChequeArriveBack.cs" />
     <Compile Include="ViewModel\PaymentChequeArriveBackInDate.cs" />
     <Compile Include="ViewModel\PaymentList.cs" />
+    <Compile Include="ViewModel\PeopleChequePayment.cs" />
     <Compile Include="ViewModel\PrintDP.cs" />
     <Compile Include="ViewModel\RecieveChequeArrive.cs" />
     <Compile Include="ViewModel\RecieveChequeArriveInDate.cs" />

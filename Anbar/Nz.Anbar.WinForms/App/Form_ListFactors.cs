@@ -145,9 +145,10 @@ namespace Nz.Anbar.WinForms.App
                     {
                         Year = SystemConstant.ActiveYear.Salmali,
                         Kind = (byte) _Kind,
-                        Month
+                        Month,
+                        KindAssign = (byte)Enums.NzChequeStateFlag.Vagozari
 
-                    }, null);
+					}, null);
 
                 NzGridHeads.DataSource = list?.ToList();
             }
@@ -429,7 +430,7 @@ namespace Nz.Anbar.WinForms.App
 
                         if (NzGridHeads.CurrentRow.DataRow is GeneralFactor row)
                         {
-                            if ((_Kind == Enums.NzFactorKind.Xarid
+                            if ((   _Kind == Enums.NzFactorKind.Xarid
                                  || _Kind == Enums.NzFactorKind.BargashXarid
                                  || _Kind == Enums.NzFactorKind.Frosh
                                  || _Kind == Enums.NzFactorKind.BargshtFrosh
@@ -458,16 +459,12 @@ namespace Nz.Anbar.WinForms.App
                         if (Payment)
                             List =  mgr.GetReport<FactorPaymentResolve>(new {ID = (long) ID}, null);
 
+                        if (Payment && List != null && List.Any())
+                            mgr.GetItem<FactorPaymentsDelete>(new {ID}, null);
+
                         Mgr.Delete((long)ID);
 
-                        if (Payment && List != null && List.Any())
-                        {
-                            var whereClause = string.Join(" OR ", List.Select(x => "ID =" + x.ID));
-                            mgr.GetItem<FactorPaymentsDelete>(null, whereClause);
-                        }
-
-
-                        new Form_Notify
+						new Form_Notify
                             (
                                 "تـوجـه", 
                                 "حـذف ردیــف مـورد نـظر انـجـام شــد.",

@@ -40,7 +40,7 @@ namespace NZ.Xazane.WinForms
         }
         #endregion
         #region Method
-        private void    RefreshGrid            ()
+        private void    RefreshGrid                     ()
         {
             try
             {
@@ -54,7 +54,7 @@ namespace NZ.Xazane.WinForms
                 log.Error(ex);
             }
         }
-        private void    Create_Form            (Accounts Deficit)
+        private void    Create_Form                     (Accounts Deficit)
         {
             _FormDeficit?.Dispose();
 
@@ -62,7 +62,7 @@ namespace NZ.Xazane.WinForms
             _FormDeficit.MS_Do_Save += Frm_MS_Do_Save;
             _FormDeficit.FormClosed += Frm_FormClosed;
         }
-        private void    Frm_MS_Do_Save         (object sender, EventArgs e)
+        private void    Frm_MS_Do_Save                  (object sender, EventArgs e)
         {
             var pos         = mS_GridX1.VerticalScrollPosition;
             RefreshGrid();
@@ -77,11 +77,11 @@ namespace NZ.Xazane.WinForms
             if ((bool)sender)
                 mS_GridX1.VerticalScrollPosition = pos;
         }
-        private void    Frm_FormClosed         (object sender, FormClosedEventArgs e)
+        private void    Frm_FormClosed                  (object sender, FormClosedEventArgs e)
         {
             Create_Form(null);
         }
-        private bool    HaveCircular           (Accounts Item)
+        private bool    HaveCircular                    (Accounts Item)
         {
             if (_Manager
                 .HaveCircular<Accounts>
@@ -98,12 +98,12 @@ namespace NZ.Xazane.WinForms
             return false;
         }
         #endregion
-        private void ms_Add_Click                   (object sender, EventArgs e)
+        private void    ms_Add_Click                    (object sender, EventArgs e)
         {
             Create_Form(null);
             _FormDeficit.Show(this);
         }
-        private void mS_GridX1_ColumnButtonClick    (object sender, Janus.Windows.GridEX.ColumnActionEventArgs e)
+        private void    mS_GridX1_ColumnButtonClick     (object sender, Janus.Windows.GridEX.ColumnActionEventArgs e)
         {
             var Row = mS_GridX1.CurrentRow.DataRow as Accounts;
             if (e.Column.Key == "E")
@@ -148,7 +148,7 @@ namespace NZ.Xazane.WinForms
                 }
             }
         }
-        private void FormListDeficit_Load           (object sender, EventArgs e)
+        private void    FormListDeficit_Load            (object sender, EventArgs e)
         {
             RefreshGrid();
         }

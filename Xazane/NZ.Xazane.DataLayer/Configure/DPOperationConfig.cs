@@ -30,8 +30,14 @@ namespace NZ.Xazane.DataLayer.Configure
                 .HasForeignKey          (e => e.FK_DP)
                 .WillCascadeOnDelete    ();
 
-
             this
+	            .HasMany                (e => e.ChequeOPVagozari)
+	            .WithOptional           (e => e.DpHead_Vagozari)
+	            .HasForeignKey          (e => e.FK_DP_Vagozari)
+	            .WillCascadeOnDelete    (false);
+
+
+			this
                 .HasMany                (e => e.PayBoxOP)
                 .WithOptional           (e => e.DpHead)
                 .HasForeignKey          (e => e.FK_DP)

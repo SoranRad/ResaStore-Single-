@@ -47,6 +47,9 @@
 			this.NzAssignToOther = new System.Windows.Forms.ToolStripButton();
 			this.NzBackToCache = new System.Windows.Forms.ToolStripButton();
 			this.NzItems = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+			this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
 			this.ms_mah = new Janus.Windows.UI.Tab.UITab();
 			this.uiTabPage6 = new Janus.Windows.UI.Tab.UITabPage();
 			this.uiTabPage7 = new Janus.Windows.UI.Tab.UITabPage();
@@ -68,9 +71,6 @@
 			this.Splitter1 = new DevComponents.DotNetBar.ExpandableSplitter();
 			this.NzDetails = new NZ.Xazane.WinForms.Component.NzChequeStateShow();
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
-			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-			this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
 			this.uiTabPage12.SuspendLayout();
@@ -183,7 +183,7 @@
 			this.NzGridHeads.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
 			this.NzGridHeads.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
 			this.NzGridHeads.SelectOnExpand = false;
-			this.NzGridHeads.Size = new System.Drawing.Size(1264, 404);
+			this.NzGridHeads.Size = new System.Drawing.Size(1264, 378);
 			this.NzGridHeads.TabIndex = 1;
 			this.NzGridHeads.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
 			this.NzGridHeads.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -201,7 +201,7 @@
 			this.mS_GridX_Setting2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator3,
             this.NzAdd});
-			this.mS_GridX_Setting2.Location = new System.Drawing.Point(0, 517);
+			this.mS_GridX_Setting2.Location = new System.Drawing.Point(0, 491);
 			this.mS_GridX_Setting2.MS_BorderColor = System.Drawing.Color.DodgerBlue;
 			this.mS_GridX_Setting2.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
 			this.mS_GridX_Setting2.MS_Color_End = System.Drawing.Color.PowderBlue;
@@ -328,6 +328,25 @@
 			this.NzItems.Text = "مشـاهده وضعیـت چـک";
 			this.NzItems.Click += new System.EventHandler(this.NzItems_Click);
 			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(15, 0, 15, 0);
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
+			// 
+			// toolStripLabel1
+			// 
+			this.toolStripLabel1.Font = new System.Drawing.Font("IRANSans", 10F);
+			this.toolStripLabel1.Name = "toolStripLabel1";
+			this.toolStripLabel1.Size = new System.Drawing.Size(164, 36);
+			this.toolStripLabel1.Text = "مشاهده چک ها به تفکیک :";
+			// 
+			// toolStripComboBox1
+			// 
+			this.toolStripComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.toolStripComboBox1.Name = "toolStripComboBox1";
+			this.toolStripComboBox1.Size = new System.Drawing.Size(121, 39);
+			// 
 			// ms_mah
 			// 
 			this.ms_mah.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -363,7 +382,7 @@
 			this.ms_mah.TabsStateStyles.DisabledFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.ms_mah.TabsStateStyles.FormatStyle.BackColor = System.Drawing.Color.LightBlue;
 			this.ms_mah.TabsStateStyles.SelectedFormatStyle.BackColor = System.Drawing.Color.Gold;
-			this.ms_mah.TabsStateStyles.SelectedFormatStyle.Font = new System.Drawing.Font("Tahoma", 9.5F, System.Drawing.FontStyle.Bold);
+			this.ms_mah.TabsStateStyles.SelectedFormatStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
 			this.ms_mah.UseThemes = false;
 			this.ms_mah.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2003;
 			// 
@@ -522,33 +541,33 @@
 			// 
 			// Splitter1
 			// 
-			this.Splitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+			this.Splitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
 			this.Splitter1.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
 			this.Splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.Splitter1.ExpandableControl = this.NzDetails;
 			this.Splitter1.ExpandActionClick = false;
-			this.Splitter1.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+			this.Splitter1.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
 			this.Splitter1.ExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.ExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.Splitter1.ExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
 			this.Splitter1.GripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.Splitter1.GripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-			this.Splitter1.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+			this.Splitter1.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(236)))), ((int)(((byte)(255)))));
 			this.Splitter1.GripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-			this.Splitter1.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(151)))), ((int)(((byte)(61)))));
-			this.Splitter1.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(184)))), ((int)(((byte)(94)))));
+			this.Splitter1.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(140)))), ((int)(((byte)(96)))));
+			this.Splitter1.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(175)))), ((int)(((byte)(139)))));
 			this.Splitter1.HotBackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground2;
 			this.Splitter1.HotBackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground;
-			this.Splitter1.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+			this.Splitter1.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
 			this.Splitter1.HotExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.HotExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.Splitter1.HotExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-			this.Splitter1.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+			this.Splitter1.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
 			this.Splitter1.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-			this.Splitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+			this.Splitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(236)))), ((int)(((byte)(255)))));
 			this.Splitter1.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-			this.Splitter1.Location = new System.Drawing.Point(0, 542);
+			this.Splitter1.Location = new System.Drawing.Point(0, 516);
 			this.Splitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Splitter1.Name = "Splitter1";
 			this.Splitter1.Size = new System.Drawing.Size(1264, 8);
@@ -562,11 +581,11 @@
 			this.NzDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(232)))), ((int)(((byte)(248)))));
 			this.NzDetails.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.NzDetails.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.NzDetails.Location = new System.Drawing.Point(0, 550);
+			this.NzDetails.Location = new System.Drawing.Point(0, 524);
 			this.NzDetails.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.NzDetails.Name = "NzDetails";
 			this.NzDetails.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.NzDetails.Size = new System.Drawing.Size(1264, 115);
+			this.NzDetails.Size = new System.Drawing.Size(1264, 141);
 			this.NzDetails.TabIndex = 4;
 			this.NzDetails.Visible = false;
 			// 
@@ -583,25 +602,6 @@
 			this.uiTabPage14.Size = new System.Drawing.Size(907, 479);
 			this.uiTabPage14.TabStop = true;
 			this.uiTabPage14.Text = "پرسش و پاسخ";
-			// 
-			// toolStripSeparator1
-			// 
-			this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(15, 0, 15, 0);
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
-			// 
-			// toolStripLabel1
-			// 
-			this.toolStripLabel1.Font = new System.Drawing.Font("IRANSans", 10F);
-			this.toolStripLabel1.Name = "toolStripLabel1";
-			this.toolStripLabel1.Size = new System.Drawing.Size(164, 36);
-			this.toolStripLabel1.Text = "مشاهده چک ها به تفکیک :";
-			// 
-			// toolStripComboBox1
-			// 
-			this.toolStripComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.toolStripComboBox1.Name = "toolStripComboBox1";
-			this.toolStripComboBox1.Size = new System.Drawing.Size(121, 39);
 			// 
 			// FormListCheque
 			// 

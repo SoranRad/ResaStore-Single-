@@ -69,7 +69,7 @@ namespace NZ.Xazane.WinForms.App
             try
             {
                 
-                var IDs     = " AND (" + string.Join(" OR ", _ListIDs.Select(x => " tad.ID=" + x.ToString()))+" )";
+                var IDs     = " AND ( tad.ID IN (" + string.Join(" , ", _ListIDs.Select(x => x.ToString()))+") )";
                 var list    = _Manager.GetReport<PrintDP>(null, IDs);
 
                 var Co      = SystemConstant.ActiveCompany;

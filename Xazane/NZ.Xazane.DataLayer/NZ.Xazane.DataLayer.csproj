@@ -124,6 +124,7 @@
     <Compile Include="DapperConfig\ViewModel\PaymentChequeArriveBackConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\PaymentChequeArriveBackInDateConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\PaymentListDapperConfig.cs" />
+    <Compile Include="DapperConfig\ViewModel\PeopleChequePaymentConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\PrintDPConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\RecieveChequeArriveInDateConfig.cs" />
     <Compile Include="DapperConfig\ViewModel\RecieveChequeArriveConfig.cs" />
@@ -141,6 +142,14 @@
     <Compile Include="Migrations\202602260704530_add-radif-to-payment.cs" />
     <Compile Include="Migrations\202602260704530_add-radif-to-payment.Designer.cs">
       <DependentUpon>202602260704530_add-radif-to-payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202611111629194_add-peopele-to-account.cs" />
+    <Compile Include="Migrations\202611111629194_add-peopele-to-account.Designer.cs">
+      <DependentUpon>202611111629194_add-peopele-to-account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202611150757473_create-relation-cheque-state-to-dp.cs" />
+    <Compile Include="Migrations\202611150757473_create-relation-cheque-state-to-dp.Designer.cs">
+      <DependentUpon>202611150757473_create-relation-cheque-state-to-dp.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -169,6 +178,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202602260704530_add-radif-to-payment.resx">
       <DependentUpon>202602260704530_add-radif-to-payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202611111629194_add-peopele-to-account.resx">
+      <DependentUpon>202611111629194_add-peopele-to-account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202611150757473_create-relation-cheque-state-to-dp.resx">
+      <DependentUpon>202611150757473_create-relation-cheque-state-to-dp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

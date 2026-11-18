@@ -43,10 +43,14 @@
 			this.uiTabPage1 = new Janus.Windows.UI.Tab.UITabPage();
 			this.stiViewerControl1 = new Stimulsoft.Report.Viewer.StiViewerControl();
 			this.uiGroupBox2 = new Janus.Windows.EditControls.UIGroupBox();
-			this.NzCustomerRemain = new NZ.General.WinForms.Component.NzRemainCustomer();
+			this.panel2 = new System.Windows.Forms.Panel();
+			this.panel3 = new System.Windows.Forms.Panel();
+			this.NsAmoudi = new MS_Control.Controls.MS_RadioBox();
+			this.NsOfoghi = new MS_Control.Controls.MS_RadioBox();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.NzA5Radio = new MS_Control.Controls.MS_RadioBox();
 			this.NzA4Radio = new MS_Control.Controls.MS_RadioBox();
+			this.NzCustomerRemain = new NZ.General.WinForms.Component.NzRemainCustomer();
 			this.NzAllYears = new MS_Control.Controls.MS_CheckBox();
 			this.NzTopCount = new Janus.Windows.GridEX.EditControls.IntegerUpDown();
 			this.NzReport = new MS_Control.Controls.MS_Button_GridX();
@@ -61,10 +65,6 @@
 			this.NzDateTo = new MS_Control.Tarikh.MS_Tarikh_TextBox();
 			this.NzDateFrom = new MS_Control.Tarikh.MS_Tarikh_TextBox();
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
-			this.panel2 = new System.Windows.Forms.Panel();
-			this.panel3 = new System.Windows.Forms.Panel();
-			this.NsAmoudi = new MS_Control.Controls.MS_RadioBox();
-			this.NsOfoghi = new MS_Control.Controls.MS_RadioBox();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
 			this.uiTabPage12.SuspendLayout();
@@ -77,9 +77,9 @@
 			this.uiTabPage1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox2)).BeginInit();
 			this.uiGroupBox2.SuspendLayout();
-			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.panel3.SuspendLayout();
+			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// Tab_Control_Main
@@ -238,7 +238,7 @@
 			this.NzTab2.PanelFormatStyle.BackColorAlphaMode = Janus.Windows.UI.AlphaMode.UseAlpha;
 			this.NzTab2.PanelFormatStyle.BackgroundGradientMode = Janus.Windows.UI.BackgroundGradientMode.Vertical;
 			this.NzTab2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.NzTab2.Size = new System.Drawing.Size(865, 347);
+			this.NzTab2.Size = new System.Drawing.Size(1080, 484);
 			this.NzTab2.TabStop = true;
 			this.NzTab2.Text = "ریز صورت حسـاب     ";
 			// 
@@ -298,7 +298,7 @@
 			this.NzGridDetails.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
 			this.NzGridDetails.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
 			this.NzGridDetails.SelectOnExpand = false;
-			this.NzGridDetails.Size = new System.Drawing.Size(865, 347);
+			this.NzGridDetails.Size = new System.Drawing.Size(1080, 484);
 			this.NzGridDetails.TabIndex = 1;
 			this.NzGridDetails.ThemedAreas = ((Janus.Windows.GridEX.ThemedArea)((((((((Janus.Windows.GridEX.ThemedArea.ScrollBars | Janus.Windows.GridEX.ThemedArea.EditControls) 
             | Janus.Windows.GridEX.ThemedArea.Headers) 
@@ -378,21 +378,77 @@
 			this.uiGroupBox2.Size = new System.Drawing.Size(1069, 113);
 			this.uiGroupBox2.TabIndex = 0;
 			// 
-			// NzCustomerRemain
+			// panel2
 			// 
-			this.NzCustomerRemain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.NzCustomerRemain.BackColor = System.Drawing.Color.White;
-			this.NzCustomerRemain.Font = new System.Drawing.Font("IRANSans(Small)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.NzCustomerRemain.Location = new System.Drawing.Point(555, 9);
-			this.NzCustomerRemain.MS_BorderColor = System.Drawing.Color.SteelBlue;
-			this.NzCustomerRemain.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NzCustomerRemain.MS_Color_End = System.Drawing.Color.Empty;
-			this.NzCustomerRemain.MS_Color_Start = System.Drawing.Color.Empty;
-			this.NzCustomerRemain.Name = "NzCustomerRemain";
-			this.NzCustomerRemain.Size = new System.Drawing.Size(182, 28);
-			this.NzCustomerRemain.TabIndex = 769;
-			this.NzCustomerRemain.Text = "0";
-			this.NzCustomerRemain.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.panel2.Controls.Add(this.panel3);
+			this.panel2.Controls.Add(this.panel1);
+			this.panel2.Location = new System.Drawing.Point(141, 10);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(143, 99);
+			this.panel2.TabIndex = 770;
+			// 
+			// panel3
+			// 
+			this.panel3.Controls.Add(this.NsAmoudi);
+			this.panel3.Controls.Add(this.NsOfoghi);
+			this.panel3.Location = new System.Drawing.Point(6, 9);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(131, 33);
+			this.panel3.TabIndex = 766;
+			// 
+			// NsAmoudi
+			// 
+			this.NsAmoudi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsAmoudi.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsAmoudi.Location = new System.Drawing.Point(3, 5);
+			this.NsAmoudi.MS_BorderColor = System.Drawing.Color.Empty;
+			this.NsAmoudi.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsAmoudi.MS_Change_Border_Color_On_Enter = true;
+			this.NsAmoudi.MS_Change_Color_On_Checked = true;
+			this.NsAmoudi.MS_Change_Color_On_Enter = true;
+			this.NsAmoudi.MS_Checked_Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsAmoudi.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsAmoudi.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsAmoudi.MS_Exit_By_Down = true;
+			this.NsAmoudi.MS_Exit_By_Enter = true;
+			this.NsAmoudi.MS_Exit_By_Up = true;
+			this.NsAmoudi.MS_Last_Control = null;
+			this.NsAmoudi.MS_Next_Control = null;
+			this.NsAmoudi.MS_UnChecked_Color = System.Drawing.Color.Empty;
+			this.NsAmoudi.Name = "NsAmoudi";
+			this.NsAmoudi.ShowFocusRectangle = false;
+			this.NsAmoudi.Size = new System.Drawing.Size(52, 23);
+			this.NsAmoudi.TabIndex = 764;
+			this.NsAmoudi.TabStop = true;
+			this.NsAmoudi.Text = "عمودی";
+			// 
+			// NsOfoghi
+			// 
+			this.NsOfoghi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NsOfoghi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsOfoghi.Checked = true;
+			this.NsOfoghi.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.NsOfoghi.Location = new System.Drawing.Point(61, 5);
+			this.NsOfoghi.MS_BorderColor = System.Drawing.Color.Empty;
+			this.NsOfoghi.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NsOfoghi.MS_Change_Border_Color_On_Enter = true;
+			this.NsOfoghi.MS_Change_Color_On_Checked = true;
+			this.NsOfoghi.MS_Change_Color_On_Enter = true;
+			this.NsOfoghi.MS_Checked_Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsOfoghi.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.NsOfoghi.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsOfoghi.MS_Exit_By_Down = true;
+			this.NsOfoghi.MS_Exit_By_Enter = true;
+			this.NsOfoghi.MS_Exit_By_Up = true;
+			this.NsOfoghi.MS_Last_Control = null;
+			this.NsOfoghi.MS_Next_Control = null;
+			this.NsOfoghi.MS_UnChecked_Color = System.Drawing.Color.Empty;
+			this.NsOfoghi.Name = "NsOfoghi";
+			this.NsOfoghi.ShowFocusRectangle = false;
+			this.NsOfoghi.Size = new System.Drawing.Size(68, 23);
+			this.NsOfoghi.TabIndex = 764;
+			this.NsOfoghi.TabStop = true;
+			this.NsOfoghi.Text = "افقی";
 			// 
 			// panel1
 			// 
@@ -456,6 +512,22 @@
 			this.NzA4Radio.TabIndex = 764;
 			this.NzA4Radio.TabStop = true;
 			this.NzA4Radio.Text = " A4";
+			// 
+			// NzCustomerRemain
+			// 
+			this.NzCustomerRemain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.NzCustomerRemain.BackColor = System.Drawing.Color.White;
+			this.NzCustomerRemain.Font = new System.Drawing.Font("IRANSans(Small)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.NzCustomerRemain.Location = new System.Drawing.Point(555, 9);
+			this.NzCustomerRemain.MS_BorderColor = System.Drawing.Color.SteelBlue;
+			this.NzCustomerRemain.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+			this.NzCustomerRemain.MS_Color_End = System.Drawing.Color.Empty;
+			this.NzCustomerRemain.MS_Color_Start = System.Drawing.Color.Empty;
+			this.NzCustomerRemain.Name = "NzCustomerRemain";
+			this.NzCustomerRemain.Size = new System.Drawing.Size(182, 28);
+			this.NzCustomerRemain.TabIndex = 769;
+			this.NzCustomerRemain.Text = "0";
+			this.NzCustomerRemain.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// NzAllYears
 			// 
@@ -768,78 +840,6 @@
 			this.uiTabPage14.TabStop = true;
 			this.uiTabPage14.Text = "پرسش و پاسخ";
 			// 
-			// panel2
-			// 
-			this.panel2.Controls.Add(this.panel3);
-			this.panel2.Controls.Add(this.panel1);
-			this.panel2.Location = new System.Drawing.Point(141, 10);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(143, 99);
-			this.panel2.TabIndex = 770;
-			// 
-			// panel3
-			// 
-			this.panel3.Controls.Add(this.NsAmoudi);
-			this.panel3.Controls.Add(this.NsOfoghi);
-			this.panel3.Location = new System.Drawing.Point(6, 9);
-			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(131, 33);
-			this.panel3.TabIndex = 766;
-			// 
-			// NsAmoudi
-			// 
-			this.NsAmoudi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.NsAmoudi.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsAmoudi.Location = new System.Drawing.Point(3, 5);
-			this.NsAmoudi.MS_BorderColor = System.Drawing.Color.Empty;
-			this.NsAmoudi.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NsAmoudi.MS_Change_Border_Color_On_Enter = true;
-			this.NsAmoudi.MS_Change_Color_On_Checked = true;
-			this.NsAmoudi.MS_Change_Color_On_Enter = true;
-			this.NsAmoudi.MS_Checked_Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NsAmoudi.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-			this.NsAmoudi.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NsAmoudi.MS_Exit_By_Down = true;
-			this.NsAmoudi.MS_Exit_By_Enter = true;
-			this.NsAmoudi.MS_Exit_By_Up = true;
-			this.NsAmoudi.MS_Last_Control = null;
-			this.NsAmoudi.MS_Next_Control = null;
-			this.NsAmoudi.MS_UnChecked_Color = System.Drawing.Color.Empty;
-			this.NsAmoudi.Name = "NsAmoudi";
-			this.NsAmoudi.ShowFocusRectangle = false;
-			this.NsAmoudi.Size = new System.Drawing.Size(52, 23);
-			this.NsAmoudi.TabIndex = 764;
-			this.NsAmoudi.TabStop = true;
-			this.NsAmoudi.Text = "عمودی";
-			// 
-			// NsOfoghi
-			// 
-			this.NsOfoghi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.NsOfoghi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NsOfoghi.Checked = true;
-			this.NsOfoghi.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.NsOfoghi.Location = new System.Drawing.Point(61, 5);
-			this.NsOfoghi.MS_BorderColor = System.Drawing.Color.Empty;
-			this.NsOfoghi.MS_BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-			this.NsOfoghi.MS_Change_Border_Color_On_Enter = true;
-			this.NsOfoghi.MS_Change_Color_On_Checked = true;
-			this.NsOfoghi.MS_Change_Color_On_Enter = true;
-			this.NsOfoghi.MS_Checked_Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NsOfoghi.MS_Enter_Border_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-			this.NsOfoghi.MS_Enter_Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.NsOfoghi.MS_Exit_By_Down = true;
-			this.NsOfoghi.MS_Exit_By_Enter = true;
-			this.NsOfoghi.MS_Exit_By_Up = true;
-			this.NsOfoghi.MS_Last_Control = null;
-			this.NsOfoghi.MS_Next_Control = null;
-			this.NsOfoghi.MS_UnChecked_Color = System.Drawing.Color.Empty;
-			this.NsOfoghi.Name = "NsOfoghi";
-			this.NsOfoghi.ShowFocusRectangle = false;
-			this.NsOfoghi.Size = new System.Drawing.Size(68, 23);
-			this.NsOfoghi.TabIndex = 764;
-			this.NsOfoghi.TabStop = true;
-			this.NsOfoghi.Text = "افقی";
-			// 
 			// FormBill
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -864,9 +864,9 @@
 			((System.ComponentModel.ISupportInitialize)(this.uiGroupBox2)).EndInit();
 			this.uiGroupBox2.ResumeLayout(false);
 			this.uiGroupBox2.PerformLayout();
-			this.panel1.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
 			this.panel3.ResumeLayout(false);
+			this.panel1.ResumeLayout(false);
 			this.ResumeLayout(false);
 
         }

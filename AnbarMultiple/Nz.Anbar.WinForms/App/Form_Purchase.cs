@@ -624,7 +624,7 @@ namespace Nz.Anbar.WinForms.App
             try
             {
                 var mgr = new ReportManager();
-                var payment = mgr.GetItem<FactorPayment>(new {_Factor.ID}, null);
+                var payment = mgr.GetItem<FactorPayment>(new {_Factor.ID, KindAssign = (byte)Enums.NzChequeStateFlag.Vagozari }, null);
                 if (payment == null) 
                     ResetPayment();
                 else
