@@ -18,6 +18,7 @@ namespace NZ.Xazane.DataLayer.DapperConfig.ViewModel
                     SET Kind_Vaziat			= @Kind,
 	                    FK_Shaxs_Vaziat		= NULL,
                         FK_Xazaneh_Vaziat	= NULL,
+                        FK_DP_Vagozari      = NULL,
 	                    FK_Salmali_Vaziat	= @Year,
 	                    Tarix_Vaziat		= COALESCE(tarikh_sar_resid ,@Date,GETDATE()),
                         FK_User_Add_Vaziat	= COALESCE(FK_User_Add_Vaziat ,@User),

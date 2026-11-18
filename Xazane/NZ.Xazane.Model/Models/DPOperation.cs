@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NZ.Xazane.Model.ViewModel;
 
 namespace NZ.Xazane.Model.Models
 {
@@ -14,8 +15,10 @@ namespace NZ.Xazane.Model.Models
 
         public DPOperation()
         {
-            PayBoxOP  = new HashSet<PayBoxOperation>();
-            ChequeOP  = new HashSet<ChequeOperation>();
+            PayBoxOP            = new HashSet<PayBoxOperation>();
+            ChequeOP            = new HashSet<ChequeOperation>();
+            ChequeOPVagozari    = new HashSet<ChequeOperation>();
+            PeopleCheques       = new HashSet<PeopleChequePayment>();
         }
 
         public long         ID                  { get; set; }
@@ -44,9 +47,12 @@ namespace NZ.Xazane.Model.Models
         [NotMapped]
 		public string       UserEdit            { get; set; }
 
-        public ICollection<ChequeOperation>             ChequeOP          { get; set; }  
-        public ICollection<PayBoxOperation>             PayBoxOP          { get; set; }
+        public ICollection<ChequeOperation>             ChequeOP            { get; set; }  
+        public ICollection<ChequeOperation>             ChequeOPVagozari    { get; set; }
+		public ICollection<PayBoxOperation>             PayBoxOP            { get; set; }
+		[NotMapped]
+		public ICollection<PeopleChequePayment>         PeopleCheques       { get; set; }
 
 
-    }
+	}
 }

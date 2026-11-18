@@ -152,7 +152,16 @@ namespace NZ.Xazane.WinForms.App
                     NzIdentifier.Text           = pos.serialPeygiri?.ToString();
                 }
                 #endregion
-
+                #region چک پرداختی دیگران
+                if (_Kind == Enums.NzPaymentOperatingKind.Pardaxt)
+                {
+	                if (_DP.PeopleCheques.Any())
+	                {
+		                _DP.PeopleCheques.MSZ_ForEach(payment => payment.State =Enums.NzItemState.NotChanged);
+		                NsPeopleChequeGrid.DataSource = _DP.PeopleCheques.ToList();
+	                }
+                }
+                #endregion
                 RefreshSum();
                 ChangeUI();
             }
@@ -163,7 +172,11 @@ namespace NZ.Xazane.WinForms.App
                 Reset();
             }
         }
-        private void    Reset                   ()
+        private void    RefreshGridPeopleCheque ()
+        {
+	        NsPeopleChequeGrid.DataSource = _DP.PeopleCheques.Where(x=>x.State != Enums.NzItemState.Deleted).ToList();
+		}
+		private void    Reset                   ()
         {
             _DP                         = new DPOperation();
             _DP.kind                    = (byte) _Kind;
@@ -302,7 +315,9 @@ namespace NZ.Xazane.WinForms.App
                 GetMaxSerial();
                 _DP.serial = Convert.ToInt32(NzSerial.MS_Decimal);
             }
+
         }
+
         private bool    IsOk                    ()
         {
             if (SystemConstant.ActiveYear.is_close)
@@ -405,7 +420,10 @@ namespace NZ.Xazane.WinForms.App
             if (_Kind == Enums.NzPaymentOperatingKind.Daryaft)
                 NzBankMenu.RefreshControl   (new Size(250, 150), _Manager.Connection);
             else
-                NzAccountPopup.RefreshControl(new Size(450, 150), _Manager.Connection,Enums.NzAccountKind.BankAccount);
+            {
+	            NzAccountPopup.RefreshControl(new Size(450, 150), _Manager.Connection,Enums.NzAccountKind.BankAccount);
+				NsPeopleChequeSelector.Refresh_Grid();
+			}
 
             NzDatePopup.NzSelected      = DateTime.Now;
             NzGridPayment.FilterMode    = FilterMode.None;
@@ -436,8 +454,10 @@ namespace NZ.Xazane.WinForms.App
                                             ? NzTabPayment 
                                             : NzTabRecieve
                                       );
+            if(_Kind ==Enums.NzPaymentOperatingKind.Daryaft)
+	            NzTabInfo.TabPages.Remove(NsPeopleCheque);
 
-            Text                    = _Kind.NzToString();
+			Text                    = _Kind.NzToString();
         }
         private void    GetMaxSerial            ()
         {
@@ -542,19 +562,33 @@ namespace NZ.Xazane.WinForms.App
             {
                 x.State = Enums.NzItemState.NotChanged;
             });
+
+            var d = _DP.PeopleCheques.Where(x => x.State == Enums.NzItemState.Deleted).ToList();
+            foreach (var chequePayment in d)
+	            _DP.PeopleCheques.Remove(chequePayment);
+
+            _DP.PeopleCheques.MSZ_ForEach(x=>x.State = Enums.NzItemState.NotChanged);
         }
         private void    RefreshSum              ()
         {
             NzSumCache.MS_Decimal   = NzCacheAmount.MS_Decimal;
             NzSumPos.MS_Decimal     = NzBankAmount.MS_Decimal;
-            NzSumCheque.MS_Decimal  = _DP
+            NzSumCheque.MS_Decimal  = (_DP
                                         .ChequeOP
                                         .Where(x => x.State != Enums.NzItemState.Deleted)
-                                        .Sum(x => (decimal?)x.mablaq) ??0 ;
+                                        .Sum(x => (decimal?)x.mablaq) ??0 
+	                                   )
+	                                   +
+                                       (
+	                                    _DP.PeopleCheques.Where(x=>x.State!=Enums.NzItemState.Deleted)
+		                                    .Sum(x=> (decimal?)x.mablaq)??0
+	                                    );
 
-            NzLableCheque.Text = _DP
-                                    .ChequeOP
-                                    .Count(x => x.State != Enums.NzItemState.Deleted) 
+            NzLableCheque.Text = (
+	                                _DP.ChequeOP.Count(x => x.State != Enums.NzItemState.Deleted) 
+                                    +
+                                    _DP.PeopleCheques.Count(x=>x.State !=Enums.NzItemState.Deleted)
+                                 )
                                     + @"   فقره چـک :";
 
             NzRemain.MS_Decimal =
@@ -1331,6 +1365,56 @@ namespace NZ.Xazane.WinForms.App
             Print(Enums.NzKindPrint.PaperA5);
 
         }
-       
-    }
+
+		private void NsAddToList_Click(object sender, EventArgs e)
+		{
+			if (NsPeopleChequeSelector.MS_Get_Selected() == null)
+			{
+				MS_Message.Show("لطفا یک چک را انتخاب کیند");
+				NsPeopleChequeSelector.Focus();
+				NsPeopleChequeSelector.ShowMenu();
+				return;
+			}
+
+			var cheque = NsPeopleChequeSelector.MS_Get_Selected() as PeopleChequePayment;
+
+			if (_DP.PeopleCheques.Any(x => x.ID == cheque.ID))
+			{
+				var dpc = _DP.PeopleCheques.FirstOrDefault(x => x.ID == cheque.ID);
+				dpc.State = Enums.NzItemState.AddedNew;
+				dpc.Sharh_Vaziat = NsSharh_Vaziat.Text;
+			}
+			else
+			{
+				cheque.State = Enums.NzItemState.AddedNew;
+				cheque.Sharh_Vaziat = NsSharh_Vaziat.Text;
+				_DP.PeopleCheques.Add(cheque);
+			}
+
+			RefreshGridPeopleCheque();
+			RefreshSum();
+		}
+
+		private void NsPeopleChequeGrid_ColumnButtonClick(object sender, ColumnActionEventArgs e)
+		{
+			var result = MS_Message
+				.Show("آیا برای حذف ردیف مورد نظر مطمئنید؟",
+					"حذف ردیف",
+					MessageBoxButtons.YesNo);
+			if (result != DialogResult.Yes)
+				return;
+
+            //==========================
+
+            var row = NsPeopleChequeGrid.CurrentRow.DataRow as PeopleChequePayment;
+            if (_DP.ID == 0)
+	            _DP.PeopleCheques.Remove(row);
+            else 
+                row.State = Enums.NzItemState.Deleted;
+
+
+			RefreshGridPeopleCheque();
+            RefreshSum();
+		}
+	}
 }

@@ -14,9 +14,6 @@ namespace NZ.Xazane.Model.Models
 {
     public class ChequeOperation
     {
-
-
-
         public long             ID                      { get; set; }
         public short?           FK_Bank                 { get; set; }
         public int?             FK_Hesab_Pardaxtani     { get; set; }
@@ -48,16 +45,18 @@ namespace NZ.Xazane.Model.Models
         public DateTime?        Tarix_Add_Vaziat        { get; set; }
         [StringLength(100)]
         public string           Sharh_Vaziat            { get; set; }
-
 		public string           Shenase_Sayadi          { get; set; }
+
 
 
 		public DPOperation          DpHead              { get; set; }
         public Accounts             PayAccount          { get; set; }
         public ChequeBookDetail     ChequeBookDetail    { get; set; }
         public Accounts             StateAccount        { get; set; }
+        public DPOperation          DpHead_Vagozari     { get; set; }
 
-        [NotMapped]
+
+		[NotMapped]
         public Enums.NzItemState    State               { get; set; }
         [NotMapped]
         public string               BankTitle           { get; set; }

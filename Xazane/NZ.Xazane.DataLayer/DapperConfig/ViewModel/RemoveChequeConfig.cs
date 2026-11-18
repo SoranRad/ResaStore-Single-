@@ -22,6 +22,8 @@ namespace NZ.Xazane.DataLayer.DapperConfig.ViewModel
 	                    FK_Shaxs_Vaziat		= NULL,
                         FK_Xazaneh_Vaziat	= NULL,
 	                    Sharh_Vaziat		= NULL,
+                        FK_DP_Vagozari      = NULL,
+                        Sharh_Vaziat        = NULL,
 
                         FK_User_Add_Vaziat	= COALESCE(FK_User_Add_Vaziat ,@User),
                         FK_User_Edit_Vaziat = CASE WHEN FK_User_Add_Vaziat IS NULL THEN NULL ELSE @User END,

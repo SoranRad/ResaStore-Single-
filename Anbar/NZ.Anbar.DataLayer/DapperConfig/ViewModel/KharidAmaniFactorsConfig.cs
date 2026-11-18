@@ -14,7 +14,94 @@ namespace NZ.Anbar.DataLayer.DapperConfig.ViewModel
 		public KharidAmaniFactorsConfig()
 		{
 			SetList(@"
-SELECT 
+
+    SELECT 
+    tat.ID,
+    tat.Serial,
+    LTRIM(RTRIM(tat.sharh))        AS sharh,
+    dd.PersianStr,
+    dd.PersianMonthNo,
+    dd.PersianDayInMonth,
+    tatd.mablaq_takhfif,
+    tatd.Darsad_Takhfif,
+    tatd.mablaq_Maliat,
+    tatd.Darsad_Maliat,
+    tatd.Ezafat,
+    LTRIM(RTRIM(ta.title))         AS Customer,
+    tat.FK_AshXas_ID,
+    tat.mablaq,
+    Khoroj.MablaqFrosh,
+    Khoroj.MablaqBargash,
+    Payment.Cache,
+    Payment.Pos,
+    ISNULL(ChequePayment.Cheque,0)+ISNULL(PeopleCheque.Mablaq,0) AS Cheque,
+    Takhfif.OffAmount              AS Takhfif
+
+FROM Anbar.tbl_Amaliat_Title        AS tat
+INNER JOIN General.DimDate          AS dd ON dd.GregorianDate = tat.tarikh
+LEFT OUTER JOIN Base.tbl_Ashxas     AS ta ON ta.ID = tat.FK_AshXas_ID
+LEFT OUTER JOIN Anbar.tbl_Amaliat_Title_Detail AS tatd ON tatd.ID = tat.ID
+OUTER APPLY (
+
+    SELECT
+        SUM(CASE WHEN tat2.kind = 50 THEN tar.nerkh_2 ELSE 0 END) AS MablaqFrosh,
+        SUM(CASE WHEN tat2.kind = 51 THEN tar.nerkh_2 ELSE 0 END) AS MablaqBargash
+    FROM Anbar.tbl_Amaliat_Riz AS tar
+    INNER JOIN Anbar.tbl_Amaliat_Title AS tat2 ON tar.FK_Title = tat2.ID
+    WHERE (tat2.kind = 50 OR tat2.kind = 51) AND tat2.FK_Mabna = tat.ID
+
+) AS Khoroj
+OUTER APPLY (
+    
+    SELECT
+        SUM(CASE WHEN tax.kind = 9  THEN tax.mablaq ELSE 0 END) AS Cache,
+        SUM(CASE WHEN tax.kind = 10 THEN tax.mablaq ELSE 0 END) AS Pos
+    FROM Xazane.tbl_Amaliat_Xazaneh AS tax
+    INNER JOIN Xazane.tbl_Amaliat_DP AS tad ON tad.ID = tax.FK_DP
+    WHERE tad.FK_Faktor = tat.ID
+
+) AS Payment
+OUTER APPLY (
+    
+    SELECT SUM(tac.mablaq) AS Cheque
+    FROM Xazane.tbl_Amaliat_Check AS tac
+        INNER JOIN Xazane.tbl_Amaliat_DP AS tad2 ON tad2.ID = tac.FK_DP
+    WHERE tad2.FK_Faktor = tat.ID AND (tac.Kind_Vaziat <> 3 OR tac.Kind_Vaziat IS NULL)
+
+) AS ChequePayment
+
+   OUTER APPLY (
+
+        SELECT SUM(tac2.mablaq) AS Mablaq
+        FROM Xazane.tbl_Amaliat_Check AS tac2
+        INNER JOIN Xazane.tbl_Amaliat_DP AS tad3 ON tad3.ID = tac2.FK_DP_Vagozari 
+        WHERE tad3.FK_Faktor = tat.ID  
+         
+    ) AS PeopleCheque
+
+
+OUTER APPLY (
+    
+    SELECT SUM(ISNULL(tad.takhfif, 0)) AS OffAmount
+    FROM Xazane.tbl_Amaliat_DP AS tad
+    WHERE tad.FK_Faktor = tat.ID
+
+) AS Takhfif
+
+WHERE
+    tat.kind = @Kind
+    AND tat.FK_Salmali = @Year
+    AND (@Month = 13 OR dd.PersianMonthNo = @Month)
+    AND tatd.IsAmani = 1
+
+ORDER BY tat.Serial
+ 
+
+");
+
+
+			/*SetList(@"
+SELECT
 
        tat.ID,
        tat.Serial,
@@ -38,32 +125,32 @@ SELECT
        Takhfif.OffAmount AS Takhfif
 
 FROM            Anbar.tbl_Amaliat_Title             AS tat
-INNER JOIN      General.DimDate                     AS dd           ON dd.GregorianDate     = tat.tarikh 
+INNER JOIN      General.DimDate                     AS dd           ON dd.GregorianDate     = tat.tarikh
 LEFT OUTER JOIN Base.tbl_Ashxas                     AS ta           ON ta.ID                = tat.FK_AshXas_ID
 LEFT OUTER JOIN Anbar.tbl_Amaliat_Title_Detail      AS tatd         ON tatd.ID              = tat.ID
 
 LEFT OUTER JOIN
 (
-    Select 
-		
+    Select
+
         tat.FK_Mabna,
 		SUM(case when tat.kind =50 then tar.nerkh_2 else 0 end ) AS MablaqFrosh,
 		SUM(case when tat.kind =51 then tar.nerkh_2 else 0 end ) AS MablaqBargash
-		
+
 
 		FROM Anbar.tbl_Amaliat_Riz          	AS tar
 		INNER JOIN Anbar.tbl_Amaliat_Title 		AS tat 		ON tar.FK_Title = tat.ID
 
-		WHERE (tat.kind = 50 OR tat.kind = 51)   
+		WHERE (tat.kind = 50 OR tat.kind = 51)
 
-        GROUP BY 
+        GROUP BY
         tat.FK_Mabna
 
-) AS Khoroj ON Khoroj.FK_Mabna = tat.ID 
+) AS Khoroj ON Khoroj.FK_Mabna = tat.ID
 
-    LEFT OUTER JOIN 
+    LEFT OUTER JOIN
 	(
-		SELECT 
+		SELECT
 			tad.FK_Faktor,
 			SUM(   CASE
 						WHEN tax.kind = 9 THEN
@@ -79,7 +166,7 @@ LEFT OUTER JOIN
 							0
 					END
 				) AS Pos
-	 
+
 		FROM Xazane.tbl_Amaliat_Xazaneh		AS tax
 		INNER JOIN Xazane.tbl_Amaliat_DP	AS tad ON tad.ID = tax.FK_DP
 		GROUP BY tad.FK_Faktor
@@ -90,7 +177,7 @@ LEFT OUTER JOIN
 
 	LEFT OUTER JOIN
 	(
-		SELECT 
+		SELECT
 			tad2.FK_Faktor ,
 			SUM(tac.mablaq) AS Cheque
 
@@ -103,15 +190,15 @@ LEFT OUTER JOIN
 	) AS ChequePayment ON ChequePayment.FK_Faktor = tat.ID
 
 LEFT OUTER JOIN
-    ( 
-        SELECT 
-            
+    (
+        SELECT
+
             tad.FK_Faktor,
             SUM(ISNULL(tad.takhfif,0)) as OffAmount
 
         FROM  Xazane.tbl_Amaliat_DP AS tad
         Group BY tad.FK_Faktor
-        
+
     )AS Takhfif on Takhfif.FK_Faktor = tat.ID
 
 
@@ -121,7 +208,7 @@ AND tatd.IsAmani = 1
 ORDER BY tat.Serial
 
 
-");
+");*/
 		}
 	}
 }

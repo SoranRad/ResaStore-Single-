@@ -672,8 +672,10 @@ RtbPOS.Enabled = POS &gt;0;
               <ClientRectangle>13.2,0,0.6,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),8</Font>
+              <GrowToHeight>True</GrowToHeight>
               <Guid>7a35d7f6681646f4ba914da0c9bbafb7</Guid>
               <HorAlignment>Center</HorAlignment>
+              <Linked>True</Linked>
               <Margins>2,2,0,0</Margins>
               <Name>Text11</Name>
               <Page isRef="3" />
@@ -691,8 +693,10 @@ RtbPOS.Enabled = POS &gt;0;
               <ClientRectangle>10.8,0,2.4,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),8</Font>
+              <GrowToHeight>True</GrowToHeight>
               <Guid>3ad34a0b55b8434898587c4e0c7df59d</Guid>
               <HorAlignment>Center</HorAlignment>
+              <Linked>True</Linked>
               <Margins>2,2,0,0</Margins>
               <Name>Text12</Name>
               <Page isRef="3" />
@@ -710,8 +714,10 @@ RtbPOS.Enabled = POS &gt;0;
               <ClientRectangle>9.2,0,1.6,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),8</Font>
+              <GrowToHeight>True</GrowToHeight>
               <Guid>90d842653f964c7f89e3c808a72bbb03</Guid>
               <HorAlignment>Center</HorAlignment>
+              <Linked>True</Linked>
               <Margins>2,2,0,0</Margins>
               <Name>Text17</Name>
               <Page isRef="3" />
@@ -726,18 +732,21 @@ RtbPOS.Enabled = POS &gt;0;
             <Text18 Ref="44" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;1;Black</Border>
               <Brush>EmptyBrush</Brush>
+              <CanGrow>True</CanGrow>
               <ClientRectangle>6.6,0,2.6,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),7</Font>
+              <GrowToHeight>True</GrowToHeight>
               <Guid>68f47c779941441e8a54a2496da12978</Guid>
               <HorAlignment>Center</HorAlignment>
+              <Linked>True</Linked>
               <Margins>2,2,0,0</Margins>
               <Name>Text18</Name>
               <Page isRef="3" />
               <Parent isRef="40" />
               <Text>{ListCheque.NameBank}</Text>
               <TextBrush>Black</TextBrush>
-              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextOptions>,,RightToLeft=True,,WordWrap=True,A=0</TextOptions>
               <TextQuality>Typographic</TextQuality>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
@@ -748,7 +757,9 @@ RtbPOS.Enabled = POS &gt;0;
               <ClientRectangle>4.2,0,2.4,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),8</Font>
+              <GrowToHeight>True</GrowToHeight>
               <Guid>8be308eb76294ae990e631788e8dd7c7</Guid>
+              <Linked>True</Linked>
               <Margins>2,2,0,0</Margins>
               <Name>Text19</Name>
               <Page isRef="3" />
@@ -766,17 +777,20 @@ RtbPOS.Enabled = POS &gt;0;
             <Text21 Ref="47" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;1;Black</Border>
               <Brush>EmptyBrush</Brush>
+              <CanGrow>True</CanGrow>
               <ClientRectangle>0,0,4.2,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans(FaNum),9</Font>
+              <GrowToHeight>True</GrowToHeight>
               <Guid>ba72c4a27fd246cc8b3479f5cb24728e</Guid>
+              <Linked>True</Linked>
               <Margins>2,2,0,0</Margins>
               <Name>Text21</Name>
               <Page isRef="3" />
               <Parent isRef="40" />
               <Text>{ListCheque.ChequeDesc}</Text>
               <TextBrush>Black</TextBrush>
-              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <TextOptions>,,RightToLeft=True,,WordWrap=True,A=0</TextOptions>
               <TextQuality>Typographic</TextQuality>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
@@ -785,6 +799,7 @@ RtbPOS.Enabled = POS &gt;0;
           <Conditions isList="true" count="0" />
           <DataSourceName isNull="true" />
           <Filters isList="true" count="0" />
+          <Linked>True</Linked>
           <Name>DataBand1</Name>
           <OddStyle>Style1</OddStyle>
           <Page isRef="3" />
@@ -1123,10 +1138,10 @@ DataBand1.Enabled = Totals.Count(ListCheque)&gt;0;</EndRenderEvent>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/18/2025 9:38:39 AM</ReportChanged>
+  <ReportChanged>11/18/2026 11:59:40 AM</ReportChanged>
   <ReportCreated>5/30/2018 4:31:03 PM</ReportCreated>
   <ReportFile>E:\_Workspace_Project_\_ResaStore_Single_\Output\Print\DP\ResidDP_A5.mrt</ReportFile>
-  <ReportGuid>c40166ab57e54e5cb630bcf281379f85</ReportGuid>
+  <ReportGuid>5e7bcaa46ec84b9fb09ba5682da1a429</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2015.2.0</ReportVersion>

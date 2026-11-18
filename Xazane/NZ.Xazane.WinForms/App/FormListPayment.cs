@@ -68,9 +68,10 @@ namespace NZ.Xazane.WinForms.App
                     {
                         Year = SystemConstant.ActiveYear.Salmali,
                         Kind = (byte)_Kind,
-                        Month
+                        Month,
+                        KindAssign = (byte)Enums.NzChequeStateFlag.Vagozari
 
-                    });
+					});
                 NzGridHeads.DataSource = list?.ToList();
 
                 if (NzGridHeads.RowCount > 0)
@@ -124,8 +125,12 @@ namespace NZ.Xazane.WinForms.App
                     #endregion
                     #region Cheque
                     NzGridItems.DataSource          = DP.ChequeOP?.ToList();
+                    #endregion
+                    #region People Cheque
+                    if(_Kind == Enums.NzPaymentOperatingKind.Pardaxt)
+                        NsPeopleChequeGrid.DataSource = DP.PeopleCheques.ToList();
+                    NsPeopleChequeTab.TabVisible = _Kind == Enums.NzPaymentOperatingKind.Pardaxt;
 					#endregion
-
 					#region Details
 
 					NsTarikhCreate.Text     = DP.tarikh_add.ToPersianDate() + " " + DP.tarikh_add.ToString("HH:m");

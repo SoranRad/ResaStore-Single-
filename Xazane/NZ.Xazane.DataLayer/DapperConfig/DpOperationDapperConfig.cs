@@ -109,6 +109,32 @@ LEFT OUTER JOIN Base.tbl_Bank				AS tb	ON tb.ID = tac.FK_Bank
 LEFT OUTER JOIN Xazane.tbl_Hesab_Xazaneh	AS thx	ON thx.ID = tac.FK_Hesab_Pardaxtani
 
 WHERE tac.FK_DP=@ID;
+
+
+SELECT 
+    tac.ID, 
+    tac.Kind_Vaziat,
+    LTRIM(RTRIM(tac.shomare_check)) AS shomare_check,
+    tac.mablaq,
+    ddSarResid.PersianStr AS PersianUsanceStr,
+    LTRIM(RTRIM(tac.babat)) AS babat,
+    dd.PersianStr,
+    tac.tarikh_sar_resid,
+    tac.Shenase_Sayadi, 
+    LTRIM(RTRIM(ta.title)) AS CustomerTitle,
+    LTRIM(RTRIM(tb.title)) AS BankTitle,
+	LTRIM(RTRIM(tac.Sharh_Vaziat)) AS Sharh_Vaziat
+
+FROM Xazane.tbl_Amaliat_Check AS tac
+
+INNER JOIN		    Xazane.tbl_Amaliat_DP		AS tad			ON tad.ID                       = tac.FK_DP
+INNER JOIN		    Base.tbl_Ashxas				AS ta			ON tad.FK_ShaXs                 = ta.ID
+INNER JOIN		    General.DimDate				AS dd			ON dd.GregorianDate             = tad.tarikh
+LEFT OUTER JOIN     General.DimDate				AS ddSarResid	ON ddSarResid.GregorianDate     = tac.tarikh_sar_resid
+LEFT OUTER JOIN     Base.tbl_Bank				AS tb			ON tac.FK_Bank                  = tb.ID 
+
+WHERE tac.FK_DP_Vagozari = @ID;
+
 ");
         }
     }

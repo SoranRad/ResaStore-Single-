@@ -256,6 +256,18 @@
     <Compile Include="Component\ChartSummarry.Designer.cs">
       <DependentUpon>ChartSummarry.cs</DependentUpon>
     </Compile>
+    <Compile Include="Component\NsPeopleChequeList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\NsPeopleChequeList.Designer.cs">
+      <DependentUpon>NsPeopleChequeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\NsPeopleChequePopup.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Component\NsPeopleChequePopup.Designer.cs">
+      <DependentUpon>NsPeopleChequePopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="EndYear\FormEndYear.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -526,7 +538,6 @@
     <Compile Include="Operation\FormSaveIncome.Designer.cs">
       <DependentUpon>FormSaveIncome.cs</DependentUpon>
     </Compile>
-    <Compile Include="Print\PrintPayment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -578,6 +589,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Component\ChartSummarry.resx">
       <DependentUpon>ChartSummarry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\NsPeopleChequeList.resx">
+      <DependentUpon>NsPeopleChequeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\NsPeopleChequePopup.resx">
+      <DependentUpon>NsPeopleChequePopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EndYear\FormEndYear.resx">
       <DependentUpon>FormEndYear.cs</DependentUpon>

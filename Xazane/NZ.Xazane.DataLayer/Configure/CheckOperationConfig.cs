@@ -30,6 +30,7 @@ namespace NZ.Xazane.DataLayer.Configure
                 .Property           (e => e.babat)
                 .IsFixedLength      ();
 
+           
         }
     }
 }

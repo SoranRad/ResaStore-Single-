@@ -35,6 +35,8 @@
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_2 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.ButtonImage");
 			Janus.Windows.Common.Layouts.JanusLayoutReference NzGridHeads_Layout_0_Reference_3 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column2.HeaderImage");
 			Janus.Windows.GridEX.GridEXLayout NzGridItems_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
+			Janus.Windows.GridEX.GridEXLayout NsPeopleChequeGrid_Layout_0 = new Janus.Windows.GridEX.GridEXLayout();
+			Janus.Windows.Common.Layouts.JanusLayoutReference NsPeopleChequeGrid_Layout_0_Reference_0 = new Janus.Windows.Common.Layouts.JanusLayoutReference("GridEXLayoutData.RootTable.Columns.Column0.ButtonImage");
 			this.Tab_Control_Main = new Janus.Windows.UI.Tab.UITab();
 			this.uiTabPage12 = new Janus.Windows.UI.Tab.UITabPage();
 			this.NzGridHeads = new MS_Control.Controls.MS_GridX();
@@ -55,6 +57,14 @@
 			this.NzPosTitle = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.NzTabCache = new Janus.Windows.UI.Tab.UITabPage();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
+			this.NsTarikhEdit = new System.Windows.Forms.Label();
+			this.NsTarikhCreate = new System.Windows.Forms.Label();
+			this.NsUserEdit = new System.Windows.Forms.Label();
+			this.NsUserCreate = new System.Windows.Forms.Label();
+			this.label15 = new System.Windows.Forms.Label();
 			this.NzCacheAmount = new MS_Control.Controls.MS_Decimal_Label();
 			this.label9 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
@@ -86,14 +96,8 @@
 			this.NzTabRecieve = new Janus.Windows.UI.Tab.UITabPage();
 			this.NzTabPayment = new Janus.Windows.UI.Tab.UITabPage();
 			this.uiTabPage14 = new Janus.Windows.UI.Tab.UITabPage();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label7 = new System.Windows.Forms.Label();
-			this.NsTarikhEdit = new System.Windows.Forms.Label();
-			this.NsTarikhCreate = new System.Windows.Forms.Label();
-			this.NsUserEdit = new System.Windows.Forms.Label();
-			this.NsUserCreate = new System.Windows.Forms.Label();
-			this.label15 = new System.Windows.Forms.Label();
+			this.NsPeopleChequeTab = new Janus.Windows.UI.Tab.UITabPage();
+			this.NsPeopleChequeGrid = new MS_Control.Controls.MS_GridX();
 			((System.ComponentModel.ISupportInitialize)(this.Tab_Control_Main)).BeginInit();
 			this.Tab_Control_Main.SuspendLayout();
 			this.uiTabPage12.SuspendLayout();
@@ -111,6 +115,8 @@
 			this.ms_mah.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NzKinds)).BeginInit();
 			this.NzKinds.SuspendLayout();
+			this.NsPeopleChequeTab.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.NsPeopleChequeGrid)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// Tab_Control_Main
@@ -260,31 +266,31 @@
 			// 
 			// Splitter1
 			// 
-			this.Splitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+			this.Splitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
 			this.Splitter1.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
 			this.Splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.Splitter1.ExpandableControl = this.NzTabInfo;
 			this.Splitter1.ExpandActionClick = false;
-			this.Splitter1.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+			this.Splitter1.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
 			this.Splitter1.ExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.ExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.Splitter1.ExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
 			this.Splitter1.GripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.Splitter1.GripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-			this.Splitter1.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+			this.Splitter1.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(236)))), ((int)(((byte)(255)))));
 			this.Splitter1.GripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-			this.Splitter1.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(151)))), ((int)(((byte)(61)))));
-			this.Splitter1.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(184)))), ((int)(((byte)(94)))));
+			this.Splitter1.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(140)))), ((int)(((byte)(96)))));
+			this.Splitter1.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(175)))), ((int)(((byte)(139)))));
 			this.Splitter1.HotBackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground2;
 			this.Splitter1.HotBackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground;
-			this.Splitter1.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+			this.Splitter1.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
 			this.Splitter1.HotExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
 			this.Splitter1.HotExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.Splitter1.HotExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-			this.Splitter1.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+			this.Splitter1.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(136)))), ((int)(((byte)(237)))));
 			this.Splitter1.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-			this.Splitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+			this.Splitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(236)))), ((int)(((byte)(255)))));
 			this.Splitter1.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
 			this.Splitter1.Location = new System.Drawing.Point(0, 445);
 			this.Splitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -309,6 +315,7 @@
 			this.NzTabInfo.Size = new System.Drawing.Size(1227, 183);
 			this.NzTabInfo.TabIndex = 4;
 			this.NzTabInfo.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
+            this.NsPeopleChequeTab,
             this.uiTabPage3,
             this.NzTabPos,
             this.NzTabCache});
@@ -335,7 +342,7 @@
 			this.uiTabPage3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.uiTabPage3.Size = new System.Drawing.Size(1225, 156);
 			this.uiTabPage3.TabStop = true;
-			this.uiTabPage3.Text = "  چـک دریافتی  ";
+			this.uiTabPage3.Text = "  چـک    ";
 			// 
 			// NzGridItems
 			// 
@@ -551,6 +558,92 @@
 			this.NzTabCache.TabStop = true;
 			this.NzTabCache.Text = "نـقـــدی";
 			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.BackColor = System.Drawing.Color.Transparent;
+			this.label3.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.label3.Location = new System.Drawing.Point(376, 122);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(89, 23);
+			this.label3.TabIndex = 850;
+			this.label3.Text = "تاریخ ویرایش :";
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.BackColor = System.Drawing.Color.Transparent;
+			this.label4.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.label4.Location = new System.Drawing.Point(376, 88);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(84, 23);
+			this.label4.TabIndex = 851;
+			this.label4.Text = "کاربر ویرایش :";
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.BackColor = System.Drawing.Color.Transparent;
+			this.label7.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.label7.Location = new System.Drawing.Point(376, 45);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(76, 23);
+			this.label7.TabIndex = 852;
+			this.label7.Text = "تاریخ ایجاد :";
+			// 
+			// NsTarikhEdit
+			// 
+			this.NsTarikhEdit.BackColor = System.Drawing.Color.Transparent;
+			this.NsTarikhEdit.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NsTarikhEdit.ForeColor = System.Drawing.Color.Blue;
+			this.NsTarikhEdit.Location = new System.Drawing.Point(239, 119);
+			this.NsTarikhEdit.Name = "NsTarikhEdit";
+			this.NsTarikhEdit.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.NsTarikhEdit.Size = new System.Drawing.Size(137, 28);
+			this.NsTarikhEdit.TabIndex = 853;
+			// 
+			// NsTarikhCreate
+			// 
+			this.NsTarikhCreate.BackColor = System.Drawing.Color.Transparent;
+			this.NsTarikhCreate.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NsTarikhCreate.ForeColor = System.Drawing.Color.Blue;
+			this.NsTarikhCreate.Location = new System.Drawing.Point(239, 42);
+			this.NsTarikhCreate.Name = "NsTarikhCreate";
+			this.NsTarikhCreate.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.NsTarikhCreate.Size = new System.Drawing.Size(137, 28);
+			this.NsTarikhCreate.TabIndex = 854;
+			// 
+			// NsUserEdit
+			// 
+			this.NsUserEdit.BackColor = System.Drawing.Color.Transparent;
+			this.NsUserEdit.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NsUserEdit.ForeColor = System.Drawing.Color.Blue;
+			this.NsUserEdit.Location = new System.Drawing.Point(239, 88);
+			this.NsUserEdit.Name = "NsUserEdit";
+			this.NsUserEdit.Size = new System.Drawing.Size(137, 28);
+			this.NsUserEdit.TabIndex = 855;
+			// 
+			// NsUserCreate
+			// 
+			this.NsUserCreate.BackColor = System.Drawing.Color.Transparent;
+			this.NsUserCreate.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NsUserCreate.ForeColor = System.Drawing.Color.Blue;
+			this.NsUserCreate.Location = new System.Drawing.Point(239, 12);
+			this.NsUserCreate.Name = "NsUserCreate";
+			this.NsUserCreate.Size = new System.Drawing.Size(137, 28);
+			this.NsUserCreate.TabIndex = 856;
+			// 
+			// label15
+			// 
+			this.label15.AutoSize = true;
+			this.label15.BackColor = System.Drawing.Color.Transparent;
+			this.label15.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.label15.Location = new System.Drawing.Point(376, 12);
+			this.label15.Name = "label15";
+			this.label15.Size = new System.Drawing.Size(71, 23);
+			this.label15.TabIndex = 857;
+			this.label15.Text = "کاربر ایجاد :";
+			// 
 			// NzCacheAmount
 			// 
 			this.NzCacheAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -746,7 +839,7 @@
 			this.ms_mah.TabsStateStyles.DisabledFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.ms_mah.TabsStateStyles.FormatStyle.BackColor = System.Drawing.Color.LightBlue;
 			this.ms_mah.TabsStateStyles.SelectedFormatStyle.BackColor = System.Drawing.Color.Gold;
-			this.ms_mah.TabsStateStyles.SelectedFormatStyle.Font = new System.Drawing.Font("Tahoma", 9.5F, System.Drawing.FontStyle.Bold);
+			this.ms_mah.TabsStateStyles.SelectedFormatStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
 			this.ms_mah.UseThemes = false;
 			this.ms_mah.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2003;
 			// 
@@ -908,91 +1001,70 @@
 			this.uiTabPage14.TabStop = true;
 			this.uiTabPage14.Text = "پرسش و پاسخ";
 			// 
-			// label3
+			// NsPeopleChequeTab
 			// 
-			this.label3.AutoSize = true;
-			this.label3.BackColor = System.Drawing.Color.Transparent;
-			this.label3.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label3.Location = new System.Drawing.Point(376, 122);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(89, 23);
-			this.label3.TabIndex = 850;
-			this.label3.Text = "تاریخ ویرایش :";
+			this.NsPeopleChequeTab.Controls.Add(this.NsPeopleChequeGrid);
+			this.NsPeopleChequeTab.Location = new System.Drawing.Point(1, 26);
+			this.NsPeopleChequeTab.Name = "NsPeopleChequeTab";
+			this.NsPeopleChequeTab.Size = new System.Drawing.Size(1225, 156);
+			this.NsPeopleChequeTab.TabStop = true;
+			this.NsPeopleChequeTab.Text = "چک های دیگران";
 			// 
-			// label4
+			// NsPeopleChequeGrid
 			// 
-			this.label4.AutoSize = true;
-			this.label4.BackColor = System.Drawing.Color.Transparent;
-			this.label4.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label4.Location = new System.Drawing.Point(376, 88);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(84, 23);
-			this.label4.TabIndex = 851;
-			this.label4.Text = "کاربر ویرایش :";
-			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.BackColor = System.Drawing.Color.Transparent;
-			this.label7.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label7.Location = new System.Drawing.Point(376, 45);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(76, 23);
-			this.label7.TabIndex = 852;
-			this.label7.Text = "تاریخ ایجاد :";
-			// 
-			// NsTarikhEdit
-			// 
-			this.NsTarikhEdit.BackColor = System.Drawing.Color.Transparent;
-			this.NsTarikhEdit.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NsTarikhEdit.ForeColor = System.Drawing.Color.Blue;
-			this.NsTarikhEdit.Location = new System.Drawing.Point(239, 119);
-			this.NsTarikhEdit.Name = "NsTarikhEdit";
-			this.NsTarikhEdit.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.NsTarikhEdit.Size = new System.Drawing.Size(137, 28);
-			this.NsTarikhEdit.TabIndex = 853;
-			// 
-			// NsTarikhCreate
-			// 
-			this.NsTarikhCreate.BackColor = System.Drawing.Color.Transparent;
-			this.NsTarikhCreate.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NsTarikhCreate.ForeColor = System.Drawing.Color.Blue;
-			this.NsTarikhCreate.Location = new System.Drawing.Point(239, 42);
-			this.NsTarikhCreate.Name = "NsTarikhCreate";
-			this.NsTarikhCreate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.NsTarikhCreate.Size = new System.Drawing.Size(137, 28);
-			this.NsTarikhCreate.TabIndex = 854;
-			// 
-			// NsUserEdit
-			// 
-			this.NsUserEdit.BackColor = System.Drawing.Color.Transparent;
-			this.NsUserEdit.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NsUserEdit.ForeColor = System.Drawing.Color.Blue;
-			this.NsUserEdit.Location = new System.Drawing.Point(239, 88);
-			this.NsUserEdit.Name = "NsUserEdit";
-			this.NsUserEdit.Size = new System.Drawing.Size(137, 28);
-			this.NsUserEdit.TabIndex = 855;
-			// 
-			// NsUserCreate
-			// 
-			this.NsUserCreate.BackColor = System.Drawing.Color.Transparent;
-			this.NsUserCreate.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.NsUserCreate.ForeColor = System.Drawing.Color.Blue;
-			this.NsUserCreate.Location = new System.Drawing.Point(239, 12);
-			this.NsUserCreate.Name = "NsUserCreate";
-			this.NsUserCreate.Size = new System.Drawing.Size(137, 28);
-			this.NsUserCreate.TabIndex = 856;
-			// 
-			// label15
-			// 
-			this.label15.AutoSize = true;
-			this.label15.BackColor = System.Drawing.Color.Transparent;
-			this.label15.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
-			this.label15.Location = new System.Drawing.Point(376, 12);
-			this.label15.Name = "label15";
-			this.label15.Size = new System.Drawing.Size(71, 23);
-			this.label15.TabIndex = 857;
-			this.label15.Text = "کاربر ایجاد :";
+			this.NsPeopleChequeGrid.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.False;
+			this.NsPeopleChequeGrid.AllowRemoveColumns = Janus.Windows.GridEX.InheritableBoolean.True;
+			this.NsPeopleChequeGrid.AlternatingColors = true;
+			this.NsPeopleChequeGrid.AlternatingRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.NsPeopleChequeGrid.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.NsPeopleChequeGrid.BorderStyle = Janus.Windows.GridEX.BorderStyle.RaisedLight3D;
+			this.NsPeopleChequeGrid.ColumnAutoResize = true;
+			this.NsPeopleChequeGrid.ColumnSetNavigation = Janus.Windows.GridEX.ColumnSetNavigation.ColumnSet;
+			this.NsPeopleChequeGrid.Cursor = System.Windows.Forms.Cursors.Arrow;
+			this.NsPeopleChequeGrid.DefaultFilterRowComparison = Janus.Windows.GridEX.FilterConditionOperator.Contains;
+			this.NsPeopleChequeGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.NsPeopleChequeGrid.DynamicFiltering = true;
+			this.NsPeopleChequeGrid.EnterKeyBehavior = Janus.Windows.GridEX.EnterKeyBehavior.None;
+			this.NsPeopleChequeGrid.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
+			this.NsPeopleChequeGrid.FilterRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsPeopleChequeGrid.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
+			this.NsPeopleChequeGrid.FocusCellDisplayMode = Janus.Windows.GridEX.FocusCellDisplayMode.UseSelectedFormatStyle;
+			this.NsPeopleChequeGrid.FocusStyle = Janus.Windows.GridEX.FocusStyle.Solid;
+			this.NsPeopleChequeGrid.Font = new System.Drawing.Font("IRANSans(Small)", 13F);
+			this.NsPeopleChequeGrid.FrozenColumns = 3;
+			this.NsPeopleChequeGrid.GridLineColor = System.Drawing.Color.Black;
+			this.NsPeopleChequeGrid.GridLines = Janus.Windows.GridEX.GridLines.Vertical;
+			this.NsPeopleChequeGrid.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid;
+			this.NsPeopleChequeGrid.GroupByBoxVisible = false;
+			this.NsPeopleChequeGrid.HeaderFormatStyle.BackColorGradient = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+			this.NsPeopleChequeGrid.HeaderFormatStyle.ForeColor = System.Drawing.Color.Black;
+			this.NsPeopleChequeGrid.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
+			NsPeopleChequeGrid_Layout_0.IsCurrentLayout = true;
+			NsPeopleChequeGrid_Layout_0.Key = "Transfer";
+			NsPeopleChequeGrid_Layout_0_Reference_0.Instance = ((object)(resources.GetObject("NsPeopleChequeGrid_Layout_0_Reference_0.Instance")));
+			NsPeopleChequeGrid_Layout_0.LayoutReferences.AddRange(new Janus.Windows.Common.Layouts.JanusLayoutReference[] {
+            NsPeopleChequeGrid_Layout_0_Reference_0});
+			NsPeopleChequeGrid_Layout_0.LayoutString = resources.GetString("NsPeopleChequeGrid_Layout_0.LayoutString");
+			this.NsPeopleChequeGrid.Layouts.AddRange(new Janus.Windows.GridEX.GridEXLayout[] {
+            NsPeopleChequeGrid_Layout_0});
+			this.NsPeopleChequeGrid.Location = new System.Drawing.Point(0, 0);
+			this.NsPeopleChequeGrid.Name = "NsPeopleChequeGrid";
+			this.NsPeopleChequeGrid.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom;
+			this.NsPeopleChequeGrid.Office2007CustomColor = System.Drawing.SystemColors.HotTrack;
+			this.NsPeopleChequeGrid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.NsPeopleChequeGrid.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowIndex;
+			this.NsPeopleChequeGrid.SelectedFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+			this.NsPeopleChequeGrid.SelectedFormatStyle.ForeColor = System.Drawing.Color.Black;
+			this.NsPeopleChequeGrid.SelectedInactiveFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+			this.NsPeopleChequeGrid.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable;
+			this.NsPeopleChequeGrid.SelectOnExpand = false;
+			this.NsPeopleChequeGrid.Size = new System.Drawing.Size(1225, 156);
+			this.NsPeopleChequeGrid.TabIndex = 8;
+			this.NsPeopleChequeGrid.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
+			this.NsPeopleChequeGrid.TotalRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.NsPeopleChequeGrid.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
+			this.NsPeopleChequeGrid.TreeLineColor = System.Drawing.Color.Black;
+			this.NsPeopleChequeGrid.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
 			// 
 			// FormListPayment
 			// 
@@ -1030,6 +1102,8 @@
 			this.ms_mah.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.NzKinds)).EndInit();
 			this.NzKinds.ResumeLayout(false);
+			this.NsPeopleChequeTab.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.NsPeopleChequeGrid)).EndInit();
 			this.ResumeLayout(false);
 
         }
@@ -1095,5 +1169,7 @@
 		private System.Windows.Forms.Label NsUserEdit;
 		private System.Windows.Forms.Label NsUserCreate;
 		private System.Windows.Forms.Label label15;
+		private Janus.Windows.UI.Tab.UITabPage NsPeopleChequeTab;
+		private MS_Control.Controls.MS_GridX NsPeopleChequeGrid;
 	}
 }

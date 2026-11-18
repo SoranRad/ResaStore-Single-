@@ -12,7 +12,7 @@ namespace NZ.Xazane.DataLayer.DapperConfig.ViewModel
     {
         public PaymentListDapperConfig()
         {
-            this.SetList(@"
+            /*this.SetList(@"
 SELECT tad.ID ,
        tad.serial ,
        tad.takhfif ,
@@ -55,8 +55,55 @@ GROUP BY tac.FK_DP
 
 WHERE tad.kind =@Kind AND tad.FK_Salmali=@Year AND (dd.PersianMonthNo = @Month OR @Month=13)
 
-");
+");*/
+            SetList(@"
 
+SELECT
+    tad.ID,
+    tad.serial,
+    tad.takhfif,
+    LTRIM(RTRIM(tad.sharh))        AS sharh,
+    dd.PersianMonthNo,
+    dd.PersianDayInMonth,
+    dd.PersianStr,
+    LTRIM(RTRIM(ta.title))         AS CustomerTitle,
+    PosCache.Cache,
+    PosCache.Pos,
+    ISNULL(Cheque.Cheque,0)+ISNULL(PeopleCheque.Cheque,0) AS Cheque,
+    ISNULL(Cheque.CountCheque,0) + ISNULL(PeopleCheque.CountCheque,0)AS CountCheque
+
+FROM Xazane.tbl_Amaliat_DP AS tad
+INNER JOIN General.DimDate AS dd      ON dd.GregorianDate = tad.tarikh
+INNER JOIN Base.tbl_Ashxas AS ta    ON ta.ID = tad.FK_ShaXs
+OUTER APPLY (
+        SELECT
+            SUM(CASE WHEN tax.kind = 9  THEN tax.mablaq ELSE 0 END) AS Cache,
+            SUM(CASE WHEN tax.kind = 10 THEN tax.mablaq ELSE 0 END) AS Pos
+        FROM Xazane.tbl_Amaliat_Xazaneh AS tax
+        WHERE tax.FK_DP = tad.ID
+) AS PosCache
+OUTER APPLY (
+        SELECT
+            SUM(tac.mablaq)                                            AS Cheque,
+            CASE WHEN COUNT_BIG(*) = 0 THEN NULL ELSE COUNT_BIG(*) END AS CountCheque
+        FROM Xazane.tbl_Amaliat_Check AS tac
+        WHERE tac.FK_DP = tad.ID
+) AS Cheque
+OUTER APPLY
+(
+        SELECT
+            SUM(tac.mablaq)                                            AS Cheque,
+            CASE WHEN COUNT_BIG(*) = 0 THEN NULL ELSE COUNT_BIG(*) END AS CountCheque
+        FROM Xazane.tbl_Amaliat_Check AS tac
+        WHERE tac.FK_DP_Vagozari = tad.ID AND tac.Kind_Vaziat = @KindAssign
+
+)AS PeopleCheque
+
+WHERE
+        tad.kind       = @Kind
+    AND tad.FK_Salmali = @Year
+    AND (@Month = 13 OR dd.PersianMonthNo = @Month)
+");
         }
     }
 }

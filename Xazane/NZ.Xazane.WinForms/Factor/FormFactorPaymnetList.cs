@@ -59,7 +59,8 @@ namespace NZ.Xazane.WinForms.Factor
                     _Manager.GetView<FactorPaymentList>(new
                     {
                         IdFactor        = _message.IDFactor,
-						IdFactorRiz     = NsRadifShowOnly.Checked ? _message.IDFactorRiz : (long?)null
+						IdFactorRiz     = NsRadifShowOnly.Checked ? _message.IDFactorRiz : (long?)null,
+						KindAssign = (byte)Enums.NzChequeStateFlag.Vagozari
 					});
                 NzGridHeads.DataSource = list?.ToList();
 
@@ -72,7 +73,7 @@ namespace NZ.Xazane.WinForms.Factor
             catch (Exception ex)
             {
                 log.Error(ex);
-                MS_Message.Show("خطا در خواندن اطلاعات");
+                MS_Message.Show("خطا در خواندن اطلاعات",ex.Message);
             }
         }
         private void RefreshItem                        ()
@@ -115,9 +116,14 @@ namespace NZ.Xazane.WinForms.Factor
                     #endregion
                     #region Cheque
                     NzGridItems.DataSource          = DP.ChequeOP?.ToList();
-                    #endregion
-                }
-                catch (Exception ex)
+					#endregion
+					#region People Cheque
+					if (_Kind == Enums.NzPaymentOperatingKind.Pardaxt)
+						NsPeopleChequeGrid.DataSource = DP.PeopleCheques.ToList();
+					NsPeopleCheque.TabVisible = _Kind == Enums.NzPaymentOperatingKind.Pardaxt;
+					#endregion
+				}
+				catch (Exception ex)
                 {
                     MS_Message.Show("خطا در خواندن اطلاعات", "خطا", ex.Message, MessageBoxButtons.OK);
                 }
